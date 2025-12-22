@@ -106,7 +106,7 @@ h2 {
 /* --- FOOTER --- */
 footer { text-align: center; padding: 50px; color: #888; border-top: 1px solid #eee; }
 
-/* --- MOBILE RESPONSIVENESS (Sharp & Clean) --- */
+/* --- MOBILE RESPONSIVENESS --- */
 @media (max-width: 768px) {
   header { padding: 60px 0; }
   h1 { font-size: 1.8rem; padding: 0 15px; }
