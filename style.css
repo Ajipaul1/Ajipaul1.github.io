@@ -1,4 +1,4 @@
-/* --- ROOT VARIABLES --- */
+/* VARIABLES */
 :root {
   --primary: #007bff;
   --dark: #121212;
@@ -7,227 +7,72 @@
   --white: #ffffff;
 }
 
-/* --- GLOBAL STYLES --- */
-html {
-  scroll-behavior: smooth;
-}
-
+/* GLOBAL */
+html { scroll-behavior: smooth; }
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Inter', -apple-system, sans-serif;
   margin: 0;
   line-height: 1.6;
   color: var(--text);
-  background: var(--white);
 }
+.container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
 
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+/* HEADER */
+header { background: var(--dark); color: #fff; padding: 100px 0; text-align: center; }
+h1 { font-size: 3rem; margin: 0; }
+.highlight { color: var(--primary); }
+.subtitle { font-size: 1.2rem; opacity: 0.8; margin: 20px auto; max-width: 600px; }
+.header-cta { margin-top: 30px; display: flex; justify-content: center; gap: 15px; }
 
-/* --- HEADER --- */
-header {
-  background: var(--dark);
-  color: var(--white);
-  padding: 100px 0;
-  text-align: center;
-}
+/* BUTTONS */
+.cta-primary, .cta-secondary { padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 700; transition: 0.3s; }
+.cta-primary { background: var(--primary); color: #fff; }
+.cta-secondary { border: 2px solid #fff; color: #fff; }
+.cta-primary:hover { background: #0056b3; transform: translateY(-2px); }
 
-h1 {
-  font-size: 3rem;
-  margin: 0;
-  line-height: 1.2;
-}
+/* SECTIONS */
+section { padding: 60px 0; }
+h2 { font-size: 2rem; border-left: 5px solid var(--primary); padding-left: 15px; margin-bottom: 30px; }
 
-.highlight {
-  color: var(--primary);
-}
+/* GRID & CARDS */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.card-simple { padding: 25px; background: var(--light); border-radius: 8px; border: 1px solid #eee; }
+.card-simple strong { display: block; margin-bottom: 10px; color: var(--dark); font-size: 1.1rem; }
 
-.subtitle {
-  font-size: 1.2rem;
-  max-width: 650px;
-  margin: 20px auto;
-  opacity: 0.8;
-}
+/* SERVICE BOX */
+.service-box { border: 2px solid #eee; padding: 40px; border-radius: 12px; position: relative; }
+.service-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.price { font-size: 1.6rem; font-weight: 800; color: var(--primary); }
+.note { font-size: 0.9rem; color: #666; font-style: italic; }
 
-/* --- BUTTONS & CTAs --- */
-.header-cta {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.cta-primary, .cta-secondary, .cta-link-btn {
-  padding: 14px 28px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 700;
-  transition: all 0.3s ease;
-  display: inline-block;
-}
-
-.cta-primary {
-  background: var(--primary);
-  color: var(--white);
-}
-
-.cta-secondary {
-  background: transparent;
-  border: 2px solid var(--white);
-  color: var(--white);
-}
-
-.cta-primary:hover {
-  background: #0056b3;
-  transform: translateY(-2px);
-}
-
-.cta-secondary:hover {
-  background: var(--white);
-  color: var(--dark);
-}
-
-/* --- SECTION COMMON --- */
-section {
-  padding: 80px 0;
-}
-
-h2 {
-  font-size: 2.2rem;
-  margin-bottom: 40px;
-  border-left: 5px solid var(--primary);
-  padding-left: 15px;
-}
-
-/* --- GRID SYSTEM --- */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-}
-
-.card-simple {
+/* MINIMAL BRIDGE (The part you requested) */
+.minimal-links {
+  background: #fdfdfd;
   padding: 30px;
-  background: var(--light);
-  border-radius: 10px;
-  border: 1px solid #eee;
-}
-
-.card-simple strong {
-  display: block;
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  color: var(--dark);
-}
-
-/* --- SERVICES BOX --- */
-.service-box {
-  background: var(--white);
-  border: 2px solid #eee;
-  padding: 40px;
-  border-radius: 12px;
-}
-
-.service-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.price {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: var(--primary);
-}
-
-.note {
-  margin-top: 20px;
-  font-size: 0.9rem;
-  font-style: italic;
-  color: #666;
-}
-
-/* --- PORTFOLIO BRIDGE SECTION --- */
-.info-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
   text-align: center;
-  background: var(--white);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.info-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-  border-color: var(--primary);
-}
-
-.icon-circle {
-  font-size: 40px;
-  margin-bottom: 20px;
-  background: #f0f7ff;
-  width: 80px;
-  height: 80px;
-  line-height: 80px;
-  border-radius: 50%;
-  margin: 0 auto 20px auto;
-}
-
-.cta-link-btn {
-  margin-top: 25px;
-  background: var(--dark);
-  color: var(--white);
-  font-size: 0.9rem;
-}
-
-.cta-link-btn:hover {
-  background: var(--primary);
-}
-
-/* --- CONTACT SECTION --- */
-#contact {
-  text-align: center;
-  background: var(--light);
-  border-radius: 15px;
-  padding: 60px 20px;
-}
-
-.contact-links {
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.contact-item {
-  font-size: 1.3rem;
-  font-weight: 700;
+.minimal-links p { margin: 10px 0; font-size: 1.1rem; }
+.minimal-links a {
   color: var(--primary);
   text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid transparent;
+  transition: 0.3s;
 }
+.minimal-links a:hover { border-bottom: 1px solid var(--primary); }
 
-.contact-item:hover {
-  text-decoration: underline;
-}
+/* CONTACT */
+#contact { text-align: center; background: var(--light); border-radius: 12px; padding: 50px; }
+.contact-links { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
+.contact-item { font-size: 1.4rem; font-weight: 700; color: var(--primary); text-decoration: none; }
 
-/* --- FOOTER --- */
-footer {
-  padding: 40px;
-  text-align: center;
-  background: var(--white);
-  border-top: 1px solid #eee;
-  font-size: 0.9rem;
-  color: #888;
-}
+/* FOOTER */
+footer { text-align: center; padding: 40px; color: #888; font-size: 0.9rem; }
 
-/* --- MOBILE RESPONSIVENESS --- */
-@media (max-width: 768px) {
-  h1 { font-size: 2.2rem; }
+/* MOBILE */
+@media (max-width: 600px) {
+  h1 { font-size: 2rem; }
   .header-cta { flex-direction: column; }
-  .service-header { flex-direction: column; text-align: center; gap: 10px; }
-  section { padding: 50px 0; }
 }
