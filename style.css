@@ -5,17 +5,17 @@
   --light: #f8f9fa;
   --text: #333;
   --white: #ffffff;
+  --gray: #666;
 }
 
 /* --- GLOBAL STYLES --- */
 html { scroll-behavior: smooth; }
 body {
-  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  font-family: 'Inter', -apple-system, sans-serif;
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.7; /* Better readability */
   color: var(--text);
   background: var(--white);
-  -webkit-font-smoothing: antialiased;
 }
 .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
@@ -28,153 +28,123 @@ header {
 }
 h1 { font-size: 3rem; margin: 0; line-height: 1.2; font-weight: 800; }
 .highlight { color: var(--primary); }
-.subtitle { font-size: 1.25rem; opacity: 0.85; margin: 20px auto; max-width: 700px; }
-.header-cta { margin-top: 35px; display: flex; justify-content: center; gap: 15px; }
+.subtitle { font-size: 1.2rem; opacity: 0.9; margin: 25px auto; max-width: 750px; }
 
 /* --- BUTTONS --- */
+.header-cta { margin-top: 35px; display: flex; justify-content: center; gap: 20px; }
 .cta-primary, .cta-secondary {
-  padding: 14px 30px;
-  border-radius: 6px;
+  padding: 15px 35px;
+  border-radius: 8px;
   text-decoration: none;
   font-weight: 700;
-  transition: all 0.3s ease;
-  display: inline-block;
+  transition: 0.3s;
 }
-.cta-primary { background: var(--primary); color: #fff; border: 2px solid var(--primary); }
+.cta-primary { background: var(--primary); color: #fff; }
 .cta-secondary { border: 2px solid #fff; color: #fff; }
-.cta-primary:hover { background: #0056b3; border-color: #0056b3; transform: translateY(-2px); }
-.cta-secondary:hover { background: #fff; color: var(--dark); }
+.cta-primary:hover { background: #0056b3; transform: translateY(-2px); }
 
 /* --- SECTIONS --- */
-section { padding: 80px 0; }
+section { padding: 90px 0; } /* More space between sections */
 h2 { 
-  font-size: 2.2rem; 
+  font-size: 2.3rem; 
   border-left: 6px solid var(--primary); 
-  padding-left: 15px; 
-  margin-bottom: 40px; 
-  color: var(--dark);
+  padding-left: 20px; 
+  margin-bottom: 45px; 
+  text-align: left; /* Strict alignment */
 }
 
-/* --- GRID & CARDS (Engineering Edge & Problems) --- */
+/* --- GRID & CARDS --- */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
 }
 .card-simple {
-  padding: 35px;
+  padding: 40px;
   background: var(--light);
   border-radius: 12px;
   border: 1px solid #eee;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: left; /* Ensures text is perfectly aligned */
+  display: flex;
+  flex-direction: column;
 }
 .card-simple:hover {
   border-color: var(--primary);
-  transform: translateY(-8px);
   background: #fff;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 .card-simple strong {
-  display: block;
-  font-size: 1.25rem;
-  margin-bottom: 12px;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
   color: var(--dark);
-  font-weight: 700;
+  display: block;
+}
+.card-simple p {
+  color: var(--gray);
+  margin: 0;
+  font-size: 1.05rem;
 }
 
 /* --- SERVICE BOX --- */
 .service-box {
-  background: var(--white);
+  background: #fff;
   border: 2px solid #eee;
-  padding: 40px;
+  padding: 50px;
   border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+  text-align: left;
 }
 .service-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 25px;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 20px;
+  margin-bottom: 30px;
 }
 .price { font-size: 2rem; font-weight: 800; color: var(--primary); }
-ul { padding-left: 20px; }
-li { margin-bottom: 12px; }
 
-/* --- NAVIGATION BRIDGE --- */
+/* --- MINIMAL BRIDGE --- */
 #explore { 
-  background: #fdfdfd; 
+  background: #fafafa; 
   border-top: 1px solid #eee; 
-  border-bottom: 1px solid #eee; 
+  border-bottom: 1px solid #eee;
   text-align: center;
 }
-.minimal-links p { margin: 15px 0; font-size: 1.1rem; }
 .minimal-links a {
   color: var(--primary);
   text-decoration: none;
   font-weight: 700;
-  transition: 0.2s;
+  font-size: 1.1rem;
 }
-.minimal-links a:hover { text-decoration: underline; }
 
-/* --- CONTACT SECTION --- */
+/* --- CONTACT (Focus on Gmail) --- */
 #contact {
   text-align: center;
   background: var(--light);
   border-radius: 20px;
-  padding: 70px 20px;
+  padding: 80px 20px;
 }
-.contact-links {
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.contact-item {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--primary);
+.gmail-link {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--dark);
   text-decoration: none;
-  transition: 0.2s;
+  border-bottom: 3px solid var(--primary);
+  padding-bottom: 5px;
+  transition: 0.3s;
 }
-.contact-item:hover { color: var(--dark); }
-
-/* --- FOOTER --- */
-footer {
-  text-align: center;
-  padding: 50px 20px;
-  color: #888;
-  border-top: 1px solid #eee;
-  font-size: 0.95rem;
+.gmail-link:hover { color: var(--primary); }
+.whatsapp-link {
+  display: block;
+  margin-top: 25px;
+  color: var(--gray);
+  text-decoration: none;
+  font-weight: 600;
 }
 
-/* --- ENHANCED MOBILE RESPONSIVENESS --- */
+/* --- MOBILE --- */
 @media (max-width: 768px) {
-  /* Header adjustments */
-  header { padding: 60px 0; }
-  h1 { font-size: 2.2rem; padding: 0 15px; }
-  .subtitle { font-size: 1.1rem; padding: 0 20px; }
-
-  /* Full-width buttons on mobile for "App" feel */
-  .header-cta {
-    flex-direction: column;
-    padding: 0 40px;
-    gap: 15px;
-  }
-  .cta-primary, .cta-secondary { width: 100%; text-align: center; }
-
-  /* Grid & Sections */
-  section { padding: 50px 0; }
-  h2 { font-size: 1.9rem; }
-  .grid { grid-template-columns: 1fr; } /* Force single column */
-  
-  .card-simple { padding: 25px; }
-
-  /* Service Box mobile fix */
-  .service-header { flex-direction: column; gap: 10px; text-align: center; }
-  .service-box { padding: 30px 20px; }
-
-  /* Contact responsiveness */
-  .contact-item { font-size: 1.2rem; word-break: break-all; }
+  h1 { font-size: 2.2rem; }
+  .header-cta { flex-direction: column; }
+  h2 { font-size: 1.8rem; }
+  .card-simple { padding: 30px; }
+  .gmail-link { font-size: 1.3rem; }
 }
