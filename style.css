@@ -1,51 +1,73 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  line-height: 1.6;
+  background: #f7f7f7;
   color: #222;
-  background: #ffffff;
+  line-height: 1.7;
 }
 
+/* HEADER */
 header {
-  background: #f4f4f4;
-  padding: 50px 20px;
+  background: #111;
+  color: #fff;
+  padding: 60px 20px;
   text-align: center;
 }
 
-h1, h2, h3 {
-  color: #111;
+header h1 {
+  margin-bottom: 10px;
 }
 
 .subtitle {
-  font-size: 18px;
   max-width: 800px;
-  margin: 10px auto;
+  margin: auto;
+  font-size: 18px;
+  opacity: 0.9;
 }
 
 .author {
+  margin-top: 10px;
   font-style: italic;
-  margin-bottom: 25px;
+  opacity: 0.8;
 }
 
 .cta {
   display: inline-block;
-  padding: 12px 24px;
-  background: #111;
-  color: #fff;
+  margin-top: 25px;
+  padding: 12px 28px;
+  background: #fff;
+  color: #111;
   text-decoration: none;
+  font-weight: bold;
   border-radius: 4px;
 }
 
+/* SECTIONS */
 section {
-  padding: 35px 20px;
+  background: #fff;
   max-width: 900px;
-  margin: auto;
+  margin: 30px auto;
+  padding: 40px;
+  border-radius: 6px;
 }
 
+section h2 {
+  margin-bottom: 15px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 8px;
+}
+
+/* LISTS */
+ul, ol {
+  padding-left: 20px;
+}
+
+/* SERVICES */
 .service {
+  background: #fafafa;
   border: 1px solid #ddd;
   padding: 20px;
+  border-radius: 4px;
   margin-bottom: 20px;
 }
 
@@ -54,9 +76,19 @@ section {
   color: #555;
 }
 
+/* LINKS */
+a {
+  color: #0b5ed7;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* FOOTER */
 footer {
   text-align: center;
-  padding: 20px;
-  background: #f0f0f0;
+  padding: 30px;
+  color: #666;
   font-size: 14px;
 }
