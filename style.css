@@ -8,12 +8,12 @@
   --gray: #666;
 }
 
-/* --- GLOBAL STYLES --- */
+/* --- GLOBAL --- */
 html { scroll-behavior: smooth; }
 body {
   font-family: 'Inter', -apple-system, sans-serif;
   margin: 0;
-  line-height: 1.7; /* Better readability */
+  line-height: 1.7;
   color: var(--text);
   background: var(--white);
 }
@@ -38,19 +38,20 @@ h1 { font-size: 3rem; margin: 0; line-height: 1.2; font-weight: 800; }
   text-decoration: none;
   font-weight: 700;
   transition: 0.3s;
+  display: inline-block;
 }
 .cta-primary { background: var(--primary); color: #fff; }
 .cta-secondary { border: 2px solid #fff; color: #fff; }
 .cta-primary:hover { background: #0056b3; transform: translateY(-2px); }
 
 /* --- SECTIONS --- */
-section { padding: 90px 0; } /* More space between sections */
+section { padding: 90px 0; }
 h2 { 
   font-size: 2.3rem; 
   border-left: 6px solid var(--primary); 
   padding-left: 20px; 
   margin-bottom: 45px; 
-  text-align: left; /* Strict alignment */
+  text-align: left;
 }
 
 /* --- GRID & CARDS --- */
@@ -64,26 +65,16 @@ h2 {
   background: var(--light);
   border-radius: 12px;
   border: 1px solid #eee;
-  text-align: left; /* Ensures text is perfectly aligned */
-  display: flex;
-  flex-direction: column;
+  text-align: left;
+  transition: 0.3s;
 }
 .card-simple:hover {
   border-color: var(--primary);
   background: #fff;
+  transform: translateY(-5px);
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
-.card-simple strong {
-  font-size: 1.3rem;
-  margin-bottom: 15px;
-  color: var(--dark);
-  display: block;
-}
-.card-simple p {
-  color: var(--gray);
-  margin: 0;
-  font-size: 1.05rem;
-}
+.card-simple strong { font-size: 1.3rem; margin-bottom: 15px; display: block; color: var(--dark); }
 
 /* --- SERVICE BOX --- */
 .service-box {
@@ -91,7 +82,6 @@ h2 {
   border: 2px solid #eee;
   padding: 50px;
   border-radius: 15px;
-  text-align: left;
 }
 .service-header {
   display: flex;
@@ -99,118 +89,41 @@ h2 {
   align-items: center;
   margin-bottom: 30px;
 }
-.price { font-size: 2rem; font-weight: 800; color: var(--primary); }
+.price { font-size: 1.8rem; font-weight: 800; color: var(--primary); }
 
-/* --- MINIMAL BRIDGE --- */
-#explore { 
-  background: #fafafa; 
-  border-top: 1px solid #eee; 
-  border-bottom: 1px solid #eee;
-  text-align: center;
-}
-.minimal-links a {
-  color: var(--primary);
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1.1rem;
-}
-
-/* --- CONTACT (Focus on Gmail) --- */
-#contact {
-  text-align: center;
-  background: var(--light);
-  border-radius: 20px;
-  padding: 80px 20px;
-}
+/* --- CONTACT SECTION --- */
+#contact { text-align: center; background: var(--light); border-radius: 20px; padding: 80px 20px; }
 .gmail-link {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 800;
   color: var(--dark);
   text-decoration: none;
-  border-bottom: 3px solid var(--primary);
+  border-bottom: 4px solid var(--primary);
   padding-bottom: 5px;
   transition: 0.3s;
 }
 .gmail-link:hover { color: var(--primary); }
-.whatsapp-link {
-  display: block;
-  margin-top: 25px;
-  color: var(--gray);
-  text-decoration: none;
-  font-weight: 600;
-}
 
-/* --- ENHANCED MOBILE RESPONSIVENESS (Fixes Big Text/Alignment) --- */
+/* --- FOOTER --- */
+footer { text-align: center; padding: 50px; color: #888; border-top: 1px solid #eee; }
+
+/* --- MOBILE RESPONSIVENESS (The Fix) --- */
 @media (max-width: 768px) {
-  /* 1. Shrink the Header text so it doesn't feel "Bulky" */
-  header { padding: 50px 0; }
-  h1 { 
-    font-size: 1.8rem; /* Smaller, sharper font for mobile */
-    padding: 0 15px;
-    letter-spacing: -0.5px;
-  }
-  .subtitle { 
-    font-size: 1rem; 
-    line-height: 1.5;
-    padding: 0 20px;
-    margin-top: 15px;
-  }
-
-  /* 2. Full-width buttons for better "App" feel */
-  .header-cta {
-    flex-direction: column;
-    padding: 0 30px;
-    gap: 12px;
-  }
-  .cta-primary, .cta-secondary {
-    width: 100%;
-    padding: 12px 0;
-    font-size: 1rem;
-    text-align: center;
-  }
-
-  /* 3. Tighten Section Headings and Spacing */
-  section { padding: 40px 0; }
-  h2 { 
-    font-size: 1.5rem; /* Smaller headings */
-    margin-bottom: 25px; 
-    padding-left: 12px;
-    border-left-width: 4px;
-  }
-
-  /* 4. Fix Card Alignment and Sizing */
-  .grid { 
-    grid-template-columns: 1fr; /* Single column */
-    gap: 15px; 
-  }
-  .card-simple {
-    padding: 20px; /* Less padding so text has more room */
-    margin: 0;
-  }
-  .card-simple strong {
-    font-size: 1.1rem;
-    margin-bottom: 8px;
-  }
-  .card-simple p {
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
-
-  /* 5. Service Box (Pricing) */
-  .service-box { padding: 25px 20px; }
-  .service-header { 
-    flex-direction: column; 
-    align-items: flex-start; /* Keeps alignment professional */
-    gap: 5px; 
-  }
+  header { padding: 60px 0; }
+  h1 { font-size: 1.8rem; padding: 0 15px; }
+  .subtitle { font-size: 1rem; padding: 0 20px; }
+  .header-cta { flex-direction: column; padding: 0 30px; }
+  .cta-primary, .cta-secondary { width: 100%; text-align: center; padding: 12px 0; }
+  
+  section { padding: 45px 0; }
+  h2 { font-size: 1.6rem; padding-left: 15px; }
+  
+  .grid { grid-template-columns: 1fr; gap: 20px; }
+  .card-simple { padding: 25px; }
+  
+  .service-header { flex-direction: column; align-items: flex-start; gap: 10px; }
   .price { font-size: 1.4rem; }
+  .service-box { padding: 30px 20px; }
 
-  /* 6. Contact Section (Gmail Fix) */
-  #contact { padding: 50px 15px; }
-  .gmail-link { 
-    font-size: 1.1rem !important; /* Forces email to fit on one line */
-    word-break: break-all;
-    border-bottom-width: 2px !important;
-  }
-  .whatsapp-link { font-size: 0.95rem; }
+  .gmail-link { font-size: 1.1rem !important; word-break: break-all; border-bottom-width: 2px; }
 }
