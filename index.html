@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aji Paul | SEO Engineer & Growth Specialist Kochi</title>
-    <meta name="description" content="Technical SEO & Engineering solutions for Kochi's Solar industry and small entrepreneurs. Scale your online sales with data-driven precision.">
+    
+    <title>Aji Paul | Get Your Website Found on Google</title>
+    <meta name="description" content="Technical SEO Specialist & Engineer. Get your website found on Google using data-driven audits and industrial engineering precision.">
+    <meta name="google-site-verification" content="nKm7MzLndhPXbTGfdIvEyhdbTuWd1fgOMhpKg3GPozM" />
+
+    <meta property="og:title" content="Aji Paul | Get Your Website Found on Google">
+    <meta property="og:description" content="Technical SEO audits with industrial engineering precision.">
+    <meta property="og:url" content="https://ajipaul1.github.io/">
+    <meta property="og:type" content="website">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -18,66 +25,63 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Inter', sans-serif; color: var(--text-dark); background: #ffffff; line-height: 1.6; }
+        body { font-family: 'Inter', sans-serif; color: var(--text-dark); background: #ffffff; line-height: 1.6; overflow-x: hidden; }
 
         /* Navigation */
         nav { padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; }
         .logo { font-weight: 600; font-size: 1.3rem; letter-spacing: -0.5px; text-decoration: none; color: inherit; }
         .nav-links a { text-decoration: none; color: #5f6368; margin-left: 25px; font-weight: 500; font-size: 0.95rem; }
-        .nav-links a:hover { color: var(--google-blue); }
 
-        /* Hero Section */
-        .hero { text-align: center; padding: 120px 20px 80px; max-width: 900px; margin: auto; }
-        .hero h1 { font-size: 3.5rem; font-weight: 600; margin-bottom: 25px; letter-spacing: -2px; line-height: 1.1; }
-        .hero p { font-size: 1.4rem; color: #5f6368; margin-bottom: 45px; font-weight: 300; }
+        /* HERO SECTION WITH SLIDING TEXT */
+        .hero { text-align: center; padding: 140px 20px 100px; max-width: 1000px; margin: auto; }
+        .hero h1 { font-size: 4rem; font-weight: 600; letter-spacing: -2.5px; line-height: 1.1; margin-bottom: 20px; }
         
-        .hero-cta { display: flex; gap: 15px; justify-content: center; }
-        .btn-primary { background: var(--google-blue); color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; }
-        .btn-secondary { border: 1px solid var(--border); padding: 14px 28px; border-radius: 8px; text-decoration: none; color: var(--text-dark); font-weight: 600; }
-
-        /* 3D SLIDING SYMBOL CAROUSEL */
-        .slider-wrapper { overflow: hidden; padding: 60px 0; background: #fff; position: relative; }
-        .symbol-carousel { 
+        .sliding-text-container { height: 75px; overflow: hidden; display: inline-block; vertical-align: bottom; }
+        .sliding-words { 
             display: flex; 
-            width: max-content;
-            animation: slideLeft 25s linear infinite;
+            flex-direction: column; 
+            animation: slideWords 8s cubic-bezier(0.645, 0.045, 0.355, 1) infinite;
         }
-        .symbol-card { 
-            width: 280px; 
-            margin: 0 20px;
-            padding: 40px; 
-            background: white; 
-            border: 1px solid var(--border); 
-            border-radius: 24px; 
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-            transition: all 0.3s ease;
-        }
-        .symbol-card:hover { transform: translateY(-10px) scale(1.02); border-color: var(--google-blue); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-        .symbol-card .icon-symbol { font-size: 50px; margin-bottom: 20px; display: block; }
-        
-        @keyframes slideLeft {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+        .sliding-words span { display: block; color: var(--google-blue); padding-left: 10px; height: 75px; }
+
+        @keyframes slideWords {
+            0%, 20% { transform: translateY(0); }
+            25%, 45% { transform: translateY(-75px); }
+            50%, 70% { transform: translateY(-150px); }
+            75%, 95% { transform: translateY(-225px); }
+            100% { transform: translateY(0); }
         }
 
-        /* ENGINEERING EDGE SECTION */
+        .hero p { font-size: 1.3rem; color: #5f6368; margin: 30px auto 45px; max-width: 700px; }
+        .hero-cta { display: flex; gap: 15px; justify-content: center; }
+        .btn-primary { background: var(--google-blue); color: white; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; }
+
+        /* ENGINEERING EDGE */
         .edge-section { padding: 100px 8%; background: var(--bg-light); text-align: center; }
-        .section-tag { color: var(--google-blue); font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
-        .edge-section h2 { font-size: 2.5rem; margin: 15px 0 50px; letter-spacing: -1px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+        .card-simple { background: white; padding: 40px; border-radius: 15px; text-align: left; border: 1px solid var(--border); transition: 0.3s; }
+        .card-simple:hover { transform: translateY(-5px); border-color: var(--google-blue); }
+        
+        /* WHO I HELP SECTION */
+        .help-section { padding: 100px 8%; text-align: center; }
+        .help-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; margin-top: 50px; }
+        .help-card { padding: 40px 20px; border-radius: 16px; border: 1px solid var(--border); background: #fff; transition: 0.3s; }
+        .help-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-color: var(--google-blue); }
+        .help-card .symbol { font-size: 40px; margin-bottom: 20px; display: block; }
+        .help-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
+        .help-card p { font-size: 0.9rem; color: #5f6368; }
 
-        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .service-card { background: white; padding: 45px; border-radius: 20px; text-align: left; border: 1px solid var(--border); transition: 0.3s; }
-        .service-card h3 { margin: 15px 0; font-size: 1.4rem; }
-        .service-card p { color: #5f6368; font-size: 1rem; margin-bottom: 20px; }
-        .small-symbol { font-size: 30px; }
-
-        /* Mobile View Fixes */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1.1rem; }
-            .hero-cta { flex-direction: column; }
-            .symbol-carousel { animation-duration: 15s; }
+            .sliding-text-container { height: 45px; }
+            .sliding-words span { height: 45px; }
+            @keyframes slideWords {
+                0%, 20% { transform: translateY(0); }
+                25%, 45% { transform: translateY(-45px); }
+                50%, 70% { transform: translateY(-90px); }
+                75%, 95% { transform: translateY(-135px); }
+                100% { transform: translateY(0); }
+            }
         }
     </style>
 </head>
@@ -86,75 +90,93 @@
 <nav>
     <a href="index.html" class="logo">AJI PAUL<span style="color:var(--google-blue)">.</span></a>
     <div class="nav-links">
-        <a href="case-studies.html">Case Studies</a>
-        <a href="about.html">About</a>
+        <a href="case-studies.html">Case Reports</a>
+        <a href="#engineering-edge">Engineering Edge</a>
         <a href="#contact">Contact</a>
     </div>
 </nav>
 
 <main>
     <section class="hero">
-        <h1>Engineering Online Success for Kochi's New Economy.</h1>
-        <p>Technical SEO audits and AI-integrated sales systems for Solar Energy firms and ambitious Entrepreneurs.</p>
+        <h1>Get Your Website<br> 
+            <div class="sliding-text-container">
+                <div class="sliding-words">
+                    <span>Found on Google</span>
+                    <span>Ranking Higher</span>
+                    <span>Generating Leads</span>
+                    <span>Driving Sales</span>
+                </div>
+            </div>
+        </h1>
+        <p>Your website shouldn't be hidden on page 10. I use industrial engineering precision to audit your data and fix the technical blocks preventing you from winning.</p>
         <div class="hero-cta">
-            <a href="https://wa.me/916282520339" class="btn-primary">Scale My Business</a>
-            <a href="case-studies.html" class="btn-secondary">View Case Reports</a>
+            <a href="mailto:ajipaul96@gmail.com" class="btn-primary">Analyze My Website</a>
+            <a href="https://wa.me/916282520339" style="text-decoration:none; color:var(--text-dark); font-weight:600; line-height:50px; margin-left:25px;">WhatsApp Me &rarr;</a>
         </div>
     </section>
 
-    <section class="slider-wrapper">
-        <div class="symbol-carousel">
-            <div class="symbol-card"><span class="icon-symbol">☀️</span><h3>Solar Energy</h3><p>Lead Gen Engineering</p></div>
-            <div class="symbol-card"><span class="icon-symbol">🛍️</span><h3>D2C Sales</h3><p>Online Store Growth</p></div>
-            <div class="symbol-card"><span class="icon-symbol">🤖</span><h3>AI Content</h3><p>Modern Branding</p></div>
-            <div class="symbol-card"><span class="icon-symbol">📍</span><h3>Local SEO</h3><p>Kochi Map Dominance</p></div>
-            <div class="symbol-card"><span class="icon-symbol">☀️</span><h3>Solar Energy</h3><p>Lead Gen Engineering</p></div>
-            <div class="symbol-card"><span class="icon-symbol">🛍️</span><h3>D2C Sales</h3><p>Online Store Growth</p></div>
-            <div class="symbol-card"><span class="icon-symbol">🤖</span><h3>AI Content</h3><p>Modern Branding</p></div>
-            <div class="symbol-card"><span class="icon-symbol">📍</span><h3>Local SEO</h3><p>Kochi Map Dominance</p></div>
-        </div>
-    </section>
-
-    <section class="edge-section">
-        <span class="section-tag">The Engineering Edge</span>
-        <h2>Focused Solutions for Modern Needs</h2>
+    <section id="engineering-edge" class="edge-section">
+        <span style="color:var(--google-blue); font-weight:600; text-transform:uppercase; font-size:0.8rem; letter-spacing:1px;">The Precision Advantage</span>
+        <h2 style="font-size:2.5rem; margin:15px 0;">Engineering-Grade SEO</h2>
+        <p>Applying the technical discipline from <strong>Saudi Aramco</strong> and <strong>Shell</strong> to search engine growth.</p>
         
-        <div class="service-grid">
-            <div class="service-card">
-                <div class="small-symbol">⚡</div>
-                <h3>Solar Industry Lead Gen</h3>
-                <p>Specifically designed for Solar Installation companies in Kochi. I find homeowners looking for green energy savings so you can focus on installation.</p>
-                <a href="case-studies.html" style="color:var(--google-blue); font-weight:600; text-decoration:none;">Case Study &rarr;</a>
+        <div class="grid">
+            <div class="card-simple">
+                <strong>Data Science</strong>
+                <p>I use Python to analyze link profiles and search trends that standard marketing tools often overlook.</p>
             </div>
-
-            <div class="service-card">
-                <div class="small-symbol">💎</div>
-                <h3>The Entrepreneur Launch</h3>
-                <p>Moving small Kochi-based brands from "Instagram DMs" to automated website sales. I build the technical engine that handles your customers.</p>
-                <a href="case-studies.html" style="color:var(--google-blue); font-weight:600; text-decoration:none;">View Strategy &rarr;</a>
+            <div class="card-simple">
+                <strong>Technical Integrity</strong>
+                <p>Fixing the "engine" of your site—from crawlability to site speed—ensuring Google trusts your domain.</p>
             </div>
+            <div class="card-simple">
+                <strong>Strategic Growth</strong>
+                <p>I identify exactly what your competitors are doing and build a roadmap to beat them in search.</p>
+            </div>
+        </div>
+    </section>
 
-            <div class="service-card">
-                <div class="small-symbol">🌏</div>
-                <h3>Technical SEO Audits</h3>
-                <p>Deep-scan analysis using data scripts to fix ranking blocks. Same precision used at Shell & Saudi Aramco, applied to your local business.</p>
-                <a href="#contact" style="color:var(--google-blue); font-weight:600; text-decoration:none;">Request Audit &rarr;</a>
+    <section class="help-section">
+        <span style="color:var(--google-blue); font-weight:600; text-transform:uppercase; font-size:0.8rem; letter-spacing:1px;">Client Profiles</span>
+        <h2 style="font-size:2.5rem; margin:15px 0;">Who I Help Win</h2>
+        <p>I specialize in scaling businesses that rely on technical trust and local authority.</p>
+
+        <div class="help-grid">
+            <div class="help-card">
+                <span class="symbol">☀️</span>
+                <h3>Solar Energy</h3>
+                <p>Helping solar firms capture high-intent leads and dominate local search.</p>
+            </div>
+            <div class="help-card">
+                <span class="symbol">🚀</span>
+                <h3>Entrepreneurs</h3>
+                <p>Building a technical foundation for startups to scale their online presence fast.</p>
+            </div>
+            <div class="help-card">
+                <span class="symbol">✍️</span>
+                <h3>Writers & Authors</h3>
+                <p>Ensuring your personal brand and content reach the audience they deserve.</p>
+            </div>
+            <div class="help-card">
+                <span class="symbol">🏗️</span>
+                <h3>Contractors</h3>
+                <p>Positioning service-based businesses as the top choice in their service areas.</p>
             </div>
         </div>
     </section>
 
     <section id="contact" style="padding: 100px 8%; text-align: center; border-top: 1px solid var(--border);">
-        <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Let's Build Your Lead Engine.</h2>
-        <p style="color: #5f6368; max-width: 600px; margin: 0 auto 40px;">Currently accepting projects for Kochi-based solar firms and D2C startups.</p>
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Ready for a Technical Review?</h2>
+        <p style="color: #5f6368; max-width: 600px; margin: 0 auto 40px;">Send me your URL for an honest, data-driven assessment of your current ranking potential.</p>
         <div class="contact-links">
             <a href="mailto:ajipaul96@gmail.com" style="font-size: 1.5rem; color: var(--google-blue); font-weight: 600; text-decoration: none;">ajipaul96@gmail.com</a>
-            <p style="margin-top: 20px; font-weight: 500;">WhatsApp: +91 6282520339</p>
+            <p style="margin-top: 20px; font-weight: 500;">International WhatsApp: +91 6282520339</p>
         </div>
     </section>
 </main>
 
 <footer style="padding: 50px 8%; border-top: 1px solid var(--border); text-align: center; font-size: 0.9rem; color: #70757a;">
-    <p>&copy; 2025 Aji Paul. Built with Industrial Precision in Kochi, Kerala.</p>
+    <p>&copy; 2025 Aji Paul. All Rights Reserved. Built with Industrial Precision.</p>
 </footer>
 
 </body>
