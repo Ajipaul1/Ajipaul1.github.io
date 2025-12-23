@@ -2,108 +2,257 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Growth Report | Dial An Appliance Man</title>
+    <meta name="viewport" content="width=1280"> <title>Stunning Report | Dial An Appliance Man</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #0056b3; --text: #2d3436; --gray: #f9f9f9; --border: #e1e4e8; }
-        
-        * { box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--text); line-height: 1.6; margin: 0; padding: 0; background-color: #f0f2f5; }
-        
-        .header { background: #1a1a1a; color: white; padding: 40px 20px; text-align: center; }
-        .container { width: 100%; max-width: 800px; margin: auto; padding: 15px; }
+        :root { 
+            --primary: #1a73e8; 
+            --accent: #643afa;
+            --text-dark: #0f172a;
+            --glass: rgba(255, 255, 255, 0.8);
+        }
 
-        /* Mobile-First Card Design */
-        .case-card { background: white; border-radius: 12px; overflow: hidden; margin-top: -20px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-        .section { padding: 25px 20px; border-bottom: 1px solid var(--border); }
+        * { box-sizing: border-box; margin: 0; padding: 0; cursor: default; }
         
-        h2 { color: var(--primary); font-size: 1.5rem; margin-top: 0; margin-bottom: 15px; }
-        p { margin-bottom: 15px; font-size: 1rem; }
-        
-        .badge { display: inline-block; background: #eef2ff; color: #4338ca; padding: 4px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; margin-bottom: 10px; }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            color: var(--text-dark); 
+            background: #ffffff; 
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
 
-        /* Fully Responsive Images */
-        .img-container { width: 100%; margin: 15px 0; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
-        .img-container img { width: 100%; height: auto; display: block; object-fit: contain; }
+        /* Deep Mesh Background */
+        .bg-canvas {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 0% 0%, rgba(26, 115, 232, 0.07) 0%, transparent 40%),
+                radial-gradient(circle at 100% 100%, rgba(100, 58, 250, 0.07) 0%, transparent 40%);
+            z-index: -1;
+        }
 
-        /* AI Gallery - Stacks on Mobile */
-        .ai-gallery { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 15px; }
-        @media (min-width: 600px) { .ai-gallery { grid-template-columns: 1fr 1fr 1fr; } }
-        
-        .ai-item { width: 100%; border-radius: 8px; border: 1px solid var(--border); box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        /* Large Header Layout */
+        .case-hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 10%;
+        }
 
-        /* Simple Results Grid */
-        .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 20px 0; }
-        @media (min-width: 600px) { .stats { grid-template-columns: 1fr 1fr 1fr; } }
-        
-        .stat-box { background: var(--gray); padding: 15px; border-radius: 8px; text-align: center; border: 1px solid var(--border); }
-        .stat-box span { display: block; font-size: 1.5rem; font-weight: bold; color: var(--primary); }
-        .stat-box label { font-size: 0.75rem; color: #636e72; text-transform: uppercase; }
+        .case-hero h1 {
+            font-size: 6rem;
+            font-weight: 800;
+            letter-spacing: -4px;
+            line-height: 0.9;
+            margin-bottom: 25px;
+            background: linear-gradient(to right, #000, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-        footer { text-align: center; padding: 40px 20px; color: #636e72; font-size: 0.9rem; }
+        .container { width: 1200px; margin: auto; }
+
+        /* Massive Feature Cards */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 120px;
+            align-items: center;
+        }
+
+        .glass-panel {
+            background: var(--glass);
+            backdrop-filter: blur(30px);
+            border-radius: 40px;
+            padding: 60px;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.03);
+        }
+
+        .step-num {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 1rem;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        h2 { font-size: 3rem; font-weight: 800; letter-spacing: -2px; margin-bottom: 20px; }
+
+        /* 3D Image Frame */
+        .image-frame {
+            position: relative;
+            perspective: 2000px;
+        }
+
+        .img-3d {
+            width: 100%;
+            border-radius: 30px;
+            transform: rotateY(-10deg) rotateX(5deg);
+            box-shadow: 20px 40px 80px rgba(0,0,0,0.15);
+            transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .image-frame:hover .img-3d {
+            transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+        }
+
+        /* Bento Stats Section */
+        .stats-bento {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 30px;
+            margin: 100px 0;
+        }
+
+        .bento-card {
+            background: #fff;
+            padding: 50px;
+            border-radius: 40px;
+            border: 1px solid rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .bento-card .val {
+            font-size: 5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: block;
+            letter-spacing: -3px;
+        }
+
+        /* AI Horizontal Showcase */
+        .ai-wrap {
+            background: var(--text-dark);
+            padding: 100px 0;
+            margin: 100px calc(-50vw + 50%);
+            width: 100vw;
+            color: white;
+        }
+
+        .ai-scroller {
+            display: flex;
+            gap: 40px;
+            padding: 0 10%;
+        }
+
+        .ai-box {
+            flex: 0 0 450px;
+            height: 600px;
+            border-radius: 30px;
+            overflow: hidden;
+            transition: 0.5s;
+            filter: grayscale(100%);
+        }
+
+        .ai-box:hover { filter: grayscale(0%); transform: translateY(-20px); }
+        .ai-box img { width: 100%; height: 100%; object-fit: cover; }
+
+        .btn-xl {
+            padding: 25px 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.2rem;
+            box-shadow: 0 20px 40px rgba(26, 115, 232, 0.3);
+            display: inline-block;
+            transition: 0.4s;
+        }
+
+        .btn-xl:hover { transform: scale(1.05); box-shadow: 0 30px 60px rgba(26, 115, 232, 0.4); }
+
+        .back-home { position: fixed; top: 40px; left: 40px; font-weight: 800; color: #000; text-decoration: none; z-index: 1000; }
+
     </style>
 </head>
 <body>
 
-<header class="header">
-    <div class="container">
-        <h1 style="margin:0; font-size: 1.8rem;">Project Case Study</h1>
-        <p style="opacity:0.8; margin-top: 10px;">Local Business Optimization Report</p>
-    </div>
+<div class="bg-canvas"></div>
+<a href="index.html" class="back-home">← PORTFOLIO</a>
+
+<header class="case-hero">
+    <span class="step-num">DATA-DRIVEN SUCCESS</span>
+    <h1>Dominating Canada's<br>Local Search.</h1>
+    <p style="font-size: 1.5rem; color: #64748b; margin-top: 20px;">Dial An Appliance Man: From invisible to a $2.8K/mo organic engine.</p>
 </header>
 
 <div class="container">
-    <div class="case-card">
-
-        <div class="section">
-            <span class="badge">Client Profile</span>
-            <h2>Dial An Appliance Man</h2>
-            <p><strong>Location:</strong> Calgary, Airdrie, and Spruce Grove, Canada.</p>
-            <p><strong>The Business:</strong> An expert local service provider specializing in high-end appliance repairs for homeowners.</p>
-            <p><strong>Why they approached us:</strong> Despite years of great service, the company was struggling to be found by new customers online. They relied heavily on expensive paid ads and were virtually invisible in local organic search results.</p>
-            
-            <div class="img-container">
-                <img src="audit-1.png" alt="Initial Search Performance">
-            </div>
-            <p style="font-size: 0.85rem; color: #636e72; text-align: center; font-style: italic;">Initial audit showing limited visibility for local search terms.</p>
+    
+    <div class="grid-layout">
+        <div class="glass-panel">
+            <span class="step-num">PHASE 01</span>
+            <h2>The Blind Spot</h2>
+            <p><strong>The Client:</strong> Expert appliance technicians in Alberta, Canada.</p>
+            <p style="margin-top: 20px;">They had the skill, but Google didn't have the data. The business was spending heavily on PPC while their organic rankings were buried under national competitors.</p>
         </div>
-
-        <div class="section">
-            <span class="badge">Modern Solution</span>
-            <h2>Professional Brand Upgrade</h2>
-            <p>To compete with national brands, we upgraded their digital image using <strong>Advanced AI tools</strong>. We generated high-quality, professional service imagery and city-specific descriptions to build immediate trust with local customers.</p>
-            
-            <div class="ai-gallery">
-                <img src="ai-work.png" class="ai-item" alt="AI Professional Service 1">
-                <img src="ai-work1.png" class="ai-item" alt="AI Professional Service 2">
-                <img src="ai-work2.png" class="ai-item" alt="AI Professional Service 3">
-            </div>
-            <p style="font-size: 0.85rem; color: #636e72; text-align: center; font-style: italic; margin-top: 10px;">Custom AI-generated assets created to build brand authority.</p>
+        <div class="image-frame">
+            <img src="audit-1.png" class="img-3d" alt="Technical Audit Preview">
         </div>
-
-        <div class="section">
-            <span class="badge">90-Day Results</span>
-            <h2>Real Business Value</h2>
-            <p>Our goal was to make the website a lead-generation machine. In 3 months, we stabilized their presence and increased their digital footprint significantly.</p>
-            
-            <div class="stats">
-                <div class="stat-box"><span>998</span><label>Keywords</label></div>
-                <div class="stat-box"><span>+11%</span><label>More Traffic</label></div>
-                <div class="stat-box"><span>$2.8K</span><label>Ad Value</label></div>
-            </div>
-
-            <div class="img-container">
-                <img src="results-graph.png" alt="Performance Growth Chart">
-            </div>
-            <p style="font-size: 0.85rem; color: #636e72; text-align: center; font-style: italic;">Verified data showing consistent growth in online reach.</p>
-        </div>
-
     </div>
+
+    <div class="ai-wrap">
+        <div class="container">
+            <span class="step-num" style="color: var(--primary);">PHASE 02</span>
+            <h2 style="color: white; margin-bottom: 50px;">Engineering Authority with AI</h2>
+            <div class="ai-scroller">
+                <div class="ai-box"><img src="ai-work.png" alt="AI Brand Visual 1"></div>
+                <div class="ai-box"><img src="ai-work1.png" alt="AI Brand Visual 2"></div>
+                <div class="ai-box"><img src="ai-work2.png" alt="AI Brand Visual 3"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="padding: 100px 0;">
+        <span class="step-num">PHASE 03</span>
+        <h2 style="text-align: center;">Measured Business Value</h2>
+        
+        <div class="stats-bento">
+            <div class="bento-card">
+                <span class="val" id="count1">998</span>
+                <label>Keywords Indexed</label>
+            </div>
+            <div class="bento-card" style="background: var(--primary); color: white;">
+                <span class="val" style="color: white;">+11%</span>
+                <label style="color: rgba(255,255,255,0.7);">Traffic Growth</label>
+            </div>
+            <div class="bento-card">
+                <span class="val" id="count2">$2.8K</span>
+                <label>Monthly Ad Value</label>
+            </div>
+        </div>
+
+        <div class="image-frame">
+            <img src="results-graph.png" class="img-3d" style="transform: rotateY(5deg);" alt="Growth Metrics">
+        </div>
+    </div>
+
+    <div style="text-align: center; padding: 100px 0;">
+        <span class="step-num">NEXT STEP</span>
+        <h2 style="margin-bottom: 40px;">Ready to Engineer Your Own Growth?</h2>
+        <a href="mailto:ajipaul96@gmail.com" class="btn-xl">Start Your Technical Audit</a>
+    </div>
+
 </div>
 
-<footer>
-    <p>&copy; 2025 Aji Paul | <a href="index.html" style="color: var(--primary); text-decoration: none;">Return to Home</a></p>
+<footer style="padding: 100px; text-align: center; border-top: 1px solid #eee; color: #94a3b8;">
+    <p>&copy; 2025 AJI PAUL | SEO ENGINEERING CASE STUDY</p>
 </footer>
+
+<script>
+    // Smooth scroll and subtle parallax logic can be added here
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        // Logic for subtle movement could go here
+    });
+</script>
 
 </body>
 </html>
