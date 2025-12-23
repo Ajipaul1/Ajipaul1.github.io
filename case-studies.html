@@ -3,96 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Report: Dial An Appliance Man | Aji Paul</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Business Growth Report | Dial An Appliance Man</title>
     <style>
-        :root { --border-color: #d1d5db; --bg-light: #f9fafb; --accent: #2563eb; }
-        body { font-family: 'Inter', system-ui, sans-serif; color: #1f2937; line-height: 1.5; }
+        :root { --brand-blue: #0056b3; --text-main: #2d3436; --bg-gray: #f9f9f9; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: var(--text-main); line-height: 1.6; margin: 0; padding: 0; background-color: #fff; }
         
-        /* Master Container */
-        .report-box { max-width: 1000px; margin: 40px auto; border: 1px solid var(--border-color); background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .header-simple { background: #111; color: white; padding: 50px 20px; text-align: center; }
+        .container { max-width: 900px; margin: auto; padding: 20px; }
         
-        /* Top Header */
-        .report-header { background: #111827; color: white; padding: 40px; border-bottom: 4px solid var(--accent); }
-        .report-header h1 { margin: 0; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 2px; }
+        /* Box Layout */
+        .case-card { border: 1px solid #ddd; border-radius: 12px; overflow: hidden; margin-top: -30px; background: white; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+        .section { padding: 40px; border-bottom: 1px solid #eee; }
+        .section:last-child { border-bottom: none; }
         
-        /* Box-to-Box Grid */
-        .row { display: grid; grid-template-columns: 240px 1fr; border-bottom: 1px solid var(--border-color); }
-        .label { background: var(--bg-light); padding: 30px; font-weight: 700; color: #4b5563; border-right: 1px solid var(--border-color); text-transform: uppercase; font-size: 0.85rem; }
-        .content { padding: 30px; }
+        h2 { color: var(--brand-blue); font-size: 1.8rem; margin-top: 0; }
+        .badge { background: #eef2ff; color: #4338ca; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; }
 
-        /* Images and Metrics */
-        .work-img { width: 100%; border: 1px solid #e5e7eb; border-radius: 6px; margin-top: 15px; display: block; }
-        .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 10px; }
-        .metric-card { background: #eff6ff; padding: 15px; border-radius: 6px; text-align: center; border: 1px solid #bfdbfe; }
-        .metric-card span { display: block; font-size: 1.25rem; font-weight: 800; color: var(--accent); }
-        .metric-card label { font-size: 0.7rem; text-transform: uppercase; color: #1e40af; }
+        /* The Big Numbers */
+        .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 30px 0; }
+        .stat-box { background: var(--bg-gray); padding: 20px; border-radius: 10px; text-align: center; border: 1px solid #eee; }
+        .stat-box span { display: block; font-size: 2rem; font-weight: bold; color: var(--brand-blue); }
+        .stat-box label { font-size: 0.8rem; color: #636e72; font-weight: bold; }
 
-        .ai-badge { background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; }
+        /* Images */
+        .main-img { width: 100%; border-radius: 8px; border: 1px solid #ddd; margin-top: 20px; }
+        .ai-gallery { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-top: 20px; }
+        .ai-item { width: 100%; border-radius: 8px; border: 1px solid #eee; height: 180px; object-fit: cover; }
         
-        @media (max-width: 768px) { .row { grid-template-columns: 1fr; } .label { border-right: none; border-bottom: 1px solid var(--border-color); } }
+        p.caption { font-size: 0.85rem; color: #636e72; text-align: center; font-style: italic; margin-top: 10px; }
     </style>
 </head>
 <body>
 
-<div class="report-box">
-    <div class="report-header">
-        <h1>Technical SEO Case Analysis</h1>
-        <p style="opacity: 0.8; margin-top: 5px;">Client: Dial An Appliance Man (Canada) | Duration: 90 Days</p>
+<header class="header-simple">
+    <div class="container">
+        <h1 style="margin:0;">Dial An Appliance Man: From Page 3 to Page 1</h1>
+        <p style="opacity:0.8;">How we transformed a local business into a digital leader in 90 days.</p>
     </div>
+</header>
 
-    <div class="row">
-        <div class="label">Project Overview</div>
-        <div class="content">
-            <h2 style="margin-top:0;">Dial An Appliance Man</h2>
-            <p><strong>Company Profile:</strong> A leading multi-city appliance repair service provider in Alberta, Canada (Calgary, Airdrie, Spruce Grove).</p>
-            <p><strong>The Challenge:</strong> Despite high service quality, the company was "digitally invisible" for key search terms. They were stuck on <strong>Page 2 & 3</strong> of Google, causing a heavy reliance on high-cost paid advertising.</p>
-            <img src="audit-1.png" alt="Initial Search Audit" class="work-img">
-            <p><small><i>Fig 1.1: Pre-optimization audit showing 0 high-intent keywords in Top 10 positions.</i></small></p>
+<div class="container">
+    <div class="case-card">
+
+        <div class="section">
+            <span class="badge">The Challenge</span>
+            <h2>The "Invisible" Business Problem</h2>
+            <p><strong>The Issue:</strong> Dial An Appliance Man is a top-rated service provider, but online, they were hidden. When customers in Calgary or Airdrie searched for "Fridge Repair," our client didn't appear on the first page. They were losing customers to bigger, more expensive competitors every day.</p>
+            <img src="audit-1.png" alt="Search Ranking Proof" class="main-img">
+            <p class="caption">Our initial audit showed the business was buried beneath competitors.</p>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="label">Competitor Gap Analysis</div>
-        <div class="content">
-            <p>I conducted a technical reverse-engineering of <strong>888 competitors</strong>. I identified that rivals like <em>mapleleafappliances.ca</em> were winning due to superior local citation density and "Trust Flow" backlinks.</p>
-            <img src="competitors.png" alt="Competitor Comparison Table" class="work-img">
-            <p><small><i>Fig 2.1: Semantic Keyword Gap Analysis identifying missed opportunities in local Airdrie markets.</i></small></p>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="label">Implementation <br><span class="ai-badge">AI-Powered</span></div>
-        <div class="content">
-            <p>Using an engineering-first mindset, I implemented a three-tier "SEO 2.0" solution:</p>
-            <ol>
-                <li><strong>AI Landing Pages:</strong> Generated city-specific descriptions for 10+ service areas using custom LLM prompts.</li>
-                <li><strong>Visual Asset Synthesis:</strong> Replaced low-res stock photos with high-end, AI-generated imagery to boost user trust (CTR).</li>
-                <li><strong>Social Mapping:</strong> Established consistent multi-city social profiles to improve "NAP" (Name, Address, Phone) consistency.</li>
-            </ol>
-            <img src="ai-work.png" alt="AI Optimized Content Sample" class="work-img">
-            <p><small><i>Fig 3.1: Preview of AI-enhanced visual assets and service descriptions.</i></small></p>
-        </div>
-    </div>
-
-    <div class="row" style="border-bottom: none;">
-        <div class="label">Final Performance</div>
-        <div class="content">
-            <div class="metrics-grid">
-                <div class="metric-card"><span>998</span><label>Keywords</label></div>
-                <div class="metric-card"><span>670</span><label>Monthly Traffic</label></div>
-                <div class="metric-card"><span>$2.8K</span><label>Traffic Value</label></div>
-                <div class="metric-card"><span>+11%</span><label>Growth</label></div>
+        <div class="section">
+            <span class="badge">The Professional Upgrade</span>
+            <h2>Using AI to Build Trust</h2>
+            <p>We didn't just fix code; we improved how customers see the brand. We used <strong>Advanced AI Technology</strong> to create professional visuals and clear descriptions for every city they serve. This makes the business look like the high-end authority it truly is.</p>
+            
+            <div class="ai-gallery">
+                <img src="ai-work.png" class="ai-item" alt="AI Professional Visual 1">
+                <img src="ai-work1.png" class="ai-item" alt="AI Professional Visual 2">
+                <img src="ai-work2.png" class="ai-item" alt="AI Professional Visual 3">
             </div>
-            <img src="results-graph.png" alt="Semrush Growth Chart" class="work-img">
-            <p><small><i>Fig 4.1: Dec 23rd Semrush Report showing stabilized growth and 73% Non-Branded traffic success.</i></small></p>
+            <p class="caption">Custom AI-generated images used to modernize the website and build customer trust.</p>
         </div>
+
+        <div class="section">
+            <span class="badge">The Results</span>
+            <h2>Measurable Growth & Real Value</h2>
+            <p>In just 3 months, the website stopped being an expense and started being an asset. By cleaning up the technical "engine" of the site, we achieved these results:</p>
+            
+            <div class="stats-row">
+                <div class="stat-box"><span>998</span><label>Google Keywords</label></div>
+                <div class="stat-box"><span>+11%</span><label>More Traffic</label></div>
+                <div class="stat-box"><span>$2.8K</span><label>Monthly Value</label></div>
+            </div>
+
+            <img src="results-graph.png" alt="Growth Success Chart" class="main-img">
+            <p class="caption">Official data showing steady traffic growth over the last quarter.</p>
+            
+            <p style="margin-top:30px; border-top: 1px solid #eee; padding-top: 20px; font-weight: bold; text-align: center;">
+                Need these results for your business? <br>
+                <a href="index.html#contact" style="color: var(--brand-blue);">Contact Aji Paul for a free audit &rarr;</a>
+            </p>
+        </div>
+
     </div>
 </div>
 
-<div style="text-align: center; padding-bottom: 50px;">
-    <a href="index.html" style="text-decoration:none; color:var(--accent); font-weight:bold;">&larr; Back to Portfolio Dashboard</a>
-</div>
+<footer style="text-align: center; padding: 40px; color: #999;">
+    &copy; 2025 Aji Paul Portfolio | Built for Performance
+</footer>
 
 </body>
 </html>
