@@ -5,40 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Business Growth Report | Dial An Appliance Man</title>
     <style>
-        :root { --brand-blue: #0056b3; --text-main: #2d3436; --bg-gray: #f9f9f9; }
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: var(--text-main); line-height: 1.6; margin: 0; padding: 0; background-color: #fff; }
+        :root { --primary: #0056b3; --text: #2d3436; --gray: #f9f9f9; --border: #e1e4e8; }
         
-        .header-simple { background: #111; color: white; padding: 50px 20px; text-align: center; }
-        .container { max-width: 900px; margin: auto; padding: 20px; }
+        * { box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--text); line-height: 1.6; margin: 0; padding: 0; background-color: #f0f2f5; }
         
-        /* Box Layout */
-        .case-card { border: 1px solid #ddd; border-radius: 12px; overflow: hidden; margin-top: -30px; background: white; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
-        .section { padding: 40px; border-bottom: 1px solid #eee; }
-        .section:last-child { border-bottom: none; }
-        
-        h2 { color: var(--brand-blue); font-size: 1.8rem; margin-top: 0; }
-        .badge { background: #eef2ff; color: #4338ca; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; }
+        .header { background: #1a1a1a; color: white; padding: 40px 20px; text-align: center; }
+        .container { width: 100%; max-width: 800px; margin: auto; padding: 15px; }
 
-        /* The Big Numbers */
-        .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 30px 0; }
-        .stat-box { background: var(--bg-gray); padding: 20px; border-radius: 10px; text-align: center; border: 1px solid #eee; }
-        .stat-box span { display: block; font-size: 2rem; font-weight: bold; color: var(--brand-blue); }
-        .stat-box label { font-size: 0.8rem; color: #636e72; font-weight: bold; }
-
-        /* Images */
-        .main-img { width: 100%; border-radius: 8px; border: 1px solid #ddd; margin-top: 20px; }
-        .ai-gallery { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-top: 20px; }
-        .ai-item { width: 100%; border-radius: 8px; border: 1px solid #eee; height: 180px; object-fit: cover; }
+        /* Mobile-First Card Design */
+        .case-card { background: white; border-radius: 12px; overflow: hidden; margin-top: -20px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .section { padding: 25px 20px; border-bottom: 1px solid var(--border); }
         
-        p.caption { font-size: 0.85rem; color: #636e72; text-align: center; font-style: italic; margin-top: 10px; }
+        h2 { color: var(--primary); font-size: 1.5rem; margin-top: 0; margin-bottom: 15px; }
+        p { margin-bottom: 15px; font-size: 1rem; }
+        
+        .badge { display: inline-block; background: #eef2ff; color: #4338ca; padding: 4px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; margin-bottom: 10px; }
+
+        /* Fully Responsive Images */
+        .img-container { width: 100%; margin: 15px 0; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+        .img-container img { width: 100%; height: auto; display: block; object-fit: contain; }
+
+        /* AI Gallery - Stacks on Mobile */
+        .ai-gallery { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 15px; }
+        @media (min-width: 600px) { .ai-gallery { grid-template-columns: 1fr 1fr 1fr; } }
+        
+        .ai-item { width: 100%; border-radius: 8px; border: 1px solid var(--border); box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+
+        /* Simple Results Grid */
+        .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 20px 0; }
+        @media (min-width: 600px) { .stats { grid-template-columns: 1fr 1fr 1fr; } }
+        
+        .stat-box { background: var(--gray); padding: 15px; border-radius: 8px; text-align: center; border: 1px solid var(--border); }
+        .stat-box span { display: block; font-size: 1.5rem; font-weight: bold; color: var(--primary); }
+        .stat-box label { font-size: 0.75rem; color: #636e72; text-transform: uppercase; }
+
+        footer { text-align: center; padding: 40px 20px; color: #636e72; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
-<header class="header-simple">
+<header class="header">
     <div class="container">
-        <h1 style="margin:0;">Dial An Appliance Man: From Page 3 to Page 1</h1>
-        <p style="opacity:0.8;">How we transformed a local business into a digital leader in 90 days.</p>
+        <h1 style="margin:0; font-size: 1.8rem;">Project Case Study</h1>
+        <p style="opacity:0.8; margin-top: 10px;">Local Business Optimization Report</p>
     </div>
 </header>
 
@@ -46,51 +56,53 @@
     <div class="case-card">
 
         <div class="section">
-            <span class="badge">The Challenge</span>
-            <h2>The "Invisible" Business Problem</h2>
-            <p><strong>The Issue:</strong> Dial An Appliance Man is a top-rated service provider, but online, they were hidden. When customers in Calgary or Airdrie searched for "Fridge Repair," our client didn't appear on the first page. They were losing customers to bigger, more expensive competitors every day.</p>
-            <img src="audit-1.png" alt="Search Ranking Proof" class="main-img">
-            <p class="caption">Our initial audit showed the business was buried beneath competitors.</p>
+            <span class="badge">Client Profile</span>
+            <h2>Dial An Appliance Man</h2>
+            <p><strong>Location:</strong> Calgary, Airdrie, and Spruce Grove, Canada.</p>
+            <p><strong>The Business:</strong> An expert local service provider specializing in high-end appliance repairs for homeowners.</p>
+            <p><strong>Why they approached us:</strong> Despite years of great service, the company was struggling to be found by new customers online. They relied heavily on expensive paid ads and were virtually invisible in local organic search results.</p>
+            
+            <div class="img-container">
+                <img src="audit-1.png" alt="Initial Search Performance">
+            </div>
+            <p style="font-size: 0.85rem; color: #636e72; text-align: center; font-style: italic;">Initial audit showing limited visibility for local search terms.</p>
         </div>
 
         <div class="section">
-            <span class="badge">The Professional Upgrade</span>
-            <h2>Using AI to Build Trust</h2>
-            <p>We didn't just fix code; we improved how customers see the brand. We used <strong>Advanced AI Technology</strong> to create professional visuals and clear descriptions for every city they serve. This makes the business look like the high-end authority it truly is.</p>
+            <span class="badge">Modern Solution</span>
+            <h2>Professional Brand Upgrade</h2>
+            <p>To compete with national brands, we upgraded their digital image using <strong>Advanced AI tools</strong>. We generated high-quality, professional service imagery and city-specific descriptions to build immediate trust with local customers.</p>
             
             <div class="ai-gallery">
-                <img src="ai-work.png" class="ai-item" alt="AI Professional Visual 1">
-                <img src="ai-work1.png" class="ai-item" alt="AI Professional Visual 2">
-                <img src="ai-work2.png" class="ai-item" alt="AI Professional Visual 3">
+                <img src="ai-work.png" class="ai-item" alt="AI Professional Service 1">
+                <img src="ai-work1.png" class="ai-item" alt="AI Professional Service 2">
+                <img src="ai-work2.png" class="ai-item" alt="AI Professional Service 3">
             </div>
-            <p class="caption">Custom AI-generated images used to modernize the website and build customer trust.</p>
+            <p style="font-size: 0.85rem; color: #636e72; text-align: center; font-style: italic; margin-top: 10px;">Custom AI-generated assets created to build brand authority.</p>
         </div>
 
         <div class="section">
-            <span class="badge">The Results</span>
-            <h2>Measurable Growth & Real Value</h2>
-            <p>In just 3 months, the website stopped being an expense and started being an asset. By cleaning up the technical "engine" of the site, we achieved these results:</p>
+            <span class="badge">90-Day Results</span>
+            <h2>Real Business Value</h2>
+            <p>Our goal was to make the website a lead-generation machine. In 3 months, we stabilized their presence and increased their digital footprint significantly.</p>
             
-            <div class="stats-row">
-                <div class="stat-box"><span>998</span><label>Google Keywords</label></div>
+            <div class="stats">
+                <div class="stat-box"><span>998</span><label>Keywords</label></div>
                 <div class="stat-box"><span>+11%</span><label>More Traffic</label></div>
-                <div class="stat-box"><span>$2.8K</span><label>Monthly Value</label></div>
+                <div class="stat-box"><span>$2.8K</span><label>Ad Value</label></div>
             </div>
 
-            <img src="results-graph.png" alt="Growth Success Chart" class="main-img">
-            <p class="caption">Official data showing steady traffic growth over the last quarter.</p>
-            
-            <p style="margin-top:30px; border-top: 1px solid #eee; padding-top: 20px; font-weight: bold; text-align: center;">
-                Need these results for your business? <br>
-                <a href="index.html#contact" style="color: var(--brand-blue);">Contact Aji Paul for a free audit &rarr;</a>
-            </p>
+            <div class="img-container">
+                <img src="results-graph.png" alt="Performance Growth Chart">
+            </div>
+            <p style="font-size: 0.85rem; color: #636e72; text-align: center; font-style: italic;">Verified data showing consistent growth in online reach.</p>
         </div>
 
     </div>
 </div>
 
-<footer style="text-align: center; padding: 40px; color: #999;">
-    &copy; 2025 Aji Paul Portfolio | Built for Performance
+<footer>
+    <p>&copy; 2025 Aji Paul | <a href="index.html" style="color: var(--primary); text-decoration: none;">Return to Home</a></p>
 </footer>
 
 </body>
