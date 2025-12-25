@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,204 +6,288 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="nKm7MzLndhPXbTGfdIvEyhdbTuWd1fgOMhpKg3GPozM" />
     <link rel="canonical" href="https://ajipaul1.github.io/" />
-    <title>TechAuditPros | Clear Path. Strong Foundation.</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <title>TechAuditPros | Premium Website & SEO Audits</title>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
-        :root { --bg: #020408; --accent: #3b82f6; --glass: rgba(255, 255, 255, 0.03); }
-        body { background: var(--bg); color: #f8fafc; font-family: 'Inter', sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
-        .glass-card { background: var(--glass); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 2rem; }
-        .slider-wrap { position: relative; height: 400px; border-radius: 2rem; overflow: hidden; cursor: col-resize; }
-        #before-layer { position: absolute; inset: 0; background: #111; z-index: 20; width: 50%; border-right: 3px solid var(--accent); filter: grayscale(1); }
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        
-        /* AI Chat Styling */
-        #audit-brain { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); transform: translateY(20px); opacity: 0; pointer-events: none; }
-        #audit-brain.active { transform: translateY(0); opacity: 1; pointer-events: auto; }
-        
-        .hover-lift { transition: transform 0.3s ease; }
-        .hover-lift:hover { transform: translateY(-10px); }
+        :root {
+            --bg-dark: #020408;
+            --accent-blue: #3b82f6;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', -apple-system, sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        /* HEADER & LOGO */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 0;
+            backdrop-filter: blur(20px);
+            background: rgba(2, 4, 8, 0.8);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+        }
+
+        .logo-box img {
+            height: 40px;
+            object-fit: contain;
+        }
+
+        /* LAYOUT */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        section {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 0;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* TEXT STYLING */
+        h1, h2 {
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        h1 { font-size: 4.5rem; }
+        h2 { font-size: 3rem; }
+
+        .tagline {
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+            display: block;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        /* PREMIUM IMAGE BOX */
+        .img-container {
+            position: relative;
+            border-radius: 2rem;
+            overflow: hidden;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .img-container img {
+            width: 100%;
+            display: block;
+            transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .img-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .cta-btn {
+            padding: 16px 32px;
+            background: var(--accent-blue);
+            color: white;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s ease;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.5);
+        }
+
+        .full-width-content {
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        @media (max-width: 900px) {
+            .bento-grid { grid-template-columns: 1fr; gap: 40px; }
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.2rem; }
+            .img-container { order: 2; }
+            .text-block { order: 1; }
+        }
     </style>
 </head>
 <body>
 
-    <canvas id="three-canvas" class="fixed inset-0 z-0"></canvas>
+    <div id="canvas-container"></div>
 
-    <section class="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 text-center">
-        <div class="glass-card p-10 max-w-4xl reveal">
-            <div class="mb-6 flex justify-center"><i data-lucide="apple" class="w-12 h-12 text-blue-400"></i></div>
-            <h1 class="text-5xl md:text-7xl font-black mb-4">TechAuditPros</h1>
-            <p class="text-2xl text-blue-200 mb-6">We check your online business and fix what stops customers from finding you.</p>
-            <p class="text-gray-400 mb-8 max-w-2xl mx-auto">Before people call any business, they look at their phone. If your website or online presence is weak, confusing, or broken, they choose someone else.</p>
-            <p class="text-sm text-blue-400 uppercase tracking-widest mb-10">We help you make it clear, strong, and trustworthy — step by step.</p>
-            <div class="flex flex-wrap gap-4 justify-center">
-                <a href="case-studies.html" class="bg-blue-600 px-8 py-4 rounded-full font-bold hover:scale-105 transition inline-block">👉 See How We Help</a>
-                <a href="mailto:ajipaul96@gmail.com?subject=Free Audit Request" class="glass-card px-8 py-4 rounded-full font-bold inline-block hover:bg-white/5 transition">👉 Free Audit Check</a>
+    <header>
+        <div class="nav-container">
+            <div class="logo-box">
+                <img src="logo.jpg" alt="TechAuditPros Logo">
+            </div>
+            <div class="nav-links">
+                <a href="mailto:ajipaul96@gmail.com?subject=Free Audit Request" class="cta-btn" style="padding: 10px 24px; font-size: 0.9rem;">Free Audit Check</a>
             </div>
         </div>
-    </section>
+    </header>
 
-    <section class="relative z-10 py-24 px-6 max-w-4xl mx-auto text-center reveal">
-        <h2 class="text-blue-500 font-bold tracking-tighter mb-6 uppercase">The Simple Truth</h2>
-        <p class="text-2xl md:text-3xl leading-relaxed">Many businesses do good, honest work every day. But online, they look hard to understand, hard to find, or not trustworthy. Not because they are bad, but because nobody has properly checked and fixed their online presence.</p>
-        <p class="mt-8 text-xl text-blue-300">"People choose what they can understand. If they don’t understand you online, they move on."</p>
-    </section>
-
-    <section class="relative z-10 py-24 px-6 max-w-6xl mx-auto reveal">
-        <div class="glass-card p-12 overflow-hidden border-blue-500/20">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-3xl font-bold mb-6 italic">Engineering Growth: A Success Story</h2>
-                    <p class="text-gray-400 mb-6 text-lg">See how we helped a local service business in Canada eliminate <strong>$2.8K in monthly ad waste</strong> and rank for nearly 1,000 keywords through structural auditing.</p>
-                    <a href="case-studies.html" class="text-blue-400 font-bold flex items-center gap-2 hover:gap-4 transition-all">
-                        View Full Case Report <i data-lucide="arrow-right"></i>
-                    </a>
-                </div>
-                <div class="relative group">
-                    <img src="audit-1.png" alt="Case Study Preview" class="rounded-2xl opacity-50 group-hover:opacity-100 transition duration-500 shadow-2xl">
-                    <div class="absolute inset-0 flex items-center justify-center">
-                         <a href="case-studies.html" class="bg-white/10 backdrop-blur-md p-4 rounded-full border border-white/20"><i data-lucide="play" class="fill-white"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="relative z-10 py-24 px-6 max-w-5xl mx-auto reveal">
-        <div class="glass-card p-12 text-center">
-            <h2 class="text-3xl font-bold mb-6">What “Tech Audit” Really Means</h2>
-            <p class="text-gray-400 mb-8">A tech audit is not something to fear. It simply means checking carefully, finding what is wrong, and fixing it the right way. Just like checking a building before people enter, or checking a machine before it breaks.</p>
-            <a href="mailto:ajipaul96@gmail.com?subject=Audit Inquiry" class="bg-white/10 px-6 py-3 rounded-full text-sm font-bold inline-block">👉 Free Audit Check</a>
-        </div>
-    </section>
-
-    <section id="help" class="relative z-10 py-24 px-6 max-w-6xl mx-auto grid md:grid-cols-3 gap-6 reveal">
-        <div class="glass-card p-8 hover-lift">
-            <h3 class="text-xl font-bold mb-4">1. Understand</h3>
-            <p class="text-gray-400">We make your work clear. What you do, who you help, and why you can be trusted. Your website explains it for you.</p>
-        </div>
-        <div class="glass-card p-8 hover-lift">
-            <h3 class="text-xl font-bold mb-4">2. Find</h3>
-            <p class="text-gray-400">When someone is searching for help, your business should not be hidden. We help you appear clearly when people are looking for you.</p>
-        </div>
-        <div class="glass-card p-8 hover-lift">
-            <h3 class="text-xl font-bold mb-4">3. Calm</h3>
-            <p class="text-gray-400">Technology should not be stressful. We explain in simple words and handle the difficult parts so you can focus on real work.</p>
-        </div>
-    </section>
-
-    <section class="relative z-10 py-24 px-6 max-w-6xl mx-auto reveal">
-        <h2 class="text-center text-3xl font-bold mb-12">Who Can Ask For Our Help</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="glass-card p-6 text-center text-sm">Local Services</div>
-            <div class="glass-card p-6 text-center text-sm">Small Shops</div>
-            <div class="glass-card p-6 text-center text-sm">Consultants</div>
-            <div class="glass-card p-6 text-center text-sm">Growing Businesses</div>
-        </div>
-    </section>
-
-    <section class="relative z-10 py-24 px-6 max-w-5xl mx-auto reveal">
-        <div class="slider-wrap glass-card" id="slider">
-            <div class="absolute inset-0 flex items-center justify-center bg-blue-600/10">
-                <div class="text-center">
-                    <p class="text-emerald-400 font-bold uppercase">After</p>
-                    <h3 class="text-4xl font-black">Solid & Reliable</h3>
-                </div>
-            </div>
-            <div id="before-layer" class="flex items-center justify-center">
-                <div class="text-center">
-                    <p class="text-red-400 font-bold uppercase">Before</p>
-                    <h3 class="text-4xl font-black">Unsure & Hidden</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="relative z-10 py-24 px-6 max-w-4xl mx-auto text-center reveal">
-        <h2 class="text-3xl font-bold mb-8">How We Work</h2>
-        <p class="text-gray-400 mb-12 leading-loose">We don’t rush. We don’t confuse. We don’t promise things we can’t deliver. We check carefully, explain clearly, and fix things properly. Simple work. Honest guidance. Peace of mind.</p>
+    <div class="container">
         
-        <div class="glass-card p-12 mt-12">
-            <h3 class="text-2xl font-bold mb-6">Next Step</h3>
-            <p class="mb-8">We listen first, tell you honestly what needs attention, and guide you step by step.</p>
-            <div class="flex flex-wrap gap-4 justify-center">
-                <a href="mailto:ajipaul96@gmail.com?subject=Free Audit Request" class="bg-blue-600 px-8 py-4 rounded-full font-bold inline-block transition hover:bg-blue-500">👉 Free Audit Check</a>
-                <a href="mailto:ajipaul96@gmail.com?subject=Question for TechAuditPros" class="glass-card px-8 py-4 rounded-full font-bold inline-block hover:bg-white/5 transition">👉 Talk With TechAuditPros</a>
+        <section>
+            <div class="bento-grid">
+                <div class="text-block">
+                    <span class="tagline">The Mission</span>
+                    <h1>Respecting the Craft</h1>
+                    <p>You are a genuinely skilled person—a plumber, consultant, or repair expert. While you build our community, the digital landscape is shifting. We uncover what is stopping customers from reaching you.</p>
+                </div>
+                <div class="img-container">
+                    <img src="Craft-hero.jpg" alt="Professional Craftsmanship">
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <div class="fixed bottom-8 right-8 z-50">
-        <div id="audit-brain" class="glass-card w-80 h-96 mb-4 p-6 flex flex-col shadow-2xl">
-            <div class="flex-1 overflow-y-auto space-y-4" id="chat-content">
-                <p class="text-sm bg-blue-900/30 p-3 rounded-xl border border-blue-500/20">
-                    I am the <strong>Audit Brain</strong>. I monitor digital fog. How can I assist your business foundation today?
-                </p>
+        <section>
+            <div class="bento-grid">
+                <div class="img-container">
+                    <img src="technical-gap.jpg" alt="Technical Front">
+                </div>
+                <div class="text-block">
+                    <span class="tagline">Competitive Gap</span>
+                    <h2>The Technical Front</h2>
+                    <p>While you focus on excellent service, others are building technical paths way ahead of you. We identify exactly where they are out-building you and ensure your presence is as strong as your work.</p>
+                </div>
             </div>
-            <div class="mt-4 border-t border-white/10 pt-4">
-                <input type="text" id="chat-input" placeholder="Ask the brain..." class="bg-transparent w-full outline-none text-sm text-white">
+        </section>
+
+        <section id="audit">
+            <div class="bento-grid">
+                <div class="text-block">
+                    <span class="tagline">Free Evaluation</span>
+                    <h2>A Professional Look, On Us</h2>
+                    <p>We honor your hard work with a Free Technical Audit. No high-pressure sales, just a deep, respectful look at your digital foundation so you can decide your next step with confidence.</p>
+                    <a href="mailto:ajipaul96@gmail.com?subject=Free Audit Request" class="cta-btn">Get My Free Report</a>
+                </div>
+                <div class="img-container">
+                    <img src="audit-report.jpg" alt="Audit Clarity">
+                </div>
             </div>
-        </div>
-        <button onclick="toggleBrain()" class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center hover:rotate-12 transition-all shadow-xl shadow-blue-500/20">
-            <i data-lucide="brain-circuit" class="text-white"></i>
-        </button>
+        </section>
+
+        <section>
+            <div class="bento-grid">
+                <div class="img-container">
+                    <img src="shared-roadmap.jpg" alt="Collaborative Roadmap">
+                </div>
+                <div class="text-block">
+                    <span class="tagline">Collaboration</span>
+                    <h2>Your Wisdom, Our Engineering</h2>
+                    <p>If you have specific methods or SEO knowledge, we welcome your guidance. We view your suggestions as respected stones in our shared roadmap. We grow alongside you.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="full-width-content">
+                <span class="tagline">The Identity</span>
+                <h2>A Partner, Not an Agency</h2>
+                <p>We care about people who take their work seriously. If you want a team that listens, adapts, and fights with you — not over you — you are in the right place.</p>
+                <div style="margin-top: 40px; border-top: 1px solid var(--border); padding-top: 40px;">
+                    <i data-lucide="shield-check" class="w-12 h-12 text-blue-500 mx-auto mb-4"></i>
+                    <p class="text-sm italic">"Good work should not be hidden. We help you show it clearly."</p>
+                </div>
+            </div>
+        </section>
+
     </div>
 
-    <footer class="relative z-10 py-12 border-t border-white/10 text-center">
-        <p class="italic text-xl mb-8">"Good work should not be hidden. We help you show it clearly."</p>
-        <div class="flex justify-center gap-8 text-sm text-gray-500">
-            <a href="case-studies.html" class="hover:text-white transition-colors">Case Studies</a> 
-            <a href="#" class="hover:text-white transition-colors">About Us</a> 
-            <a href="#" class="hover:text-white transition-colors">Contact</a>
+    <footer class="py-12 border-t border-white/10 text-center">
+        <div class="flex justify-center gap-8 text-sm text-slate-500">
+            <a href="#" class="hover:text-white transition">About Us</a> 
+            <a href="#" class="hover:text-white transition">Contact</a>
+            <a href="#" class="hover:text-white transition">Privacy</a>
         </div>
     </footer>
 
     <script>
+        // Initialize Lucide Icons
         lucide.createIcons();
-        
+
+        // THREE.JS Background
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({canvas: document.getElementById('three-canvas'), alpha:true});
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
-        const particles = new THREE.Points(new THREE.BufferGeometry().setAttribute('position', new THREE.BufferAttribute(new Float32Array(3000).map(()=>(Math.random()-0.5)*10), 3)), new THREE.PointsMaterial({size:0.005, color:0x3b82f6}));
-        scene.add(particles); camera.position.z = 3;
-        function animate() { requestAnimationFrame(animate); particles.rotation.y += 0.001; renderer.render(scene, camera); } animate();
-        
-        const slider = document.getElementById('slider');
-        slider.addEventListener('mousemove', e => { 
-            const rect = slider.getBoundingClientRect();
-            document.getElementById('before-layer').style.width = ((e.clientX - rect.left)/slider.offsetWidth)*100 + '%'; 
-        });
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
 
-        const obs = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('active')), {threshold:0.1});
-        document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
-
-        function toggleBrain() {
-            document.getElementById('audit-brain').classList.toggle('active');
+        const starGeometry = new THREE.BufferGeometry();
+        const starVertices = [];
+        for (let i = 0; i < 3000; i++) {
+            starVertices.push((Math.random() - 0.5) * 2000);
+            starVertices.push((Math.random() - 0.5) * 2000);
+            starVertices.push((Math.random() - 0.5) * 2000);
         }
+        starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
+        const stars = new THREE.Points(starGeometry, new THREE.PointsMaterial({ color: 0x3b82f6, size: 0.7 }));
+        scene.add(stars);
 
-        const chatInput = document.getElementById('chat-input');
-        chatInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter' && chatInput.value.trim() !== "") {
-                const msg = chatInput.value;
-                const content = document.getElementById('chat-content');
-                const userP = document.createElement('p');
-                userP.className = "text-sm bg-white/5 p-2 rounded-lg text-right ml-8";
-                userP.innerText = msg;
-                content.appendChild(userP);
-                chatInput.value = "";
+        camera.position.z = 1;
 
-                setTimeout(() => {
-                    const brainP = document.createElement('p');
-                    brainP.className = "text-sm bg-blue-900/30 p-3 rounded-xl border border-blue-500/20 mr-8";
-                    brainP.innerHTML = "Analyzing <em>'" + msg + "'</em>... To get a deep audit of this specific issue, please click <strong>Free Audit Check</strong> above.";
-                    content.appendChild(brainP);
-                    content.scrollTop = content.scrollHeight;
-                }, 600);
-            }
-        });
+        function animate() {
+            requestAnimationFrame(animate);
+            stars.rotation.y += 0.0002;
+            renderer.render(scene, camera);
+        }
+        animate();
 
         window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
