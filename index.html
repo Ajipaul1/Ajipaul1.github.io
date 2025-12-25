@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,27 +6,30 @@
     <meta name="google-site-verification" content="nKm7MzLndhPXbTGfdIvEyhdbTuWd1fgOMhpKg3GPozM" />
     <link rel="canonical" href="https://ajipaul1.github.io/" />
     
-    <title>TechAuditPros | Premium Website & SEO Audits</title>
+    <title>TechAuditPros | AI-Driven Technical Audits</title>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700;800&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg-dark: #020408;
+            --bg-dark: #010204;
             --accent-blue: #3b82f6;
             --glass: rgba(255, 255, 255, 0.03);
-            --border: rgba(255, 255, 255, 0.1);
-            --text-main: #f8fafc;
+            --border: rgba(255, 255, 255, 0.08);
+            --text-main: #ffffff;
             --text-dim: #94a3b8;
         }
+
+        * { box-sizing: border-box; }
 
         body, html {
             margin: 0;
             padding: 0;
             background-color: var(--bg-dark);
             color: var(--text-main);
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
@@ -36,23 +38,26 @@
             position: fixed;
             top: 0;
             left: 0;
-            z-index: -1;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
         }
 
-        /* HEADER & LOGO */
+        /* ADVANCED HEADER */
         header {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 15px 0;
-            backdrop-filter: blur(20px);
-            background: rgba(2, 4, 8, 0.8);
+            padding: 20px 0;
+            backdrop-filter: blur(15px);
+            background: rgba(1, 2, 4, 0.75);
             border-bottom: 1px solid var(--border);
-            z-index: 100;
+            z-index: 9999; /* Force to top */
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -60,20 +65,49 @@
             padding: 0 40px;
         }
 
-        .logo-box img {
-            height: 40px;
-            object-fit: contain;
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
         }
 
-        /* LAYOUT */
+        .logo-box img {
+            height: 42px;
+            width: auto;
+            display: block;
+            filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.5));
+        }
+
+        .brand-name {
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--text-main);
+            letter-spacing: -1px;
+        }
+
+        /* SCROLL REVEAL ANIMATION */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .container {
+            position: relative;
+            z-index: 10;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 40px;
         }
 
         section {
-            min-height: 90vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             padding: 100px 0;
@@ -82,87 +116,106 @@
         .bento-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            gap: 100px;
             align-items: center;
             width: 100%;
         }
 
-        /* TEXT STYLING */
-        h1, h2 {
+        h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
             font-weight: 800;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-            margin-bottom: 24px;
+            line-height: 0.95;
+            margin-bottom: 30px;
+            background: linear-gradient(180deg, #fff 0%, #64748b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        h1 { font-size: 4.5rem; }
-        h2 { font-size: 3rem; }
+        h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
 
         .tagline {
             color: var(--accent-blue);
             text-transform: uppercase;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.3em;
             font-size: 0.8rem;
-            margin-bottom: 15px;
-            display: block;
-            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         p {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: var(--text-dim);
-            line-height: 1.7;
-            margin-bottom: 30px;
+            line-height: 1.6;
+            margin-bottom: 40px;
         }
 
-        /* PREMIUM IMAGE BOX */
-        .img-container {
+        /* PREMIUM IMAGE HOVER EFFECT */
+        .img-wrapper {
             position: relative;
-            border-radius: 2rem;
-            overflow: hidden;
-            background: var(--glass);
+            border-radius: 30px;
+            padding: 10px;
+            background: linear-gradient(135deg, rgba(59,130,246,0.2), transparent);
             border: 1px solid var(--border);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        .img-container {
+            border-radius: 20px;
+            overflow: hidden;
+            background: #000;
         }
 
         .img-container img {
             width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
-            transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.8s ease;
         }
 
-        .img-container:hover img {
-            transform: scale(1.05);
+        .img-wrapper:hover img {
+            transform: scale(1.1);
         }
 
         .cta-btn {
-            padding: 16px 32px;
+            position: relative;
+            padding: 18px 38px;
             background: var(--accent-blue);
-            color: white;
-            border-radius: 9999px;
+            color: #fff;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            transition: 0.3s ease;
-            display: inline-block;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            border: none;
+            overflow: hidden;
         }
 
         .cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4);
         }
 
         .full-width-content {
-            max-width: 850px;
+            max-width: 900px;
             margin: 0 auto;
             text-align: center;
         }
 
-        @media (max-width: 900px) {
-            .bento-grid { grid-template-columns: 1fr; gap: 40px; }
-            h1 { font-size: 3rem; }
-            h2 { font-size: 2.2rem; }
-            .img-container { order: 2; }
-            .text-block { order: 1; }
+        @media (max-width: 968px) {
+            .bento-grid { grid-template-columns: 1fr; gap: 50px; text-align: center; }
+            .tagline { justify-content: center; }
+            .img-wrapper { order: 2; }
+            h1 { font-size: 3.5rem; }
         }
     </style>
 </head>
@@ -172,122 +225,162 @@
 
     <header>
         <div class="nav-container">
-            <div class="logo-box">
-                <img src="logo.jpg" alt="TechAuditPros Logo">
-            </div>
+            <a href="#" class="brand">
+                <div class="logo-box">
+                    <img src="logo.jpg" alt="TechAuditPros Logo">
+                </div>
+                <span class="brand-name">TechAuditPros</span>
+            </a>
             <div class="nav-links">
-                <a href="mailto:ajipaul96@gmail.com?subject=Free Audit Request" class="cta-btn" style="padding: 10px 24px; font-size: 0.9rem;">Free Audit Check</a>
+                <a href="mailto:ajipaul96@gmail.com" class="cta-btn" style="padding: 10px 24px; font-size: 0.85rem;">
+                    Free Audit <i data-lucide="zap" style="width:16px;"></i>
+                </a>
             </div>
         </div>
     </header>
 
     <div class="container">
         
-        <section>
+        <section class="reveal">
             <div class="bento-grid">
                 <div class="text-block">
-                    <span class="tagline">The Mission</span>
+                    <span class="tagline"><i data-lucide="activity"></i> The Mission</span>
                     <h1>Respecting the Craft</h1>
-                    <p>You are a genuinely skilled person—a plumber, consultant, or repair expert. While you build our community, the digital landscape is shifting. We uncover what is stopping customers from reaching you.</p>
+                    <p>You are a genuinely skilled person—a plumber, consultant, or repair expert. While you build our community, the digital landscape is shifting. We uncover the friction stopping customers from reaching you.</p>
                 </div>
-                <div class="img-container">
-                    <img src="Craft-hero.jpg" alt="Professional Craftsmanship">
+                <div class="img-wrapper">
+                    <div class="img-container">
+                        <img src="Craft-hero.jpg" alt="Professional Craftsmanship">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section>
+        <section class="reveal">
             <div class="bento-grid">
-                <div class="img-container">
-                    <img src="technical-gap.jpg" alt="Technical Front">
+                <div class="img-wrapper">
+                    <div class="img-container">
+                        <img src="technical-gap.jpg" alt="Technical Frontier">
+                    </div>
                 </div>
                 <div class="text-block">
-                    <span class="tagline">Competitive Gap</span>
+                    <span class="tagline"><i data-lucide="shield-alert"></i> Technical Gap</span>
                     <h2>The Technical Front</h2>
-                    <p>While you focus on excellent service, others are building technical paths way ahead of you. We identify exactly where they are out-building you and ensure your presence is as strong as your work.</p>
+                    <p>While you focus on excellence, competitors are building invisible technical paths ahead of you. We identify exactly where they are out-building you and ensure your presence matches your real-world skill.</p>
                 </div>
             </div>
         </section>
 
-        <section id="audit">
+        <section id="audit" class="reveal">
             <div class="bento-grid">
                 <div class="text-block">
-                    <span class="tagline">Free Evaluation</span>
+                    <span class="tagline"><i data-lucide="file-search"></i> Advanced Analysis</span>
                     <h2>A Professional Look, On Us</h2>
-                    <p>We honor your hard work with a Free Technical Audit. No high-pressure sales, just a deep, respectful look at your digital foundation so you can decide your next step with confidence.</p>
-                    <a href="mailto:ajipaul96@gmail.com?subject=Free Audit Request" class="cta-btn">Get My Free Report</a>
+                    <p>We honor your hard work with a Free Technical Audit. No high-pressure scripts—just a deep, respectful analysis of your foundation so you can lead with confidence.</p>
+                    <a href="mailto:ajipaul96@gmail.com?subject=Free Audit Request" class="cta-btn">
+                        Get My Free Report <i data-lucide="arrow-right"></i>
+                    </a>
                 </div>
-                <div class="img-container">
-                    <img src="audit-report.jpg" alt="Audit Clarity">
+                <div class="img-wrapper">
+                    <div class="img-container">
+                        <img src="audit-report.jpg" alt="Audit Data">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section>
+        <section class="reveal">
             <div class="bento-grid">
-                <div class="img-container">
-                    <img src="shared-roadmap.jpg" alt="Collaborative Roadmap">
+                <div class="img-wrapper">
+                    <div class="img-container">
+                        <img src="shared-roadmap.jpg" alt="Growth Roadmap">
+                    </div>
                 </div>
                 <div class="text-block">
-                    <span class="tagline">Collaboration</span>
+                    <span class="tagline"><i data-lucide="users"></i> Partnership</span>
                     <h2>Your Wisdom, Our Engineering</h2>
-                    <p>If you have specific methods or SEO knowledge, we welcome your guidance. We view your suggestions as respected stones in our shared roadmap. We grow alongside you.</p>
+                    <p>We integrate your market knowledge into our technical roadmap. We don't just work for you; we grow alongside you, building respected stones in our shared digital path.</p>
                 </div>
             </div>
         </section>
 
-        <section>
+        <section class="reveal">
             <div class="full-width-content">
-                <span class="tagline">The Identity</span>
+                <span class="tagline"><i data-lucide="globe"></i> Identity</span>
                 <h2>A Partner, Not an Agency</h2>
-                <p>We care about people who take their work seriously. If you want a team that listens, adapts, and fights with you — not over you — you are in the right place.</p>
-                <div style="margin-top: 40px; border-top: 1px solid var(--border); padding-top: 40px;">
-                    <i data-lucide="shield-check" class="w-12 h-12 text-blue-500 mx-auto mb-4"></i>
-                    <p class="text-sm italic">"Good work should not be hidden. We help you show it clearly."</p>
+                <p>We are built for people who take their work seriously. If you want a team that listens, handles the tech, and stands with you — not over you — you are in the right place.</p>
+                <div style="margin-top: 60px; padding: 40px; border: 1px solid var(--border); border-radius: 40px; background: var(--glass);">
+                    <i data-lucide="heart" class="w-12 h-12 text-blue-500 mb-4"></i>
+                    <p class="italic" style="font-size: 1.4rem;">"Good work should not be hidden. We help you show it clearly."</p>
                 </div>
             </div>
         </section>
 
     </div>
 
-    <footer class="py-12 border-t border-white/10 text-center">
-        <div class="flex justify-center gap-8 text-sm text-slate-500">
-            <a href="#" class="hover:text-white transition">About Us</a> 
-            <a href="#" class="hover:text-white transition">Contact</a>
-            <a href="#" class="hover:text-white transition">Privacy</a>
+    <footer class="py-20 border-t border-white/5 text-center relative z-10">
+        <div class="flex justify-center gap-10 text-sm text-slate-500">
+            <a href="#" class="hover:text-blue-400 transition">About Us</a> 
+            <a href="#" class="hover:text-blue-400 transition">Contact</a>
+            <a href="#" class="hover:text-blue-400 transition">Privacy</a>
         </div>
     </footer>
 
     <script>
-        // Initialize Lucide Icons
         lucide.createIcons();
 
-        // THREE.JS Background
+        // --- ADVANCED THREE.JS BACKGROUND (Digital Constellation) ---
         const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 2000);
         const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.getElementById('canvas-container').appendChild(renderer.domElement);
 
-        const starGeometry = new THREE.BufferGeometry();
-        const starVertices = [];
-        for (let i = 0; i < 3000; i++) {
-            starVertices.push((Math.random() - 0.5) * 2000);
-            starVertices.push((Math.random() - 0.5) * 2000);
-            starVertices.push((Math.random() - 0.5) * 2000);
-        }
-        starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
-        const stars = new THREE.Points(starGeometry, new THREE.PointsMaterial({ color: 0x3b82f6, size: 0.7 }));
-        scene.add(stars);
+        const group = new THREE.Group();
+        scene.add(group);
 
-        camera.position.z = 1;
+        const pointCount = 120;
+        const points = new Float32Array(pointCount * 3);
+        for(let i=0; i < pointCount * 3; i++) {
+            points[i] = (Math.random() - 0.5) * 800;
+        }
+
+        const geometry = new THREE.BufferGeometry();
+        geometry.setAttribute('position', new THREE.BufferAttribute(points, 3));
+
+        const material = new THREE.PointsMaterial({ color: 0x3b82f6, size: 3 });
+        const particleSystem = new THREE.Points(geometry, material);
+        group.add(particleSystem);
+
+        // Connect lines
+        const lineMaterial = new THREE.LineBasicMaterial({ color: 0x3b82f6, transparent: true, opacity: 0.15 });
+        const lineGeometry = new THREE.BufferGeometry();
+        const linePositions = new Float32Array(pointCount * pointCount * 3);
+        lineGeometry.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
+        const lineSystem = new THREE.LineSegments(lineGeometry, lineMaterial);
+        group.add(lineSystem);
+
+        camera.position.z = 400;
 
         function animate() {
             requestAnimationFrame(animate);
-            stars.rotation.y += 0.0002;
+            group.rotation.y += 0.0005;
+            group.rotation.x += 0.0002;
             renderer.render(scene, camera);
         }
         animate();
+
+        // --- SCROLL REVEAL OBSERVER ---
+        const observerOptions = { threshold: 0.15 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
         window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
@@ -297,3 +390,4 @@
     </script>
 </body>
 </html>
+
