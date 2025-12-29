@@ -1,122 +1,102 @@
-/* --- 1. THE FOUNDATION: CORE THEME --- */
+/* =========================
+   ROOT VARIABLES
+========================= */
 :root {
-    --primary-glow: #3b82f6;      /* Biblical blue / Truth */
-    --secondary-glow: #a855f7;    /* Authority / Purple */
-    --bg-deep: #020408;           /* Deep Foundation */
-    --glass-fill: rgba(255, 255, 255, 0.03);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --text-main: #f8fafc;
+  --bg-dark: #05070a;
+  --bg-panel: rgba(255, 255, 255, 0.04);
+  --border-soft: rgba(255, 255, 255, 0.08);
+
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+  --text-soft: #bfc5cf;
+
+  --accent-blue: #3b82f6;
+  --accent-blue-soft: rgba(59, 130, 246, 0.25);
+
+  --radius-lg: 16px;
+  --radius-md: 12px;
+
+  --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.35);
+  --shadow-hover: 0 30px 60px rgba(0, 0, 0, 0.45);
 }
 
-/* --- 2. THE VISIONARY APPLE LOGO GLOW --- */
-/* This creates a soft, breathing light around your central symbol */
-.logo-container {
-    position: relative;
-    z-index: 10;
-    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+/* =========================
+   RESET
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.logo-container::after {
-    content: '';
-    position: absolute;
-    inset: -20px;
-    background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
-    opacity: 0.2;
-    filter: blur(20px);
-    animation: breathe 4s ease-in-out infinite;
+/* =========================
+   BASE
+========================= */
+html {
+  scroll-behavior: smooth;
 }
 
-@keyframes breathe {
-    0%, 100% { opacity: 0.1; transform: scale(1); }
-    50% { opacity: 0.3; transform: scale(1.1); }
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-/* --- 3. BENTO GRID: HIGH-END CARDS --- */
-/* This uses the "Apple-style" container queries logic */
-.bento-card {
-    background: var(--glass-fill);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
-    border-radius: 2rem;
-    padding: 2.5rem;
-    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-    position: relative;
-    overflow: hidden;
+/* =========================
+   GLOBAL TEXT
+========================= */
+h1, h2, h3 {
+  font-weight: 500;
+  letter-spacing: -0.02em;
 }
 
-.bento-card:hover {
-    transform: translateY(-10px);
-    border-color: rgba(59, 130, 246, 0.5);
-    background: rgba(255, 255, 255, 0.06);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+h1 {
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
 }
 
-/* The "Neural Path" hover effect on cards */
-.bento-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: -100%;
-    width: 100%; height: 100%;
-    background: linear-gradient(
-        90deg, 
-        transparent, 
-        rgba(255,255,255,0.05), 
-        transparent
-    );
-    transition: 0.5s;
+h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  margin-bottom: 24px;
 }
 
-.bento-card:hover::before {
-    left: 100%;
+p {
+  font-size: 1.05rem;
+  color: var(--text-soft);
+  max-width: 720px;
 }
 
-/* --- 4. THE AUDIT SLIDER: CLARITY TRANSITION --- */
-.slider-wrap {
-    box-shadow: 0 0 50px rgba(59, 130, 246, 0.1);
-    cursor: col-resize;
+strong {
+  color: var(--text-main);
+  font-weight: 500;
 }
 
-#before-layer {
-    transition: width 0.1s ease-out; /* Smooths out mouse tracking */
-    box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+.muted {
+  color: var(--text-muted);
 }
 
-/* --- 5. MAGNETIC BUTTONS: THE PULL --- */
-.btn-visionary {
-    position: relative;
-    background: var(--primary-glow);
-    color: white;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+/* =========================
+   LAYOUT
+========================= */
+section {
+  padding: 110px 20px;
+  max-width: 1100px;
+  margin: auto;
 }
 
-.btn-visionary:hover {
-    box-shadow: 0 15px 30px rgba(59, 130, 246, 0.5);
-    transform: scale(1.02);
+/* =========================
+   HERO
+========================= */
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
 }
 
-/* --- 6. TYPOGRAPHY: THE BIBLICAL RHYTHM --- */
-h1, h2 {
-    letter-spacing: -0.05em;
-    line-height: 0.9;
-}
-
-.reveal-text {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.reveal-text.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* --- 7. ACCESSIBILITY & MOTION --- */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation: none !important;
-        transition: none !important;
-    }
-}
+.hero video {
+  position:
