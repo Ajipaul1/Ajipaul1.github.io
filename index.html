@@ -1,278 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="nKm7MzLndhPXbTGfdIvEyhdbTuWd1fgOMhpKg3GPozM" />
-    <link rel="canonical" href="https://ajipaul1.github.io/" />
-    
-    <title>TechAuditPros | Architectural SEO & Technical Integrity</title>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            --bg: #020408;
-            --accent: #3b82f6;
-            --glass: rgba(255, 255, 255, 0.03);
-            --border: rgba(255, 255, 255, 0.1);
-            --text-main: #ffffff;
-            --text-dim: #94a3b8;
-        }
+  <!-- BASIC META -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+  <title>TechAuditPros | Website & SEO Audits for Businesses</title>
 
-        body {
-            background-color: var(--bg);
-            color: var(--text-main);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            overflow-x: hidden;
-            line-height: 1.5;
-        }
+  <meta name="description" content="TechAuditPros helps businesses understand their website, SEO, and online presence. Honest website and SEO audits to improve clarity, trust, and visibility.">
 
-        #canvas-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            pointer-events: none;
-        }
+  <!-- GOOGLE SEARCH CONSOLE VERIFICATION -->
+  <meta name="google-site-verification" content="nKm7MzLndhPXbTGfdIvEyhdbTuWd1fgOMhpKg3GPozM" />
 
-        /* --- ADVANCED CINEMATIC HEADER --- */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1.5rem 0;
-            backdrop-filter: blur(20px);
-            background: rgba(2, 4, 8, 0.8);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-        }
+  <!-- CANONICAL -->
+  <link rel="canonical" href="https://ajipaul1.github.io/" />
 
-        .nav-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 5%;
-        }
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="favicon.png">
 
-        .brand-frame {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 8px 16px;
-            background: var(--glass);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-        }
+  <!-- GOOGLE FONTS (OPTIMIZED) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-        .brand-frame img { height: 32px; filter: drop-shadow(0 0 10px var(--accent)); }
-        .brand-frame span { font-weight: 800; letter-spacing: -0.5px; text-transform: uppercase; font-size: 1.1rem; }
+  <!-- GOOGLE ANALYTICS 4 (ADD ID LATER) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
 
-        /* --- HERO BRANDING TEMPLATE --- */
-        .hero-branding {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            z-index: 10;
-        }
+  <style>
+    :root {
+      --bg-dark: #05070a;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --accent: #3b82f6;
+    }
 
-        .branding-template {
-            padding: 4rem;
-            border: 1px solid var(--border);
-            background: radial-gradient(circle at center, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
-            border-radius: 40px;
-            backdrop-filter: blur(5px);
-            max-width: 900px;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        /* --- REDUCED SPACE LAYOUT --- */
-        .container { position: relative; z-index: 10; max-width: 1200px; margin: 0 auto; padding: 0 5%; }
-        
-        section { 
-            padding: 60px 0; /* Tight spacing as requested */
-            min-height: auto; 
-            display: block;
-        }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
 
-        .bento-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            margin-bottom: 40px;
-        }
+    section {
+      padding: 100px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
 
-        .reveal { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
 
-        h1 { font-size: clamp(3rem, 10vw, 5.5rem); font-weight: 800; letter-spacing: -4px; margin-bottom: 1.5rem; line-height: 1; }
-        h2 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; letter-spacing: -2px; margin-bottom: 1rem; }
-        h3 { font-size: 1.1rem; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; }
-        
-        p { color: var(--text-dim); font-size: 1.1rem; margin-bottom: 1.5rem; max-width: 550px; }
+    .hero video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.55;
+    }
 
-        .img-frame {
-            border-radius: 24px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-        }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
 
-        .img-frame img { width: 100%; display: block; transition: 1s transform; }
-        .img-frame:hover img { transform: scale(1.03); }
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
 
-        .cta-btn {
-            padding: 16px 32px;
-            background: var(--accent);
-            color: white;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: 0.3s;
-        }
+    .hero p {
+      max-width: 720px;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
 
-        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4); }
+    /* AUDIT SEARCH BAR */
+    .audit-form {
+      display: flex;
+      max-width: 520px;
+      width: 100%;
+      margin-top: 25px;
+    }
 
-        @media (max-width: 968px) {
-            .bento-grid { grid-template-columns: 1fr; text-align: center; }
-            p { margin: 0 auto 1.5rem; }
-            .branding-template { padding: 2rem; margin: 0 20px; }
-        }
-    </style>
+    .audit-form input {
+      flex: 1;
+      padding: 16px;
+      border-radius: 8px 0 0 8px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    .audit-form button {
+      padding: 16px 22px;
+      border: none;
+      background: var(--accent);
+      color: white;
+      font-weight: 500;
+      cursor: pointer;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .muted {
+      color: var(--text-muted);
+    }
+
+    footer {
+      border-top: 1px solid #111827;
+      padding: 60px 20px;
+      text-align: center;
+      color: var(--text-muted);
+    }
+  </style>
+
 </head>
+
 <body>
 
-    <div id="canvas-container"></div>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <video autoplay muted loop playsinline>
+      <source src="hero-video.mp4" type="video/mp4">
+    </video>
 
-    <header>
-        <div class="nav-inner">
-            <div class="brand-frame">
-                <img src="logo.jpg" alt="Logo">
-                <span>TechAuditPros</span>
-            </div>
-            <a href="mailto:ajipaul96@gmail.com" class="cta-btn" style="padding: 10px 20px; font-size: 0.8rem;">INITIATE AUDIT</a>
-        </div>
-    </header>
+    <div class="hero-content">
+      <h1>TechAuditPros</h1>
 
-    <div class="hero-branding reveal">
-        <div class="branding-template">
-            <h3>Strategic Integrity</h3>
-            <h1>Respecting the Craft.</h1>
-            <p style="margin: 0 auto 2rem;">Architectural Digital Auditing for those who value precision. We bridge the gap between your real-world mastery and your digital presence.</p>
-            <a href="#diagnostics" class="cta-btn">EXPLORE THE FRAMEWORK <i data-lucide="chevron-right"></i></a>
-        </div>
+      <p><strong>We help good businesses get found and trusted online.</strong></p>
+
+      <p>
+        Before people call any business, they look online.
+        If your website or online presence is unclear, they choose someone else.
+      </p>
+
+      <form class="audit-form" action="mailto:ajipaul96@gmail.com" method="post" enctype="text/plain">
+        <input type="text" name="website" placeholder="Check your website audit here">
+        <button type="submit">Check Now</button>
+      </form>
+
+      <p class="muted" style="margin-top:12px;">No pressure. Honest guidance.</p>
     </div>
+  </section>
 
-    <div class="container">
-        
-        <section class="reveal">
-            <div class="bento-grid">
-                <div class="img-frame" style="order: 2;">
-                    <img src="technical-gap.jpg" alt="Technical Front">
-                </div>
-                <div class="content" style="order: 1;">
-                    <h3>Market Dynamics</h3>
-                    <h2>The Technical Front.</h2>
-                    <p>In business, visibility is the ultimate currency. While you focus on service, competitors build technical barriers. We perform a forensic analysis of the technical frontier to ensure your foundation is optimized for discovery.</p>
-                </div>
-            </div>
-        </section>
+  <!-- STORY SECTION -->
+  <section>
+    <p>You do real work.</p>
 
-        <section id="diagnostics" class="reveal">
-            <div class="bento-grid">
-                <div class="img-frame">
-                    <img src="audit-report.jpg" alt="Diagnostics">
-                </div>
-                <div class="content">
-                    <h3>Diagnostic Precision</h3>
-                    <h2>Technical Forensics.</h2>
-                    <p>We provide a Free Technical Audit—a deep-tissue diagnostic of your performance, schema health, and conversion barriers. No noise, no fake promises. Just structural truth.</p>
-                    <a href="mailto:ajipaul96@gmail.com" class="cta-btn">REQUEST DIAGNOSTICS <i data-lucide="zap"></i></a>
-                </div>
-            </div>
-        </section>
+    <p class="muted">
+      Maybe you repair appliances.  
+      Maybe you run plumbing, electrical, or HVAC services.  
+      Maybe you advise people using your knowledge.
+    </p>
 
-        <section class="reveal">
-            <div class="bento-grid">
-                <div class="img-frame" style="order: 2;">
-                    <img src="shared-roadmap.jpg" alt="Roadmap">
-                </div>
-                <div class="content" style="order: 1;">
-                    <h3>Synergistic Growth</h3>
-                    <h2>Engineering & Wisdom.</h2>
-                    <p>Your expertise is our primary data point. We integrate your professional insights into our technical stack, building a growth vehicle that reflects your high standards.</p>
-                </div>
-            </div>
-        </section>
+    <p class="muted">
+      Your work matters.  
+      We help make sure it is clearly seen online.
+    </p>
+  </section>
 
-        <section class="reveal" style="text-align: center; padding-bottom: 100px;">
-            <h3>Foundational Philosophy</h3>
-            <h2>A Partner, Not an Agency.</h2>
-            <p style="margin: 0 auto 2rem;">We serve those who take their work seriously. If you want a team that listens and handles the tech, you are in the right place.</p>
-            <div style="padding: 2rem; border: 1px solid var(--border); border-radius: 20px; display: inline-block; background: var(--glass);">
-                <i data-lucide="shield-check" class="text-blue-500 mb-2"></i>
-                <h3 style="color: white; margin: 0;">"Good work should not be hidden."</h3>
-            </div>
-        </section>
+  <!-- WHO WE HELP -->
+  <section>
+    <h2>Who We Help</h2>
 
-    </div>
+    <ul class="muted">
+      <li>Local service businesses</li>
+      <li>Repair shops</li>
+      <li>Independent professionals</li>
+      <li>Small and growing companies</li>
+    </ul>
+  </section>
 
-    <footer style="padding: 40px 0; border-top: 1px solid var(--border); text-align: center; color: var(--text-dim); font-size: 0.8rem;">
-        <p>TECHAUDITPROS &copy; 2025 | Architectural Integrity</p>
-    </footer>
+  <!-- FREE AUDIT -->
+  <section style="text-align:center;">
+    <h2>Free Website & SEO Audit</h2>
 
-    <script>
-        lucide.createIcons();
+    <p class="muted">
+      A real review. No automated tools. No pressure.
+    </p>
 
-        // --- THREE.JS BACKGROUND ---
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.getElementById('canvas-container').appendChild(renderer.domElement);
+    <p>
+      We check what is blocking customers from reaching you
+      and explain it clearly.
+    </p>
+  </section>
 
-        const starGeo = new THREE.BufferGeometry();
-        const starArray = new Float32Array(2000 * 3);
-        for(let i=0; i<6000; i++) starArray[i] = (Math.random() - 0.5) * 1000;
-        starGeo.setAttribute('position', new THREE.BufferAttribute(starArray, 3));
-        const stars = new THREE.Points(starGeo, new THREE.PointsMaterial({ color: 0x3b82f6, size: 1 }));
-        scene.add(stars);
-        camera.position.z = 5;
+  <!-- FOOTER -->
+  <footer>
+    <p>Simple work. Honest guidance. Peace of mind.</p>
+    <p style="margin-top:10px;">© 2025 TechAuditPros</p>
+  </footer>
 
-        function animate() {
-            requestAnimationFrame(animate);
-            stars.rotation.y += 0.0005;
-            renderer.render(scene, camera);
-        }
-        animate();
-
-        // --- INTERSECTION REVEAL ---
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-    </script>
 </body>
 </html>
-
