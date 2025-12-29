@@ -8,9 +8,9 @@
 
   <title>TechAuditPros | Website & SEO Audits for Businesses</title>
 
-  <meta name="description" content="TechAuditPros helps businesses understand their website, SEO, and online presence. Honest website and SEO audits to improve clarity, trust, and visibility.">
+  <meta name="description" content="TechAuditPros helps businesses understand their website, SEO, and online presence. Honest audits that improve clarity, trust, and visibility.">
 
-  <!-- GOOGLE SEARCH CONSOLE VERIFICATION -->
+  <!-- GOOGLE SEARCH CONSOLE -->
   <meta name="google-site-verification" content="nKm7MzLndhPXbTGfdIvEyhdbTuWd1fgOMhpKg3GPozM" />
 
   <!-- CANONICAL -->
@@ -19,12 +19,12 @@
   <!-- FAVICON -->
   <link rel="icon" type="image/png" href="favicon.png">
 
-  <!-- GOOGLE FONTS (OPTIMIZED) -->
+  <!-- GOOGLE FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- GOOGLE ANALYTICS 4 (ADD ID LATER) -->
+  <!-- GA4 (ADD ID LATER) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -33,31 +33,47 @@
     gtag('config', 'G-XXXXXXXXXX');
   </script>
 
+  <!-- BASIC STYLES (TEMP) -->
   <style>
-    :root {
-      --bg-dark: #05070a;
-      --text-main: #e5e7eb;
-      --text-muted: #9ca3af;
-      --accent: #3b82f6;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
+      margin: 0;
       font-family: 'Inter', system-ui, sans-serif;
-      background: var(--bg-dark);
-      color: var(--text-main);
-      line-height: 1.6;
+      background: #05070a;
+      color: #e5e7eb;
+      line-height: 1.7;
     }
+
+    a { color: #93c5fd; text-decoration: none; }
 
     section {
       padding: 100px 20px;
       max-width: 1100px;
       margin: auto;
+    }
+
+    h1, h2 {
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    p {
+      max-width: 760px;
+      color: #cbd5e1;
+      margin-bottom: 18px;
+    }
+
+    ul {
+      margin: 20px 0;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+      color: #cbd5e1;
     }
 
     /* HERO */
@@ -69,11 +85,23 @@
 
     .hero video {
       position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
       object-fit: cover;
-      opacity: 0.55;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(5,7,10,0.85),
+        rgba(5,7,10,0.8)
+      );
     }
 
     .hero-content {
@@ -89,24 +117,26 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 600;
-      margin-bottom: 20px;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      margin-bottom: 16px;
     }
 
-    .hero p {
-      max-width: 720px;
-      color: var(--text-muted);
-      font-size: 1.1rem;
-      margin-bottom: 20px;
+    .hero-links {
+      margin-top: 25px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      font-size: 0.95rem;
+      color: #9ca3af;
     }
 
-    /* AUDIT SEARCH BAR */
+    /* SEARCH BAR */
     .audit-form {
       display: flex;
       max-width: 520px;
       width: 100%;
-      margin-top: 25px;
+      margin-top: 30px;
     }
 
     .audit-form input {
@@ -114,29 +144,24 @@
       padding: 16px;
       border-radius: 8px 0 0 8px;
       border: none;
-      outline: none;
       font-size: 1rem;
     }
 
     .audit-form button {
       padding: 16px 22px;
       border: none;
-      background: var(--accent);
-      color: white;
+      background: #3b82f6;
+      color: #fff;
       font-weight: 500;
       cursor: pointer;
       border-radius: 0 8px 8px 0;
     }
 
-    .muted {
-      color: var(--text-muted);
-    }
-
     footer {
       border-top: 1px solid #111827;
-      padding: 60px 20px;
+      padding: 80px 20px;
       text-align: center;
-      color: var(--text-muted);
+      color: #9ca3af;
     }
   </style>
 
@@ -144,78 +169,214 @@
 
 <body>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <video autoplay muted loop playsinline>
-      <source src="hero-video.mp4" type="video/mp4">
-    </video>
+<!-- HERO SECTION -->
+<section class="hero">
+  <video autoplay muted loop playsinline>
+    <source src="hero-video.mp4" type="video/mp4">
+  </video>
 
-    <div class="hero-content">
-      <h1>TechAuditPros</h1>
+  <div class="hero-content">
+    <h1>TechAuditPros</h1>
 
-      <p><strong>We help good businesses get found and trusted online.</strong></p>
-
-      <p>
-        Before people call any business, they look online.
-        If your website or online presence is unclear, they choose someone else.
-      </p>
-
-      <form class="audit-form" action="mailto:ajipaul96@gmail.com" method="post" enctype="text/plain">
-        <input type="text" name="website" placeholder="Check your website audit here">
-        <button type="submit">Check Now</button>
-      </form>
-
-      <p class="muted" style="margin-top:12px;">No pressure. Honest guidance.</p>
-    </div>
-  </section>
-
-  <!-- STORY SECTION -->
-  <section>
-    <p>You do real work.</p>
-
-    <p class="muted">
-      Maybe you repair appliances.  
-      Maybe you run plumbing, electrical, or HVAC services.  
-      Maybe you advise people using your knowledge.
-    </p>
-
-    <p class="muted">
-      Your work matters.  
-      We help make sure it is clearly seen online.
-    </p>
-  </section>
-
-  <!-- WHO WE HELP -->
-  <section>
-    <h2>Who We Help</h2>
-
-    <ul class="muted">
-      <li>Local service businesses</li>
-      <li>Repair shops</li>
-      <li>Independent professionals</li>
-      <li>Small and growing companies</li>
-    </ul>
-  </section>
-
-  <!-- FREE AUDIT -->
-  <section style="text-align:center;">
-    <h2>Free Website & SEO Audit</h2>
-
-    <p class="muted">
-      A real review. No automated tools. No pressure.
-    </p>
+    <p><strong>We help good businesses get found and trusted online.</strong></p>
 
     <p>
-      We check what is blocking customers from reaching you
-      and explain it clearly.
+      Before people call any business, they look online.
+      If your website or online presence is unclear, they quietly choose someone else.
     </p>
-  </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>Simple work. Honest guidance. Peace of mind.</p>
-    <p style="margin-top:10px;">© 2025 TechAuditPros</p>
-  </footer>
+    <form class="audit-form" action="mailto:ajipaul96@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="website" placeholder="Check your website audit here">
+      <button type="submit">Check Now</button>
+    </form>
+
+    <div class="hero-links">
+      <a href="https://wa.me/916282520339" target="_blank">WhatsApp</a>
+      <a href="mailto:ajipaul96@gmail.com">Email</a>
+      <a href="#case-studies">Case Studies</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section>
+  <p>You do real work.</p>
+
+  <p>
+    Maybe you repair appliances.<br>
+    Maybe you run a plumbing, electrical, or HVAC service.<br>
+    Maybe you advise people using your experience and knowledge.
+  </p>
+
+  <p>
+    You are skilled.<br>
+    You are serious.<br>
+    You care about doing things the right way.
+  </p>
+
+  <p>
+    But customers are not finding you online the way they should.
+  </p>
+
+  <p>
+    Not because your work is weak —<br>
+    but because the online world has changed.
+  </p>
+
+  <p>
+    Websites, search engines, and visibility now decide<br>
+    who gets seen and who stays hidden.
+  </p>
+
+  <p>
+    We help bring clarity to that.
+  </p>
+</section>
+
+<!-- WHO WE HELP -->
+<section>
+  <p>We work with people who build, fix, and guide their communities.</p>
+
+  <ul>
+    <li>Local service businesses that must appear on Google when help is urgent</li>
+    <li>Repair shops where trust matters more than advertising</li>
+    <li>Independent professionals whose reputation is everything</li>
+    <li>Small and growing businesses competing with larger companies</li>
+  </ul>
+
+  <p>
+    If people depend on your work,<br>
+    your online presence should support you — not work against you.
+  </p>
+</section>
+
+<!-- HIDDEN GAP -->
+<section>
+  <p>Here’s the part most people don’t see.</p>
+
+  <p>
+    In today’s world, businesses don’t compete only on skill.
+  </p>
+
+  <p>They also compete on:</p>
+
+  <ul>
+    <li>how clearly their website explains what they do</li>
+    <li>how easily they appear in search results</li>
+    <li>how trustworthy they feel online</li>
+  </ul>
+
+  <p>
+    While you focus on serving customers well,<br>
+    others quietly improve their website structure and SEO foundation.
+  </p>
+
+  <p>
+    So customers don’t choose them because they are better —<br>
+    they choose them because they are easier to find and understand.
+  </p>
+
+  <p>This is the hidden gap.</p>
+</section>
+
+<!-- WHAT WE DO -->
+<section>
+  <p>This is where we step in.</p>
+
+  <p>
+    We carefully audit your website and SEO setup<br>
+    to understand what’s really happening.
+  </p>
+
+  <p>
+    Not with automated tools.<br>
+    Not with pressure.<br>
+    Not with confusing reports.
+  </p>
+
+  <p>Just a clear, professional review.</p>
+
+  <ul>
+    <li>how your website is structured</li>
+    <li>whether search engines can understand it</li>
+    <li>what blocks visibility and trust</li>
+    <li>what needs attention — and what does not</li>
+  </ul>
+
+  <p>
+    You get clear answers,<br>
+    so you can decide your next step calmly.
+  </p>
+
+  <p><a href="mailto:ajipaul96@gmail.com">Free Website & SEO Audit →</a></p>
+</section>
+
+<!-- PARTNERSHIP -->
+<section>
+  <p>Our work starts with listening.</p>
+
+  <p>
+    We don’t replace your knowledge.<br>
+    We support it with careful technical work,<br>
+    website clarity, and solid SEO foundations.
+  </p>
+
+  <p>
+    If your growth requires something new,<br>
+    we learn it, test it, and build it with care.
+  </p>
+
+  <p>We grow alongside your business.</p>
+</section>
+
+<!-- IDENTITY -->
+<section>
+  <p>
+    We are not a loud agency.<br>
+    We don’t rush.<br>
+    We don’t confuse.<br>
+    We don’t promise shortcuts.
+  </p>
+
+  <p>
+    If you want a team that explains clearly,<br>
+    listens carefully,<br>
+    and improves your online presence step by step,<br>
+    you’re in the right place.
+  </p>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="case-studies">
+  <h2>Case Studies</h2>
+  <p>
+    Real audits. Real problems. Real improvements.
+  </p>
+  <p><a href="case-studies.html">View Case Studies →</a></p>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>About Us</h2>
+  <p>
+    We care about people who take their work seriously
+    and want long-term, stable growth.
+  </p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:ajipaul96@gmail.com">ajipaul96@gmail.com</a></p>
+  <p>WhatsApp: <a href="https://wa.me/916282520339" target="_blank">+91 62825 20339</a></p>
+</section>
+
+<footer>
+  <p>Simple work. Honest guidance. Peace of mind.</p>
+  <p>© 2025 TechAuditPros</p>
+</footer>
 
 </body>
 </html>
