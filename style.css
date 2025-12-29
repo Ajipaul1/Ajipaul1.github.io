@@ -1,28 +1,27 @@
-/* =========================
+/* ===============================
    ROOT VARIABLES
-========================= */
+================================ */
 :root {
   --bg-dark: #05070a;
-  --bg-panel: rgba(255, 255, 255, 0.04);
+  --bg-soft: rgba(255, 255, 255, 0.04);
   --border-soft: rgba(255, 255, 255, 0.08);
 
   --text-main: #e5e7eb;
   --text-muted: #9ca3af;
-  --text-soft: #bfc5cf;
+  --text-soft: #cbd5e1;
 
-  --accent-blue: #3b82f6;
-  --accent-blue-soft: rgba(59, 130, 246, 0.25);
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
 
-  --radius-lg: 16px;
+  --radius-lg: 18px;
   --radius-md: 12px;
 
   --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.35);
-  --shadow-hover: 0 30px 60px rgba(0, 0, 0, 0.45);
 }
 
-/* =========================
+/* ===============================
    RESET
-========================= */
+================================ */
 *,
 *::before,
 *::after {
@@ -31,9 +30,9 @@
   padding: 0;
 }
 
-/* =========================
+/* ===============================
    BASE
-========================= */
+================================ */
 html {
   scroll-behavior: smooth;
 }
@@ -42,21 +41,30 @@ body {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--bg-dark);
   color: var(--text-main);
-  line-height: 1.7;
+  line-height: 1.75;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
-/* =========================
-   GLOBAL TEXT
-========================= */
-h1, h2, h3 {
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ===============================
+   TYPOGRAPHY
+================================ */
+h1, h2 {
   font-weight: 500;
   letter-spacing: -0.02em;
 }
 
 h1 {
-  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
 }
 
 h2 {
@@ -65,9 +73,10 @@ h2 {
 }
 
 p {
-  font-size: 1.05rem;
+  max-width: 760px;
   color: var(--text-soft);
-  max-width: 720px;
+  margin-bottom: 18px;
+  font-size: 1.05rem;
 }
 
 strong {
@@ -75,36 +84,33 @@ strong {
   font-weight: 500;
 }
 
-.muted {
-  color: var(--text-muted);
-}
-
-/* =========================
+/* ===============================
    LAYOUT
-========================= */
+================================ */
 section {
   padding: 110px 20px;
   max-width: 1100px;
   margin: auto;
 }
 
-/* =========================
+/* ===============================
    HERO
-========================= */
+================================ */
 .hero {
   position: relative;
   height: 100vh;
-  width: 100%;
   overflow: hidden;
 }
 
 .hero video {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
   object-fit: cover;
-  filter: brightness(0.6) contrast(1.05);
+  filter: brightness(0.55) contrast(1.05);
 }
 
 .hero::after {
@@ -113,8 +119,8 @@ section {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(5, 7, 10, 0.55),
-    rgba(5, 7, 10, 0.85)
+    rgba(5,7,10,0.9),
+    rgba(5,7,10,0.75)
   );
 }
 
@@ -131,18 +137,36 @@ section {
 }
 
 .hero-content p {
-  margin-top: 14px;
+  color: #d1d5db;
 }
 
-/* =========================
+.hero-links {
+  margin-top: 26px;
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.hero-links a {
+  color: var(--text-muted);
+}
+
+.hero-links a:hover {
+  color: var(--text-main);
+}
+
+/* ===============================
    AUDIT SEARCH BAR
-========================= */
+================================ */
 .audit-form {
   display: flex;
   width: 100%;
   max-width: 520px;
   margin-top: 32px;
-  background: var(--bg-panel);
+  background: var(--bg-soft);
   border-radius: var(--radius-md);
   border: 1px solid var(--border-soft);
   box-shadow: var(--shadow-soft);
@@ -168,7 +192,7 @@ section {
 
 .audit-form button {
   padding: 16px 22px;
-  background: var(--accent-blue);
+  background: var(--accent);
   color: #ffffff;
   font-weight: 500;
   border: none;
@@ -177,45 +201,47 @@ section {
 }
 
 .audit-form button:hover {
-  background: #2563eb;
+  background: var(--accent-hover);
   transform: translateY(-1px);
 }
 
-/* =========================
-   STORY SECTIONS
-========================= */
-section p + p {
-  margin-top: 18px;
-}
-
+/* ===============================
+   LISTS
+================================ */
 ul {
-  margin-top: 24px;
-  padding-left: 18px;
+  margin: 24px 0;
+  padding-left: 20px;
 }
 
 li {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   color: var(--text-soft);
 }
 
-/* =========================
-   CTA / FREE AUDIT
-========================= */
-section.center {
-  text-align: center;
+/* ===============================
+   CTA LINKS
+================================ */
+.cta {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 14px 22px;
+  border-radius: var(--radius-md);
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 500;
 }
 
-section.center p {
-  margin-left: auto;
-  margin-right: auto;
+.cta:hover {
+  background: var(--accent-hover);
+  text-decoration: none;
 }
 
-/* =========================
+/* ===============================
    FOOTER
-========================= */
+================================ */
 footer {
   border-top: 1px solid var(--border-soft);
-  padding: 80px 20px;
+  padding: 90px 20px;
   text-align: center;
 }
 
@@ -224,16 +250,17 @@ footer p {
   color: var(--text-muted);
 }
 
-/* =========================
+/* ===============================
    RESPONSIVE
-========================= */
+================================ */
 @media (max-width: 768px) {
-  h1 {
-    font-size: 2.4rem;
-  }
 
   section {
     padding: 90px 16px;
+  }
+
+  h1 {
+    font-size: 2.4rem;
   }
 
   .audit-form {
