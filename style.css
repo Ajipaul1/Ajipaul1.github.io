@@ -318,21 +318,37 @@ footer {
 }
 
 /* ==================================================
-   MOBILE REFINEMENT
+   CONTACT
 ================================================== */
-@media (max-width: 640px) {
-  .hero h1 {
-    font-size: 2.3rem;
-  }
+.contact-links p {
+  margin-bottom: 10px;
+}
 
-  .hero .tagline {
-    font-size: 1.05rem;
-  }
+.contact-links a:hover {
+  text-decoration: underline;
+}
 
-  section {
-    padding: 70px 20px;
-  }
-/* AUDIT VIDEO SECTION */
+/* ==================================================
+   FOOTER
+================================================== */
+footer {
+  padding: 70px 24px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-small {
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* ==================================================
+   AUDIT VIDEO SECTION
+================================================== */
 .audit-video-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -350,15 +366,25 @@ footer {
   max-width: 500px;
 }
 
-.footer-small {
-  padding: 40px 20px;
-  text-align: center;
-  font-size: 0.85rem;
-  opacity: 0.7;
-}
+/* ==================================================
+   MOBILE REFINEMENT
+================================================== */
 @media (max-width: 768px) {
   .audit-video-section {
     grid-template-columns: 1fr;
   }
 }
 
+@media (max-width: 640px) {
+  .hero h1 {
+    font-size: 2.3rem;
+  }
+
+  .hero .tagline {
+    font-size: 1.05rem;
+  }
+
+  section {
+    padding: 70px 20px;
+  }
+}
