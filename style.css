@@ -99,4 +99,149 @@ section {
 }
 
 .hero video {
-  position:
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6) contrast(1.05);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 7, 10, 0.55),
+    rgba(5, 7, 10, 0.85)
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-content p {
+  margin-top: 14px;
+}
+
+/* =========================
+   AUDIT SEARCH BAR
+========================= */
+.audit-form {
+  display: flex;
+  width: 100%;
+  max-width: 520px;
+  margin-top: 32px;
+  background: var(--bg-panel);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.audit-form input {
+  flex: 1;
+  padding: 16px 18px;
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  font-size: 1rem;
+}
+
+.audit-form input::placeholder {
+  color: var(--text-muted);
+}
+
+.audit-form input:focus {
+  outline: none;
+}
+
+.audit-form button {
+  padding: 16px 22px;
+  background: var(--accent-blue);
+  color: #ffffff;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.audit-form button:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   STORY SECTIONS
+========================= */
+section p + p {
+  margin-top: 18px;
+}
+
+ul {
+  margin-top: 24px;
+  padding-left: 18px;
+}
+
+li {
+  margin-bottom: 10px;
+  color: var(--text-soft);
+}
+
+/* =========================
+   CTA / FREE AUDIT
+========================= */
+section.center {
+  text-align: center;
+}
+
+section.center p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  border-top: 1px solid var(--border-soft);
+  padding: 80px 20px;
+  text-align: center;
+}
+
+footer p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.4rem;
+  }
+
+  section {
+    padding: 90px 16px;
+  }
+
+  .audit-form {
+    flex-direction: column;
+  }
+
+  .audit-form button {
+    width: 100%;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+  }
+}
