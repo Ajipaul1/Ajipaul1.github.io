@@ -1,6 +1,6 @@
-/* =========================
+/* ==================================================
    RESET & BASE
-========================= */
+================================================== */
 *,
 *::before,
 *::after {
@@ -30,9 +30,9 @@ a {
   text-decoration: none;
 }
 
-/* =========================
+/* ==================================================
    HERO SECTION
-========================= */
+================================================== */
 .hero {
   position: relative;
   width: 100vw;
@@ -40,18 +40,18 @@ a {
   overflow: hidden;
 }
 
-/* FULLSCREEN SHARP VIDEO */
+/* Fullscreen, sharp video */
 .hero video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1.01); /* prevents edge gaps */
+  transform: scale(1.01); /* avoids edge gaps */
   filter: brightness(0.95) contrast(1.05);
 }
 
-/* GRADIENT OVERLAY (TEXT READABILITY ONLY) */
+/* Soft cinematic overlay (not too dark) */
 .hero::after {
   content: "";
   position: absolute;
@@ -64,7 +64,7 @@ a {
   z-index: 1;
 }
 
-/* CENTERED CONTENT */
+/* Centered hero content */
 .hero-content {
   position: relative;
   z-index: 2;
@@ -79,9 +79,9 @@ a {
   text-align: center;
 }
 
-/* =========================
+/* ==================================================
    HERO TEXT
-========================= */
+================================================== */
 .hero h1 {
   font-size: clamp(2.8rem, 5vw, 4.2rem);
   font-weight: 600;
@@ -102,9 +102,9 @@ a {
   margin-bottom: 26px;
 }
 
-/* =========================
-   AUDIT BAR
-========================= */
+/* ==================================================
+   AUDIT SEARCH BAR
+================================================== */
 .audit-bar {
   display: flex;
   width: 100%;
@@ -149,9 +149,9 @@ a {
   margin-bottom: 28px;
 }
 
-/* =========================
-   HERO LINKS
-========================= */
+/* ==================================================
+   HERO ACTION LINKS
+================================================== */
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -170,9 +170,9 @@ a {
   text-decoration: underline;
 }
 
-/* =========================
-   SECTIONS
-========================= */
+/* ==================================================
+   SECTIONS (GLOBAL)
+================================================== */
 section {
   max-width: 1000px;
   margin: 0 auto;
@@ -191,9 +191,37 @@ section p {
   color: #d2d2d2;
 }
 
-/* =========================
+/* ==================================================
+   TEXT LINKS (PREMIUM)
+================================================== */
+.text-link {
+  display: inline-block;
+  margin-top: 18px;
+  font-size: 0.95rem;
+  color: #e5e5e5;
+  position: relative;
+}
+
+.text-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1px;
+  background: rgba(255,255,255,0.3);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.text-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* ==================================================
    SERVICES
-========================= */
+================================================== */
 .services {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -214,9 +242,9 @@ section p {
   border-color: rgba(255,255,255,0.15);
 }
 
-/* =========================
+/* ==================================================
    CASE STUDIES
-========================= */
+================================================== */
 .case-box {
   background: #12151b;
   padding: 32px;
@@ -225,9 +253,51 @@ section p {
   margin-top: 28px;
 }
 
-/* =========================
+/* ==================================================
+   AUDIT SECTION
+================================================== */
+.subheading {
+  margin-top: 32px;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.audit-list {
+  margin-top: 16px;
+  padding-left: 18px;
+}
+
+.audit-list li {
+  margin-bottom: 10px;
+  color: #d6d6d6;
+}
+
+.price-note {
+  margin-top: 18px;
+  font-weight: 500;
+}
+
+/* Primary CTA button */
+.primary-btn {
+  display: inline-block;
+  margin-top: 28px;
+  padding: 14px 28px;
+  background: #2563eb;
+  color: #fff;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.primary-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* ==================================================
    CONTACT
-========================= */
+================================================== */
 .contact-links p {
   margin-bottom: 10px;
 }
@@ -236,9 +306,9 @@ section p {
   text-decoration: underline;
 }
 
-/* =========================
+/* ==================================================
    FOOTER
-========================= */
+================================================== */
 footer {
   padding: 70px 24px;
   text-align: center;
@@ -247,9 +317,9 @@ footer {
   border-top: 1px solid rgba(255,255,255,0.05);
 }
 
-/* =========================
+/* ==================================================
    MOBILE REFINEMENT
-========================= */
+================================================== */
 @media (max-width: 640px) {
   .hero h1 {
     font-size: 2.3rem;
