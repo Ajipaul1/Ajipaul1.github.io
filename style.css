@@ -467,3 +467,93 @@ footer {
     font-size: 1.7rem;
   }
 }
+/* ==================================================
+   CASE STUDY SNAPSHOT (PREMIUM)
+================================================== */
+
+.case-study-section {
+  margin-top: 40px;
+}
+
+/* Grid layout */
+.case-study-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+  margin-top: 32px;
+}
+
+/* LEFT CONTENT */
+.case-study-content {
+  max-width: 520px;
+}
+
+.case-meta {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #9ca3af;
+  margin-bottom: 10px;
+}
+
+.case-study-content h3 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.case-result {
+  font-size: 1.05rem;
+  color: #d4d4d4;
+  margin-bottom: 26px;
+}
+
+/* RIGHT VIDEO */
+.case-study-video {
+  position: relative;
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000;
+}
+
+.case-study-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.95) contrast(1.05);
+}
+
+/* Subtle depth shadow */
+.case-study-video::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+  pointer-events: none;
+}
+
+/* ==================================================
+   CASE STUDY SNAPSHOT — MOBILE
+================================================== */
+@media (max-width: 768px) {
+  .case-study-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .case-study-content {
+    max-width: 100%;
+  }
+
+  .case-study-content h3 {
+    font-size: 1.45rem;
+  }
+
+  .case-study-video {
+    border-radius: 14px;
+  }
+}
