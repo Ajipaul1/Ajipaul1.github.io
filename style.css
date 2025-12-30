@@ -743,3 +743,96 @@ footer {
   color: #fff;
   cursor: pointer;
 }
+/* ===============================
+   FLOATING ASK A QUESTION BUTTON
+================================ */
+.chat-fab {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  padding: 12px 20px;
+  background: #2563eb;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  z-index: 9999;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.chat-fab:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* ===============================
+   CHAT BOX
+================================ */
+.chat-box {
+  position: fixed;
+  bottom: 80px;
+  right: 22px;
+  width: 320px;
+  background: #12151b;
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+  display: none;
+  flex-direction: column;
+  z-index: 9999;
+}
+
+.chat-header {
+  padding: 14px 16px;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-body {
+  padding: 14px;
+  max-height: 260px;
+  overflow-y: auto;
+  font-size: 0.9rem;
+}
+
+.bot-msg {
+  background: #1a1f27;
+  padding: 10px 12px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.user-msg {
+  background: #2563eb;
+  padding: 10px 12px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  text-align: right;
+}
+
+.chat-input-area {
+  display: flex;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.chat-input {
+  flex: 1;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  outline: none;
+}
+
+.chat-input-area button {
+  padding: 0 14px;
+  background: none;
+  border: none;
+  color: #3b82f6;
+  cursor: pointer;
+}
