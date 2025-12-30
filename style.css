@@ -1,116 +1,325 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ======================================================
+         BASIC META & SEO
+    ======================================================= -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #0b0d10;
-  line-height: 1.6;
-}
+    <!-- Google Search Console verification -->
+    <meta name="google-site-verification" content="nKm7MzLndhPXbTGfdIvEyhdbTuWd1fgOMhpKg3GPozM" />
 
-/* ================= HERO ================= */
-.hero {
-  position: relative;
-  height: 100vh;
-}
+    <!-- Canonical URL for SEO -->
+    <link rel="canonical" href="https://ajipaul1.github.io/case-studies.html" />
 
-.hero video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.55);
-}
+    <!-- Page title (important for SEO & Google results) -->
+    <title>Technical Case Report | Dial An Appliance Man | TechAuditPros</title>
 
-.hero-content {
-  position: relative;
-  z-index: 2;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-align: center;
-  padding: 24px;
-}
+    <!-- ======================================================
+         EXTERNAL LIBRARIES
+    ======================================================= -->
 
-/* ================= WHITE WRAPPER ================= */
-.light-wrapper {
-  background: white;
-  width: 100%;
-}
+    <!-- Tailwind CSS (UI & layout system) -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-/* ================= CONTAINER ================= */
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 90px 24px;
-}
+    <!-- Three.js (background particles animation) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-.container h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-.container p, li {
-  color: #374151;
-}
+    <!-- ======================================================
+         CUSTOM STYLES (DO NOT REMOVE)
+    ======================================================= -->
+    <style>
+        /* CSS variables for theme control */
+        :root { 
+            --bg: #020408; 
+            --accent: #3b82f6; 
+            --glass: rgba(255, 255, 255, 0.03); 
+            --border: rgba(255, 255, 255, 0.1);
+        }
 
-/* ================= VIDEO SECTIONS ================= */
-.video-section {
-  position: relative;
-  height: 85vh;
-  width: 100%;
-  overflow: hidden;
-}
+        /* Global body styling */
+        body { 
+            background: var(--bg); 
+            color: #f8fafc; 
+            font-family: 'Inter', sans-serif; 
+            scroll-behavior: smooth; 
+            overflow-x: hidden;
+        }
 
-.video-section video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.55);
-}
+        /* Glassmorphism card */
+        .glass-card { 
+            background: var(--glass); 
+            backdrop-filter: blur(20px); 
+            border: 1px solid var(--border); 
+            border-radius: 2.5rem; 
+        }
 
-.video-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-align: center;
-  padding: 24px;
-}
+        /* Bento grid hover effect */
+        .bento-item {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .bento-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--accent);
+        }
 
-.video-overlay h3 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
+        /* Scroll reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-.video-overlay p {
-  max-width: 600px;
-  opacity: 0.9;
-}
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+    </style>
+</head>
 
-/* ================= BUTTON ================= */
-.primary-btn {
-  margin-top: 20px;
-  padding: 14px 28px;
-  background: #2563eb;
-  color: white;
-  border-radius: 999px;
-  text-decoration: none;
-}
+<body>
 
-/* ================= FOOTER ================= */
-.footer-small {
-  padding: 40px;
-  text-align: center;
-  background: #f9fafb;
-  color: #6b7280;
-}
+    <!-- ======================================================
+         THREE.JS BACKGROUND CANVAS (FULL PAGE)
+         ⚠️ Do not remove – visual depth effect
+    ======================================================= -->
+    <canvas id="three-canvas" class="fixed inset-0 z-0"></canvas>
+
+    <!-- ======================================================
+         BACK BUTTON (TOP LEFT)
+    ======================================================= -->
+    <a href="index.html"
+       class="fixed top-8 left-8 z-50 glass-card px-6 py-3 text-sm font-bold flex items-center gap-2 hover:bg-white/10 transition">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        Back to Foundation
+    </a>
+
+    <!-- ======================================================
+         HERO / INTRO SECTION
+         ✏️ Edit headline & intro text here
+    ======================================================= -->
+    <section class="relative z-10 pt-40 pb-20 px-6 text-center">
+        <div class="reveal">
+            <h2 class="text-blue-500 font-mono tracking-widest uppercase text-sm mb-4">
+                Technical Case Report
+            </h2>
+
+            <h1 class="text-5xl md:text-7xl font-black tracking-tighter mb-8 bg-gradient-to-b from-white to-gray-500 bg-clip-text text-transparent">
+                Engineering Local Growth
+            </h1>
+
+            <p class="text-xl text-blue-200/70 max-w-3xl mx-auto font-light">
+                How TechAuditPros eliminated $2.8K in monthly ad waste for
+                <strong>Dial An Appliance Man</strong> through structural SEO precision.
+            </p>
+        </div>
+    </section>
+
+    <!-- ======================================================
+         METRICS / BENTO GRID
+         ✏️ Edit numbers & descriptions here
+    ======================================================= -->
+    <section class="relative z-10 px-6 max-w-7xl mx-auto mb-32">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <!-- Metric 1 -->
+            <div class="glass-card bento-item p-10 reveal">
+                <i data-lucide="search" class="w-8 h-8 text-blue-400 mb-6"></i>
+                <span class="text-5xl font-black block mb-2">998</span>
+                <p class="text-gray-400">High-intent keywords identified and ranked on Page 1.</p>
+            </div>
+
+            <!-- Metric 2 -->
+            <div class="glass-card bento-item p-10 reveal bg-blue-600/10 border-blue-500/30">
+                <i data-lucide="trending-up" class="w-8 h-8 text-blue-400 mb-6"></i>
+                <span class="text-5xl font-black block mb-2">+11%</span>
+                <p class="text-blue-100">Consistent organic session growth monthly.</p>
+            </div>
+
+            <!-- Metric 3 -->
+            <div class="glass-card bento-item p-10 reveal">
+                <i data-lucide="banknote" class="w-8 h-8 text-emerald-400 mb-6"></i>
+                <span class="text-5xl font-black block mb-2">$2.8K</span>
+                <p class="text-gray-400">Monthly Google Ad spend saved through organic authority.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======================================================
+         PROBLEM + SOLUTION SECTIONS
+         ✏️ Edit text, replace images (audit-1.png, results-graph.png)
+    ======================================================= -->
+    <section class="relative z-10 px-6 max-w-6xl mx-auto space-y-32 mb-32">
+
+        <!-- Challenge -->
+        <div class="grid md:grid-cols-2 gap-16 items-center reveal">
+            <div>
+                <h3 class="text-3xl font-bold mb-6">The Challenge: Ad Dependency</h3>
+                <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                    <strong>Dial An Appliance Man</strong> was caught in a high-cost loop...
+                </p>
+                <p class="text-gray-400 text-lg leading-relaxed">
+                    Their profit margins were being consumed by Cost-Per-Click...
+                </p>
+            </div>
+            <div class="glass-card overflow-hidden">
+                <!-- 🔁 Replace image if needed -->
+                <img src="audit-1.png" alt="Audit Logic"
+                     class="w-full opacity-80 hover:opacity-100 transition duration-700">
+            </div>
+        </div>
+
+        <!-- Solution -->
+        <div class="grid md:grid-cols-2 gap-16 items-center reveal">
+            <div class="glass-card overflow-hidden order-2 md:order-1">
+                <img src="results-graph.png" alt="Growth Graph"
+                     class="w-full opacity-80 hover:opacity-100 transition duration-700">
+            </div>
+            <div class="order-1 md:order-2">
+                <h3 class="text-3xl font-bold mb-6">The TechAuditPros Solution</h3>
+                <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                    We performed a <strong>Deep Site Crawl</strong>...
+                </p>
+                <p class="text-gray-400 text-lg leading-relaxed">
+                    We restructured the architecture...
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ======================================================
+         BRAND VISUALS / AI IMAGES
+         ✏️ Replace ai-work*.png files
+    ======================================================= -->
+    <section class="relative z-10 px-6 max-w-7xl mx-auto mb-32 reveal">
+        <h3 class="text-center text-3xl font-bold mb-12">Professional Brand Visuals</h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <!-- Visual 1 -->
+            <div class="glass-card overflow-hidden group relative h-80">
+                <img src="ai-work.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                <div class="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black to-transparent">
+                    <p class="font-bold">Trustworthy Service</p>
+                </div>
+            </div>
+
+            <!-- Visual 2 -->
+            <div class="glass-card overflow-hidden group relative h-80">
+                <img src="ai-work1.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                <div class="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black to-transparent">
+                    <p class="font-bold">Expert Repairs</p>
+                </div>
+            </div>
+
+            <!-- Visual 3 -->
+            <div class="glass-card overflow-hidden group relative h-80">
+                <img src="ai-work2.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                <div class="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black to-transparent">
+                    <p class="font-bold">Local Authority</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======================================================
+         FINAL CTA
+    ======================================================= -->
+    <section class="relative z-10 px-6 pb-32">
+        <div class="max-w-4xl mx-auto glass-card p-16 text-center reveal border-blue-500/20 shadow-2xl shadow-blue-500/5">
+            <h2 class="text-4xl font-black mb-6">Ready for Structural Growth?</h2>
+            <p class="text-gray-400 text-xl mb-10">
+                We fix the technical blocks that stop customers from finding your business.
+            </p>
+
+            <a href="mailto:ajipaul96@gmail.com?subject=Free Audit Request"
+               class="bg-blue-600 hover:bg-blue-500 px-10 py-5 rounded-full font-bold transition-all transform hover:scale-110 inline-block">
+                Request Your Free Audit
+            </a>
+        </div>
+    </section>
+
+    <!-- ======================================================
+         FOOTER
+    ======================================================= -->
+    <footer class="relative z-10 py-12 border-t border-white/10 text-center text-gray-500 text-sm">
+        <p>&copy; 2025 TechAuditPros. Engineering-Grade SEO & Business Growth.</p>
+    </footer>
+
+    <!-- ======================================================
+         SCRIPTS (DO NOT MOVE)
+    ======================================================= -->
+    <script>
+        /* Lucide icons init */
+        lucide.createIcons();
+
+        /* Three.js animated particle background */
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(
+            75, window.innerWidth / window.innerHeight, 0.1, 1000
+        );
+
+        const renderer = new THREE.WebGLRenderer({
+            canvas: document.getElementById('three-canvas'),
+            alpha: true
+        });
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        const particles = new THREE.Points(
+            new THREE.BufferGeometry().setAttribute(
+                'position',
+                new THREE.BufferAttribute(
+                    new Float32Array(3000).map(() => (Math.random() - 0.5) * 15),
+                    3
+                )
+            ),
+            new THREE.PointsMaterial({
+                size: 0.005,
+                color: 0x3b82f6,
+                transparent: true,
+                opacity: 0.5
+            })
+        );
+
+        scene.add(particles);
+        camera.position.z = 5;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            particles.rotation.y += 0.0005;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        /* Scroll reveal logic */
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) e.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        /* Resize handler */
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+
+</body>
+</html>
