@@ -117,19 +117,13 @@
 
 <!-- CASE STUDY SNAPSHOT -->
 <section id="case-studies" class="case-study-section">
-
   <h2>Case Study Snapshot</h2>
 
   <div class="case-study-grid">
-
     <div class="case-study-content">
-      <p class="case-meta">
-        Canadian appliance repair business
-      </p>
+      <p class="case-meta">Canadian appliance repair business</p>
 
-      <h3>
-        3 months of technical SEO work
-      </h3>
+      <h3>3 months of technical SEO work</h3>
 
       <p class="case-result">
         <strong>$2.8K</strong> estimated monthly traffic value
@@ -146,7 +140,6 @@
         <source src="seo_growth.mp4" type="video/mp4">
       </video>
     </div>
-
   </div>
 </section>
 
@@ -193,67 +186,7 @@
     Remote & international projects welcome
   </p>
 </footer>
-<!-- CHAT WIDGET -->
-<div id="chat-widget">
 
-  <button id="chat-toggle" onclick="openChat()">Ask a Question</button>
-
-  <div id="chat-box">
-    <div class="chat-header">
-      Ask a Question
-      <span onclick="closeChat()">×</span>
-    </div>
-
-    <div class="chat-body" id="chat-body">
-      <div class="chat-msg bot">
-        Hi 👋<br>
-        You can ask anything about your website or SEO.<br><br>
-        We reply personally.
-      </div>
-    </div>
-
-    <div class="chat-input">
-      <textarea id="chat-text" placeholder="Type your question…"></textarea>
-      <button onclick="sendChat()">Send</button>
-    </div>
-  </div>
-
-</div>
-<script>
-function openChat() {
-  document.getElementById('chat-box').style.display = 'block';
-  document.getElementById('chat-toggle').style.display = 'none';
-}
-
-function closeChat() {
-  document.getElementById('chat-box').style.display = 'none';
-  document.getElementById('chat-toggle').style.display = 'block';
-}
-
-function sendChat() {
-  const text = document.getElementById('chat-text').value.trim();
-  if (!text) return;
-
-  const body = document.getElementById('chat-body');
-
-  body.innerHTML += `<div class="chat-msg user">${text}</div>`;
-  body.innerHTML += `<div class="chat-msg bot">
-    Thanks.<br>
-    If you'd like a reply, leave your email or WhatsApp.<br>
-    <small>No sales pressure.</small>
-  </div>`;
-
-  document.getElementById('chat-text').value = '';
-
-  body.scrollTop = body.scrollHeight;
-
-  // Email fallback
-  window.location.href =
-    "mailto:ajipaul96@gmail.com?subject=Website Question&body=" +
-    encodeURIComponent(text);
-}
-</script>
-<button class="chat-launch" onclick="openChat()">Ask a Question</button>
 <!-- FLOATING CHAT BUTTON -->
 <div class="chat-fab" onclick="toggleChat()">💬</div>
 
@@ -266,16 +199,18 @@ function sendChat() {
 
   <div class="chat-body" id="chatBody">
     <div class="bot-msg">
+      Hi 👋<br>
       You can ask anything about your website or SEO.<br>
       We reply personally. No sales pressure.
     </div>
   </div>
 
   <div class="chat-input-area">
-    <input type="text" class="chat-input" placeholder="Type your question…" />
+    <input type="text" id="chatInput" class="chat-input" placeholder="Type your question…" />
     <button onclick="sendMessage()">Send</button>
   </div>
 </div>
+
 <script>
 let chatState = {
   question: "",
@@ -288,28 +223,26 @@ function toggleChat() {
 }
 
 function sendMessage() {
-  const input = document.querySelector(".chat-input");
+  const input = document.getElementById("chatInput");
   const msg = input.value.trim();
   if (!msg) return;
 
   input.value = "";
-
   const body = document.getElementById("chatBody");
+
   body.innerHTML += `<div class="user-msg">${msg}</div>`;
   body.scrollTop = body.scrollHeight;
 
   if (!chatState.question) {
     chatState.question = msg;
-
     setTimeout(() => {
       body.innerHTML += `
         <div class="bot-msg">
-          Thanks.<br>
+          Thanks 👍<br>
           If you'd like a reply, please leave your email or WhatsApp.
         </div>`;
       body.scrollTop = body.scrollHeight;
-    }, 600);
-
+    }, 500);
     return;
   }
 
@@ -319,7 +252,7 @@ function sendMessage() {
     setTimeout(() => {
       body.innerHTML += `
         <div class="bot-msg">
-          Got it 👍<br>
+          Got it.<br>
           We’ll review your question and reply personally.
         </div>`;
       body.scrollTop = body.scrollHeight;
@@ -329,8 +262,9 @@ function sendMessage() {
         `Question:\n${chatState.question}\n\nContact:\n${chatState.contact}\n\nPage:\n${location.href}`
       );
 
-      window.location.href = `mailto:ajipaul96@gmail.com?subject=${subject}&body=${content}`;
-    }, 700);
+      window.location.href =
+        `mailto:ajipaul96@gmail.com?subject=${subject}&body=${content}`;
+    }, 600);
   }
 }
 </script>
