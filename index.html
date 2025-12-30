@@ -193,6 +193,67 @@
     Remote & international projects welcome
   </p>
 </footer>
+<!-- CHAT WIDGET -->
+<div id="chat-widget">
+
+  <button id="chat-toggle" onclick="openChat()">Ask a Question</button>
+
+  <div id="chat-box">
+    <div class="chat-header">
+      Ask a Question
+      <span onclick="closeChat()">×</span>
+    </div>
+
+    <div class="chat-body" id="chat-body">
+      <div class="chat-msg bot">
+        Hi 👋<br>
+        You can ask anything about your website or SEO.<br><br>
+        We reply personally.
+      </div>
+    </div>
+
+    <div class="chat-input">
+      <textarea id="chat-text" placeholder="Type your question…"></textarea>
+      <button onclick="sendChat()">Send</button>
+    </div>
+  </div>
+
+</div>
+<script>
+function openChat() {
+  document.getElementById('chat-box').style.display = 'block';
+  document.getElementById('chat-toggle').style.display = 'none';
+}
+
+function closeChat() {
+  document.getElementById('chat-box').style.display = 'none';
+  document.getElementById('chat-toggle').style.display = 'block';
+}
+
+function sendChat() {
+  const text = document.getElementById('chat-text').value.trim();
+  if (!text) return;
+
+  const body = document.getElementById('chat-body');
+
+  body.innerHTML += `<div class="chat-msg user">${text}</div>`;
+  body.innerHTML += `<div class="chat-msg bot">
+    Thanks.<br>
+    If you'd like a reply, leave your email or WhatsApp.<br>
+    <small>No sales pressure.</small>
+  </div>`;
+
+  document.getElementById('chat-text').value = '';
+
+  body.scrollTop = body.scrollHeight;
+
+  // Email fallback
+  window.location.href =
+    "mailto:ajipaul96@gmail.com?subject=Website Question&body=" +
+    encodeURIComponent(text);
+}
+</script>
+<button class="chat-launch" onclick="openChat()">Ask a Question</button>
 
 </body>
 </html>
