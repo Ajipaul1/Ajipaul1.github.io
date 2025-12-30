@@ -161,8 +161,8 @@
   </ul>
 
   <p class="price-note">
-    This type of technical website & SEO audit is typically a paid service.<br>
-    <strong>We currently offer it free</strong> for businesses that want clarity before committing.
+    This audit is normally a paid professional service.<br>
+    <strong>We currently offer it free</strong> so you can decide with clarity.
   </p>
 
   <a class="primary-btn" href="mailto:ajipaul96@gmail.com">
@@ -187,8 +187,8 @@
   </p>
 </footer>
 
-<!-- FLOATING CHAT BUTTON -->
-<div class="chat-fab" onclick="toggleChat()">💬</div>
+<!-- FLOATING ASK A QUESTION BUTTON -->
+<button class="chat-fab" onclick="toggleChat()">Ask a Question</button>
 
 <!-- CHAT WINDOW -->
 <div class="chat-box" id="chatBox">
@@ -212,10 +212,7 @@
 </div>
 
 <script>
-let chatState = {
-  question: "",
-  contact: ""
-};
+let chatState = { question: "", contact: "" };
 
 function toggleChat() {
   const box = document.getElementById("chatBox");
@@ -236,35 +233,30 @@ function sendMessage() {
   if (!chatState.question) {
     chatState.question = msg;
     setTimeout(() => {
-      body.innerHTML += `
-        <div class="bot-msg">
-          Thanks 👍<br>
-          If you'd like a reply, please leave your email or WhatsApp.
-        </div>`;
+      body.innerHTML += `<div class="bot-msg">Thanks 👍<br>Please leave your email or WhatsApp.</div>`;
       body.scrollTop = body.scrollHeight;
-    }, 500);
+    }, 400);
     return;
   }
 
   if (!chatState.contact) {
     chatState.contact = msg;
 
+    const subject = encodeURIComponent("New Website Lead – TechAuditPros");
+    const content = encodeURIComponent(
+      `Question:\n${chatState.question}\n\nContact:\n${chatState.contact}\n\nPage:\n${location.href}\n\nTime:\n${new Date().toLocaleString()}`
+    );
+
     setTimeout(() => {
-      body.innerHTML += `
-        <div class="bot-msg">
-          Got it.<br>
-          We’ll review your question and reply personally.
-        </div>`;
+      body.innerHTML += `<div class="bot-msg">Got it ✔<br>We’ll reply personally.</div>`;
       body.scrollTop = body.scrollHeight;
 
-      const subject = encodeURIComponent("New Website Question – TechAuditPros");
-      const content = encodeURIComponent(
-        `Question:\n${chatState.question}\n\nContact:\n${chatState.contact}\n\nPage:\n${location.href}`
-      );
-
-      window.location.href =
-        `mailto:ajipaul96@gmail.com?subject=${subject}&body=${content}`;
-    }, 600);
+      if (/^\+?\d{8,15}$/.test(chatState.contact)) {
+        window.open(`https://wa.me/${chatState.contact.replace(/\D/g, "")}?text=${content}`, "_blank");
+      } else {
+        window.location.href = `mailto:ajipaul96@gmail.com?subject=${subject}&body=${content}`;
+      }
+    }, 500);
   }
 }
 </script>
