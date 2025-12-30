@@ -254,6 +254,86 @@ function sendChat() {
 }
 </script>
 <button class="chat-launch" onclick="openChat()">Ask a Question</button>
+<!-- FLOATING CHAT BUTTON -->
+<div class="chat-fab" onclick="toggleChat()">💬</div>
+
+<!-- CHAT WINDOW -->
+<div class="chat-box" id="chatBox">
+  <div class="chat-header">
+    Ask a Question
+    <span onclick="toggleChat()">✕</span>
+  </div>
+
+  <div class="chat-body" id="chatBody">
+    <div class="bot-msg">
+      You can ask anything about your website or SEO.<br>
+      We reply personally. No sales pressure.
+    </div>
+  </div>
+
+  <div class="chat-input-area">
+    <input type="text" class="chat-input" placeholder="Type your question…" />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+<script>
+let chatState = {
+  question: "",
+  contact: ""
+};
+
+function toggleChat() {
+  const box = document.getElementById("chatBox");
+  box.style.display = box.style.display === "flex" ? "none" : "flex";
+}
+
+function sendMessage() {
+  const input = document.querySelector(".chat-input");
+  const msg = input.value.trim();
+  if (!msg) return;
+
+  input.value = "";
+
+  const body = document.getElementById("chatBody");
+  body.innerHTML += `<div class="user-msg">${msg}</div>`;
+  body.scrollTop = body.scrollHeight;
+
+  if (!chatState.question) {
+    chatState.question = msg;
+
+    setTimeout(() => {
+      body.innerHTML += `
+        <div class="bot-msg">
+          Thanks.<br>
+          If you'd like a reply, please leave your email or WhatsApp.
+        </div>`;
+      body.scrollTop = body.scrollHeight;
+    }, 600);
+
+    return;
+  }
+
+  if (!chatState.contact) {
+    chatState.contact = msg;
+
+    setTimeout(() => {
+      body.innerHTML += `
+        <div class="bot-msg">
+          Got it 👍<br>
+          We’ll review your question and reply personally.
+        </div>`;
+      body.scrollTop = body.scrollHeight;
+
+      const subject = encodeURIComponent("New Website Question – TechAuditPros");
+      const content = encodeURIComponent(
+        `Question:\n${chatState.question}\n\nContact:\n${chatState.contact}\n\nPage:\n${location.href}`
+      );
+
+      window.location.href = `mailto:ajipaul96@gmail.com?subject=${subject}&body=${content}`;
+    }, 700);
+  }
+}
+</script>
 
 </body>
 </html>
