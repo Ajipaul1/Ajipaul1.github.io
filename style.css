@@ -422,3 +422,112 @@ footer,
     gap: 48px;
   }
 }
+/* ==================================================
+   CASE STUDY VIDEO SLIDER (APPLE STYLE)
+================================================== */
+
+.case-slider {
+  width: 100%;
+  padding: 120px 0;
+  background: #000;
+  overflow: hidden;
+}
+
+.case-slider-title {
+  color: #fff;
+  font-size: 2.2rem;
+  margin-left: 6vw;
+  margin-bottom: 40px;
+}
+
+/* Horizontal track */
+.case-track {
+  display: flex;
+  gap: 40px;
+  padding-left: 6vw;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.case-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Each slide */
+.case-slide {
+  position: relative;
+  min-width: 70vw;
+  height: 420px;
+  border-radius: 24px;
+  overflow: hidden;
+  scroll-snap-align: center;
+  background: #111;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+}
+
+/* Video */
+.case-slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.6) contrast(1.05) brightness(0.9);
+}
+
+/* Overlay content */
+.case-overlay {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  color: #fff;
+  max-width: 60%;
+}
+
+.case-tag {
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+
+.case-overlay h3 {
+  font-size: 1.6rem;
+  margin-bottom: 14px;
+}
+
+/* Button */
+.case-btn {
+  display: inline-block;
+  padding: 12px 22px;
+  background: #fff;
+  color: #000;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Coming soon */
+.case-soon {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* Placeholder slide */
+.placeholder-box {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .case-slide {
+    min-width: 85vw;
+    height: 340px;
+  }
+}
