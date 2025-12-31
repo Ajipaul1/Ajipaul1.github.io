@@ -360,6 +360,17 @@ function sendMessage() {
   }
 }
 </script>
+<script>
+const slides = document.querySelectorAll('.case-slide');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    entry.target.classList.toggle('active', entry.isIntersecting);
+  });
+}, { threshold: 0.6 });
+
+slides.forEach(slide => observer.observe(slide));
+</script>
 
 </body>
 </html>
