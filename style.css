@@ -170,12 +170,14 @@ a {
    - Professional clarity
 ================================================== */
 section {
-  max-width: 1000px;      /* Controls content width */
-  margin: 0 auto;
+  width: 100%;
+  max-width: none;          /* 🔥 THIS removes side black bars */
+  margin: 0;
   padding: 90px 24px;
-  background: #ffffff;    /* Light background */
+  background: #ffffff;
   color: #111827;
 }
+
 
 /* Section headings */
 section h2,
