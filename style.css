@@ -1,5 +1,8 @@
 /* ==================================================
    RESET & BASE
+   Purpose:
+   - Normalize spacing
+   - Prevent box-model issues
 ================================================== */
 *,
 *::before,
@@ -9,29 +12,39 @@
   padding: 0;
 }
 
+/* Full-height layout baseline */
 html,
 body {
   width: 100%;
   height: 100%;
 }
 
+/* ==================================================
+   GLOBAL BODY STYLES
+   ⚠️ HERO STAYS DARK
+   Post-hero sections override background individually
+================================================== */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
                Roboto, Helvetica, Arial, sans-serif;
-  background-color: #0b0d10; /* HERO STAYS DARK */
+  background-color: #0b0d10; /* DARK BASE FOR HERO */
   color: #eaeaea;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
+/* Global link reset */
 a {
   color: inherit;
   text-decoration: none;
 }
 
 /* ==================================================
-   HERO SECTION (UNCHANGED)
+   HERO SECTION (DO NOT CHANGE WITHOUT CARE)
+   Purpose:
+   - Fullscreen cinematic entry
+   - Emotional first impression
 ================================================== */
 .hero {
   position: relative;
@@ -40,16 +53,18 @@ a {
   overflow: hidden;
 }
 
+/* Hero background video */
 .hero video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1.01);
+  transform: scale(1.01); /* Prevent edge gaps */
   filter: brightness(0.95) contrast(1.05);
 }
 
+/* Dark overlay for readability */
 .hero::after {
   content: "";
   position: absolute;
@@ -62,11 +77,12 @@ a {
   z-index: 1;
 }
 
+/* Hero content container */
 .hero-content {
   position: relative;
   z-index: 2;
   height: 100%;
-  max-width: 960px;
+  max-width: 960px; /* Controlled width for readability */
   margin: 0 auto;
   padding: 0 24px;
   display: flex;
@@ -76,6 +92,7 @@ a {
   text-align: center;
 }
 
+/* Hero headline */
 .hero h1 {
   font-size: clamp(2.8rem, 5vw, 4.2rem);
   font-weight: 600;
@@ -83,12 +100,14 @@ a {
   margin-bottom: 10px;
 }
 
+/* Hero tagline */
 .hero .tagline {
   font-size: 1.15rem;
   color: #dddddd;
   margin-bottom: 14px;
 }
 
+/* Hero supporting copy */
 .hero .support {
   max-width: 720px;
   font-size: 1rem;
@@ -97,7 +116,7 @@ a {
 }
 
 /* ==================================================
-   AUDIT SEARCH BAR
+   AUDIT SEARCH BAR (LEAD ENTRY)
 ================================================== */
 .audit-bar {
   display: flex;
@@ -128,12 +147,14 @@ a {
   cursor: pointer;
 }
 
+/* Hero reassurance text */
 .hero small {
   font-size: 0.85rem;
   color: #bdbdbd;
   margin-bottom: 28px;
 }
 
+/* Hero navigation links */
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -144,27 +165,32 @@ a {
 
 /* ==================================================
    LIGHT CONTENT MODE (POST-HERO)
+   Purpose:
+   - White background
+   - Professional clarity
 ================================================== */
 section {
-  max-width: 1000px;
+  max-width: 1000px;      /* Controls content width */
   margin: 0 auto;
   padding: 90px 24px;
-  background: #ffffff;
+  background: #ffffff;    /* Light background */
   color: #111827;
 }
 
+/* Section headings */
 section h2,
 section h3 {
   color: #111827;
 }
 
+/* Section body text */
 section p,
 section li {
   color: #374151;
 }
 
 /* ==================================================
-   SERVICES
+   SERVICES GRID
 ================================================== */
 .services {
   display: grid;
@@ -173,6 +199,7 @@ section li {
   margin-top: 36px;
 }
 
+/* Individual service cards */
 .service-card {
   background: #f9fafb;
   padding: 26px;
@@ -180,17 +207,19 @@ section li {
   border: 1px solid #e5e7eb;
 }
 
+/* Hover refinement */
 .service-card:hover {
   border-color: #d1d5db;
 }
 
 /* ==================================================
-   CASE STUDY SNAPSHOT (BOTH VIDEOS)
+   CASE STUDY SNAPSHOT (ALL CASE VIDEOS)
 ================================================== */
 .case-study-section {
   background: #ffffff;
 }
 
+/* Two-column case study layout */
 .case-study-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -199,6 +228,7 @@ section li {
   margin-top: 32px;
 }
 
+/* Small meta label */
 .case-meta {
   font-size: 0.85rem;
   text-transform: uppercase;
@@ -207,6 +237,7 @@ section li {
   margin-bottom: 10px;
 }
 
+/* Video container */
 .case-study-video {
   position: relative;
   border-radius: 18px;
@@ -215,6 +246,7 @@ section li {
   box-shadow: 0 20px 40px rgba(0,0,0,0.25);
 }
 
+/* Case video itself */
 .case-study-video video {
   width: 100%;
   height: 100%;
@@ -228,16 +260,18 @@ section li {
   background: #ffffff;
 }
 
+/* Audit bullet points */
 .audit-list li {
   color: #374151;
 }
 
+/* Pricing note */
 .price-note {
   color: #111827;
 }
 
 /* ==================================================
-   PRIMARY BUTTON
+   PRIMARY CTA BUTTON
 ================================================== */
 .primary-btn {
   display: inline-block;
@@ -265,7 +299,7 @@ footer,
 }
 
 /* ==================================================
-   CHAT (UNCHANGED)
+   CHAT UI (DO NOT TOUCH LOGIC)
 ================================================== */
 .chat-fab {
   position: fixed;
