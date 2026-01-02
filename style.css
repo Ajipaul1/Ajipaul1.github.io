@@ -267,19 +267,41 @@ section li {
 }
 
 /* ==================================================
-   AUDIT SECTION
+   AUDIT SECTION – TRUST & CLARITY
 ================================================== */
 #audit {
-  background: #ffffff;
+  background: #f8fafc; /* Soft professional background */
+  padding: 100px 24px;
 }
 
-/* Audit bullet points */
+/* Inner container to control width */
+.audit-inner {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+/* Intro text */
+.audit-intro {
+  font-size: 1.05rem;
+  color: #374151;
+  margin-bottom: 28px;
+}
+
+/* Audit list */
+.audit-list {
+  margin: 24px 0 32px;
+  padding-left: 18px;
+}
+
 .audit-list li {
+  margin-bottom: 10px;
   color: #374151;
 }
 
-/* Pricing note */
-.price-note {
+/* Note text */
+.audit-note {
+  margin-top: 24px;
+  font-size: 0.95rem;
   color: #111827;
 }
 
