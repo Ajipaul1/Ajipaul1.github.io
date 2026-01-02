@@ -892,4 +892,23 @@ footer,
 .hero .support {
   margin-bottom: 32px;
 }
+/* ==================================================
+   LAYOUT RHYTHM FIX (SAFE OVERRIDES)
+   Purpose:
+   - Fix cornered hero feeling
+   - Reduce exaggerated section gaps
+   - Keep hero dark
+================================================== */
+
+/* Fix hero vertical balance */
+.hero-content {
+  padding-top: 12vh;
+  padding-bottom: 10vh;
+}
+
+/* Normalize section spacing (override earlier values) */
+section {
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
 
