@@ -586,6 +586,20 @@ document.addEventListener("DOMContentLoaded", () => {
 >
   Ask a Question
 </a>
+<script>
+  document.querySelectorAll("[data-video]").forEach(video => {
+    video.pause();
+
+    video.closest(".industry-card").addEventListener("mouseenter", () => {
+      video.play();
+    });
+
+    video.closest(".industry-card").addEventListener("mouseleave", () => {
+      video.pause();
+      video.currentTime = 0;
+    });
+  });
+</script>
 
 </body>
 </html>
