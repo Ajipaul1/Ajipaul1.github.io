@@ -7,6 +7,7 @@
        - Character encoding
        - Mobile responsiveness
        - Search engine indexing
+       - DO NOT REMOVE
   ================================================== -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,59 +15,82 @@
 
   <!-- ==================================================
        PAGE TITLE (SEO CRITICAL)
-       Edit ONLY if branding changes
+       Rules:
+       - Brand first
+       - Service clarity
+       - Edit ONLY if brand name changes
   ================================================== -->
   <title>TechAuditPros | Website & SEO Audits for Businesses</title>
 
   <!-- ==================================================
        META DESCRIPTION
-       Purpose: Search snippet clarity (no keyword stuffing)
+       Rules:
+       - Human readable
+       - No keyword stuffing
+       - Used by Google snippet
   ================================================== -->
   <meta name="description" content="TechAuditPros helps local service businesses, repair companies, and consultants understand and fix website and SEO issues that stop customers from finding them online.">
 
   <!-- ==================================================
        GOOGLE SEARCH CONSOLE VERIFICATION
-       Do NOT remove
+       Purpose:
+       - Ownership verification
+       - Keep ONLY ONE verification method
+       - Safe to keep even after DNS verification
   ================================================== -->
   <meta name="google-site-verification" content="nKm7MzLndhPXbTGfdIvEyhdbTuWd1fgOMhpKg3GPozM" />
 
   <!-- ==================================================
-       CANONICAL URL
-       Purpose: Avoid duplicate indexing
+       CANONICAL URL (VERY IMPORTANT)
+       Purpose:
+       - Prevent duplicate indexing
+       - Consolidate SEO authority
+       - MUST always be final domain
   ================================================== -->
-<link rel="canonical" href="https://techauditpros.com/" />
+  <link rel="canonical" href="https://techauditpros.com/" />
 
   <!-- ==================================================
        MAIN STYLESHEET
-       All visual changes happen in style.css
+       Rules:
+       - All visual changes go into style.css
+       - Do NOT add inline styles here
   ================================================== -->
   <link rel="stylesheet" href="style.css">
 
   <!-- ==================================================
        STRUCTURED DATA (ORGANIZATION SCHEMA)
-       Purpose: Google trust & entity clarity
+       Purpose:
+       - Brand/entity recognition
+       - Trust signal for Google
+       - Used for Knowledge Graph
+       Notes:
+       - URL must match canonical
+       - Email must be business email
   ================================================== -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "TechAuditPros",
-    "url": "https://ajipaul1.github.io/",
+    "url": "https://techauditpros.com/",
     "description": "Website and SEO audits for businesses that want clarity, visibility, and trust online.",
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "customer support",
-      "email": "ajipaul96@gmail.com"
+      "email": "info@techauditpros.com"
     }
   }
   </script>
-    <!-- ==================================================
+
+  <!-- ==================================================
        GOOGLE ANALYTICS (GA4)
        Purpose:
        - Traffic measurement
-       - Trust signal to Google
+       - Trust signal
        - SEO data foundation
-       ⚠️ Keep only ONE GA tag
+       Rules:
+       - Keep ONLY ONE GA tag
+       - Must be inside <head>
   ================================================== -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XT9KD0E65G"></script>
   <script>
@@ -84,18 +108,21 @@
      HERO SECTION (FULLSCREEN, DARK, CINEMATIC)
      Purpose:
      - First impression
-     - Positioning
      - Emotional trust
-     ⚠️ Do NOT add white background here
+     - Brand positioning
+     ⚠️ DO NOT convert this section to white
 ================================================== -->
 <header class="hero">
-  <!-- Background video (silent, looping) -->
+
+  <!-- Background video (silent, looping, no text baked in) -->
   <video autoplay muted loop playsinline preload="metadata">
     <source src="hero-video.mp4" type="video/mp4">
   </video>
 
   <!-- Hero content overlay -->
   <div class="hero-content">
+
+    <!-- Brand name -->
     <h1>TechAuditPros</h1>
 
     <!-- Primary positioning line -->
@@ -109,9 +136,8 @@
       If your website or SEO is unclear, customers choose someone else.
     </div>
 
-    <!-- Free audit input (lead entry, no pressure) -->
-    <form class="audit-bar" action="mailto:ajipaul96@gmail.com" method="post" enctype="text/plain">
-      <!-- Edit placeholder text ONLY if messaging changes -->
+    <!-- Free audit entry (soft lead capture) -->
+    <form class="audit-bar" action="mailto:info@techauditpros.com" method="post" enctype="text/plain">
       <input type="text" name="website" placeholder="Enter your website for a free audit">
       <button type="submit">Check Now</button>
     </form>
@@ -119,25 +145,28 @@
     <!-- Trust reassurance -->
     <small>No pressure. Honest guidance.</small>
 
-    <!-- Secondary navigation links -->
+    <!-- Secondary navigation -->
     <div class="hero-actions">
       <a href="https://wa.me/916282520339">WhatsApp</a>
-      <a href="mailto:ajipaul96@gmail.com">Email</a>
+      <a href="mailto:info@techauditpros.com">Email</a>
       <a href="case-studies.html">Case Studies</a>
       <a href="about.html">About Us</a>
       <a href="#contact">Contact</a>
     </div>
+
   </div>
 </header>
 
 <!-- ==================================================
-     ABOUT SECTION (LIGHT CONTENT)
-     Purpose: Empathy + context
+     ABOUT SECTION
+     Purpose:
+     - Empathy
+     - Context
+     - Calm explanation
 ================================================== -->
 <section id="about">
   <h2>You do real work.</h2>
 
-  <!-- Main explanatory copy -->
   <p>
     You repair. You build. You guide.<br><br>
     But the online world has changed.
@@ -146,7 +175,6 @@
     We help bring clarity to that.
   </p>
 
-  <!-- Internal link to long-form About page -->
   <a class="text-link" href="about.html">
     Find out more about us →
   </a>
@@ -154,7 +182,9 @@
 
 <!-- ==================================================
      WHO THIS IS FOR
-     Purpose: Audience qualification (no selling)
+     Purpose:
+     - Audience qualification
+     - No selling
 ================================================== -->
 <section id="who-this-is-for">
   <h2>Who This Is For</h2>
@@ -164,7 +194,6 @@
     and want their online presence to reflect that.
   </p>
 
-  <!-- Target audience list -->
   <ul class="simple-list">
     <li><strong>Local service businesses</strong> that rely on Google visibility</li>
     <li><strong>Repair companies</strong> where trust matters more than ads</li>
@@ -173,9 +202,10 @@
 </section>
 
 <!-- ==================================================
-     SERVICES SECTION
-     Purpose: Scope clarity
-     ⚠️ No pricing, no sales language
+     SERVICES
+     Purpose:
+     - Scope clarity
+     - No pricing
 ================================================== -->
 <section>
   <h2>Services</h2>
@@ -189,16 +219,17 @@
 </section>
 
 <!-- ==================================================
-     CASE STUDY SNAPSHOT (PROOF)
+     CASE STUDIES (VIDEO SLIDER)
+     Purpose:
+     - Proof
+     - Authority
 ================================================== -->
-<!-- CASE STUDY VIDEO SLIDER (APPLE STYLE) -->
 <section id="case-studies" class="case-slider">
 
   <h2 class="case-slider-title">Case Studies</h2>
 
   <div class="case-track">
 
-    <!-- SLIDE 1 -->
     <div class="case-slide active">
       <video autoplay muted loop playsinline>
         <source src="seo_growth.mp4" type="video/mp4">
@@ -211,7 +242,6 @@
       </div>
     </div>
 
-    <!-- SLIDE 2 -->
     <div class="case-slide">
       <video autoplay muted loop playsinline>
         <source src="Seo_Generation_Shop_Transformation.mp4" type="video/mp4">
@@ -224,7 +254,6 @@
       </div>
     </div>
 
-    <!-- SLIDE 3 (FUTURE) -->
     <div class="case-slide placeholder">
       <div class="placeholder-box">
         Next Case Study<br><small>Coming Soon</small>
@@ -232,12 +261,10 @@
     </div>
 
   </div>
-
 </section>
 
 <!-- ==================================================
-     AUDIT PROCESS EXPLANATION
-     Purpose: Transparency + trust
+     AUDIT PROCESS
 ================================================== -->
 <section id="audit">
   <h2>What Happens When You Ask for an Audit</h2>
@@ -247,7 +274,6 @@
     the same way a professional inspects a building.
   </p>
 
-  <!-- Audit checklist -->
   <ul class="audit-list">
     <li>Website structure and page clarity</li>
     <li>Search engine crawlability & indexing</li>
@@ -256,34 +282,30 @@
     <li>Clear, honest recommendations</li>
   </ul>
 
-  <!-- Pricing clarity -->
   <p class="price-note">
     This audit is normally a paid professional service.<br>
     <strong>We currently offer it free</strong> so you can decide with clarity.
   </p>
 
-  <!-- Primary CTA -->
-  <a class="primary-btn" href="mailto:ajipaul96@gmail.com">
+  <a class="primary-btn" href="mailto:info@techauditpros.com">
     Get My Free Website & SEO Audit
   </a>
 </section>
 
 <!-- ==================================================
-     CONTACT SECTION
-     Purpose: Direct human contact
+     CONTACT
 ================================================== -->
 <section id="contact">
   <h2>Contact</h2>
 
   <div class="contact-links">
-    <p>Email: <a href="mailto:ajipaul96@gmail.com">ajipaul96@gmail.com</a></p>
+    <p>Email: <a href="mailto:info@techauditpros.com">info@techauditpros.com</a></p>
     <p>WhatsApp: <a href="https://wa.me/916282520339">+91 6282520339</a></p>
   </div>
 </section>
 
 <!-- ==================================================
      FOOTER
-     Purpose: Geographic trust signal
 ================================================== -->
 <footer class="footer-small">
   <p>
@@ -294,22 +316,19 @@
 
 <!-- ==================================================
      FLOATING CHAT BUTTON
-     Purpose: Simple lead capture (human replies)
 ================================================== -->
 <button class="chat-fab" onclick="toggleChat()">Ask a Question</button>
 
 <!-- ==================================================
-     CHAT WINDOW UI
+     CHAT UI
 ================================================== -->
 <div class="chat-box" id="chatBox">
-
   <div class="chat-header">
     Ask a Question
     <span onclick="toggleChat()">✕</span>
   </div>
 
   <div class="chat-body" id="chatBody">
-    <!-- Initial bot message -->
     <div class="bot-msg">
       Hi 👋<br>
       You can ask anything about your website or SEO.<br>
@@ -324,8 +343,7 @@
 </div>
 
 <!-- ==================================================
-     CHAT LOGIC SCRIPT
-     Purpose: Collect question → contact → open mail/WhatsApp
+     CHAT LOGIC
 ================================================== -->
 <script>
 let chatState = { question: "", contact: "" };
@@ -370,12 +388,13 @@ function sendMessage() {
       if (/^\+?\d{8,15}$/.test(chatState.contact)) {
         window.open(`https://wa.me/${chatState.contact.replace(/\D/g, "")}?text=${content}`, "_blank");
       } else {
-        window.location.href = `mailto:ajipaul96@gmail.com?subject=${subject}&body=${content}`;
+        window.location.href = `mailto:info@techauditpros.com?subject=${subject}&body=${content}`;
       }
     }, 500);
   }
 }
 </script>
+
 <script>
 const slides = document.querySelectorAll('.case-slide');
 
