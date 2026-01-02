@@ -931,4 +931,23 @@ section {
 #contact {
   display: block !important;
 }
+/* ==================================================
+   CONTACT SECTION – FOOTER STYLE
+================================================== */
+
+.contact-section {
+  background: #f9fafb;
+  padding-top: 48px;
+  padding-bottom: 48px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.contact-section h2 {
+  margin-bottom: 12px;
+}
+
+.contact-section p {
+  margin-bottom: 6px;
+  color: #374151;
+}
 
