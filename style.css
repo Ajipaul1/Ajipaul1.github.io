@@ -911,4 +911,24 @@ section {
   padding-top: 72px;
   padding-bottom: 72px;
 }
+/* ==================================================
+   CONTACT SECTION – FORCE LEFT ALIGN (OVERRIDE)
+   This guarantees left alignment regardless of earlier styles
+================================================== */
+
+#contact {
+  text-align: left !important;
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+/* If contact content is inside any wrapper, force it */
+#contact * {
+  text-align: left !important;
+}
+
+/* Prevent accidental centering from flex/grid */
+#contact {
+  display: block !important;
+}
 
