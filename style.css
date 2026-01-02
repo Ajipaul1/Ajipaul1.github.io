@@ -216,6 +216,17 @@ section li {
 
 /* ==================================================
    CASE STUDY SNAPSHOT (ALL CASE VIDEOS)
+/* 
+==================================================
+   CASE STUDY VIDEO SLIDER (DISABLED)
+   Reason:
+   - Replaced with trust-focused static case study
+==================================================
+
+(case slider CSS here)
+
+*/
+
 ================================================== */
 .case-study-section {
   background: #ffffff;
@@ -767,5 +778,80 @@ footer,
 
 #industries p {
   color: rgba(255,255,255,0.75);
+}
+/* ==================================================
+   SINGLE CASE STUDY – TRUST SECTION
+   Purpose:
+   - Calm proof
+   - Premium consulting feel
+================================================== */
+#case-study-single {
+  background: #f8fafc;
+  padding: 100px 6vw;
+}
+
+#case-study-single h2 {
+  text-align: center;
+  margin-bottom: 60px;
+  color: #111827;
+}
+
+/* Layout */
+.case-study-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Video */
+.case-video {
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+.case-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text side */
+.case-content .case-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #6b7280;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.case-content h3 {
+  font-size: 1.6rem;
+  margin-bottom: 16px;
+  color: #111827;
+}
+
+.case-content p {
+  color: #374151;
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+
+.case-result {
+  margin-top: 18px;
+  font-weight: 500;
+  color: #111827;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .case-study-layout {
+    grid-template-columns: 1fr;
+  }
 }
 
