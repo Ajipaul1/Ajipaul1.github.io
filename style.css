@@ -876,4 +876,20 @@ footer,
     grid-template-columns: 1fr;
   }
 }
+/* ==================================================
+   HERO CONTENT – VISUAL ANCHOR FIX
+================================================== */
+.hero-content {
+  padding-top: 12vh;   /* gives breathing from top */
+  padding-bottom: 10vh;
+}
+
+/* Make hero text feel more grounded */
+.hero h1 {
+  margin-bottom: 16px;
+}
+
+.hero .support {
+  margin-bottom: 32px;
+}
 
