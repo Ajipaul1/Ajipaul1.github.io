@@ -238,7 +238,7 @@
 
 <!-- CARD 1: Local Service Businesses (ACTIVE VIDEO) -->
 <div class="industry-card">
-  <video autoplay muted loop playsinline preload="metadata">
+  <video muted loop playsinline preload="metadata" class="industry-video">
     <source src="/videos/industries/industry-local-service-businesses.mp4" type="video/mp4">
   </video>
   <div class="industry-overlay">
@@ -248,10 +248,10 @@
 </div>
 
 
-   <!-- CARD 2: Repair Companies (ACTIVE VIDEO) -->
+<!-- CARD: Repair Companies -->
 <div class="industry-card">
-  <video autoplay muted loop playsinline preload="metadata">
-    <source src="/videos/industries/industry-repair-companies.mp4" type="video/mp4">
+  <video muted loop playsinline preload="metadata" class="industry-video">
+    <source src="videos/industries/industry-repair-companies.mp4" type="video/mp4">
   </video>
   <div class="industry-overlay">
     <h3>Repair Companies</h3>
@@ -260,23 +260,30 @@
 </div>
 
 
-    <!-- CARD 3: Consultants -->
-    <div class="industry-card placeholder">
-      <div class="industry-overlay">
-        <h3>Consultants & Professionals</h3>
-        <p>Authority-driven SEO</p>
-        <span class="status">In development</span>
-      </div>
-    </div>
 
-    <!-- CARD 4: Healthcare -->
-    <div class="industry-card placeholder">
-      <div class="industry-overlay">
-        <h3>Healthcare & Clinics</h3>
-        <p>Compliance-aware visibility</p>
-        <span class="status">In development</span>
-      </div>
-    </div>
+   <!-- CARD: Consultants, Designers & Professionals -->
+<div class="industry-card">
+  <video muted loop playsinline preload="metadata" class="industry-video">
+    <source src="videos/industries/industry-consultants-designers.mp4" type="video/mp4">
+  </video>
+  <div class="industry-overlay">
+    <h3>Consultants & Designers</h3>
+    <p>Authority-driven online presence</p>
+  </div>
+</div>
+
+
+    <!-- CARD: Healthcare & Clinics -->
+<div class="industry-card">
+  <video muted loop playsinline preload="metadata" class="industry-video">
+    <source src="videos/industries/industry-healthcare-clinics.mp4" type="video/mp4">
+  </video>
+  <div class="industry-overlay">
+    <h3>Healthcare & Clinics</h3>
+    <p>Trust, compliance, and clarity</p>
+  </div>
+</div>
+
 
     <!-- CARD 5: Real Estate -->
     <div class="industry-card placeholder">
@@ -286,15 +293,18 @@
         <span class="status">In development</span>
       </div>
     </div>
+    
+<!-- CARD: IT & SaaS -->
+<div class="industry-card">
+  <video muted loop playsinline preload="metadata" class="industry-video">
+    <source src="videos/industries/industry-it-saas.mp4" type="video/mp4">
+  </video>
+  <div class="industry-overlay">
+    <h3>IT & SaaS</h3>
+    <p>Technical websites built to scale</p>
+  </div>
+</div>
 
-    <!-- CARD 6: IT & SaaS -->
-    <div class="industry-card placeholder">
-      <div class="industry-overlay">
-        <h3>IT & SaaS</h3>
-        <p>Technical websites & scale</p>
-        <span class="status">In development</span>
-      </div>
-    </div>
 
   </div>
 </section>
@@ -496,6 +506,34 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.6 });
 
 slides.forEach(slide => observer.observe(slide));
+</script>
+<!-- ==================================================
+     INDUSTRY VIDEOS – SMART PLAY CONTROL
+     Purpose:
+     - Play only when visible
+     - Pause when off-screen
+     - Premium, calm experience
+================================================== -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const videos = document.querySelectorAll(".industry-video");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const video = entry.target;
+
+      if (entry.isIntersecting) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  }, {
+    threshold: 0.6
+  });
+
+  videos.forEach(video => observer.observe(video));
+});
 </script>
 
 </body>
