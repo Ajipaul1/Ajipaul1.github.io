@@ -206,26 +206,43 @@ section li {
 }
 
 /* ==================================================
-   SERVICES GRID
+   SERVICES – CLICKABLE CARD DESIGN
+   Purpose:
+   - Make services feel actionable
+   - Premium consulting look
 ================================================== */
-.services {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
-  margin-top: 36px;
-}
 
-/* Individual service cards */
 .service-card {
-  background: #f9fafb;
-  padding: 26px;
-  border-radius: 14px;
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 16px;
   border: 1px solid #e5e7eb;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #111827;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
-/* Hover refinement */
+/* Hover = trust, not hype */
 .service-card:hover {
-  border-color: #d1d5db;
+  border-color: #2563eb;
+  box-shadow: 0 18px 40px rgba(37,99,235,0.12);
+  transform: translateY(-2px);
+  color: #2563eb;
+}
+
+/* Make links look like cards */
+.services a.service-card {
+  text-decoration: none;
+  display: block;
+}
+@media (max-width: 768px) {
+  .service-card {
+    padding: 22px;
+    font-size: 1rem;
+  }
 }
 
 /* ==================================================
