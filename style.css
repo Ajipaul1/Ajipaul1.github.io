@@ -1194,4 +1194,29 @@ section {
     right: 16px;
   }
 }
+/* ==================================================
+   INDUSTRIES – MOBILE CARD REFINEMENT
+   Purpose:
+   - Reduce visual noise
+   - Improve scroll flow
+================================================== */
+
+@media (max-width: 768px) {
+  .industry-card {
+    height: 200px;       /* was 240–260px */
+    border-radius: 14px;
+  }
+
+  .industry-overlay {
+    padding: 16px;
+  }
+
+  .industry-overlay h3 {
+    font-size: 1.05rem;
+  }
+
+  .industry-overlay p {
+    font-size: 0.9rem;
+  }
+}
 
