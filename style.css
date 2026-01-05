@@ -1068,4 +1068,37 @@ section {
     font-size: 0.95rem;
   }
 }
+/* ==================================================
+   HERO MOBILE HEIGHT & TEXT SPACING FIX
+   Purpose:
+   - Reduce excessive hero height
+   - Improve readability
+   - Better mobile UX + CWV
+================================================== */
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 88vh; /* Instead of full 100vh */
+  }
+
+  .hero-content {
+    padding-top: 72px;
+    padding-bottom: 48px;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+    line-height: 1.15;
+  }
+
+  .hero .tagline {
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+
+  .hero .support {
+    font-size: 0.95rem;
+    margin-top: 14px;
+  }
+}
 
