@@ -1140,4 +1140,26 @@ section {
     font-size: 0.95rem;         /* mobile-friendly text size */
   }
 }
+/* ==================================================
+   FLOATING ASK BUTTON – MOBILE OPTIMIZED
+================================================== */
+
+.ask-question-btn {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  padding: 14px 18px;
+  font-size: 0.95rem;
+  border-radius: 999px;
+  background: #2563eb;
+  color: #fff;
+  z-index: 9999;
+}
+
+@media (max-width: 768px) {
+  .ask-question-btn {
+    bottom: 16px;
+    right: 16px;
+  }
+}
 
