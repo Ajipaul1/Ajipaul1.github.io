@@ -244,6 +244,34 @@ section li {
     font-size: 1rem;
   }
 }
+/* ==================================================
+   SERVICE CARD – MICRO AFFORDANCE
+   Purpose:
+   - Make clickability obvious
+   - Premium consulting feel (not salesy)
+================================================== */
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.service-title {
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.service-cta {
+  font-size: 0.9rem;
+  color: #6b7280;
+  transition: color 0.2s ease;
+}
+
+/* On hover, guide the eye */
+.service-card:hover .service-cta {
+  color: #2563eb;
+}
 
 /* ==================================================
    CASE STUDY SNAPSHOT (ALL CASE VIDEOS)
