@@ -990,4 +990,29 @@ section {
     padding-left: 18px;
   }
 }
+/* =========================
+   HERO MOBILE TUNING
+========================= */
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 0 16px;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .support {
+    font-size: 0.95rem;
+  }
+
+  .audit-bar {
+    flex-direction: column;
+  }
+
+  .audit-bar input,
+  .audit-bar button {
+    width: 100%;
+  }
+}
 
