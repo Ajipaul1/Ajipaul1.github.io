@@ -114,6 +114,20 @@ a {
   color: #cfcfcf;
   margin-bottom: 26px;
 }
+/* ==================================================
+   HERO – HOME ANCHOR REFINEMENT
+   Purpose:
+   - Make hero feel grounded (not floating)
+================================================== */
+
+.hero-content {
+  max-width: 960px;
+}
+
+/* Subtle visual weight for brand */
+.hero h1 {
+  text-shadow: 0 8px 30px rgba(0,0,0,0.35);
+}
 
 /* ==================================================
    AUDIT SEARCH BAR (LEAD ENTRY)
