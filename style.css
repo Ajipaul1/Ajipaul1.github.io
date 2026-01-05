@@ -1297,4 +1297,32 @@ section {
     display: block;
   }
 }
+/* ==================================================
+   PAGE NAVIGATION (GLOBAL)
+   Purpose:
+   - Easy return to Home
+   - Better crawl flow
+   - Clean professional UX
+================================================== */
+
+.page-nav {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 18px 0;
+}
+
+.page-nav a {
+  font-weight: 500;
+  color: #2563eb;
+}
+
+.nav-separator {
+  margin: 0 8px;
+  color: #9ca3af;
+}
+
+.nav-current {
+  color: #374151;
+  font-weight: 500;
+}
 
