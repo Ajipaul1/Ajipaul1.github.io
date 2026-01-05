@@ -1277,4 +1277,24 @@ section {
     transparent
   );
 }
+/* ==================================================
+   MOBILE PERFORMANCE HARD STOP
+   Purpose:
+   - Kill video decoding on mobile
+   - Fix scroll lag
+   - Improve CWV (INP + LCP)
+================================================== */
+
+@media (max-width: 768px) {
+
+  /* Disable all background videos */
+  video {
+    display: none !important;
+  }
+
+  /* Ensure images show instead */
+  img {
+    display: block;
+  }
+}
 
