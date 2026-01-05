@@ -324,6 +324,31 @@ section li {
   height: 100%;
   object-fit: cover;
 }
+/* ==================================================
+   CASE STUDY CTA – CLICKABLE BUT CALM
+================================================== */
+
+.case-cta {
+  margin-top: 26px;
+}
+
+.case-link {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: 1px solid #2563eb;
+  color: #2563eb;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+/* Hover = trust, not sales */
+.case-link:hover {
+  background: #2563eb;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
 
 /* ==================================================
    AUDIT SECTION – TRUST & CLARITY
