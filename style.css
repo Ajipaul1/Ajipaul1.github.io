@@ -1119,4 +1119,25 @@ section {
     border-radius: 14px;
   }
 }
+/* ==================================================
+   HERO ACTION LINKS – MOBILE SPACING
+   Purpose:
+   - Stack links vertically on mobile
+   - Prevent accidental taps
+   - Improve UX and SEO mobile usability
+================================================== */
+
+@media (max-width: 768px) {
+  .hero-actions {
+    display: flex;              /* ensure flex layout */
+    flex-direction: column;     /* vertical stack */
+    gap: 14px;                  /* space between links */
+    margin-top: 24px;           /* breathing room from content */
+  }
+
+  .hero-actions a {
+    padding: 10px 0;            /* increase tap area */
+    font-size: 0.95rem;         /* mobile-friendly text size */
+  }
+}
 
