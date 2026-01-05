@@ -1219,4 +1219,15 @@ section {
     font-size: 0.9rem;
   }
 }
+/* ==================================================
+   INDUSTRY VIDEO – MOBILE BEHAVIOR
+   Purpose:
+   - Stop auto-playing videos on mobile
+================================================== */
+
+@media (max-width: 768px) {
+  .industry-card video {
+    pointer-events: none;
+  }
+}
 
