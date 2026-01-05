@@ -57,7 +57,8 @@
        - All visual changes go into style.css
        - Do NOT add inline styles here
   ================================================== -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="preload" href="style.css" as="style" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="style.css"></noscript>
 
   <!-- ==================================================
        STRUCTURED DATA (ORGANIZATION SCHEMA)
