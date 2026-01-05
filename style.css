@@ -1101,4 +1101,22 @@ section {
     margin-top: 14px;
   }
 }
+/* ==================================================
+   MOBILE CTA TAP TARGET FIX
+   Purpose:
+   - Improve tap accuracy
+   - Increase conversions
+   - Meet Google mobile UX guidelines
+================================================== */
+
+@media (max-width: 768px) {
+  .primary-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 16px 22px;
+    font-size: 1rem;
+    border-radius: 14px;
+  }
+}
 
