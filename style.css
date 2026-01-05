@@ -1015,4 +1015,57 @@ section {
     width: 100%;
   }
 }
+/* =========================================
+   HERO – MOBILE CWV OPTIMIZATION
+   Purpose:
+   - Improve LCP
+   - Remove mobile video load
+   - Prevent layout shift
+========================================= */
+
+/* Default: show video, hide image */
+.hero-video {
+  display: block;
+}
+
+.hero-image {
+  display: none;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+
+  /* Hide heavy video on mobile */
+  .hero-video {
+    display: none;
+  }
+
+  /* Show lightweight image */
+  .hero-image {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Reduce hero height for mobile */
+  .hero {
+    height: 88vh;
+  }
+
+  /* Improve text readability */
+  .hero h1 {
+    font-size: 2.1rem;
+  }
+
+  .hero .tagline {
+    font-size: 1rem;
+  }
+
+  .hero .support {
+    font-size: 0.95rem;
+  }
+}
 
