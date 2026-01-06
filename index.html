@@ -568,6 +568,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 </script>
+<!-- ================================
+     TECHAUDITPROS CHATBOT
+================================ -->
+<button class="chat-fab" id="chatToggle">
+  Ask a question
+</button>
+
+<div class="chat-box" id="chatBox">
+  <div class="chat-header">
+    <strong>TechAuditPros</strong>
+    <button id="chatClose">×</button>
+  </div>
+
+  <div class="chat-messages" id="chatMessages">
+    <div class="bot-msg">
+      Hi 👋  
+      What would you like to know?
+    </div>
+  </div>
+
+  <div class="chat-actions">
+    <button data-intent="FREE_AUDIT">Free Audit</button>
+    <button data-intent="PRICING">Pricing</button>
+    <button data-intent="SERVICES_OVERVIEW">Services</button>
+    <button data-intent="CASE_STUDY">Case Study</button>
+  </div>
+</div>
 
 </body>
 </html>
