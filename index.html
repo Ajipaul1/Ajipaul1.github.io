@@ -595,6 +595,72 @@ document.addEventListener("DOMContentLoaded", () => {
     <button data-intent="CASE_STUDY">Case Study</button>
   </div>
 </div>
+<script>
+const chatToggle = document.getElementById("chatToggle");
+const chatBox = document.getElementById("chatBox");
+const chatClose = document.getElementById("chatClose");
+const chatMessages = document.getElementById("chatMessages");
+
+chatToggle.onclick = () => chatBox.style.display = "flex";
+chatClose.onclick = () => chatBox.style.display = "none";
+
+const RESPONSES = {
+  FREE_AUDIT: {
+    text: "We offer a professional website & SEO audit to help you understand what’s blocking visibility. No pressure, no obligation.",
+    buttons: true
+  },
+  PRICING: {
+    text: "Audit pricing depends on website size and complexity. We always start with an audit before discussing fixes.",
+    buttons: true
+  },
+  SERVICES_OVERVIEW: {
+    text: "We specialize in website & technical SEO audits focused on clarity, structure, and long-term trust.",
+    buttons: true
+  },
+  CASE_STUDY: {
+    text: "We document real audits and results to show how technical clarity improves visibility.",
+    link: "/case-studies.html"
+  }
+};
+
+document.querySelectorAll(".chat-actions button").forEach(btn => {
+  btn.onclick = () => {
+    const intent = btn.dataset.intent;
+    const data = RESPONSES[intent];
+
+    const msg = document.createElement("div");
+    msg.className = "bot-msg";
+    msg.innerHTML = data.text;
+    chatMessages.appendChild(msg);
+
+    if (data.link) {
+      const link = document.createElement("a");
+      link.href = data.link;
+      link.textContent = "View details →";
+      link.style.display = "block";
+      link.style.marginTop = "8px";
+      msg.appendChild(link);
+    }
+
+    if (data.buttons) addLeadButtons();
+
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  };
+});
+
+function addLeadButtons() {
+  const wrap = document.createElement("div");
+  wrap.className = "bot-msg";
+
+  wrap.innerHTML = `
+    <strong>Contact us directly:</strong><br><br>
+    <a href="https://wa.me/916282520339" target="_blank">WhatsApp</a><br>
+    <a href="mailto:info@techauditpros.com">Email</a>
+  `;
+
+  chatMessages.appendChild(wrap);
+}
+</script>
 
 </body>
 </html>
