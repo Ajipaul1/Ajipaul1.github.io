@@ -1890,3 +1890,20 @@ section {
 #services .services-layer {
   margin-top: 48px;
 }
+/* Desktop: show text logo */
+.logo-icon {
+  display: none;
+}
+
+/* Mobile: show home icon instead of text */
+@media (max-width: 768px) {
+  .logo-text {
+    display: none;
+  }
+
+  .logo-icon {
+    display: inline-block;
+    font-size: 1.2rem;
+    color: #ffffff;
+  }
+}
