@@ -1872,3 +1872,21 @@ section {
     font-size: 2.1rem;
   }
 }
+/* ==================================================
+   SERVICES – FULL WIDTH OVERRIDE (6vw)
+   Purpose:
+   - Keep cards
+   - Keep SEO text
+   - Remove boxed layout
+   - Match Industries width logic
+================================================== */
+
+#services .content-wrap {
+  max-width: none;        /* remove 960px limit */
+  width: 100%;
+  padding-left: 6vw;
+  padding-right: 6vw;
+}
+#services .services-layer {
+  margin-top: 48px;
+}
