@@ -1888,4 +1888,120 @@ section {
     font-size: 2rem;
   }
 }
+/* =========================================
+   EDITORIAL SECTION – TEXT-LED DESIGN
+========================================= */
+
+.editorial-section {
+  position: relative;
+  padding: 140px 6vw;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+/* Background design only (no cards) */
+.editorial-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 25%, rgba(37,99,235,0.08), transparent 45%),
+    radial-gradient(circle at 85% 70%, rgba(0,0,0,0.04), transparent 55%);
+  z-index: 0;
+}
+
+/* Layout */
+.editorial-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 100px;
+  align-items: start;
+}
+
+/* LEFT */
+.editorial-left h2 {
+  font-size: 2.6rem;
+  margin-bottom: 14px;
+  color: #111827;
+}
+
+.editorial-lead {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 22px;
+}
+
+.editorial-left p {
+  font-size: 1rem;
+  color: #374151;
+  margin-bottom: 16px;
+  max-width: 520px;
+}
+
+.editorial-strong {
+  font-weight: 600;
+  color: #111827;
+}
+
+.editorial-link {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #2563eb;
+}
+
+/* RIGHT */
+.editorial-right h3 {
+  font-size: 1.4rem;
+  margin-bottom: 22px;
+  color: #111827;
+}
+
+.editorial-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.editorial-list li {
+  margin-bottom: 26px;
+}
+
+.editorial-list strong {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.editorial-list span {
+  display: block;
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 900px) {
+  .editorial-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .editorial-section {
+    padding: 90px 20px;
+  }
+
+  .editorial-left h2 {
+    font-size: 2.1rem;
+  }
+}
 
