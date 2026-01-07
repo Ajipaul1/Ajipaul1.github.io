@@ -1625,4 +1625,135 @@ section {
     font-size: 0.95rem;
   }
 }
+/* ==================================================
+   SERVICES SECTION – FULL-WIDTH PREMIUM EFFECT
+   Purpose:
+   - Remove boxed feeling
+   - Add cinematic depth
+   - Match international SaaS / agency quality
+   - DO NOT affect other sections
+================================================== */
+
+/* --------------------------------------------------
+   SECTION BACKDROP (FULL WIDTH FEEL)
+-------------------------------------------------- */
+#services {
+  position: relative;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(37,99,235,0.04),
+      rgba(255,255,255,1) 60%
+    );
+  overflow: hidden;
+}
+
+/* Soft horizontal glow band */
+#services::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0),
+    rgba(37,99,235,0.06),
+    rgba(255,255,255,0)
+  );
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ensure real content stays above effects */
+#services > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* --------------------------------------------------
+   SERVICES LAYERS – VISUAL RHYTHM
+-------------------------------------------------- */
+.services-layer {
+  margin-top: 48px;
+}
+
+/* --------------------------------------------------
+   SERVICE CARD – DEPTH & POLISH
+-------------------------------------------------- */
+.service-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e5e7eb;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.06),
+    inset 0 0 0 1px rgba(255,255,255,0.4);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+/* Hover: lift + focus (desktop only) */
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(37,99,235,0.45);
+  box-shadow:
+    0 30px 70px rgba(37,99,235,0.18),
+    inset 0 0 0 1px rgba(255,255,255,0.6);
+}
+
+/* --------------------------------------------------
+   IMAGE REFINEMENT (SUBTLE, NOT FLASHY)
+-------------------------------------------------- */
+.service-media img {
+  filter: saturate(0.95) contrast(1.05);
+  transition: filter 0.35s ease, transform 0.35s ease;
+}
+
+.service-card:hover .service-media img {
+  filter: saturate(1.05) contrast(1.1);
+  transform: scale(1.03);
+}
+
+/* --------------------------------------------------
+   TEXT FOCUS & READABILITY
+-------------------------------------------------- */
+.service-title {
+  letter-spacing: -0.01em;
+}
+
+.service-desc {
+  max-width: 90%;
+}
+
+/* --------------------------------------------------
+   CTA EMPHASIS (CALM)
+-------------------------------------------------- */
+.service-cta {
+  margin-top: 8px;
+  display: inline-block;
+}
+
+/* ==================================================
+   MOBILE SAFETY
+   Purpose:
+   - No jump
+   - No hover dependency
+================================================== */
+@media (max-width: 768px) {
+
+  .service-card:hover {
+    transform: none;
+    box-shadow:
+      0 12px 30px rgba(0,0,0,0.08);
+  }
+
+  .service-card:hover .service-media img {
+    transform: none;
+  }
+
+}
 
