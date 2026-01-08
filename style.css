@@ -2019,3 +2019,69 @@ section {
     padding-top: 56px;
   }
 }
+/* ==================================================
+   STICKY WHITE HEADER (FINAL)
+   Purpose:
+   - Small height
+   - White background
+   - Visible logo
+   - Sticks on scroll
+================================================== */
+
+.site-nav {
+  position: sticky;        /* ✅ makes it follow scroll */
+  top: 0;
+  z-index: 1000;
+
+  background: #ffffff;     /* white header */
+  padding: 10px 28px;      /* 👈 SMALL HEIGHT */
+  border-bottom: 1px solid #e5e7eb;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo container */
+.nav-logo {
+  display: flex;
+  align-items: center;
+}
+
+/* LOGO SIZE – DESKTOP */
+.nav-logo img {
+  height: 42px;            /* 🔥 BIGGER & CLEAR */
+  width: auto;
+}
+
+/* Navigation links */
+.nav-links a {
+  color: #111827;          /* dark text on white */
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-left: 24px;
+  text-decoration: none;
+}
+
+/* Hover effect */
+.nav-links a:hover {
+  color: #2563eb;
+}
+
+/* ==================================================
+   MOBILE HEADER TUNING
+================================================== */
+@media (max-width: 768px) {
+
+  .site-nav {
+    padding: 8px 18px;
+  }
+
+  .nav-logo img {
+    height: 38px;          /* slightly smaller on mobile */
+  }
+
+  .nav-links {
+    display: none;         /* clean mobile header */
+  }
+}
