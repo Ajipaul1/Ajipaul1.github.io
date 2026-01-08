@@ -1938,3 +1938,6 @@ section {
 
   border-bottom: 1px solid rgba(255,255,255,0.25);
 }
+.nav-logo img {
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.35));
+}
