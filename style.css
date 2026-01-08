@@ -2009,3 +2009,13 @@ section {
     display: none;
   }
 }
+/* Prevent hero from hiding behind sticky header */
+.hero {
+  padding-top: 64px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 56px;
+  }
+}
