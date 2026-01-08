@@ -1941,3 +1941,71 @@ section {
 .nav-logo img {
   filter: drop-shadow(0 1px 4px rgba(0,0,0,0.35));
 }
+/* ==================================================
+   STICKY HEADER – CLEAN PRODUCT NAV
+   IMPORTANT:
+   - ADD ONLY (do not edit existing CSS)
+   - Safe override
+   - Desktop-first, mobile-safe
+================================================== */
+
+/* Header container */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  height: 64px;                     /* slim, professional */
+  padding: 0 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #ffffff;              /* light background for logo contrast */
+  border-bottom: 1px solid #e5e7eb; /* subtle separation */
+
+}
+
+/* Logo wrapper */
+.header-logo img {
+  height: 28px;                     /* 🔑 SMALL LOGO (DESKTOP) */
+  width: auto;
+  display: block;
+}
+
+/* Navigation links */
+.header-nav {
+  display: flex;
+  gap: 24px;
+}
+
+.header-nav a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+.header-nav a:hover {
+  color: #2563eb;
+}
+
+/* ==================================================
+   MOBILE BEHAVIOR
+================================================== */
+@media (max-width: 768px) {
+
+  .sticky-header {
+    height: 56px;
+    padding: 0 18px;
+  }
+
+  .header-logo img {
+    height: 24px;                   /* even smaller on mobile */
+  }
+
+  /* Hide nav links for now (clean mobile) */
+  .header-nav {
+    display: none;
+  }
+}
