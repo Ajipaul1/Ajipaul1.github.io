@@ -2152,3 +2152,77 @@ body {
     padding-top: 54px;
   }
 }
+/* ==================================================
+   HEADER RESET & FIX (FINAL)
+   Purpose:
+   - Remove black bar
+   - Force header behavior
+   - Guarantee logo size
+================================================== */
+
+/* FORCE HEADER */
+.site-nav {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;                 /* 🔥 FIXED SMALL HEIGHT */
+  background: #ffffff !important;
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 9999 !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px !important;
+}
+
+/* GUARANTEE LOGO SIZE */
+.site-nav .nav-logo img {
+  height: 48px !important;      /* 🔥 BIG, VISIBLE */
+  width: auto !important;
+}
+
+/* NAV LINKS */
+.site-nav .nav-links a {
+  color: #111827 !important;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* ==================================================
+   HERO OFFSET FIX (CRITICAL)
+   This removes the black bar issue
+================================================== */
+
+.hero {
+  margin-top: 64px;             /* EXACT header height */
+}
+
+/* REMOVE BODY PADDING (BLACK BAR FIX) */
+body {
+  padding-top: 0 !important;
+}
+
+/* ==================================================
+   MOBILE
+================================================== */
+@media (max-width: 768px) {
+
+  .site-nav {
+    height: 56px;
+    padding: 0 16px !important;
+  }
+
+  .site-nav .nav-logo img {
+    height: 42px !important;
+  }
+
+  .site-nav .nav-links {
+    display: none !important;
+  }
+
+  .hero {
+    margin-top: 56px;
+  }
+}
