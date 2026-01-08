@@ -76,29 +76,29 @@
        - MUST always be final domain
   ================================================== -->
   <link rel="canonical" href="https://techauditpros.com/" />
-     <!-- ==================================================
-     FAVICON & APP ICONS
+  <!-- ==================================================
+     FAVICON & APP ICONS (FINAL – SAFE VERSION)
      Purpose:
      - Browser tab icon
      - Mobile browser icon
-     - Clean, sharp branding at all sizes
-     Files used:
-     - /assets/favicon-*.png
-     - /assets/logoonly.svg
+     - App / PWA compatibility
 ================================================== -->
 
-<!-- Standard favicons -->
-<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
-<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
-<link rel="icon" type="image/png" sizes="64x64" href="/assets/favicon-64.png">
+<!-- Primary favicon (MOST IMPORTANT) -->
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
 
-<!-- SVG fallback (modern browsers) -->
-<link rel="icon" type="image/svg+xml" href="/assets/logoonly.svg">
+<!-- Small fallback -->
+<link rel="icon" href="/assets/favicon-16.png" sizes="16x16" type="image/png">
 
-<!-- Apple / iOS home screen icon -->
-<link rel="apple-touch-icon" href="/assets/logoonly.svg">
+<!-- High DPI / Windows -->
+<link rel="icon" href="/assets/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="/assets/favicon-64.png" sizes="64x64" type="image/png">
 
+<!-- Modern SVG favicon (desktop browsers) -->
+<link rel="icon" href="/assets/logoonly.svg" type="image/svg+xml">
+
+<!-- Apple Touch Icon (PNG ONLY – iOS RULE) -->
+<link rel="apple-touch-icon" href="/assets/favicon-64.png">
 
   <!-- ==================================================
        MAIN STYLESHEET
