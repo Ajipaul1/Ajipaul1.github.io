@@ -1923,3 +1923,18 @@ section {
     height: 28px;         /* Smaller, clean */
   }
 }
+/* ==================================================
+   NAVIGATION BACKDROP – LOGO VISIBILITY FIX
+   Purpose:
+   - Make blue + black logo visible on dark hero video
+   - Keep hero cinematic
+   - No solid white bar
+================================================== */
+
+.site-nav {
+  background: rgba(255, 255, 255, 0.14);   /* light glass */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+}
