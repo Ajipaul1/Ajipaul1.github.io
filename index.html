@@ -2,43 +2,31 @@
 <html lang="en">
 <head>
 <!-- ==================================================
-     GLOBAL SITE NAVIGATION
+     STICKY HEADER (GLOBAL – ALL PAGES)
+     Purpose:
+     - Always-visible navigation
+     - Clean contrast for blue + black logo
+     - Small, professional height
 ================================================== -->
-<nav class="site-nav">
+<header class="sticky-header">
 
-<!-- ==================================================
-     SITE LOGO (RESPONSIVE)
-     Desktop: Full logo (logo.svg)
-     Mobile: Icon only (logoonly.svg)
-================================================== -->
-<a href="/" class="nav-logo" aria-label="TechAuditPros Home">
+  <!-- LOGO (FULL LOGO ONLY – SMALL SIZE) -->
+  <a href="/" class="header-logo" aria-label="TechAuditPros Home">
+    <img
+      src="/assets/logo.svg"
+      alt="TechAuditPros – Website & SEO Audits"
+    >
+  </a>
 
-  <!-- FULL LOGO — DESKTOP ONLY -->
-  <img
-    src="/assets/logo.svg"
-    alt="TechAuditPros – Website & SEO Audits"
-    class="logo-desktop"
-  >
-
-  <!-- ICON ONLY — MOBILE ONLY -->
-  <img
-    src="/assets/logoonly.svg"
-    alt="TechAuditPros"
-    class="logo-mobile"
-  >
-
-</a>
-
-  <!-- NAV LINKS -->
-  <div class="nav-links">
+  <!-- MAIN NAVIGATION -->
+  <nav class="header-nav">
     <a href="/#services">Services</a>
     <a href="/case-studies.html">Case Studies</a>
     <a href="/about.html">About</a>
     <a href="/#contact">Contact</a>
-  </div>
+  </nav>
 
-</nav>
-
+</header>
 
   <!-- ==================================================
        BASIC META SETUP
