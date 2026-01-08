@@ -2085,3 +2085,70 @@ section {
     display: none;         /* clean mobile header */
   }
 }
+/* ==================================================
+   FORCE STICKY HEADER (OVERRIDE MODE)
+   This OVERRIDES earlier absolute/transparent styles
+================================================== */
+
+.site-nav {
+  position: fixed !important;     /* 🔥 FORCE stick */
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  background: #ffffff !important; /* white header */
+  padding: 6px 24px !important;   /* 🔥 SMALL HEIGHT */
+  border-bottom: 1px solid #e5e7eb;
+
+  z-index: 9999 !important;
+}
+
+/* Make space so hero is not hidden */
+body {
+  padding-top: 60px;
+}
+
+/* ==================================================
+   LOGO SIZE FIX (FORCE)
+================================================== */
+
+.nav-logo img {
+  height: 52px !important;  /* 🔥 BIGGER LOGO */
+  width: auto !important;
+}
+
+/* ==================================================
+   NAV LINKS (DARK ON WHITE)
+================================================== */
+
+.nav-links a {
+  color: #111827 !important;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+  color: #2563eb;
+}
+
+/* ==================================================
+   MOBILE HEADER
+================================================== */
+@media (max-width: 768px) {
+
+  .site-nav {
+    padding: 6px 16px !important;
+  }
+
+  .nav-logo img {
+    height: 44px !important;
+  }
+
+  .nav-links {
+    display: none !important;
+  }
+
+  body {
+    padding-top: 54px;
+  }
+}
