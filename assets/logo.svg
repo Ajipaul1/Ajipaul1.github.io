@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 520 120"
+  width="100%"
+  height="100%"
+  role="img"
+  aria-label="TechAuditPros Logo">
+
+  <!-- ================= ICON ================= -->
+  <g transform="translate(20 25)">
+    <rect x="0" y="45" width="14" height="30" rx="3" fill="#1F2937"/>
+    <rect x="20" y="28" width="14" height="47" rx="3" fill="#1F2937"/>
+    <rect x="40" y="10" width="14" height="65" rx="3" fill="#3B82F6"/>
+
+    <path
+      d="M47 6 L47 -2 L55 6"
+      stroke="#3B82F6"
+      stroke-width="2.5"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"/>
+  </g>
+
+  <!-- ================= BRAND NAME (SINGLE WORD) ================= -->
+  <text
+    x="105"
+    y="62"
+    font-family="Inter, Helvetica Neue, Arial, sans-serif"
+    font-size="34"
+    font-weight="600"
+    fill="#0A1628">
+
+    <tspan>Tech</tspan><tspan fill="#3B82F6">Audit</tspan><tspan>Pros</tspan>
+
+  </text>
+
+  <!-- ================= TAGLINE ================= -->
+  <text
+    x="105"
+    y="84"
+    font-family="Inter, Helvetica Neue, Arial, sans-serif"
+    font-size="11"
+    font-weight="400"
+    fill="#6B7280">
+    WEBSITE &amp; SEO AUDITS
+  </text>
+
+</svg>
