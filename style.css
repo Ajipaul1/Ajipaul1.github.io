@@ -1890,20 +1890,36 @@ section {
 #services .services-layer {
   margin-top: 48px;
 }
-/* Desktop: show text logo */
-.logo-icon {
+/* ==================================================
+   SITE LOGO – RESPONSIVE CONTROL
+   Desktop: full logo
+   Mobile: icon only
+================================================== */
+
+/* Base logo styling */
+.nav-logo img {
+  display: block;
+  height: 34px;           /* Desktop-safe height */
+  width: auto;
+}
+
+/* Desktop behavior */
+.logo-desktop {
+  display: block;
+}
+
+.logo-mobile {
   display: none;
 }
 
-/* Mobile: show home icon instead of text */
+/* Mobile behavior */
 @media (max-width: 768px) {
-  .logo-text {
+  .logo-desktop {
     display: none;
   }
 
-  .logo-icon {
-    display: inline-block;
-    font-size: 1.2rem;
-    color: #ffffff;
+  .logo-mobile {
+    display: block;
+    height: 28px;         /* Smaller, clean */
   }
 }
