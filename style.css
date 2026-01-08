@@ -2226,3 +2226,37 @@ body {
     margin-top: 56px;
   }
 }
+/* ==========================================
+   CLEAN TRANSPARENT STICKY HEADER (SAFE)
+========================================== */
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+/* LOGO – ACTUALLY BIG */
+.site-nav .nav-logo img {
+  height: 52px;      /* BIG & CLEAR */
+  width: auto;
+}
+
+/* NAV LINKS */
+.site-nav .nav-links a {
+  color: #111;
+  font-weight: 500;
+}
+
+/* HERO FIX – NO BLACK BAR */
+.hero,
+.hero::before,
+.hero::after {
+  top: 0;
+}
