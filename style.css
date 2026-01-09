@@ -2652,3 +2652,275 @@ summary::after {
     margin: -20px 0;
   }
 }
+/* ==================================================
+   MASTER CSS PART 8: WEBSITE SEO AUDIT PAGE
+   Design Focus: Clarity, Persona, Pill Grid
+   ================================================== */
+
+/* ---------------------------------------------------------
+   PAGE WRAPPER
+--------------------------------------------------------- */
+.web-audit-wrapper {
+  background-color: #ffffff;
+  color: var(--color-dark);
+}
+
+.wa-section {
+  padding: 100px 0;
+}
+
+.wa-alt-bg {
+  background-color: #f8fafc;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.wa-dark-trust {
+  background-color: #1e293b;
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   INTRO & TYPOGRAPHY
+--------------------------------------------------------- */
+.wa-intro {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.wa-intro h2 {
+  font-size: 2.5rem;
+  margin-bottom: 24px;
+  color: var(--color-dark);
+}
+
+.wa-intro p {
+  font-size: 1.1rem;
+  color: #4b5563;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.wa-emphasis {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  padding: 24px;
+  border-left: 4px solid var(--color-primary);
+  text-align: left;
+  background: rgba(37,99,235,0.05);
+  border-radius: 0 12px 12px 0;
+}
+
+/* ---------------------------------------------------------
+   PILL GRID (WHAT WE REVIEW)
+--------------------------------------------------------- */
+.pill-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.pill-item {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  padding: 12px 24px;
+  border-radius: 99px;
+  font-weight: 500;
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.pill-item:hover {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(37,99,235,0.2);
+}
+
+/* ---------------------------------------------------------
+   PERSONA GRID (WHO IS IT FOR)
+--------------------------------------------------------- */
+.sub-intro {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #6b7280;
+  margin-bottom: 40px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.persona-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.persona-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.persona-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-primary);
+}
+
+.p-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  background: #f1f5f9;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  border-radius: 50%;
+}
+
+.persona-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  color: var(--color-dark);
+}
+
+.persona-card p {
+  font-size: 1rem;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+/* ---------------------------------------------------------
+   REASON GRID (WHY AUDIT FIRST)
+--------------------------------------------------------- */
+.wa-reason-box {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.wa-reason-box h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.2rem;
+}
+
+.reason-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.reason-item {
+  text-align: center;
+  padding: 24px;
+}
+
+.reason-item strong {
+  display: block;
+  font-size: 1.5rem;
+  color: var(--color-dark);
+  margin-bottom: 12px;
+}
+
+.reason-item p {
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+/* ---------------------------------------------------------
+   PROCESS LIST (VERTICAL STEPS)
+--------------------------------------------------------- */
+.process-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+.process-item {
+  display: flex;
+  align-items: center;
+  background: #f8fafc;
+  padding: 16px 24px;
+  border-radius: 12px;
+}
+
+.p-step {
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  margin-right: 24px;
+  min-width: 50px;
+}
+
+/* ---------------------------------------------------------
+   TRUST QUOTE (DARK SECTION)
+--------------------------------------------------------- */
+.trust-quote {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.trust-quote h2 {
+  color: #fff;
+  font-size: 2.2rem;
+  margin-bottom: 32px;
+}
+
+.trust-quote p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 24px;
+}
+
+.audit-note-box {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ---------------------------------------------------------
+   MOBILE RESPONSIVENESS
+--------------------------------------------------------- */
+@media (max-width: 768px) {
+  .wa-section {
+    padding: 60px 0;
+  }
+
+  .wa-intro h2 {
+    font-size: 2rem;
+  }
+
+  .wa-emphasis {
+    padding: 16px;
+    font-size: 1.1rem;
+  }
+
+  .persona-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reason-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-quote h2 {
+    font-size: 1.8rem;
+  }
+}
