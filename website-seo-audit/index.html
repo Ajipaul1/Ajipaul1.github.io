@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
   <!-- ==================================================
-       BASIC META
+       PRESERVED METADATA & SCHEMA
   ================================================== -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
 
-  <!-- ==================================================
-       TITLE & DESCRIPTION (SEO CORE)
-  ================================================== -->
   <title>Website SEO Audit Services | TechAuditPros</title>
 
-  <meta name="description" content="Professional website SEO audit services to identify technical issues, structure problems, and visibility gaps that stop businesses from ranking and getting enquiries.">
+  <meta name="description" content="Professional website SEO audit services to identify technical issues, structure problems, and visibility gaps that stop businesses from ranking and getting enquiries." />
 
-  <!-- ==================================================
-       CANONICAL
-  ================================================== -->
   <link rel="canonical" href="https://techauditpros.com/website-seo-audit/" />
-
-  <!-- ==================================================
-       STYLES
-  ================================================== -->
   <link rel="stylesheet" href="/style.css">
 
   <!-- ==================================================
-       STRUCTURED DATA
+       FAVICON (FROM PAGE A - USER REQUEST)
   ================================================== -->
+  <link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="../assets/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="icon" href="../assets/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="icon" href="../assets/favicon-64.png" sizes="64x64" type="image/png">
+  <link rel="icon" href="../assets/logoonly.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/favicon-64.png">
+
+  <!-- SERVICE SCHEMA -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -41,186 +40,299 @@
     "description": "Professional website SEO audits focused on technical clarity, crawlability, and search visibility for businesses."
   }
   </script>
+
 </head>
 
 <body>
 
-<!-- ==================================================
-     HERO
-================================================== -->
-<header class="hero">
-  <video autoplay muted loop playsinline preload="metadata">
-    <source src="/hero-video.mp4" type="video/mp4">
-  </video>
+  <!-- ==================================================
+       PROTECTED HEADER (FROM PAGE A)
+  ================================================== -->
+  <header class="site-nav">
+    <div class="content-wrap">
+      <a href="/" class="nav-logo" aria-label="TechAuditPros Home">
+        <img src="../assets/logo.svg" alt="TechAuditPros Logo">
+      </a>
 
-  <div class="hero-content">
-    <h1>Website SEO Audit</h1>
+      <nav class="nav-links">
+        <a href="/#services">Services</a>
+        <a href="/case-studies.html">Case Studies</a>
+        <a href="/about.html">About</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <div class="tagline">
-      Understand what’s holding your website back.
+  <!-- ==================================================
+       PROTECTED HERO (PAGE A STYLE - CUSTOM TEXT)
+  ================================================== -->
+  <header class="hero">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto">
+      <source src="../hero-video.mp4" type="video/mp4">
+    </video>
+    <img src="../hero-mobile.jpg" alt="Website SEO Audit" class="hero-image" loading="eager">
+
+    <div class="hero-content">
+      <span class="eyebrow" style="color:var(--color-primary); font-weight:700; letter-spacing: 0.1em; margin-bottom: 16px; display:block;">FOUNDATIONS</span>
+      
+      <h1>Website SEO Audit</h1>
+      
+      <div class="tagline">
+        Understand what’s holding your website back.
+      </div>
+
+      <div class="support">
+        A professional website SEO audit reveals technical issues,
+        structure problems, and visibility gaps that prevent
+        search engines and customers from finding you.
+      </div>
+      
+      <form class="audit-bar" action="mailto:info@techauditpros.com" method="post" enctype="text/plain">
+        <input type="text" name="website" placeholder="Enter your website for a free audit" required>
+        <button type="submit">Check Now</button>
+      </form>
+    </div>
+  </header>
+
+  <!-- ==================================================
+       MAIN CONTENT: PILL & PERSONA DESIGN
+  ================================================== -->
+  <main class="web-audit-wrapper">
+
+    <!-- SECTION 1: INTRO -->
+    <section class="wa-section">
+      <div class="content-wrap">
+        <div class="wa-intro">
+          <h2>What Is a Website SEO Audit?</h2>
+          <p>
+            A website SEO audit is a detailed evaluation of how your website
+            performs in search engines. It looks beyond surface-level content
+            and examines the technical foundation that determines whether
+            your site can be properly crawled, understood, and ranked.
+          </p>
+          <p class="wa-emphasis">
+            Many businesses invest time and money into their websites,
+            but still struggle to get consistent visibility. In most cases,
+            the issue is not effort — it’s unclear structure, technical gaps,
+            or misaligned SEO signals.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: WHAT WE REVIEW (PILL GRID) -->
+    <section class="wa-section wa-alt-bg">
+      <div class="content-wrap">
+        <div class="section-header-center">
+          <h2>What We Review</h2>
+          <p>A complete diagnostic of your website's health and SEO potential.</p>
+        </div>
+
+        <div class="pill-grid">
+          <div class="pill-item">Structure & Linking</div>
+          <div class="pill-item">Page Intent</div>
+          <div class="pill-item">Crawlability</div>
+          <div class="pill-item">Indexation</div>
+          <div class="pill-item">Core Web Vitals</div>
+          <div class="pill-item">Mobile Usability</div>
+          <div class="pill-item">Duplicate Content</div>
+          <div class="pill-item">Competitor Gaps</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: WHO THIS IS FOR (PERSONAS) -->
+    <section class="wa-section">
+      <div class="content-wrap">
+        <h2>Who This Website SEO Audit Is For</h2>
+        
+        <p class="sub-intro">
+          Our website SEO audit services are designed for businesses
+          that want clarity before committing to long-term SEO work.
+        </p>
+
+        <div class="persona-grid">
+          
+          <div class="persona-card">
+            <div class="p-icon">👤</div>
+            <h3>Unsure Owners</h3>
+            <p>Business owners who built a great site but aren't sure why it isn't ranking.</p>
+          </div>
+
+          <div class="persona-card">
+            <div class="p-icon">📉</div>
+            <h3>Losing Enquiries</h3>
+            <p>Local service companies seeing competitors appear in search instead of them.</p>
+          </div>
+
+          <div class="persona-card">
+            <div class="p-icon">🛠️</div>
+            <h3>Repair & Trade</h3>
+            <p>Tradespeople relying on search visibility for leads and calls.</p>
+          </div>
+
+          <div class="persona-card">
+            <div class="p-icon">🎓</div>
+            <h3>Consultants</h3>
+            <p>Professionals building authority and looking for direction.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: WHY AUDIT FIRST -->
+    <section class="wa-section wa-alt-bg">
+      <div class="content-wrap">
+        <div class="wa-reason-box">
+          <h2>Why an Audit Comes Before SEO Work</h2>
+          <div class="reason-grid">
+            <div class="reason-item">
+              <strong>Not Generic</strong>
+              <p>Effective SEO is not about applying generic tactics.</p>
+            </div>
+            <div class="reason-item">
+              <strong>Data-First</strong>
+              <p>Decisions are based on real data, not assumptions.</p>
+            </div>
+            <div class="reason-item">
+              <strong>Safe & Logical</strong>
+              <p>Prevents wasted effort and allows improvements to be planned safely.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: PROCESS -->
+    <section class="wa-section">
+      <div class="content-wrap">
+        <h2>Our Website SEO Audit Process</h2>
+        
+        <div class="process-list">
+          <div class="process-item">
+            <div class="p-step">01</div>
+            <p>Initial website and SEO signal review</p>
+          </div>
+          <div class="process-item">
+            <div class="p-step">02</div>
+            <p>Technical crawl and structure analysis</p>
+          </div>
+          <div class="process-item">
+            <div class="p-step">03</div>
+            <p>Identification of ranking and visibility blockers</p>
+          </div>
+          <div class="process-item">
+            <div class="p-step">04</div>
+            <p>Clear explanation of findings</p>
+          </div>
+          <div class="process-item">
+            <div class="p-step">05</div>
+            <p>Actionable recommendations, no sales pressure</p>
+          </div>
+        </div>
+
+        <div class="audit-note-box">
+          <p class="audit-note">
+            This audit is normally a paid professional service.
+            <strong>We currently offer it free</strong>
+            so you can decide with clarity.
+          </p>
+        </div>
+
+        <a href="mailto:info@techauditpros.com" class="primary-btn">Get My Website SEO Audit</a>
+      </div>
+    </section>
+
+    <!-- SECTION 6: TRUST NOTE -->
+    <section class="wa-section wa-dark-trust">
+      <div class="content-wrap">
+        <div class="trust-quote">
+          <h2>Calm, Honest SEO Guidance</h2>
+          <p>
+            We don’t sell shortcuts, guarantees, or rankings.
+            Our role is to help you understand what is happening
+            on your website and what steps actually make sense.
+          </p>
+          <p>
+            Many clients use our website SEO audit as a decision-making tool —
+            whether they continue with us or take the insights elsewhere.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================================================
+       PROTECTED FOOTER (FROM PAGE A)
+  ================================================== -->
+  <footer class="footer-small">
+    <!-- LEFT SIDE: Contact Info -->
+    <div class="footer-contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:info@techauditpros.com">info@techauditpros.com</a></p>
+      <p>WhatsApp: <a href="https://wa.me/916282520339">+91 6282520339</a></p>
     </div>
 
-    <div class="support">
-      A professional website SEO audit reveals technical issues,
-      structure problems, and visibility gaps that prevent
-      search engines and customers from finding you.
+    <!-- RIGHT SIDE: Tagline -->
+    <div class="footer-tagline">
+      <p>Serving businesses in India, USA & Canada<br>Remote & international projects welcome</p>
     </div>
+  </footer>
 
-    <a href="mailto:info@techauditpros.com" class="primary-btn">
-      Request a Website SEO Audit
-    </a>
+  <!-- ==================================================
+       PROTECTED CHATBOT
+  ================================================== -->
+  <button class="chat-fab" id="chatToggle">Ask a question</button>
+  
+  <div class="chat-box" id="chatBox">
+    <div class="chat-header">
+      <strong>TechAuditPros</strong>
+      <button id="chatClose">×</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="bot-msg">Hi 👋 Ready to audit your website?</div>
+    </div>
+    <div class="chat-actions">
+      <button data-intent="FREE_AUDIT">Free Audit</button>
+      <button data-intent="PRICING">Pricing</button>
+      <button data-intent="SERVICES_OVERVIEW">Services</button>
+      <button data-intent="CASE_STUDY">Case Study</button>
+    </div>
   </div>
-</header>
 
-<!-- ==================================================
-     INTRO
-================================================== -->
-<section>
-  <div class="content-wrap">
-    <h2>What Is a Website SEO Audit?</h2>
+  <script>
+    /* --- CHATBOT SCRIPT --- */
+    const chatToggle = document.getElementById("chatToggle");
+    const chatBox = document.getElementById("chatBox");
+    const chatClose = document.getElementById("chatClose");
+    const chatMessages = document.getElementById("chatMessages");
 
-    <p>
-      A website SEO audit is a detailed evaluation of how your website
-      performs in search engines. It looks beyond surface-level content
-      and examines the technical foundation that determines whether
-      your site can be properly crawled, understood, and ranked.
-    </p>
+    if(chatToggle && chatBox && chatClose) {
+        chatToggle.onclick = () => chatBox.style.display = "flex";
+        chatClose.onclick = () => chatBox.style.display = "none";
 
-    <p>
-      Many businesses invest time and money into their websites,
-      but still struggle to get consistent visibility. In most cases,
-      the issue is not effort — it’s unclear structure, technical gaps,
-      or misaligned SEO signals.
-    </p>
-  </div>
-</section>
+        const RESPONSES = {
+        FREE_AUDIT: { text: "We offer a professional website & SEO audit to help you understand what’s blocking visibility.", buttons: true },
+        PRICING: { text: "Audit pricing depends on website size and complexity.", buttons: true },
+        SERVICES_OVERVIEW: { text: "We specialize in website & technical SEO audits focused on clarity, structure, and long-term trust.", buttons: true },
+        CASE_STUDY: { text: "We document real audits and results to show how technical clarity improves visibility.", link: "/case-studies.html" }
+        };
 
-<!-- ==================================================
-     WHAT WE REVIEW
-================================================== -->
-<section>
-  <div class="content-wrap">
-    <h2>What We Review in a Website SEO Audit</h2>
-
-    <ul class="audit-list">
-      <li>Website structure and internal linking</li>
-      <li>Page intent and content alignment</li>
-      <li>Search engine crawlability and indexation</li>
-      <li>Technical SEO issues affecting visibility</li>
-      <li>Core web performance and mobile usability</li>
-      <li>Duplicate, thin, or conflicting pages</li>
-      <li>Basic competitor comparison and gaps</li>
-    </ul>
-  </div>
-</section>
-
-<!-- ==================================================
-     WHO THIS IS FOR
-================================================== -->
-<section>
-  <div class="content-wrap">
-    <h2>Who This Website SEO Audit Is For</h2>
-
-    <p>
-      Our website SEO audit services are designed for businesses
-      that want clarity before committing to long-term SEO work.
-    </p>
-
-    <ul class="simple-list">
-      <li>Business owners unsure why their website is not ranking</li>
-      <li>Local service companies losing enquiries to competitors</li>
-      <li>Repair and trade businesses relying on search visibility</li>
-      <li>Consultants and professionals building authority online</li>
-      <li>Companies planning SEO investment but needing direction first</li>
-    </ul>
-  </div>
-</section>
-
-<!-- ==================================================
-     WHY AUDIT FIRST
-================================================== -->
-<section>
-  <div class="content-wrap">
-    <h2>Why an Audit Comes Before SEO Work</h2>
-
-    <p>
-      Effective SEO is not about applying generic tactics.
-      Every website has a different structure, history, and set of issues.
-    </p>
-
-    <p>
-      An audit-first approach ensures that decisions are based on
-      real data, not assumptions. It prevents wasted effort
-      and allows improvements to be planned logically and safely.
-    </p>
-  </div>
-</section>
-
-<!-- ==================================================
-     PROCESS
-================================================== -->
-<section id="audit">
-  <div class="content-wrap">
-    <h2>Our Website SEO Audit Process</h2>
-
-    <ul class="audit-list">
-      <li>Initial website and SEO signal review</li>
-      <li>Technical crawl and structure analysis</li>
-      <li>Identification of ranking and visibility blockers</li>
-      <li>Clear explanation of findings</li>
-      <li>Actionable recommendations, not sales pressure</li>
-    </ul>
-
-    <p class="audit-note">
-      This audit is normally a paid professional service.
-      <strong>We currently offer it free</strong>
-      so you can decide with clarity.
-    </p>
-
-    <a href="mailto:info@techauditpros.com" class="primary-btn">
-      Get My Website SEO Audit
-    </a>
-  </div>
-</section>
-
-<!-- ==================================================
-     TRUST NOTE
-================================================== -->
-<section>
-  <div class="content-wrap">
-    <h2>Calm, Honest SEO Guidance</h2>
-
-    <p>
-      We don’t sell shortcuts, guarantees, or rankings.
-      Our role is to help you understand what is happening
-      on your website and what steps actually make sense.
-    </p>
-
-    <p>
-      Many clients use our website SEO audit as a decision-making tool —
-      whether they continue with us or take the insights elsewhere.
-    </p>
-  </div>
-</section>
-
-<!-- ==================================================
-     CONTACT CTA
-================================================== -->
-<section id="contact" class="contact-section">
-  <div class="content-wrap">
-    <h2>Request a Website SEO Audit</h2>
-    <p>Email: <a href="mailto:info@techauditpros.com">info@techauditpros.com</a></p>
-    <p>WhatsApp: <a href="https://wa.me/916282520339">+91 6282520339</a></p>
-  </div>
-</section>
-
-<footer class="footer-small">
-  <p>
-    TechAuditPros — Website & SEO Audits<br>
-    Serving businesses in India, Canada & USA
-  </p>
-</footer>
+        document.querySelectorAll(".chat-actions button").forEach(btn => {
+        btn.onclick = () => {
+            const intent = btn.dataset.intent;
+            const data = RESPONSES[intent];
+            const msg = document.createElement("div");
+            msg.className = "bot-msg";
+            msg.innerHTML = data.text;
+            chatMessages.appendChild(msg);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        };
+        });
+    }
+  </script>
 
 </body>
 </html>
-
