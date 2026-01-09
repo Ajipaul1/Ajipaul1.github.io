@@ -1466,3 +1466,338 @@ ul {
     padding: 24px;
   }
 }
+/* ==================================================
+   MASTER CSS PART 4: SEO AGENCY KERALA PAGE
+   Design Focus: Local Authority, Interactive FAQ, Trust
+   ================================================== */
+
+/* ---------------------------------------------------------
+   PAGE WRAPPER
+--------------------------------------------------------- */
+.kerala-page-layout {
+  background-color: #ffffff;
+  color: var(--color-dark);
+}
+
+.k-section {
+  padding: 100px 0;
+}
+
+.k-alt-bg {
+  background-color: #f8fafc;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+
+/* ---------------------------------------------------------
+   LOCATION GRID (TRUST SIGNAL)
+--------------------------------------------------------- */
+.location-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.location-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.location-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  border-color: var(--color-primary);
+}
+
+.loc-icon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+  background: #eff6ff;
+  width: 64px;
+  height: 64px;
+  line-height: 64px;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.location-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: var(--color-dark);
+}
+
+.location-card p {
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+/* ---------------------------------------------------------
+   SPLIT LAYOUT & FEATURES
+--------------------------------------------------------- */
+.k-split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.k-text-col h2 {
+  font-size: 2.5rem;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.highlight-text {
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  border-left: 4px solid var(--color-primary);
+  padding-left: 20px;
+  margin: 24px 0;
+}
+
+.k-feature-list {
+  list-style: none;
+  margin-top: 32px;
+}
+
+.k-feature-list li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+}
+
+.k-feature-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #10b981; /* Green check */
+  font-weight: 700;
+}
+
+/* Abstract Visual Bar Graph */
+.abstract-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.bar-graph {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  height: 120px;
+  margin-bottom: 20px;
+}
+
+.bar {
+  width: 40px;
+  background: #e5e7eb;
+  border-radius: 8px 8px 0 0;
+  transition: height 1s ease;
+}
+
+.bar.active {
+  background: var(--color-primary);
+}
+
+/* ---------------------------------------------------------
+   SERVICES GRID KERALA
+--------------------------------------------------------- */
+.service-grid-k {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.service-card-k {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  padding: 32px;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.service-card-k:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(37,99,235,0.1);
+}
+
+.s-icon {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+.service-card-k h3 {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  color: var(--color-dark);
+}
+
+/* ---------------------------------------------------------
+   FAQ ACCORDION (NATIVE HTML - ADVANCED & SEO SAFE)
+   Uses <details> and <summary> tags
+--------------------------------------------------------- */
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Open State Styling */
+.faq-item[open] {
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 12px rgba(37,99,235,0.08);
+}
+
+/* Summary Button */
+summary {
+  padding: 20px 24px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--color-dark);
+  position: relative;
+  list-style: none; /* Remove default arrow */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Custom Plus/Minus Icon */
+summary::after {
+  content: "+";
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  font-weight: 400;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate to minus on open */
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+/* FAQ Content Animation */
+.faq-content {
+  padding: 0 24px 24px;
+  color: #4b5563;
+  line-height: 1.6;
+  border-top: 1px solid transparent;
+  animation: fadeIn 0.4s ease;
+}
+
+.faq-item[open] .faq-content {
+  border-top: 1px solid #f3f4f6;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------------------------------------------------------
+   CTA SECTION
+--------------------------------------------------------- */
+.k-cta-section {
+  background: #111827;
+  color: #fff;
+  text-align: center;
+  padding: 100px 24px;
+}
+
+.k-cta-section h2 {
+  color: #fff;
+  font-size: 2.5rem;
+  margin-bottom: 24px;
+}
+
+.sub-cta {
+  margin-top: 32px;
+  font-size: 1rem;
+  color: #9ca3af;
+}
+
+.text-link {
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+/* ---------------------------------------------------------
+   MOBILE RESPONSIVENESS
+--------------------------------------------------------- */
+@media (max-width: 900px) {
+  .location-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .k-section {
+    padding: 60px 0;
+  }
+  
+  .section-header h2, .k-text-col h2 {
+    font-size: 2rem;
+  }
+
+  .location-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .k-split-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .k-visual-col {
+    order: -1;
+  }
+  
+  .service-grid-k {
+    grid-template-columns: 1fr;
+  }
+  
+  summary {
+    font-size: 1rem;
+    padding: 16px;
+  }
+  
+  .k-cta-section {
+    padding: 60px 20px;
+  }
+}
