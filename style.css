@@ -2391,3 +2391,264 @@ summary::after {
     padding: 60px 20px;
   }
 }
+/* ==================================================
+   MASTER CSS PART 7: TECHNICAL SEO AUDIT PAGE
+   Design Focus: Blueprint, Tech Stack, Infrastructure
+   ================================================== */
+
+/* ---------------------------------------------------------
+   PAGE WRAPPER
+--------------------------------------------------------- */
+.tech-audit-wrapper {
+  background-color: #ffffff;
+  color: var(--color-dark);
+}
+
+.tech-audit-section {
+  padding: 100px 0;
+}
+
+.tech-alt {
+  background-color: #f8fafc;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* ---------------------------------------------------------
+   BLUEPRINT INTRO (TECHNICAL DRAWING STYLE)
+--------------------------------------------------------- */
+.blueprint-card {
+  background: #fff;
+  border: 2px solid #2563eb; /* Blueprint Blue */
+  padding: 40px;
+  border-radius: 8px; /* Slight radius, like a schematic */
+  position: relative;
+  box-shadow: 8px 8px 0 rgba(37,99,235,0.1);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.bp-header {
+  font-family: monospace;
+  font-weight: 700;
+  color: #2563eb;
+  border-bottom: 2px dashed #2563eb;
+  padding-bottom: 10px;
+  margin-bottom: 24px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.bp-content h2 {
+  font-size: 2.2rem;
+  margin-bottom: 24px;
+}
+
+.bp-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #374151;
+  margin-bottom: 20px;
+}
+
+/* ---------------------------------------------------------
+   TECH STACK GRID (LAYERS)
+--------------------------------------------------------- */
+.tech-stack-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.stack-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stack-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: var(--color-primary);
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.stack-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.stack-card:hover::before {
+  opacity: 1;
+}
+
+.layer-num {
+  font-family: monospace;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #f3f4f6;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+.layer-icon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.stack-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+  color: var(--color-dark);
+}
+
+.stack-card p {
+  font-size: 0.95rem;
+  color: #6b7280;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------------------------------------------------------
+   SCENARIO GRID
+--------------------------------------------------------- */
+.scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.scenario-card {
+  background: #fff;
+  border-left: 4px solid var(--color-primary);
+  padding: 24px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.scenario-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: var(--color-dark);
+}
+
+.scenario-card p {
+  color: #4b5563;
+}
+
+/* ---------------------------------------------------------
+   AUDIT PIPELINE (PROCESS STEPS)
+--------------------------------------------------------- */
+.audit-pipeline {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 60px 0;
+  text-align: center;
+}
+
+.pipeline-step {
+  flex: 1;
+  padding: 0 10px;
+}
+
+.step-circle {
+  width: 50px;
+  height: 50px;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  margin: 0 auto 16px;
+  box-shadow: 0 0 0 8px rgba(37,99,235,0.2);
+}
+
+.pipeline-step h4 {
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.pipeline-step p {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.pipeline-arrow {
+  font-size: 1.5rem;
+  color: #cbd5e1;
+  align-self: center;
+  margin-top: 15px;
+}
+
+.audit-note {
+  text-align: center;
+  max-width: 700px;
+  margin: 40px auto;
+  background: #eff6ff;
+  padding: 20px;
+  border-radius: 8px;
+  color: #1e40af;
+  font-size: 1rem;
+}
+
+/* ---------------------------------------------------------
+   MOBILE RESPONSIVENESS
+--------------------------------------------------------- */
+@media (max-width: 900px) {
+  .tech-stack-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .tech-audit-section {
+    padding: 60px 0;
+  }
+
+  .blueprint-card {
+    padding: 24px;
+  }
+  
+  .blueprint-card h2 {
+    font-size: 1.8rem;
+  }
+
+  .tech-stack-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .scenario-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Stack Pipeline Vertically */
+  .audit-pipeline {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .pipeline-arrow {
+    transform: rotate(90deg);
+    margin: -20px 0;
+  }
+}
