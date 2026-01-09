@@ -1,19 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <nav class="site-nav">
-  <a href="/" class="nav-logo">TechAuditPros</a>
-
-  <div class="nav-links">
-    <a href="/#services">Services</a>
-    <a href="/case-studies.html">Case Studies</a>
-    <a href="/about.html" class="active">About</a>
-    <a href="/#contact">Contact</a>
-  </div>
-</nav>
-
+  
   <!-- ==================================================
-       BASIC META
+       PRESERVED METADATA
   ================================================== -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,188 +12,241 @@
   <title>About TechAuditPros | Engineering-Driven Website & SEO Audits</title>
 
   <meta name="description" content="TechAuditPros provides engineering-driven website and SEO audits focused on clarity, structure, and long-term search visibility." />
-
   <link rel="canonical" href="https://techauditpros.com/about.html" />
   <link rel="stylesheet" href="style.css">
+
+  <!-- Preserve any specific verification codes here if needed -->
 </head>
 
 <body>
 
-<!-- ==================================================
-     HERO
-================================================== -->
-<header class="hero">
-  <div class="hero-content">
-    <span class="eyebrow">ABOUT TECHAUDITPROS</span>
+  <!-- ==================================================
+       PROTECTED HEADER (FROM PAGE A)
+  ================================================== -->
+  <header class="site-nav">
+    <div class="content-wrap">
+      <a href="/" class="nav-logo" aria-label="TechAuditPros Home">
+        <!-- Note: Ensure you have assets/logo.svg -->
+        <img src="assets/logo.svg" alt="TechAuditPros Logo">
+      </a>
 
-    <h1>
-      Built on Clarity.<br>
-      Driven by Engineering.
-    </h1>
+      <nav class="nav-links">
+        <a href="/#services">Services</a>
+        <a href="/case-studies.html">Case Studies</a>
+        <a href="/about.html">About</a> <!-- Active Page -->
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <p class="support">
-      We help businesses understand what is really happening
-      with their website, SEO, and online visibility —
-      and fix issues at the structural level.
-    </p>
-  </div>
-</header>
+  <!-- ==================================================
+       PROTECTED HERO (PAGE A STYLE - CUSTOM TEXT)
+  ================================================== -->
+  <header class="hero">
+    <!-- Video Background (Same as Page A) -->
+    <video class="hero-video" autoplay muted loop playsinline preload="auto">
+      <source src="hero-video.mp4" type="video/mp4">
+    </video>
+    <img src="hero-mobile.jpg" alt="About TechAuditPros" class="hero-image" loading="eager">
 
-<main>
+    <div class="hero-content">
+      <span class="eyebrow" style="color:var(--color-primary); font-weight:700; letter-spacing: 0.1em; margin-bottom: 16px; display:block;">ABOUT TECHAUDITPROS</span>
+      
+      <h1>Built on Clarity.<br>Driven by Engineering.</h1>
+      
+      <div class="tagline">
+        We help businesses understand what is really happening with their website and SEO.
+      </div>
 
-<!-- ==================================================
-     WHY WE EXIST
-================================================== -->
-<section>
-  <div class="content-wrap">
-    <h2>Why TechAuditPros Exists</h2>
+      <div class="support">
+        Through structured audits, technical analysis, and honest recommendations based on evidence, we fix issues at the structural level.
+      </div>
 
-    <p>
-      TechAuditPros was created after observing a recurring problem:
-      capable businesses doing genuine work,
-      yet struggling to be discovered online.
-    </p>
+      <!-- Optional: Add the audit bar here if you want leads, or remove for purely informational -->
+    </div>
+  </header>
 
-    <p>
-      In most cases, the issue was not service quality,
-      but unclear website structure, technical SEO gaps,
-      or systems that search engines could not properly interpret.
-    </p>
+  <!-- ==================================================
+       EXPERIMENTAL CONTENT: BENTO GRID LAYOUT
+  ================================================== -->
+  <main class="z-about-layout">
+    <div class="content-wrap">
+      
+      <div class="bento-grid">
+        
+        <!-- BLOCK 1: MISSION (WIDE) -->
+        <article class="bento-card bento-wide">
+          <div class="bento-icon">01</div>
+          <h2>Why We Exist</h2>
+          <p class="lead">
+            TechAuditPros was created to solve a recurring problem: capable businesses doing genuine work, yet struggling to be discovered online.
+          </p>
+          <p>
+            In most cases, the issue was not service quality, but unclear website structure, technical SEO gaps, or systems that search engines could not properly interpret.
+          </p>
+          <div class="highlight-box">
+            Our work focuses on restoring clarity through structured audits and technical analysis.
+          </div>
+        </article>
 
-    <p>
-      Our work focuses on restoring clarity —
-      through structured audits, technical analysis,
-      and honest recommendations based on evidence.
-    </p>
-  </div>
-</section>
+        <!-- BLOCK 2: ENGINEERING (TALL) -->
+        <article class="bento-card bento-tall">
+          <div class="bento-icon">02</div>
+          <h3>An Engineering Approach</h3>
+          <p>
+            TechAuditPros follows an engineering mindset. In complex systems, small structural issues often create larger failures over time.
+          </p>
+          <ul class="check-list">
+            <li>We don’t guess.</li>
+            <li>We audit.</li>
+            <li>We verify.</li>
+            <li>We recommend only what matters.</li>
+          </ul>
+        </article>
 
-<!-- ==================================================
-     ENGINEERING APPROACH
-================================================== -->
-<section>
-  <div class="content-wrap">
-    <h2>An Engineering-First Approach</h2>
+        <!-- BLOCK 3: CERTIFICATION (SQUARE) -->
+        <article class="bento-card bento-square">
+          <div class="bento-icon">03</div>
+          <h3>Professional Foundation</h3>
+          <p>Supported by continuous learning and industry research.</p>
+          <div class="cert-badge">
+            <strong>SEO Essentials</strong><br>
+            <span>Semrush Academy Certified</span>
+          </div>
+          <a href="semrush-seo-certification-ajipaul.pdf" target="_blank" rel="noopener" class="link-arrow">View Certificate →</a>
+        </article>
 
-    <p>
-      TechAuditPros follows an engineering mindset.
-      In complex systems, small structural issues
-      often create larger failures over time.
-    </p>
+        <!-- BLOCK 4: PROCESS (WIDE) -->
+        <article class="bento-card bento-wide">
+          <div class="bento-icon">04</div>
+          <h2>How Work Is Handled</h2>
+          <p>
+            Every audit and recommendation is handled through a structured process rather than generic packages or assumptions.
+          </p>
+          <div class="process-steps">
+            <div class="step">
+              <strong>01</strong> Website & SEO structure analysis
+            </div>
+            <div class="step">
+              <strong>02</strong> Technical diagnostics & crawl review
+            </div>
+            <div class="step">
+              <strong>03</strong> Search intent & page clarity evaluation
+            </div>
+            <div class="step">
+              <strong>04</strong> Prioritized recommendations based on impact
+            </div>
+          </div>
+        </article>
 
-    <p>
-      Websites and SEO behave the same way.
-      Visibility problems are usually caused by
-      technical inconsistencies, misaligned intent,
-      or weak structural foundations.
-    </p>
+        <!-- BLOCK 5: TARGET AUDIENCE (FULL WIDTH) -->
+        <article class="bento-card bento-full">
+          <div class="audience-grid">
+            <div>
+              <h3>Who We Work With</h3>
+              <p>We specialize in businesses where technical clarity directly impacts growth.</p>
+            </div>
+            <ul class="tag-list">
+              <li>Local Service Businesses</li>
+              <li>Repair Companies</li>
+              <li>Consultants</li>
+              <li>Small Businesses vs Big Brands</li>
+            </ul>
+          </div>
+        </article>
 
-    <div class="callout">
-      <p>
-        We don’t guess.<br>
-        We audit.<br>
-        We verify.<br>
-        We recommend only what matters.
-      </p>
+      </div>
+
+      <!-- CTA SECTION -->
+      <section class="z-cta-section">
+        <div class="cta-inner">
+          <h2>Looking for Clarity?</h2>
+          <p>If you want to understand what is actually happening with your website and SEO, we’re ready to help.</p>
+          <a href="mailto:info@techauditpros.com" class="primary-btn">Contact TechAuditPros</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ==================================================
+       PROTECTED FOOTER (FROM PAGE A)
+  ================================================== -->
+  <footer class="footer-small">
+    <!-- LEFT SIDE: Contact Info -->
+    <div class="footer-contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:info@techauditpros.com">info@techauditpros.com</a></p>
+      <p>WhatsApp: <a href="https://wa.me/916282520339">+91 6282520339</a></p>
+    </div>
+
+    <!-- RIGHT SIDE: Tagline -->
+    <div class="footer-tagline">
+      <p>Serving businesses in India, USA & Canada<br>Remote & international projects welcome</p>
+    </div>
+  </footer>
+
+  <!-- ==================================================
+       PROTECTED CHATBOT
+  ================================================== -->
+  <button class="chat-fab" id="chatToggle">Ask a question</button>
+  
+  <div class="chat-box" id="chatBox">
+    <div class="chat-header">
+      <strong>TechAuditPros</strong>
+      <button id="chatClose">×</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="bot-msg">Hi 👋 What would you like to know?</div>
+    </div>
+    <div class="chat-actions">
+      <button data-intent="FREE_AUDIT">Free Audit</button>
+      <button data-intent="PRICING">Pricing</button>
+      <button data-intent="SERVICES_OVERVIEW">Services</button>
+      <button data-intent="CASE_STUDY">Case Study</button>
     </div>
   </div>
-</section>
 
-<!-- ==================================================
-     PROFESSIONAL FOUNDATION
-================================================== -->
-<section>
-  <div class="content-wrap">
-    <h2>Professional Foundation</h2>
+  <script>
+    // Standard Chatbot Script (Ensure this is at the bottom)
+    /* --- CHATBOT SCRIPT --- */
+    const chatToggle = document.getElementById("chatToggle");
+    const chatBox = document.getElementById("chatBox");
+    const chatClose = document.getElementById("chatClose");
+    const chatMessages = document.getElementById("chatMessages");
 
-    <p>
-      Our audit methodology is supported by
-      continuous learning, industry research,
-      and practical technical experience.
-    </p>
+    if(chatToggle && chatBox && chatClose) {
+        chatToggle.onclick = () => chatBox.style.display = "flex";
+        chatClose.onclick = () => chatBox.style.display = "none";
 
-    <p>
-      <strong>SEO Essentials — Semrush Academy</strong><br>
-      <a href="semrush-seo-certification-ajipaul.pdf"
-         target="_blank"
-         rel="noopener"
-         class="text-link">
-        View certification →
-      </a>
-    </p>
-  </div>
-</section>
+        const RESPONSES = {
+        FREE_AUDIT: { text: "We offer a professional website & SEO audit to help you understand what’s blocking visibility.", buttons: true },
+        PRICING: { text: "Audit pricing depends on website size and complexity. We always start with an audit before discussing fixes.", buttons: true },
+        SERVICES_OVERVIEW: { text: "We specialize in website & technical SEO audits focused on clarity, structure, and long-term trust.", buttons: true },
+        CASE_STUDY: { text: "We document real audits and results to show how technical clarity improves visibility.", link: "/case-studies.html" }
+        };
 
-<!-- ==================================================
-     HOW WORK IS HANDLED
-================================================== -->
-<section>
-  <div class="content-wrap">
-    <h2>How Work Is Handled</h2>
-
-    <p>
-      Every audit and recommendation is handled
-      through a structured process rather than
-      generic packages or assumptions.
-    </p>
-
-    <ul class="simple-list">
-      <li>Website and SEO structure analysis</li>
-      <li>Technical diagnostics and crawl review</li>
-      <li>Search intent and page clarity evaluation</li>
-      <li>Prioritized recommendations based on impact</li>
-    </ul>
-  </div>
-</section>
-
-<!-- ==================================================
-     WHO THIS IS FOR
-================================================== -->
-<section>
-  <div class="content-wrap">
-    <h2>Who We Work With</h2>
-
-    <ul class="simple-list">
-      <li>Local service businesses</li>
-      <li>Repair and technical service providers</li>
-      <li>Independent consultants and professionals</li>
-      <li>Small businesses competing with larger brands</li>
-    </ul>
-  </div>
-</section>
-
-<!-- ==================================================
-     CTA
-================================================== -->
-<section id="contact">
-  <div class="content-wrap" style="text-align:center;">
-    <h2>Looking for Clarity?</h2>
-
-    <p class="support">
-      If you want to understand what is actually
-      happening with your website and SEO,
-      we’re ready to help.
-    </p>
-
-    <a href="mailto:info@techauditpros.com"
-       class="primary-btn">
-      Contact TechAuditPros
-    </a>
-  </div>
-</section>
-
-</main>
-
-<footer class="footer-small">
-  <p>
-    TechAuditPros — Website & SEO Audits<br>
-    Serving businesses in India, Canada & USA
-  </p>
-
-  <p>
-    <a href="/" class="text-link">← Back to Home</a>
-  </p>
-</footer>
+        document.querySelectorAll(".chat-actions button").forEach(btn => {
+        btn.onclick = () => {
+            const intent = btn.dataset.intent;
+            const data = RESPONSES[intent];
+            const msg = document.createElement("div");
+            msg.className = "bot-msg";
+            msg.innerHTML = data.text;
+            chatMessages.appendChild(msg);
+            if (data.link) {
+            const link = document.createElement("a");
+            link.href = data.link;
+            link.textContent = "View details →";
+            link.style.display = "block";
+            link.style.marginTop = "8px";
+            msg.appendChild(link);
+            }
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        };
+        });
+    }
+  </script>
 
 </body>
 </html>
