@@ -1,33 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
   <!-- ==================================================
-       BASIC META
+       PRESERVED METADATA & SCHEMA (CRITICAL FOR LOCAL SEO)
   ================================================== -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
 
-  <!-- ==================================================
-       TITLE & DESCRIPTION (LOCAL SEO)
-  ================================================== -->
   <title>SEO Audit Services in Kochi | TechAuditPros</title>
 
-  <meta name="description" content="Professional SEO audit services in Kochi for businesses that want clarity on website issues, technical SEO problems, and local search visibility before investing in long-term SEO.">
+  <meta name="description" content="Professional SEO audit services in Kochi for businesses that want clarity on website issues, technical SEO problems, and local search visibility before investing in long-term SEO." />
 
-  <!-- ==================================================
-       CANONICAL
-  ================================================== -->
   <link rel="canonical" href="https://techauditpros.com/seo-audit-kochi/" />
-
-  <!-- ==================================================
-       STYLES
-  ================================================== -->
   <link rel="stylesheet" href="/style.css">
 
-  <!-- ==================================================
-       ORGANIZATION SCHEMA
-  ================================================== -->
+  <!-- ORGANIZATION SCHEMA -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -38,9 +27,7 @@
   }
   </script>
 
-  <!-- ==================================================
-       LOCAL BUSINESS SCHEMA (VERY IMPORTANT)
-  ================================================== -->
+  <!-- LOCAL BUSINESS SCHEMA (CRITICAL: Do Not Edit) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -62,9 +49,7 @@
   }
   </script>
 
-  <!-- ==================================================
-       SERVICE SCHEMA
-  ================================================== -->
+  <!-- SERVICE SCHEMA -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -83,9 +68,7 @@
   }
   </script>
 
-  <!-- ==================================================
-       FAQ SCHEMA
-  ================================================== -->
+  <!-- FAQ SCHEMA (Matches Visible FAQ) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -96,12 +79,12 @@
         "name": "How long does an SEO audit take?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Most SEO audits are completed within a few days depending on the size and complexity of the website."
+          "text": "Most SEO audits are completed within a few days depending on size and complexity of website."
         }
       },
       {
         "@type": "Question",
-        "name": "Is the SEO audit free?",
+        "name": "Is SEO audit free?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Yes. We currently offer a free initial SEO audit for businesses in Kochi."
@@ -109,7 +92,7 @@
       },
       {
         "@type": "Question",
-        "name": "Will you explain the audit findings?",
+        "name": "Will you explain audit findings?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Yes. All findings are explained clearly with practical recommendations."
@@ -117,7 +100,7 @@
       },
       {
         "@type": "Question",
-        "name": "Do I need to redesign my website after the audit?",
+        "name": "Do I need to redesign my website after audit?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Not always. Many SEO issues can be resolved without a full website redesign."
@@ -131,124 +114,304 @@
 
 <body>
 
-<!-- ==================================================
-     HERO
-================================================== -->
-<header class="hero">
-  <video autoplay muted loop playsinline preload="metadata">
-    <source src="/hero-video.mp4" type="video/mp4">
-  </video>
+  <!-- ==================================================
+       PROTECTED HEADER (FROM PAGE A)
+  ================================================== -->
+  <header class="site-nav">
+    <div class="content-wrap">
+      <a href="/" class="nav-logo" aria-label="TechAuditPros Home">
+        <img src="../assets/logo.svg" alt="TechAuditPros Logo">
+      </a>
 
-  <div class="hero-content">
-    <h1>SEO Audit Services in Kochi</h1>
+      <nav class="nav-links">
+        <a href="/#services">Services</a>
+        <a href="/case-studies.html">Case Studies</a>
+        <a href="/about.html">About</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <div class="tagline">
-      Clear answers before investing in SEO.
+  <!-- ==================================================
+       PROTECTED HERO (PAGE A STYLE - CUSTOM TEXT)
+  ================================================== -->
+  <header class="hero">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto">
+      <source src="../hero-video.mp4" type="video/mp4">
+    </video>
+    <img src="../hero-mobile.jpg" alt="SEO Audit Services in Kochi" class="hero-image" loading="eager">
+
+    <div class="hero-content">
+      <span class="eyebrow" style="color:var(--color-primary); font-weight:700; letter-spacing: 0.1em; margin-bottom: 16px; display:block;">KOCHI, KERALA</span>
+      
+      <h1>SEO Audit Services<br>in Kochi</h1>
+      
+      <div class="tagline">
+        Clear answers before investing in SEO.
+      </div>
+
+      <div class="support">
+        We help businesses in Kochi understand what is actually
+        happening with their website and SEO — calmly,
+        honestly, and without sales pressure.
+      </div>
+      
+      <form class="audit-bar" action="mailto:info@techauditpros.com" method="post" enctype="text/plain">
+        <input type="text" name="website" placeholder="Enter your website for a free audit" required>
+        <button type="submit">Check Now</button>
+      </form>
+    </div>
+  </header>
+
+  <!-- ==================================================
+       MAIN CONTENT: AUDIT CHECKLIST DESIGN
+  ================================================== -->
+  <main class="audit-kochi-wrapper">
+
+    <!-- INTRO -->
+    <section class="audit-section">
+      <div class="content-wrap">
+        <div class="intro-text">
+          <h2>SEO Audits for Businesses in Kochi</h2>
+          <p>
+            Many businesses in Kochi struggle with online visibility
+            not because their services are weak,
+            but because search engines cannot clearly
+            understand their website structure.
+          </p>
+          <p>
+            Our SEO audit services focus on identifying
+            technical issues, content gaps,
+            and local search signals that affect rankings.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: WHAT WE REVIEW (CHECKLIST CARDS) -->
+    <section class="audit-section audit-alt-bg">
+      <div class="content-wrap">
+        <div class="section-header-center">
+          <h2>What We Review in an SEO Audit</h2>
+          <p>A comprehensive diagnostic of your digital foundation.</p>
+        </div>
+
+        <div class="audit-checklist-grid">
+          
+          <div class="checklist-card">
+            <div class="check-icon">✓</div>
+            <h3>Technical Health</h3>
+            <ul>
+              <li>Crawlability errors</li>
+              <li>Indexation status</li>
+              <li>Site speed analysis</li>
+            </ul>
+          </div>
+
+          <div class="checklist-card">
+            <div class="check-icon">✓</div>
+            <h3>Content & Structure</h3>
+            <ul>
+              <li>Page hierarchy</li>
+              <li>Content gaps</li>
+              <li>Keyword relevance</li>
+            </ul>
+          </div>
+
+          <div class="checklist-card">
+            <div class="check-icon">✓</div>
+            <h3>Local SEO Signals</h3>
+            <ul>
+              <li>GMB integration</li>
+              <li>NAP consistency</li>
+              <li>Local citation audit</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: WHO THIS IS FOR -->
+    <section class="audit-section">
+      <div class="content-wrap">
+        <h2>Who This SEO Audit Is For</h2>
+        
+        <div class="target-audience-grid">
+          <div class="target-card">
+            <strong>Local Service</strong>
+            <span>Businesses relying on "near me" searches.</span>
+          </div>
+          <div class="target-card">
+            <strong>Repair Companies</strong>
+            <span>Trades requiring high trust signals.</span>
+          </div>
+          <div class="target-card">
+            <strong>Consultants</strong>
+            <span>Professionals building personal brand.</span>
+          </div>
+          <div class="target-card">
+            <strong>Declining Traffic</strong>
+            <span>Websites losing search ranking unexpectedly.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: WHY AUDIT FIRST -->
+    <section class="audit-section audit-dark">
+      <div class="content-wrap">
+        <div class="comparison-layout">
+          
+          <div class="comp-col bad">
+            <h3>Without an Audit</h3>
+            <ul class="comp-list">
+              <li>💸 Spending money blindly</li>
+              <li>🤷 Guessing what works</li>
+              <li>🐢 Slow improvements</li>
+            </ul>
+          </div>
+
+          <div class="comp-arrow">→</div>
+
+          <div class="comp-col good">
+            <h3>With an Audit</h3>
+            <ul class="comp-list">
+              <li>📊 Data-driven decisions</li>
+              <li>🎯 Focused on real issues</li>
+              <li>🚀 Faster, measurable growth</li>
+            </ul>
+          </div>
+
+        </div>
+        
+        <p class="bottom-text">
+          SEO works best when decisions are based on real data, not assumptions. 
+          An audit provides clarity before long-term investment.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION: FAQ (ACCORDION) -->
+    <section class="audit-section audit-alt-bg">
+      <div class="content-wrap">
+        <div class="section-header-center">
+          <h2>Frequently Asked Questions</h2>
+          <p>Common questions about our audit process in Kochi.</p>
+        </div>
+
+        <div class="faq-container">
+          <details class="faq-item">
+            <summary>How long does an SEO audit take?</summary>
+            <div class="faq-content">
+              <p>Most audits are completed within a few days. Complex enterprise sites may take longer. We always provide a timeline upfront.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Is the SEO audit free?</summary>
+            <div class="faq-content">
+              <p>Yes. We currently offer a free initial SEO audit for Kochi-based businesses to help you understand your current position.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Will you explain the results?</summary>
+            <div class="faq-content">
+              <p>Absolutely. We explain all findings in clear, non-technical language so you know exactly what needs to be fixed.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Do I need to redesign my website?</summary>
+            <div class="faq-content">
+              <p>Not always. Many technical and structural issues can be resolved without a full redesign. We only recommend redesigns if necessary.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="audit-cta-section">
+      <div class="content-wrap">
+        <h2>Request Your SEO Audit</h2>
+        <p>Get clarity on your website's health today.</p>
+        <a href="mailto:info@techauditpros.com" class="primary-btn">Request an SEO Audit</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================================================
+       PROTECTED FOOTER (FROM PAGE A)
+  ================================================== -->
+  <footer class="footer-small">
+    <!-- LEFT SIDE: Contact Info -->
+    <div class="footer-contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:info@techauditpros.com">info@techauditpros.com</a></p>
+      <p>WhatsApp: <a href="https://wa.me/916282520339">+91 6282520339</a></p>
     </div>
 
-    <div class="support">
-      We help businesses in Kochi understand what is actually
-      happening with their website and SEO — calmly,
-      honestly, and without sales pressure.
+    <!-- RIGHT SIDE: Tagline -->
+    <div class="footer-tagline">
+      <p>Serving businesses in India, USA & Canada<br>Remote & international projects welcome</p>
     </div>
+  </footer>
 
-    <a href="mailto:info@techauditpros.com" class="primary-btn">
-      Request an SEO Audit
-    </a>
+  <!-- ==================================================
+       PROTECTED CHATBOT
+  ================================================== -->
+  <button class="chat-fab" id="chatToggle">Ask a question</button>
+  
+  <div class="chat-box" id="chatBox">
+    <div class="chat-header">
+      <strong>TechAuditPros</strong>
+      <button id="chatClose">×</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="bot-msg">Hi 👋 Ready to audit your site?</div>
+    </div>
+    <div class="chat-actions">
+      <button data-intent="FREE_AUDIT">Free Audit</button>
+      <button data-intent="PRICING">Pricing</button>
+      <button data-intent="SERVICES_OVERVIEW">Services</button>
+      <button data-intent="CASE_STUDY">Case Study</button>
+    </div>
   </div>
-</header>
 
-<!-- ==================================================
-     CONTENT
-================================================== -->
-<section>
-  <div class="content-wrap">
+  <script>
+    /* --- CHATBOT SCRIPT --- */
+    const chatToggle = document.getElementById("chatToggle");
+    const chatBox = document.getElementById("chatBox");
+    const chatClose = document.getElementById("chatClose");
+    const chatMessages = document.getElementById("chatMessages");
 
-    <h2>SEO Audits for Businesses in Kochi</h2>
+    if(chatToggle && chatBox && chatClose) {
+        chatToggle.onclick = () => chatBox.style.display = "flex";
+        chatClose.onclick = () => chatBox.style.display = "none";
 
-    <p>
-      Many businesses in Kochi struggle with online visibility
-      not because their services are weak,
-      but because search engines cannot clearly
-      understand their website structure.
-    </p>
+        const RESPONSES = {
+        FREE_AUDIT: { text: "We offer a professional website & SEO audit to help you understand what’s blocking visibility.", buttons: true },
+        PRICING: { text: "Audit pricing depends on website size and complexity.", buttons: true },
+        SERVICES_OVERVIEW: { text: "We specialize in website & technical SEO audits focused on clarity, structure, and long-term trust.", buttons: true },
+        CASE_STUDY: { text: "We document real audits and results to show how technical clarity improves visibility.", link: "/case-studies.html" }
+        };
 
-    <p>
-      Our SEO audit services focus on identifying
-      technical issues, content gaps,
-      and local search signals that affect rankings.
-    </p>
-
-    <h2>What We Review in an SEO Audit</h2>
-
-    <ul class="audit-list">
-      <li>Website structure and page hierarchy</li>
-      <li>Technical SEO and crawlability</li>
-      <li>Mobile usability and performance</li>
-      <li>Page intent and content clarity</li>
-      <li>Local SEO signals for Kochi searches</li>
-    </ul>
-
-    <h2>Who This SEO Audit Is For</h2>
-
-    <ul class="simple-list">
-      <li>Local service businesses in Kochi</li>
-      <li>Repair and trade companies</li>
-      <li>Consultants and professionals</li>
-      <li>Businesses relying on Google enquiries</li>
-    </ul>
-
-    <h2>Why an Audit Comes First</h2>
-
-    <p>
-      SEO works best when decisions are based on real data,
-      not assumptions or generic packages.
-      An audit provides clarity before long-term investment.
-    </p>
-
-  </div>
-</section>
-
-<!-- ==================================================
-     FAQ (VISIBLE)
-================================================== -->
-<section>
-  <div class="content-wrap">
-
-    <h2>Frequently Asked Questions</h2>
-
-    <h3>How long does an SEO audit take?</h3>
-    <p>Most audits are completed within a few days.</p>
-
-    <h3>Is the SEO audit free?</h3>
-    <p>Yes. We currently offer a free initial audit for Kochi-based businesses.</p>
-
-    <h3>Will you explain the results?</h3>
-    <p>Yes. We explain all findings in clear, simple language.</p>
-
-    <h3>Do I need to redesign my website?</h3>
-    <p>Not always. Many issues can be fixed without redesign.</p>
-
-  </div>
-</section>
-
-<!-- ==================================================
-     CONTACT
-================================================== -->
-<section id="contact" class="contact-section">
-  <div class="content-wrap">
-    <h2>Contact TechAuditPros</h2>
-    <p>Email: <a href="mailto:info@techauditpros.com">info@techauditpros.com</a></p>
-    <p>WhatsApp: <a href="https://wa.me/916282520339">+91 6282520339</a></p>
-  </div>
-</section>
-
-<footer class="footer-small">
-  <p>
-    TechAuditPros — SEO Audit Services in Kochi<br>
-    Serving businesses in India, USA & Canada
-  </p>
-</footer>
+        document.querySelectorAll(".chat-actions button").forEach(btn => {
+        btn.onclick = () => {
+            const intent = btn.dataset.intent;
+            const data = RESPONSES[intent];
+            const msg = document.createElement("div");
+            msg.className = "bot-msg";
+            msg.innerHTML = data.text;
+            chatMessages.appendChild(msg);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        };
+        });
+    }
+  </script>
 
 </body>
 </html>
