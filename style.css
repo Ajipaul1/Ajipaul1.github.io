@@ -2319,3 +2319,68 @@ body {
     margin-top: 56px;
   }
 }
+/* ==================================================
+   FINAL HEADER OVERRIDE (APPEND TO END)
+   Purpose:
+   - Forces Sticky White Header
+   - Fixes Black Bar / Logo Visibility
+   - Overrides conflicting rules above
+================================================== */
+
+/* Force the .site-nav (your HTML class) to be Fixed White */
+.site-nav {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 70px !important; /* Height of the header */
+  background: #ffffff !important;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0 24px !important;
+  z-index: 9999 !important;
+}
+
+/* Ensure Nav Links are visible on White Background */
+.nav-links a {
+  color: #111827 !important;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #2563eb !important;
+}
+
+/* Force Logo to be Big and Visible */
+.nav-logo img {
+  height: 52px !important; 
+  width: auto !important;
+}
+
+/* Fix Hero "Black Bar" (Push hero content down so it's not hidden behind header) */
+.hero {
+  margin-top: 70px !important; 
+}
+
+/* MOBILE OVERRIDES */
+@media (max-width: 768px) {
+  .site-nav {
+    height: 60px !important;
+    padding: 0 18px !important;
+  }
+
+  .nav-logo img {
+    height: 44px !important;
+  }
+
+  .hero {
+    margin-top: 60px !important;
+  }
+
+  /* Hide Menu Links on Mobile (Clean Look) */
+  .nav-links {
+    display: none !important;
+  }
+}
