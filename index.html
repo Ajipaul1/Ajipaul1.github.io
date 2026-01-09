@@ -62,8 +62,8 @@
        - All visual changes go into style.css
        - Do NOT add inline styles here
   ================================================== -->
-  <link rel="preload" href="style.css" as="style" onload="this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="style.css"></noscript>
+  <!-- Using stylesheet for separate CSS file -->
+  <link rel="stylesheet" href="style.css">
 
   <!-- ==================================================
        STRUCTURED DATA (ORGANIZATION SCHEMA)
@@ -112,18 +112,18 @@
 
 <!-- ==================================================
      MAIN BODY CONTENT STARTS HERE
-     Note: </body> moved to the end of document to fix layout cut-off.
+     Note: </body> moved to end of document to fix layout cut-off.
 ================================================== -->
 <body>
 
   <!-- NAVIGATION -->
   <header class="site-nav">
     <!-- 
-      NOTE: An inline style is used below for immediate layout stability. 
+      NOTE: CSS controls flex layout now. 
       To strictly follow the "No inline styles" rule, move "display: flex; justify-content: space-between..." 
       to the ".content-wrap" class in your style.css file.
     -->
-    <div class="content-wrap" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+    <div class="content-wrap">
       <a href="/" class="nav-logo" aria-label="TechAuditPros Home">
         <img src="/assets/logo.svg" alt="TechAuditPros" class="logo-desktop">
         <img src="/assets/logoonly.svg" alt="TechAuditPros" class="logo-mobile">
@@ -185,7 +185,7 @@
         If your website or SEO is unclear, customers choose someone else.
       </div>
 
-      <!-- NOTE: This form opens the user's email client. For better UX, replace with a backend form handler. -->
+      <!-- NOTE: This form opens to user's email client. For better UX, replace with a backend form handler. -->
       <form class="audit-bar" action="mailto:info@techauditpros.com" method="post" enctype="text/plain">
         <input type="text" name="website" placeholder="Enter your website for a free audit" required>
         <button type="submit">Check Now</button>
@@ -212,7 +212,7 @@
         </p>
 
         <p>
-          But the online world has changed. Search engines, websites, and visibility
+          But online world has changed. Search engines, websites, and visibility
           now decide who gets seen and who stays hidden.
         </p>
 
@@ -247,7 +247,7 @@
   </section>
 
   <!-- ==================================================
-       SERVICES
+       SERVICES SECTION
        Purpose:
        - Scope clarity
        - No pricing
@@ -434,120 +434,123 @@
        Added class="industry-video" to ALL cards for consistent JS control.
   ================================================== -->
   <section id="industries" class="industries-section">
+    
+    <!-- WRAPPED IN CONTENT-WRAP TO MATCH SERVICES WIDTH -->
+    <div class="content-wrap">
+      <h2>Industries We Work With</h2>
+      <p class="industries-intro">
+        We focus on businesses where technical clarity, trust,
+        and search visibility directly impact growth.
+      </p>
 
-    <h2>Industries We Work With</h2>
-    <p class="industries-intro">
-      We focus on businesses where technical clarity, trust,
-      and search visibility directly impact growth.
-    </p>
+      <div class="industries-grid">
+        
+        <!-- CARD: Local Service Businesses -->
+        <div class="industry-card">
+          <video
+            class="industry-video"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+          >
+            <source src="/videos/industries/industry-local-service-businesses.mp4" type="video/mp4">
+          </video>
 
-    <div class="industries-grid">
-      
-      <!-- CARD: Local Service Businesses -->
-      <div class="industry-card">
-        <video
-          class="industry-video"
-          muted
-          loop
-          playsinline
-          preload="metadata"
-        >
-          <source src="/videos/industries/industry-local-service-businesses.mp4" type="video/mp4">
-        </video>
-
-        <div class="industry-overlay">
-          <h3>Local Service Businesses</h3>
-          <p>Visibility when customers search urgently</p>
+          <div class="industry-overlay">
+            <h3>Local Service Businesses</h3>
+            <p>Visibility when customers search urgently</p>
+          </div>
         </div>
-      </div>
 
-      <!-- CARD: Repair Companies -->
-      <div class="industry-card">
-        <video 
-          class="industry-video"
-          muted 
-          loop 
-          playsinline 
-          preload="metadata"
-        >
-          <source src="/videos/industries/industry-repair-companies.mp4" type="video/mp4">
-        </video>
-        <div class="industry-overlay">
-          <h3>Repair Companies</h3>
-          <p>Trust matters in high-intent searches</p>
+        <!-- CARD: Repair Companies -->
+        <div class="industry-card">
+          <video 
+            class="industry-video"
+            muted 
+            loop 
+            playsinline 
+            preload="metadata"
+          >
+            <source src="/videos/industries/industry-repair-companies.mp4" type="video/mp4">
+          </video>
+          <div class="industry-overlay">
+            <h3>Repair Companies</h3>
+            <p>Trust matters in high-intent searches</p>
+          </div>
         </div>
-      </div>
 
-      <!-- CARD: Consultants, Designers & Professionals -->
-      <div class="industry-card">
-        <video 
-          class="industry-video"
-          muted 
-          loop 
-          playsinline 
-          preload="metadata"
-        >
-          <!-- FIXED: Removed double .mp4.mp4 and added leading slash -->
-          <source src="/videos/industries/industry-consultants-designers.mp4" type="video/mp4">
-        </video>
-        <div class="industry-overlay">
-          <h3>Consultants & Designers</h3>
-          <p>Authority-driven online presence</p>
+        <!-- CARD: Consultants, Designers & Professionals -->
+        <div class="industry-card">
+          <video 
+            class="industry-video"
+            muted 
+            loop 
+            playsinline 
+            preload="metadata"
+          >
+            <!-- FIXED: Removed double .mp4.mp4 and added leading slash -->
+            <source src="/videos/industries/industry-consultants-designers.mp4" type="video/mp4">
+          </video>
+          <div class="industry-overlay">
+            <h3>Consultants & Designers</h3>
+            <p>Authority-driven online presence</p>
+          </div>
         </div>
-      </div>
 
-      <!-- CARD: Healthcare & Clinics -->
-      <div class="industry-card">
-        <video 
-          class="industry-video"
-          muted 
-          loop 
-          playsinline 
-          preload="metadata"
-        >
-          <source src="/videos/industries/industry-healthcare-clinics.mp4" type="video/mp4">
-        </video>
-        <div class="industry-overlay">
-          <h3>Healthcare & Clinics</h3>
-          <p>Trust, compliance, and clarity</p>
+        <!-- CARD: Healthcare & Clinics -->
+        <div class="industry-card">
+          <video 
+            class="industry-video"
+            muted 
+            loop 
+            playsinline 
+            preload="metadata"
+          >
+            <source src="/videos/industries/industry-healthcare-clinics.mp4" type="video/mp4">
+          </video>
+          <div class="industry-overlay">
+            <h3>Healthcare & Clinics</h3>
+            <p>Trust, compliance, and clarity</p>
+          </div>
         </div>
-      </div>
 
-      <!-- CARD: Real Estate & Home Services -->
-      <div class="industry-card">
-        <video
-          class="industry-video"
-          muted
-          loop
-          playsinline
-          preload="metadata"
-        >
-          <source src="/videos/industries/industry-real-estate-home-services.mp4" type="video/mp4">
-        </video>
+        <!-- CARD: Real Estate & Home Services -->
+        <div class="industry-card">
+          <video
+            class="industry-video"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+          >
+            <source src="/videos/industries/industry-real-estate-home-services.mp4" type="video/mp4">
+          </video>
 
-        <div class="industry-overlay">
-          <h3>Real Estate & Home Services</h3>
-          <p>Local discovery, trust, and long-term visibility</p>
+          <div class="industry-overlay">
+            <h3>Real Estate & Home Services</h3>
+            <p>Local discovery, trust, and long-term visibility</p>
+          </div>
         </div>
-      </div>
 
-      <!-- CARD: IT & SaaS -->
-      <div class="industry-card">
-        <video 
-          class="industry-video"
-          muted 
-          loop 
-          playsinline 
-          preload="metadata"
-        >
-          <source src="/videos/industries/industry-it-saas.mp4" type="video/mp4">
-        </video>
-        <div class="industry-overlay">
-          <h3>IT & SaaS</h3>
-          <p>Technical websites built to scale</p>
+        <!-- CARD: IT & SaaS -->
+        <div class="industry-card">
+          <video 
+            class="industry-video"
+            muted 
+            loop 
+            playsinline 
+            preload="metadata"
+          >
+            <source src="/videos/industries/industry-it-saas.mp4" type="video/mp4">
+          </video>
+          <div class="industry-overlay">
+            <h3>IT & SaaS</h3>
+            <p>Technical websites built to scale</p>
+          </div>
         </div>
-      </div>
 
+      </div>
     </div>
   </section>
 
@@ -648,7 +651,7 @@
       <h2>What Happens When You Ask for an Audit</h2>
 
       <p class="audit-intro">
-        We review your website and SEO structure the same way
+        We review your website and SEO structure same way
         a professional inspects a building —
         carefully, methodically, and without assumptions.
       </p>
@@ -680,9 +683,8 @@
 
   </section>
 
-
   <!-- ==================================================
-       CONTACT
+       CONTACT SECTION
   ================================================== -->
   <section id="contact" class="contact-section">
     <div class="content-wrap">
@@ -693,16 +695,40 @@
   </section>
 
 
-
   <!-- ==================================================
        FOOTER
   ================================================== -->
   <footer class="footer-small">
-    <p>
-      Serving businesses in India, USA & Canada<br>
-      Remote & international projects welcome
-    </p>
+    
+    <!-- LEFT SIDE: Contact Info -->
+    <div class="footer-contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:info@techauditpros.com">info@techauditpros.com</a></p>
+      <p>WhatsApp: <a href="https://wa.me/916282520339">+91 6282520339</a></p>
+    </div>
+
+    <!-- RIGHT SIDE: Tagline -->
+    <div class="footer-tagline">
+      <p>Serving businesses in India, USA & Canada<br>Remote & international projects welcome</p>
+    </div>
   </footer>
+
+
+  <!-- ==================================================
+       FLOATING CHAT BUTTON
+  ================================================== -->
+  <div style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; text-align: right;">
+    <a href="https://wa.me/916282520339" class="primary-btn">
+      Get Free Audit on WhatsApp
+    </a>
+
+    <p style="margin-top:10px;">
+      <a href="mailto:info@techauditpros.com" class="text-link">
+        Or email us →
+      </a>
+    </p>
+  </div>
+
   <!-- ================================
        TECHAUDITPROS CHATBOT
   ================================ -->
