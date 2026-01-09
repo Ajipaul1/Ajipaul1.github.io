@@ -1922,18 +1922,26 @@ section {
   top: 0 !important;
   left: 0 !important;
   width: 100% !important;
-  height: 70px !important; /* Height of sticky header */
-  background: #ffffff !important; /* White background */
+  height: 80px !important; 
+  background: #ffffff !important; 
   border-bottom: 1px solid #e5e7eb;
-  z-index: 9999 !important;
+  z-index: 99999 !important; /* Extremely high to stay on top */
   display: flex !important;
   align-items: center !important;
-  justify-content: space-between !important; /* Pushes Logo Left, Links Right */
-  padding: 0 28px !important;
-  /* Hardware acceleration for smooth scrolling */
-  transform: translateZ(0); 
+  padding: 0 6vw !important;
 }
 
+/* Ensure the image inside the nav is visible */
+.nav-logo img {
+  display: block !important;
+  height: 50px !important; /* Force a height so it's not 0px */
+  width: auto;
+}
+
+/* Push the Hero down so it doesn't hide behind the header */
+.hero {
+  margin-top: 80px !important;
+}
 /* 2. CONTENT WRAPPER FLEX LOGIC (Left/Right) */
 /* Note: This targets the .content-wrap INSIDE the header */
 .site-nav .content-wrap {
