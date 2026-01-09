@@ -1801,3 +1801,323 @@ summary::after {
     padding: 60px 20px;
   }
 }
+/* ==================================================
+   MASTER CSS PART 5: TECHNICAL SEO EXPERT PAGE
+   Design Focus: Engineering, Dashboard UI, Code Aesthetic
+   ================================================== */
+
+/* ---------------------------------------------------------
+   PAGE WRAPPER
+--------------------------------------------------------- */
+.tech-expert-wrapper {
+  background-color: #ffffff;
+  color: var(--color-dark);
+}
+
+.tech-section {
+  padding: 100px 0;
+}
+
+.tech-dark {
+  background-color: #0f172a; /* Dark slate */
+  color: #f8fafc;
+}
+
+.tech-alt {
+  background-color: #f8fafc;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.section-header-tech {
+  max-width: 700px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.section-header-tech h2 {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+  color: var(--color-dark);
+}
+
+.tech-dark .section-header-tech h2 {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   SPLIT LAYOUT WITH TERMINAL
+--------------------------------------------------------- */
+.tech-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.tech-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.tech-features {
+  list-style: none;
+  margin-top: 32px;
+}
+
+.tech-features li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+}
+
+.tech-tag {
+  background: #eff6ff;
+  color: var(--color-primary);
+  font-family: monospace;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-right: 12px;
+  font-size: 0.85rem;
+  border: 1px solid rgba(37,99,235,0.2);
+}
+
+/* ---------------------------------------------------------
+   TERMINAL WINDOW VISUAL (ADVANCED CSS)
+--------------------------------------------------------- */
+.terminal-window {
+  background: #1e1e1e;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  overflow: hidden;
+  font-family: 'Courier New', Courier, monospace;
+  border: 1px solid #333;
+}
+
+.terminal-header {
+  background: #2d2d2d;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #333;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.title {
+  margin-left: 12px;
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.terminal-body {
+  padding: 24px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #d4d4d4;
+}
+
+.cmd {
+  color: #569cd6;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.success { color: #27c93f; }
+.warning { color: #ffbd2e; }
+.error { color: #ff5f56; }
+
+.blink {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ---------------------------------------------------------
+   DIAGNOSTICS GRID (DASHBOARD CARDS)
+--------------------------------------------------------- */
+.diagnostics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.diag-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 24px;
+  transition: transform 0.2s;
+}
+
+.diag-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255,255,255,0.08);
+}
+
+.diag-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.diag-header h3 {
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.status-badge {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 99px;
+  background: #334155;
+  color: #94a3b8;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-badge.success { background: rgba(39, 201, 63, 0.2); color: #27c93f; }
+.status-badge.warning { background: rgba(255, 189, 46, 0.2); color: #ffbd2e; }
+
+.diag-card p {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
+
+/* ---------------------------------------------------------
+   PROCESS TIMELINE
+--------------------------------------------------------- */
+.process-timeline {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Vertical Line */
+.process-timeline::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #e5e7eb;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 70px;
+  margin-bottom: 48px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--color-primary);
+  z-index: 1;
+}
+
+.timeline-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.timeline-content p {
+  color: #64748b;
+}
+
+/* ---------------------------------------------------------
+   TECH CTA
+--------------------------------------------------------- */
+.tech-cta {
+  background: var(--color-primary);
+  color: #fff;
+  text-align: center;
+  padding: 100px 24px;
+}
+
+.tech-cta h2 {
+  color: #fff;
+  font-size: 2.5rem;
+  margin-bottom: 24px;
+}
+
+.sub-link {
+  margin-top: 32px;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.8);
+}
+
+.text-link {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+/* ---------------------------------------------------------
+   MOBILE RESPONSIVENESS
+--------------------------------------------------------- */
+@media (max-width: 768px) {
+  .tech-section {
+    padding: 60px 0;
+  }
+
+  .tech-split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .terminal-window {
+    font-size: 0.8rem;
+  }
+
+  .diagnostics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-timeline::before {
+    left: 19px;
+  }
+
+  .timeline-item {
+    padding-left: 50px;
+  }
+
+  .timeline-marker {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+}
