@@ -1907,3 +1907,94 @@ section {
     color: #ffffff;
   }
 }
+/* ==================================================
+   FINAL HEADER, LOGO, & SCREEN FIX
+   Purpose:
+   - Force Sticky Header (White)
+   - Logo Layout: Left (Desktop), Right (Mobile)
+   - Fix "Black Bar" / Fullscreen issues
+   - Hide clutter on mobile
+================================================== */
+
+/* 1. FORCE STICKY HEADER (OVERRIDES PREVIOUS ABSOLUTE) */
+.site-nav {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 70px !important; /* Height of sticky header */
+  background: #ffffff !important; /* White background */
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 9999 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important; /* Pushes Logo Left, Links Right */
+  padding: 0 28px !important;
+  /* Hardware acceleration for smooth scrolling */
+  transform: translateZ(0); 
+}
+
+/* 2. CONTENT WRAPPER FLEX LOGIC (Left/Right) */
+/* Note: This targets the .content-wrap INSIDE the header */
+.site-nav .content-wrap {
+  display: flex;
+  justify-content: space-between; /* Logo Left / Links Right */
+  align-items: center;
+  width: 100%;
+}
+
+/* 3. LOGO DISPLAY LOGIC (Desktop vs Mobile) */
+
+/* --- DESKTOP LOGO (Full Logo) --- */
+.site-nav .nav-logo .logo-desktop {
+  display: block; /* Show full logo on desktop */
+  height: 52px; /* Big Logo */
+  width: auto;
+}
+
+.site-nav .nav-logo .logo-mobile {
+  display: none; /* Hide small icon on desktop */
+}
+
+/* --- MOBILE LOGO (Small Icon) --- */
+@media (max-width: 768px) {
+  
+  /* Adjust Header Height for Mobile */
+  .site-nav {
+    height: 60px !important; 
+    padding: 0 20px !important;
+  }
+
+  /* SWITCH LOGOS */
+  .site-nav .nav-logo .logo-desktop {
+    display: none; /* Hide full logo */
+  }
+
+  .site-nav .nav-logo .logo-mobile {
+    display: block; /* Show only small logo */
+    height: 40px;
+    width: auto;
+  }
+
+  /* Hide Navigation Links on Mobile (Clean Look) */
+  .nav-links {
+    display: none !important;
+  }
+}
+
+/* 4. FULLSCREEN FIX (No Black Bars) */
+
+/* Push hero content DOWN so it's not hidden behind sticky header */
+.hero {
+  margin-top: 70px !important; 
+}
+
+/* Mobile Viewport Fix (Removes address bar gap) */
+@media (max-width: 768px) {
+  .hero {
+    margin-top: 60px !important; /* Match mobile header height */
+    
+    /* Use dynamic viewport height to avoid scroll bars */
+    min-height: 100dvh; 
+  }
+}
