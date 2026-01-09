@@ -49,20 +49,11 @@
      - App / PWA compatibility
 ================================================== -->
 
-<!-- Primary favicon (MOST IMPORTANT) -->
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
-
-<!-- Small fallback -->
 <link rel="icon" href="/assets/favicon-16.png" sizes="16x16" type="image/png">
-
-<!-- High DPI / Windows -->
 <link rel="icon" href="/assets/favicon-48.png" sizes="48x48" type="image/png">
 <link rel="icon" href="/assets/favicon-64.png" sizes="64x64" type="image/png">
-
-<!-- Modern SVG favicon (desktop browsers) -->
 <link rel="icon" href="/assets/logoonly.svg" type="image/svg+xml">
-
-<!-- Apple Touch Icon (PNG ONLY – iOS RULE) -->
 <link rel="apple-touch-icon" href="/assets/favicon-64.png">
 
   <!-- ==================================================
@@ -117,21 +108,21 @@
     gtag('config', 'G-XT9KD0E65G');
   </script>
 
-</head>
-  
-<body>  
-<!-- STICKY HEADER -->
-<header class="sticky-header">
-  <a href="/" class="header-logo">
-    <img src="/assets/logo.svg" alt="TechAuditPros">
-  </a>
+</head> 
+<header class="site-nav">
+  <div class="content-wrap" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+    <a href="/" class="nav-logo" aria-label="TechAuditPros Home">
+      <img src="/assets/logo.svg" alt="TechAuditPros" class="logo-desktop">
+      <img src="/assets/logoonly.svg" alt="TechAuditPros" class="logo-mobile">
+    </a>
 
-  <nav class="header-nav">
-    <a href="/#services">Services</a>
-    <a href="/case-studies.html">Case Studies</a>
-    <a href="/about.html">About</a>
-    <a href="/#contact">Contact</a>
-  </nav>
+    <nav class="nav-links">
+      <a href="/#services">Services</a>
+      <a href="/case-studies.html">Case Studies</a>
+      <a href="/about.html">About</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
 </header>
 
 <!-- ==================================================
@@ -168,38 +159,32 @@
 
   <!-- Hero content overlay -->
   <div class="hero-content">
+<div class="hero-content">
+  <h1>TechAuditPros</h1>
 
-    <!-- Brand name -->
-    <h1>TechAuditPros</h1>
+  <div class="tagline">
+    We help good businesses get found and trusted online.
+  </div>
 
-    <!-- Primary positioning line -->
-    <div class="tagline">
-      We help good businesses get found and trusted online.
-    </div>
+  <div class="support">
+    Before people call any business, they look online.
+    If your website or SEO is unclear, customers choose someone else.
+  </div>
 
-    <!-- Supporting context -->
-    <div class="support">
-      Before people call any business, they look online.
-      If your website or SEO is unclear, customers choose someone else.
-    </div>
+  <form class="audit-bar" action="mailto:info@techauditpros.com" method="post" enctype="text/plain">
+    <input type="text" name="website" placeholder="Enter your website for a free audit" required>
+    <button type="submit">Check Now</button>
+  </form>
 
-    <!-- Free audit entry (soft lead capture) -->
-    <form class="audit-bar" action="mailto:info@techauditpros.com" method="post" enctype="text/plain">
-      <input type="text" name="website" placeholder="Enter your website for a free audit">
-      <button type="submit">Check Now</button>
-    </form>
+  <small>No pressure. Honest guidance.</small>
 
-    <!-- Trust reassurance -->
-    <small>No pressure. Honest guidance.</small>
-
-    <!-- Secondary navigation -->
-    <div class="hero-actions">
-      <a href="https://wa.me/916282520339">WhatsApp</a>
-      <a href="mailto:info@techauditpros.com">Email</a>
-      <a href="case-studies.html">Case Studies</a>
-      <a href="about.html">About Us</a>
-      <a href="#contact">Contact</a>
-    </div>
+  <div class="hero-actions">
+    <a href="https://wa.me/916282520339">WhatsApp</a>
+    <a href="mailto:info@techauditpros.com">Email</a>
+    <a href="case-studies.html">Case Studies</a>
+  </div>
+</div>
+  
 
   </div>
 </header>
