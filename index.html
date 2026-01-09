@@ -1,10 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- ==================================================
+     GLOBAL SITE NAVIGATION
+================================================== -->
+<nav class="site-nav">
+
+<!-- ==================================================
+     SITE LOGO (RESPONSIVE)
+     Desktop: Full logo (logo.svg)
+     Mobile: Icon only (logoonly.svg)
+================================================== -->
+<a href="/" class="nav-logo" aria-label="TechAuditPros Home">
+
+  <!-- FULL LOGO — DESKTOP ONLY -->
+  <img
+    src="/assets/logo.svg"
+    alt="TechAuditPros – Website & SEO Audits"
+    class="logo-desktop"
+  >
+
+  <!-- ICON ONLY — MOBILE ONLY -->
+  <img
+    src="/assets/logoonly.svg"
+    alt="TechAuditPros"
+    class="logo-mobile"
+  >
+
+</a>
+
+  <!-- NAV LINKS -->
+  <div class="nav-links">
+    <a href="/#services">Services</a>
+    <a href="/case-studies.html">Case Studies</a>
+    <a href="/about.html">About</a>
+    <a href="/#contact">Contact</a>
+  </div>
+
+</nav>
+
+
+  <!-- ==================================================
+       BASIC META SETUP
+       Purpose:
+       - Character encoding
+       - Mobile responsiveness
+       - Search engine indexing
+       - DO NOT REMOVE
+  ================================================== -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
-  
   <!-- ==================================================
        PAGE TITLE (SEO CRITICAL)
        Rules:
@@ -33,6 +79,7 @@
   <meta name="google-site-verification" content="nKm7MzLndhPXbTGfdIvEyhdbTuWd1fgOMhpKg3GPozM" />
   <meta name="msvalidate.01" content="3A8272AC48E8C31CE4657BB9F708DB69" />
 
+
   <!-- ==================================================
        CANONICAL URL (VERY IMPORTANT)
        Purpose:
@@ -43,27 +90,13 @@
   <link rel="canonical" href="https://techauditpros.com/" />
 
   <!-- ==================================================
-     FAVICON & APP ICONS (FINAL – SAFE VERSION)
-     Purpose:
-     - Browser tab icon
-     - Mobile browser icon
-     - App / PWA compatibility
-  ================================================== -->
-  <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
-  <link rel="icon" href="/assets/favicon-16.png" sizes="16x16" type="image/png">
-  <link rel="icon" href="/assets/favicon-48.png" sizes="48x48" type="image/png">
-  <link rel="icon" href="/assets/favicon-64.png" sizes="64x64" type="image/png">
-  <link rel="icon" href="/assets/logoonly.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/assets/favicon-64.png">
-
-  <!-- ==================================================
        MAIN STYLESHEET
        Rules:
        - All visual changes go into style.css
        - Do NOT add inline styles here
   ================================================== -->
-  <!-- Using stylesheet for separate CSS file -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="preload" href="style.css" as="style" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="style.css"></noscript>
 
   <!-- ==================================================
        STRUCTURED DATA (ORGANIZATION SCHEMA)
@@ -108,752 +141,706 @@
     gtag('config', 'G-XT9KD0E65G');
   </script>
 
-</head> 
+</head>
 
-<!-- ==================================================
-     MAIN BODY CONTENT STARTS HERE
-     Note: </body> moved to end of document to fix layout cut-off.
-================================================== -->
 <body>
 
-  <!-- NAVIGATION -->
-  <header class="site-nav">
-    <!-- 
-      NOTE: CSS controls flex layout now. 
-      To strictly follow the "No inline styles" rule, move "display: flex; justify-content: space-between..." 
-      to the ".content-wrap" class in your style.css file.
-    -->
-    <div class="content-wrap">
-      <a href="/" class="nav-logo" aria-label="TechAuditPros Home">
-        <img src="/assets/logo.svg" alt="TechAuditPros" class="logo-desktop">
-        <img src="/assets/logoonly.svg" alt="TechAuditPros" class="logo-mobile">
-      </a>
+<!-- ==================================================
+     HERO SECTION (FULLSCREEN, DARK, CINEMATIC)
+     Purpose:
+     - First impression
+     - Emotional trust
+     - Brand positioning
+     ⚠️ DO NOT convert this section to white
+================================================== -->
+<header class="hero" id="home">
 
-      <nav class="nav-links">
-        <a href="/#services">Services</a>
-        <a href="/case-studies.html">Case Studies</a>
-        <a href="/about.html">About</a>
-        <a href="/#contact">Contact</a>
-      </nav>
+  <!-- Background video (silent, looping, no text baked in) -->
+<!-- HERO VIDEO: DESKTOP ONLY -->
+<video
+  class="hero-video"
+  autoplay
+  muted
+  loop
+  playsinline
+  preload="none"
+>
+  <source src="hero-video.mp4" type="video/mp4">
+</video>
+
+<!-- HERO IMAGE: MOBILE FALLBACK (FAST LCP) -->
+<img
+  src="hero-mobile.jpg"
+  alt="Technical SEO and website audit services"
+  class="hero-image"
+  loading="eager"
+  decoding="async"
+/>
+
+  <!-- Hero content overlay -->
+  <div class="hero-content">
+
+    <!-- Brand name -->
+    <h1>TechAuditPros</h1>
+
+    <!-- Primary positioning line -->
+    <div class="tagline">
+      We help good businesses get found and trusted online.
     </div>
-  </header>
 
-  <!-- ==================================================
-       HERO SECTION (FULLSCREEN, DARK, CINEMATIC)
-       Purpose:
-       - First impression
-       - Emotional trust
-       - Brand positioning
-       ⚠️ DO NOT convert this section to white
-  ================================================== -->
-  <header class="hero" id="home">
-
-    <!-- Background video (silent, looping, no text baked in) -->
-    <!-- PATH CORRECTED: Added /videos/ prefix assuming standard structure -->
-    <video
-      class="hero-video"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="none"
-    >
-      <source src="/videos/hero-video.mp4" type="video/mp4">
-    </video>
-
-    <!-- HERO IMAGE: MOBILE FALLBACK (FAST LCP) -->
-    <!-- PATH CORRECTED: Added /images/ prefix (adjust folder name if needed) -->
-    <img
-      src="/images/hero-mobile.jpg"
-      alt="Technical SEO and website audit services"
-      class="hero-image"
-      loading="eager"
-      decoding="async"
-    />
-
-    <!-- Hero content overlay -->
-    <!-- REDUNDANT DIV REMOVED: Removed nested .hero-content wrapper -->
-    <div class="hero-content">
-      <h1>TechAuditPros</h1>
-
-      <div class="tagline">
-        We help good businesses get found and trusted online.
-      </div>
-
-      <div class="support">
-        Before people call any business, they look online.
-        If your website or SEO is unclear, customers choose someone else.
-      </div>
-
-      <!-- NOTE: This form opens to user's email client. For better UX, replace with a backend form handler. -->
-      <form class="audit-bar" action="mailto:info@techauditpros.com" method="post" enctype="text/plain">
-        <input type="text" name="website" placeholder="Enter your website for a free audit" required>
-        <button type="submit">Check Now</button>
-      </form>
-
-      <small>No pressure. Honest guidance.</small>
-
-      <div class="hero-actions">
-        <a href="https://wa.me/916282520339">WhatsApp</a>
-        <a href="mailto:info@techauditpros.com">Email</a>
-        <a href="case-studies.html">Case Studies</a>
-      </div>
+    <!-- Supporting context -->
+    <div class="support">
+      Before people call any business, they look online.
+      If your website or SEO is unclear, customers choose someone else.
     </div>
-  </header>
 
-  <section class="editorial-section">
-    <div class="editorial-bg"></div>
+    <!-- Free audit entry (soft lead capture) -->
+    <form class="audit-bar" action="mailto:info@techauditpros.com" method="post" enctype="text/plain">
+      <input type="text" name="website" placeholder="Enter your website for a free audit">
+      <button type="submit">Check Now</button>
+    </form>
 
-    <div class="editorial-inner">
-      <div class="editorial-left">
-        <h2>You do real work.</h2>
-        <p class="editorial-lead">
-          You repair. You build. You guide.
-        </p>
+    <!-- Trust reassurance -->
+    <small>No pressure. Honest guidance.</small>
 
-        <p>
-          But online world has changed. Search engines, websites, and visibility
-          now decide who gets seen and who stays hidden.
-        </p>
-
-        <p class="editorial-strong">
-          We help bring clarity to that.
-        </p>
-
-        <a href="/about.html" class="editorial-link">
-          Find out more about us →
-        </a>
-      </div>
-
-      <div class="editorial-right">
-        <h3>Who This Is For</h3>
-
-        <ul class="editorial-list">
-          <li>
-            <strong>Local service businesses</strong>
-            <span>that rely on Google visibility</span>
-          </li>
-          <li>
-            <strong>Repair companies</strong>
-            <span>where trust matters more than ads</span>
-          </li>
-          <li>
-            <strong>Consultants & independent professionals</strong>
-            <span>built on reputation</span>
-          </li>
-        </ul>
-      </div>
+    <!-- Secondary navigation -->
+    <div class="hero-actions">
+      <a href="https://wa.me/916282520339">WhatsApp</a>
+      <a href="mailto:info@techauditpros.com">Email</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="about.html">About Us</a>
+      <a href="#contact">Contact</a>
     </div>
-  </section>
 
-  <!-- ==================================================
-       SERVICES SECTION
-       Purpose:
-       - Scope clarity
-       - No pricing
-  ================================================== -->
-  <!-- ==================================================
-       SERVICES SECTION
-       Structure:
-       - 2 layers
-       - 3 cards per layer
-       - Desktop + Mobile safe HTML
-       Notes:
-       - Layout handled later via CSS
-       - Mobile stacks naturally (block flow)
-       - CLS-safe images
-  ================================================== -->
-  <section id="services">
-    <div class="content-wrap">
+  </div>
+</header>
+<section class="editorial-section">
+  <div class="editorial-bg"></div>
 
-      <!-- SECTION TITLE -->
-      <h2>Services</h2>
-
-      <!-- ==================================================
-           SERVICES LAYER 1
-           Primary SEO services (linked)
-      ================================================== -->
-      <div class="services-layer">
-
-        <!-- SERVICE CARD 1 -->
-        <a href="/website-seo-audit/" class="service-card service-card--image">
-          <figure class="service-media">
-            <img
-              src="/assets/images/services/on-page-seo-content-structure.webp"
-              alt="On-page SEO optimization focused on content structure and semantic clarity"
-              width="640"
-              height="480"
-              loading="lazy"
-              decoding="async"
-            >
-          </figure>
-
-          <div class="service-body">
-            <h3 class="service-title">On-Page SEO Optimization</h3>
-            <p class="service-desc">
-              Structuring content and pages so search engines can clearly
-              understand your business, services, and intent.
-            </p>
-            <span class="service-cta">Learn more →</span>
-          </div>
-        </a>
-
-        <!-- SERVICE CARD 2 -->
-        <a href="/technical-seo-audit/" class="service-card service-card--image">
-          <figure class="service-media">
-            <img
-              src="/assets/images/services/seo-link-building-authority-growth.webp"
-              alt="Link building and SEO authority growth through trusted references"
-              width="640"
-              height="480"
-              loading="lazy"
-              decoding="async"
-            >
-          </figure>
-
-          <div class="service-body">
-            <h3 class="service-title">Link Building & Authority Growth</h3>
-            <p class="service-desc">
-              Building clean backlinks, citations, and references that
-              strengthen trust and long-term search visibility.
-            </p>
-            <span class="service-cta">Learn more →</span>
-          </div>
-        </a>
-
-        <!-- SERVICE CARD 3 -->
-        <a href="/seo-audit-kochi/" class="service-card service-card--image">
-          <figure class="service-media">
-            <img
-              src="/assets/images/services/local-seo-business-listings-optimization.webp"
-              alt="Local SEO and business listings optimization for service-based companies"
-              width="640"
-              height="480"
-              loading="lazy"
-              decoding="async"
-            >
-          </figure>
-
-          <div class="service-body">
-            <h3 class="service-title">Local SEO & Business Listings</h3>
-            <p class="service-desc">
-              Improving visibility in local search results through accurate
-              listings, citations, and location signals.
-            </p>
-            <span class="service-cta">Learn more →</span>
-          </div>
-        </a>
-
-      </div>
-
-      <!-- ==================================================
-           SERVICES LAYER 2
-           Content & growth support services (no links yet)
-      ================================================== -->
-      <div class="services-layer">
-
-        <!-- SERVICE CARD 4 -->
-        <div class="service-card service-card--image">
-          <figure class="service-media">
-            <img
-              src="/assets/images/services/seo-content-creation-editorial.webp"
-              alt="SEO content creation including blogs and service page writing"
-              width="640"
-              height="480"
-              loading="lazy"
-              decoding="async"
-            >
-          </figure>
-
-          <div class="service-body">
-            <h3 class="service-title">SEO Content Creation</h3>
-            <p class="service-desc">
-              Creating blogs, service pages, and supporting content that
-              builds topical authority and search relevance.
-            </p>
-          </div>
-        </div>
-
-        <!-- SERVICE CARD 5 -->
-        <div class="service-card service-card--image">
-          <figure class="service-media">
-            <img
-              src="/assets/images/services/social-media-content-creation.webp"
-              alt="Social media content creation for consistent brand presence"
-              width="640"
-              height="480"
-              loading="lazy"
-              decoding="async"
-            >
-          </figure>
-
-          <div class="service-body">
-            <h3 class="service-title">Social Media Content Creation</h3>
-            <p class="service-desc">
-              Structured social media content that supports brand trust,
-              consistency, and visibility across platforms.
-            </p>
-          </div>
-        </div>
-
-        <!-- SERVICE CARD 6 -->
-        <div class="service-card service-card--image">
-          <figure class="service-media">
-            <img
-              src="/assets/images/services/seo-strategy-continuous-improvement.webp"
-              alt="SEO strategy, tracking, and continuous improvement planning"
-              width="640"
-              height="480"
-              loading="lazy"
-              decoding="async"
-            >
-          </figure>
-
-          <div class="service-body">
-            <h3 class="service-title">SEO Strategy & Continuous Improvement</h3>
-            <p class="service-desc">
-              Long-term SEO planning, performance tracking, and ongoing
-              improvements based on real search data.
-            </p>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==================================================
-       INDUSTRIES WE WORK WITH
-       Purpose:
-       - Audience relevance
-       - Visual trust
-       - Future scalability
-       
-       UPDATE: All video paths standardized to /videos/industries/
-       Added class="industry-video" to ALL cards for consistent JS control.
-  ================================================== -->
-  <section id="industries" class="industries-section">
-    
-    <!-- WRAPPED IN CONTENT-WRAP TO MATCH SERVICES WIDTH -->
-    <div class="content-wrap">
-      <h2>Industries We Work With</h2>
-      <p class="industries-intro">
-        We focus on businesses where technical clarity, trust,
-        and search visibility directly impact growth.
+  <div class="editorial-inner">
+    <div class="editorial-left">
+      <h2>You do real work.</h2>
+      <p class="editorial-lead">
+        You repair. You build. You guide.
       </p>
 
-      <div class="industries-grid">
-        
-        <!-- CARD: Local Service Businesses -->
-        <div class="industry-card">
-          <video
-            class="industry-video"
-            muted
-            loop
-            playsinline
-            preload="metadata"
-          >
-            <source src="/videos/industries/industry-local-service-businesses.mp4" type="video/mp4">
-          </video>
+      <p>
+        But the online world has changed. Search engines, websites, and visibility
+        now decide who gets seen and who stays hidden.
+      </p>
 
-          <div class="industry-overlay">
-            <h3>Local Service Businesses</h3>
-            <p>Visibility when customers search urgently</p>
-          </div>
-        </div>
+      <p class="editorial-strong">
+        We help bring clarity to that.
+      </p>
 
-        <!-- CARD: Repair Companies -->
-        <div class="industry-card">
-          <video 
-            class="industry-video"
-            muted 
-            loop 
-            playsinline 
-            preload="metadata"
-          >
-            <source src="/videos/industries/industry-repair-companies.mp4" type="video/mp4">
-          </video>
-          <div class="industry-overlay">
-            <h3>Repair Companies</h3>
-            <p>Trust matters in high-intent searches</p>
-          </div>
-        </div>
-
-        <!-- CARD: Consultants, Designers & Professionals -->
-        <div class="industry-card">
-          <video 
-            class="industry-video"
-            muted 
-            loop 
-            playsinline 
-            preload="metadata"
-          >
-            <!-- FIXED: Removed double .mp4.mp4 and added leading slash -->
-            <source src="/videos/industries/industry-consultants-designers.mp4" type="video/mp4">
-          </video>
-          <div class="industry-overlay">
-            <h3>Consultants & Designers</h3>
-            <p>Authority-driven online presence</p>
-          </div>
-        </div>
-
-        <!-- CARD: Healthcare & Clinics -->
-        <div class="industry-card">
-          <video 
-            class="industry-video"
-            muted 
-            loop 
-            playsinline 
-            preload="metadata"
-          >
-            <source src="/videos/industries/industry-healthcare-clinics.mp4" type="video/mp4">
-          </video>
-          <div class="industry-overlay">
-            <h3>Healthcare & Clinics</h3>
-            <p>Trust, compliance, and clarity</p>
-          </div>
-        </div>
-
-        <!-- CARD: Real Estate & Home Services -->
-        <div class="industry-card">
-          <video
-            class="industry-video"
-            muted
-            loop
-            playsinline
-            preload="metadata"
-          >
-            <source src="/videos/industries/industry-real-estate-home-services.mp4" type="video/mp4">
-          </video>
-
-          <div class="industry-overlay">
-            <h3>Real Estate & Home Services</h3>
-            <p>Local discovery, trust, and long-term visibility</p>
-          </div>
-        </div>
-
-        <!-- CARD: IT & SaaS -->
-        <div class="industry-card">
-          <video 
-            class="industry-video"
-            muted 
-            loop 
-            playsinline 
-            preload="metadata"
-          >
-            <source src="/videos/industries/industry-it-saas.mp4" type="video/mp4">
-          </video>
-          <div class="industry-overlay">
-            <h3>IT & SaaS</h3>
-            <p>Technical websites built to scale</p>
-          </div>
-        </div>
-
-      </div>
+      <a href="/about.html" class="editorial-link">
+        Find out more about us →
+      </a>
     </div>
-  </section>
 
+    <div class="editorial-right">
+      <h3>Who This Is For</h3>
+
+      <ul class="editorial-list">
+        <li>
+          <strong>Local service businesses</strong>
+          <span>that rely on Google visibility</span>
+        </li>
+        <li>
+          <strong>Repair companies</strong>
+          <span>where trust matters more than ads</span>
+        </li>
+        <li>
+          <strong>Consultants & independent professionals</strong>
+          <span>built on reputation</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================================================
+     SERVICES
+     Purpose:
+     - Scope clarity
+     - No pricing
+================================================== -->
+<!-- ==================================================
+     SERVICES SECTION
+     Structure:
+     - 2 layers
+     - 3 cards per layer
+     - Desktop + Mobile safe HTML
+     Notes:
+     - Layout handled later via CSS
+     - Mobile stacks naturally (block flow)
+     - CLS-safe images
+================================================== -->
+<section id="services">
+  <div class="content-wrap">
+
+    <!-- SECTION TITLE -->
+    <h2>Services</h2>
+
+    <!-- ==================================================
+         SERVICES LAYER 1
+         Primary SEO services (linked)
+    ================================================== -->
+    <div class="services-layer">
+
+      <!-- SERVICE CARD 1 -->
+      <a href="/website-seo-audit/" class="service-card service-card--image">
+        <figure class="service-media">
+          <img
+            src="/assets/images/services/on-page-seo-content-structure.webp"
+            alt="On-page SEO optimization focused on content structure and semantic clarity"
+            width="640"
+            height="480"
+            loading="lazy"
+            decoding="async"
+          >
+        </figure>
+
+        <div class="service-body">
+          <h3 class="service-title">On-Page SEO Optimization</h3>
+          <p class="service-desc">
+            Structuring content and pages so search engines can clearly
+            understand your business, services, and intent.
+          </p>
+          <span class="service-cta">Learn more →</span>
+        </div>
+      </a>
+
+      <!-- SERVICE CARD 2 -->
+      <a href="/technical-seo-audit/" class="service-card service-card--image">
+        <figure class="service-media">
+          <img
+            src="/assets/images/services/seo-link-building-authority-growth.webp"
+            alt="Link building and SEO authority growth through trusted references"
+            width="640"
+            height="480"
+            loading="lazy"
+            decoding="async"
+          >
+        </figure>
+
+        <div class="service-body">
+          <h3 class="service-title">Link Building & Authority Growth</h3>
+          <p class="service-desc">
+            Building clean backlinks, citations, and references that
+            strengthen trust and long-term search visibility.
+          </p>
+          <span class="service-cta">Learn more →</span>
+        </div>
+      </a>
+
+      <!-- SERVICE CARD 3 -->
+      <a href="/seo-audit-kochi/" class="service-card service-card--image">
+        <figure class="service-media">
+          <img
+            src="/assets/images/services/local-seo-business-listings-optimization.webp"
+            alt="Local SEO and business listings optimization for service-based companies"
+            width="640"
+            height="480"
+            loading="lazy"
+            decoding="async"
+          >
+        </figure>
+
+        <div class="service-body">
+          <h3 class="service-title">Local SEO & Business Listings</h3>
+          <p class="service-desc">
+            Improving visibility in local search results through accurate
+            listings, citations, and location signals.
+          </p>
+          <span class="service-cta">Learn more →</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- ==================================================
+         SERVICES LAYER 2
+         Content & growth support services (no links yet)
+    ================================================== -->
+    <div class="services-layer">
+
+      <!-- SERVICE CARD 4 -->
+      <div class="service-card service-card--image">
+        <figure class="service-media">
+          <img
+            src="/assets/images/services/seo-content-creation-editorial.webp"
+            alt="SEO content creation including blogs and service page writing"
+            width="640"
+            height="480"
+            loading="lazy"
+            decoding="async"
+          >
+        </figure>
+
+        <div class="service-body">
+          <h3 class="service-title">SEO Content Creation</h3>
+          <p class="service-desc">
+            Creating blogs, service pages, and supporting content that
+            builds topical authority and search relevance.
+          </p>
+        </div>
+      </div>
+
+      <!-- SERVICE CARD 5 -->
+      <div class="service-card service-card--image">
+        <figure class="service-media">
+          <img
+            src="/assets/images/services/social-media-content-creation.webp"
+            alt="Social media content creation for consistent brand presence"
+            width="640"
+            height="480"
+            loading="lazy"
+            decoding="async"
+          >
+        </figure>
+
+        <div class="service-body">
+          <h3 class="service-title">Social Media Content Creation</h3>
+          <p class="service-desc">
+            Structured social media content that supports brand trust,
+            consistency, and visibility across platforms.
+          </p>
+        </div>
+      </div>
+
+      <!-- SERVICE CARD 6 -->
+      <div class="service-card service-card--image">
+        <figure class="service-media">
+          <img
+            src="/assets/images/services/seo-strategy-continuous-improvement.webp"
+            alt="SEO strategy, tracking, and continuous improvement planning"
+            width="640"
+            height="480"
+            loading="lazy"
+            decoding="async"
+          >
+        </figure>
+
+        <div class="service-body">
+          <h3 class="service-title">SEO Strategy & Continuous Improvement</h3>
+          <p class="service-desc">
+            Long-term SEO planning, performance tracking, and ongoing
+            improvements based on real search data.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
   <!-- ==================================================
-       CASE STUDY – TRUST-FOCUSED LAYOUT
-       Purpose:
-       - Show real work
-       - Calm explanation
-       - Clear next step
-       
-       UPDATE: Fixed video path
-  ================================================== -->
-  <section id="case-study-single">
+     INDUSTRIES WE WORK WITH
+     Purpose:
+     - Audience relevance
+     - Visual trust
+     - Future scalability
+================================================== -->
+<section id="industries" class="industries-section">
 
-    <!-- SECTION INTRO -->
-    <h2>
-      A Real Technical SEO Audit — From Hidden Issues to Structural Clarity
-    </h2>
+  <h2>Industries We Work With</h2>
+  <p class="industries-intro">
+    We focus on businesses where technical clarity, trust,
+    and search visibility directly impact growth.
+  </p>
+
+  <div class="industries-grid">
+    
+<!-- CARD: Local Service Businesses -->
+<div class="industry-card">
+  <video
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    data-video
+  >
+    <source src="/videos/industries/industry-local-service-businesses.mp4" type="video/mp4">
+  </video>
+
+  <div class="industry-overlay">
+    <h3>Local Service Businesses</h3>
+    <p>Visibility when customers search urgently</p>
+  </div>
+</div>
+
+
+<!-- CARD: Repair Companies -->
+<div class="industry-card">
+  <video muted loop playsinline preload="metadata" class="industry-video">
+    <source src="videos/industries/industry-repair-companies.mp4" type="video/mp4">
+  </video>
+  <div class="industry-overlay">
+    <h3>Repair Companies</h3>
+    <p>Trust matters in high-intent searches</p>
+  </div>
+</div>
+
+
+
+   <!-- CARD: Consultants, Designers & Professionals -->
+<div class="industry-card">
+  <video muted loop playsinline preload="none" class="industry-video">
+    <source src="videos/industries/industry-consultants-designers.mp4.mp4" type="video/mp4">
+  </video>
+  <div class="industry-overlay">
+    <h3>Consultants & Designers</h3>
+    <p>Authority-driven online presence</p>
+  </div>
+</div>
+
+
+    <!-- CARD: Healthcare & Clinics -->
+<div class="industry-card">
+  <video muted loop playsinline preload="metadata" class="industry-video">
+    <source src="videos/industries/industry-healthcare-clinics.mp4" type="video/mp4">
+  </video>
+  <div class="industry-overlay">
+    <h3>Healthcare & Clinics</h3>
+    <p>Trust, compliance, and clarity</p>
+  </div>
+</div>
+
+
+   <!-- CARD: Real Estate & Home Services -->
+<div class="industry-card">
+  <video
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    data-video
+  >
+    <source src="/videos/industries/industry-real-estate-home-services.mp4" type="video/mp4">
+  </video>
+
+  <div class="industry-overlay">
+    <h3>Real Estate & Home Services</h3>
+    <p>Local discovery, trust, and long-term visibility</p>
+  </div>
+</div>
+
+    
+<!-- CARD: IT & SaaS -->
+<div class="industry-card">
+  <video muted loop playsinline preload="metadata" class="industry-video">
+    <source src="videos/industries/industry-it-saas.mp4" type="video/mp4">
+  </video>
+  <div class="industry-overlay">
+    <h3>IT & SaaS</h3>
+    <p>Technical websites built to scale</p>
+  </div>
+</div>
+
+
+  </div>
+</section>
+
+
+<!-- ==================================================
+     CASE STUDY – TRUST-FOCUSED LAYOUT
+     Purpose:
+     - Show real work
+     - Calm explanation
+     - Clear next step
+================================================== -->
+<section id="case-study-single">
+
+  <!-- SECTION INTRO -->
+  <h2>
+    A Real Technical SEO Audit — From Hidden Issues to Structural Clarity
+  </h2>
+
+  <p class="audit-intro">
+    This is a real technical SEO and website audit conducted for an appliance
+    repair business in Canada.
+    No templates. No automation. No assumptions.
+    Just methodical diagnosis and clear technical corrections.
+  </p>
+
+  <div class="case-study-layout">
+
+    <!-- LEFT: VIDEO (VISUAL CONTEXT ONLY) -->
+    <div class="case-video">
+      <video autoplay muted loop playsinline preload="metadata">
+        <source src="seo_growth.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- RIGHT: TECHNICAL EXPLANATION -->
+    <div class="case-content">
+
+      <span class="case-label">
+        Independent Technical Audit — Canada
+      </span>
+
+      <h3>
+        Improving search visibility through technical clarity
+      </h3>
+
+      <p>
+        This business was already delivering high-quality appliance repair
+        services, but its website structure and SEO signals were unclear
+        to search engines.
+      </p>
+
+      <p>
+        During the audit, we identified crawlability issues,
+        page intent misalignment, internal linking gaps,
+        and technical inconsistencies that were limiting organic performance.
+      </p>
+
+      <p>
+        The work focused on correcting foundational technical signals
+        so search engines could properly understand, trust,
+        and rank the website over time.
+      </p>
+
+      <p class="case-result">
+        Result:
+        <strong>205% increase in organic traffic</strong>
+        achieved through technical fixes and structural improvements —
+        without paid advertising.
+      </p>
+
+      <!-- CLEAR, CLICKABLE NEXT STEP -->
+      <div class="case-cta">
+        <a href="case-studies.html" class="case-link">
+          View full technical breakdown →
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ==================================================
+     AUDIT PROCESS
+     Purpose:
+     - Trust building
+     - Process clarity
+     - Calm professional tone
+================================================== -->
+<section id="audit">
+
+  <div class="audit-inner">
+
+    <h2>What Happens When You Ask for an Audit</h2>
 
     <p class="audit-intro">
-      This is a real technical SEO and website audit conducted for an appliance
-      repair business in Canada.
-      No templates. No automation. No assumptions.
-      Just methodical diagnosis and clear technical corrections.
+      We review your website and SEO structure the same way
+      a professional inspects a building —
+      carefully, methodically, and without assumptions.
     </p>
 
-    <div class="case-study-layout">
+    <ul class="audit-list">
+      <li>Website structure and page clarity</li>
+      <li>Search engine crawlability and indexing</li>
+      <li>Technical issues blocking visibility</li>
+      <li>Competitor comparison and opportunity gaps</li>
+      <li>Clear, honest recommendations</li>
+    </ul>
 
-      <!-- LEFT: VIDEO (VISUAL CONTEXT ONLY) -->
-      <div class="case-video">
-        <!-- FIXED: Added leading slash to path -->
-        <video autoplay muted loop playsinline preload="metadata">
-          <source src="/videos/seo_growth.mp4" type="video/mp4">
-        </video>
-      </div>
+    <p class="audit-note">
+      This audit is normally a paid professional service.
+      <strong>We currently offer it free</strong> so you can decide with clarity.
+    </p>
 
-      <!-- RIGHT: TECHNICAL EXPLANATION -->
-      <div class="case-content">
-
-        <span class="case-label">
-          Independent Technical Audit — Canada
-        </span>
-
-        <h3>
-          Improving search visibility through technical clarity
-        </h3>
-
-        <p>
-          This business was already delivering high-quality appliance repair
-          services, but its website structure and SEO signals were unclear
-          to search engines.
-        </p>
-
-        <p>
-          During the audit, we identified crawlability issues,
-          page intent misalignment, internal linking gaps,
-          and technical inconsistencies that were limiting organic performance.
-        </p>
-
-        <p>
-          The work focused on correcting foundational technical signals
-          so search engines could properly understand, trust,
-          and rank the website over time.
-        </p>
-
-        <p class="case-result">
-          Result:
-          <strong>205% increase in organic traffic</strong>
-          achieved through technical fixes and structural improvements —
-          without paid advertising.
-        </p>
-
-        <!-- CLEAR, CLICKABLE NEXT STEP -->
-        <div class="case-cta">
-          <a href="case-studies.html" class="case-link">
-            View full technical breakdown →
-          </a>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ==================================================
-       AUDIT PROCESS
-       Purpose:
-       - Trust building
-       - Process clarity
-       - Calm professional tone
-  ================================================== -->
-  <section id="audit">
-
-    <div class="audit-inner">
-
-      <h2>What Happens When You Ask for an Audit</h2>
-
-      <p class="audit-intro">
-        We review your website and SEO structure same way
-        a professional inspects a building —
-        carefully, methodically, and without assumptions.
-      </p>
-
-      <ul class="audit-list">
-        <li>Website structure and page clarity</li>
-        <li>Search engine crawlability and indexing</li>
-        <li>Technical issues blocking visibility</li>
-        <li>Competitor comparison and opportunity gaps</li>
-        <li>Clear, honest recommendations</li>
-      </ul>
-
-      <p class="audit-note">
-        This audit is normally a paid professional service.
-        <strong>We currently offer it free</strong> so you can decide with clarity.
-      </p>
-
-      <a class="primary-btn" href="mailto:info@techauditpros.com">
-        Get My Free Website & SEO Audit
-      </a>
-      <p style="margin-top:16px;">
-        Looking for a local audit?
-        <a href="/seo-audit-kochi/" class="text-link">
-          SEO Audit Services in Kochi →
-        </a>
-      </p>
-
-    </div>
-
-  </section>
-
-  <!-- ==================================================
-       CONTACT SECTION
-  ================================================== -->
-  <section id="contact" class="contact-section">
-    <div class="content-wrap">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:info@techauditpros.com">info@techauditpros.com</a></p>
-      <p>WhatsApp: <a href="https://wa.me/916282520339">+91 6282520339</a></p>
-    </div>
-  </section>
-
-
-  <!-- ==================================================
-       FOOTER
-  ================================================== -->
-  <footer class="footer-small">
-    
-    <!-- LEFT SIDE: Contact Info -->
-    <div class="footer-contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:info@techauditpros.com">info@techauditpros.com</a></p>
-      <p>WhatsApp: <a href="https://wa.me/916282520339">+91 6282520339</a></p>
-    </div>
-
-    <!-- RIGHT SIDE: Tagline -->
-    <div class="footer-tagline">
-      <p>Serving businesses in India, USA & Canada<br>Remote & international projects welcome</p>
-    </div>
-  </footer>
-
-
-  <!-- ==================================================
-       FLOATING CHAT BUTTON
-  ================================================== -->
-  <div style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; text-align: right;">
-    <a href="https://wa.me/916282520339" class="primary-btn">
-      Get Free Audit on WhatsApp
+    <a class="primary-btn" href="mailto:info@techauditpros.com">
+      Get My Free Website & SEO Audit
     </a>
+    <p style="margin-top:16px;">
+  Looking for a local audit?
+  <a href="/seo-audit-kochi/" class="text-link">
+    SEO Audit Services in Kochi →
+  </a>
+</p>
 
-    <p style="margin-top:10px;">
-      <a href="mailto:info@techauditpros.com" class="text-link">
-        Or email us →
-      </a>
-    </p>
+
   </div>
 
-  <!-- ================================
-       TECHAUDITPROS CHATBOT
-  ================================ -->
-  <button class="chat-fab" id="chatToggle">
-    Ask a question
-  </button>
+</section>
 
-  <div class="chat-box" id="chatBox">
-    <div class="chat-header">
-      <strong>TechAuditPros</strong>
-      <button id="chatClose">×</button>
-    </div>
 
-    <div class="chat-messages" id="chatMessages">
-      <div class="bot-msg">
-        Hi 👋  
-        What would you like to know?
-      </div>
-    </div>
-
-    <div class="chat-actions">
-      <button data-intent="FREE_AUDIT">Free Audit</button>
-      <button data-intent="PRICING">Pricing</button>
-      <button data-intent="SERVICES_OVERVIEW">Services</button>
-      <button data-intent="CASE_STUDY">Case Study</button>
-    </div>
+<!-- ==================================================
+     CONTACT
+================================================== -->
+<section id="contact" class="contact-section">
+  <div class="content-wrap">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:info@techauditpros.com">info@techauditpros.com</a></p>
+    <p>WhatsApp: <a href="https://wa.me/916282520339">+91 6282520339</a></p>
   </div>
+</section>
 
-  <!-- ==================================================
-       JAVASCRIPT LOGIC
-       1. Chatbot Interaction
-       2. Video Auto-Play (Intersection Observer)
-       - Removed conflicting Hover script for cleaner behavior
-  ================================================== -->
-  <script>
-    /* --- CHATBOT SCRIPT --- */
-    const chatToggle = document.getElementById("chatToggle");
-    const chatBox = document.getElementById("chatBox");
-    const chatClose = document.getElementById("chatClose");
-    const chatMessages = document.getElementById("chatMessages");
 
-    chatToggle.onclick = () => chatBox.style.display = "flex";
-    chatClose.onclick = () => chatBox.style.display = "none";
 
-    const RESPONSES = {
-      FREE_AUDIT: {
-        text: "We offer a professional website & SEO audit to help you understand what’s blocking visibility. No pressure, no obligation.",
-        buttons: true
-      },
-      PRICING: {
-        text: "Audit pricing depends on website size and complexity. We always start with an audit before discussing fixes.",
-        buttons: true
-      },
-      SERVICES_OVERVIEW: {
-        text: "We specialize in website & technical SEO audits focused on clarity, structure, and long-term trust.",
-        buttons: true
-      },
-      CASE_STUDY: {
-        text: "We document real audits and results to show how technical clarity improves visibility.",
-        link: "/case-studies.html"
+<!-- ==================================================
+     FOOTER
+================================================== -->
+<footer class="footer-small">
+  <p>
+    Serving businesses in India, USA & Canada<br>
+    Remote & international projects welcome
+  </p>
+</footer>
+
+<!-- ==================================================
+     FLOATING CHAT BUTTON
+================================================== -->
+<!-- ==================================================
+     INDUSTRY VIDEOS – SMART PLAY CONTROL
+     Purpose:
+     - Play only when visible
+     - Pause when off-screen
+     - Premium, calm experience
+================================================== -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const videos = document.querySelectorAll(".industry-video");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const video = entry.target;
+
+      if (entry.isIntersecting) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
       }
-    };
+    });
+  }, {
+    threshold: 0.6
+  });
 
-    document.querySelectorAll(".chat-actions button").forEach(btn => {
-      btn.onclick = () => {
-        const intent = btn.dataset.intent;
-        const data = RESPONSES[intent];
+  videos.forEach(video => observer.observe(video));
+});
+</script>
+<a href="https://wa.me/916282520339" class="primary-btn">
+  Get Free Audit on WhatsApp
+</a>
 
-        const msg = document.createElement("div");
-        msg.className = "bot-msg";
-        msg.innerHTML = data.text;
-        chatMessages.appendChild(msg);
+<p style="margin-top:10px;">
+  <a href="mailto:info@techauditpros.com" class="text-link">
+    Or email us →
+  </a>
+</p>
+<script>
+  document.querySelectorAll("[data-video]").forEach(video => {
+    video.pause();
 
-        if (data.link) {
-          const link = document.createElement("a");
-          link.href = data.link;
-          link.textContent = "View details →";
-          link.style.display = "block";
-          link.style.marginTop = "8px";
-          msg.appendChild(link);
-        }
-
-        if (data.buttons) addLeadButtons();
-
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-      };
+    video.closest(".industry-card").addEventListener("mouseenter", () => {
+      video.play();
     });
 
-    function addLeadButtons() {
-      const wrap = document.createElement("div");
-      wrap.className = "bot-msg";
+    video.closest(".industry-card").addEventListener("mouseleave", () => {
+      video.pause();
+      video.currentTime = 0;
+    });
+  });
+</script>
+<!-- ================================
+     TECHAUDITPROS CHATBOT
+================================ -->
+<button class="chat-fab" id="chatToggle">
+  Ask a question
+</button>
 
-      wrap.innerHTML = `
-        <strong>Contact us directly:</strong><br><br>
-        <a href="https://wa.me/916282520339" target="_blank">WhatsApp</a><br>
-        <a href="mailto:info@techauditpros.com">Email</a>
-      `;
+<div class="chat-box" id="chatBox">
+  <div class="chat-header">
+    <strong>TechAuditPros</strong>
+    <button id="chatClose">×</button>
+  </div>
 
-      chatMessages.appendChild(wrap);
+  <div class="chat-messages" id="chatMessages">
+    <div class="bot-msg">
+      Hi 👋  
+      What would you like to know?
+    </div>
+  </div>
+
+  <div class="chat-actions">
+    <button data-intent="FREE_AUDIT">Free Audit</button>
+    <button data-intent="PRICING">Pricing</button>
+    <button data-intent="SERVICES_OVERVIEW">Services</button>
+    <button data-intent="CASE_STUDY">Case Study</button>
+  </div>
+</div>
+<script>
+const chatToggle = document.getElementById("chatToggle");
+const chatBox = document.getElementById("chatBox");
+const chatClose = document.getElementById("chatClose");
+const chatMessages = document.getElementById("chatMessages");
+
+chatToggle.onclick = () => chatBox.style.display = "flex";
+chatClose.onclick = () => chatBox.style.display = "none";
+
+const RESPONSES = {
+  FREE_AUDIT: {
+    text: "We offer a professional website & SEO audit to help you understand what’s blocking visibility. No pressure, no obligation.",
+    buttons: true
+  },
+  PRICING: {
+    text: "Audit pricing depends on website size and complexity. We always start with an audit before discussing fixes.",
+    buttons: true
+  },
+  SERVICES_OVERVIEW: {
+    text: "We specialize in website & technical SEO audits focused on clarity, structure, and long-term trust.",
+    buttons: true
+  },
+  CASE_STUDY: {
+    text: "We document real audits and results to show how technical clarity improves visibility.",
+    link: "/case-studies.html"
+  }
+};
+
+document.querySelectorAll(".chat-actions button").forEach(btn => {
+  btn.onclick = () => {
+    const intent = btn.dataset.intent;
+    const data = RESPONSES[intent];
+
+    const msg = document.createElement("div");
+    msg.className = "bot-msg";
+    msg.innerHTML = data.text;
+    chatMessages.appendChild(msg);
+
+    if (data.link) {
+      const link = document.createElement("a");
+      link.href = data.link;
+      link.textContent = "View details →";
+      link.style.display = "block";
+      link.style.marginTop = "8px";
+      msg.appendChild(link);
     }
 
-    /* --- INDUSTRY VIDEOS: AUTO-PLAY ON SCROLL --- */
-    document.addEventListener("DOMContentLoaded", () => {
-      const videos = document.querySelectorAll(".industry-video");
+    if (data.buttons) addLeadButtons();
 
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          const video = entry.target;
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  };
+});
 
-          if (entry.isIntersecting) {
-            video.play().catch(() => {
-              // Auto-play was prevented (common in some browsers without user interaction)
-              console.log("Autoplay prevented for:", video.src);
-            });
-          } else {
-            video.pause();
-          }
-        });
-      }, {
-        threshold: 0.6
-      });
+function addLeadButtons() {
+  const wrap = document.createElement("div");
+  wrap.className = "bot-msg";
 
-      videos.forEach(video => observer.observe(video));
-    });
-  </script>
+  wrap.innerHTML = `
+    <strong>Contact us directly:</strong><br><br>
+    <a href="https://wa.me/916282520339" target="_blank">WhatsApp</a><br>
+    <a href="mailto:info@techauditpros.com">Email</a>
+  `;
+
+  chatMessages.appendChild(wrap);
+}
+</script>
 
 </body>
 </html>
