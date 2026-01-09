@@ -2121,3 +2121,273 @@ summary::after {
     font-size: 0.9rem;
   }
 }
+/* ==================================================
+   MASTER CSS PART 6: SEO AUDIT KOCHI PAGE
+   Design Focus: Checklist, Comparison, Clarity
+   ================================================== */
+
+/* ---------------------------------------------------------
+   PAGE WRAPPER
+--------------------------------------------------------- */
+.audit-kochi-wrapper {
+  background-color: #ffffff;
+  color: var(--color-dark);
+}
+
+.audit-section {
+  padding: 100px 0;
+}
+
+.audit-alt-bg {
+  background-color: #f8fafc;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.audit-dark {
+  background-color: #0f172a;
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   TYPOGRAPHY & HEADERS
+--------------------------------------------------------- */
+.intro-text {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.intro-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 24px;
+}
+
+.intro-text p {
+  font-size: 1.1rem;
+  color: #4b5563;
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+.section-header-center {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px;
+}
+
+.section-header-center h2 {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+/* ---------------------------------------------------------
+   AUDIT CHECKLIST GRID (CARD DESIGN)
+--------------------------------------------------------- */
+.audit-checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.checklist-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 32px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.checklist-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+  border-color: var(--color-primary);
+}
+
+.check-icon {
+  width: 48px;
+  height: 48px;
+  background: #dcfce7; /* Light Green */
+  color: #166534; /* Dark Green */
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.checklist-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+  color: var(--color-dark);
+}
+
+.checklist-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.checklist-card li {
+  padding: 8px 0 8px 24px;
+  position: relative;
+  color: #4b5563;
+}
+
+.checklist-card li::before {
+  content: "•";
+  color: var(--color-primary);
+  position: absolute;
+  left: 0;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+/* ---------------------------------------------------------
+   TARGET AUDIENCE GRID
+--------------------------------------------------------- */
+.target-audience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.target-card {
+  border: 1px solid #e5e7eb;
+  padding: 24px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.target-card strong {
+  font-size: 1.1rem;
+  color: var(--color-dark);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.target-card span {
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+/* ---------------------------------------------------------
+   COMPARISON LAYOUT (DATA VS GUESS)
+--------------------------------------------------------- */
+.comparison-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.comp-col {
+  flex: 1;
+  padding: 32px;
+  border-radius: 16px;
+  max-width: 45%;
+}
+
+.comp-col h3 {
+  margin-bottom: 24px;
+  font-size: 1.5rem;
+}
+
+.bad {
+  background: rgba(239, 68, 68, 0.1); /* Red tint */
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.bad h3 { color: #b91c1c; }
+
+.good {
+  background: rgba(22, 163, 74, 0.1); /* Green tint */
+  border: 1px solid rgba(22, 163, 74, 0.2);
+}
+
+.good h3 { color: #15803d; }
+
+.comp-list {
+  list-style: none;
+  padding: 0;
+}
+
+.comp-list li {
+  margin-bottom: 16px;
+  font-size: 1.05rem;
+}
+
+.comp-arrow {
+  font-size: 2rem;
+  color: #94a3b8;
+}
+
+.bottom-text {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.audit-dark .bottom-text {
+  color: rgba(255,255,255,0.7);
+}
+
+/* ---------------------------------------------------------
+   AUDIT CTA
+--------------------------------------------------------- */
+.audit-cta-section {
+  background: var(--color-primary);
+  color: #fff;
+  text-align: center;
+  padding: 100px 24px;
+}
+
+.audit-cta-section h2 {
+  color: #fff;
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+
+.audit-cta-section .primary-btn {
+  background: #fff;
+  color: var(--color-primary);
+}
+
+/* ---------------------------------------------------------
+   MOBILE RESPONSIVENESS
+--------------------------------------------------------- */
+@media (max-width: 768px) {
+  .audit-section {
+    padding: 60px 0;
+  }
+  
+  .intro-text h2 {
+    font-size: 2rem;
+  }
+
+  .audit-checklist-grid, .target-audience-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .comparison-layout {
+    flex-direction: column;
+  }
+  
+  .comp-col {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .comp-arrow {
+    transform: rotate(90deg);
+  }
+
+  .audit-cta-section {
+    padding: 60px 20px;
+  }
+}
