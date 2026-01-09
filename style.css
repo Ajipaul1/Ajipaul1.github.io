@@ -1998,3 +1998,51 @@ section {
     min-height: 100dvh; 
   }
 }
+/* --- Grid Layout for the Audit Section --- */
+#audit .audit-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Splits content and video 50/50 */
+  gap: 3rem; /* Space between text and video */
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Styling the Video Container --- */
+#audit .video-column {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 350px; /* Minimum height for the video area */
+  background-color: #000;
+  border-radius: 12px;
+  overflow: hidden; /* Ensures video corners stay rounded */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* --- Styling the Video Element itself --- */
+#audit .video-column video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures video fills the box without stretching */
+  display: block;
+}
+
+/* --- Text Column Spacing --- */
+#audit .content-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  #audit .audit-inner {
+    grid-template-columns: 1fr; /* Stacks vertically on mobile */
+    gap: 2rem;
+  }
+
+  #audit .video-column {
+    order: -1; /* Moves video to the top on mobile */
+    min-height: 250px;
+  }
+}
