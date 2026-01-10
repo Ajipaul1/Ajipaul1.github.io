@@ -46,7 +46,7 @@
   }
   </script>
 
-  <!-- FAQ SCHEMA (Matches the Visible FAQ Section below) -->
+  <!-- FAQ SCHEMA -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -87,6 +87,86 @@
     ]
   }
   </script>
+
+  <!-- ==================================================
+       INLINE CSS FOR THE SLIDER (No CSS file edits needed)
+  ================================================== -->
+  <style>
+    .visual-slider-section {
+      background-color: #0f172a;
+      padding: 60px 0;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    .visual-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .visual-header h2 {
+      font-size: 2.2rem;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .visual-header p {
+      color: #94a3b8;
+      font-size: 1.1rem;
+    }
+
+    .slider-container {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      background: #020617;
+      border-radius: 24px;
+      padding: 20px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      border: 1px solid #1e293b;
+    }
+
+    .slide {
+      display: none;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      width: 100%;
+      text-align: center;
+    }
+
+    .slide.active {
+      display: block;
+      opacity: 1;
+    }
+
+    .slide svg {
+      max-width: 100%;
+      height: auto;
+      display: inline-block;
+    }
+
+    .slider-dots {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .dot {
+      height: 10px;
+      width: 10px;
+      background-color: #334155;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .dot.active {
+      background-color: #2980B9;
+      transform: scale(1.2);
+    }
+  </style>
 
 </head>
 
@@ -145,6 +225,134 @@
        MAIN CONTENT: ADVANCED SEO LAYOUT
   ================================================== -->
   <main class="kerala-page-layout">
+
+    <!-- ==================================================
+       NEW: ANIMATED SVG SLIDER
+    ================================================== -->
+    <section class="visual-slider-section">
+      <div class="content-wrap">
+        <div class="visual-header">
+          <h2>The Technical Difference</h2>
+          <p>We don't just guess. We visualize data.</p>
+        </div>
+
+        <div class="slider-container" id="svgSlider">
+          
+          <!-- SLIDE 1: Core Web Vitals Speedometer -->
+          <div class="slide active">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="auto">
+              <style>
+                .needle { transform-origin: 200px 200px; animation: moveNeedle 4s infinite ease-in-out; }
+                @keyframes moveNeedle { 0% { transform: rotate(-90deg); } 50% { transform: rotate(90deg); } 100% { transform: rotate(-90deg); } }
+              </style>
+              <rect width="400" height="300" fill="#020617" rx="12" />
+              <path d="M 50 200 A 150 150 0 0 1 350 200" fill="none" stroke="#1e293b" stroke-width="30" stroke-linecap="round" />
+              <path d="M 50 200 A 150 150 0 0 1 350 200" fill="none" stroke="#ef4444" stroke-width="30" stroke-dasharray="235 942" />
+              <path d="M 50 200 A 150 150 0 0 1 350 200" fill="none" stroke="#27AE60" stroke-width="30" stroke-dasharray="471 942" stroke-dashoffset="-471" />
+              <text x="200" y="250" text-anchor="middle" font-family="sans-serif" fill="#fff" font-weight="bold" font-size="24">SCORE: 98</text>
+              <text x="200" y="270" text-anchor="middle" font-family="sans-serif" fill="#94a3b8" font-size="14">PERFORMANCE</text>
+              <g class="needle"><polygon points="200,200 195,80 205,80" fill="#fff" /><circle cx="200" cy="200" r="10" fill="#2980B9" /></g>
+            </svg>
+          </div>
+
+          <!-- SLIDE 2: Vitality Pulse -->
+          <div class="slide">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="auto">
+              <defs>
+                <filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3" /><feComposite in="SourceGraphic" in2="blur" operator="over" /></filter>
+                <linearGradient id="pulseGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#ef4444" /><stop offset="50%" stop-color="#2980B9" /><stop offset="100%" stop-color="#27AE60" /></linearGradient>
+              </defs>
+              <rect width="600" height="400" fill="#020617" rx="16" />
+              <path d="M0,200 C50,200 80,100 120,100 S160,300 200,300 S240,200 300,200 S360,100 400,100 S460,300 500,300 S540,200 600,200" fill="none" stroke="url(#pulseGrad)" stroke-width="6" stroke-linecap="round" filter="url(#glow)" stroke-dasharray="1000" stroke-dashoffset="1000">
+                <animate attributeName="stroke-dashoffset" from="1000" to="0" dur="3s" repeatCount="indefinite" />
+              </path>
+              <circle cx="0" cy="200" r="6" fill="#27AE60" filter="url(#glow)">
+                <animateMotion dur="3s" repeatCount="indefinite" path="M0,200 C50,200 80,100 120,100 S160,300 200,300 S240,200 300,200 S360,100 400,100 S460,300 500,300 S540,200 600,200" />
+              </circle>
+              <text x="50" y="350" fill="#ef4444" font-family="sans-serif" font-size="12" opacity="0.5">ERRATIC TRAFFIC</text>
+              <text x="400" y="350" fill="#27AE60" font-family="sans-serif" font-size="14" font-weight="bold">OPTIMIZED GROWTH</text>
+            </svg>
+          </div>
+
+          <!-- SLIDE 3: Fog Breaker -->
+          <div class="slide">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="auto">
+              <defs>
+                <radialGradient id="beam" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#2980B9" stop-opacity="0.3" /><stop offset="100%" stop-color="#000000" stop-opacity="0" /></radialGradient>
+                <filter id="glowText"><feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#2980B9" /></filter>
+              </defs>
+              <rect width="600" height="400" fill="#020617" rx="16" />
+              <g opacity="0.2" fill="#1e293b"><circle cx="50" cy="50" r="2" /><circle cx="500" cy="350" r="3" /><circle cx="200" cy="300" r="2" /><circle cx="400" cy="100" r="3" /></g>
+              <g transform="translate(300, 200)">
+                <circle r="40" fill="#1e293b" stroke="#2980B9" stroke-width="2" stroke-opacity="0.5">
+                  <animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite" />
+                </circle>
+                <text x="0" y="5" text-anchor="middle" fill="#fff" font-size="10" font-family="sans-serif">SITE</text>
+                <g><animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="10s" repeatCount="indefinite" /><circle cx="80" cy="0" r="8" fill="#2980B9" /><circle cx="-80" cy="0" r="6" fill="#2980B9" /><line x1="-80" y1="0" x2="80" y2="0" stroke="#2980B9" stroke-width="1" opacity="0.3" /></g>
+              </g>
+              <path d="M300,200 L-100,350 L-100,50 Z" fill="url(#beam)" opacity="0.6">
+                <animateTransform attributeName="transform" type="rotate" from="-30 300 200" to="30 300 200" dur="4s" repeatCount="indefinite" additive="sum" />
+              </path>
+              <path d="M300,200 L-100,350 L-100,50 Z" fill="none" stroke="#2980B9" stroke-width="1" opacity="0.5">
+                 <animateTransform attributeName="transform" type="rotate" from="-30 300 200" to="30 300 200" dur="4s" repeatCount="indefinite" additive="sum" />
+              </path>
+              <g transform="translate(300, 80)" filter="url(#glowText)">
+                <rect x="-60" y="-15" width="120" height="30" rx="15" fill="#0f172a" stroke="#2980B9" />
+                <text x="0" y="5" text-anchor="middle" fill="#fff" font-size="12" font-family="sans-serif">RANKING: #1</text>
+              </g>
+            </svg>
+          </div>
+
+          <!-- SLIDE 4: Digital Ascent -->
+          <div class="slide">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="auto">
+              <defs><linearGradient id="pillarGrad" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#1e293b" /><stop offset="100%" stop-color="#2C3E50" /></linearGradient></defs>
+              <rect width="600" height="400" fill="#020617" rx="16" />
+              <ellipse cx="300" cy="350" rx="250" ry="30" fill="#2980B9" opacity="0.1" />
+              <g transform="translate(300, 350)">
+                <g transform="translate(-150, 0)"><path d="M-20 0 L-40 -100 L40 -100 L20 0 Z" fill="#1e293b" stroke="#2980B9" stroke-width="1" opacity="0.5"><animate attributeName="d" from="M0 0 L0 0 L0 0 L0 0 Z" to="M-20 0 L-40 -100 L40 -100 L20 0 Z" dur="1s" fill="freeze" /></path></g>
+                <g transform="translate(0, 0)"><path d="M-30 0 L-50 -180 L50 -180 L30 0 Z" fill="url(#pillarGrad)" stroke="#27AE60" stroke-width="1"><animate attributeName="d" from="M0 0 L0 0 L0 0 L0 0 Z" to="M-30 0 L-50 -180 L50 -180 L30 0 Z" begin="0.5s" dur="1s" fill="freeze" /></path><rect x="-50" y="-190" width="100" height="10" fill="#27AE60" opacity="0.8"><animate attributeName="y" values="-190;-190;-200;-190" keyTimes="0;0.8;0.9;1" dur="2s" begin="1.5s" repeatCount="indefinite" /><animate attributeName="opacity" values="0.8;0.2;0.8" dur="2s" begin="1.5s" repeatCount="indefinite" /></rect></g>
+                <g transform="translate(150, 0)"><path d="M-15 0 L-30 -80 L30 -80 L15 0 Z" fill="#2C3E50" stroke="#2980B9" stroke-width="1"><animate attributeName="d" from="M0 0 L0 0 L0 0 L0 0 Z" to="M-15 0 L-30 -80 L30 -80 L15 0 Z" begin="1s" dur="1s" fill="freeze" /></path></g>
+              </g>
+              <text x="300" y="50" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="24" font-weight="300" letter-spacing="4">BUILDING <tspan fill="#2980B9" font-weight="bold">AUTHORITY</tspan></text><line x1="50" y1="350" x2="550" y2="350" stroke="#334155" stroke-width="1" />
+            </svg>
+          </div>
+
+          <!-- SLIDE 5: The Art of Visibility (Google Search) -->
+          <div class="slide">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="auto" preserveAspectRatio="xMidYMid slice">
+              <defs><linearGradient id="voidGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0f172a" /><stop offset="100%" stop-color="#020617" /></linearGradient><linearGradient id="glassGrad" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#1e293b" stop-opacity="0.9"/><stop offset="100%" stop-color="#0f172a" stop-opacity="0.95"/></linearGradient></defs>
+              <style>.particle { animation: floatUp 10s infinite linear; opacity: 0.3; }@keyframes floatUp { from { transform: translateY(500px); opacity: 0; }10% { opacity: 0.3; }90% { opacity: 0.3; }to { transform: translateY(-100px); opacity: 0; }}.float-tag { animation: drift 6s infinite ease-in-out; }@keyframes drift { 0%, 100% { transform: translateY(0); }50% { transform: translateY(-10px); }}.cursor { animation: blink 1s infinite; }@keyframes blink { 0%, 100% { opacity: 1; }50% { opacity: 0; }}.result-slide { animation: slideIn 0.8s forwards; opacity: 0; }@keyframes slideIn { from { transform: translateY(30px); opacity: 0; }to { transform: translateY(0); opacity: 1; }}.delay-1 { animation-delay: 2.0s; }.delay-2 { animation-delay: 2.5s; }.delay-3 { animation-delay: 3.0s; }</style>
+              <rect width="100%" height="100%" fill="url(#voidGrad)" />
+              <g fill="#1e293b" opacity="0.4"><circle cx="10%" cy="20%" r="1" /><circle cx="15%" cy="22%" r="1" /><circle cx="50%" cy="10%" r="1" /><circle cx="55%" cy="12%" r="1" /><circle cx="80%" cy="30%" r="1" /><circle cx="85%" cy="32%" r="1" /><circle cx="20%" cy="80%" r="1" /><circle cx="25%" cy="82%" r="1" /><circle cx="70%" cy="70%" r="1" /><circle cx="75%" cy="72%" r="1" /><circle cx="10%" cy="90%" r="2" class="particle" style="animation-duration: 12s;"/><circle cx="90%" cy="90%" r="2" class="particle" style="animation-duration: 15s;"/><circle cx="50%" cy="90%" r="2" class="particle" style="animation-duration: 9s;"/></g>
+              <g transform="translate(400, 300)" text-anchor="middle" fill="#fff" opacity="0.03" font-family="Arial Black, sans-serif" font-weight="900"><text x="0" y="0" font-size="200">SEARCH</text></g>
+              <g class="float-tag" style="animation-delay: 0s;"><rect x="50" y="100" width="140" height="40" rx="20" fill="#1e293b" stroke="#2980B9" stroke-width="1" /><text x="70" y="125" fill="#94a3b8" font-family="sans-serif" font-size="12">Technical Audit</text></g>
+              <g class="float-tag" style="animation-delay: 1s;"><rect x="30" y="180" width="120" height="30" rx="15" fill="#1e293b" stroke="#27AE60" stroke-width="1" /><text x="50" y="200" fill="#94a3b8" font-family="sans-serif" font-size="11">LCP: 1.2s</text></g>
+              <g class="float-tag" style="animation-delay: 2s;"><rect x="630" y="120" width="120" height="30" rx="15" fill="#1e293b" stroke="#2980B9" stroke-width="1" /><text x="650" y="140" fill="#94a3b8" font-family="sans-serif" font-size="11">SEO Strategy</text></g>
+              <g class="float-tag" style="animation-delay: 3s;"><rect x="600" y="180" width="140" height="40" rx="20" fill="#1e293b" stroke="#27AE60" stroke-width="1" /><text x="620" y="205" fill="#94a3b8" font-family="sans-serif" font-size="12">Organic Growth</text></g>
+              <g transform="translate(150, 100)">
+                <rect x="0" y="0" width="500" height="70" rx="35" fill="url(#glassGrad)" stroke="#334155" stroke-width="2"><animate attributeName="stroke" values="#334155;#2980B9;#334155" dur="4s" repeatCount="indefinite" /></rect>
+                <g transform="translate(80, 45)"><text font-family="sans-serif" font-size="24" fill="#fff" font-weight="500">Best SEO Audit Agency</text><rect x="310" y="-20" width="3" height="28" fill="#2980B9" class="cursor" /></g>
+                <circle cx="35" cy="35" r="15" stroke="#94a3b8" stroke-width="2" fill="none"/><line x1="46" y1="46" x2="60" y2="60" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+                <g transform="translate(0, 90)"><g class="result-slide delay-1"><rect x="0" y="0" width="500" height="60" rx="4" fill="#1e293b" opacity="0.4" /><text x="30" y="35" font-family="serif" font-size="18" fill="#94a3b8">Competitor SEO Service</text></g><g class="result-slide delay-2"><rect x="-10" y="70" width="520" height="70" rx="8" fill="#1e293b" stroke="#27AE60" stroke-width="1.5" filter="url(#glowText)" /><circle cx="25" cy="95" r="15" fill="#27AE60" opacity="0.2" /><path d="M20 95 L23 98 L29 90" stroke="#27AE60" stroke-width="2" fill="none" /><text x="50" y="90" font-family="sans-serif" font-size="18" fill="#fff" font-weight="bold">TechAuditPros <tspan fill="#27AE60" font-size="14">• Verified</tspan></text><text x="50" y="115" font-family="sans-serif" font-size="13" fill="#27AE60">techauditpros.com</text><text x="200" y="115" font-family="sans-serif" font-size="13" fill="#94a3b8">Technical Audits • Core Web Vitals • Speed Optimization</text></g><g class="result-slide delay-3"><rect x="0" y="150" width="500" height="60" rx="4" fill="#1e293b" opacity="0.4" /><text x="30" y="185" font-family="serif" font-size="18" fill="#94a3b8">Generic Marketing Inc.</text></g></g>
+              </g>
+              <text x="400" y="480" text-anchor="middle" fill="#64748b" font-family="sans-serif" font-size="14" letter-spacing="2">VISIBILITY IS EVERYTHING</text>
+            </svg>
+          </div>
+
+        </div>
+
+        <!-- Navigation Dots -->
+        <div class="slider-dots">
+          <span class="dot active" onclick="currentSlide(0)"></span>
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+          <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+      </div>
+    </section>
+
 
     <!-- SECTION 1: LOCATION COVERAGE (TRUST SIGNAL) -->
     <section class="k-section">
@@ -266,7 +474,7 @@
           <details class="faq-item">
             <summary>What does an SEO agency in Kerala do?</summary>
             <div class="faq-content">
-              <p>An SEO agency helps businesses improve search visibility through technical optimization, content clarity, and long-term SEO strategies. We focus on the structural health of your website.</p>
+              <p>An SEO agency helps businesses improve search visibility through technical optimization, content clarity, and long-term SEO strategies. We focus on structural health of your website.</p>
             </div>
           </details>
 
@@ -349,6 +557,9 @@
     </div>
   </div>
 
+  <!-- ==================================================
+       SCRIPT FOR SLIDER ANIMATION
+  ================================================== -->
   <script>
     /* --- CHATBOT SCRIPT --- */
     const chatToggle = document.getElementById("chatToggle");
@@ -379,6 +590,44 @@
         };
         });
     }
+
+    /* --- ANIMATION SLIDER SCRIPT --- */
+    let slideIndex = 0;
+    const slides = document.querySelectorAll("#svgSlider .slide");
+    const dots = document.querySelectorAll(".slider-dots .dot");
+    
+    function showSlides() {
+      // Hide all slides
+      slides.forEach(slide => {
+        slide.classList.remove("active");
+      });
+      dots.forEach(dot => {
+        dot.classList.remove("active");
+      });
+
+      // Increment index
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1 }
+
+      // Show current slide
+      slides[slideIndex - 1].classList.add("active");
+      dots[slideIndex - 1].classList.add("active");
+
+      // Repeat after 6 seconds
+      setTimeout(showSlides, 6000);
+    }
+
+    // Manual dot click support
+    function currentSlide(n) {
+      slides.forEach(slide => slide.classList.remove("active"));
+      dots.forEach(dot => dot.classList.remove("active"));
+      slideIndex = n + 1;
+      slides[slideIndex - 1].classList.add("active");
+      dots[slideIndex - 1].classList.add("active");
+    }
+
+    // Start the show
+    showSlides();
   </script>
 
 </body>
