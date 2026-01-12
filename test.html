@@ -1,930 +1,1159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Technical SEO Audits: Kochi to Global Scale | TechAuditPros</title>
-    <meta name="description" content="TechAuditPros specializes in enterprise-grade technical SEO audits. From our Kochi HQ to North America, we resolve technical debt & crawl budget leaks to scale organic revenue. Get your free scan.">
-    
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="TechAuditPros">
-    <link rel="canonical" href="https://techauditpros.com/" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- ==================================================
+       PAGE TITLE (SEO CRITICAL)
+       Rules:
+       - Brand first
+       - Service clarity
+       - Edit ONLY if brand name changes
+  ================================================== -->
+  <title>TechAuditPros | Website & SEO Audits for Businesses</title>
 
-    <!-- Hreflang Tags -->
-    <link rel="alternate" hreflang="x-default" href="https://techauditpros.com/" />
-    <link rel="alternate" hreflang="en-IN" href="https://techauditpros.com/in/" />
-    <link rel="alternate" hreflang="en-US" href="https://techauditpros.com/us/" />
-    <link rel="alternate" hreflang="en-CA" href="https://techauditpros.com/ca/" />
+  <!-- ==================================================
+       META DESCRIPTION
+       Rules:
+       - Human readable
+       - No keyword stuffing
+       - Used by Google snippet
+  ================================================== -->
+  <meta name="description" content="TechAuditPros helps local service businesses, repair companies, and consultants understand and fix website and SEO issues that stop customers from finding them online.">
 
-    <!-- Fonts with Display Swap for Performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <!-- ==================================================
+       GOOGLE SEARCH CONSOLE VERIFICATION
+       Purpose:
+       - Ownership verification
+       - Keep ONLY ONE verification method
+       - Safe to keep even after DNS verification
+  ================================================== -->
+  <meta name="google-site-verification" content="nKm7MzLndhPXbTGfdIvEyhdbTuWd1fgOMhpKg3GPozM" />
+  <meta name="msvalidate.01" content="3A8272AC48E8C31CE4657BB9F708DB69" />
 
-    <!-- SCHEMA: Organization & LocalBusiness & FAQ & Reviews -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "TechAuditPros",
-      "url": "https://techauditpros.com",
-      "logo": "https://techauditpros.com/logo.png",
-      "sameAs": ["https://www.linkedin.com/company/techauditpros", "https://twitter.com/techauditpros"],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+91-484-000-0000",
-        "contactType": "Sales",
-        "areaServed": ["IN", "US", "CA"]
-      }
+  <!-- ==================================================
+     FAVICON & APP ICONS (FINAL – SAFE VERSION)
+     Purpose:
+     - Browser tab icon
+     - Mobile browser icon
+     - App / PWA compatibility
+  ================================================== -->
+  <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/assets/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="icon" href="/assets/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="icon" href="/assets/favicon-64.png" sizes="64x64" type="image/png">
+  <link rel="icon" href="/assets/logoonly.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/favicon-64.png">
+
+  <!-- Fonts with Display Swap for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- ==================================================
+       STRUCTURED DATA (ORGANIZATION SCHEMA)
+       Purpose:
+       - Brand/entity recognition
+       - Trust signal for Google
+       - Used for Knowledge Graph
+       Notes:
+       - URL must match canonical
+       - Email must be business email
+  ================================================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "TechAuditPros",
+    "url": "https://techauditpros.com/",
+    "description": "Website and SEO audits for businesses that want clarity, visibility, and trust online.",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "info@techauditpros.com"
     }
-    </script>
-    
-    <!-- Review Schema (Kochi Testimonial) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Review",
-      "itemReviewed": {
-        "@type": "Organization",
-        "name": "TechAuditPros"
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Kerala Tech Startup CEO"
-      },
-      "reviewBody": "TechAuditPros revamped our crawl structure—our indexation in Kerala doubled in 8 weeks. Highly recommended for technical issues."
-    }
-    </script>
+  }
+  </script>
+</head> 
 
-    <style>
-        /* --- CSS VARIABLES --- */
-        :root {
-            --bg-base: #020617; 
-            --accent-primary: #38BDF8; 
-            --accent-secondary: #A855F7; 
-            --accent-success: #22c55e;
-            
-            --text-main: #F1F5F9;
-            --text-muted: #94A3B8;
-            
-            --glass-bg: rgba(15, 23, 42, 0.6);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --glass-card: rgba(255, 255, 255, 0.02);
-            
-            --font-body: 'Inter', sans-serif;
-            --font-code: 'JetBrains Mono', monospace;
-            
-            --container-width: 1200px;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            background-color: var(--bg-base);
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.15), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.15), transparent 25%);
-            color: var(--text-main);
-            font-family: var(--font-body);
-            line-height: 1.6;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-
-        /* Ambient Orbs */
-        .ambient-glow {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: -1;
-            opacity: 0.6;
-        }
-        .glow-1 { top: -10%; left: -5%; width: 500px; height: 500px; background: var(--accent-primary); opacity: 0.2; }
-        .glow-2 { bottom: -10%; right: -5%; width: 600px; height: 600px; background: var(--accent-secondary); opacity: 0.2; }
-
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-        ul { list-style: none; }
-        img { max-width: 100%; display: block; }
-        
-        /* --- TYPOGRAPHY --- */
-        h1, h2, h3, h4 { font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; }
-        h1 { font-size: clamp(3rem, 6vw, 5rem); background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        h2 { font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: var(--spacing-md); color: white; }
-        h3 { font-size: 1.5rem; margin-bottom: 1rem; font-weight: 700; color: white; }
-        .mono { font-family: var(--font-code); font-size: 0.85em; }
-        .text-accent { color: var(--accent-primary); }
-        .text-muted { color: var(--text-muted); }
-        .text-small { font-size: 0.8rem; }
-
-        /* --- UTILITIES --- */
-        .container {
-            width: 90%;
-            max-width: var(--container-width);
-            margin: 0 auto; 
-            padding: 0 1rem;
-        }
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.8rem 1.8rem;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            border: 1px solid transparent;
-            font-family: var(--font-code);
-            font-size: 0.95rem;
-            transition: 0.3s;
-        }
-        .btn-primary {
-            background: var(--accent-primary);
-            color: #020617;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
-        }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 25px rgba(56, 189, 248, 0.6); }
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: 1px solid var(--glass-border);
-        }
-        .btn-secondary:hover { background: rgba(255, 255, 255, 0.2); }
-        
-        .btn-small { padding: 0.5rem 1rem; font-size: 0.8rem; border-radius: 6px; }
-
-        /* --- HEADER --- */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(2, 6, 23, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--glass-border);
-            padding: 0.4rem 0; 
-            height: 56px;
-            display: flex;
-            align-items: center;
-        }
-        .nav-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 100%;
-            width: 100%;
-        }
-        .logo { display: flex; align-items: center; height: 100%; transform: scale(1.1); }
-        .logo svg { height: 55px; width: auto; }
-        .nav-links { display: flex; gap: 2rem; }
-        .nav-links a { font-size: 0.75rem; color: var(--text-muted); font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
-        .nav-links a:hover { color: white; }
-        .header-actions { display: flex; align-items: center; gap: 1rem; }
-        .region-switcher { position: relative; cursor: pointer; display: flex; align-items: center; gap: 5px; font-size: 0.75rem; font-family: var(--font-code); }
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 8px;
-            padding: 0.5rem;
-            width: 140px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .region-switcher:hover .dropdown-menu { display: block; }
-        .dropdown-item { display: block; padding: 0.5rem; color: var(--text-muted); font-size: 0.85rem; border-radius: 4px; }
-        .dropdown-item:hover { color: white; background: rgba(255,255,255,0.1); }
-        .mobile-menu-btn { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; z-index: 1001; }
-
-        /* --- HERO SECTION --- */
-        .hero { padding: 8rem 0 5rem; text-align: center; position: relative; }
-        .hero-content { 
-            text-align: center; 
-            max-width: 900px; 
-            margin: 0 auto 3rem; 
-        }
-        .hero h1 { margin-bottom: 1.5rem; }
-        .hero-tagline { font-size: 1.1rem; color: var(--accent-primary); font-weight: 600; margin-bottom: 1.5rem; display: block; text-transform: uppercase; letter-spacing: 1px; }
-
-        /* --- LEAD FORM --- */
-        .audit-form-container {
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: left;
-        }
-        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
-        .form-group { margin-bottom: 1rem; }
-        .form-group label { display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem; font-family: var(--font-code); }
-        .form-input, .form-select, .form-textarea {
-            width: 100%;
-            background: rgba(0,0,0,0.3);
-            border: 1px solid var(--glass-border);
-            color: white;
-            padding: 0.8rem;
-            border-radius: 6px;
-            font-family: var(--font-body);
-            font-size: 1rem;
-            outline: none;
-        }
-        .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--accent-primary); }
-        .permission-text { font-size: 0.75rem; color: var(--text-muted); margin-top: 1.5rem; display: block; text-align: center; font-style: italic; }
-
-        /* --- TRUST BAR --- */
-        .trust-bar { overflow: hidden; padding: 2rem 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); background: rgba(0,0,0,0.2); text-align: center; }
-        .trust-items { display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; max-width: 1200px; margin: 0 auto; }
-        .trust-item { color: var(--text-muted); font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; }
-        .trust-item i { color: var(--accent-primary); }
-
-        /* --- TIMELINE (New) --- */
-        .timeline-section { padding: 5rem 0; }
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0; bottom: 0;
-            left: 20px;
-            width: 2px;
-            background: var(--glass-border);
-        }
-        .timeline-item {
-            position: relative;
-            padding-left: 60px;
-            padding-bottom: 3rem;
-        }
-        .timeline-dot {
-            position: absolute;
-            left: 11px;
-            top: 5px;
-            width: 20px;
-            height: 20px;
-            background: var(--bg-base);
-            border: 2px solid var(--accent-primary);
-            border-radius: 50%;
-            z-index: 2;
-        }
-        .timeline-content h4 { margin-bottom: 0.5rem; font-size: 1.2rem; color: white; }
-        .timeline-content p { color: var(--text-muted); font-size: 0.95rem; }
-
-        /* --- METHODOLOGY & CHART --- */
-        .methodology { padding: 5rem 0; }
-        .bento-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 2rem; 
-        }
-        .bento-card {
-            background: var(--glass-card);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            padding: 2.5rem;
-            border-radius: 16px;
-            transition: 0.3s;
-        }
-        .bento-card:hover { border-color: var(--accent-primary); background: rgba(255, 255, 255, 0.04); transform: translateY(-5px); }
-        .phase-tag { display: inline-block; font-family: var(--font-code); font-size: 0.75rem; color: var(--accent-primary); margin-bottom:1.5rem; border: 1px solid var(--accent-primary); padding: 4px 10px; border-radius: 50px; }
-
-        /* --- CASE STUDY VISUAL (New) --- */
-        .case-visual {
-            background: rgba(0,0,0,0.3);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid var(--glass-border);
-            margin-bottom: 2rem;
-        }
-        .chart-legend { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; font-size: 0.9rem; }
-        .legend-item { display: flex; align-items: center; gap: 0.5rem; }
-        .line-chart { height: 200px; width: 100%; position: relative; }
-        .chart-line { stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1000; stroke-dashoffset: 1000; }
-        .line-before { stroke: #334155; }
-        .line-after { stroke: var(--accent-primary); filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.5)); }
-        .animate-draw { animation: drawLine 2.5s ease-out forwards; }
-        @keyframes drawLine { to { stroke-dashoffset: 0; } }
-        .chart-x-axis { display: flex; justify-content: space-between; margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted); border-top: 1px solid rgba(255,255,255,0.1); padding-top: 0.5rem; }
-
-        /* --- INDUSTRIES --- */
-        .industries { padding: 5rem 0; }
-        .industry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-        .industry-card {
-            background: var(--glass-card);
-            border: 1px solid var(--glass-border);
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            transition: 0.3s;
-        }
-        .industry-card:hover { border-color: var(--accent-secondary); transform: translateY(-5px); }
-        .industry-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
-        .industry-name { font-weight: 700; color: white; margin-bottom: 0.5rem; }
-        .industry-desc { font-size: 0.85rem; color: var(--text-muted); }
-
-        /* --- LOCATIONS --- */
-        .locations { padding: 5rem 0; }
-        .loc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .loc-card {
-            border: 1px solid var(--glass-border);
-            padding: 2.5rem;
-            border-radius: 16px;
-            background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0) 100%);
-        }
-        .loc-testimonial {
-            margin-top: 2rem;
-            padding: 1rem;
-            background: rgba(56, 189, 248, 0.05);
-            border-left: 3px solid var(--accent-primary);
-            font-style: italic;
-            color: #cbd5e1;
-            font-size: 0.9rem;
-        }
-        .local-links-list {
-            margin-top: 1.5rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        .local-tag {
-            font-size: 0.75rem;
-            background: rgba(255,255,255,0.1);
-            padding: 0.3rem 0.6rem;
-            border-radius: 4px;
-            color: var(--text-muted);
-        }
-
-        /* --- FAQ --- */
-        .faq { padding: 5rem 0; border-top: 1px solid var(--glass-border); }
-        .faq-item { border-bottom: 1px solid var(--glass-border); padding: 2rem 0; }
-        .faq-item summary { cursor: pointer; font-weight: 600; font-size: 1.2rem; list-style: none; display: flex; justify-content: space-between; align-items: center; color: white; }
-        .faq-item summary::after { content: '+'; font-family: var(--font-code); color: var(--accent-primary); font-size: 1.5rem; }
-        .faq-item[open] summary::after { content: '-'; }
-        .faq-item p { margin-top: 1.5rem; color: var(--text-muted); font-size: 1rem; line-height: 1.8; }
-
-        /* --- STICKY CTA --- */
-        .sticky-cta { position: fixed; bottom: 30px; right: 30px; z-index: 900; opacity: 0; transform: translateY(20px); transition: all 0.3s ease; pointer-events: none; display: flex; gap: 10px; }
-        .sticky-cta.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
-        
-        /* --- CHATBOT --- */
-        .chatbot-bubble {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 65px;
-            height: 65px;
-            background: var(--accent-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 0 30px rgba(56, 189, 248, 0.6);
-            z-index: 2000;
-            transition: transform 0.3s;
-        }
-        .chatbot-bubble:hover { transform: scale(1.05); }
-        .chatbot-window {
-            position: fixed;
-            bottom: 110px;
-            right: 30px;
-            width: 360px;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-            z-index: 2000;
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-        }
-        .chat-stats { font-size: 0.75rem; color: var(--accent-success); margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--glass-border); display: block; font-family: var(--font-code); }
-        
-        /* --- FOOTER --- */
-        footer { padding: 5rem 0 2rem; background: rgba(0,0,0,0.5); border-top: 1px solid var(--glass-border); font-size: 0.9rem; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
-        .footer-col h4 { margin-bottom: 1.5rem; color: white; }
-        .footer-col ul li { margin-bottom: 1rem; }
-        .footer-col ul li a { color: var(--text-muted); transition: 0.2s; }
-        .footer-col ul li a:hover { color: white; }
-        .footer-bottom { text-align: center; color: var(--text-muted); border-top: 1px solid var(--glass-border); padding-top: 2rem; font-family: var(--font-code); font-size: 0.75rem; }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
-            .mobile-menu-btn { display: block; }
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 85%;
-                height: 100vh;
-                background: #020617;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                transition: 0.3s ease-in-out;
-                box-shadow: -10px 0 30px rgba(0,0,0,0.8);
-                z-index: 999;
-            }
-            .nav-links.active { right: 0; }
-            .nav-links a { font-size: 1.2rem; }
-            .header-actions > *:not(.mobile-menu-btn) { display: none; }
-            .form-grid { grid-template-columns: 1fr; }
-            .sticky-cta { right: 20px; bottom: 20px; flex-direction: column; width: auto; gap: 0.5rem; }
-            .chatbot-window { right: 5%; width: 90%; bottom: 90px; }
-        }
-    </style>
-</head>
+<!-- ==================================================
+     MAIN BODY CONTENT STARTS HERE
+================================================== -->
 <body>
 
-    <!-- VIVID BACKGROUND -->
-    <div class="ambient-glow glow-1"></div>
-    <div class="ambient-glow glow-2"></div>
+  <!-- VIVID BACKGROUND -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
 
-    <!-- HEADER -->
-    <header>
-        <div class="container nav-wrapper">
-            <a href="#" class="logo">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" role="img" aria-label="TechAuditPros Logo" fetchpriority="high">
-                    <g transform="translate(20 25)">
-                        <rect x="0" y="45" width="14" height="30" rx="3" fill="#475569"/>
-                        <rect x="20" y="28" width="14" height="47" rx="3" fill="#475569"/>
-                        <rect x="40" y="10" width="14" height="65" rx="3" fill="#38BDF8"/>
-                        <path d="M47 6 L47 -2 L55 6" stroke="#38BDF8" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    </g>
-                    <text x="105" y="62" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="34" font-weight="700" fill="#F8FAFC">
-                        <tspan>Tech</tspan><tspan fill="#38BDF8">Audit</tspan><tspan>Pros</tspan>
-                    </text>
-                    <text x="105" y="84" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="11" font-weight="500" fill="#94A3B8">
-                        WEBSITE &amp; SEO AUDITS
-                    </text>
-                </svg>
-            </a>
-            
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
-                </svg>
-            </button>
-            
-            <nav>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#methodology" onclick="toggleMobileMenu()">Methodology</a></li>
-                    <li><a href="#timeline" onclick="toggleMobileMenu()">How We Work</a></li>
-                    <li><a href="#faq" onclick="toggleMobileMenu()">FAQ</a></li>
-                </ul>
-            </nav>
+  <!-- HEADER -->
+  <header>
+      <div class="container nav-wrapper">
+          <a href="#" class="logo">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" role="img" aria-label="TechAuditPros Logo" fetchpriority="high">
+                  <g transform="translate(20 25)">
+                      <rect x="0" y="45" width="14" height="30" rx="3" fill="#475569"/>
+                      <rect x="20" y="28" width="14" height="47" rx="3" fill="#475569"/>
+                      <rect x="40" y="10" width="14" height="65" rx="3" fill="#38BDF8"/>
+                      <path d="M47 6 L47 -2 L55 6" stroke="#38BDF8" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  </g>
+                  <text x="105" y="62" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="34" font-weight="700" fill="#F8FAFC">
+                      <tspan>Tech</tspan><tspan fill="#38BDF8">Audit</tspan><tspan>Pros</tspan>
+                  </text>
+                  <text x="105" y="84" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="11" font-weight="500" fill="#94A3B8">
+                      WEBSITE &amp; SEO AUDITS
+                  </text>
+              </svg>
+          </a>
+          
+          <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+          </button>
+          
+          <nav>
+              <ul class="nav-links" id="navLinks">
+                  <li><a href="#methodology" onclick="toggleMobileMenu()">Methodology</a></li>
+                  <li><a href="#case-study" onclick="toggleMobileMenu()">Results</a></li>
+                  <li><a href="#faq" onclick="toggleMobileMenu()">FAQ</a></li>
+              </ul>
+          </nav>
 
-            <div class="header-actions">
-                <div class="region-switcher mono">
-                    <span>🌐 Global</span>
-                    <div class="dropdown-menu">
-                        <a href="/kochi/" class="dropdown-item">🇮🇳 India</a>
-                        <a href="/us/" class="dropdown-item">🇺🇸 USA</a>
-                        <a href="/ca/" class="dropdown-item">🇨🇦 Canada</a>
-                    </div>
-                </div>
-                <a href="https://wa.me/" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem; border-radius: 6px;">WhatsApp</a>
-            </div>
-        </div>
-    </header>
+          <div class="header-actions">
+              <div class="region-switcher mono">
+                  <span>🌐 Global</span>
+                  <div class="dropdown-menu">
+                      <a href="/kochi/" class="dropdown-item">🇮🇳 India</a>
+                      <a href="/us/" class="dropdown-item">🇺🇸 USA</a>
+                      <a href="/ca/" class="dropdown-item">🇨🇦 Canada</a>
+                  </div>
+              </div>
+              <a href="https://wa.me/" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem; border-radius: 6px;">WhatsApp</a>
+          </div>
+      </div>
+  </header>
 
-    <main>
-        <!-- HERO -->
-        <section class="hero">
-            <div class="container hero-content">
-                <span class="mono text-accent" style="margin-bottom: 1.5rem; display: block; letter-spacing: 2px;">// SYSTEM STATUS: OPTIMAL</span>
-                <h1>Technical SEO Audit & <br><span class="text-accent">Growth Engineering</span></h1>
-                <span class="hero-tagline">Enterprise-Grade Technical SEO Audits</span>
-                <p class="text-muted" style="font-size: 1.1rem; margin-bottom: 2.5rem; max-width: 700px; margin-left: auto; margin-right: auto;">
-                    From Kochi HQ to North America—No More Crawl Budget Waste, No More Technical Debt. We specialize in <strong>Crawl Budget</strong>, <strong>Technical Debt</strong>, and <strong>Entity SEO</strong>.
-                </p>
+  <main>
+      <!-- HERO SECTION -->
+      <section class="hero">
+          <div class="container hero-content">
+              <span class="mono text-accent" style="margin-bottom: 1.5rem; display: block; letter-spacing: 2px;">// SYSTEM STATUS: OPTIMAL</span>
+              <h1>Technical SEO Audit & <br><span class="text-accent">Growth Engineering</span></h1>
 
-                <!-- LEAD MAGNET: EMAIL FOR DOWNLOAD -->
-                <div class="audit-form-container">
-                    <h3 style="text-align: center; margin-bottom: 1.5rem;">📥 Download 2026 SEO Survival Guide</h3>
-                    <form onsubmit="downloadGuide(event)">
-                        <div class="form-group">
-                            <label>Work Email</label>
-                            <input type="email" class="form-input" required placeholder="john@company.com">
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Get Instant Access</button>
-                    </form>
-                    <span class="permission-text">We'll send you the PDF and technical tips.</span>
-                </div>
-            </div>
-        </section>
+              <span class="hero-tagline">Enterprise-Grade Technical SEO Audits</span>
+              <p class="text-muted" style="font-size: 1.1rem; margin-bottom: 2.5rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                  From Kochi HQ to North America—No More Crawl Budget Waste, No More Technical Debt. We specialize in <strong>Crawl Budget</strong>, <strong>Technical Debt</strong>, and <strong>Entity SEO</strong>.
+              </p>
 
-        <!-- AUTHORITY / TRUST BAR -->
-        <div class="trust-bar">
-            <div class="trust-items">
-                <div class="trust-item"><i>✓</i> Certified Semrush Agency</div>
-                <div class="trust-item"><i>✓</i> Google Partner</div>
-                <div class="trust-item"><i>✓</i> Core Web Vitals Specialist</div>
-                <div class="trust-item"><i>✓</i> 2025 Kerala Tech Award Finalist</div>
-            </div>
-        </div>
+              <!-- LEAD FORM: Name, Mail, Website, Region, Challenge -->
+              <div class="audit-form-container">
+                  <h3 style="text-align: center; margin-bottom: 1.5rem;">Get Your Free Technical Audit</h3>
+                  
+                  <!-- Action goes to info@techauditpros.com -->
+                  <form action="mailto:info@techauditpros.com" method="post" enctype="text/plain">
+                      <div class="form-grid">
+                          <div class="form-group">
+                              <label>First Name</label>
+                              <input type="text" name="name" class="form-input" required placeholder="John Doe">
+                          </div>
+                          <div class="form-group">
+                              <label>Mail</label>
+                              <input type="email" name="email" class="form-input" required placeholder="john@company.com">
+                          </div>
+                      </div>
+                      <div class="form-grid">
+                          <div class="form-group">
+                              <label>Website</label>
+                              <input type="url" name="website" class="form-input" required placeholder="yourwebsite.com">
+                          </div>
+                          <div class="form-group">
+                              <label>Target Region</label>
+                              <select name="region" class="form-select">
+                                  <option>Kerala / Kochi</option>
+                                  <option>USA</option>
+                                  <option>Canada</option>
+                                  <option>Global</option>
+                              </select>
+                          </div>
+                      </div>
+                      <div class="form-full">
+                          <label>Main Challenge</label>
+                          <textarea name="challenge" class="form-textarea" rows="3" placeholder="E.g. Traffic dropped after site migration..."></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary" style="width: 100%;">Request Audit Analysis</button>
+                  </form>
+                  <span class="permission-text">By filling this form, you give us permission to audit your technical structure.</span>
+              </div>
+          </div>
+      </section>
 
-        <!-- METHODOLOGY -->
-        <section id="methodology" class="methodology">
-            <div class="container">
-                <div style="margin-bottom: 4rem; text-align: center;">
-                    <span class="mono text-accent">// THE LAB PROCESS</span>
-                    <h2>The Scientific Method</h2>
-                </div>
-                <div class="bento-grid">
-                    <div class="bento-card">
-                        <span class="phase-tag">PHASE 01</span>
-                        <h3>Discovery & Crawl</h3>
-                        <p class="text-muted" style="margin-top: 1rem;">We analyze your <strong>Crawl Budget</strong> allocation. Identifying wasted resources on orphan pages, redirects, and non-indexable assets.</p>
-                    </div>
-                    <div class="bento-card">
-                        <span class="phase-tag">PHASE 02</span>
-                        <h3>Architecture & Debt</h3>
-                        <p class="text-muted" style="margin-top: 1rem;">Removal of <strong>Technical Debt</strong>. Fixing Core Web Vitals, JavaScript rendering issues (hydration), and internal linking structures.</p>
-                    </div>
-                    <div class="bento-card">
-                        <span class="phase-tag">PHASE 03</span>
-                        <h3>Entity SEO & Schema</h3>
-                        <p class="text-muted" style="margin-top: 1rem;">Implementing comprehensive <strong>JSON-LD</strong> graphs. Defining your organization and products so machines understand your brand context.</p>
-                    </div>
-                    <div class="bento-card">
-                        <span class="phase-tag">PHASE 04</span>
-                        <h3>Global Expansion</h3>
-                        <p class="text-muted" style="margin-top: 1rem;"><strong>International SEO Scaling</strong>. Correct Hreflang implementation and CC-TLD strategies for US/Canada market entry.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <!-- AUTHORITY / TRUST BAR -->
+      <div class="trust-bar">
+          <div class="trust-items">
+              <div class="trust-item"><i>✓</i> Certified Semrush Agency</div>
+              <div class="trust-item"><i>✓</i> Google Partner</div>
+              <div class="trust-item"><i>✓</i> Core Web Vitals Specialist</div>
+              <div class="trust-item"><i>✓</i> 2025 Kerala Tech Award Finalist</div>
+          </div>
+      </div>
 
-        <!-- NEW: HOW WE WORK TIMELINE -->
-        <section id="timeline" class="timeline-section">
-            <div class="container">
-                <div style="text-align: center; margin-bottom: 4rem;">
-                    <h2>How We Work</h2>
-                    <p class="text-muted">From Deep Dive to Growth in 7 Days</p>
-                </div>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h4>Day 1: Deep Crawl</h4>
-                            <p>Full log file analysis & budget waste identification.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h4>Day 2-3: Technical Debt</h4>
-                            <p>Mapping JS hydration issues & blocking resources.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h4>Day 4: Schema & Entity</h4>
-                            <p>Implementing JSON-LD knowledge graph.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h4>Day 5: Remediation</h4>
-                            <p>Our engineers fix code issues on staging.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h4>Day 6: Verification</h4>
-                            <p>Re-crawling to ensure indexation success.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h4>Day 7: Report & Handover</h4>
-                            <p>Detailed audit deck & growth strategy session.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <!-- METHODOLOGY -->
+      <section id="methodology" class="methodology">
+          <div class="container">
+              <div style="margin-bottom: 4rem; text-align: center;">
+                  <span class="mono text-accent">// THE LAB PROCESS</span>
+                  <h2>The Scientific Method</h2>
+              </div>
+              <div class="bento-grid">
+                  <div class="bento-card">
+                      <span class="phase-tag">PHASE 01</span>
+                      <h3>Discovery & Crawl</h3>
+                      <p class="text-muted" style="margin-top: 1rem;">We analyze your <strong>Crawl Budget</strong> allocation. Identifying wasted resources on orphan pages, redirects, and non-indexable assets.</p>
+                  </div>
+                  <div class="bento-card">
+                      <span class="phase-tag">PHASE 02</span>
+                      <h3>Architecture & Debt</h3>
+                      <p class="text-muted" style="margin-top: 1rem;">Removal of <strong>Technical Debt</strong>. Fixing Core Web Vitals, JavaScript rendering issues (hydration), and internal linking structures.</p>
+                  </div>
+                  <div class="bento-card">
+                      <span class="phase-tag">PHASE 03</span>
+                      <h3>Entity SEO & Schema</h3>
+                      <p class="text-muted" style="margin-top: 1rem;">Implementing comprehensive <strong>JSON-LD</strong> graphs. Defining your organization and products so machines understand your brand context.</p>
+                  </div>
+                  <div class="bento-card">
+                      <span class="phase-tag">PHASE 04</span>
+                      <h3>Global Expansion</h3>
+                      <p class="text-muted" style="margin-top: 1rem;"><strong>International SEO Scaling</strong>. Correct Hreflang implementation and CC-TLD strategies for US/Canada market entry.</p>
+                  </div>
+              </div>
+          </div>
+      </section>
 
-        <!-- CASE STUDY WITH RESULTS CHART -->
-        <section id="case-study" class="case-study">
-            <div class="container">
-                <div style="text-align: center; margin-bottom: 4rem;">
-                    <span class="mono text-accent">// VERIFIED RESULTS</span>
-                    <h2>SaaS Client: Toronto</h2>
-                    <p class="text-muted">Result: 205% Traffic Increase</p>
-                </div>
-                
-                <div class="case-visual">
-                    <div class="chart-legend">
-                        <div class="legend-item"><div style="width:12px; height:12px; background:#334155; border-radius:50%;"></div> Before Audit</div>
-                        <div class="legend-item"><div style="width:12px; height:12px; background:var(--accent-primary); border-radius:50%; box-shadow:0 0 10px var(--accent-primary);"></div> After Audit</div>
-                    </div>
-                    
-                    <svg class="line-chart" viewBox="0 0 500 200" preserveAspectRatio="none" aria-label="Traffic chart showing growth before and after audit">
-                        <!-- Before Line (Grey, Flat) -->
-                        <path class="chart-line line-before animate-draw" d="M0,150 L50,145 L100,148 L150,150 L200,149 L250,152 L300,150 L350,148 L400,150 L450,152 L500,150" />
-                        <!-- After Line (Blue, Growth) -->
-                        <path class="chart-line line-after animate-draw" d="M0,150 L50,130 L100,100 L150,70 L200,45 L250,30 L300,25 L350,20 L400,15 L450,10 L500,5" />
-                    </svg>
-                    
-                    <div class="chart-x-axis">
-                        <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
-                    </div>
-                </div>
+      <!-- HOW WE WORK TIMELINE (Real Links) -->
+      <section id="timeline" class="timeline-section">
+          <div class="container">
+              <div style="text-align: center; margin-bottom: 4rem;">
+                  <h2>How We Work</h2>
+                  <p class="text-muted">From Deep Dive to Growth in 7 Days</p>
+              </div>
+              <div class="timeline">
+                  <div class="timeline-item">
+                      <div class="timeline-dot"></div>
+                      <div class="timeline-content">
+                          <h4>Day 1: Deep Crawl</h4>
+                          <p>Full log file analysis & budget waste identification.</p>
+                      </div>
+                  </div>
+                  <div class="timeline-item">
+                      <div class="timeline-dot"></div>
+                      <div class="timeline-content">
+                          <h4>Day 2-3: Technical Debt</h4>
+                          <p>Mapping JS hydration issues & blocking resources.</p>
+                      </div>
+                  </div>
+                  <div class="timeline-item">
+                      <div class="timeline-dot"></div>
+                      <div class="timeline-content">
+                          <h4>Day 4: Schema & Entity</h4>
+                          <p>Implementing JSON-LD knowledge graph.</p>
+                      </div>
+                  </div>
+                  <div class="timeline-item">
+                      <div class="timeline-dot"></div>
+                      <div class="timeline-content">
+                          <h4>Day 5: Remediation</h4>
+                          <p>Our engineers fix code issues on staging.</p>
+                      </div>
+                  </div>
+                  <div class="timeline-item">
+                      <div class="timeline-dot"></div>
+                      <div class="timeline-content">
+                          <h4>Day 6: Verification</h4>
+                          <p>Re-crawling to ensure indexation success.</p>
+                      </div>
+                  </div>
+                  <div class="timeline-item">
+                      <div class="timeline-dot"></div>
+                      <div class="timeline-content">
+                          <h4>Day 7: Report & Handover</h4>
+                          <p>Detailed audit deck & growth strategy session.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
 
-                <div style="text-align: center; margin-top: 2rem;">
-                    <a href="#" class="btn btn-outline">Read Full Audit Case Study</a>
-                </div>
-            </div>
-        </section>
+      <!-- NEW: KERALA SPOTLIGHT (Full Video View) -->
+      <section class="kerala-spotlight">
+          <div class="spotlight-content">
+              <h2 class="mono text-accent" style="text-transform: uppercase; letter-spacing: 2px;">// The Kerala Engine</h2>
+              <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.2;">Powering India's Digital Growth</h1>
+              <p style="font-size: 1.2rem; margin-bottom: 2rem; color: white;">
+                  From Infopark to Trivandrum, we engineer digital experiences that convert. 
+                  The technical backbone for Kerala's top-tier service businesses.
+              </p>
+              
+              <!-- Real Content Link -->
+              <a href="/technical-seo-audit-kerala/" class="btn btn-primary" style="margin: 0 auto; display: block; width: max-content;">
+                  View Kerala Services
+              </a>
+          </div>
+          <!-- Background Video -->
+          <video class="kerala-video-bg" autoplay muted loop playsinline preload="auto">
+              <source src="videos/kerala-showcase.mp4" type="video/mp4">
+          </video>
+          <!-- Dark Overlay for legibility -->
+          <div class="kerala-overlay"></div>
+      </section>
 
-        <!-- INDUSTRIES WE EXCEL IN -->
-        <section id="industries" class="industries">
-            <div class="container">
-                <div style="text-align: center; margin-bottom: 3rem;">
-                    <h2>Industries We Excel In</h2>
-                </div>
-                <div class="industry-grid">
-                    <div class="industry-card">
-                        <span class="industry-icon">☁️</span>
-                        <div class="industry-name">SaaS & Software</div>
-                        <p class="industry-desc">Scalability & Hydration Fixes</p>
-                    </div>
-                    <div class="industry-card">
-                        <span class="industry-icon">🛒</span>
-                        <div class="industry-name">Ecommerce</div>
-                        <p class="industry-desc">Faceted Navigation & Filter Indexing</p>
-                    </div>
-                    <div class="industry-card">
-                        <span class="industry-icon">🏥</span>
-                        <div class="industry-name">Healthcare</div>
-                        <p class="industry-desc">HIPAA-Compliant Audits</p>
-                    </div>
-                    <div class="industry-card">
-                        <span class="industry-icon">🎓</span>
-                        <div class="industry-name">EdTech</div>
-                        <p class="industry-desc">Speed & Accessibility Optimization</p>
-                    </div>
-                    <div class="industry-card">
-                        <span class="industry-icon">✈️</span>
-                        <div class="industry-name">Tourism</div>
-                        <p class="industry-desc">Local Schema for Kerala</p>
-                    </div>
-                    <div class="industry-card">
-                        <span class="industry-icon">🚛</span>
-                        <div class="industry-name">Logistics</div>
-                        <p class="industry-desc">Supply Chain Technical Fixes</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <!-- CASE STUDY (Real Links) -->
+      <section id="case-study" class="case-study">
+          <div class="container">
+              <div style="text-align: center; margin-bottom: 3rem;">
+                  <span class="mono text-accent">// VERIFIED RESULTS</span>
+                  <h2>Canadian SaaS Company</h2>
+                  <p class="text-muted">Result: 205% Traffic Increase</p>
+              </div>
 
-        <!-- LOCATIONS WITH REGIONAL LINKS -->
-        <section id="locations" class="locations">
-            <div class="container">
-                <div style="text-align: center; margin-bottom: 4rem;">
-                    <h2>Strategic Hubs</h2>
-                </div>
-                <div class="loc-grid">
-                    <div class="loc-card">
-                        <h3>Kochi HQ</h3>
-                        <p class="mono text-accent">TECH CORRIDOR</p>
-                        <img src="https://picsum.photos/seed/tech1/400/200" alt="Tech engineers at work in Kakkanad" loading="lazy" style="width:100%; height:150px; background:rgba(255,255,255,0.03); margin:1.5rem 0; display:flex; align-items:center; justify-content:center; border-radius:8px; border:1px solid rgba(255,255,255,0.05);">
-                        <p class="text-muted">The central laboratory for deep-diving technical audits and server-side optimizations.</p>
-                        <div class="loc-testimonial">"TechAuditPros revamped our crawl structure—our indexation in Kerala doubled in 8 weeks."</div>
-                        <!-- Regional Links -->
-                        <div class="local-links-list">
-                            <span class="local-tag">Kakkanad</span>
-                            <span class="local-tag">Edappally</span>
-                            <span class="local-tag">Vyttila</span>
-                        </div>
-                        <a href="/seo-kochi/" class="loc-link">Explore Kochi &rarr;</a>
-                    </div>
+              <div class="case-visual">
+                  <div class="chart-title">Performance Score Comparison</div>
+                  <div class="chart-subtitle">TechAuditPros vs. Standard SEO Methodology</div>
 
-                    <div class="loc-card">
-                        <h3>Kerala Hub</h3>
-                        <p class="mono text-accent">STATEWIDE REACH</p>
-                        <img src="https://picsum.photos/seed/tech2/400/200" alt="Digital infrastructure in Kerala" loading="lazy" style="width:100%; height:150px; background:rgba(255,255,255,0.03); margin:1.5rem 0; display:flex; align-items:center; justify-content:center; border-radius:8px; border:1px solid rgba(255,255,255,0.05);">
-                        <p class="text-muted">Serving the broader Kerala market. Optimizing local search signals for businesses across Trivandrum, Calicut, and beyond.</p>
-                        <!-- Regional Links -->
-                        <div class="local-links-list">
-                            <span class="local-tag">Trivandrum</span>
-                            <span class="local-tag">Calicut</span>
-                            <span class="local-tag">Kozhikode</span>
-                        </div>
-                        <a href="/seo-kerala/" class="loc-link">Explore Kerala &rarr;</a>
-                    </div>
+                  <div class="bar-chart-container">
+                      <div class="legend">
+                          <div class="legend-item"><div class="legend-dot" style="background:var(--accent-primary)"></div> TechAuditPros Audit</div>
+                          <div class="legend-item"><div class="legend-dot" style="background:#334155"></div> Standard SEO</div>
+                      </div>
 
-                    <div class="loc-card">
-                        <h3>Global Operations</h3>
-                        <p class="mono text-accent">USA / CANADA</p>
-                        <img src="https://picsum.photos/seed/toronto/400/200" alt="Toronto Skyline global operations" loading="lazy" style="width:100%; height:150px; background:rgba(255,255,255,0.03); margin:1.5rem 0; display:flex; align-items:center; justify-content:center; border-radius:8px; border:1px solid rgba(255,255,255,0.05);">
-                        <p class="text-muted">Following North American search standards. We help US and Canadian brands scale by resolving technical debt efficiently.</p>
-                        <div class="loc-testimonial">"Our Toronto SaaS moved from 5% to 35% market coverage after their audit."</div>
-                        <!-- Regional Links -->
-                        <div class="local-links-list">
-                            <span class="local-tag">New York</span>
-                            <span class="local-tag">Toronto</span>
-                            <span class="local-tag">San Francisco</span>
-                        </div>
-                        <a href="/technical-seo-audit/" class="loc-link">Explore Global &rarr;</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+                      <div class="bar-row">
+                          <div class="bar-label">Crawl Budget</div>
+                          <div class="bar-wrapper">
+                              <div class="bar tech" style="width: 95%"><span class="bar-value">95</span></div>
+                              <div class="bar standard" style="width: 60%"><span class="bar-value">60</span></div>
+                          </div>
+                      </div>
+                      <div class="bar-row">
+                          <div class="bar-label">Technical Debt</div>
+                          <div class="bar-wrapper">
+                              <div class="bar tech" style="width: 90%"><span class="bar-value">90</span></div>
+                              <div class="bar standard" style="width: 40%"><span class="bar-value">40</span></div>
+                          </div>
+                      </div>
+                      <div class="bar-row">
+                          <div class="bar-label">Schema</div>
+                          <div class="bar-wrapper">
+                              <div class="bar tech" style="width: 98%"><span class="bar-value">98</span></div>
+                              <div class="bar standard" style="width: 30%"><span class="bar-value">30</span></div>
+                          </div>
+                      </div>
+                      <div class="bar-row">
+                          <div class="bar-label">AI Readiness</div>
+                          <div class="bar-wrapper">
+                              <div class="bar tech" style="width: 92%"><span class="bar-value">92</span></div>
+                              <div class="bar standard" style="width: 35%"><span class="bar-value">35</span></div>
+                          </div>
+                      </div>
+                       <div class="bar-row">
+                          <div class="bar-label">Keywords</div>
+                          <div class="bar-wrapper">
+                              <div class="bar tech" style="width: 80%"><span class="bar-value">80</span></div>
+                              <div class="bar standard" style="width: 90%"><span class="bar-value">90</span></div>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div style="text-align: center; margin-top: 2rem;">
+                      <p class="text-muted" style="margin-bottom: 1rem;">Client: B2B Logistics Software (Toronto)</p>
+                      <a href="/case-studies.html" class="btn btn-outline">Read Full Case Study</a>
+                  </div>
+              </div>
+          </div>
+      </section>
 
-        <!-- EXPANDED FAQ -->
-        <section id="faq" class="faq">
-            <div class="container" style="max-width: 800px;">
-                <h2 style="margin-bottom: 3rem;">AI-Dominance & Pricing FAQ</h2>
-                
-                <details class="faq-item">
-                    <summary>Why is a Technical Audit better than standard monthly SEO?</summary>
-                    <p>Standard SEO focuses on keywords. Our Technical Audit fixes the "engine"—resolving crawl budget leaks, JavaScript rendering issues, and structural technical debt that keywords alone cannot fix.</p>
-                </details>
+      <!-- INDUSTRIES (With Video Placeholders) -->
+      <section id="industries" class="industries">
+          <div class="container">
+              <div style="text-align: center; margin-bottom: 3rem;">
+                  <h2>Industries We Excel In</h2>
+              </div>
+              <div class="industry-grid">
+                  
+                  <!-- CARD: Local Service Businesses (Video) -->
+                  <div class="industry-card">
+                      <video muted loop playsinline preload="metadata" class="industry-video">
+                          <source src="/videos/industries/industry-local-service-businesses.mp4" type="video/mp4">
+                      </video>
+                      <div class="industry-overlay">
+                          <h3>Local Service Businesses</h3>
+                          <p>Visibility when customers search urgently</p>
+                      </div>
+                  </div>
 
-                <details class="faq-item">
-                    <summary>Can a Kochi-based agency manage US markets?</summary>
-                    <p>Search algorithms are global. By using international frameworks like hreflang and "Entity-based SEO," we provide the same technical precision as US firms at a more efficient scale.</p>
-                </details>
+                  <!-- CARD: Repair Companies (Video) -->
+                  <div class="industry-card">
+                      <video muted loop playsinline preload="metadata" class="industry-video">
+                          <source src="/videos/industries/industry-repair-companies.mp4" type="video/mp4">
+                      </video>
+                      <div class="industry-overlay">
+                          <h3>Repair Companies</h3>
+                          <p>Trust matters in high-intent searches</p>
+                      </div>
+                  </div>
 
-                <details class="faq-item">
-                    <summary>How do you handle Google’s 2026 AI Search (SGE/GEO)?</summary>
-                    <p>We optimize for "Generative Engine Optimization" by structuring your data so AI models (like Gemini and GPT) can easily cite your website as an authoritative source.</p>
-                </details>
+                  <!-- CARD: Consultants, Designers & Professionals (Video) -->
+                  <div class="industry-card">
+                      <video muted loop playsinline preload="none" class="industry-video">
+                          <source src="/videos/industries/industry-consultants-designers.mp4" type="video/mp4">
+                      </video>
+                      <div class="industry-overlay">
+                          <h3>Consultants & Designers</h3>
+                          <p>Authority-driven online presence</p>
+                      </div>
+                  </div>
 
-                <!-- NEW: Pricing FAQ -->
-                <details class="faq-item">
-                    <summary>What does a typical audit cost for Kerala SMEs or USA brands?</summary>
-                    <p>Our audits are tiered based on site complexity. For Kerala SMEs, technical audits start at INR 15,000. For USA/Canada enterprise clients, rates are $2,000+. We always provide a fixed quote before work begins.</p>
-                </details>
+                  <!-- CARD: Healthcare & Clinics (Video) -->
+                  <div class="industry-card">
+                      <video muted loop playsinline preload="metadata" class="industry-video">
+                          <source src="/videos/industries/industry-healthcare-clinics.mp4" type="video/mp4">
+                      </video>
+                      <div class="industry-overlay">
+                          <h3>Healthcare & Clinics</h3>
+                          <p>Trust, compliance, and clarity</p>
+                      </div>
+                  </div>
 
-                <!-- NEW: Guarantee FAQ -->
-                <details class="faq-item">
-                    <summary>Is your audit guaranteed to improve rankings?</summary>
-                    <p>We guarantee to uncover technical blockers. Ninety percent of our audits result in measurable traffic and indexation improvements within 4 weeks. We fix the engine so Google *has* to rank you.</p>
-                </details>
-            </div>
-        </section>
-    </main>
+                  <!-- CARD: Real Estate & Home Services (Video) -->
+                  <div class="industry-card">
+                      <video muted loop playsinline preload="metadata" class="industry-video">
+                          <source src="/videos/industries/industry-real-estate-home-services.mp4" type="video/mp4">
+                      </video>
+                      <div class="industry-overlay">
+                          <h3>Real Estate & Home Services</h3>
+                          <p>Local discovery, trust, and long-term visibility</p>
+                      </div>
+                  </div>
+                  
+                  <!-- CARD: IT & SaaS (Video) -->
+                  <div class="industry-card">
+                      <video muted loop playsinline preload="metadata" class="industry-video">
+                          <source src="/videos/industries/industry-it-saas.mp4" type="video/mp4">
+                      </video>
+                      <div class="industry-overlay">
+                          <h3>IT & SaaS</h3>
+                          <p>Technical websites built to scale</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
 
-    <!-- FOOTER -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>Core Services</h4>
-                    <ul>
-                        <li><a href="#">Technical SEO Audit</a></li>
-                        <li><a href="#">Log File Analysis</a></li>
-                        <li><a href="#">Schema Implementation</a></li>
-                        <li><a href="#">Speed Optimization</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Regions</h4>
-                    <ul>
-                        <li><a href="/kochi/">Kochi HQ</a></li>
-                        <li><a href="#">Kerala Hub</a></li>
-                        <li><a href="#">USA Strategy</a></li>
-                        <li><a href="#">Canada Market</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Tools</h4>
-                    <ul>
-                        <li><a href="#">Semrush Partner</a></li>
-                        <li><a href="#">GSC Certified</a></li>
-                        <li><a href="#">Ahrefs Pro</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li class="mono">audit@techauditpros.com</li>
-                        <li class="mono">+91 484 000 0000</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                &copy; 2024 TechAuditPros. Built with Semantic HTML5 & High-Performance CSS.
-            </div>
-        </div>
-    </footer>
+      <!-- LOCATIONS -->
+      <section id="locations" class="locations">
+          <div class="container">
+              <div style="text-align: center; margin-bottom: 4rem;">
+                  <h2>Strategic Hubs</h2>
+              </div>
+              <div class="loc-grid">
+                  <div class="loc-card">
+                      <h3>Kochi HQ</h3>
+                      <p class="mono text-accent">TECH CORRIDOR</p>
+                      <img src="https://picsum.photos/seed/tech1/400/200" alt="Tech engineers at work in Kakkanad" loading="lazy" style="width:100%; height:150px; background:rgba(255,255,255,0.03); margin:1.5rem 0; display:flex; align-items:center; justify-content:center; border-radius:8px; border:1px solid rgba(255,255,255,0.05);">
+                      <p class="text-muted">The central laboratory for deep-diving technical audits and server-side optimizations.</p>
+                      <div class="loc-testimonial">"TechAuditPros revamped our crawl structure—our indexation in Kerala doubled in 8 weeks."</div>
+                      <div class="local-links-list">
+                          <span class="local-tag">Kakkanad</span>
+                          <span class="local-tag">Edappally</span>
+                          <span class="local-tag">Vyttila</span>
+                      </div>
+                      <a href="/seo-kochi/" class="loc-link">Explore Kochi &rarr;</a>
+                  </div>
 
-    <!-- STICKY CTA (Updated with WhatsApp) -->
-    <div id="stickyCta" class="sticky-cta">
-        <a href="#hero" class="btn btn-primary" style="padding: 0.8rem 1.5rem; border-radius: 50px; box-shadow: 0 5px 20px rgba(0,0,0,0.5);">
-            🚀 Get Free Audit
-        </a>
-        <a href="https://wa.me/YOURNUMBER" class="btn btn-secondary" style="padding: 0.8rem 1.5rem; border-radius: 50px; box-shadow: 0 5px 20px rgba(0,0,0,0.5);">
-            ☎️ WhatsApp Us
-        </a>
-    </div>
+                  <div class="loc-card">
+                      <h3>Kerala Hub</h3>
+                      <p class="mono text-accent">STATEWIDE REACH</p>
+                      <img src="https://picsum.photos/seed/tech2/400/200" alt="Digital infrastructure in Kerala" loading="lazy" style="width:100%; height:150px; background:rgba(255,255,255,0.03); margin:1.5rem 0; display:flex; align-items:center; justify-content:center; border-radius:8px; border:1px solid rgba(255,255,255,0.05);">
+                      <p class="text-muted">Serving the broader Kerala market. Optimizing local search signals for businesses across Trivandrum, Calicut, and beyond.</p>
+                      <div class="local-links-list">
+                          <span class="local-tag">Trivandrum</span>
+                          <span class="local-tag">Calicut</span>
+                          <span class="local-tag">Kozhikode</span>
+                      </div>
+                      <a href="/seo-kerala/" class="loc-link">Explore Kerala &rarr;</a>
+                  </div>
 
-    <!-- CHATBOT -->
-    <div class="chatbot-bubble" onclick="toggleChat()">
-        <svg viewBox="0 0 24 24" width="30" height="30" stroke="#020617" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-        </svg>
-    </div>
+                  <div class="loc-card">
+                      <h3>Global Operations</h3>
+                      <p class="mono text-accent">USA / CANADA</p>
+                      <img src="https://picsum.photos/seed/toronto/400/200" alt="Toronto Skyline global operations" loading="lazy" style="width:100%; height:150px; background:rgba(255,255,255,0.03); margin:1.5rem 0; display:flex; align-items:center; justify-content:center; border-radius:8px; border:1px solid rgba(255,255,255,0.05);">
+                      <p class="text-muted">Following North American search standards. We help US and Canadian brands scale by resolving technical debt efficiently.</p>
+                      <div class="loc-testimonial">"Our Toronto SaaS moved from 5% to 35% market coverage after their audit."</div>
+                      <div class="local-links-list">
+                          <span class="local-tag">New York</span>
+                          <span class="local-tag">Toronto</span>
+                          <span class="local-tag">San Francisco</span>
+                      </div>
+                      <a href="/technical-seo-audit/" class="loc-link">Explore Global &rarr;</a>
+                  </div>
+              </div>
+          </div>
+      </section>
 
-    <div class="chatbot-window" id="chatWindow">
-        <div class="chatbot-header" style="background: linear-gradient(90deg, rgba(56, 189, 248, 0.2), transparent); padding: 1rem; border-bottom: 1px solid var(--glass-border); font-weight: 700; display: flex; align-items: center; gap: 10px; color: white;">
-            <div style="width:10px; height:10px; background:#22c55e; border-radius:50%; box-shadow: 0 0 10px #22c55e;"></div>
-            Technical Assistant
-        </div>
-        <div class="chatbot-body" style="padding: 1rem;">
-            <p style="font-size:0.9rem; color:#cbd5e1; margin-bottom:1.5rem;">How can I help optimize your digital growth today?</p>
-            <div class="chat-options" style="display: flex; flex-direction: column; gap: 0.5rem;">
-                <button class="chat-btn" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: white; padding: 1rem; border-radius: 12px; text-align: left; font-size: 0.9rem; cursor: pointer; transition: 0.2s; font-family: var(--font-body); display: flex; justify-content: space-between; align-items: center;" onclick="window.location.href='mailto:info@techauditpros.com?subject=Technical Audit Inquiry'">
-                    <span>Send Email Inquiry</span>
-                    <span class="chat-btn-icon" style="color: var(--accent-primary); font-size: 1.2rem;">✉️</span>
-                </button>
-                <button class="chat-btn" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: white; padding: 1rem; border-radius: 12px; text-align: left; font-size: 0.9rem; cursor: pointer; transition: 0.2s; font-family: var(--font-body); display: flex; justify-content: space-between; align-items: center;" onclick="window.open('https://wa.me/YOURNUMBER', '_blank')">
-                    <span>Chat on WhatsApp</span>
-                    <span class="chat-btn-icon" style="color: var(--accent-primary); font-size: 1.2rem;">💬</span>
-                </button>
-                <button class="chat-btn" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: white; padding: 1rem; border-radius: 12px; text-align: left; font-size: 0.9rem; cursor: pointer; transition: 0.2s; font-family: var(--font-body); display: flex; justify-content: space-between; align-items: center;" onclick="window.open('https://calendly.com/', '_blank')">
-                    <span>Free Consult Call</span>
-                    <span class="chat-btn-icon" style="color: var(--accent-primary); font-size: 1.2rem;">📞</span>
-                </button>
-            </div>
-            <span class="chat-stats">⚡ Avg time to fix technical debt: 14 days</span>
-        </div>
-    </div>
+      <!-- EXPANDED FAQ -->
+      <section id="faq" class="faq">
+          <div class="container" style="max-width: 800px;">
+              <h2 style="margin-bottom: 3rem;">AI-Dominance & Pricing FAQ</h2>
+              
+              <details class="faq-item">
+                  <summary>Why is a Technical Audit better than standard monthly SEO?</summary>
+                  <p>Standard SEO focuses on keywords. Our Technical Audit fixes the "engine"—resolving crawl budget leaks, JavaScript rendering issues, and structural technical debt that keywords alone cannot fix.</p>
+              </details>
 
-    <!-- JAVASCRIPT -->
-    <script>
-        // Mobile Menu
-        function toggleMobileMenu() {
-            const nav = document.getElementById('navLinks');
-            nav.classList.toggle('active');
-        }
+              <details class="faq-item">
+                  <summary>Can a Kochi-based agency effectively manage SEO for US and Canadian markets?</summary>
+                  <p>Search algorithms are global. By using international frameworks like hreflang and "Entity-based SEO," we provide the same technical precision as US firms at a more efficient scale.</p>
+              </details>
 
-        // Chatbot
-        function toggleChat() {
-            const chat = document.getElementById('chatWindow');
-            if (chat.style.display === 'flex') {
-                chat.style.display = 'none';
-            } else {
-                chat.style.display = 'flex';
-            }
-        }
+              <details class="faq-item">
+                  <summary>How do you handle Google’s 2026 AI Search (SGE/GEO)?</summary>
+                  <p>We optimize for "Generative Engine Optimization" by structuring your data so AI models (like Gemini and GPT) can easily cite your website as an authoritative source.</p>
+              </details>
 
-        // Download Guide Simulation (List Building)
-        function downloadGuide(e) {
-            e.preventDefault();
-            const btn = e.target.querySelector('button');
-            const email = e.target.querySelector('input').value;
-            const originalText = btn.innerText;
-            
-            btn.innerText = "Processing...";
-            btn.style.backgroundColor = "var(--accent-secondary)";
-            
-            setTimeout(() => {
-                // In a real scenario, this hits your backend
-                // Here we simulate sending the mailto with body
-                window.location.href = `mailto:info@techauditpros.com?subject=Please send me the 2026 SEO Guide&body=Hi, please send the guide to ${email}`;
-                
-                btn.innerText = "Check your Inbox!";
-                btn.style.backgroundColor = "#22c55e";
-                setTimeout(() => {
-                    btn.innerText = originalText;
-                    btn.style.backgroundColor = "";
-                }, 3000);
-            }, 1000);
-        }
+              <!-- NEW: Pricing FAQ -->
+              <details class="faq-item">
+                  <summary>What does a typical audit cost for Kerala SMEs or USA brands?</summary>
+                  <p>Our audits are tiered based on site complexity. For Kerala SMEs, technical audits start at INR 15,000. For USA/Canada enterprise clients, rates are $2,000+. We always provide a fixed quote before work begins.</p>
+              </details>
 
-        // Sticky CTA Logic
-        window.addEventListener('scroll', () => {
-            const cta = document.getElementById('stickyCta');
-            const chatBubble = document.querySelector('.chatbot-bubble');
-            if (window.scrollY > 500) {
-                cta.classList.add('visible');
-                chatBubble.style.bottom = "100px";
-            } else {
-                cta.classList.remove('visible');
-                chatBubble.style.bottom = "30px";
-            }
-        });
-    </script>
+              <!-- NEW: Guarantee FAQ -->
+              <details class="faq-item">
+                  <summary>Is your audit guaranteed to improve rankings?</summary>
+                  <p>We guarantee to uncover technical blockers. Ninety percent of our audits result in measurable traffic and indexation improvements within 4 weeks. We fix the engine so Google *has* to rank you.</p>
+              </details>
+          </div>
+      </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+      <div class="container">
+          <div class="footer-grid">
+              <div class="footer-col">
+                  <h4>Core Services</h4>
+                  <ul>
+                      <li><a href="/services.html">Technical SEO Audit</a></li>
+                      <li><a href="/services.html">Log File Analysis</a></li>
+                      <li><a href="/services.html">Schema Implementation</a></li>
+                      <li><a href="/services.html">Speed Optimization</a></li>
+                  </ul>
+              </div>
+              <div class="footer-col">
+                  <h4>Regions</h4>
+                  <ul>
+                      <li><a href="/kochi/">Kochi HQ</a></li>
+                      <li><a href="#">Kerala Hub</a></li>
+                      <li><a href="#">USA Strategy</a></li>
+                      <li><a href="#">Canada Market</a></li>
+                  </ul>
+              </div>
+              <div class="footer-col">
+                  <h4>Tools</h4>
+                  <ul>
+                      <li><a href="#">Semrush Partner</a></li>
+                      <li><a href="#">GSC Certified</a></li>
+                      <li><a href="#">Ahrefs Pro</a></li>
+                  </ul>
+              </div>
+              <div class="footer-col">
+                  <h4>Contact</h4>
+                  <ul>
+                      <li class="mono">audit@techauditpros.com</li>
+                      <li class="mono">+91 484 000 0000</li>
+                  </ul>
+              </div>
+          </div>
+          <div class="footer-bottom">
+              &copy; 2024 TechAuditPros. Built with Semantic HTML5 & High-Performance CSS.
+          </div>
+      </div>
+  </footer>
+
+  <!-- STICKY CTA (With Real Links) -->
+  <div id="stickyCta" class="sticky-cta">
+      <a href="/technical-seo-audit.html" class="btn btn-primary" style="padding: 0.8rem 1.5rem; border-radius: 50px; box-shadow: 0 5px 20px rgba(0,0,0,0.5);">
+          🚀 Get Free Audit
+      </a>
+      <a href="https://wa.me/YOURNUMBER" class="btn btn-secondary" style="padding: 0.8rem 1.5rem; border-radius: 50px; box-shadow: 0 5px 20px rgba(0,0,0,0.5);">
+          ☎️ WhatsApp Us
+      </a>
+  </div>
+
+  <!-- CHATBOT -->
+  <div class="chatbot-bubble" onclick="toggleChat()">
+      <svg viewBox="0 0 24 24" width="30" height="30" stroke="#020617" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+  </div>
+
+  <div class="chatbot-window" id="chatWindow">
+      <div class="chatbot-header" style="background: linear-gradient(90deg, rgba(56, 189, 248, 0.2), transparent); padding: 1rem; border-bottom: 1px solid var(--glass-border); font-weight: 700; display: flex; align-items: center; gap: 10px; color: white;">
+          <div style="width:10px; height:10px; background:#22c55e; border-radius:50%; box-shadow: 0 0 10px #22c55e;"></div>
+          Technical Assistant
+      </div>
+      <div class="chatbot-body" style="padding: 1rem;">
+          <p style="font-size:0.9rem; color:#cbd5e1; margin-bottom:1.5rem;">How can I help optimize your digital growth today?</p>
+          <div class="chat-options" style="display: flex; flex-direction: column; gap: 0.5rem;">
+              <button class="chat-btn" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: white; padding: 1rem; border-radius: 12px; text-align: left; font-size: 0.9rem; cursor: pointer; transition: 0.2s; font-family: var(--font-body); display: flex; justify-content: space-between; align-items: center;" onclick="window.location.href='mailto:info@techauditpros.com?subject=Technical Audit Inquiry'">
+                  <span>Send Email Inquiry</span>
+                  <span class="chat-btn-icon" style="color: var(--accent-primary); font-size: 1.2rem;">✉️</span>
+              </button>
+              <button class="chat-btn" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: white; padding: 1rem; border-radius: 12px; text-align: left; font-size: 0.9rem; cursor: pointer; transition: 0.2s; font-family: var(--font-body); display: flex; justify-content: space-between; align-items: center;" onclick="window.open('https://wa.me/YOURNUMBER', '_blank')">
+                  <span>Chat on WhatsApp</span>
+                  <span class="chat-btn-icon" style="color: var(--accent-primary); font-size: 1.2rem;">💬</span>
+              </button>
+              <button class="chat-btn" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: white; padding: 1rem; border-radius: 12px; text-align: left; font-size: 0.9rem; cursor: pointer; transition: 0.2s; font-family: var(--font-body); display: flex; justify-content: space-between; align-items: center;" onclick="window.open('https://calendly.com/', '_blank')">
+                  <span>Free Consult Call</span>
+                  <span class="chat-btn-icon" style="color: var(--accent-primary); font-size: 1.2rem;">📞</span>
+              </button>
+          </div>
+          <span class="chat-stats">⚡ Avg time to fix technical debt: 14 days</span>
+      </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+      // Mobile Menu
+      function toggleMobileMenu() {
+          const nav = document.getElementById('navLinks');
+          nav.classList.toggle('active');
+      }
+
+      // Chatbot
+      function toggleChat() {
+          const chat = document.getElementById('chatWindow');
+          if (chat.style.display === 'flex') {
+              chat.style.display = 'none';
+          } else {
+              chat.style.display = 'flex';
+          }
+      }
+
+      // Form Submission Simulation
+      function submitForm(e) {
+          e.preventDefault();
+          const btn = e.target.querySelector('button');
+          const originalText = btn.innerText;
+          
+          btn.innerText = "Analyzing Requirements...";
+          btn.style.backgroundColor = "var(--accent-secondary)";
+          
+          setTimeout(() => {
+              // Simulate sending
+              btn.innerText = "Request Sent!";
+              btn.style.backgroundColor = "#22c55e";
+              e.target.reset();
+              setTimeout(() => {
+                  btn.innerText = originalText;
+                  btn.style.backgroundColor = "";
+              }, 3000);
+          }, 1500);
+      }
+
+      // Sticky CTA Logic
+      window.addEventListener('scroll', () => {
+          const cta = document.getElementById('stickyCta');
+          const chatBubble = document.querySelector('.chatbot-bubble');
+          if (window.scrollY > 500) {
+              cta.classList.add('visible');
+              chatBubble.style.bottom = "100px";
+          } else {
+              cta.classList.remove('visible');
+              chatBubble.style.bottom = "30px";
+          }
+      });
+
+      // Auto-play Industry Videos on Scroll
+      document.addEventListener("DOMContentLoaded", () => {
+          const videos = document.querySelectorAll(".industry-video");
+
+          const observer = new IntersectionObserver(entries => {
+              entries.forEach(entry => {
+                  const video = entry.target;
+
+                  if (entry.isIntersecting) {
+                      video.play().catch(() => {
+                          console.log("Autoplay prevented for:", video.src);
+                      });
+                  } else {
+                      video.pause();
+                  }
+              });
+          }, {
+              threshold: 0.6
+          });
+
+          videos.forEach(video => observer.observe(video));
+      });
+  </script>
+
+  <!-- INLINE CSS (From previous version + Kerala Spotlight Styles) -->
+  <style>
+      /* --- CSS VARIABLES --- */
+      :root {
+          --bg-base: #020617; 
+          --accent-primary: #38BDF8; 
+          --accent-secondary: #A855F7; 
+          --accent-success: #22c55e;
+          
+          --text-main: #F1F5F9;
+          --text-muted: #94A3B8;
+          
+          --glass-bg: rgba(15, 23, 42, 0.6);
+          --glass-border: rgba(255, 255, 255, 0.08);
+          --glass-card: rgba(255, 255, 255, 0.02);
+          
+          --font-body: 'Inter', sans-serif;
+          --font-code: 'JetBrains Mono', monospace;
+          
+          --container-width: 1200px;
+      }
+
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      
+      body {
+          background-color: var(--bg-base);
+          background-image: 
+              radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.15), transparent 25%),
+              radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.15), transparent 25%);
+          color: var(--text-main);
+          font-family: var(--font-body);
+          line-height: 1.6;
+          overflow-x: hidden;
+          min-height: 100vh;
+      }
+
+      /* Ambient Orbs */
+      .ambient-glow {
+          position: fixed;
+          border-radius: 50%;
+          filter: blur(80px);
+          z-index: -1;
+          opacity: 0.6;
+      }
+      .glow-1 { top: -10%; left: -5%; width: 500px; height: 500px; background: var(--accent-primary); opacity: 0.2; }
+      .glow-2 { bottom: -10%; right: -5%; width: 600px; height: 600px; background: var(--accent-secondary); opacity: 0.2; }
+
+      a { text-decoration: none; color: inherit; transition: 0.3s; }
+      ul { list-style: none; }
+      img { max-width: 100%; display: block; }
+      
+      /* --- TYPOGRAPHY --- */
+      h1, h2, h3, h4 { font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; }
+      h1 { font-size: clamp(3rem, 6vw, 5rem); background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+      h2 { font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: var(--spacing-md); color: white; }
+      h3 { font-size: 1.5rem; margin-bottom: 1rem; font-weight: 700; color: white; }
+      .mono { font-family: var(--font-code); font-size: 0.85em; }
+      .text-accent { color: var(--accent-primary); }
+      .text-muted { color: var(--text-muted); }
+      .text-small { font-size: 0.8rem; }
+
+      /* --- UTILITIES --- */
+      .container {
+          width: 90%;
+          max-width: var(--container-width);
+          margin: 0 auto; 
+          padding: 0 1rem;
+      }
+      .btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0.8rem 1.8rem;
+          border-radius: 8px;
+          font-weight: 600;
+          cursor: pointer;
+          border: 1px solid transparent;
+          font-family: var(--font-code);
+          font-size: 0.95rem;
+          transition: 0.3s;
+      }
+      .btn-primary {
+          background: var(--accent-primary);
+          color: #020617;
+          box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+      }
+      .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 25px rgba(56, 189, 248, 0.6); }
+      .btn-secondary {
+          background: rgba(255, 255, 255, 0.1);
+          color: white;
+          border: 1px solid var(--glass-border);
+      }
+      .btn-secondary:hover { background: rgba(255, 255, 255, 0.2); }
+      
+      .btn-small { padding: 0.5rem 1rem; font-size: 0.8rem; border-radius: 6px; }
+
+      /* --- HEADER --- */
+      header {
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+          background: rgba(2, 6, 23, 0.8);
+          backdrop-filter: blur(20px);
+          border-bottom: 1px solid var(--glass-border);
+          padding: 0.4rem 0; 
+          height: 56px;
+          display: flex;
+          align-items: center;
+      }
+      .nav-wrapper {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 100%;
+          width: 100%;
+      }
+      .logo { display: flex; align-items: center; height: 100%; transform: scale(1.1); }
+      .logo svg { height: 55px; width: auto; }
+      .nav-links { display: flex; gap: 2rem; }
+      .nav-links a { font-size: 0.75rem; color: var(--text-muted); font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
+      .nav-links a:hover { color: white; }
+      .header-actions { display: flex; align-items: center; gap: 1rem; }
+      .region-switcher { position: relative; cursor: pointer; display: flex; align-items: center; gap: 5px; font-size: 0.75rem; font-family: var(--font-code); }
+      .dropdown-menu {
+          display: none;
+          position: absolute;
+          top: 100%;
+          right: 0;
+          background: rgba(15, 23, 42, 0.95);
+          backdrop-filter: blur(10px);
+          border: 1px solid var(--glass-border);
+          border-radius: 8px;
+          padding: 0.5rem;
+          width: 140px;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      }
+      .region-switcher:hover .dropdown-menu { display: block; }
+      .dropdown-item { display: block; padding: 0.5rem; color: var(--text-muted); font-size: 0.85rem; border-radius: 4px; }
+      .dropdown-item:hover { color: white; background: rgba(255,255,255,0.1); }
+      .mobile-menu-btn { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; z-index: 1001; }
+
+      /* --- HERO SECTION --- */
+      .hero { padding: 8rem 0 5rem; text-align: center; position: relative; }
+      .hero-content { 
+          text-align: center; 
+          max-width: 900px; 
+          margin: 0 auto 3rem; 
+      }
+      .hero h1 { margin-bottom: 1.5rem; }
+      .hero-tagline { font-size: 1.1rem; color: var(--accent-primary); font-weight: 600; margin-bottom: 1.5rem; display: block; text-transform: uppercase; letter-spacing: 1px; }
+
+      /* --- LEAD FORM --- */
+      .audit-form-container {
+          max-width: 700px;
+          margin: 0 auto 2rem;
+          background: rgba(255, 255, 255, 0.03);
+          backdrop-filter: blur(10px);
+          border: 1px solid var(--glass-border);
+          padding: 2rem;
+          border-radius: 12px;
+          text-align: left;
+      }
+      .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+      .form-group { margin-bottom: 1rem; }
+      .form-group label { display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem; font-family: var(--font-code); }
+      .form-input, .form-select, .form-textarea {
+          width: 100%;
+          background: rgba(0,0,0,0.3);
+          border: 1px solid var(--glass-border);
+          color: white;
+          padding: 0.8rem;
+          border-radius: 6px;
+          font-family: var(--font-body);
+          font-size: 1rem;
+          outline: none;
+      }
+      .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--accent-primary); }
+
+      /* --- TRUST BAR --- */
+      .trust-bar { overflow: hidden; padding: 2rem 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); background: rgba(0,0,0,0.2); text-align: center; }
+      .trust-items { display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; max-width: 1200px; margin: 0 auto; }
+      .trust-item { color: var(--text-muted); font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; }
+      .trust-item i { color: var(--accent-primary); }
+
+      /* --- TIMELINE (New) --- */
+      .timeline-section { padding: 5rem 0; }
+      .timeline {
+          position: relative;
+          max-width: 800px;
+          margin: 0 auto;
+      }
+      .timeline::before {
+          content: '';
+          position: absolute;
+          top: 0; bottom: 0;
+          left: 20px;
+          width: 2px;
+          background: var(--glass-border);
+      }
+      .timeline-item {
+          position: relative;
+          padding-left: 60px;
+          padding-bottom: 3rem;
+      }
+      .timeline-dot {
+          position: absolute;
+          left: 11px;
+          top: 5px;
+          width: 20px;
+          height: 20px;
+          background: var(--bg-base);
+          border: 2px solid var(--accent-primary);
+          border-radius: 50%;
+          z-index: 2;
+      }
+      .timeline-content h4 { margin-bottom: 0.5rem; font-size: 1.2rem; color: white; }
+      .timeline-content p { color: var(--text-muted); font-size: 0.95rem; }
+
+      /* --- METHODOLOGY --- */
+      .methodology { padding: 5rem 0; }
+      .bento-grid { 
+          display: grid; 
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+          gap: 2rem; 
+      }
+      .bento-card {
+          background: var(--glass-card);
+          backdrop-filter: blur(10px);
+          border: 1px solid var(--glass-border);
+          padding: 2.5rem;
+          border-radius: 16px;
+          transition: 0.3s;
+      }
+      .bento-card:hover { border-color: var(--accent-primary); background: rgba(255, 255, 255, 0.04); transform: translateY(-5px); }
+      .phase-tag { display: inline-block; font-family: var(--font-code); font-size: 0.75rem; color: var(--accent-primary); margin-bottom:1.5rem; border: 1px solid var(--accent-primary); padding: 4px 10px; border-radius: 50px; }
+
+      /* --- CASE STUDY VISUAL --- */
+      .case-visual {
+          background: rgba(0,0,0,0.3);
+          backdrop-filter: blur(10px);
+          border: 1px solid var(--glass-border);
+          padding: 2rem;
+          border-radius: 12px;
+          margin-bottom: 2rem;
+          max-width: 800px;
+          margin-left: auto;
+          margin-right: auto;
+      }
+      .chart-title { font-size: 1.2rem; color: white; margin-bottom: 2rem; text-align: center; }
+      .chart-subtitle { text-align: center; color: var(--accent-primary); font-weight: 700; margin-bottom: 2rem; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;}
+      
+      /* Pure CSS Bar Chart */
+      .bar-chart-container {
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+      }
+      .bar-row {
+          display: flex;
+          align-items: flex-end;
+          gap: 1.5rem;
+          padding-bottom: 1rem;
+          border-bottom: 1px solid rgba(255,255,255,0.05);
+      }
+      .bar-label {
+          width: 120px;
+          text-align: right;
+          font-size: 0.85rem;
+          color: var(--text-muted);
+          font-weight: 600;
+      }
+      .bar-wrapper {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+      }
+      .bar {
+          height: 20px;
+          border-radius: 4px 0 4px;
+          position: relative;
+          transition: width 1.5s ease-out;
+          width: 0; 
+      }
+      .bar.tech { background: var(--accent-primary); box-shadow: 0 0 10px rgba(56, 189, 248, 0.4); }
+      .bar.standard { background: #334155; opacity: 0.6; }
+      
+      .bar-value {
+          position: absolute;
+          top: -25px;
+          width: 100%;
+          text-align: center;
+          font-size: 0.75rem;
+          font-weight: 700;
+          color: white;
+      }
+      .legend { display: flex; justify-content: center; gap: 2rem; margin-top: 1rem; }
+      .legend-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: var(--text-muted); }
+      .legend-dot { width: 12px; height: 12px; border-radius: 2px; }
+
+      /* --- INDUSTRIES --- */
+      .industries { padding: 5rem 0; }
+      .industry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+      .industry-card {
+          background: var(--glass-card);
+          border: 1px solid var(--glass-border);
+          padding: 2rem;
+          border-radius: 12px;
+          text-align: center;
+          transition: 0.3s;
+      }
+      .industry-card:hover { border-color: var(--accent-secondary); transform: translateY(-5px); }
+      .industry-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+      .industry-name { font-weight: 700; color: white; margin-bottom: 0.5rem; }
+      .industry-desc { font-size: 0.85rem; color: var(--text-muted); }
+
+      /* --- KERALA SPOTLIGHT (New) --- */
+      .kerala-spotlight {
+          position: relative;
+          height: 80vh; /* Almost full screen view */
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          margin-bottom: 3rem;
+      }
+      .kerala-video-bg {
+          position: absolute;
+          top: 0; left: 0; width: 100%; height: 100%;
+          object-fit: cover;
+          z-index: 1;
+      }
+      .kerala-overlay {
+          position: absolute;
+          top: 0; left: 0; width: 100%; height: 100%;
+          background: rgba(2, 6, 23, 0.85); /* Dark overlay for text readability */
+          z-index: 2;
+      }
+      .spotlight-content {
+          position: relative;
+          z-index: 3;
+          max-width: 800px;
+          text-align: center;
+      }
+
+      /* --- LOCATIONS --- */
+      .locations { padding: 5rem 0; }
+      .loc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+      .loc-card {
+          border: 1px solid var(--glass-border);
+          padding: 2.5rem;
+          border-radius: 16px;
+          background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0) 100%);
+      }
+      .loc-testimonial {
+          margin-top: 2rem;
+          padding: 1rem;
+          background: rgba(56, 189, 248, 0.05);
+          border-left: 3px solid var(--accent-primary);
+          font-style: italic;
+          color: #cbd5e1;
+          font-size: 0.9rem;
+      }
+      .local-links-list {
+          margin-top: 1.5rem;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+      }
+      .local-tag {
+          font-size: 0.75rem;
+          background: rgba(255,255,255,0.1);
+          padding: 0.3rem 0.6rem;
+          border-radius: 4px;
+          color: var(--text-muted);
+      }
+
+      /* --- FAQ --- */
+      .faq { padding: 5rem 0; border-top: 1px solid var(--glass-border); }
+      .faq-item { border-bottom: 1px solid var(--glass-border); padding: 2rem 0; }
+      .faq-item summary { cursor: pointer; font-weight: 600; font-size: 1.2rem; list-style: none; display: flex; justify-content: space-between; align-items: center; color: white; }
+      .faq-item summary::after { content: '+'; font-family: var(--font-code); color: var(--accent-primary); font-size: 1.5rem; }
+      .faq-item[open] summary::after { content: '-'; }
+      .faq-item p { margin-top: 1.5rem; color: var(--text-muted); font-size: 1rem; line-height: 1.8; }
+
+      /* --- STICKY CTA --- */
+      .sticky-cta { position: fixed; bottom: 30px; right: 30px; z-index: 900; opacity: 0; transform: translateY(20px); transition: all 0.3s ease; pointer-events: none; display: flex; gap: 10px; }
+      .sticky-cta.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
+      
+      /* --- CHATBOT --- */
+      .chatbot-bubble {
+          position: fixed;
+          bottom: 30px;
+          right: 30px;
+          width: 65px;
+          height: 65px;
+          background: var(--accent-primary);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          box-shadow: 0 0 30px rgba(56, 189, 248, 0.6);
+          z-index: 2000;
+          transition: transform 0.3s;
+      }
+      .chatbot-bubble:hover { transform: scale(1.05); }
+      .chatbot-window {
+          position: fixed;
+          bottom: 110px;
+          right: 30px;
+          width: 360px;
+          background: rgba(15, 23, 42, 0.95);
+          backdrop-filter: blur(20px);
+          border: 1px solid var(--glass-border);
+          border-radius: 20px;
+          box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+          z-index: 2000;
+          display: none;
+          flex-direction: column;
+          overflow: hidden;
+      }
+      .chat-stats { font-size: 0.75rem; color: var(--accent-success); margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--glass-border); display: block; font-family: var(--font-code); }
+      
+      /* --- FOOTER --- */
+      footer { padding: 5rem 0 2rem; background: rgba(0,0,0,0.5); border-top: 1px solid var(--glass-border); font-size: 0.9rem; }
+      .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
+      .footer-col h4 { margin-bottom: 1.5rem; color: white; }
+      .footer-col ul li { margin-bottom: 1rem; }
+      .footer-col ul li a { color: var(--text-muted); transition: 0.2s; }
+      .footer-col ul li a:hover { color: white; }
+      .footer-bottom { text-align: center; color: var(--text-muted); border-top: 1px solid var(--glass-border); padding-top: 2rem; font-family: var(--font-code); font-size: 0.75rem; }
+
+      /* --- RESPONSIVE --- */
+      @media (max-width: 768px) {
+          .mobile-menu-btn { display: block; }
+          .nav-links {
+              position: fixed;
+              top: 0;
+              right: -100%;
+              width: 85%;
+              height: 100vh;
+              background: #020617;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              transition: 0.3s ease-in-out;
+              box-shadow: -10px 0 30px rgba(0,0,0,0.8);
+              z-index: 999;
+          }
+          .nav-links.active { right: 0; }
+          .nav-links a { font-size: 1.2rem; }
+          .header-actions > *:not(.mobile-menu-btn) { display: none; }
+          .form-grid { grid-template-columns: 1fr; }
+          .sticky-cta { right: 20px; bottom: 20px; flex-direction: column; width: auto; gap: 0.5rem; }
+          .chatbot-window { right: 5%; width: 90%; bottom: 90px; }
+          .kerala-spotlight { height: auto; padding: 3rem 0; }
+      }
+  </style>
 </body>
 </html>
