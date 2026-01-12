@@ -135,8 +135,8 @@
   </header>
 
   <main>
-      <!-- HERO SECTION -->
-      <section class="hero">
+      <!-- HERO SECTION (Full Screen) -->
+      <section class="hero full-screen-section">
           <div class="container hero-content">
               <span class="mono text-accent" style="margin-bottom: 1.5rem; display: block; letter-spacing: 2px;">// SYSTEM STATUS: OPTIMAL</span>
               <h1>Technical SEO Audit & <br><span class="text-accent">Growth Engineering</span></h1>
@@ -285,7 +285,7 @@
       </section>
 
       <!-- NEW: KERALA SPOTLIGHT (Full Video View) -->
-      <section class="kerala-spotlight">
+      <section class="kerala-spotlight full-screen-section">
           <div class="spotlight-content">
               <h2 class="mono text-accent" style="text-transform: uppercase; letter-spacing: 2px;">// The Kerala Engine</h2>
               <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.2;">Powering India's Digital Growth</h1>
@@ -371,77 +371,97 @@
           </div>
       </section>
 
-      <!-- INDUSTRIES (With Video Placeholders) -->
-      <section id="industries" class="industries">
-          <div class="container">
-              <div style="text-align: center; margin-bottom: 3rem;">
-                  <h2>Industries We Excel In</h2>
+      <!-- INDUSTRIES (Full Screen on Desktop, Videos PAUSED on Desktop) -->
+      <section id="industries" class="industries full-screen-section">
+          <div class="container" style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
+              <div style="text-align: center; margin-bottom: 4rem; position: relative; z-index: 2;">
+                  <span class="mono text-accent">// EXPERTISE</span>
+                  <h2 style="font-size: clamp(2rem, 3.5vw, 3rem);">Industries We Excel In</h2>
               </div>
+              
               <div class="industry-grid">
                   
-                  <!-- CARD: Local Service Businesses (Video) -->
+                  <!-- CARD: Local Service Businesses -->
                   <div class="industry-card">
-                      <video muted loop playsinline preload="metadata" class="industry-video">
-                          <source src="/videos/industries/industry-local-service-businesses.mp4" type="video/mp4">
-                      </video>
-                      <div class="industry-overlay">
-                          <h3>Local Service Businesses</h3>
-                          <p>Visibility when customers search urgently</p>
+                      <div class="video-bg-wrapper">
+                          <video muted loop playsinline preload="metadata" class="industry-video">
+                              <source src="/videos/industries/industry-local-service-businesses.mp4" type="video/mp4">
+                          </video>
+                          <div class="static-overlay"></div>
+                      </div>
+                      <div class="industry-content">
+                          <h3>Local Services</h3>
+                          <p class="text-muted">Visibility when customers search urgently</p>
                       </div>
                   </div>
 
-                  <!-- CARD: Repair Companies (Video) -->
+                  <!-- CARD: Repair Companies -->
                   <div class="industry-card">
-                      <video muted loop playsinline preload="metadata" class="industry-video">
-                          <source src="/videos/industries/industry-repair-companies.mp4" type="video/mp4">
-                      </video>
-                      <div class="industry-overlay">
+                      <div class="video-bg-wrapper">
+                          <video muted loop playsinline preload="metadata" class="industry-video">
+                              <source src="/videos/industries/industry-repair-companies.mp4" type="video/mp4">
+                          </video>
+                          <div class="static-overlay"></div>
+                      </div>
+                      <div class="industry-content">
                           <h3>Repair Companies</h3>
-                          <p>Trust matters in high-intent searches</p>
+                          <p class="text-muted">Trust matters in high-intent searches</p>
                       </div>
                   </div>
 
-                  <!-- CARD: Consultants, Designers & Professionals (Video) -->
+                  <!-- CARD: Consultants, Designers & Professionals -->
                   <div class="industry-card">
-                      <video muted loop playsinline preload="none" class="industry-video">
-                          <source src="/videos/industries/industry-consultants-designers.mp4" type="video/mp4">
-                      </video>
-                      <div class="industry-overlay">
-                          <h3>Consultants & Designers</h3>
-                          <p>Authority-driven online presence</p>
+                      <div class="video-bg-wrapper">
+                          <video muted loop playsinline preload="none" class="industry-video">
+                              <source src="/videos/industries/industry-consultants-designers.mp4" type="video/mp4">
+                          </video>
+                          <div class="static-overlay"></div>
+                      </div>
+                      <div class="industry-content">
+                          <h3>Consultants</h3>
+                          <p class="text-muted">Authority-driven online presence</p>
                       </div>
                   </div>
 
-                  <!-- CARD: Healthcare & Clinics (Video) -->
+                  <!-- CARD: Healthcare & Clinics -->
                   <div class="industry-card">
-                      <video muted loop playsinline preload="metadata" class="industry-video">
-                          <source src="/videos/industries/industry-healthcare-clinics.mp4" type="video/mp4">
-                      </video>
-                      <div class="industry-overlay">
-                          <h3>Healthcare & Clinics</h3>
-                          <p>Trust, compliance, and clarity</p>
+                      <div class="video-bg-wrapper">
+                          <video muted loop playsinline preload="metadata" class="industry-video">
+                              <source src="/videos/industries/industry-healthcare-clinics.mp4" type="video/mp4">
+                          </video>
+                          <div class="static-overlay"></div>
+                      </div>
+                      <div class="industry-content">
+                          <h3>Healthcare</h3>
+                          <p class="text-muted">Trust, compliance, and clarity</p>
                       </div>
                   </div>
 
-                  <!-- CARD: Real Estate & Home Services (Video) -->
+                  <!-- CARD: Real Estate & Home Services -->
                   <div class="industry-card">
-                      <video muted loop playsinline preload="metadata" class="industry-video">
-                          <source src="/videos/industries/industry-real-estate-home-services.mp4" type="video/mp4">
-                      </video>
-                      <div class="industry-overlay">
-                          <h3>Real Estate & Home Services</h3>
-                          <p>Local discovery, trust, and long-term visibility</p>
+                      <div class="video-bg-wrapper">
+                          <video muted loop playsinline preload="metadata" class="industry-video">
+                              <source src="/videos/industries/industry-real-estate-home-services.mp4" type="video/mp4">
+                          </video>
+                          <div class="static-overlay"></div>
+                      </div>
+                      <div class="industry-content">
+                          <h3>Real Estate</h3>
+                          <p class="text-muted">Local discovery, trust, and visibility</p>
                       </div>
                   </div>
                   
-                  <!-- CARD: IT & SaaS (Video) -->
+                  <!-- CARD: IT & SaaS -->
                   <div class="industry-card">
-                      <video muted loop playsinline preload="metadata" class="industry-video">
-                          <source src="/videos/industries/industry-it-saas.mp4" type="video/mp4">
-                      </video>
-                      <div class="industry-overlay">
+                      <div class="video-bg-wrapper">
+                          <video muted loop playsinline preload="metadata" class="industry-video">
+                              <source src="/videos/industries/industry-it-saas.mp4" type="video/mp4">
+                          </video>
+                          <div class="static-overlay"></div>
+                      </div>
+                      <div class="industry-content">
                           <h3>IT & SaaS</h3>
-                          <p>Technical websites built to scale</p>
+                          <p class="text-muted">Technical websites built to scale</p>
                       </div>
                   </div>
               </div>
@@ -672,14 +692,21 @@
           }
       });
 
-      // Auto-play Industry Videos on Scroll
+      // Auto-play Industry Videos on Scroll (WITH DESKTOP EXCEPTION)
       document.addEventListener("DOMContentLoaded", () => {
           const videos = document.querySelectorAll(".industry-video");
 
           const observer = new IntersectionObserver(entries => {
               entries.forEach(entry => {
                   const video = entry.target;
+                  
+                  // DESKTOP RULE: DO NOT PLAY
+                  if (window.innerWidth > 1024) {
+                      video.pause();
+                      return;
+                  }
 
+                  // MOBILE/TABLET RULE: Play on intersect
                   if (entry.isIntersecting) {
                       video.play().catch(() => {
                           console.log("Autoplay prevented for:", video.src);
@@ -693,10 +720,17 @@
           });
 
           videos.forEach(video => observer.observe(video));
+          
+          // Handle resize: if window grows to desktop size, pause immediately
+          window.addEventListener('resize', () => {
+               if (window.innerWidth > 1024) {
+                   videos.forEach(v => v.pause());
+               }
+          });
       });
   </script>
 
-  <!-- INLINE CSS (From previous version + Kerala Spotlight Styles) -->
+  <!-- INLINE CSS (Updated with Full Screen & Desktop Video Styles) -->
   <style>
       /* --- CSS VARIABLES --- */
       :root {
@@ -747,16 +781,6 @@
       ul { list-style: none; }
       img { max-width: 100%; display: block; }
       
-      /* --- TYPOGRAPHY --- */
-      h1, h2, h3, h4 { font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; }
-      h1 { font-size: clamp(3rem, 6vw, 5rem); background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-      h2 { font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: var(--spacing-md); color: white; }
-      h3 { font-size: 1.5rem; margin-bottom: 1rem; font-weight: 700; color: white; }
-      .mono { font-family: var(--font-code); font-size: 0.85em; }
-      .text-accent { color: var(--accent-primary); }
-      .text-muted { color: var(--text-muted); }
-      .text-small { font-size: 0.8rem; }
-
       /* --- UTILITIES --- */
       .container {
           width: 90%;
@@ -791,6 +815,26 @@
       .btn-secondary:hover { background: rgba(255, 255, 255, 0.2); }
       
       .btn-small { padding: 0.5rem 1rem; font-size: 0.8rem; border-radius: 6px; }
+
+      /* Full Screen Utility */
+      .full-screen-section {
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 4rem 0;
+          position: relative;
+      }
+
+      /* --- TYPOGRAPHY --- */
+      h1, h2, h3, h4 { font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; }
+      h1 { font-size: clamp(3rem, 6vw, 5rem); background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+      h2 { font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: var(--spacing-md); color: white; }
+      h3 { font-size: 1.5rem; margin-bottom: 1rem; font-weight: 700; color: white; }
+      .mono { font-family: var(--font-code); font-size: 0.85em; }
+      .text-accent { color: var(--accent-primary); }
+      .text-muted { color: var(--text-muted); }
+      .text-small { font-size: 0.8rem; }
 
       /* --- HEADER --- */
       header {
@@ -838,7 +882,9 @@
       .mobile-menu-btn { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; z-index: 1001; }
 
       /* --- HERO SECTION --- */
-      .hero { padding: 8rem 0 5rem; text-align: center; position: relative; }
+      .hero { 
+          padding-top: 4rem; /* Reduced padding for full-screen class */
+      }
       .hero-content { 
           text-align: center; 
           max-width: 900px; 
@@ -996,31 +1042,75 @@
       .legend-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: var(--text-muted); }
       .legend-dot { width: 12px; height: 12px; border-radius: 2px; }
 
-      /* --- INDUSTRIES --- */
-      .industries { padding: 5rem 0; }
-      .industry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+      /* --- INDUSTRIES (Redesigned) --- */
+      .industries {
+          /* min-height handled by .full-screen-section */
+          background: linear-gradient(180deg, var(--bg-base) 0%, rgba(15,23,42,0.5) 100%);
+      }
+      .industry-grid { 
+          display: grid; 
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+          gap: 2rem; 
+          width: 100%;
+      }
       .industry-card {
+          position: relative;
           background: var(--glass-card);
           border: 1px solid var(--glass-border);
-          padding: 2rem;
-          border-radius: 12px;
-          text-align: center;
+          border-radius: 16px;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          height: 350px; /* Fixed height for consistency */
           transition: 0.3s;
       }
-      .industry-card:hover { border-color: var(--accent-secondary); transform: translateY(-5px); }
-      .industry-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
-      .industry-name { font-weight: 700; color: white; margin-bottom: 0.5rem; }
-      .industry-desc { font-size: 0.85rem; color: var(--text-muted); }
-
-      /* --- KERALA SPOTLIGHT (New) --- */
-      .kerala-spotlight {
+      .industry-card:hover { border-color: var(--accent-secondary); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+      
+      .video-bg-wrapper {
+          position: absolute;
+          top: 0; left: 0; width: 100%; height: 100%;
+          z-index: 0;
+      }
+      .industry-video {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 0.4; /* Default transparency */
+          transition: opacity 0.5s ease;
+      }
+      /* Desktop Specifics: Static/Dark video look */
+      @media (min-width: 1024px) {
+          .industry-video {
+              filter: grayscale(100%) brightness(0.4); /* Black and white, dark static look */
+              opacity: 1;
+          }
+          .industry-card:hover .industry-video {
+              filter: grayscale(0%) brightness(0.6); /* Colorize slightly on hover */
+          }
+      }
+      .static-overlay {
+          position: absolute;
+          top: 0; left: 0; width: 100%; height: 100%;
+          background: linear-gradient(to bottom, rgba(2,6,23,0.3), rgba(2,6,23,0.9));
+          z-index: 1;
+      }
+      .industry-content {
           position: relative;
-          height: 80vh; /* Almost full screen view */
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          overflow: hidden;
-          margin-bottom: 3rem;
+          z-index: 2;
+          margin-top: auto; /* Push content to bottom */
+          padding: 2rem;
+          background: linear-gradient(to top, #020617 20%, transparent);
+      }
+      .industry-content h3 {
+          font-size: 1.8rem;
+          margin-bottom: 0.5rem;
+          text-transform: capitalize;
+      }
+      .industry-content p { font-size: 1rem; color: var(--text-muted); }
+
+      /* --- KERALA SPOTLIGHT (Full Screen) --- */
+      .kerala-spotlight {
+          /* min-height handled by .full-screen-section */
       }
       .kerala-video-bg {
           position: absolute;
@@ -1152,7 +1242,16 @@
           .form-grid { grid-template-columns: 1fr; }
           .sticky-cta { right: 20px; bottom: 20px; flex-direction: column; width: auto; gap: 0.5rem; }
           .chatbot-window { right: 5%; width: 90%; bottom: 90px; }
-          .kerala-spotlight { height: auto; padding: 3rem 0; }
+          
+          /* Disable full screen height on mobile for better scrollability */
+          .full-screen-section {
+              min-height: auto;
+              padding: 4rem 0;
+          }
+          .kerala-spotlight { height: auto; min-height: 60vh; }
+          
+          /* On mobile, ensure videos play normally */
+          .industry-video { filter: none; opacity: 0.6; }
       }
   </style>
 </body>
