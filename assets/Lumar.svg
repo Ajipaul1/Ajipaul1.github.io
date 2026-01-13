@@ -1,0 +1,16 @@
+<svg width="60" height="40" viewBox="0 0 24 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(2, 2)">
+    <path d="M12 0L6 10L12 20H18L12 10L18 0H12Z" fill="#3F51B5"/>
+    <path d="M6 10L12 20H0L6 10Z" fill="#5C6BC0"/>
+  </g>
+
+  <text 
+    x="12" 
+    y="36" 
+    text-anchor="middle" 
+    fill="#F1F5F9" 
+    font-family="Inter, Arial, sans-serif" 
+    font-size="4.5" 
+    font-weight="800" 
+    style="letter-spacing: 0.8px;">LUMAR</text>
+</svg>
