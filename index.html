@@ -106,7 +106,8 @@
                       <a href="/ca/" class="dropdown-item">🇨🇦 Canada</a>
                   </div>
               </div>
-              <a href="https://wa.me/" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem; border-radius: 6px;">WhatsApp</a>
+              <!-- UPDATED WHATSAPP LINK -->
+              <a href="https://wa.me/916282520339" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem; border-radius: 6px;">WhatsApp</a>
           </div>
       </div>
   </header>
@@ -347,11 +348,17 @@
                           <strong>205% increase in organic traffic</strong>
                           achieved through technical fixes and structural improvements —
                           without paid advertising.
-                          <!-- GROWTH SVG ICON -->
-                          <svg viewBox="0 0 50 50" class="growth-icon">
-                              <path d="M5 45 L15 30 L25 35 L45 5" fill="none" stroke="#22c55e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
-                              <path d="M5 45 L45 5" stroke="#22c55e" stroke-width="2" stroke-dasharray="4 4" opacity="0.5"></path>
-                              <circle cx="45" cy="5" r="3" fill="#22c55e"></circle>
+                          
+                          <!-- FIXED SVG GROWTH ICON -->
+                          <svg viewBox="0 0 60 40" class="growth-icon">
+                              <!-- Grid Background -->
+                              <path d="M0 40 L60 40 M0 30 L60 30 M0 20 L60 20 M0 10 L60 10" stroke="#ffffff" stroke-width="0.5" stroke-opacity="0.2" />
+                              <!-- Growth Line -->
+                              <polyline points="5,35 20,30 35,20 55,5" fill="none" stroke="#22c55e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                              <!-- Dot at peak -->
+                              <circle cx="55" cy="5" r="3" fill="#22c55e" />
+                              <!-- Up Arrow -->
+                              <path d="M55 5 L50 0 M55 5 L60 0" stroke="#22c55e" stroke-width="2" stroke-linecap="round" />
                           </svg>
                       </p>
                   </div>
@@ -568,7 +575,7 @@
                   <h4>Contact</h4>
                   <ul>
                       <li class="mono">audit@techauditpros.com</li>
-                      <li class="mono">+91 484 000 0000</li>
+                      <li class="mono">+91 6282520339</li>
                   </ul>
               </div>
           </div>
@@ -583,7 +590,8 @@
       <a href="/technical-seo-audit.html" class="btn btn-primary" style="padding: 0.8rem 1.5rem; border-radius: 50px; box-shadow: 0 5px 20px rgba(0,0,0,0.5);">
           🚀 Get Free Audit
       </a>
-      <a href="https://wa.me/YOURNUMBER" class="btn btn-secondary" style="padding: 0.8rem 1.5rem; border-radius: 50px; box-shadow: 0 5px 20px rgba(0,0,0,0.5);">
+      <!-- UPDATED WHATSAPP LINK -->
+      <a href="https://wa.me/916282520339" class="btn btn-secondary" style="padding: 0.8rem 1.5rem; border-radius: 50px; box-shadow: 0 5px 20px rgba(0,0,0,0.5);">
           ☎️ WhatsApp Us
       </a>
   </div>
@@ -607,7 +615,8 @@
                   <span>Send Email Inquiry</span>
                   <span class="chat-btn-icon" style="color: var(--accent-primary); font-size: 1.2rem;">✉️</span>
               </button>
-              <button class="chat-btn" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: white; padding: 1rem; border-radius: 12px; text-align: left; font-size: 0.9rem; cursor: pointer; transition: 0.2s; font-family: var(--font-body); display: flex; justify-content: space-between; align-items: center;" onclick="window.open('https://wa.me/YOURNUMBER', '_blank')">
+              <!-- UPDATED WHATSAPP LINK -->
+              <button class="chat-btn" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: white; padding: 1rem; border-radius: 12px; text-align: left; font-size: 0.9rem; cursor: pointer; transition: 0.2s; font-family: var(--font-body); display: flex; justify-content: space-between; align-items: center;" onclick="window.open('https://wa.me/916282520339', '_blank')">
                   <span>Chat on WhatsApp</span>
                   <span class="chat-btn-icon" style="color: var(--accent-primary); font-size: 1.2rem;">💬</span>
               </button>
@@ -671,9 +680,8 @@
           }
       });
 
-      // Auto-play Industry Videos on Scroll (PLAYING ON DESKTOP NOW)
+      // Auto-play Industry Videos on Scroll
       document.addEventListener("DOMContentLoaded", () => {
-          // Include all videos: Industries AND Case Study video
           const videos = document.querySelectorAll("video");
 
           const observer = new IntersectionObserver(entries => {
@@ -690,14 +698,14 @@
                   }
               });
           }, {
-              threshold: 0.6
+              threshold: 0.2 // Lowered threshold to ensure smoother start
           });
 
           videos.forEach(video => observer.observe(video));
       });
   </script>
 
-  <!-- INLINE CSS (Updated for Kerala & Case Study) -->
+  <!-- INLINE CSS (Updated for Case Study Scroll & SVG) -->
   <style>
       /* --- CSS VARIABLES --- */
       :root {
@@ -1011,16 +1019,15 @@
           display: flex;
           gap: 3rem;
           align-items: center;
-          height: 100%;
+          height: 100vh; /* Fixed height to screen */
       }
       
       .case-video {
           flex: 1;
-          position: relative;
-          height: 80vh; /* Tall video */
+          height: 90vh; /* Slightly less than 100vh for spacing */
           border-radius: 16px;
           overflow: hidden;
-          border: 1px solid var(--glass-border);
+          border:1px solid var(--glass-border);
       }
       .case-video video {
           width: 100%;
@@ -1035,11 +1042,16 @@
       
       .case-content {
           flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          height: 100%;
+          height: 100vh; /* Fixed height */
+          overflow-y: auto; /* SCROLL LOCK FIX: Scroll text, not page */
+          padding-top: 80px; /* Space for header */
+          padding-bottom: 2rem;
+          padding-right: 1rem;
+          scrollbar-width: thin;
+          scrollbar-color: var(--glass-border) transparent;
       }
+      .case-content::-webkit-scrollbar { width: 6px; }
+      .case-content::-webkit-scrollbar-thumb { background-color: var(--glass-border); border-radius: 10px; }
 
       .case-label {
           display: inline-block;
@@ -1079,7 +1091,7 @@
       .case-result {
           margin-top: 2rem;
           padding: 2rem;
-          background: rgba(34, 197, 94, 0.1); /* Green tint */
+          background: rgba(34, 197, 94, 0.1);
           border: 1px solid var(--accent-success);
           border-radius: 12px;
           color: white;
@@ -1088,13 +1100,16 @@
           line-height: 1.6;
           display: flex;
           align-items: center;
-          gap: 1rem;
+          gap: 1.5rem;
       }
 
+      /* FIXED SVG ICON STYLING */
       .growth-icon {
-          width: 40px;
+          width: 60px;
           height: 40px;
           flex-shrink: 0;
+          stroke-linejoin: round;
+          stroke-linecap: round;
       }
 
       /* --- INDUSTRIES (Wide Grid) --- */
@@ -1135,7 +1150,7 @@
           width: 100%;
           height: 100%;
           object-fit: cover;
-          opacity: 0.5;
+          opacity: 0.5; 
           transition: opacity 0.5s ease;
       }
       .static-overlay {
@@ -1318,8 +1333,14 @@
           
           .case-study-layout {
               flex-direction: column;
+              height: auto; /* Reset height for mobile scroll */
           }
           .case-video { height: 300px; width: 100%; }
+          .case-content { 
+              height: auto; /* Reset height */
+              overflow: visible; /* Reset overflow */
+              padding-top: 2rem;
+          }
           
           .bento-grid-wide, .loc-grid-wide, .industry-grid-wide {
               grid-template-columns: 1fr;
