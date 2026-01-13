@@ -128,11 +128,18 @@
                   </div>
               </div>
               
-              <!-- Right: Lead Form -->
+              <!-- Right: Lead Form (UPDATED FOR FORMSUBMIT) -->
               <div class="hero-form-wrapper">
                   <div class="audit-form-container">
                       <h3 style="text-align: center; margin-bottom: 1.5rem; font-size: 1.5rem;">Get Your Free Technical Audit</h3>
-                      <form action="mailto:info@techauditpros.com" method="post" enctype="text/plain">
+                      <!-- FORMSUBMIT ACTION UPDATED -->
+                      <form action="https://formsubmit.co/el/pubuje" method="POST" id="auditForm" onsubmit="submitForm(event)">
+                          
+                          <!-- FormSubmit Configuration -->
+                          <input type="hidden" name="_subject" value="New Website Audit Submission!">
+                          <input type="hidden" name="_captcha" value="false">
+                          <input type="hidden" name="_template" value="table">
+
                           <div class="form-grid">
                               <div class="form-group">
                                   <label>First Name</label>
@@ -644,10 +651,13 @@
       <div class="chatbot-body" style="padding: 1rem;">
           <p style="font-size:0.9rem; color:#cbd5e1; margin-bottom:1.5rem;">How can I help optimize your digital growth today?</p>
           <div class="chat-options" style="display: flex; flex-direction: column; gap: 0.5rem;">
-              <button class="chat-btn" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: white; padding: 1rem; border-radius: 12px; text-align: left; font-size: 0.9rem; cursor: pointer; transition: 0.2s; font-family: var(--font-body); display: flex; justify-content: space-between; align-items: center;" onclick="window.location.href='mailto:info@techauditpros.com?subject=Technical Audit Inquiry'">
+              
+              <!-- UPDATED: Email button now opens Modal -->
+              <button class="chat-btn" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: white; padding: 1rem; border-radius: 12px; text-align: left; font-size: 0.9rem; cursor: pointer; transition: 0.2s; font-family: var(--font-body); display: flex; justify-content: space-between; align-items: center;" onclick="openChatModal()">
                   <span>Send Email Inquiry</span>
                   <span class="chat-btn-icon" style="color: var(--accent-primary); font-size: 1.2rem;">✉️</span>
               </button>
+              
               <button class="chat-btn" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: white; padding: 1rem; border-radius: 12px; text-align: left; font-size: 0.9rem; cursor: pointer; transition: 0.2s; font-family: var(--font-body); display: flex; justify-content: space-between; align-items: center;" onclick="window.open('https://wa.me/916282520339', '_blank')">
                   <span>Chat on WhatsApp</span>
                   <span class="chat-btn-icon" style="color: var(--accent-primary); font-size: 1.2rem;">💬</span>
@@ -661,6 +671,32 @@
       </div>
   </div>
 
+  <!-- NEW: CHATBOT EMAIL MODAL -->
+  <div id="chatModal" class="chat-modal-overlay">
+      <div class="chat-modal-content">
+          <span class="close-modal" onclick="closeChatModal()">&times;</span>
+          <h3 style="color:white; margin-bottom: 1rem;">Quick Inquiry</h3>
+          <!-- FORMSUBMIT ACTION FOR CHAT -->
+          <form action="https://formsubmit.co/el/pubuje" method="POST" id="chatForm" onsubmit="submitChatForm(event)">
+              
+              <input type="hidden" name="_subject" value="New Chat Inquiry!">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_template" value="table">
+
+              <div class="form-group" style="margin-bottom: 1rem;">
+                  <input type="text" name="name" class="form-input" required placeholder="Your Name">
+              </div>
+              <div class="form-group" style="margin-bottom: 1rem;">
+                  <input type="email" name="email" class="form-input" required placeholder="Your Email">
+              </div>
+              <div class="form-group" style="margin-bottom: 1rem;">
+                  <textarea name="message" class="form-textarea" rows="3" required placeholder="Brief details..."></textarea>
+              </div>
+              <button type="submit" id="chatSubmitBtn" class="btn btn-primary" style="width: 100%;">Send Message</button>
+          </form>
+      </div>
+  </div>
+
   <!-- JAVASCRIPT LOGIC -->
   <script>
       // Mobile Menu
@@ -669,7 +705,7 @@
           nav.classList.toggle('active');
       }
 
-      // Chatbot
+      // Chatbot Toggle
       function toggleChat() {
           const chat = document.getElementById('chatWindow');
           if (chat.style.display === 'flex') {
@@ -679,24 +715,85 @@
           }
       }
 
-      // Form Submission Simulation
+      // Chat Modal Logic
+      function openChatModal() {
+          document.getElementById('chatModal').style.display = 'flex';
+      }
+      function closeChatModal() {
+          document.getElementById('chatModal').style.display = 'none';
+      }
+
+      // HERO FORM SUBMISSION (FormSubmit AJAX)
       function submitForm(e) {
           e.preventDefault();
-          const btn = e.target.querySelector('button');
+          const form = e.target;
+          const btn = form.querySelector('button');
           const originalText = btn.innerText;
+          const data = new FormData(form);
           
           btn.innerText = "Analyzing Requirements...";
           btn.style.backgroundColor = "var(--accent-secondary)";
           
-          setTimeout(() => {
-              btn.innerText = "Request Sent!";
-              btn.style.backgroundColor = "#22c55e";
-              e.target.reset();
-              setTimeout(() => {
-                  btn.innerText = originalText;
-                  btn.style.backgroundColor = "";
-              }, 3000);
-          }, 1500);
+          fetch(form.action, {
+              method: "POST",
+              body: data,
+              headers: {
+                  'Accept': 'application/json'
+              }
+          }).then(response => {
+              if (response.ok) {
+                  btn.innerText = "Request Sent!";
+                  btn.style.backgroundColor = "#22c55e";
+                  form.reset();
+                  setTimeout(() => {
+                      btn.innerText = originalText;
+                      btn.style.backgroundColor = "";
+                  }, 3000);
+              } else {
+                  btn.innerText = "Error!";
+                  btn.style.backgroundColor = "red";
+              }
+          }).catch(error => {
+              btn.innerText = "Network Error";
+              btn.style.backgroundColor = "red";
+          });
+      }
+
+      // CHAT FORM SUBMISSION (FormSubmit AJAX)
+      function submitChatForm(e) {
+          e.preventDefault();
+          const form = e.target;
+          const btn = document.getElementById('chatSubmitBtn');
+          const originalText = btn.innerText;
+          const data = new FormData(form);
+          
+          btn.innerText = "Sending...";
+          btn.style.backgroundColor = "var(--accent-secondary)";
+          
+          fetch(form.action, {
+              method: "POST",
+              body: data,
+              headers: {
+                  'Accept': 'application/json'
+              }
+          }).then(response => {
+              if (response.ok) {
+                  btn.innerText = "Sent!";
+                  btn.style.backgroundColor = "#22c55e";
+                  form.reset();
+                  setTimeout(() => {
+                      closeChatModal();
+                      btn.innerText = originalText;
+                      btn.style.backgroundColor = "";
+                  }, 1500);
+              } else {
+                  btn.innerText = "Error";
+                  btn.style.backgroundColor = "red";
+              }
+          }).catch(error => {
+              btn.innerText = "Error";
+              btn.style.backgroundColor = "red";
+          });
       }
 
       // Sticky CTA Logic
@@ -737,7 +834,7 @@
       });
   </script>
 
-  <!-- INLINE CSS (Updated Assets & Trust Bar) -->
+  <!-- INLINE CSS (Updated Assets, Trust Bar, Modal) -->
   <style>
       /* --- CSS VARIABLES --- */
       :root {
@@ -1368,6 +1465,41 @@
           overflow: hidden;
       }
       .chat-stats { font-size: 0.75rem; color: var(--accent-success); margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--glass-border); display: block; font-family: var(--font-code); }
+      
+      /* --- CHAT MODAL STYLES --- */
+      .chat-modal-overlay {
+          display: none;
+          position: fixed;
+          z-index: 3000;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0,0,0,0.8);
+          backdrop-filter: blur(5px);
+          align-items: center;
+          justify-content: center;
+      }
+      .chat-modal-content {
+          background: rgba(15, 23, 42, 0.95);
+          border: 1px solid var(--glass-border);
+          padding: 2rem;
+          border-radius: 16px;
+          width: 90%;
+          max-width: 400px;
+          position: relative;
+      }
+      .close-modal {
+          color: #aaa;
+          float: right;
+          font-size: 28px;
+          font-weight: bold;
+          cursor: pointer;
+          position: absolute;
+          top: 10px;
+          right: 15px;
+      }
+      .close-modal:hover { color: white; }
       
       /* --- FOOTER --- */
       footer { padding: 6rem 0 3rem; background: rgba(0,0,0,0.5); border-top: 1px solid var(--glass-border); font-size: 1rem; }
