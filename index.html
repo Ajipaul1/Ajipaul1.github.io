@@ -132,8 +132,8 @@
               <div class="hero-form-wrapper">
                   <div class="audit-form-container">
                       <h3 style="text-align: center; margin-bottom: 1.5rem; font-size: 1.5rem;">Get Your Free Technical Audit</h3>
-                      <!-- FORMSUBMIT ACTION UPDATED -->
-                      <form action="https://formsubmit.co/el/pubuje" method="POST" id="auditForm" onsubmit="submitForm(event)">
+                      <!-- CORRECT FORMSUBMIT ACTION - JS REMOVED FOR NATURAL SUBMIT -->
+                      <form action="https://formsubmit.co/info@techauditpros.com" method="POST">
                           
                           <!-- FormSubmit Configuration -->
                           <input type="hidden" name="_subject" value="New Website Audit Submission!">
@@ -637,6 +637,7 @@
   </div>
 
   <!-- CHATBOT -->
+  <!-- Z-Index Increased to 2100 to sit ABOVE the Chat Window -->
   <div class="chatbot-bubble" onclick="toggleChat()">
       <svg viewBox="0 0 24 24" width="30" height="30" stroke="#020617" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 15a2 2 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
@@ -649,7 +650,9 @@
           Technical Assistant
       </div>
       <div class="chatbot-body" style="padding: 1rem;">
-          <p style="font-size:0.9rem; color:#cbd5e1; margin-bottom:1.5rem;">How can I help optimize your digital growth today?</p>
+          <!-- UPDATED TEXT: International Standard -->
+          <p style="font-size:0.9rem; color:#cbd5e1; margin-bottom:1.5rem;">24/7 Global Technical Support</p>
+          
           <div class="chat-options" style="display: flex; flex-direction: column; gap: 0.5rem;">
               
               <!-- UPDATED: Email button now opens Modal -->
@@ -676,8 +679,8 @@
       <div class="chat-modal-content">
           <span class="close-modal" onclick="closeChatModal()">&times;</span>
           <h3 style="color:white; margin-bottom: 1rem;">Quick Inquiry</h3>
-          <!-- FORMSUBMIT ACTION FOR CHAT -->
-          <form action="https://formsubmit.co/el/pubuje" method="POST" id="chatForm" onsubmit="submitChatForm(event)">
+          <!-- CORRECT FORMSUBMIT ACTION FOR CHAT -->
+          <form action="https://formsubmit.co/info@techauditpros.com" method="POST">
               
               <input type="hidden" name="_subject" value="New Chat Inquiry!">
               <input type="hidden" name="_captcha" value="false">
@@ -692,12 +695,12 @@
               <div class="form-group" style="margin-bottom: 1rem;">
                   <textarea name="message" class="form-textarea" rows="3" required placeholder="Brief details..."></textarea>
               </div>
-              <button type="submit" id="chatSubmitBtn" class="btn btn-primary" style="width: 100%;">Send Message</button>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
           </form>
       </div>
   </div>
 
-  <!-- JAVASCRIPT LOGIC -->
+  <!-- JAVASCRIPT LOGIC (CLEANED UP) -->
   <script>
       // Mobile Menu
       function toggleMobileMenu() {
@@ -721,79 +724,6 @@
       }
       function closeChatModal() {
           document.getElementById('chatModal').style.display = 'none';
-      }
-
-      // HERO FORM SUBMISSION (FormSubmit AJAX)
-      function submitForm(e) {
-          e.preventDefault();
-          const form = e.target;
-          const btn = form.querySelector('button');
-          const originalText = btn.innerText;
-          const data = new FormData(form);
-          
-          btn.innerText = "Analyzing Requirements...";
-          btn.style.backgroundColor = "var(--accent-secondary)";
-          
-          fetch(form.action, {
-              method: "POST",
-              body: data,
-              headers: {
-                  'Accept': 'application/json'
-              }
-          }).then(response => {
-              if (response.ok) {
-                  btn.innerText = "Request Sent!";
-                  btn.style.backgroundColor = "#22c55e";
-                  form.reset();
-                  setTimeout(() => {
-                      btn.innerText = originalText;
-                      btn.style.backgroundColor = "";
-                  }, 3000);
-              } else {
-                  btn.innerText = "Error!";
-                  btn.style.backgroundColor = "red";
-              }
-          }).catch(error => {
-              btn.innerText = "Network Error";
-              btn.style.backgroundColor = "red";
-          });
-      }
-
-      // CHAT FORM SUBMISSION (FormSubmit AJAX)
-      function submitChatForm(e) {
-          e.preventDefault();
-          const form = e.target;
-          const btn = document.getElementById('chatSubmitBtn');
-          const originalText = btn.innerText;
-          const data = new FormData(form);
-          
-          btn.innerText = "Sending...";
-          btn.style.backgroundColor = "var(--accent-secondary)";
-          
-          fetch(form.action, {
-              method: "POST",
-              body: data,
-              headers: {
-                  'Accept': 'application/json'
-              }
-          }).then(response => {
-              if (response.ok) {
-                  btn.innerText = "Sent!";
-                  btn.style.backgroundColor = "#22c55e";
-                  form.reset();
-                  setTimeout(() => {
-                      closeChatModal();
-                      btn.innerText = originalText;
-                      btn.style.backgroundColor = "";
-                  }, 1500);
-              } else {
-                  btn.innerText = "Error";
-                  btn.style.backgroundColor = "red";
-              }
-          }).catch(error => {
-              btn.innerText = "Error";
-              btn.style.backgroundColor = "red";
-          });
       }
 
       // Sticky CTA Logic
@@ -834,7 +764,7 @@
       });
   </script>
 
-  <!-- INLINE CSS (Updated Assets, Trust Bar, Modal) -->
+  <!-- INLINE CSS (Updated Assets, Trust Bar, Modal, Z-Index Fixes) -->
   <style>
       /* --- CSS VARIABLES --- */
       :root {
@@ -1432,6 +1362,7 @@
       .sticky-cta.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
       
       /* --- CHATBOT --- */
+      /* Z-Index bumped to 2100 to ensure it sits on top of the window */
       .chatbot-bubble {
           position: fixed;
           bottom: 30px;
@@ -1445,7 +1376,7 @@
           justify-content: center;
           cursor: pointer;
           box-shadow: 0 0 30px rgba(56, 189, 248, 0.6);
-          z-index: 2000;
+          z-index: 2100;
           transition: transform 0.3s;
       }
       .chatbot-bubble:hover { transform: scale(1.05); }
@@ -1502,7 +1433,7 @@
       .close-modal:hover { color: white; }
       
       /* --- FOOTER --- */
-      footer { padding: 6rem 0 3rem; background: rgba(0,0,0,0.5); border-top: 1px solid var(--glass-border); font-size: 1rem; }
+      footer { padding: 6rem 0 3rem; background: rgba(0,0,0,0.5); border-top: 1px solid var(--glass-border); font-size: 1rem; position: relative; z-index: 1;}
       .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 4rem; margin-bottom: 4rem; }
       .footer-col h4 { margin-bottom: 2rem; color: white; font-size: 1.2rem; }
       .footer-col ul li { margin-bottom: 1.2rem; }
@@ -1535,7 +1466,16 @@
           .nav-links a { font-size: 1.5rem; }
           .header-actions > *:not(.mobile-menu-btn) { display: none; }
           .form-grid { grid-template-columns: 1fr; }
-          .sticky-cta { right: 20px; bottom: 20px; flex-direction: column; width: auto; gap: 0.5rem; }
+          
+          /* MOBILE STICKY CTA FIX */
+          .sticky-cta { 
+              right: 20px; 
+              bottom: 20px; 
+              flex-direction: column; 
+              width: auto; 
+              gap: 0.75rem; 
+              z-index: 950; /* Ensure it's above content but below chat bubble */
+          }
           .chatbot-window { right: 5%; width: 90%; bottom: 90px; }
           
           .hero-split {
