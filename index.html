@@ -128,12 +128,12 @@
                   </div>
               </div>
               
-              <!-- Right: Lead Form (UPDATED FOR FORMSUBMIT) -->
+              <!-- Right: Lead Form -->
               <div class="hero-form-wrapper">
                   <div class="audit-form-container">
                       <h3 style="text-align: center; margin-bottom: 1.5rem; font-size: 1.5rem;">Get Your Free Technical Audit</h3>
-                      <!-- CORRECT FORMSUBMIT ACTION - JS REMOVED FOR NATURAL SUBMIT -->
-                      <form action="https://formsubmit.co/info@techauditpros.com" method="POST">
+                      <!-- ADDED onsubmit FOR AJAX -->
+                      <form action="https://formsubmit.co/info@techauditpros.com" method="POST" onsubmit="submitForm(event)">
                           
                           <!-- FormSubmit Configuration -->
                           <input type="hidden" name="_subject" value="New Website Audit Submission!">
@@ -637,7 +637,7 @@
   </div>
 
   <!-- CHATBOT -->
-  <!-- Z-Index Increased to 2100 to sit ABOVE the Chat Window -->
+  <!-- Z-Index Increased to 2100 to sit ABOVE Chat Window -->
   <div class="chatbot-bubble" onclick="toggleChat()">
       <svg viewBox="0 0 24 24" width="30" height="30" stroke="#020617" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 15a2 2 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
@@ -679,8 +679,8 @@
       <div class="chat-modal-content">
           <span class="close-modal" onclick="closeChatModal()">&times;</span>
           <h3 style="color:white; margin-bottom: 1rem;">Quick Inquiry</h3>
-          <!-- CORRECT FORMSUBMIT ACTION FOR CHAT -->
-          <form action="https://formsubmit.co/info@techauditpros.com" method="POST">
+          <!-- ADDED onsubmit FOR AJAX -->
+          <form action="https://formsubmit.co/info@techauditpros.com" method="POST" onsubmit="submitChatForm(event)">
               
               <input type="hidden" name="_subject" value="New Chat Inquiry!">
               <input type="hidden" name="_captcha" value="false">
@@ -695,12 +695,12 @@
               <div class="form-group" style="margin-bottom: 1rem;">
                   <textarea name="message" class="form-textarea" rows="3" required placeholder="Brief details..."></textarea>
               </div>
-              <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+              <button type="submit" id="chatSubmitBtn" class="btn btn-primary" style="width: 100%;">Send Message</button>
           </form>
       </div>
   </div>
 
-  <!-- JAVASCRIPT LOGIC (CLEANED UP) -->
+  <!-- JAVASCRIPT LOGIC (UPDATED WITH FETCH) -->
   <script>
       // Mobile Menu
       function toggleMobileMenu() {
@@ -724,6 +724,81 @@
       }
       function closeChatModal() {
           document.getElementById('chatModal').style.display = 'none';
+      }
+
+      // HERO FORM SUBMISSION (AJAX FETCH)
+      function submitForm(e) {
+          e.preventDefault(); // Prevents page redirect
+          const form = e.target;
+          const btn = form.querySelector('button');
+          const originalText = btn.innerText;
+          const data = new FormData(form); // Standard Form Data (not JSON)
+          
+          // Animation state
+          btn.innerText = "Analyzing Requirements...";
+          btn.style.backgroundColor = "var(--accent-secondary)";
+          
+          // Fetch logic
+          fetch(form.action, {
+              method: "POST",
+              body: data
+          }).then(response => {
+              if (response.ok) {
+                  // Success State
+                  btn.innerText = "Request Sent!";
+                  btn.style.backgroundColor = "#22c55e"; // Green
+                  form.reset(); // Clear form
+                  setTimeout(() => {
+                      btn.innerText = originalText;
+                      btn.style.backgroundColor = "";
+                  }, 3000);
+              } else {
+                  // Error State
+                  btn.innerText = "Error!";
+                  btn.style.backgroundColor = "red";
+              }
+          }).catch(error => {
+              btn.innerText = "Error";
+              btn.style.backgroundColor = "red";
+          });
+      }
+
+      // CHAT FORM SUBMISSION (AJAX FETCH)
+      function submitChatForm(e) {
+          e.preventDefault(); // Prevents page redirect
+          const form = e.target;
+          const btn = document.getElementById('chatSubmitBtn');
+          const originalText = btn.innerText;
+          const data = new FormData(form); // Standard Form Data (not JSON)
+          
+          // Animation state
+          btn.innerText = "Sending...";
+          btn.style.backgroundColor = "var(--accent-secondary)";
+          
+          // Fetch logic
+          fetch(form.action, {
+              method: "POST",
+              body: data
+          }).then(response => {
+              if (response.ok) {
+                  // Success State
+                  btn.innerText = "Sent!";
+                  btn.style.backgroundColor = "#22c55e"; // Green
+                  form.reset();
+                  setTimeout(() => {
+                      closeChatModal();
+                      btn.innerText = originalText;
+                      btn.style.backgroundColor = "";
+                  }, 1500);
+              } else {
+                  // Error State
+                  btn.innerText = "Error";
+                  btn.style.backgroundColor = "red";
+              }
+          }).catch(error => {
+              btn.innerText = "Error";
+              btn.style.backgroundColor = "red";
+          });
       }
 
       // Sticky CTA Logic
@@ -764,7 +839,7 @@
       });
   </script>
 
-  <!-- INLINE CSS (Updated Assets, Trust Bar, Modal, Z-Index Fixes) -->
+  <!-- INLINE CSS (Unchanged from previous update) -->
   <style>
       /* --- CSS VARIABLES --- */
       :root {
