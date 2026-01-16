@@ -82,7 +82,7 @@
           --text-main: #F1F5F9; 
           --text-muted: #94A3B8; 
           --glass-border: rgba(255, 255, 255, 0.15); 
-          --glass-bg: rgba(15, 23, 42, 0.6);
+          --glass-bg: rgba(15, 23, 42, 0.5); /* More transparent to see video */
           --font-body: 'Inter', sans-serif; 
           --font-code: 'JetBrains Mono', monospace; 
           --transition-speed: 0.5s;
@@ -100,100 +100,98 @@
       .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
 
       /* BACKGROUND GLOWS */
-      .ambient-glow { position: fixed; border-radius: 50%; filter: blur(100px); z-index: -2; opacity: 0.2; pointer-events: none; transition: background 0.5s ease; }
+      .ambient-glow { position: fixed; border-radius: 50%; filter: blur(100px); z-index: -2; opacity: 0.15; pointer-events: none; transition: background 0.5s ease; }
       .glow-1 { top: -20%; left: -10%; width: 800px; height: 800px; background: var(--accent-primary); }
       .glow-2 { bottom: -20%; right: -10%; width: 800px; height: 800px; background: var(--accent-secondary); }
 
       /* ==================================================
-         CINEMATIC HERO STYLES
+         CINEMATIC SPLIT LAYOUT STYLES
       ================================================== */
       .hero { 
           position: relative; 
           width: 100%; 
           height: 100vh; 
-          display: flex; 
-          align-items: center; 
-          justify-content: center; 
-          overflow: hidden; 
-      }
-
-      /* Full Screen Background Video */
-      #heroVideo {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          min-width: 100%;
-          min-height: 100%;
-          width: auto;
-          height: auto;
+          display: grid;
+          /* SPLIT LAYOUT: 40% Text / 60% Video */
+          grid-template-columns: 40% 60%; 
+          overflow: hidden;
           z-index: 1;
-          object-fit: cover;
-          opacity: 0.6; /* Slightly darkened for text readability */
-          transition: opacity 1s ease;
       }
 
-      /* Video Overlay Gradient (For Readability) */
-      .hero-overlay {
-          position: absolute;
-          top: 0; left: 0; width: 100%; height: 100%;
-          background: linear-gradient(to bottom, rgba(2,6,23,0.8), rgba(2,6,23,0.4));
-          z-index: 2;
-      }
-
-      /* Glassmorphism Content Box */
-      .glass-container {
+      /* LEFT COLUMN: Glassmorphism Content */
+      .hero-content-col {
           position: relative;
           z-index: 10;
-          width: 90%;
-          max-width: 900px;
+          padding: 4rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          background: linear-gradient(90deg, rgba(2,6,23,0.6) 0%, rgba(2,6,23,0.2) 100%); /* Dark gradient only on text side */
+      }
+
+      .glass-container {
           background: var(--glass-bg);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
           border: 1px solid var(--glass-border);
-          border-radius: 24px;
-          padding: 3rem;
-          box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-          text-align: center;
-          animation: floatUp 0.8s ease-out forwards;
+          border-radius: 16px;
+          padding: 2.5rem;
+          box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+          max-width: 500px;
+          animation: slideInLeft 0.6s ease-out forwards;
       }
 
-      @keyframes floatUp {
-          from { opacity: 0; transform: translateY(30px); }
-          to { opacity: 1; transform: translateY(0); }
+      @keyframes slideInLeft {
+          from { opacity: 0; transform: translateX(-30px); }
+          to { opacity: 1; transform: translateX(0); }
+      }
+
+      /* RIGHT COLUMN: The Video Display */
+      .hero-video-col {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+      }
+
+      #heroVideo {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; /* Ensures video fills the 60% space perfectly */
+          opacity: 1; /* Full Quality - no dark overlay */
+          transition: opacity 0.5s ease;
       }
 
       /* Typography */
-      .hero-breadcrumb { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-primary); margin-bottom: 1rem; display: block; font-weight: 700; }
-      h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; color: white; line-height: 1.1; margin-bottom: 1.5rem; }
-      .hero-tagline { font-size: 1.35rem; color: #e2e8f0; margin-bottom: 2.5rem; font-weight: 300; line-height: 1.5; }
+      .hero-breadcrumb { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-primary); margin-bottom: 1rem; display: block; font-weight: 700; }
+      h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: white; line-height: 1.1; margin-bottom: 1rem; }
+      .hero-tagline { font-size: 1.1rem; color: #e2e8f0; margin-bottom: 2rem; font-weight: 400; line-height: 1.6; }
       
       /* Button Styles */
-      .btn-grid { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; margin-bottom: 2.5rem; }
+      .btn-grid { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2rem; }
       .chameleon-btn {
-          background: rgba(255,255,255,0.05);
+          background: rgba(255,255,255,0.08);
           border: 1px solid var(--glass-border);
           color: var(--text-muted);
-          padding: 0.8rem 1.5rem;
-          border-radius: 50px;
-          font-size: 0.9rem;
+          padding: 0.6rem 1rem;
+          border-radius: 8px;
+          font-size: 0.8rem;
           font-weight: 600;
           cursor: pointer;
           transition: all 0.3s ease;
       }
-      .chameleon-btn:hover { background: rgba(255,255,255,0.15); color: white; transform: translateY(-2px); }
+      .chameleon-btn:hover { background: rgba(255,255,255,0.2); color: white; transform: translateY(-2px); }
       .chameleon-btn.active { background: var(--accent-primary); color: #020617; border-color: var(--accent-primary); box-shadow: 0 0 15px var(--accent-primary); }
 
-      .hero-form { margin-top: 2rem; display: grid; grid-template-columns: 1fr 1fr auto; gap: 1rem; align-items: end; }
-      .form-input-group { display: flex; flex-direction: column; gap: 0.5rem; text-align: left; }
-      input { background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: white; padding: 1rem; border-radius: 12px; font-family: var(--font-body); outline: none; transition: 0.3s; width: 100%; }
+      .hero-form { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem; }
+      .form-input-group { display: flex; flex-direction: column; gap: 0.3rem; }
+      input { background: rgba(0,0,0,0.4); border: 1px solid var(--glass-border); color: white; padding: 0.9rem; border-radius: 8px; font-family: var(--font-body); outline: none; transition: 0.3s; width: 100%; }
       input:focus { border-color: var(--accent-primary); box-shadow: 0 0 0 2px rgba(56,189,248,0.2); }
       .btn-submit { 
-          background: var(--accent-primary); color: #020617; border: none; padding: 1rem 2rem; 
-          border-radius: 12px; font-weight: 800; cursor: pointer; transition: 0.3s; font-size: 1rem; text-transform: uppercase;
-          white-space: nowrap;
+          background: var(--accent-primary); color: #020617; border: none; padding: 1rem; 
+          border-radius: 8px; font-weight: 800; cursor: pointer; transition: 0.3s; font-size: 1rem; text-transform: uppercase;
       }
-      .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 0 30px var(--accent-primary); }
+      .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 0 20px var(--accent-primary); }
 
       /* ==================================================
          ORIGINAL STYLES (ADAPTED)
@@ -202,7 +200,7 @@
       .full-screen-section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; position: relative; padding: 6rem 0; }
       @media (max-width: 1023px) { .full-screen-section { min-height: auto; padding: 4rem 0; } }
       h2, h3, h4 { font-weight: 800; line-height: 1.2; }
-      h2 { font-size: clamp(2rem, 4vw, 3.5rem); color: white; margin-bottom: 1.5rem; }
+      h2 { font-size: clamp(2rem, 4vw, 3rem); color: white; margin-bottom: 1.5rem; }
       h3 { font-size: 1.5rem; color: white; }
       
       .btn-primary { background: var(--accent-primary); color: #020617; padding: 0.8rem 1.8rem; border-radius: 8px; font-weight: 700; transition: 0.3s; display: inline-block; }
@@ -210,7 +208,7 @@
       .btn-secondary { background: rgba(255, 255, 255, 0.1); color: white; border: 1px solid var(--glass-border); padding: 0.8rem 1.8rem; border-radius: 8px; }
 
       /* Header */
-      header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(2, 6, 23, 0.8); backdrop-filter: blur(15px); border-bottom: 1px solid var(--glass-border); height: 80px; display: flex; align-items: center; }
+      header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid var(--glass-border); height: 70px; display: flex; align-items: center; }
       .nav-wrapper { display: flex; justify-content: space-between; align-items: center; height: 100%; width: 100%; }
       .logo svg { height: 40px; width: auto; }
       .nav-links { display: flex; gap: 2rem; }
@@ -267,7 +265,17 @@
           .nav-links { position: fixed; top: 0; right: -100%; width: 85%; height: 100vh; background: #020617; flex-direction: column; justify-content: center; align-items: center; transition: 0.3s; z-index: 999; }
           .nav-links.active { right: 0; }
           .nav-links a { font-size: 1.5rem; }
-          .hero-form { grid-template-columns: 1fr; }
+          
+          /* MOBILE HERO: Stack Video on top */
+          .hero { 
+              grid-template-columns: 1fr; 
+              grid-template-rows: auto 1fr; /* Video takes available space */
+              display: flex; 
+              flex-direction: column-reverse; /* Content below video */
+          }
+          .hero-content-col { padding: 2rem; width: 100%; order: 2; background: rgba(2,6,23,0.8); }
+          .hero-video-col { height: 40vh; order: 1; }
+          
           .split-layout { flex-direction: column; }
           .sticky-cta { right: 15px; bottom: 15px; flex-direction: column; }
       }
@@ -317,47 +325,55 @@
   </header>
 
   <main>
-      <!-- HERO SECTION (CINEMATIC LAYOUT) -->
+      <!-- HERO SECTION (SPLIT CINEMATIC LAYOUT) -->
+      <!-- Left: Content | Right: Video -->
       <section class="hero">
-          <!-- Full Bleed Background Video -->
-          <video id="heroVideo" playsinline muted autoplay loop>
-              <!-- JS Injection -->
-          </video>
-          <div class="hero-overlay"></div>
+          
+          <!-- LEFT COLUMN: Content (Glassmorphism) -->
+          <div class="hero-content-col">
+              <div class="glass-container">
+                  <span class="hero-breadcrumb mono">SEO DASHBOARD // <span class="text-accent">MODE: DYNAMIC</span></span>
+                  
+                  <h1 id="dynamicH1">#1 Technical SEO Agency in Kochi for Real Growth</h1>
+                  <p id="dynamicTagline" class="hero-tagline">Engineered for Ernakulam’s top brands.</p>
 
-          <!-- Centered Glassmorphism Content -->
-          <div class="glass-container">
-              <span class="hero-breadcrumb mono">SEO DASHBOARD // <span class="text-accent">MODE: DYNAMIC</span></span>
-              
-              <h1 id="dynamicH1">#1 Technical SEO Agency in Kochi for Real Growth</h1>
-              <p id="dynamicTagline" class="hero-tagline">Engineered for Ernakulam’s top brands.</p>
-
-              <div class="btn-grid" id="industryButtons">
-                  <!-- Buttons Injected via JS -->
-              </div>
-
-              <div style="background: rgba(56, 189, 248, 0.1); padding: 0.5rem 1rem; border-left: 4px solid var(--accent-primary); border-radius: 0 8px 8px 0; margin-bottom: 2rem; display: inline-block;">
-                  <span style="color: white; font-weight: 600; font-size: 0.9rem;">കൊച്ചിയിലെ മികച്ച ടെക്നിക്കൽ എസ്.ഇ.ഒ ഏജൻസി</span>
-              </div>
-
-              <form id="auditForm" action="https://formsubmit.co/info@techauditpros.com" method="POST" onsubmit="submitForm(event)">
-                  <input type="hidden" name="_subject" value="New Cinematic Chameleon Audit Request">
-                  <input type="hidden" name="_captcha" value="false">
-                  <div class="form-input-group">
-                      <input type="text" name="name" placeholder="Name" required>
+                  <div class="btn-grid" id="industryButtons">
+                      <!-- Buttons Injected via JS -->
                   </div>
-                  <div class="form-input-group">
-                      <input type="email" name="email" placeholder="Email" required>
+
+                  <div style="background: rgba(56, 189, 248, 0.1); padding: 0.5rem 1rem; border-left: 4px solid var(--accent-primary); border-radius: 0 8px 8px 0; margin-bottom: 2rem; display: inline-block;">
+                      <span style="color: white; font-weight: 600; font-size: 0.85rem;">കൊച്ചിയിലെ മികച്ച ടെക്നിക്കൽ എസ്.ഇ.ഒ ഏജൻസി</span>
                   </div>
-                  <button type="submit" id="dynamicCta" class="btn-submit">Get Your Kochi Site Audit</button>
-              </form>
+
+                  <form id="auditForm" action="https://formsubmit.co/info@techauditpros.com" method="POST" onsubmit="submitForm(event)">
+                      <input type="hidden" name="_subject" value="New Split Cinematic Audit Request">
+                      <input type="hidden" name="_captcha" value="false">
+                      <div class="form-input-group">
+                          <input type="text" name="name" placeholder="Name" required>
+                      </div>
+                      <div class="form-input-group">
+                          <input type="email" name="email" placeholder="Email" required>
+                      </div>
+                      <div class="form-input-group">
+                          <input type="url" name="website" placeholder="Website URL" required>
+                      </div>
+                      <button type="submit" id="dynamicCta" class="btn-submit">Get Your Kochi Site Audit</button>
+                  </form>
+              </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Video (Visible, High Quality) -->
+          <div class="hero-video-col">
+              <video id="heroVideo" playsinline muted autoplay loop>
+                  <!-- JS Injection -->
+              </video>
           </div>
       </section>
 
       <!-- AUTHORITY: METHODOLOGY (DEEP DIVE VIDEO) -->
       <section id="methodology" class="full-screen-section">
           <!-- Secondary Background Video -->
-          <video id="methodVideo" playsinline muted autoplay loop style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity: 0.15; z-index: -1;"></video>
+          <video id="methodVideo" playsinline muted autoplay loop style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity: 0.2; z-index: -1;"></video>
           
           <div class="container">
               <div class="split-layout centered">
@@ -650,7 +666,7 @@
 
   <script>
       // ==================================================
-      // DATA: INDUSTRY CHAMELEON STATE (CINEMATIC)
+      // DATA: INDUSTRY CHAMELEON STATE (SPLIT CINEMATIC)
       // ==================================================
       const industryData = {
           general: {
@@ -863,7 +879,7 @@
       });
 
       // ==================================================
-      // LOGIC: CINEMATIC UI SWITCHER
+      // LOGIC: SPLIT CINEMATIC UI SWITCHER
       // ==================================================
       
       function updateUI(key) {
