@@ -668,7 +668,7 @@ h1: '#1 Technical SEO Agency in Kochi for Real Growth',
 tagline: 'Engineered for Ernakulam’s top brands.',
 cta: 'Get Your Kochi Site Audit',
 color: '#38BDF8',
-videos: ['/videos/mainvideos/hero-kochi-drone.mp4', '/videos/mainvideos/hero-technical-audit.mp4']
+	videos: ['/videos/mainvideos/hero-kochi-drone.mp4', '/videos/mainvideos/hero-technical-audit.mp4']
 },
 healthcare: {
 id: 'healthcare',
@@ -677,7 +677,7 @@ h1: '#1 SEO for Kochi Hospitals',
 tagline: 'Convert Patient Search into Appointments.',
 cta: 'Get My Clinic Audit',
 color: '#38BDF8',
-videos: ['/videos/mainvideos/health-1.mp4', '/videos/mainvideos/health-2.mp4']
+	videos: ['/videos/mainvideos/health-1.mp4', '/videos/mainvideos/health-2.mp4']
 },
 realestate: {
 id: 'realestate',
@@ -686,7 +686,7 @@ h1: 'High-Impact Realty SEO Kochi',
 tagline: 'Sell Villas in Kakkanad & Marine Drive.',
 cta: 'Analyze My Property',
 color: '#F59E0B',
-videos: ['/videos/mainvideos/realty-2.mp4', '/videos/mainvideos/realty-3.mp4']
+	videos: ['/videos/mainvideos/realty-2.mp4', '/videos/mainvideos/realty-3.mp4']
 },
 ayurveda: {
 id: 'ayurveda',
@@ -695,7 +695,7 @@ h1: 'Kerala’s Leading Ayurveda SEO',
 tagline: 'Bring Global Seekers to Your Resort.',
 cta: 'Audit My Wellness Site',
 color: '#10B981',
-videos: ['/videos/mainvideos/ayurveda-1.mp4', '/videos/mainvideos/ayurveda-2.mp4']
+	videos: ['/videos/mainvideos/ayurveda-1.mp4', '/videos/mainvideos/ayurveda-2.mp4']
 },
 logistics: {
 id: 'logistics',
@@ -704,7 +704,7 @@ h1: 'Global SEO for Kochi Port',
 tagline: 'Connect Vallarpadam to the World.',
 cta: 'Check My Trade Reach',
 color: '#6366F1',
-videos: ['/videos/mainvideos/port-1.mp4', '/videos/mainvideos/port-2.mp4']
+	videos: ['/videos/mainvideos/port-1.mp4', '/videos/mainvideos/port-2.mp4']
 },
 fashion: {
 id: 'fashion',
@@ -713,7 +713,7 @@ h1: 'Scaling Kochi’s Fashion Brands',
 tagline: 'From Lulu Mall to Global Trending.',
 cta: 'Analyze My Collection',
 color: '#EC4899',
-videos: ['/videos/mainvideos/fashion-1.mp4', '/videos/mainvideos/fashion-2.mp4']
+	videos: ['/videos/mainvideos/fashion-1.mp4', '/videos/mainvideos/fashion-2.mp4']
 },
 makeup: {
 id: 'makeup',
@@ -722,7 +722,7 @@ h1: 'Top SEO for Kochi Makeup Artists',
 tagline: 'Dominate Bridal Bookings in Ernakulam.',
 cta: 'Scale My Bookings',
 color: '#A855F7',
-videos: ['/videos/mainvideos/beauty-1.mp4', '/videos/mainvideos/beauty-2.mp4']
+	videos: ['/videos/mainvideos/beauty-1.mp4', '/videos/mainvideos/beauty-2.mp4']
 },
 tourism: {
 id: 'tourism',
@@ -731,7 +731,7 @@ h1: 'Kerala Tourism SEO: From Backwaters to Global Bookings',
 tagline: 'Scaling small boat businesses and luxury resorts in Fort Kochi and Alleppey.',
 cta: 'Boost My Tourism Biz',
 color: '#0EA5E9',
-videos: ['/videos/mainvideos/tour-1.mp4', '/videos/mainvideos/tour-2.mp4']
+	videos: ['/videos/mainvideos/tour-1.mp4', '/videos/mainvideos/tour-2.mp4']
 },
 techaudit: {
 id: 'techaudit',
@@ -740,7 +740,7 @@ h1: 'Elite Technical SEO & Core Web Vitals',
 tagline: 'Fix the code, own the rankings.',
 cta: 'Audit My Code',
 color: '#F43F5E',
-videos: ['/videos/mainvideos/tech-1.mp4', '/videos/mainvideos/tech-2.mp4']
+	videos: ['/videos/mainvideos/tech-1.mp4', '/videos/mainvideos/tech-2.mp4']
 }
 };
 
@@ -767,17 +767,17 @@ let currentIndustry = 'general';
 // ==================================================
 
 function flushMemory(videoElement) {
-videoElement.pause();
-videoElement.removeAttribute('src');
-videoElement.load();
+	videoElement.pause();
+	videoElement.removeAttribute('src');
 }
 
 function playVideo(videoElement, src) {
 if (!src) return;
+// Set muted and playsinline before src for best autoplay compatibility
+videoElement.muted = true;
+videoElement.setAttribute('muted', '');
+videoElement.setAttribute('playsinline', '');
 videoElement.src = src;
-videoElement.muted = true; // Ensure muted for autoplay
-videoElement.setAttribute('muted', ''); // For cross-browser
-videoElement.load();
 videoElement.play().catch(e => console.log("Autoplay blocked interaction required", e));
 }
 
