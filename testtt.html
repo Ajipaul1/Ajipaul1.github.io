@@ -274,6 +274,10 @@ HEALTHCARE SECTOR SPECIFIC STYLES
 
 /* Healthcare CTA Scarcity */
 .scarcity-tag { display: inline-block; background: rgba(34, 197, 94, 0.1); color: #22c55e; padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600; margin-bottom: 1rem; letter-spacing: 0.5px; }
+
+/* Healthcare mode visibility */
+.healthcare-only { display: none; }
+.healthcare-active .healthcare-only { display: block; }
 </style>
 </head>
 
@@ -662,12 +666,16 @@ HEALTHCARE SECTOR SPECIFIC STYLES
 
 /* Healthcare CTA Scarcity */
 .scarcity-tag { display: inline-block; background: rgba(34, 197, 94, 0.1); color: #22c55e; padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600; margin-bottom: 1rem; letter-spacing: 0.5px; }
+
+/* Healthcare mode visibility */
+.healthcare-only { display: none; }
+.healthcare-active .healthcare-only { display: block; }
 </style>
 
 <!-- ==================================================
 SECTION 1: REAL-TIME CONVERSATION INTRO (PSYCHOLOGICAL HOOK)
 ================================================== -->
-<section class="full-screen-section" style="background: linear-gradient(180deg, rgba(2,6,23,0) 0%, rgba(15,23,42,0.5) 100%);">
+<section class="full-screen-section healthcare-only" style="background: linear-gradient(180deg, rgba(2,6,23,0) 0%, rgba(15,23,42,0.5) 100%);">
 <div class="container">
 <div class="chat-container">
 <!-- System Message -->
@@ -718,8 +726,8 @@ Effective <strong>Medical SEO Kerala</strong> isn't about aggressive selling. It
 </div>
 <div style="flex: 1;">
 <div class="video-wrapper">
-<video poster="kerala-medical-decision-trust.jpg" playsinline muted autoplay loop class="video-player">
-<source src="kerala-medical-decision-trust.mp4" type="video/mp4">
+<video poster="/videos/mainvideos/kerala-medical-decision-trust.jpg" playsinline muted autoplay loop class="video-player">
+<source src="/videos/mainvideos/kerala-medical-decision-trust.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 </div>
@@ -730,10 +738,10 @@ Your browser does not support the video tag.
 <!-- ==================================================
 SECTION 3: THE GAP ANALYSIS (MID-PAGE ENGAGEMENT)
 ================================================== -->
-<section style="padding: 6rem 0; background: rgba(0,0,0,0.2);">
+<section class="healthcare-only" style="padding: 6rem 0; background: rgba(0,0,0,0.2);">
 <div class="container" style="max-width: 900px;">
 <div style="text-align: center; margin-bottom: 3rem;">
-<h2>The Technical Gap in Kochi Healthcare</h2>
+<h2 class="text-white">The Technical Gap in Kochi Healthcare</h2>
 <p class="text-muted">Where patients are lost before they even arrive.</p>
 </div>
 <div style="background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 3rem; border-radius: 20px;">
@@ -764,7 +772,7 @@ Clinics serving areas near <strong>Lulu Mall</strong>, <strong>Infopark</strong>
 <!-- ==================================================
 SECTION 4: WHAT HEALTHCARE SEO REALLY MEANS
 ================================================== -->
-<section style="padding: 6rem 0;">
+<section class="healthcare-only" style="padding: 6rem 0;">
 <div class="container">
 <div class="split-layout">
 <div style="flex: 1;">
@@ -806,8 +814,8 @@ SECTION 5: GOOGLE MAPS & LOCAL VISIBILITY (HIGH PRIORITY)
 <div class="container split-layout centered">
 <div style="flex: 1; order: 2;">
 <div class="video-wrapper">
-<video poster="google-maps-hospital-visibility-kochi.jpg" playsinline muted autoplay loop class="video-player">
-<source src="google-maps-hospital-visibility-kochi.mp4" type="video/mp4">
+<video poster="/videos/mainvideos/google-maps-hospital-visibility-kochi.jpg" playsinline muted autoplay loop class="video-player">
+<source src="/videos/mainvideos/google-maps-hospital-visibility-kochi.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 </div>
@@ -829,7 +837,7 @@ For a hospital, the "Google Maps Pack" (the top 3 results) is more valuable than
 <!-- ==================================================
 SECTION 6: TECHNICAL TRUST SIGNALS
 ================================================== -->
-<section style="padding: 6rem 0; background: rgba(0,0,0,0.2);">
+<section class="healthcare-only" style="padding: 6rem 0; background: rgba(0,0,0,0.2);">
 <div class="container" style="max-width: 800px;">
 <div style="text-align: center; margin-bottom: 4rem;">
 <h2>The Psychology of Trust</h2>
@@ -855,7 +863,7 @@ SECTION 6: TECHNICAL TRUST SIGNALS
 <!-- ==================================================
 SECTION 7: INTERACTIVE TRUST CHECK
 ================================================== -->
-<section class="full-screen-section" style="padding: 4rem 0;">
+<section class="full-screen-section healthcare-only" style="padding: 4rem 0;">
 <div class="container split-layout">
 <div style="flex: 1; padding-right: 3rem;">
 <span class="mono text-accent">// SELF-DIAGNOSIS</span>
@@ -882,8 +890,8 @@ SECTION 7: INTERACTIVE TRUST CHECK
 </div>
 <div style="flex: 1;">
 <div class="video-wrapper">
-<video poster="healthcare-digital-audit-credibility.jpg" playsinline muted autoplay loop class="video-player">
-<source src="healthcare-digital-audit-credibility.mp4" type="video/mp4">
+<video poster="/videos/mainvideos/healthcare-digital-audit-credibility.jpg" playsinline muted autoplay loop class="video-player">
+<source src="/videos/mainvideos/healthcare-digital-audit-credibility.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 </div>
@@ -894,7 +902,7 @@ Your browser does not support the video tag.
 <!-- ==================================================
 SECTION 8 & 9: FREE AUDIT & FINAL CTA
 ================================================== -->
-<section id="healthcare-audit-form" style="padding: 6rem 0; background: linear-gradient(180deg, var(--bg-base) 0%, rgba(56, 189, 248, 0.05) 100%);">
+<section id="healthcare-audit-form" class="healthcare-only" style="padding: 6rem 0; background: linear-gradient(180deg, var(--bg-base) 0%, rgba(56, 189, 248, 0.05) 100%);">
 <div class="container" style="max-width: 600px;">
 <div style="text-align: center; margin-bottom: 3rem;">
 <span class="scarcity-tag">LIMITED: 3 AUDITS PER WEEK</span>
@@ -930,15 +938,12 @@ We analyze technical gaps and competitor keyword capture (including agencies lik
 HEALTHCARE SEO SHADOW LAYER
 (Append this to your existing .visually-hidden div)
 ================================================== -->
-<div class="visually-hidden">
+<div class="visually-hidden healthcare-only">
 <h1>Healthcare SEO Kochi & Hospital SEO Services</h1>
 <article>
 <p>As experts in <strong>Healthcare SEO Kochi</strong>, we understand that medical decisions are driven by trust, not just rankings. Our strategy for <strong>Hospital SEO Kochi</strong> focuses on establishing digital authority that mirrors clinical authority. We optimize for critical search behaviors including <strong>hospital near me Kochi</strong> and specialized queries.</p>
-
 <p>We provide comprehensive <strong>Hospital Digital Marketing Kochi</strong> solutions that respect patient privacy while maximizing visibility. Whether you are a multispecialty hospital in <strong>Ernakulam</strong> or a specialized clinic in <strong>Kakkanad</strong>, our technical audits ensure your facility is found when families are in distress.</p>
-
 <p>Our approach to <strong>Medical SEO Kerala</strong> involves deep technical fixes for Core Web Vitals, ensuring mobile accessibility for urgent searches. We excel in <strong>Clinic SEO Ernakulam</strong> by optimizing Google Business Profiles and managing local citations for accuracy.</p>
-
 <p>Through strategic <strong>Google Maps SEO for Hospitals in Kochi</strong>, we help you dominate the local pack, ensuring that patients in <strong>Edappally</strong>, <strong>Vyttila</strong>, and <strong>Thrippunithura</strong> see you first. We analyze technical gaps and competitor strategies, including major players, to secure your patient flow.
 </p>
 </article>
@@ -1040,13 +1045,16 @@ const videoTop = document.getElementById('heroVideoTop');
 const videoBottom = document.getElementById('heroVideoBottom');
 const progressBarTop = document.getElementById('progressBarTop');
 
+
 // Text Elements
 const elH1 = document.getElementById('dynamicH1');
 const elTagline = document.getElementById('dynamicTagline');
 const elCta = document.getElementById('dynamicCta');
 
+
 // Container
 const btnContainer = document.getElementById('industryButtons');
+
 
 // State
 let currentIndustry = 'general';
@@ -1101,6 +1109,9 @@ elCta.innerText = data.cta;
 // Update Color Theme
 document.documentElement.style.setProperty('--accent-primary', data.color);
 
+// Healthcare mode toggle
+document.body.classList.toggle('healthcare-active', key === 'healthcare');
+
 // 3. Update Videos
 // Stop and flush both
 flushMemory(videoTop);
@@ -1109,62 +1120,85 @@ flushMemory(videoBottom);
 // Load new videos
 playVideo(videoTop, data.videos[0]); // Top Video (Hook)
 playVideo(videoBottom, data.videos[1]); // Bottom Video (Proof)
-
-// Reset Progress Bar
-progressBarTop.style.width = '0%';
+}, 400); // Match CSS transition duration
 
 // 4. Animate IN
 [elH1, elTagline].forEach(el => el.classList.remove('fade-out'));
-
-}, 500);
 }
 
-// Existing Functions
-function toggleMobileMenu() { document.getElementById('navLinks').classList.toggle('active'); }
+// ==================================================
+// FORM SUBMISSION HANDLER
+// ==================================================
 
-function submitForm(e) {
-e.preventDefault();
-const form = e.target;
-const btn = form.querySelector('button');
-const originalText = btn.innerText;
-const data = new FormData(form);
-btn.innerText = "Submitting...";
-btn.style.backgroundColor = "var(--accent-secondary)";
-fetch(form.action, { method: "POST", body: data }).then(response => {
-if (response.ok) { btn.innerText = "Sent!"; btn.style.backgroundColor = "#22c55e"; form.reset(); setTimeout(() => { btn.innerText = originalText; btn.style.backgroundColor = ""; }, 3000); }
-}).catch(error => { btn.innerText = "Error"; btn.style.backgroundColor = "red"; });
+function submitForm(event) {
+event.preventDefault(); // Prevent default form submission
+
+// Show loading state
+const submitButton = document.getElementById('dynamicCta');
+submitButton.innerText = 'Submitting...';
+submitButton.disabled = true;
+
+// Gather form data
+const formData = new FormData(event.target);
+
+// Send data to FormSubmit.co
+fetch('https://formsubmit.co/ajax/info@techauditpros.com', {
+method: 'POST',
+body: formData,
+headers: {
+'Accept': 'application/json'
+}
+})
+.then(response => response.json())
+.then(data => {
+if (data.success) {
+Swal.fire({
+icon: 'success',
+title: 'Audit Request Submitted',
+text: 'Thank you! We will get back to you soon.',
+confirmButtonColor: '#38BDF8',
+});
+} else {
+throw new Error(data.message || 'Submission failed');
+}
+})
+.catch(error => {
+Swal.fire({
+icon: 'error',
+title: 'Submission Error',
+text: error.message,
+confirmButtonColor: '#38BDF8',
+});
+})
+.finally(() => {
+submitButton.innerText = 'Get Your Kochi Site Audit';
+submitButton.disabled = false;
+});
 }
 
+// ==================================================
+// INITIALIZATION: SET DEFAULT INDUSTRY ON LOAD
+// ==================================================
+
+document.addEventListener('DOMContentLoaded', () => {
+updateUI(currentIndustry); // Set to 'general' by default
+});
+
+// ==================================================
+// STICKY CTA VISIBILITY ON SCROLL
+// ==================================================
 window.addEventListener('scroll', () => {
-const cta = document.getElementById('stickyCta');
-if (window.scrollY > 500) { cta.classList.add('visible'); } else { cta.classList.remove('visible'); }
+  const cta = document.getElementById('stickyCta');
+  if (cta) {
+    if (window.scrollY > 500) {
+      cta.classList.add('visible');
+    } else {
+      cta.classList.remove('visible');
+    }
+  }
 });
-
-// ==================================================
-// INITIALIZATION
-// ==================================================
-function init() {
-// Create Buttons
-Object.keys(industryData).forEach(key => {
-const data = industryData[key];
-const btn = document.createElement('button');
-btn.className = `chameleon-btn ${key === currentIndustry ? 'active' : ''}`;
-btn.innerHTML = `<span class="dot"></span> ${data.label}`;
-btn.onclick = () => {
-// Handle Active State Class
-document.querySelectorAll('.chameleon-btn').forEach(b => b.classList.remove('active'));
-btn.classList.add('active');
-updateUI(key);
-};
-btnContainer.appendChild(btn);
-});
-
-// Load Default
-updateUI('general');
-}
-
-// Run Chameleon Init
-window.addEventListener('DOMContentLoaded', init);
 </script>
+
+<!-- This website is optimized for mobile devices. Please rotate your screen to view. -->
 </body>
 </html>
