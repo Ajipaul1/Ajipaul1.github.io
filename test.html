@@ -111,7 +111,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 CHAMELEON HERO SPECIFIC STYLES
 ================================================== */
 .hero { min-height: 100vh; padding-top: 80px; display: flex; align-items: center; position: relative; }
-.hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; }
+.hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: start; }
 
 /* Left Content */
 .hero-content { position: relative; z-index: 10; }
@@ -155,21 +155,12 @@ input:focus { border-color: var(--accent-primary); box-shadow: 0 0 0 2px rgba(56
 .btn-submit { width: 100%; background: var(--accent-primary); color: #020617; border: none; padding: 1rem; border-radius: 8px; font-weight: 700; cursor: pointer; transition: 0.3s; font-size: 1rem; }
 .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 0 20px var(--accent-primary); filter: brightness(1.1); }
 
-/* Right: Video & Social Proof */
+/* Right: Video Stack */
+.video-stack-wrapper { display: flex; flex-direction: column; gap: 1.5rem; position: sticky; top: 100px; }
 .video-wrapper { position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 20px; overflow: hidden; border: 1px solid var(--glass-border); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); background: #000; }
-#heroVideo { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
+video.video-player { width: 100%; height: 100%; object-fit: cover; }
 
-/* Social Proof Bubble */
-.social-proof-bubble {
-position: absolute; bottom: 20px; left: 20px; right: 20px;
-background: rgba(2, 6, 23, 0.9); backdrop-filter: blur(12px);
-padding: 1rem; border-radius: 12px; border-left: 4px solid var(--accent-primary);
-color: white; font-size: 0.85rem; transform: translateY(110%); opacity: 0;
-transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); z-index: 20;
-}
-.social-proof-bubble.show { transform: translateY(0); opacity: 1; }
-
-/* Progress Bar (Zeigarnik Effect) */
+/* Progress Bar (Only on Top Video) */
 .audit-progress-container { position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: rgba(255,255,255,0.1); z-index: 30; }
 .audit-progress-bar { height: 100%; background: var(--accent-primary); width: 0%; transition: width 0.1s linear; box-shadow: 0 0 10px var(--accent-primary); }
 
@@ -260,7 +251,7 @@ body { scroll-snap-type: none; overflow-y: auto; }
 .header-actions > *:not(.mobile-menu-btn) { display: none; }
 .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
 .hero-content { order: 2; }
-.video-wrapper { order: 1; }
+.video-stack-wrapper { order: 1; }
 .form-row { grid-template-columns: 1fr; }
 .split-layout { flex-direction: column; }
 .sticky-cta { right: 15px; bottom: 15px; flex-direction: column; }
@@ -277,7 +268,7 @@ body { scroll-snap-type: none; overflow-y: auto; }
 <!-- HEADER -->
 <header>
 <div class="container nav-wrapper">
-<!-- Logo: Now Links to Main Site -->
+<!-- Logo: Links to Main Site -->
 <a href="https://techauditpros.com" class="logo">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120">
 <g transform="translate(20 25)">
@@ -315,7 +306,7 @@ body { scroll-snap-type: none; overflow-y: auto; }
 <!-- HERO SECTION (CHAMELEON MODE) -->
 <section class="hero full-screen-section">
 <div class="container hero-grid">
-<!-- Left: Content & Controls -->
+<!-- Left: Text & Controls Only -->
 <div class="hero-content">
 <span class="breadcrumb mono">SEO DASHBOARD // <span class="text-accent">MODE: DYNAMIC</span></span>
 
@@ -355,22 +346,23 @@ body { scroll-snap-type: none; overflow-y: auto; }
 </div>
 </div>
 
-<!-- Right: Video Player -->
+<!-- Right: Video Stack (No Text) -->
+<div class="video-stack-wrapper">
+<!-- TOP VIDEO (Hook) -->
 <div class="video-wrapper">
 <div class="audit-progress-container">
-<div class="audit-progress-bar" id="progressBar"></div>
+<div class="audit-progress-bar" id="progressBarTop"></div>
 </div>
-
-<!-- The Single Video Element (RAM Safe) -->
-<video id="heroVideo" playsinline muted autoplay loop>
+<video id="heroVideoTop" playsinline muted autoplay loop class="video-player">
 <!-- Source injected by JS -->
 </video>
+</div>
 
-<!-- Dynamic Social Proof Bubble -->
-<div class="social-proof-bubble" id="socialProof">
-<span style="display:block; font-size:1.8rem; margin-bottom:0.2rem;">🚀</span>
-<strong id="socialProofTitle" style="display:block; margin-bottom:0.2rem;">Kochi Leaders</strong>
-<span class="text-muted" id="socialProofText">Trusted by 50+ businesses across Infopark and SmartCity.</span>
+<!-- BOTTOM VIDEO (Proof/Secondary) -->
+<div class="video-wrapper">
+<video id="heroVideoBottom" playsinline muted autoplay loop class="video-player">
+<!-- Source injected by JS -->
+</video>
 </div>
 </div>
 </div>
@@ -531,7 +523,6 @@ We teach exact strategies used to dominate Kerala SEO market. No theory, just pr
 </div>
 </div>
 </div>
-</div>
 </section>
 
 <!-- AREAS WE SERVE -->
@@ -658,13 +649,9 @@ SEO SHADOW LAYER (EXPANDED FOR ALL SECTORS)
 <h1>Digital Marketing Agency Kochi</h1>
 <article>
 <p>As the leading <strong>Digital Marketing Agency in Kochi</strong>, TechAuditPros specializes in hyper-local strategies across Kerala. We provide top-tier services for businesses in <strong>Infopark</strong> and <strong>SmartCity</strong>, helping tech companies reach global audiences. Our <strong>Kochi hospital digital marketing</strong> strategies ensure medical facilities rank for critical health terms.</p>
-
 <p>For the real estate sector, we generate <strong>luxury villa leads in Ernakulam</strong>, targeting high-net-worth individuals looking for properties in <strong>Kakkanad</strong> and <strong>Marine Drive</strong>. We understand the unique dynamics of the <strong>Edappally</strong> retail market and <strong>Lulu Mall</strong> traffic patterns.</p>
-
 <p>We are experts in <strong>Ayurveda medical tourism in Kerala</strong>, helping resorts connect with international patients seeking wellness. Our <strong>Boutique SEO Kochi</strong> services are tailored for fashion brands in <strong>Panampilly Nagar</strong> and makeup artists across Ernakulam.</p>
-
 <p>Whether you are a logistics firm near <strong>Vallarpadam</strong> or a startup in <strong>Kalamassery</strong>, our technical SEO audits cover every aspect of your online presence. We focus on <strong>Web Design Kerala</strong> standards that prioritize speed and conversion. From <strong>Vyttila</strong> to <strong>Thrippunithura</strong>, we are the trusted partner for growth.</p>
-
 <p>Our services also extend to <strong>Digital Marketing Course in Ernakulam</strong>, training the next generation of marketers in advanced tools like Semrush and Ahrefs. Choose TechAuditPros for data-driven results in Kerala's competitive digital landscape.</p>
 </article>
 </div>
@@ -672,6 +659,7 @@ SEO SHADOW LAYER (EXPANDED FOR ALL SECTORS)
 <script>
 // ==================================================
 // DATA: INDUSTRY CHAMELEON STATE (UPDATED)
+// videos array structure: [Top Video (Hook), Bottom Video (Proof)]
 // ==================================================
 const industryData = {
 general: {
@@ -680,11 +668,8 @@ label: 'General',
 h1: '#1 Technical SEO Agency in Kochi for Real Growth',
 tagline: 'Engineered for Ernakulam’s top brands.',
 cta: 'Get Your Kochi Site Audit',
-color: '#38BDF8', // Sky Blue
-videos: ['videos/mainvideos/hero-kochi-drone.mp4', 'videos/mainvideos/hero-technical-audit.mp4'],
-proofTitle: 'Kochi Leaders',
-proofText: 'Trusted by 50+ businesses across Infopark and SmartCity.',
-icon: '🚀'
+color: '#38BDF8',
+videos: ['videos/mainvideos/hero-kochi-drone.mp4', 'videos/mainvideos/hero-technical-audit.mp4']
 },
 healthcare: {
 id: 'healthcare',
@@ -693,10 +678,7 @@ h1: '#1 SEO for Kochi Hospitals',
 tagline: 'Convert Patient Search into Appointments.',
 cta: 'Get My Clinic Audit',
 color: '#38BDF8',
-videos: ['videos/mainvideos/health-1.mp4', 'videos/mainvideos/health-2.mp4'],
-proofTitle: 'Healthcare Leaders',
-proofText: 'Join 5+ Top Kochi Clinics already using our technical audit.',
-icon: '🩺'
+videos: ['videos/mainvideos/health-1.mp4', 'videos/mainvideos/health-2.mp4']
 },
 realestate: {
 id: 'realestate',
@@ -704,11 +686,8 @@ label: 'Real Estate',
 h1: 'High-Impact Realty SEO Kochi',
 tagline: 'Sell Villas in Kakkanad & Marine Drive.',
 cta: 'Analyze My Property',
-color: '#F59E0B', // Amber/Gold
-videos: ['videos/mainvideos/realty-2.mp4', 'videos/mainvideos/realty-3.mp4'],
-proofTitle: 'Top Builders',
-proofText: 'Trusted by 10+ Real Estate Builders in Ernakulam.',
-icon: '🏡'
+color: '#F59E0B',
+videos: ['videos/mainvideos/realty-2.mp4', 'videos/mainvideos/realty-3.mp4']
 },
 ayurveda: {
 id: 'ayurveda',
@@ -716,11 +695,8 @@ label: 'Ayurveda',
 h1: 'Kerala’s Leading Ayurveda SEO',
 tagline: 'Bring Global Seekers to Your Resort.',
 cta: 'Audit My Wellness Site',
-color: '#10B981', // Emerald Green
-videos: ['videos/mainvideos/ayurveda-1.mp4', 'videos/mainvideos/ayurveda-2.mp4'],
-proofTitle: 'Wellness Tourism',
-proofText: 'Helping resorts rank for international medical tourism.',
-icon: '🌿'
+color: '#10B981',
+videos: ['videos/mainvideos/ayurveda-1.mp4', 'videos/mainvideos/ayurveda-2.mp4']
 },
 logistics: {
 id: 'logistics',
@@ -728,11 +704,8 @@ label: 'Logistics',
 h1: 'Global SEO for Kochi Port',
 tagline: 'Connect Vallarpadam to the World.',
 cta: 'Check My Trade Reach',
-color: '#6366F1', // Indigo
-videos: ['videos/mainvideos/port-1.mp4', 'videos/mainvideos/port-2.mp4', 'videos/mainvideos/port-3.mp4'],
-proofTitle: 'Export Giants',
-proofText: 'Optimizing supply chains for global visibility.',
-icon: '🚢'
+color: '#6366F1',
+videos: ['videos/mainvideos/port-1.mp4', 'videos/mainvideos/port-2.mp4']
 },
 fashion: {
 id: 'fashion',
@@ -740,11 +713,8 @@ label: 'Fashion',
 h1: 'Scaling Kochi’s Fashion Brands',
 tagline: 'From Lulu Mall to Global Trending.',
 cta: 'Analyze My Collection',
-color: '#EC4899', // Pink
-videos: ['videos/mainvideos/fashion-1.mp4', 'videos/mainvideos/fashion-2.mp4', 'videos/mainvideos/fashion-3.mp4'],
-proofTitle: 'Retail Giants',
-proofText: 'Helping Kochi boutiques dominate Lulu Mall & online trends.',
-icon: '👗'
+color: '#EC4899',
+videos: ['videos/mainvideos/fashion-1.mp4', 'videos/mainvideos/fashion-2.mp4']
 },
 makeup: {
 id: 'makeup',
@@ -752,11 +722,8 @@ label: 'Makeup',
 h1: 'Top SEO for Kochi Makeup Artists',
 tagline: 'Dominate Bridal Bookings in Ernakulam.',
 cta: 'Scale My Bookings',
-color: '#A855F7', // Purple
-videos: ['videos/mainvideos/beauty-1.mp4', 'videos/mainvideos/beauty-2.mp4', 'videos/mainvideos/beauty-3.mp4'],
-proofTitle: 'Bridal Specialists',
-proofText: 'Booked out bridal schedules for Ernakulam stylists.',
-icon: '💄'
+color: '#A855F7',
+videos: ['videos/mainvideos/beauty-1.mp4', 'videos/mainvideos/beauty-2.mp4']
 },
 tourism: {
 id: 'tourism',
@@ -764,11 +731,8 @@ label: 'Tourism',
 h1: 'Kerala Tourism SEO: From Backwaters to Global Bookings',
 tagline: 'Scaling small boat businesses and luxury resorts in Fort Kochi and Alleppey.',
 cta: 'Boost My Tourism Biz',
-color: '#0EA5E9', // Cyan/Teal for Water/Backwaters
-videos: ['videos/mainvideos/tour-1.mp4', 'videos/mainvideos/tour-2.mp4'],
-proofTitle: 'Travel Leaders',
-proofText: 'Optimizing for global travelers seeking authentic Kerala experiences.',
-icon: '🛥️'
+color: '#0EA5E9',
+videos: ['videos/mainvideos/tour-1.mp4', 'videos/mainvideos/tour-2.mp4']
 },
 techaudit: {
 id: 'techaudit',
@@ -776,78 +740,50 @@ label: 'Tech Audit',
 h1: 'Elite Technical SEO & Core Web Vitals',
 tagline: 'Fix the code, own the rankings.',
 cta: 'Audit My Code',
-color: '#F43F5E', // Rose Red
-videos: [
-'videos/mainvideos/tech-1.mp4',
-'videos/mainvideos/tech-2.mp4',
-'videos/mainvideos/tech-3.mp4',
-'videos/mainvideos/tech-4.mp4',
-'videos/mainvideos/tech-5.mp4',
-'videos/mainvideos/tech-6.mp4'
-],
-proofTitle: 'Code Warriors',
-proofText: 'Diagnosing critical errors missed by other agencies.',
-icon: '🛡️'
+color: '#F43F5E',
+videos: ['videos/mainvideos/tech-1.mp4', 'videos/mainvideos/tech-2.mp4']
 }
 };
 
 // ==================================================
 // DOM ELEMENTS
 // ==================================================
-const videoPlayer = document.getElementById('heroVideo');
-const progressBar = document.getElementById('progressBar');
+const videoTop = document.getElementById('heroVideoTop');
+const videoBottom = document.getElementById('heroVideoBottom');
+const progressBarTop = document.getElementById('progressBarTop');
 
 // Text Elements
 const elH1 = document.getElementById('dynamicH1');
 const elTagline = document.getElementById('dynamicTagline');
 const elCta = document.getElementById('dynamicCta');
-const elProofTitle = document.getElementById('socialProofTitle');
-const elProofText = document.getElementById('socialProofText');
-const elProofIcon = document.querySelector('#socialProof strong').previousElementSibling;
-const elProofBubble = document.getElementById('socialProof');
 
 // Container
 const btnContainer = document.getElementById('industryButtons');
 
 // State
 let currentIndustry = 'general';
-let currentVideoIndex = 0;
-let currentPlaylist = [];
 
 // ==================================================
 // LOGIC: VIDEO PLAYLIST & MEMORY MANAGEMENT
 // ==================================================
 
-function flushMemory() {
-// Critical for 8GB RAM safety
-videoPlayer.pause();
-videoPlayer.removeAttribute('src'); // Removes source reference
-videoPlayer.load(); // Triggers garbage collection
-progressBar.style.width = '0%';
+function flushMemory(videoElement) {
+videoElement.pause();
+videoElement.removeAttribute('src');
+videoElement.load();
 }
 
-function playVideo(index) {
-if (!currentPlaylist[index]) return;
-
-const src = currentPlaylist[index];
-videoPlayer.src = src;
-// You can uncomment below if you have poster images: videoPlayer.poster = industryData[currentIndustry].poster;
-videoPlayer.play().catch(e => console.log("Autoplay blocked interaction required", e));
+function playVideo(videoElement, src) {
+if (!src) return;
+videoElement.src = src;
+videoElement.play().catch(e => console.log("Autoplay blocked interaction required", e));
 }
 
-videoPlayer.addEventListener('ended', () => {
-currentVideoIndex++;
-if (currentVideoIndex >= currentPlaylist.length) {
-currentVideoIndex = 0; // Loop playlist
-}
-playVideo(currentVideoIndex);
-});
-
-// Progress Bar Logic (Simulating Audit Progress)
-videoPlayer.addEventListener('timeupdate', () => {
-if (videoPlayer.duration) {
-const percentage = (videoPlayer.currentTime / videoPlayer.duration) * 100;
-progressBar.style.width = percentage + '%';
+// Progress Bar Logic (Only on Top Video)
+videoTop.addEventListener('timeupdate', () => {
+if (videoTop.duration) {
+const percentage = (videoTop.currentTime / videoTop.duration) * 100;
+progressBarTop.style.width = percentage + '%';
 }
 });
 
@@ -861,69 +797,35 @@ if (!data) return;
 
 // 1. Animate OUT
 [elH1, elTagline].forEach(el => el.classList.add('fade-out'));
-elProofBubble.classList.remove('show');
 
 setTimeout(() => {
-// 2. Update State & Data
+// 2. Update State
 currentIndustry = key;
-currentPlaylist = data.videos;
-currentVideoIndex = 0;
 
 // Update Text Content
 elH1.innerHTML = data.h1;
 elTagline.innerText = data.tagline;
 elCta.innerText = data.cta;
 
-// Update Social Proof
-elProofTitle.innerText = data.proofTitle;
-elProofText.innerText = data.proofText;
-elProofIcon.innerText = data.icon;
-
-// Update Color Theme (CSS Variables & Glow)
+// Update Color Theme
 document.documentElement.style.setProperty('--accent-primary', data.color);
 
-// 3. Flush Memory & Load New Video
-flushMemory();
-playVideo(0);
+// 3. Update Videos
+// Stop and flush both
+flushMemory(videoTop);
+flushMemory(videoBottom);
+
+// Load new videos
+playVideo(videoTop, data.videos[0]); // Top Video (Hook)
+playVideo(videoBottom, data.videos[1]); // Bottom Video (Proof)
+
+// Reset Progress Bar
+progressBarTop.style.width = '0%';
 
 // 4. Animate IN
 [elH1, elTagline].forEach(el => el.classList.remove('fade-out'));
-elProofBubble.classList.add('show');
 
-}, 500); // Wait for CSS transition
-}
-
-// The resetToGeneral function is kept here in case needed elsewhere via JS, 
-// but the Logo href is now direct. The new button calls updateUI directly.
-function resetToGeneral(e) {
-e.preventDefault();
-updateUI('general');
-// Also close mobile menu if open
-document.getElementById('navLinks').classList.remove('active');
-}
-
-// ==================================================
-// INITIALIZATION
-// ==================================================
-
-function init() {
-// Create Buttons
-Object.keys(industryData).forEach(key => {
-const data = industryData[key];
-const btn = document.createElement('button');
-btn.className = `chameleon-btn ${key === currentIndustry ? 'active' : ''}`;
-btn.innerHTML = `<span class="dot"></span> ${data.label}`;
-btn.onclick = () => {
-// Handle Active State Class
-document.querySelectorAll('.chameleon-btn').forEach(b => b.classList.remove('active'));
-btn.classList.add('active');
-updateUI(key);
-};
-btnContainer.appendChild(btn);
-});
-
-// Load Default
-updateUI('general');
+}, 500);
 }
 
 // Existing Functions
@@ -947,9 +849,31 @@ const cta = document.getElementById('stickyCta');
 if (window.scrollY > 500) { cta.classList.add('visible'); } else { cta.classList.remove('visible'); }
 });
 
+// ==================================================
+// INITIALIZATION
+// ==================================================
+function init() {
+// Create Buttons
+Object.keys(industryData).forEach(key => {
+const data = industryData[key];
+const btn = document.createElement('button');
+btn.className = `chameleon-btn ${key === currentIndustry ? 'active' : ''}`;
+btn.innerHTML = `<span class="dot"></span> ${data.label}`;
+btn.onclick = () => {
+// Handle Active State Class
+document.querySelectorAll('.chameleon-btn').forEach(b => b.classList.remove('active'));
+btn.classList.add('active');
+updateUI(key);
+};
+btnContainer.appendChild(btn);
+});
+
+// Load Default
+updateUI('general');
+}
+
 // Run Chameleon Init
 window.addEventListener('DOMContentLoaded', init);
-
 </script>
 </body>
-</html>
+</html> 
