@@ -100,185 +100,109 @@
       .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
 
       /* BACKGROUND GLOWS */
-      .ambient-glow { position: fixed; border-radius: 50%; filter: blur(100px); z-index: -2; opacity: 0.1; pointer-events: none; transition: background 0.5s ease; }
+      .ambient-glow { position: fixed; border-radius: 50%; filter: blur(100px); z-index: -2; opacity: 0.2; pointer-events: none; transition: background 0.5s ease; }
       .glow-1 { top: -20%; left: -10%; width: 800px; height: 800px; background: var(--accent-primary); }
       .glow-2 { bottom: -20%; right: -10%; width: 800px; height: 800px; background: var(--accent-secondary); }
 
       /* ==================================================
-         CINEMATIC FULLSCREEN HERO STYLES
+         CINEMATIC HERO STYLES
       ================================================== */
       .hero { 
           position: relative; 
           width: 100%; 
           height: 100vh; 
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          overflow: hidden;
+          display: flex; 
+          align-items: center; 
+          justify-content: center; 
+          overflow: hidden; 
       }
 
-      /* FULL SCREEN BACKGROUND VIDEO */
+      /* Full Screen Background Video */
       #heroVideo {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100vh;
-          object-fit: cover; /* Ensures video fills screen entirely */
-          z-index: -1; /* Behind content */
-          opacity: 1; /* Full Quality - No dark overlay needed if video is good */
-          transition: opacity 0.5s ease;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          min-width: 100%;
+          min-height: 100%;
+          width: auto;
+          height: auto;
+          z-index: 1;
+          object-fit: cover;
+          opacity: 0.6; /* Slightly darkened for text readability */
+          transition: opacity 1s ease;
       }
 
-      /* CLEAN TEXT OVERLAY */
+      /* Video Overlay Gradient (For Readability) */
       .hero-overlay {
+          position: absolute;
+          top: 0; left: 0; width: 100%; height: 100%;
+          background: linear-gradient(to bottom, rgba(2,6,23,0.8), rgba(2,6,23,0.4));
+          z-index: 2;
+      }
+
+      /* Glassmorphism Content Box */
+      .glass-container {
           position: relative;
           z-index: 10;
-          width: 100%;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          pointer-events: none; /* Let clicks pass through to form/buttons */
-      }
-
-      /* TYPOGRAPHY (Letters Only Glow) */
-      .hero-content {
+          width: 90%;
+          max-width: 900px;
+          background: var(--glass-bg);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border: 1px solid var(--glass-border);
+          border-radius: 24px;
+          padding: 3rem;
+          box-shadow: 0 25px 50px rgba(0,0,0,0.5);
           text-align: center;
-          max-width: 800px;
-          animation: fadeIn 0.8s ease-out forwards;
+          animation: floatUp 0.8s ease-out forwards;
       }
 
-      @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(-10px); }
+      @keyframes floatUp {
+          from { opacity: 0; transform: translateY(30px); }
           to { opacity: 1; transform: translateY(0); }
       }
 
-      .hero-breadcrumb { 
-          font-size: 0.8rem; 
-          text-transform: uppercase; 
-          letter-spacing: 2px; 
-          color: var(--accent-primary); 
-          margin-bottom: 2rem; 
-          display: block; 
-          font-weight: 700; 
-          text-shadow: 0 0 10px rgba(var(--accent-primary), 0.5); /* Subtle Letter Glow */
-      }
-      
-      h1 { 
-          font-size: clamp(2.5rem, 5vw, 4rem); 
-          font-weight: 800; 
-          color: white; 
-          line-height: 1.1; 
-          margin-bottom: 1rem; 
-          text-shadow: 0 0 15px rgba(0,0,0,0.8); /* Clean shadow for readability */
-      }
-      
-      .hero-tagline { 
-          font-size: 1.25rem; 
-          color: rgba(255,255,255,0.9); 
-          margin-bottom: 3rem; 
-          font-weight: 300; 
-          line-height: 1.5;
-      }
+      /* Typography */
+      .hero-breadcrumb { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-primary); margin-bottom: 1rem; display: block; font-weight: 700; }
+      h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; color: white; line-height: 1.1; margin-bottom: 1.5rem; }
+      .hero-tagline { font-size: 1.35rem; color: #e2e8f0; margin-bottom: 2.5rem; font-weight: 300; line-height: 1.5; }
       
       /* Button Styles */
-      .btn-grid { 
-          display: flex; 
-          flex-wrap: wrap; 
-          gap: 1rem; 
-          justify-content: center; 
-          margin-bottom: 2rem; 
-      }
-      
+      .btn-grid { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; margin-bottom: 2.5rem; }
       .chameleon-btn {
-          background: rgba(255,255,255,0.05); /* Glassy but subtle */
-          border: 1px solid rgba(255,255,255,0.2);
-          color: white;
-          padding: 0.8rem 2rem;
+          background: rgba(255,255,255,0.05);
+          border: 1px solid var(--glass-border);
+          color: var(--text-muted);
+          padding: 0.8rem 1.5rem;
           border-radius: 50px;
           font-size: 0.9rem;
           font-weight: 600;
           cursor: pointer;
           transition: all 0.3s ease;
-          backdrop-filter: blur(4px);
       }
-      
-      .chameleon-btn:hover { 
-          background: var(--accent-primary); 
-          color: #020617; 
-          transform: translateY(-2px); 
-          box-shadow: 0 0 15px var(--accent-primary); 
-      }
-      
-      .chameleon-btn.active { 
-          background: white; 
-          color: var(--accent-primary); 
-          border-color: var(--accent-primary);
-          box-shadow: 0 0 20px var(--accent-primary); 
-          font-weight: 800;
-      }
+      .chameleon-btn:hover { background: rgba(255,255,255,0.15); color: white; transform: translateY(-2px); }
+      .chameleon-btn.active { background: var(--accent-primary); color: #020617; border-color: var(--accent-primary); box-shadow: 0 0 15px var(--accent-primary); }
 
-      /* SEPARATE AUDIT BOX (Small & Clean) */
-      .audit-box {
-          background: var(--glass-bg);
-          backdrop-filter: blur(15px);
-          border: 1px solid var(--glass-border);
-          border-radius: 12px;
-          padding: 1.5rem;
-          margin-top: 2rem;
-          max-width: 500px;
-          text-align: center;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-          animation: slideUp 1s ease-out forwards;
-      }
-
-      @keyframes slideUp {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-      }
-
-      .hero-form { display: flex; flex-direction: column; gap: 1rem; }
+      .hero-form { margin-top: 2rem; display: grid; grid-template-columns: 1fr 1fr auto; gap: 1rem; align-items: end; }
       .form-input-group { display: flex; flex-direction: column; gap: 0.5rem; text-align: left; }
-      
-      input { 
-          width: 100%; 
-          background: rgba(0,0,0,0.3); /* Darker input for contrast inside small box */
-          border: 1px solid var(--glass-border); 
-          color: white; 
-          padding: 0.8rem; 
-          border-radius: 6px; 
-          font-family: var(--font-body); 
-          outline: none; 
-          transition: 0.3s; 
-      }
-      
+      input { background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: white; padding: 1rem; border-radius: 12px; font-family: var(--font-body); outline: none; transition: 0.3s; width: 100%; }
       input:focus { border-color: var(--accent-primary); box-shadow: 0 0 0 2px rgba(56,189,248,0.2); }
-      
       .btn-submit { 
-          background: var(--accent-primary); 
-          color: #020617; 
-          border: none; 
-          padding: 0.8rem 2rem; 
-          border-radius: 6px; 
-          font-weight: 800; 
-          cursor: pointer; 
-          transition: 0.3s; 
-          font-size: 1rem; 
-          text-transform: uppercase;
+          background: var(--accent-primary); color: #020617; border: none; padding: 1rem 2rem; 
+          border-radius: 12px; font-weight: 800; cursor: pointer; transition: 0.3s; font-size: 1rem; text-transform: uppercase;
+          white-space: nowrap;
       }
-      .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 0 20px var(--accent-primary); }
+      .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 0 30px var(--accent-primary); }
 
       /* ==================================================
          ORIGINAL STYLES (ADAPTED)
       ================================================== */
-      .container { width: 95%; max-width: 1200px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 20; }
+      .container { width: 95%; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
       .full-screen-section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; position: relative; padding: 6rem 0; }
       @media (max-width: 1023px) { .full-screen-section { min-height: auto; padding: 4rem 0; } }
       h2, h3, h4 { font-weight: 800; line-height: 1.2; }
-      h2 { font-size: clamp(2rem, 4vw, 3rem); color: white; margin-bottom: 1.5rem; }
+      h2 { font-size: clamp(2rem, 4vw, 3.5rem); color: white; margin-bottom: 1.5rem; }
       h3 { font-size: 1.5rem; color: white; }
       
       .btn-primary { background: var(--accent-primary); color: #020617; padding: 0.8rem 1.8rem; border-radius: 8px; font-weight: 700; transition: 0.3s; display: inline-block; }
@@ -286,7 +210,7 @@
       .btn-secondary { background: rgba(255, 255, 255, 0.1); color: white; border: 1px solid var(--glass-border); padding: 0.8rem 1.8rem; border-radius: 8px; }
 
       /* Header */
-      header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid var(--glass-border); height: 70px; display: flex; align-items: center; }
+      header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(2, 6, 23, 0.8); backdrop-filter: blur(15px); border-bottom: 1px solid var(--glass-border); height: 80px; display: flex; align-items: center; }
       .nav-wrapper { display: flex; justify-content: space-between; align-items: center; height: 100%; width: 100%; }
       .logo svg { height: 40px; width: auto; }
       .nav-links { display: flex; gap: 2rem; }
@@ -338,29 +262,12 @@
       .sticky-cta { position: fixed; bottom: 30px; right: 30px; z-index: 900; opacity: 0; transform: translateY(20px); transition: 0.3s; pointer-events: none; display: flex; gap: 10px; }
       .sticky-cta.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
 
-      /* METHODOLGY BACKGROUND VIDEO (DEEP DIVE) */
-      #methodVideo {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          opacity: 0.15;
-          z-index: -1;
-          pointer-events: none;
-      }
-
       @media (max-width: 1023px) {
           .mobile-menu-btn { display: block; }
           .nav-links { position: fixed; top: 0; right: -100%; width: 85%; height: 100vh; background: #020617; flex-direction: column; justify-content: center; align-items: center; transition: 0.3s; z-index: 999; }
           .nav-links.active { right: 0; }
           .nav-links a { font-size: 1.5rem; }
-          
-          .audit-box { width: 90%; margin-top: 1rem; }
-          .hero-content { padding: 0 1rem; }
-          .hero-form { flex-direction: column; }
-          
+          .hero-form { grid-template-columns: 1fr; }
           .split-layout { flex-direction: column; }
           .sticky-cta { right: 15px; bottom: 15px; flex-direction: column; }
       }
@@ -402,6 +309,7 @@
               </ul>
           </nav>
           <div class="header-actions">
+              <!-- Reset Button -->
               <a href="#" onclick="resetToGeneral(event)" class="btn-secondary" style="margin-right:1rem; font-size: 0.8rem; padding: 0.5rem 1rem;">Reset Home</a>
               <a href="https://wa.me/916282520339" class="btn-primary">WhatsApp</a>
           </div>
@@ -409,51 +317,47 @@
   </header>
 
   <main>
-      <!-- HERO SECTION (CINEMATIC FULLSCREEN) -->
-      <!-- Video is background, Content is centered on top -->
+      <!-- HERO SECTION (CINEMATIC LAYOUT) -->
       <section class="hero">
-          <!-- Full Screen Background Video -->
+          <!-- Full Bleed Background Video -->
           <video id="heroVideo" playsinline muted autoplay loop>
               <!-- JS Injection -->
           </video>
+          <div class="hero-overlay"></div>
 
-          <!-- Centered Clean Text Overlay -->
-          <div class="hero-overlay">
-              <div class="hero-content">
-                  <!-- No "Dashboard" text, just direct H1 -->
-                  <h1 id="dynamicH1">#1 Technical SEO Agency in Kochi for Real Growth</h1>
-                  <p id="dynamicTagline" class="hero-tagline">Engineered for Ernakulam’s top brands.</p>
+          <!-- Centered Glassmorphism Content -->
+          <div class="glass-container">
+              <span class="hero-breadcrumb mono">SEO DASHBOARD // <span class="text-accent">MODE: DYNAMIC</span></span>
+              
+              <h1 id="dynamicH1">#1 Technical SEO Agency in Kochi for Real Growth</h1>
+              <p id="dynamicTagline" class="hero-tagline">Engineered for Ernakulam’s top brands.</p>
 
-                  <div class="btn-grid" id="industryButtons">
-                      <!-- Buttons Injected via JS -->
-                  </div>
-
-                  <!-- Separate Minimalist Audit Box -->
-                  <div class="audit-box">
-                      <h3 style="font-size: 1rem; margin-bottom: 1rem; color: white;">Get Your Free Audit</h3>
-                      <form id="auditForm" action="https://formsubmit.co/info@techauditpros.com" method="POST" onsubmit="submitForm(event)">
-                          <input type="hidden" name="_subject" value="New Cinematic Audit Request">
-                          <input type="hidden" name="_captcha" value="false">
-                          <div class="form-input-group">
-                              <input type="text" name="name" placeholder="Name" required>
-                          </div>
-                          <div class="form-input-group">
-                              <input type="email" name="email" placeholder="Email" required>
-                          </div>
-                          <div class="form-input-group">
-                              <input type="url" name="website" placeholder="Website URL" required>
-                          </div>
-                          <button type="submit" id="dynamicCta" class="btn-submit">Analyze Site</button>
-                      </form>
-                  </div>
+              <div class="btn-grid" id="industryButtons">
+                  <!-- Buttons Injected via JS -->
               </div>
+
+              <div style="background: rgba(56, 189, 248, 0.1); padding: 0.5rem 1rem; border-left: 4px solid var(--accent-primary); border-radius: 0 8px 8px 0; margin-bottom: 2rem; display: inline-block;">
+                  <span style="color: white; font-weight: 600; font-size: 0.9rem;">കൊച്ചിയിലെ മികച്ച ടെക്നിക്കൽ എസ്.ഇ.ഒ ഏജൻസി</span>
+              </div>
+
+              <form id="auditForm" action="https://formsubmit.co/info@techauditpros.com" method="POST" onsubmit="submitForm(event)">
+                  <input type="hidden" name="_subject" value="New Cinematic Chameleon Audit Request">
+                  <input type="hidden" name="_captcha" value="false">
+                  <div class="form-input-group">
+                      <input type="text" name="name" placeholder="Name" required>
+                  </div>
+                  <div class="form-input-group">
+                      <input type="email" name="email" placeholder="Email" required>
+                  </div>
+                  <button type="submit" id="dynamicCta" class="btn-submit">Get Your Kochi Site Audit</button>
+              </form>
           </div>
       </section>
 
       <!-- AUTHORITY: METHODOLOGY (DEEP DIVE VIDEO) -->
       <section id="methodology" class="full-screen-section">
           <!-- Secondary Background Video -->
-          <video id="methodVideo" playsinline muted autoplay loop></video>
+          <video id="methodVideo" playsinline muted autoplay loop style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity: 0.15; z-index: -1;"></video>
           
           <div class="container">
               <div class="split-layout centered">
@@ -746,7 +650,7 @@
 
   <script>
       // ==================================================
-      // DATA: INDUSTRY CHAMELEON STATE (CINEMATIC UPDATE)
+      // DATA: INDUSTRY CHAMELEON STATE (CINEMATIC)
       // ==================================================
       const industryData = {
           general: {
@@ -754,7 +658,7 @@
               label: 'General',
               h1: '#1 Technical SEO Agency in Kochi for Real Growth',
               tagline: 'Engineered for Ernakulam’s top brands.',
-              cta: 'Analyze Site',
+              cta: 'Get Your Kochi Site Audit',
               color: '#38BDF8', // Sky Blue
               videos: ['videos/mainvideos/hero-kochi-drone.mp4', 'videos/mainvideos/hero-technical-audit.mp4'],
               methodTitle: 'Global Standards, <span class="text-accent">Local Heart</span>',
@@ -770,7 +674,7 @@
               label: 'Healthcare',
               h1: '#1 SEO for Kochi Hospitals',
               tagline: 'Convert Patient Search into Appointments.',
-              cta: 'Analyze Clinic',
+              cta: 'Get My Clinic Audit',
               color: '#38BDF8', 
               videos: ['videos/mainvideos/health-1.mp4', 'videos/mainvideos/health-2.mp4'],
               methodTitle: 'Medical Standards, <span class="text-accent">Patient Care</span>',
@@ -786,7 +690,7 @@
               label: 'Real Estate',
               h1: 'High-Impact Realty SEO Kochi',
               tagline: 'Sell Villas in Kakkanad & Marine Drive.',
-              cta: 'Analyze Property',
+              cta: 'Analyze My Property',
               color: '#F59E0B', // Amber/Gold
               videos: ['videos/mainvideos/realty-2.mp4', 'videos/mainvideos/realty-3.mp4'],
               methodTitle: 'Property Visibility, <span class="text-accent">High ROI</span>',
@@ -802,7 +706,7 @@
               label: 'Ayurveda',
               h1: 'Kerala’s Leading Ayurveda SEO',
               tagline: 'Bring Global Seekers to Your Resort.',
-              cta: 'Analyze Wellness',
+              cta: 'Audit My Wellness Site',
               color: '#10B981', // Emerald Green
               videos: ['videos/mainvideos/ayurveda-1.mp4', 'videos/mainvideos/ayurveda-2.mp4'],
               methodTitle: 'Ancient Wisdom, <span class="text-accent">Modern Marketing</span>',
@@ -818,7 +722,7 @@
               label: 'Logistics',
               h1: 'Global SEO for Kochi Port',
               tagline: 'Connect Vallarpadam to the World.',
-              cta: 'Check Trade Reach',
+              cta: 'Check My Trade Reach',
               color: '#6366F1', // Indigo
               videos: ['videos/mainvideos/port-1.mp4', 'videos/mainvideos/port-2.mp4', 'videos/mainvideos/port-3.mp4'],
               methodTitle: 'Supply Chain, <span class="text-accent">Global Reach</span>',
@@ -834,7 +738,7 @@
               label: 'Fashion',
               h1: 'Scaling Kochi’s Fashion Brands',
               tagline: 'From Lulu Mall to Global Trending.',
-              cta: 'Analyze Collection',
+              cta: 'Analyze My Collection',
               color: '#EC4899', // Pink
               videos: ['videos/mainvideos/fashion-1.mp4', 'videos/mainvideos/fashion-2.mp4', 'videos/mainvideos/fashion-3.mp4'],
               methodTitle: 'Style Trends, <span class="text-accent">Viral Reach</span>',
@@ -850,7 +754,7 @@
               label: 'Makeup',
               h1: 'Top SEO for Kochi Makeup Artists',
               tagline: 'Dominate Bridal Bookings in Ernakulam.',
-              cta: 'Scale Bookings',
+              cta: 'Scale My Bookings',
               color: '#A855F7', // Purple
               videos: ['videos/mainvideos/beauty-1.mp4', 'videos/mainvideos/beauty-2.mp4', 'videos/mainvideos/beauty-3.mp4'],
               methodTitle: 'Beauty Artistry, <span class="text-accent">High Conversion</span>',
@@ -866,7 +770,7 @@
               label: 'Tourism',
               h1: 'Kerala Tourism SEO: From Backwaters to Global Bookings',
               tagline: 'Scaling small boat businesses and luxury resorts in Fort Kochi and Alleppey.',
-              cta: 'Boost Bookings',
+              cta: 'Boost My Bookings',
               color: '#F97316', // Orange
               videos: ['videos/mainvideos/tour-1.mp4', 'videos/mainvideos/tour-2.mp4'],
               methodTitle: 'God\'s Own Country, <span class="text-accent">Global Guests</span>',
@@ -882,7 +786,7 @@
               label: 'Tech Audit',
               h1: 'Elite Technical SEO & Core Web Vitals',
               tagline: 'Fix the code, own the rankings.',
-              cta: 'Audit Code',
+              cta: 'Audit My Code',
               color: '#F43F5E', // Rose Red
               videos: [
                   'videos/mainvideos/tech-1.mp4', 
@@ -951,7 +855,7 @@
       // Loop Hero Video
       heroVideo.addEventListener('ended', () => {
           currentHeroIndex++;
-          // Loop within array
+          // Loop within the array
           if (currentHeroIndex >= industryData[currentIndustry].videos.length) {
               currentHeroIndex = 0; 
           }
@@ -966,36 +870,45 @@
           const data = industryData[key];
           if (!data) return;
 
-          // 1. Update State
-          currentIndustry = key;
-          currentHeroIndex = 0;
-
-          // 2. Update Text Content (Fade effect handled via CSS animation)
-          elH1.innerHTML = data.h1; 
-          elTagline.innerText = data.tagline;
-          elCta.innerText = data.cta;
+          // 1. Fade Out Text
+          elH1.style.opacity = '0';
+          elH1.style.transform = 'translateY(-20px)';
           
-          // Update Deep Dive Text (Methodology & Services)
-          elMethodTitle.innerHTML = data.methodTitle;
-          elMethodDesc.innerText = data.methodDesc;
-          elServiceTitle.innerText = data.serviceTitle;
-          elServiceSub.innerText = data.serviceSub;
+          setTimeout(() => {
+              // 2. Update State & Data
+              currentIndustry = key;
+              currentHeroIndex = 0;
 
-          // Update Color Theme (CSS Variables & Glow)
-          document.documentElement.style.setProperty('--accent-primary', data.color);
+              // Update Hero Text
+              elH1.innerHTML = data.h1; 
+              elTagline.innerText = data.tagline;
+              elCta.innerText = data.cta;
+              
+              // Update Deep Dive Text (Methodology & Services)
+              elMethodTitle.innerHTML = data.methodTitle;
+              elMethodDesc.innerText = data.methodDesc;
+              elServiceTitle.innerText = data.serviceTitle;
+              elServiceSub.innerText = data.serviceSub;
 
-          // 3. Flush Memory & Load Videos
-          flushMemory();
-          
-          // Load Primary Video (Hero) - Index 0
-          playHeroVideo(0);
-          
-          // Load Secondary Video (Methodology) - Index 1 (The "od second video" logic)
-          const secondVidIndex = data.videos[1] ? 1 : 0;
-          if(data.videos[1]) {
-              methodVideo.src = data.videos[1];
+              // Update Color Theme (CSS Variables & Glow)
+              document.documentElement.style.setProperty('--accent-primary', data.color);
+
+              // 3. Flush Memory & Load Videos
+              flushMemory();
+              
+              // Load Primary Video (Hero) - Index 0
+              playHeroVideo(0);
+              
+              // Load Secondary Video (Methodology) - Index 1 (or 0 if only 1)
+              const secondVidIndex = data.videos[1] ? 1 : 0;
+              methodVideo.src = data.videos[secondVidIndex];
               methodVideo.play().catch(e => {});
-          }
+
+              // 4. Fade In Text
+              elH1.style.opacity = '1';
+              elH1.style.transform = 'translateY(0)';
+
+          }, 500); 
       }
 
       function resetToGeneral(e) {
