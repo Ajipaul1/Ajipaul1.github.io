@@ -675,7 +675,7 @@ HEALTHCARE SECTOR SPECIFIC STYLES
 <!-- ==================================================
 SECTION 1: REAL-TIME CONVERSATION INTRO (PSYCHOLOGICAL HOOK)
 ================================================== -->
-<section class="full-screen-section healthcare-only" style="background: linear-gradient(180deg, rgba(2,6,23,0) 0%, rgba(15,23,42,0.5) 100%);">
+<section class="full-screen-section" style="background: linear-gradient(180deg, rgba(2,6,23,0) 0%, rgba(15,23,42,0.5) 100%);">
 <div class="container">
 <div class="chat-container">
 <!-- System Message -->
@@ -863,7 +863,7 @@ SECTION 6: TECHNICAL TRUST SIGNALS
 <!-- ==================================================
 SECTION 7: INTERACTIVE TRUST CHECK
 ================================================== -->
-<section class="full-screen-section healthcare-only" style="padding: 4rem 0;">
+<section class="full-screen-section" style="padding: 4rem 0;">
 <div class="container split-layout">
 <div style="flex: 1; padding-right: 3rem;">
 <span class="mono text-accent">// SELF-DIAGNOSIS</span>
@@ -1069,13 +1069,15 @@ function flushMemory(videoElement) {
 }
 
 function playVideo(videoElement, src) {
-if (!src) return;
-// Set muted and playsinline before src for best autoplay compatibility
-videoElement.muted = true;
-videoElement.setAttribute('muted', '');
-videoElement.setAttribute('playsinline', '');
-videoElement.src = src;
-videoElement.play().catch(e => console.log("Autoplay blocked interaction required", e));
+	if (!src) return;
+
+	videoElement.pause();
+	videoElement.innerHTML = `<source src="${src}" type="video/mp4">`;
+	videoElement.load();
+
+	videoElement.muted = true;
+	videoElement.setAttribute('playsinline', '');
+	videoElement.play().catch(() => {});
 }
 
 // Progress Bar Logic (Only on Top Video)
@@ -1181,23 +1183,36 @@ submitButton.disabled = false;
 // ==================================================
 
 document.addEventListener('DOMContentLoaded', () => {
-updateUI(currentIndustry); // Set to 'general' by default
+	Object.keys(industryData).forEach(key => {
+		const data = industryData[key];
+		const btn = document.createElement('button');
+
+		btn.className = `chameleon-btn ${key === currentIndustry ? 'active' : ''}`;
+		btn.innerHTML = `<span class="dot"></span>${data.label}`;
+
+		btn.addEventListener('click', () => {
+			document.querySelectorAll('.chameleon-btn')
+				.forEach(b => b.classList.remove('active'));
+
+			btn.classList.add('active');
+			updateUI(key);
+		});
+
+		btnContainer.appendChild(btn);
+	});
+
+	updateUI(currentIndustry);
 });
 
-// ==================================================
-// STICKY CTA VISIBILITY ON SCROLL
-// ==================================================
-window.addEventListener('scroll', () => {
-  const cta = document.getElementById('stickyCta');
-  if (cta) {
-    if (window.scrollY > 500) {
-      cta.classList.add('visible');
-    } else {
-      cta.classList.remove('visible');
-    }
-  }
-});
+// ...existing code...
+
 </script>
+
+<div id="stickyCta" class="sticky-cta">
+	<a href="#healthcare-audit-form" class="btn btn-primary">
+		Free Audit
+	</a>
+</div>
 
 <!-- This website is optimized for mobile devices. Please rotate your screen to view. -->
 </body>
