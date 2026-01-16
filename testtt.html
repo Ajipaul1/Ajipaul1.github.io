@@ -256,6 +256,24 @@ body { scroll-snap-type: none; overflow-y: auto; }
 .split-layout { flex-direction: column; }
 .sticky-cta { right: 15px; bottom: 15px; flex-direction: column; }
 }
+
+/* ==================================================
+HEALTHCARE SECTOR SPECIFIC STYLES
+(Add this to your <style> block or keep here for modularity)
+================================================== */
+.chat-container { max-width: 800px; margin: 4rem auto; display: flex; flex-direction: column; gap: 1.5rem; }
+.chat-bubble { background: rgba(15, 23, 42, 0.8); border: 1px solid var(--glass-border); padding: 1.5rem; border-radius: 12px; position: relative; backdrop-filter: blur(10px); color: #e2e8f0; line-height: 1.6; }
+.chat-bubble.system { align-self: flex-start; border-left: 4px solid var(--accent-primary); border-bottom-left-radius: 2px; }
+.chat-bubble.brand { align-self: flex-end; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3); border-bottom-right-radius: 2px; }
+.chat-highlight { color: var(--accent-primary); font-weight: 600; }
+
+/* Healthcare Checklist */
+.trust-checklist { list-style: none; margin-top: 1.5rem; }
+.trust-checklist li { display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--glass-border); color: var(--text-muted); }
+.check-icon { color: var(--accent-primary); font-size: 1.2rem; min-width: 24px; }
+
+/* Healthcare CTA Scarcity */
+.scarcity-tag { display: inline-block; background: rgba(34, 197, 94, 0.1); color: #22c55e; padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600; margin-bottom: 1rem; letter-spacing: 0.5px; }
 </style>
 </head>
 
@@ -624,34 +642,305 @@ We teach exact strategies used to dominate Kerala SEO market. No theory, just pr
 </div>
 </div>
 </section>
-</main>
-
-<!-- FOOTER -->
-<footer id="contact">
-<div class="container">
-<div class="footer-grid">
-<div class="footer-col"><h4>Contact</h4><ul><li class="mono">audit@techauditpros.com</li><li class="mono">+91 6282520339</li><li style="margin-top: 1rem; font-size: 0.85rem; color: #94A3B8;">DNRA 32,<br>Eroor South, Thrippunithura,<br>Kochi, Kerala 682306</li></ul></div>
-<div class="footer-col"><h4>Services</h4><ul><li><a href="#">Technical SEO Audit</a></li><li><a href="#">Web Design Kerala</a></li><li><a href="#">PPC Management</a></li></ul></div>
-<div class="footer-col"><h4>Links</h4><ul><li><a href="#">About Us</a></li><li><a href="#">Careers</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
-</div>
-<div class="footer-bottom">&copy; 2024 TechAuditPros. Built with Semantic HTML5 & High-Performance CSS.</div>
-</div>
-</footer>
-
-<!-- STICKY CTA -->
-<div id="stickyCta" class="sticky-cta"><a href="#contact" class="btn btn-primary">Free Audit</a><a href="https://wa.me/916282520339" class="btn btn-secondary">WhatsApp</a></div>
 
 <!-- ==================================================
-SEO SHADOW LAYER (EXPANDED FOR ALL SECTORS)
+HEALTHCARE SECTOR SPECIFIC STYLES
+(Add this to your <style> block or keep here for modularity)
+================================================== -->
+<style>
+/* Healthcare Chat UI */
+.chat-container { max-width: 800px; margin: 4rem auto; display: flex; flex-direction: column; gap: 1.5rem; }
+.chat-bubble { background: rgba(15, 23, 42, 0.8); border: 1px solid var(--glass-border); padding: 1.5rem; border-radius: 12px; position: relative; backdrop-filter: blur(10px); color: #e2e8f0; line-height: 1.6; }
+.chat-bubble.system { align-self: flex-start; border-left: 4px solid var(--accent-primary); border-bottom-left-radius: 2px; }
+.chat-bubble.brand { align-self: flex-end; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3); border-bottom-right-radius: 2px; }
+.chat-highlight { color: var(--accent-primary); font-weight: 600; }
+
+/* Healthcare Checklist */
+.trust-checklist { list-style: none; margin-top: 1.5rem; }
+.trust-checklist li { display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--glass-border); color: var(--text-muted); }
+.check-icon { color: var(--accent-primary); font-size: 1.2rem; min-width: 24px; }
+
+/* Healthcare CTA Scarcity */
+.scarcity-tag { display: inline-block; background: rgba(34, 197, 94, 0.1); color: #22c55e; padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600; margin-bottom: 1rem; letter-spacing: 0.5px; }
+</style>
+
+<!-- ==================================================
+SECTION 1: REAL-TIME CONVERSATION INTRO (PSYCHOLOGICAL HOOK)
+================================================== -->
+<section class="full-screen-section" style="background: linear-gradient(180deg, rgba(2,6,23,0) 0%, rgba(15,23,42,0.5) 100%);">
+<div class="container">
+<div class="chat-container">
+<!-- System Message -->
+<div class="chat-bubble system">
+<span class="mono text-accent">SYSTEM</span><br>
+👋 Hi there! Managing a clinic in Ernakulam?
+</div>
+
+<!-- Brand Message 1 -->
+<div class="chat-bubble brand">
+<strong>TechAuditPros:</strong><br>
+“I was just reviewing live search data for ‘Best Hospital in Kochi’. <br><br>
+Did you know your competitors are capturing <span class="chat-highlight">480+ potential patients</span> every month while many clinics remain buried on page 2?”
+</div>
+
+<!-- Brand Message 2 -->
+<div class="chat-bubble brand">
+<strong>TechAuditPros:</strong><br>
+“We’re offering a Real-Time Technical Audit exclusively for Kochi healthcare providers. <br><br>
+Would you like to see exactly where your patients are going instead?”
+</div>
+
+<!-- CTA -->
+<div style="text-align: center; margin-top: 1rem;">
+<a href="#healthcare-audit-form" class="btn btn-primary" style="padding: 1rem 2.5rem; border-radius: 50px;">Yes, Show Me My Gaps</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ==================================================
+SECTION 2: KERALA DECISION PSYCHOLOGY (TRUST)
+================================================== -->
+<section class="full-screen-section" style="padding-top: 4rem; padding-bottom: 4rem;">
+<div class="container split-layout">
+<div style="flex: 1; padding-right: 2rem;">
+<span class="mono text-accent">// DECISION PSYCHOLOGY</span>
+<h2 style="margin-bottom: 1.5rem;">Why Families Trust Maps Over Ads</h2>
+<p class="text-muted" style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+In Kerala, healthcare is rarely a solitary decision. It involves families, elders, and often extensive deliberation. When a loved one falls ill near <strong>Kakkanad</strong> or <strong>Edappally</strong>, they don't just click the top ad. They look for authority.
+</p>
+<p class="text-muted" style="margin-bottom: 1.5rem;">
+We analyze search behavior in English and Malayalam. We know that "hospital near me Kochi" isn't just a query—it's a cry for immediate trust. If your facility doesn't appear with clean, verified data, the patient moves to the next name on the list.
+</p>
+<p class="text-muted">
+Effective <strong>Medical SEO Kerala</strong> isn't about aggressive selling. It's about being present when the family gathers to make the decision.
+</p>
+</div>
+<div style="flex: 1;">
+<div class="video-wrapper">
+<video poster="kerala-medical-decision-trust.jpg" playsinline muted autoplay loop class="video-player">
+<source src="kerala-medical-decision-trust.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ==================================================
+SECTION 3: THE GAP ANALYSIS (MID-PAGE ENGAGEMENT)
+================================================== -->
+<section style="padding: 6rem 0; background: rgba(0,0,0,0.2);">
+<div class="container" style="max-width: 900px;">
+<div style="text-align: center; margin-bottom: 3rem;">
+<h2>The Technical Gap in Kochi Healthcare</h2>
+<p class="text-muted">Where patients are lost before they even arrive.</p>
+</div>
+<div style="background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 3rem; border-radius: 20px;">
+<p style="font-size: 1.2rem; line-height: 1.8; color: #e2e8f0; margin-bottom: 2rem;">
+Most SEO agencies in Kerala hand over a PDF of keywords and stop there. But <strong>Clinic SEO Ernakulam</strong> doesn't fail because of keywords — it fails because of technical trust gaps.
+</p>
+<p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+Clinics serving areas near <strong>Lulu Mall</strong>, <strong>Infopark</strong>, and <strong>Vyttila</strong> lose potential patients daily due to:
+</p>
+<ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
+<li style="display: flex; gap: 1rem; align-items: center;">
+<span style="color: #ef4444; font-size: 1.5rem;">●</span>
+<span><strong>Slow Mobile Load:</strong> Patients on 4G networks click away if your site takes more than 3 seconds.</span>
+</li>
+<li style="display: flex; gap: 1rem; align-items: center;">
+<span style="color: #ef4444; font-size: 1.5rem;">●</span>
+<span><strong>Confusing Structure:</strong> Phone numbers and "Get Directions" buttons hidden in menus.</span>
+</li>
+<li style="display: flex; gap: 1rem; align-items: center;">
+<span style="color: #ef4444; font-size: 1.5rem;">●</span>
+<span><strong>Poor Local Signals:</strong> Google doesn't trust your location in <strong>Thrippunithura</strong> or <strong>Kalamassery</strong> because your citations are inconsistent.</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- ==================================================
+SECTION 4: WHAT HEALTHCARE SEO REALLY MEANS
+================================================== -->
+<section style="padding: 6rem 0;">
+<div class="container">
+<div class="split-layout">
+<div style="flex: 1;">
+<h2>Hospital SEO Kochi, Decoded</h2>
+<p class="text-muted" style="font-size: 1.1rem; margin-top: 1.5rem;">
+Forget the jargon. When we talk about <strong>Hospital Digital Marketing Kochi</strong>, we mean three simple things that directly impact your bed occupancy:
+</p>
+<div style="margin-top: 2rem;">
+<div style="margin-bottom: 2rem;">
+<h3 style="color: var(--accent-primary); margin-bottom: 0.5rem;">01. Visibility in Emergencies</h3>
+<p class="text-muted">When families search from <strong>Kochi</strong> or <strong>Ernakulam</strong>, your facility must be the visible, reliable option.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h3 style="color: var(--accent-primary); margin-bottom: 0.5rem;">02. Absolute Data Accuracy</h3>
+<p class="text-muted">Correct phone numbers, correct ward names, and correct OP timings. Errors here break trust instantly.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h3 style="color: var(--accent-primary); margin-bottom: 0.5rem;">03. Mobile First</h3>
+<p class="text-muted">70% of medical searches happen on mobile. Your site must load fast and work perfectly on small screens.</p>
+</div>
+</div>
+</div>
+<div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+<div class="mini-stat-card" style="width: 100%; background: rgba(56, 189, 248, 0.05);">
+<h3 style="color: white; margin-bottom: 1rem;">The Trust Factor</h3>
+<p class="text-muted" style="text-align: left;">
+In healthcare, technical errors aren't just bugs—they look like negligence. A fast, secure, and accurate website signals that you care about patient experience as much as their health.
+</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ==================================================
+SECTION 5: GOOGLE MAPS & LOCAL VISIBILITY (HIGH PRIORITY)
+================================================== -->
+<section class="full-screen-section" style="background: linear-gradient(180deg, rgba(2,6,23,0) 0%, rgba(15,23,42,0.5) 100%);">
+<div class="container split-layout centered">
+<div style="flex: 1; order: 2;">
+<div class="video-wrapper">
+<video poster="google-maps-hospital-visibility-kochi.jpg" playsinline muted autoplay loop class="video-player">
+<source src="google-maps-hospital-visibility-kochi.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+</div>
+<div style="flex: 1; order: 1; padding-right: 3rem;">
+<span class="mono text-accent">// MAP PACK DOMINATION</span>
+<h2 style="margin-bottom: 1.5rem;">Winning the "Near Me" Search</h2>
+<p class="text-muted" style="font-size: 1.15rem; margin-bottom: 2rem;">
+For a hospital, the "Google Maps Pack" (the top 3 results) is more valuable than a full-page website. When someone searches <strong>hospital near me Kochi</strong> in an emergency, they rarely scroll past the map.
+</p>
+<p class="text-muted" style="margin-bottom: 2rem;">
+<strong>Google Maps SEO for Hospitals in Kochi</strong> involves optimizing your physical presence, not just your code. We ensure your <strong>Infopark</strong> or <strong>SmartCity</strong> facility appears clearly on the map with verified reviews and accurate hours.
+</p>
+<a href="#healthcare-audit-form" class="btn btn-outline">Check My Map Visibility</a>
+</div>
+</div>
+</section>
+
+<!-- ==================================================
+SECTION 6: TECHNICAL TRUST SIGNALS
+================================================== -->
+<section style="padding: 6rem 0; background: rgba(0,0,0,0.2);">
+<div class="container" style="max-width: 800px;">
+<div style="text-align: center; margin-bottom: 4rem;">
+<h2>The Psychology of Trust</h2>
+<p class="text-muted">How patients judge you in 0.5 seconds.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+<div style="padding: 2rem; background: rgba(255,255,255,0.03); border-radius: 12px;">
+<h3 style="color: white; margin-bottom: 1rem;">Speed = Competence</h3>
+<p class="text-muted">A slow website suggests a slow administration. Fast load times imply efficiency and urgency.</p>
+</div>
+<div style="padding: 2rem; background: rgba(255,255,255,0.03); border-radius: 12px;">
+<h3 style="color: white; margin-bottom: 1rem;">Mobile Usability</h3>
+<p class="text-muted">If a patient can't find the "Contact" button with one thumb, they leave. Simplicity wins.</p>
+</div>
+<div style="padding: 2rem; background: rgba(255,255,255,0.03); border-radius: 12px;">
+<h3 style="color: white; margin-bottom: 1rem;">Clarity = Confidence</h3>
+<p class="text-muted">Clear descriptions of services and departments remove anxiety before the patient even walks in.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ==================================================
+SECTION 7: INTERACTIVE TRUST CHECK
+================================================== -->
+<section class="full-screen-section" style="padding: 4rem 0;">
+<div class="container split-layout">
+<div style="flex: 1; padding-right: 3rem;">
+<span class="mono text-accent">// SELF-DIAGNOSIS</span>
+<h2 style="margin-bottom: 1.5rem;">Healthcare Trust Check</h2>
+<p class="text-muted" style="margin-bottom: 2rem;">Before you request an audit, check these 4 critical signals. If you miss one, you are likely losing patients.</p>
+<ul class="trust-checklist">
+<li>
+<span class="check-icon">✓</span>
+<span>Does your hospital appear in Google Maps for "Kochi" searches?</span>
+</li>
+<li>
+<span class="check-icon">✓</span>
+<span>Does your site load under 2 seconds on a standard mobile connection?</span>
+</li>
+<li>
+<span class="check-icon">✓</span>
+<span>Are patient reviews clearly visible and recent?</span>
+</li>
+<li>
+<span class="check-icon">✓</span>
+<span>Is your contact info (NAP) consistent across JustDial, Practo, and Google?</span>
+</li>
+</ul>
+</div>
+<div style="flex: 1;">
+<div class="video-wrapper">
+<video poster="healthcare-digital-audit-credibility.jpg" playsinline muted autoplay loop class="video-player">
+<source src="healthcare-digital-audit-credibility.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ==================================================
+SECTION 8 & 9: FREE AUDIT & FINAL CTA
+================================================== -->
+<section id="healthcare-audit-form" style="padding: 6rem 0; background: linear-gradient(180deg, var(--bg-base) 0%, rgba(56, 189, 248, 0.05) 100%);">
+<div class="container" style="max-width: 600px;">
+<div style="text-align: center; margin-bottom: 3rem;">
+<span class="scarcity-tag">LIMITED: 3 AUDITS PER WEEK</span>
+<h2 style="margin-bottom: 1rem;">Claim Your Confidential Kochi Hospital SEO Audit</h2>
+<p class="text-muted">
+This is a manual technical diagnosis, not an automated report. We review your visibility gaps in <strong>Thrippunithura</strong>, <strong>Edappally</strong>, and <strong>Ernakulam</strong>.
+</p>
+</div>
+
+<div class="hero-form" style="margin: 0 auto; border: 1px solid var(--accent-primary);">
+<form action="https://formsubmit.co/info@techauditpros.com" method="POST">
+<input type="hidden" name="_subject" value="New Healthcare Audit Request">
+<input type="hidden" name="_captcha" value="false">
+<div class="form-full">
+<input type="url" name="website" placeholder="Hospital / Clinic Website URL" required>
+</div>
+<div class="form-full">
+<input type="text" name="name" placeholder="Your Name / Designation" required>
+</div>
+<div class="form-full">
+<input type="email" name="email" placeholder="Work Email" required>
+</div>
+<button type="submit" class="btn-submit" style="background: var(--accent-primary); color: #020617;">GET MY FREE TECHNICAL DIAGNOSIS</button>
+<p style="font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-top: 1rem;">
+We analyze technical gaps and competitor keyword capture (including agencies like Spiderworks). 100% Private.
+</p>
+</form>
+</div>
+</div>
+</section>
+
+<!-- ==================================================
+HEALTHCARE SEO SHADOW LAYER
+(Append this to your existing .visually-hidden div)
 ================================================== -->
 <div class="visually-hidden">
-<h1>Digital Marketing Agency Kochi</h1>
+<h1>Healthcare SEO Kochi & Hospital SEO Services</h1>
 <article>
-<p>As the leading <strong>Digital Marketing Agency in Kochi</strong>, TechAuditPros specializes in hyper-local strategies across Kerala. We provide top-tier services for businesses in <strong>Infopark</strong> and <strong>SmartCity</strong>, helping tech companies reach global audiences. Our <strong>Kochi hospital digital marketing</strong> strategies ensure medical facilities rank for critical health terms.</p>
-<p>For the real estate sector, we generate <strong>luxury villa leads in Ernakulam</strong>, targeting high-net-worth individuals looking for properties in <strong>Kakkanad</strong> and <strong>Marine Drive</strong>. We understand the unique dynamics of the <strong>Edappally</strong> retail market and <strong>Lulu Mall</strong> traffic patterns.</p>
-<p>We are experts in <strong>Ayurveda medical tourism in Kerala</strong>, helping resorts connect with international patients seeking wellness. Our <strong>Boutique SEO Kochi</strong> services are tailored for fashion brands in <strong>Panampilly Nagar</strong> and makeup artists across Ernakulam.</p>
-<p>Whether you are a logistics firm near <strong>Vallarpadam</strong> or a startup in <strong>Kalamassery</strong>, our technical SEO audits cover every aspect of your online presence. We focus on <strong>Web Design Kerala</strong> standards that prioritize speed and conversion. From <strong>Vyttila</strong> to <strong>Thrippunithura</strong>, we are the trusted partner for growth.</p>
-<p>Our services also extend to <strong>Digital Marketing Course in Ernakulam</strong>, training the next generation of marketers in advanced tools like Semrush and Ahrefs. Choose TechAuditPros for data-driven results in Kerala's competitive digital landscape.</p>
+<p>As experts in <strong>Healthcare SEO Kochi</strong>, we understand that medical decisions are driven by trust, not just rankings. Our strategy for <strong>Hospital SEO Kochi</strong> focuses on establishing digital authority that mirrors clinical authority. We optimize for critical search behaviors including <strong>hospital near me Kochi</strong> and specialized queries.</p>
+
+<p>We provide comprehensive <strong>Hospital Digital Marketing Kochi</strong> solutions that respect patient privacy while maximizing visibility. Whether you are a multispecialty hospital in <strong>Ernakulam</strong> or a specialized clinic in <strong>Kakkanad</strong>, our technical audits ensure your facility is found when families are in distress.</p>
+
+<p>Our approach to <strong>Medical SEO Kerala</strong> involves deep technical fixes for Core Web Vitals, ensuring mobile accessibility for urgent searches. We excel in <strong>Clinic SEO Ernakulam</strong> by optimizing Google Business Profiles and managing local citations for accuracy.</p>
+
+<p>Through strategic <strong>Google Maps SEO for Hospitals in Kochi</strong>, we help you dominate the local pack, ensuring that patients in <strong>Edappally</strong>, <strong>Vyttila</strong>, and <strong>Thrippunithura</strong> see you first. We analyze technical gaps and competitor strategies, including major players, to secure your patient flow.
+</p>
 </article>
 </div>
 
@@ -878,4 +1167,4 @@ updateUI('general');
 window.addEventListener('DOMContentLoaded', init);
 </script>
 </body>
-</html> 
+</html>
