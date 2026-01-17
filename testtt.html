@@ -31,7 +31,34 @@
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             --font-main: 'Inter', sans-serif;
             --font-malayalam: 'Manjari', sans-serif;
+            /* --- WEATHER THEME EXTENSIONS --- */
+            /* Default / Sunny: Cochin Gold */
+            --weather-bg: #fffcf2; /* Ivory Gold */
+            --weather-accent: #d4af37; /* Metallic Gold */
+            --weather-text: #1e293b;
+            background-color: var(--weather-bg);
         }
+
+        /* Rain Theme: Monsoon Grey */
+        body.monsoon-grey {
+            --weather-bg: #334155;
+            --weather-accent: #10b981; /* Lush Green */
+            --weather-text: #f1f5f9;
+            background-color: var(--weather-bg);
+            color: var(--weather-text);
+        }
+
+        /* Rain Overlay Animation */
+        #rain-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            background-image: url('https://raw.githubusercontent.com/Ajipaul1/assets/main/rain.png'); /* You can use a repeating rain gif/png */
+            opacity: 0.1;
+            display: none;
+        }
+        body.monsoon-grey #rain-overlay { display: block; }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -434,6 +461,7 @@
 </head>
 <body>
 
+    <div id="rain-overlay"></div>
     <!-- 1️⃣ Header -->
     <header>
         <div class="container flex nav-wrapper">
@@ -1030,7 +1058,7 @@
             document.getElementById('dynamic-tagline').textContent = data.tagline;
             document.getElementById('malayalam-text').textContent = data.malayalam;
             document.getElementById('form-title').textContent = data.formTitle;
-            document.getElementById('form-cta').textContent = data.cta;
+            document.getElementById('dynamicCta').textContent = data.cta;
             document.getElementById('mode-display').textContent = industry.toUpperCase();
 
             // 2. Update Active Button State
@@ -1064,6 +1092,31 @@
                 switchIndustry('general');
             }
         }
+
+        // --- CHAMELEON 2.0: WEATHER INTEGRATION ---
+        async function applyKochiWeatherTheme() {
+            try {
+                // Kochi Lat/Long: 9.9312, 76.2673
+                const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=9.9312&longitude=76.2673&current_weather=true');
+                const data = await response.json();
+                const weatherCode = data.current_weather.weathercode;
+                // Open-Meteo Weather Codes: 51, 53, 55, 61, 63, 65, 80, 81, 82 are Rain
+                const rainCodes = [51, 53, 55, 61, 63, 65, 80, 81, 82];
+                const isRaining = rainCodes.includes(weatherCode);
+                if (isRaining) {
+                    document.body.classList.add('monsoon-grey');
+                    document.getElementById('mode-display').textContent = "MONSOON MODE (RAIN DETECTED)";
+                    console.log("Kochi Weather: Raining. Theme: Monsoon Grey applied.");
+                } else {
+                    document.body.classList.remove('monsoon-grey');
+                    console.log("Kochi Weather: Sunny/Clear. Theme: Cochin Gold applied.");
+                }
+            } catch (error) {
+                console.error("Weather API failed, defaulting to Sunny theme.", error);
+            }
+        }
+        // Initialize weather check on load
+        window.addEventListener('DOMContentLoaded', applyKochiWeatherTheme);
         </script>
 
 <script>
