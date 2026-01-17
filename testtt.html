@@ -31,12 +31,11 @@
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             --font-main: 'Inter', sans-serif;
             --font-malayalam: 'Manjari', sans-serif;
-            /* --- WEATHER THEME EXTENSIONS --- */
-            /* Default / Sunny: Cochin Gold */
-            --weather-bg: #fffcf2; /* Ivory Gold */
-            --weather-accent: #d4af37; /* Metallic Gold */
+
+            /* WEATHER VARIABLES */
+            --weather-bg: #fffcf2;
+            --weather-accent: #d4af37;
             --weather-text: #1e293b;
-        }
         }
 
         /* Rain Theme: Monsoon Grey */
@@ -147,7 +146,12 @@
 
         /* --- HERO SECTION (CHAMELEON) --- */
         .hero {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            background: linear-gradient(
+                135deg,
+                color-mix(in srgb, var(--weather-bg) 90%, black),
+                var(--weather-bg)
+            );
+            transition: background 0.8s ease;
             padding: 60px 0 80px;
             position: relative;
             overflow: hidden;
