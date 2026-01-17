@@ -443,6 +443,200 @@
             .hero-left h1 { font-size: 2.5rem; }
             .nav-links { display: none; } /* Simplified nav for mobile demo */
         }
+        /* --- PREMIUM MOBILE APP-LIKE STYLES --- */
+        @media (max-width: 600px) {
+            body {
+                background: var(--weather-bg);
+                    background: var(--weather-bg);
+                    font-size: 1.05rem;
+            }
+            .container {
+                    padding: 0 8px;
+            }
+            header {
+                    padding: 10px 0;
+                border-radius: 0 0 18px 18px;
+                box-shadow: 0 2px 16px rgba(59,130,246,0.07);
+            }
+            .logo {
+                    font-size: 1.2rem;
+            }
+            .hero {
+                    padding: 32px 0 32px;
+                border-radius: 0 0 24px 24px;
+                box-shadow: 0 4px 24px rgba(59,130,246,0.06);
+            }
+            .hero-left h1 {
+                    font-size: 1.45rem;
+                margin-bottom: 10px;
+            }
+            .tagline {
+                    font-size: 1rem;
+                margin-bottom: 18px;
+            }
+            .malayalam-trust {
+                    font-size: 0.95rem;
+                margin-bottom: 18px;
+            }
+            .industry-grid {
+                    grid-template-columns: 1fr 1fr;
+                gap: 7px;
+                margin-bottom: 22px;
+            }
+            .ind-btn {
+                    font-size: 0.95rem;
+                padding: 14px 0;
+                border-radius: 12px;
+                margin-bottom: 0;
+                box-shadow: 0 2px 8px rgba(59,130,246,0.04);
+            }
+            .hero-form {
+                    padding: 18px 10px;
+                border-radius: 18px;
+                box-shadow: 0 4px 24px rgba(59,130,246,0.08);
+                margin-bottom: 18px;
+            }
+            .hero-form h3 {
+                    font-size: 1.05rem;
+                margin-bottom: 12px;
+            }
+            .form-group input, .form-group select {
+                    padding: 14px 10px;
+                font-size: 1rem;
+                border-radius: 10px;
+            }
+            .btn, .btn-primary, .btn-outline {
+                    font-size: 1.1rem;
+                padding: 16px 0;
+                border-radius: 14px;
+                width: 100%;
+                margin-bottom: 10px;
+                transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+                -webkit-tap-highlight-color: rgba(59,130,246,0.15);
+                touch-action: manipulation;
+            }
+            .btn:active, .btn-primary:active, .btn-outline:active {
+                    background: var(--secondary);
+                color: var(--white);
+                box-shadow: 0 2px 12px rgba(59,130,246,0.18);
+                transform: scale(0.97);
+            }
+            .feature-card, .pricing-card, .method-card {
+                    transition: box-shadow 0.2s, transform 0.1s;
+            }
+            .feature-card:active, .pricing-card:active, .method-card:active {
+                    box-shadow: 0 6px 24px rgba(59,130,246,0.18);
+                transform: scale(0.98);
+            }
+            /* Remove tap highlight for all elements */
+            * {
+                    -webkit-tap-highlight-color: rgba(59,130,246,0.10);
+            }
+            .mobile-nav-toggle {
+                    display: block;
+                background: none;
+                border: none;
+                font-size: 2rem;
+                color: var(--primary);
+                position: absolute;
+                right: 18px;
+                top: 10px;
+                z-index: 3001;
+            }
+            .mobile-nav-drawer {
+                    position: fixed;
+                top: 0; right: 0;
+                width: 80vw;
+                max-width: 320px;
+                height: 100vh;
+                background: var(--white);
+                box-shadow: -2px 0 24px rgba(59,130,246,0.13);
+                z-index: 3000;
+                transform: translateX(100%);
+                transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+                padding: 40px 24px 24px 24px;
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+            }
+            .mobile-nav-drawer.open {
+                    transform: translateX(0);
+            }
+            .mobile-nav-drawer a {
+                    font-size: 1.2rem;
+                color: var(--primary);
+                padding: 14px 0;
+                border-bottom: 1px solid #e2e8f0;
+                font-weight: 600;
+            }
+            .mobile-nav-drawer a:last-child {
+                    border-bottom: none;
+            }
+            .mobile-nav-overlay {
+                    position: fixed;
+                top: 0; left: 0; width: 100vw; height: 100vh;
+                background: rgba(30,41,59,0.18);
+                z-index: 2999;
+                display: none;
+            }
+            .mobile-nav-overlay.open {
+                    display: block;
+            }
+            .nav-links, .header-actions {
+                    display: none !important;
+            }
+            .footer-grid {
+                    grid-template-columns: 1fr;
+                gap: 18px;
+                padding-bottom: 30px;
+            }
+            .footer-col {
+                    margin-bottom: 0;
+            }
+            .footer-bottom {
+                    padding: 18px 0;
+                font-size: 0.95rem;
+            }
+            /* Sticky bottom CTA for mobile */
+            .sticky-cta {
+                    position: fixed;
+                left: 0; right: 0; bottom: 0;
+                z-index: 2000;
+                background: var(--secondary);
+                color: var(--white);
+                text-align: center;
+                padding: 18px 10px 18px 10px;
+                font-size: 1.2rem;
+                font-weight: 700;
+                border-radius: 18px 18px 0 0;
+                box-shadow: 0 -2px 16px rgba(59,130,246,0.13);
+                display: block;
+            }
+            /* Hide video stack, reduce section paddings */
+            .video-stack { display: none !important; }
+            .section-padding { padding: 32px 0; }
+            .feature-grid, .pricing-grid, .method-cards {
+                    grid-template-columns: 1fr;
+                gap: 14px;
+            }
+            .feature-card, .pricing-card, .method-card {
+                    padding: 18px 10px;
+                border-radius: 14px;
+            }
+            .section-title {
+                    font-size: 1.3rem;
+                margin-bottom: 10px;
+            }
+            .section-subtitle {
+                    font-size: 1rem;
+                margin-bottom: 18px;
+            }
+            /* FAQ details */
+            details {
+                    font-size: 1rem;
+                padding: 10px;
+            }
+        }
     </style>
 
     <script type="application/ld+json">
@@ -490,13 +684,18 @@
 <body>
 
     <div id="rain-overlay"></div>
+    <!-- Sticky CTA for mobile (Step 2) -->
+    <a href="#auditForm" class="sticky-cta" id="mobileStickyCta">Get Your Free SEO Audit</a>
     <!-- 1️⃣ Header -->
     <header>
-        <div class="container flex nav-wrapper">
+        <div class="container flex nav-wrapper" style="position:relative;">
             <div class="logo">
                 TechAudit<span>Pros</span>
             </div>
-            
+            <!-- Hamburger for mobile -->
+            <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open menu" style="display:none;">
+                <span>&#9776;</span>
+            </button>
             <nav>
                 <ul class="nav-links flex">
                     <li><a href="#methodology">Methodology</a></li>
@@ -506,12 +705,22 @@
                     <li><a href="#footer">Contact</a></li>
                 </ul>
             </nav>
-
             <div class="header-actions flex">
                 <div class="region-switch" onclick="toggleRegion()">🇮🇳 India</div>
                 <a href="#" class="btn btn-primary">WhatsApp Us</a>
                 <a href="#" style="font-size: 0.8rem; text-decoration: underline;">Reset to Kochi Home</a>
             </div>
+            <!-- Mobile nav drawer and overlay -->
+            <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+            <nav class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile menu">
+                <a href="#methodology">Methodology</a>
+                <a href="#services">Services</a>
+                <a href="#training">Training</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#footer">Contact</a>
+                <a href="#" onclick="toggleRegion();return false;">Switch Region</a>
+                <a href="#auditForm">Free SEO Audit</a>
+            </nav>
         </div>
     </header>
 
@@ -1234,6 +1443,56 @@ function submitForm(event) {
         submitButton.disabled = false;
     });
 }
+// Mobile nav logic
+function setupMobileNav() {
+    var toggle = document.getElementById('mobileNavToggle');
+    var drawer = document.getElementById('mobileNavDrawer');
+    var overlay = document.getElementById('mobileNavOverlay');
+    function openNav() {
+        drawer.classList.add('open');
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeNav() {
+        drawer.classList.remove('open');
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+    if (toggle && drawer && overlay) {
+        toggle.addEventListener('click', openNav);
+        overlay.addEventListener('click', closeNav);
+        // Close nav on link click
+        drawer.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', closeNav);
+        });
+    }
+    // Show/hide hamburger based on screen size
+    function handleHamburger() {
+        if (window.innerWidth <= 600) {
+            toggle.style.display = 'block';
+        } else {
+            toggle.style.display = 'none';
+            closeNav();
+        }
+    }
+    window.addEventListener('resize', handleHamburger);
+    window.addEventListener('DOMContentLoaded', handleHamburger);
+}
+window.addEventListener('DOMContentLoaded', setupMobileNav);
+</script>
+<script>
+// Hide sticky CTA on desktop, show only on mobile
+function handleStickyCtaVisibility() {
+    var cta = document.getElementById('mobileStickyCta');
+    if (!cta) return;
+    if (window.innerWidth <= 600) {
+        cta.style.display = 'block';
+    } else {
+        cta.style.display = 'none';
+    }
+}
+window.addEventListener('DOMContentLoaded', handleStickyCtaVisibility);
+window.addEventListener('resize', handleStickyCtaVisibility);
 </script>
 </body>
 </html>
