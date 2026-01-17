@@ -36,7 +36,7 @@
             --weather-bg: #fffcf2; /* Ivory Gold */
             --weather-accent: #d4af37; /* Metallic Gold */
             --weather-text: #1e293b;
-            background-color: var(--weather-bg);
+        }
         }
 
         /* Rain Theme: Monsoon Grey */
@@ -55,7 +55,7 @@
             pointer-events: none;
             z-index: 9999;
             background-image: url('https://raw.githubusercontent.com/Ajipaul1/assets/main/rain.png'); /* You can use a repeating rain gif/png */
-            opacity: 0.1;
+            opacity: 0.3;
             display: none;
         }
         body.monsoon-grey #rain-overlay { display: block; }
@@ -65,9 +65,11 @@
         body {
             font-family: var(--font-main);
             color: var(--text-dark);
-            background-color: var(--bg-light);
+            /* Changed this line to use the weather variable */
+            background-color: var(--weather-bg); 
             line-height: 1.6;
             overflow-x: hidden;
+            transition: background-color 0.8s ease, color 0.8s ease; /* Smooth transition */
         }
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
