@@ -530,16 +530,16 @@
 
                     <!-- Industry Selector -->
                     <div class="industry-grid">
-                        <div class="ind-btn active" onclick="switchIndustry('general')">General</div>
-                        <div class="ind-btn" onclick="switchIndustry('healthcare')">Healthcare</div>
-                        <div class="ind-btn" onclick="switchIndustry('ayurveda')">Ayurveda</div>
-                        <div class="ind-btn" onclick="switchIndustry('realestate')">Real Estate</div>
-                        <div class="ind-btn" onclick="switchIndustry('logistics')">Logistics</div>
-                        <div class="ind-btn" onclick="switchIndustry('fashion')">Fashion</div>
-                        <div class="ind-btn" onclick="switchIndustry('makeup')">Makeup</div>
-                        <div class="ind-btn" onclick="switchIndustry('tourism')">Tourism</div>
-                        <div class="ind-btn" onclick="switchIndustry('artists')">Artists</div>
-                        <div class="ind-btn" onclick="switchIndustry('techaudit')">Tech Audit</div>
+                        <div class="ind-btn active" onclick="switchIndustry('general', this)">General</div>
+                        <div class="ind-btn" onclick="switchIndustry('healthcare', this)">Healthcare</div>
+                        <div class="ind-btn" onclick="switchIndustry('ayurveda', this)">Ayurveda</div>
+                        <div class="ind-btn" onclick="switchIndustry('realestate', this)">Real Estate</div>
+                        <div class="ind-btn" onclick="switchIndustry('logistics', this)">Logistics</div>
+                        <div class="ind-btn" onclick="switchIndustry('fashion', this)">Fashion</div>
+                        <div class="ind-btn" onclick="switchIndustry('makeup', this)">Makeup</div>
+                        <div class="ind-btn" onclick="switchIndustry('tourism', this)">Tourism</div>
+                        <div class="ind-btn" onclick="switchIndustry('artists', this)">Artists</div>
+                        <div class="ind-btn" onclick="switchIndustry('techaudit', this)">Tech Audit</div>
                     </div>
 
                     <!-- Lead Capture Form -->
@@ -992,6 +992,7 @@
         </div>
     </footer>
 
+
     <!-- JAVASCRIPT: The "Chameleon" Logic -->
     <script>
                 /* ⏰ TIME-BASED GREETING + NIGHT MODE */
@@ -1100,7 +1101,6 @@
             }
         };
 
-<script>
 /* 🧠 Predictive UX: Restore last interest */
 function restoreUserPreference() {
     const savedIndustry = localStorage.getItem('preferredIndustry');
@@ -1119,13 +1119,11 @@ function restoreUserPreference() {
 }
 
 window.addEventListener('DOMContentLoaded', restoreUserPreference);
-</script>
 
-        function switchIndustry(industry) {
+        function switchIndustry(industry, btnEl) {
             localStorage.setItem('preferredIndustry', industry);
 
             const data = industryData[industry];
-            
             // 1. Update Text Elements
             document.getElementById('main-h1').textContent = data.h1;
             document.getElementById('dynamic-tagline').textContent = data.tagline;
@@ -1136,19 +1134,16 @@ window.addEventListener('DOMContentLoaded', restoreUserPreference);
 
             // 2. Update Active Button State
             document.querySelectorAll('.ind-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            if (btnEl) btnEl.classList.add('active');
 
             // 3. Handle Conditional Sections
             // Hide all conditional sections first
             document.querySelectorAll('.conditional-section').forEach(sec => sec.classList.add('hidden'));
-            
             // Show specific section if it exists
             if (data.sectionId) {
                 const targetSection = document.getElementById(data.sectionId);
                 if (targetSection) {
                     targetSection.classList.remove('hidden');
-                    // Smooth scroll to section slightly below hero to reveal it
-                    // window.location.hash = data.sectionId; 
                 }
             }
         }
@@ -1188,9 +1183,13 @@ window.addEventListener('DOMContentLoaded', restoreUserPreference);
                 console.error("Weather API failed, defaulting to Sunny theme.", error);
             }
         }
+
         // Initialize weather check on load
         window.addEventListener('DOMContentLoaded', applyKochiWeatherTheme);
-        </script>
+    </script>
+
+    <!-- SweetAlert2 for form popups -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
 function submitForm(event) {
