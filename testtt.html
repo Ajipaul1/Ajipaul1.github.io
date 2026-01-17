@@ -168,11 +168,7 @@
 
         /* --- HERO SECTION (CHAMELEON) --- */
         .hero {
-            background: linear-gradient(
-                135deg,
-                color-mix(in srgb, var(--weather-bg) 90%, black),
-                var(--weather-bg)
-            );
+            background: none;
             transition: background 0.8s ease;
             padding: 60px 0 80px;
             position: relative;
@@ -736,7 +732,8 @@
     <main>
         <!-- 2️⃣ Hero Section (Chameleon) -->
         <section class="hero" id="hero">
-            <div class="container hero-content-wrapper">
+            <video class="hero-bg-video" autoplay muted loop playsinline poster="https://www.w3schools.com/html/pic_trulli.jpg" style="position:absolute;top:0;left:0;width:100vw;height:100%;object-fit:cover;z-index:0;filter:brightness(0.5);"></video>
+            <div class="container hero-content-wrapper" style="position:relative;z-index:1;">
                 
                 <!-- Left Side: Content & Form -->
                 <div class="hero-left">
@@ -814,6 +811,7 @@
         
         <!-- 🏥 Healthcare Mode -->
         <section id="sec-healthcare" class="conditional-section hidden section-padding">
+            <video class="section-bg-video" autoplay muted loop playsinline poster="https://www.w3schools.com/html/pic_trulli.jpg" style="position:absolute;top:0;left:0;width:100vw;height:100%;object-fit:cover;z-index:0;filter:brightness(0.5);"></video>
             <h2 class="hidden">Healthcare SEO Services in Kochi</h2>
             <div class="container">
                 <div class="chat-hook">
@@ -838,6 +836,7 @@
 
         <!-- 🌿 Ayurveda / Wellness Mode -->
         <section id="sec-ayurveda" class="conditional-section hidden section-padding">
+            <img class="section-bg-image" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" alt="Ayurveda background" style="position:absolute;top:0;left:0;width:100vw;height:100%;object-fit:cover;z-index:0;filter:brightness(0.5);"/>
             <h2 class="hidden">Ayurveda SEO Kerala</h2>
             <div class="container">
                 <div class="text-center">
