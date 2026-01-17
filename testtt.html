@@ -142,7 +142,9 @@
         }
         
         .nav-wrapper {
+            display: flex;
             justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
@@ -154,10 +156,29 @@
         .logo span { color: var(--secondary); }
 
         .nav-links { gap: 30px; }
-        .nav-links a { font-weight: 500; font-size: 0.95rem; color: var(--text-dark); }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            flex: 1 1 auto;
+            justify-content: flex-start;
+            align-items: center;
+            margin-left: 40px;
+        }
+        .nav-links a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            white-space: nowrap;
+        }
         .nav-links a:hover { color: var(--secondary); }
 
         .header-actions { gap: 15px; align-items: center; }
+        .header-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-left: 40px;
+        }
         .region-switch {
             font-size: 0.85rem;
             padding: 5px 10px;
