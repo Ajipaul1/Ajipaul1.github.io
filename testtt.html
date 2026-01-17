@@ -58,6 +58,28 @@
             display: none;
         }
         body.monsoon-grey #rain-overlay { display: block; }
+        
+                /* 🌙 Night Mode (Time-based) */
+                body.night-mode {
+                    filter: brightness(0.9) contrast(1.05);
+                }
+
+                body.night-mode .hero {
+                    background: linear-gradient(
+                        135deg,
+                        #020617,
+                        #020617
+                    );
+                }
+
+                body.night-mode header {
+                    background: rgba(15, 23, 42, 0.9);
+                }
+
+                body.night-mode .hero-left h1,
+                body.night-mode .tagline {
+                    color: #e5e7eb;
+                }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -972,6 +994,28 @@
 
     <!-- JAVASCRIPT: The "Chameleon" Logic -->
     <script>
+                /* ⏰ TIME-BASED GREETING + NIGHT MODE */
+                function applyTimeBasedGreeting() {
+                    const hour = new Date().getHours();
+                    const h1 = document.getElementById('main-h1');
+                    const tagline = document.getElementById('dynamic-tagline');
+
+                    if (hour >= 6 && hour < 11) {
+                        h1.textContent = "സുപ്രഭാതം കൊച്ചി ☀️";
+                        tagline.textContent = "ഇന്ന് നിങ്ങളുടെ ബിസിനസ് വളർച്ചയ്ക്ക് ഒരു നല്ല ദിവസം.";
+                    } 
+                    else if (hour >= 12 && hour < 16) {
+                        h1.textContent = "Namaskaram, Kochi 👋";
+                        tagline.textContent = "Let’s talk business growth, the right way.";
+                    } 
+                    else if (hour >= 19) {
+                        document.body.classList.add('night-mode');
+                        document.getElementById('mode-display').textContent = "NIGHT MODE";
+                    }
+                }
+
+                window.addEventListener('DOMContentLoaded', applyTimeBasedGreeting);
+        
         // Data Object for Content Switching
         const industryData = {
             'general': {
@@ -1056,7 +1100,30 @@
             }
         };
 
+<script>
+/* 🧠 Predictive UX: Restore last interest */
+function restoreUserPreference() {
+    const savedIndustry = localStorage.getItem('preferredIndustry');
+
+    if (savedIndustry && industryData[savedIndustry]) {
+        switchIndustry(savedIndustry);
+
+        const sectionId = industryData[savedIndustry].sectionId;
+        if (sectionId) {
+            setTimeout(() => {
+                document.getElementById(sectionId)
+                    .scrollIntoView({ behavior: 'smooth' });
+            }, 600);
+        }
+    }
+}
+
+window.addEventListener('DOMContentLoaded', restoreUserPreference);
+</script>
+
         function switchIndustry(industry) {
+            localStorage.setItem('preferredIndustry', industry);
+
             const data = industryData[industry];
             
             // 1. Update Text Elements
