@@ -746,6 +746,11 @@
                     <p id="dynamic-tagline" class="tagline">Engineered for Ernakulam’s top brands.</p>
                     <span id="malayalam-text" class="malayalam-trust">കൊച്ചിയിലെ മികച്ച ടെക്നിക്കൽ എസ്.ഇ.ഒ ഏജൻസി</span>
 
+                    <!-- Mobile Hero Image (only visible on mobile) -->
+                    <div class="mobile-hero-img">
+                        <img src="https://picsum.photos/seed/mobilehero/400/220" alt="Mobile Hero Sample" />
+                    </div>
+
                     <!-- Industry Selector -->
                     <div class="industry-grid">
                         <div class="ind-btn active" onclick="switchIndustry('general', this)">General</div>
@@ -869,6 +874,10 @@
                             <li style="margin-bottom: 10px;">✅ <strong>Exhibition History Schema:</strong> Helping Google understand your authority.</li>
                         </ul>
                         <button class="btn btn-primary">Get My Artist Portfolio Audit</button>
+                        <!-- Mobile Artists Image (only visible on mobile) -->
+                        <div class="mobile-artists-img">
+                            <img src="https://picsum.photos/seed/mobileartist/400/220" alt="Mobile Artists Sample" />
+                        </div>
                     </div>
                     <div style="width: 400px; height: 400px; background: #e2e8f0; border-radius: 20px; position: relative; overflow: hidden;">
                          <img src="https://picsum.photos/seed/artist/400/400" style="width:100%; height:100%; object-fit: cover;">
@@ -879,6 +888,30 @@
                     </div>
                 </div>
             </div>
+                /* Show mobile images, hide on desktop */
+                .mobile-hero-img, .mobile-artists-img {
+                    display: block;
+                    margin: 18px auto 12px auto;
+                    text-align: center;
+                }
+                .mobile-hero-img img, .mobile-artists-img img {
+                    width: 90vw;
+                    max-width: 400px;
+                    height: auto;
+                    border-radius: 18px;
+                    box-shadow: 0 2px 16px rgba(59,130,246,0.09);
+                }
+                /* Hide desktop images on mobile */
+                .video-stack,
+                #sec-artists > .container > .flex > div:last-child {
+                    display: none !important;
+                }
+            }
+            @media (min-width: 601px) {
+                .mobile-hero-img, .mobile-artists-img {
+                    display: none !important;
+                }
+            }
         </section>
 
         <!-- Other Industry Placeholders (Logic handles toggling, simplified HTML for brevity) -->
