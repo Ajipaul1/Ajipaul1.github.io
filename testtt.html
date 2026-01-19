@@ -7,7 +7,17 @@
     <meta name="description" content="Engineering-driven SEO agency in Kochi serving Healthcare, Ayurveda, Real Estate, and Artists. Enterprise standards, local heart.">
     <meta name="google-site-verification" content="nKm7MzLndhPXbTGfdIvEyhdbTuWd1fgOMhpKg3GPozM">
     <meta name="msvalidate.01" content="3A8272AC48E8C31CE4657BB9F708DB69">
+    
+    <!-- Using Google Fonts for a premium look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Manjari:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/assets/favicon-16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/assets/logoonly.svg" type="image/svg+xml">
+
     <style>
+        /* --- CSS VARIABLES & RESET --- */
         :root {
             --primary: #0f172a; /* Deep Navy */
             --secondary: #3b82f6; /* Electric Blue */
@@ -21,20 +31,11 @@
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             --font-main: 'Inter', sans-serif;
             --font-malayalam: 'Manjari', sans-serif;
+
             /* WEATHER VARIABLES */
             --weather-bg: #fffcf2;
             --weather-accent: #d4af37;
             --weather-text: #1e293b;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: var(--font-main);
-            color: var(--text-dark);
-            background-color: var(--weather-bg) !important;
-            line-height: 1.6;
-            overflow-x: hidden;
-            transition: background-color 0.8s ease, color 0.8s ease;
         }
 
         /* Rain Theme: Monsoon Grey */
@@ -45,37 +46,57 @@
             background-color: var(--weather-bg);
             color: var(--weather-text);
         }
+
         /* Rain Overlay Animation */
         #rain-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none;
             z-index: 9999;
-            background-image: url('https://raw.githubusercontent.com/Ajipaul1/assets/main/rain.png');
+            background-image: url('https://raw.githubusercontent.com/Ajipaul1/assets/main/rain.png'); /* You can use a repeating rain gif/png */
             opacity: 0.3;
             display: none;
         }
         body.monsoon-grey #rain-overlay { display: block; }
+        
+                /* 🌙 Night Mode (Time-based) */
+                body.night-mode {
+                    filter: brightness(0.9) contrast(1.05);
+                }
 
-        /* 🌙 Night Mode (Time-based) */
-        body.night-mode {
-            filter: brightness(0.9) contrast(1.05);
-        }
-        body.night-mode .hero {
-            background: linear-gradient(135deg, #020617, #020617);
-        }
-        body.night-mode header {
-            background: rgba(15, 23, 42, 0.9);
-        }
-        body.night-mode .hero-left h1,
-        body.night-mode .tagline {
-            color: #e5e7eb;
+                body.night-mode .hero {
+                    background: linear-gradient(
+                        135deg,
+                        #020617,
+                        #020617
+                    );
+                }
+
+                body.night-mode header {
+                    background: rgba(15, 23, 42, 0.9);
+                }
+
+                body.night-mode .hero-left h1,
+                body.night-mode .tagline {
+                    color: #e5e7eb;
+                }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            /* Changed this line to use the weather variable */
+            background-color: var(--weather-bg); 
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.8s ease, color 0.8s ease; /* Smooth transition */
         }
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         ul { list-style: none; }
         img { max-width: 100%; display: block; }
-
+        
         /* Utility Classes */
         .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
         .section-padding { padding: 80px 0; }
@@ -84,7 +105,7 @@
         .text-center { text-align: center; }
         .hidden { display: none !important; }
         .highlight { color: var(--secondary); font-weight: 700; }
-
+        
         /* --- BUTTONS --- */
         .btn {
             display: inline-block;
@@ -101,7 +122,7 @@
             box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
         }
         .btn-primary:hover { background-color: #2563eb; transform: translateY(-2px); }
-
+        
         .btn-outline {
             border: 2px solid var(--primary);
             color: var(--primary);
@@ -114,45 +135,29 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: var(--primary);
+            background: var(--glass);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid #e2e8f0;
-            padding: 0;
-            width: 100vw;
-            align-items: center;
-            max-width: 100vw;
-            margin: 0;
-            padding: 0 40px;
+            padding: 15px 0;
         }
+        
+        .nav-wrapper {
+            justify-content: space-between;
+        }
+
         .logo {
             font-weight: 800;
             font-size: 1.5rem;
-            color: var(--white);
+            color: var(--primary);
             letter-spacing: -0.5px;
         }
         .logo span { color: var(--secondary); }
+
         .nav-links { gap: 30px; }
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            flex: 1 1 auto;
-            justify-content: flex-start;
-            align-items: center;
-            margin-left: 40px;
-        }
-        .nav-links a {
-            font-weight: 500;
-            font-size: 0.95rem;
-            color: var(--white);
-            white-space: nowrap;
-        }
+        .nav-links a { font-weight: 500; font-size: 0.95rem; color: var(--text-dark); }
         .nav-links a:hover { color: var(--secondary); }
+
         .header-actions { gap: 15px; align-items: center; }
-        .header-actions {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            margin-left: 40px;
-        }
         .region-switch {
             font-size: 0.85rem;
             padding: 5px 10px;
@@ -160,14 +165,20 @@
             border-radius: 20px;
             cursor: pointer;
         }
+
         /* --- HERO SECTION (CHAMELEON) --- */
         .hero {
-            background: none;
+            background: linear-gradient(
+                135deg,
+                color-mix(in srgb, var(--weather-bg) 90%, black),
+                var(--weather-bg)
+            );
             transition: background 0.8s ease;
             padding: 60px 0 80px;
             position: relative;
             overflow: hidden;
         }
+
         .breadcrumb {
             font-size: 0.8rem;
             color: var(--text-light);
@@ -175,11 +186,10 @@
             font-family: monospace;
             letter-spacing: 1px;
         }
+
         .hero-content-wrapper {
             display: grid;
             grid-template-columns: 1fr 1fr;
-        }
-    </style>
             gap: 60px;
             align-items: center;
         }
@@ -435,9 +445,6 @@
         }
         /* --- PREMIUM MOBILE APP-LIKE STYLES --- */
         @media (max-width: 600px) {
-                    .hero-bg-video {
-                        display: none !important;
-                    }
             body {
                 background: var(--weather-bg);
                     background: var(--weather-bg);
@@ -451,35 +458,6 @@
                 max-width: 100vw !important;
                 box-sizing: border-box !important;
                 overflow-x: hidden !important;
-        }
-
-        /* --- DESKTOP HEADER RESTORE --- */
-        @media (min-width: 601px) {
-            header {
-                padding: 0;
-                border-radius: 0;
-                box-shadow: none;
-                background: var(--glass);
-                width: 100vw;
-                left: 0;
-                right: 0;
-                position: fixed;
-                top: 0;
-                z-index: 1000;
-            }
-            .nav-wrapper {
-                max-width: 100vw;
-                width: 100vw;
-                margin: 0;
-                padding: 0 32px;
-            }
-            .container {
-                max-width: 100vw;
-                padding: 0;
-            }
-            .logo {
-                font-size: 1.5rem;
-            }
             }
             .container {
                     padding: 0 8px;
@@ -758,8 +736,7 @@
     <main>
         <!-- 2️⃣ Hero Section (Chameleon) -->
         <section class="hero" id="hero">
-            <video class="hero-bg-video" autoplay muted loop playsinline poster="https://www.w3schools.com/html/pic_trulli.jpg" style="position:absolute;top:0;left:0;width:100vw;height:100%;object-fit:cover;z-index:0;filter:brightness(0.5);"></video>
-            <div class="container hero-content-wrapper" style="position:relative;z-index:1;">
+            <div class="container hero-content-wrapper">
                 
                 <!-- Left Side: Content & Form -->
                 <div class="hero-left">
@@ -837,7 +814,6 @@
         
         <!-- 🏥 Healthcare Mode -->
         <section id="sec-healthcare" class="conditional-section hidden section-padding">
-            <video class="section-bg-video" autoplay muted loop playsinline poster="https://www.w3schools.com/html/pic_trulli.jpg" style="position:absolute;top:0;left:0;width:100vw;height:100%;object-fit:cover;z-index:0;filter:brightness(0.5);"></video>
             <h2 class="hidden">Healthcare SEO Services in Kochi</h2>
             <div class="container">
                 <div class="chat-hook">
@@ -862,7 +838,6 @@
 
         <!-- 🌿 Ayurveda / Wellness Mode -->
         <section id="sec-ayurveda" class="conditional-section hidden section-padding">
-            <img class="section-bg-image" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" alt="Ayurveda background" style="position:absolute;top:0;left:0;width:100vw;height:100%;object-fit:cover;z-index:0;filter:brightness(0.5);"/>
             <h2 class="hidden">Ayurveda SEO Kerala</h2>
             <div class="container">
                 <div class="text-center">
@@ -970,17 +945,10 @@
         </section>
 
         <section id="sec-tourism" class="conditional-section hidden section-padding">
-            <video class="tourism-bg-video" autoplay muted loop playsinline poster="/assets/images/tourism-poster.jpg" style="position:absolute;top:0;left:0;width:100vw;height:100%;object-fit:cover;z-index:0;filter:brightness(0.5);display:none;">
-                <source src="/videos/mainvideos/tour-1.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="container text-center" style="position:relative;z-index:1;">
+            <div class="container text-center">
                 <h2 class="section-title">Tourism & Hospitality</h2>
                 <p>Be the first choice for visitors landing at Cochin Airport.</p>
             </div>
-                .tourism-bg-video {
-                    display: block !important;
-                }
         </section>
 
         <section id="sec-techaudit" class="conditional-section hidden section-padding">
@@ -1308,7 +1276,7 @@
                 malayalam: "കൊച്ചിയിലെ മികച്ച ടെക്നിക്കൽ എസ്.ഇ.ഒ ഏജൻസി",
                 formTitle: "Get Your Free SEO Audit",
                 cta: "Audit My Site",
-                sectionId: null
+                sectionId: null // Show none
             },
             'healthcare': {
                 h1: "Kochi's #1 Medical SEO Agency",
@@ -1344,7 +1312,7 @@
             },
             'logistics': {
                 h1: "Logistics & Supply Chain SEO",
-                tagline: "Connecting Kochi to the global market.",
+                tagline: "Connecting your business to global ports.",
                 malayalam: "ലോക വ്യാപാരത്തിലേക്ക് ബന്ധപ്പെടൂ",
                 formTitle: "Logistics Audit",
                 cta: "Grow My Logistics",
@@ -1404,35 +1372,30 @@ function restoreUserPreference() {
 window.addEventListener('DOMContentLoaded', restoreUserPreference);
 
         function switchIndustry(industry, btnEl) {
-            try {
-                localStorage.setItem('preferredIndustry', industry);
-                const data = industryData[industry];
-                // 1. Update Text Elements
-                document.getElementById('main-h1').textContent = data.h1;
-                document.getElementById('dynamic-tagline').textContent = data.tagline;
-                document.getElementById('malayalam-text').textContent = data.malayalam;
-                document.getElementById('form-title').textContent = data.formTitle;
-                document.getElementById('dynamicCta').textContent = data.cta;
-                document.getElementById('mode-display').textContent = industry.toUpperCase();
+            localStorage.setItem('preferredIndustry', industry);
 
-                // 2. Update Active Button State
-                document.querySelectorAll('.ind-btn').forEach(btn => btn.classList.remove('active'));
-                if (btnEl) btnEl.classList.add('active');
+            const data = industryData[industry];
+            // 1. Update Text Elements
+            document.getElementById('main-h1').textContent = data.h1;
+            document.getElementById('dynamic-tagline').textContent = data.tagline;
+            document.getElementById('malayalam-text').textContent = data.malayalam;
+            document.getElementById('form-title').textContent = data.formTitle;
+            document.getElementById('dynamicCta').textContent = data.cta;
+            document.getElementById('mode-display').textContent = industry.toUpperCase();
 
-                // 3. Handle Conditional Sections
-                // Hide all conditional sections first
-                document.querySelectorAll('.conditional-section').forEach(sec => sec.classList.add('hidden'));
-                // Show specific section if it exists
-                if (data.sectionId) {
-                    const targetSection = document.getElementById(data.sectionId);
-                    if (targetSection) {
-                        targetSection.classList.remove('hidden');
-                    } else {
-                        console.warn('Section with id', data.sectionId, 'not found.');
-                    }
+            // 2. Update Active Button State
+            document.querySelectorAll('.ind-btn').forEach(btn => btn.classList.remove('active'));
+            if (btnEl) btnEl.classList.add('active');
+
+            // 3. Handle Conditional Sections
+            // Hide all conditional sections first
+            document.querySelectorAll('.conditional-section').forEach(sec => sec.classList.add('hidden'));
+            // Show specific section if it exists
+            if (data.sectionId) {
+                const targetSection = document.getElementById(data.sectionId);
+                if (targetSection) {
+                    targetSection.classList.remove('hidden');
                 }
-            } catch (e) {
-                console.error('Error in switchIndustry:', e);
             }
         }
 
