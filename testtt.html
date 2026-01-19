@@ -29,6 +29,165 @@
         </script>
 
     <style>
+                                                            .main-header {
+                                                                background: #ffffff !important;
+                                                                position: sticky;
+                                                                top: 0;
+                                                                z-index: 1000;
+                                                                width: 100%;
+                                                                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                                                                transition: box-shadow 0.2s;
+                                                            }
+                                                            .header-inner {
+                                                                display: flex;
+                                                                align-items: center;
+                                                                justify-content: space-between;
+                                                                max-width: 1280px;
+                                                                margin: 0 auto;
+                                                                padding: 0 24px;
+                                                                height: 64px;
+                                                            }
+                                                            .logo {
+                                                                font-family: 'Inter', sans-serif;
+                                                                font-weight: 800;
+                                                                font-size: 1.5rem;
+                                                                color: #0f172a;
+                                                                letter-spacing: -1px;
+                                                                text-decoration: none;
+                                                                margin-right: 32px;
+                                                                transition: color 0.2s;
+                                                            }
+                                                            .logo:hover { color: var(--secondary); }
+                                                            .main-nav {
+                                                                display: flex;
+                                                                gap: 32px;
+                                                                flex: 1 1 auto;
+                                                                justify-content: center;
+                                                            }
+                                                            .main-nav a {
+                                                                color: #1e293b;
+                                                                font-weight: 600;
+                                                                text-decoration: none;
+                                                                font-size: 1rem;
+                                                                padding: 4px 0;
+                                                                transition: color 0.18s;
+                                                                position: relative;
+                                                            }
+                                                            .main-nav a:hover {
+                                                                color: #3b82f6;
+                                                            }
+                                                            .cta-btn {
+                                                                background: var(--secondary);
+                                                                color: #fff;
+                                                                font-weight: 700;
+                                                                border: none;
+                                                                border-radius: 5px;
+                                                                padding: 10px 22px;
+                                                                font-size: 1rem;
+                                                                margin-left: 32px;
+                                                                text-decoration: none;
+                                                                transition: background 0.18s, color 0.18s;
+                                                                box-shadow: 0 2px 8px rgba(59,130,246,0.08);
+                                                                cursor: pointer;
+                                                                display: inline-block;
+                                                            }
+                                                            .cta-btn:hover {
+                                                                background: #2563eb;
+                                                                color: #fff;
+                                                            }
+                                                            .hamburger {
+                                                                display: none;
+                                                                flex-direction: column;
+                                                                justify-content: center;
+                                                                align-items: center;
+                                                                width: 40px;
+                                                                height: 40px;
+                                                                background: none;
+                                                                border: none;
+                                                                cursor: pointer;
+                                                                margin-left: 18px;
+                                                                z-index: 120;
+                                                            }
+                                                            .hamburger span {
+                                                                display: block;
+                                                                width: 24px;
+                                                                height: 3px;
+                                                                background: #0f172a;
+                                                                margin: 3px 0;
+                                                                border-radius: 2px;
+                                                                transition: all 0.2s;
+                                                            }
+                                                            .mobile-drawer {
+                                                                position: fixed;
+                                                                top: 0; right: 0; bottom: 0; left: 0;
+                                                                background: rgba(20,28,44,0.18);
+                                                                z-index: 2000;
+                                                                display: none;
+                                                                transition: background 0.2s;
+                                                            }
+                                                            .drawer-content {
+                                                                position: absolute;
+                                                                top: 0; right: 0;
+                                                                width: 82vw;
+                                                                max-width: 340px;
+                                                                height: 100%;
+                                                                background: #fff;
+                                                                box-shadow: -2px 0 16px rgba(20,28,44,0.10);
+                                                                padding: 32px 24px 24px 24px;
+                                                                display: flex;
+                                                                flex-direction: column;
+                                                                gap: 24px;
+                                                                animation: slideInDrawer 0.28s cubic-bezier(.4,0,.2,1);
+                                                            }
+                                                            .drawer-content nav {
+                                                                display: flex;
+                                                                flex-direction: column;
+                                                                gap: 22px;
+                                                                margin-top: 24px;
+                                                            }
+                                                            .drawer-content a {
+                                                                color: #1e293b;
+                                                                font-weight: 600;
+                                                                text-decoration: none;
+                                                                font-size: 1.08rem;
+                                                                transition: color 0.18s;
+                                                            }
+                                                            .drawer-content a:hover { color: #3b82f6; }
+                                                            .drawer-content .cta-btn {
+                                                                margin: 18px 0 0 0;
+                                                                width: 100%;
+                                                                text-align: center;
+                                                            }
+                                                            .close-drawer {
+                                                                position: absolute;
+                                                                top: 12px; right: 18px;
+                                                                background: none;
+                                                                border: none;
+                                                                font-size: 2.1rem;
+                                                                color: #0f172a;
+                                                                cursor: pointer;
+                                                                z-index: 210;
+                                                            }
+                                                            @media (max-width: 900px) {
+                                                                .main-nav { display: none; }
+                                                                .cta-btn { display: none; }
+                                                                .hamburger { display: flex; }
+                                                            }
+                                                            @media (max-width: 900px) {
+                                                                .mobile-drawer { display: block; visibility: hidden; opacity: 0; pointer-events: none; }
+                                                                body.drawer-open .mobile-drawer { visibility: visible; opacity: 1; pointer-events: auto; }
+                                                            }
+                                                            @keyframes slideInDrawer {
+                                                                from { transform: translateX(100%); }
+                                                                to { transform: translateX(0); }
+                                                            }
+                                                            .hero-content-wrapper {
+                                                                position: relative;
+                                                                z-index: 10;
+                                                            }
+                                                            .hero-bg-video {
+                                                                z-index: -1;
+                                                            }
                                                         .main-header {
                                                             position: sticky;
                                                             top: 0;
@@ -1187,226 +1346,74 @@
                 </div>
             </header>
                     <!-- Lead Capture Form -->
-                    <div class="hero-form">
-                        <h3 id="form-title">Get Your Free SEO Audit</h3>
-                        <form id="auditForm"
-      action="https://formsubmit.co/info@techauditpros.com"
-      method="POST"
-      onsubmit="submitForm(event)">
-                            <input type="hidden" name="_subject" value="New SEO Audit Request">
-                            <input type="hidden" name="_captcha" value="false">
-                            <div class="form-group">
-                                <input type="text" placeholder="Your Name" name="name" required>
+                    <section id="hero" class="hero">
+                        <video id="heroVideo" class="hero-bg-video" src="videos/mainvideos/tech-1.mp4" autoplay loop muted playsinline></video>
+                        <div class="container hero-content-wrapper">
+                            <div class="hero-left">
+                                <div id="sector-msg" style="color: var(--accent); font-weight: 800; margin-bottom: 10px;"></div>
+                                <div class="breadcrumb">SEO DASHBOARD // MODE: <span id="mode-display" class="highlight">DYNAMIC</span></div>
+                                <h1 id="main-h1">#1 Technical SEO Agency in Kochi for Real Growth</h1>
+                                <p id="dynamic-tagline" class="tagline">Engineered for Ernakulam’s top brands.</p>
+                                <span id="malayalam-text" class="malayalam-trust">കൊച്ചിയിലെ മികച്ച ടെക്നിക്കൽ എസ്.ഇ.ഒ ഏജൻസി</span>
+                                <div class="mobile-hero-img">
+                                    <img src="https://picsum.photos/seed/mobilehero/400/220" alt="Mobile Hero Sample" />
+                                </div>
+                                <div class="industry-grid">
+                                    <div class="ind-btn active" onclick="switchIndustry('general', this)">General</div>
+                                    <div class="ind-btn" onclick="switchIndustry('healthcare', this)">Healthcare</div>
+                                    <div class="ind-btn" onclick="switchIndustry('ayurveda', this)">Ayurveda</div>
+                                    <div class="ind-btn" onclick="switchIndustry('realestate', this)">Real Estate</div>
+                                    <div class="ind-btn" onclick="switchIndustry('logistics', this)">Logistics</div>
+                                    <div class="ind-btn" onclick="switchIndustry('fashion', this)">Fashion</div>
+                                    <div class="ind-btn" onclick="switchIndustry('makeup', this)">Makeup</div>
+                                    <div class="ind-btn" onclick="switchIndustry('tourism', this)">Tourism</div>
+                                    <div class="ind-btn" onclick="switchIndustry('artists', this)">Artists</div>
+                                    <div class="ind-btn" onclick="switchIndustry('techaudit', this)">Tech Audit</div>
+                                </div>
+                                <div class="hero-form">
+                                    <h3 id="form-title">Get Your Free SEO Audit</h3>
+                                    <form id="auditForm" action="https://formsubmit.co/info@techauditpros.com" method="POST" onsubmit="submitForm(event)">
+                                        <input type="hidden" name="_subject" value="New SEO Audit Request">
+                                        <input type="hidden" name="_captcha" value="false">
+                                        <div class="form-group">
+                                            <input type="text" placeholder="Your Name" name="name" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" placeholder="Your Email" name="email" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" placeholder="Your Website" name="website" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" placeholder="Your Phone (optional)" name="phone">
+                                        </div>
+                                        <div class="form-group">
+                                            <label><input type="checkbox" id="humanCheck" required> I am human</label>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Request Audit</button>
+                                    </form>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <input type="email" placeholder="Business Email" name="email" required>
+                            <div class="video-stack">
+                                <div class="video-card video-top" onclick="const v = this.querySelector('video'); if (v) { v.paused ? v.play() : v.pause(); }">
+                                    <video id="side-video-1" src="videos/mainvideos/tech-3.mp4" muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover; opacity: 0.6;"></video>
+                                    <div class="progress-bar"><div class="progress-fill"></div></div>
+                                    <div class="video-overlay">
+                                        <h4>Why Traffic Alone Isn't Enough</h4>
+                                        <p style="font-size: 0.9rem;">2 min watch</p>
+                                    </div>
+                                    <div class="play-btn"></div>
+                                </div>
+                                <div class="video-card video-bottom" onclick="const v = this.querySelector('video'); if (v) { v.paused ? v.play() : v.pause(); }">
+                                    <video id="side-video-2" src="videos/mainvideos/tech-2.mp4" muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover; opacity: 0.6;"></video>
+                                    <div class="video-overlay">
+                                        <h4>Clinic Case Study: +300% Calls</h4>
+                                    </div>
+                                    <div class="play-btn" style="width: 40px; height: 40px;"></div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <input type="url" placeholder="Website URL" name="website" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="checkbox" id="humanCheck" required>
-                                <label for="humanCheck">I am ready for the audit.</label>
-                            </div>
-                            <button type="submit" id="dynamicCta" class="btn btn-primary" style="width: 100%;">Audit My Site</button>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- Right Side: Video Stack -->
-                <div class="video-stack">
-                    <div class="video-card video-top" onclick="const v = this.querySelector('video'); if (v) { v.paused ? v.play() : v.pause(); }">
-                        <video id="side-video-1" src="videos/mainvideos/tech-3.mp4" muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover; opacity: 0.6;"></video>
-                        <div class="progress-bar"><div class="progress-fill"></div></div>
-                        <div class="video-overlay">
-                            <h4>Why Traffic Alone Isn't Enough</h4>
-                            <p style="font-size: 0.9rem;">2 min watch</p>
                         </div>
-                        <div class="play-btn"></div>
-                    </div>
-                    <div class="video-card video-bottom" onclick="const v = this.querySelector('video'); if (v) { v.paused ? v.play() : v.pause(); }">
-                        <video id="side-video-2" src="videos/mainvideos/tech-2.mp4" muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover; opacity: 0.6;"></video>
-                        <div class="video-overlay">
-                            <h4>Clinic Case Study: +300% Calls</h4>
-                        </div>
-                        <div class="play-btn" style="width: 40px; height: 40px;"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3️⃣ Industry-Based Conditional Sections (Hidden by default) -->
-        
-        <!-- 🏥 Healthcare Mode -->
-        <section id="sec-healthcare" class="conditional-section hidden section-padding">
-    <h2 class="hidden">Healthcare SEO Services in Kochi</h2>
-    <div class="container">
-                <div class="chat-hook">
-                    <p class="chat-msg">System Alert: "Managing a clinic in Ernakulam and losing patients to competitors with better Google Maps reviews?"</p>
-                </div>
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h3>Kerala Families Trust Maps</h3>
-                        <p>When emergencies happen, families don't click ads. They click the top 3 map pins. We secure your spot there.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>Mobile-First Trust</h3>
-                        <p>If your appointment booking page takes 3 seconds to load, 50% of patients leave. We optimize for speed.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>Hospital "Near Me" SEO</h3>
-                        <p>Dominate searches for "Hospital near me Kochi" and specific treatments.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 🌿 Ayurveda / Wellness Mode -->
-        <section id="sec-ayurveda" class="conditional-section hidden section-padding">
-            <h2 class="hidden">Ayurveda SEO Kerala</h2>
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-title">Authenticity > Luxury</h2>
-                    <p class="section-subtitle">Wellness does not sell on urgency. It sells on trust and tranquility.</p>
-                </div>
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h3>"Wellness Near Me"</h3>
-                        <p>Capture tourists and locals looking for genuine Ayurvedic treatments in Kerala.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>Calm Clarity Messaging</h3>
-                        <p>We structure your content to reflect the peace of your treatments.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 🎨 Artists Mode (NEW - "Envy" Design) -->
-        <section id="sec-artists" class="conditional-section hidden section-padding" style="background-color: #fafafa;">
-            <h2 class="hidden">Artist SEO Kochi</h2>
-            <div class="container">
-                <div class="flex" style="justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
-                    <div style="max-width: 600px;">
-                        <span style="color: var(--accent); font-weight: bold; letter-spacing: 1px;">PORTFOLIO SEO</span>
-                        <h2 class="section-title" style="margin-top: 10px;">Stop Letting Instagram Own Your Career.</h2>
-                        <p style="font-size: 1.1rem; color: var(--text-light); margin-bottom: 30px;">
-                            You are an artist, not an influencer. Relying solely on social media algorithms is risky. We build you a <strong>Google-proof asset</strong>. When galleries in Kochi or collectors in Mumbai search for your style, they should find your professional portfolio first.
-                        </p>
-                        <ul style="margin-bottom: 30px;">
-                            <li style="margin-bottom: 10px;">✅ <strong>Visual Search Optimization:</strong> Make your images rank in Google Images.</li>
-                            <li style="margin-bottom: 10px;">✅ <strong>"Painter in Kochi" Domination:</strong> Hyper-local targeting for commission inquiries.</li>
-                            <li style="margin-bottom: 10px;">✅ <strong>Exhibition History Schema:</strong> Helping Google understand your authority.</li>
-                        </ul>
-                        <button class="btn btn-primary">Get My Artist Portfolio Audit</button>
-                        <!-- Mobile Artists Image (only visible on mobile) -->
-                        <div class="mobile-artists-img">
-                            <img src="https://picsum.photos/seed/mobileartist/400/220" alt="Mobile Artists Sample" />
-                        </div>
-                    </div>
-                    <div style="width: 400px; height: 400px; background: #e2e8f0; border-radius: 20px; position: relative; overflow: hidden;">
-                         <img src="https://picsum.photos/seed/artist/400/400" style="width:100%; height:100%; object-fit: cover;">
-                         <div style="position: absolute; bottom: 20px; left: 20px; background: white; padding: 15px; border-radius: 8px; box-shadow: var(--shadow);">
-                             <strong>Artist Portfolio SEO</strong><br>
-                             <span style="color: green;">✓ Indexed Today</span>
-                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Other Industry Placeholders (Logic handles toggling, simplified HTML for brevity) -->
-        <section id="sec-realestate" class="conditional-section hidden section-padding">
-            <h2 class="hidden">Real Estate SEO Kochi</h2>
-            <div class="container text-center">
-                <h2 class="section-title">Real Estate SEO in Kochi</h2>
-                <p>Rank for "Flats in Kakkanad" and "Villas in Thrippunithura". High-ticket intent requires high-trust signals.</p>
-            </div>
-        </section>
-        
-        <section id="sec-logistics" class="conditional-section hidden section-padding">
-            <div class="container text-center">
-                <h2 class="section-title">Logistics & Port SEO</h2>
-                <p>Connecting Kochi's port to global buyers via B2B search intent.</p>
-            </div>
-        </section>
-
-        <section id="sec-fashion" class="conditional-section hidden section-padding">
-            <div class="container text-center">
-                <h2 class="section-title">Fashion & E-Commerce</h2>
-                <p>From boutiques in Vyttila to global shipping. Technical speed equals sales.</p>
-            </div>
-        </section>
-
-        <section id="sec-makeup" class="conditional-section hidden section-padding">
-            <div class="container text-center">
-                <h2 class="section-title">Makeup & Styling</h2>
-                <p>Ranking for "Bridal Makeup Kochi". Visual portfolios optimized for search.</p>
-            </div>
-        </section>
-
-        <section id="sec-tourism" class="conditional-section hidden section-padding">
-            <div class="container text-center">
-                <h2 class="section-title">Tourism & Hospitality</h2>
-                <p>Be the first choice for visitors landing at Cochin Airport.</p>
-            </div>
-        </section>
-
-        <section id="sec-techaudit" class="conditional-section hidden section-padding">
-            <div class="container text-center">
-                <h2 class="section-title">Deep Technical Audits</h2>
-                <p>For developers and agencies. We find what Lumar and Ahrefs miss.</p>
-            </div>
-        </section>
-
-
-        <!-- 4️⃣ Methodology Section -->
-        <section id="methodology" class="section-padding">
-            <div class="container text-center">
-                <h2 class="section-title">Global Standards, Local Heart</h2>
-                <p class="section-subtitle">We use Enterprise tools like Lumar & Ahrefs, but execute with a deep understanding of the Kerala market.</p>
-                
-                <div class="method-cards">
-                    <div class="method-card">
-                        <span class="method-icon">🌍</span>
-                        <h3>Enterprise-Grade</h3>
-                        <p>We use the same crawling technology as the top agencies in New York and London.</p>
-                    </div>
-                    <div class="method-card">
-                        <span class="method-icon">⚙️</span>
-                        <h3>Technical-First</h3>
-                        <p>Design is subjective. Code is either right or wrong. We fix the foundation first.</p>
-                    </div>
-                    <div class="method-card">
-                        <span class="method-icon">📍</span>
-                        <h3>Kochi Execution</h3>
-                        <p>On-site visits, real local understanding, and Malayalam cultural integration.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5️⃣ Services Section -->
-        <section id="services" class="section-padding" style="background-color: var(--white);">
-            <div class="container">
-                <h2 class="section-title">Strategic Services for Kochi</h2>
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h3>Technical SEO Cochin</h3>
-                        <p>Core Web Vitals optimization, site structure, and speed tuning.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>Web Design Kerala</h3>
-                        <p>Conversion-focused designs that load instantly on 4G networks.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>Performance Ads</h3>
-                        <p>Google & Meta ads with rigorous tracking for ROI.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+                    </section>
         <!-- 6️⃣ Why Kochi Businesses Fail -->
         <section class="section-padding" style="background: #1e293b; color: white;">
             <div class="container">
@@ -1617,24 +1624,24 @@
                                     const tagline = document.querySelector('#hero .tagline');
                                     const cta = document.querySelector('#hero .btn-primary');
                                     [h1, tagline, cta].forEach(el => {
-                                        if (el) {
-                                            el.classList.remove('hero-animate');
-                                            void el.offsetWidth;
-                                            el.classList.add('hero-animate');
+                                        .hero {
+                                            position: relative;
+                                            z-index: 1;
                                         }
-                                    });
-                                }
-                /* ⏰ TIME-BASED GREETING + NIGHT MODE */
-                function applyTimeBasedGreeting() {
-                    const hour = new Date().getHours();
-                    const h1 = document.getElementById('main-h1');
-                    const tagline = document.getElementById('dynamic-tagline');
-
-                    if (hour >= 6 && hour < 11) {
-                        h1.textContent = "സുപ്രഭാതം കൊച്ചി ☀️";
-                        tagline.textContent = "ഇന്ന് നിങ്ങളുടെ ബിസിനസ് വളർച്ചയ്ക്ക് ഒരു നല്ല ദിവസം.";
-                    } 
-                    else if (hour >= 12 && hour < 16) {
+                                        .hero::before {
+                                            content: "";
+                                            position: absolute;
+                                            inset: 0;
+                                            background: rgba(20, 28, 44, 0.65);
+                                            z-index: 1;
+                                            pointer-events: none;
+                                        }
+                                        .hero-bg-video {
+                                            position: absolute;
+                                            top: 0; left: 0; width: 100%; height: 100%;
+                                            object-fit: cover;
+                                            z-index: -1;
+                                        }
                         h1.textContent = "Namaskaram, Kochi 👋";
                         tagline.textContent = "Let’s talk business growth, the right way.";
                     } 
