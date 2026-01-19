@@ -833,6 +833,14 @@
         <!-- 2️⃣ Hero Section (Chameleon) -->
         <section class="hero" id="hero">
             <video id="heroVideo" class="hero-bg-video" src="videos/mainvideos/tech-1.mp4" autoplay loop muted playsinline></video>
+                            @media (max-width: 991px) {
+                                .hero-bg-video {
+                                    display: none;
+                                }
+                                #hero::before {
+                                    display: none;
+                                }
+                            }
             <div class="container hero-content-wrapper">
                 
                 <!-- Left Side: Content & Form -->
@@ -1422,7 +1430,6 @@ window.addEventListener('DOMContentLoaded', restoreUserPreference);
             localStorage.setItem('preferredIndustry', industry);
 
             const data = industryData[industry];
-            // 1. Update Text Elements
             document.getElementById('main-h1').textContent = data.h1;
             document.getElementById('dynamic-tagline').textContent = data.tagline;
             document.getElementById('malayalam-text').textContent = data.malayalam;
@@ -1430,11 +1437,9 @@ window.addEventListener('DOMContentLoaded', restoreUserPreference);
             document.getElementById('dynamicCta').textContent = data.cta;
             document.getElementById('mode-display').textContent = industry.toUpperCase();
 
-            // 2. Update Active Button State
             document.querySelectorAll('.ind-btn').forEach(btn => btn.classList.remove('active'));
             if (btnEl) btnEl.classList.add('active');
 
-            // 3. Handle Conditional Sections
             document.querySelectorAll('.conditional-section').forEach(sec => sec.classList.add('hidden'));
             if (data.sectionId) {
                 const targetSection = document.getElementById(data.sectionId);
@@ -1443,13 +1448,15 @@ window.addEventListener('DOMContentLoaded', restoreUserPreference);
                 }
             }
 
-            // 4. Change hero video source
             const heroVideo = document.getElementById('heroVideo');
             const newSrc = heroVideoSources[industry] || heroVideoSources['general'];
-            if (heroVideo.src.indexOf(newSrc) === -1) {
+            if (!heroVideo.src.endsWith(newSrc)) {
                 heroVideo.src = newSrc;
                 heroVideo.load();
-                heroVideo.play();
+                const playPromise = heroVideo.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(() => {});
+                }
             }
         }
 
