@@ -1438,30 +1438,35 @@ function restoreUserPreference() {
 window.addEventListener('DOMContentLoaded', restoreUserPreference);
 
         function switchIndustry(industry, btnEl) {
-            localStorage.setItem('preferredIndustry', industry);
+            try {
+                localStorage.setItem('preferredIndustry', industry);
+                const data = industryData[industry];
+                // 1. Update Text Elements
+                document.getElementById('main-h1').textContent = data.h1;
+                document.getElementById('dynamic-tagline').textContent = data.tagline;
+                document.getElementById('malayalam-text').textContent = data.malayalam;
+                document.getElementById('form-title').textContent = data.formTitle;
+                document.getElementById('dynamicCta').textContent = data.cta;
+                document.getElementById('mode-display').textContent = industry.toUpperCase();
 
-            const data = industryData[industry];
-            // 1. Update Text Elements
-            document.getElementById('main-h1').textContent = data.h1;
-            document.getElementById('dynamic-tagline').textContent = data.tagline;
-            document.getElementById('malayalam-text').textContent = data.malayalam;
-            document.getElementById('form-title').textContent = data.formTitle;
-            document.getElementById('dynamicCta').textContent = data.cta;
-            document.getElementById('mode-display').textContent = industry.toUpperCase();
+                // 2. Update Active Button State
+                document.querySelectorAll('.ind-btn').forEach(btn => btn.classList.remove('active'));
+                if (btnEl) btnEl.classList.add('active');
 
-            // 2. Update Active Button State
-            document.querySelectorAll('.ind-btn').forEach(btn => btn.classList.remove('active'));
-            if (btnEl) btnEl.classList.add('active');
-
-            // 3. Handle Conditional Sections
-            // Hide all conditional sections first
-            document.querySelectorAll('.conditional-section').forEach(sec => sec.classList.add('hidden'));
-            // Show specific section if it exists
-            if (data.sectionId) {
-                const targetSection = document.getElementById(data.sectionId);
-                if (targetSection) {
-                    targetSection.classList.remove('hidden');
+                // 3. Handle Conditional Sections
+                // Hide all conditional sections first
+                document.querySelectorAll('.conditional-section').forEach(sec => sec.classList.add('hidden'));
+                // Show specific section if it exists
+                if (data.sectionId) {
+                    const targetSection = document.getElementById(data.sectionId);
+                    if (targetSection) {
+                        targetSection.classList.remove('hidden');
+                    } else {
+                        console.warn('Section with id', data.sectionId, 'not found.');
+                    }
                 }
+            } catch (e) {
+                console.error('Error in switchIndustry:', e);
             }
         }
 
