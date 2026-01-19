@@ -896,8 +896,42 @@
         
         <!-- 🏥 Healthcare Mode -->
         <section id="sec-healthcare" class="conditional-section hidden section-padding">
-            <h2 class="hidden">Healthcare SEO Services in Kochi</h2>
-            <div class="container">
+    <video class="healthcare-bg-video" src="videos/mainvideos/healthcare.mp4" autoplay loop muted playsinline></video>
+    <h2 class="hidden">Healthcare SEO Services in Kochi</h2>
+    <div class="container">
+                        #sec-healthcare {
+                            position: relative;
+                            z-index: 1;
+                        }
+                        .healthcare-bg-video {
+                            position: absolute;
+                            top: 0; left: 0; width: 100%; height: 100%;
+                            object-fit: cover;
+                            z-index: 0;
+                            display: block;
+                        }
+                        #sec-healthcare::before {
+                            content: "";
+                            position: absolute;
+                            inset: 0;
+                            background: rgba(20, 28, 44, 0.60);
+                            z-index: 1;
+                            pointer-events: none;
+                        }
+                        #sec-healthcare > .container,
+                        #sec-healthcare .feature-grid,
+                        #sec-healthcare .chat-hook {
+                            position: relative;
+                            z-index: 2;
+                        }
+                        @media (max-width: 991px) {
+                            .healthcare-bg-video {
+                                display: none;
+                            }
+                            #sec-healthcare::before {
+                                display: none;
+                            }
+                        }
                 <div class="chat-hook">
                     <p class="chat-msg">System Alert: "Managing a clinic in Ernakulam and losing patients to competitors with better Google Maps reviews?"</p>
                 </div>
