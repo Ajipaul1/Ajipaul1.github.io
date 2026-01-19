@@ -30,13 +30,13 @@
 
     <style>
     .main-header {
-            background: #ffffff !important;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            width: 100%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: box-shadow 0.2s;
+        background: #ffffff !important;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        width: 100%;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        transition: box-shadow 0.2s;
     }
     .header-inner {
         display: flex;
@@ -181,486 +181,54 @@
         from { transform: translateX(100%); }
         to { transform: translateX(0); }
     }
-    .hero-bg-video {
-        position: absolute;
-        top: 0; left: 0; width: 100%; height: 100%;
-        object-fit: cover;
-        z-index: 0;
-    }
-    #hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        z-index: -1;
-        background: linear-gradient(180deg, rgba(20,28,44,0.5) 0%, rgba(20,28,44,0.35) 40%, rgba(20,28,44,0.22) 100%);
-        transition: background 0.4s;
-    }
-    .hero-content-wrapper {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 60px;
-        align-items: center;
-        position: relative;
-        z-index: 10;
-    }
-    #main-h1 {
-        text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-    }
-                                                            .main-header {
-                                                                background: #ffffff !important;
-                                                                position: sticky;
-                                                                top: 0;
-                                                                z-index: 1000;
-                                                                width: 100%;
-                                                                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-                                                                transition: box-shadow 0.2s;
-                                                            }
-                                                            .header-inner {
-                                                                display: flex;
-                                                                align-items: center;
-                                                                justify-content: space-between;
-                                                                max-width: 1280px;
-                                                                margin: 0 auto;
-                                                                padding: 0 24px;
-                                                                height: 64px;
-                                                            }
-                                                            .logo {
-                                                                font-family: 'Inter', sans-serif;
-                                                                font-weight: 800;
-                                                                font-size: 1.5rem;
-                                                                color: #0f172a;
-                                                                letter-spacing: -1px;
-                                                                text-decoration: none;
-                                                                margin-right: 32px;
-                                                                transition: color 0.2s;
-                                                            }
-                                                            .logo:hover { color: var(--secondary); }
-                                                            .main-nav {
-                                                                display: flex;
-                                                                gap: 32px;
-                                                                flex: 1 1 auto;
-                                                                justify-content: center;
-                                                            }
-                                                            .main-nav a {
-                                                                color: #1e293b;
-                                                                font-weight: 600;
-                                                                text-decoration: none;
-                                                                font-size: 1rem;
-                                                                padding: 4px 0;
-                                                                transition: color 0.18s;
-                                                                position: relative;
-                                                            }
-                                                            .main-nav a:hover {
-                                                                color: #3b82f6;
-                                                            }
-                                                            .cta-btn {
-                                                                background: var(--secondary);
-                                                                color: #fff;
-                                                                font-weight: 700;
-                                                                border: none;
-                                                                border-radius: 5px;
-                                                                padding: 10px 22px;
-                                                                font-size: 1rem;
-                                                                margin-left: 32px;
-                                                                text-decoration: none;
-                                                                transition: background 0.18s, color 0.18s;
-                                                                box-shadow: 0 2px 8px rgba(59,130,246,0.08);
-                                                                cursor: pointer;
-                                                                display: inline-block;
-                                                            }
-                                                            .cta-btn:hover {
-                                                                background: #2563eb;
-                                                                color: #fff;
-                                                            }
-                                                            .hamburger {
-                                                                display: none;
-                                                                flex-direction: column;
-                                                                justify-content: center;
-                                                                align-items: center;
-                                                                width: 40px;
-                                                                height: 40px;
-                                                                background: none;
-                                                                border: none;
-                                                                cursor: pointer;
-                                                                margin-left: 18px;
-                                                                z-index: 120;
-                                                            }
-                                                            .hamburger span {
-                                                                display: block;
-                                                                width: 24px;
-                                                                height: 3px;
-                                                                background: #0f172a;
-                                                                margin: 3px 0;
-                                                                border-radius: 2px;
-                                                                transition: all 0.2s;
-                                                            }
-                                                            .mobile-drawer {
-                                                                position: fixed;
-                                                                top: 0; right: 0; bottom: 0; left: 0;
-                                                                background: rgba(20,28,44,0.18);
-                                                                z-index: 2000;
-                                                                display: none;
-                                                                transition: background 0.2s;
-                                                            }
-                                                            .drawer-content {
-                                                                position: absolute;
-                                                                top: 0; right: 0;
-                                                                width: 82vw;
-                                                                max-width: 340px;
-                                                                height: 100%;
-                                                                background: #fff;
-                                                                box-shadow: -2px 0 16px rgba(20,28,44,0.10);
-                                                                padding: 32px 24px 24px 24px;
-                                                                display: flex;
-                                                                flex-direction: column;
-                                                                gap: 24px;
-                                                                animation: slideInDrawer 0.28s cubic-bezier(.4,0,.2,1);
-                                                            }
-                                                            .drawer-content nav {
-                                                                display: flex;
-                                                                flex-direction: column;
-                                                                gap: 22px;
-                                                                margin-top: 24px;
-                                                            }
-                                                            .drawer-content a {
-                                                                color: #1e293b;
-                                                                font-weight: 600;
-                                                                text-decoration: none;
-                                                                font-size: 1.08rem;
-                                                                transition: color 0.18s;
-                                                            }
-                                                            .drawer-content a:hover { color: #3b82f6; }
-                                                            .drawer-content .cta-btn {
-                                                                margin: 18px 0 0 0;
-                                                                width: 100%;
-                                                                text-align: center;
-                                                            }
-                                                            .close-drawer {
-                                                                position: absolute;
-                                                                top: 12px; right: 18px;
-                                                                background: none;
-                                                                border: none;
-                                                                font-size: 2.1rem;
-                                                                color: #0f172a;
-                                                                cursor: pointer;
-                                                                z-index: 210;
-                                                            }
-                                                            @media (max-width: 900px) {
-                                                                .main-nav { display: none; }
-                                                                .cta-btn { display: none; }
-                                                                .hamburger { display: flex; }
-                                                            }
-                                                            @media (max-width: 900px) {
-                                                                .mobile-drawer { display: block; visibility: hidden; opacity: 0; pointer-events: none; }
-                                                                body.drawer-open .mobile-drawer { visibility: visible; opacity: 1; pointer-events: auto; }
-                                                            }
-                                                            @keyframes slideInDrawer {
-                                                                from { transform: translateX(100%); }
-                                                                to { transform: translateX(0); }
-                                                            }
-                                                            .hero-content-wrapper {
-                                                                position: relative;
-                                                                z-index: 10;
-                                                            }
-                                                            .hero-bg-video {
-                                                                z-index: -1;
-                                                            }
-                                                        .main-header {
-                                                            position: sticky;
-                                                            top: 0;
-                                                            width: 100%;
-                                                            background: #fff;
-                                                            z-index: 1000;
-                                                            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-                                                            transition: box-shadow 0.2s;
-                                                        }
-                                                        .header-inner {
-                                                            display: flex;
-                                                            align-items: center;
-                                                            justify-content: space-between;
-                                                            max-width: 1280px;
-                                                            margin: 0 auto;
-                                                            padding: 0 24px;
-                                                            height: 64px;
-                                                        }
-                                                        .logo {
-                                                            font-family: 'Inter', sans-serif;
-                                                            font-weight: 800;
-                                                            font-size: 1.5rem;
-                                                            color: #0f172a;
-                                                            letter-spacing: -1px;
-                                                            text-decoration: none;
-                                                            margin-right: 32px;
-                                                            transition: color 0.2s;
-                                                        }
-                                                        .logo:hover { color: var(--secondary); }
-                                                        .main-nav {
-                                                            display: flex;
-                                                            gap: 32px;
-                                                            flex: 1 1 auto;
-                                                            justify-content: center;
-                                                        }
-                                                        .main-nav a {
-                                                            color: #1e293b;
-                                                            font-weight: 600;
-                                                            text-decoration: none;
-                                                            font-size: 1rem;
-                                                            padding: 4px 0;
-                                                            transition: color 0.18s;
-                                                            position: relative;
-                                                        }
-                                                        .main-nav a:hover {
-                                                            color: #3b82f6;
-                                                        }
-                                                        .cta-btn {
-                                                            background: var(--secondary);
-                                                            color: #fff;
-                                                            font-weight: 700;
-                                                            border: none;
-                                                            border-radius: 5px;
-                                                            padding: 10px 22px;
-                                                            font-size: 1rem;
-                                                            margin-left: 32px;
-                                                            text-decoration: none;
-                                                            transition: background 0.18s, color 0.18s;
-                                                            box-shadow: 0 2px 8px rgba(59,130,246,0.08);
-                                                            cursor: pointer;
-                                                            display: inline-block;
-                                                        }
-                                                        .cta-btn:hover {
-                                                            background: #2563eb;
-                                                            color: #fff;
-                                                        }
-                                                        .hamburger {
-                                                            display: none;
-                                                            flex-direction: column;
-                                                            justify-content: center;
-                                                            align-items: center;
-                                                            width: 40px;
-                                                            height: 40px;
-                                                            background: none;
-                                                            border: none;
-                                                            cursor: pointer;
-                                                            margin-left: 18px;
-                                                            z-index: 120;
-                                                        }
-                                                        .hamburger span {
-                                                            display: block;
-                                                            width: 24px;
-                                                            height: 3px;
-                                                            background: #0f172a;
-                                                            margin: 3px 0;
-                                                            border-radius: 2px;
-                                                            transition: all 0.2s;
-                                                        }
-                                                        .mobile-drawer {
-                                                            position: fixed;
-                                                            top: 0; right: 0; bottom: 0; left: 0;
-                                                            background: rgba(20,28,44,0.18);
-                                                            z-index: 2000;
-                                                            display: none;
-                                                            transition: background 0.2s;
-                                                        }
-                                                        .drawer-content {
-                                                            position: absolute;
-                                                            top: 0; right: 0;
-                                                            width: 82vw;
-                                                            max-width: 340px;
-                                                            height: 100%;
-                                                            background: #fff;
-                                                            box-shadow: -2px 0 16px rgba(20,28,44,0.10);
-                                                            padding: 32px 24px 24px 24px;
-                                                            display: flex;
-                                                            flex-direction: column;
-                                                            gap: 24px;
-                                                            animation: slideInDrawer 0.28s cubic-bezier(.4,0,.2,1);
-                                                        }
-                                                        .drawer-content nav {
-                                                            display: flex;
-                                                            flex-direction: column;
-                                                            gap: 22px;
-                                                            margin-top: 24px;
-                                                        }
-                                                        .drawer-content a {
-                                                            color: #1e293b;
-                                                            font-weight: 600;
-                                                            text-decoration: none;
-                                                            font-size: 1.08rem;
-                                                            transition: color 0.18s;
-                                                        }
-                                                        .drawer-content a:hover { color: #3b82f6; }
-                                                        .drawer-content .cta-btn {
-                                                            margin: 18px 0 0 0;
-                                                            width: 100%;
-                                                            text-align: center;
-                                                        }
-                                                        .close-drawer {
-                                                            position: absolute;
-                                                            top: 12px; right: 18px;
-                                                            background: none;
-                                                            border: none;
-                                                            font-size: 2.1rem;
-                                                            color: #0f172a;
-                                                            cursor: pointer;
-                                                            z-index: 210;
-                                                        }
-                                                        @media (max-width: 900px) {
-                                                            .main-nav { display: none; }
-                                                            .cta-btn { display: none; }
-                                                            .hamburger { display: flex; }
-                                                        }
-                                                        @media (max-width: 900px) {
-                                                            .mobile-drawer { display: block; visibility: hidden; opacity: 0; pointer-events: none; }
-                                                            body.drawer-open .mobile-drawer { visibility: visible; opacity: 1; pointer-events: auto; }
-                                                        }
-                                                        @keyframes slideInDrawer {
-                                                            from { transform: translateX(100%); }
-                                                            to { transform: translateX(0); }
-                                                        }
-                                                        .hero-content-wrapper, .hero-left {
-                                                            position: relative;
-                                                            z-index: 10;
-                                                        }
-                                                        #hero::before {
-                                                            z-index: 1;
-                                                        }
-                                                        .hero-bg-video {
-                                                            z-index: -1;
-                                                        }
-                                                    .video-card video { cursor: pointer; }
-                                                /* HERO OVERLAY: Layered gradient, premium contrast */
-                                                #hero {
-                                                    position: relative;
-                                                    isolation: isolate;
-                                                    overflow: hidden;
-                                                    z-index: 1;
-                                                }
-                                                .hero-bg-video {
-                                                    z-index: -2;
-                                                }
-                                                #hero::before {
-                                                    content: "";
-                                                    position: absolute;
-                                                    inset: 0;
-                                                    pointer-events: none;
-                                                    z-index: -1;
-                                                    background: linear-gradient(180deg, rgba(20,28,44,0.5) 0%, rgba(20,28,44,0.35) 40%, rgba(20,28,44,0.22) 100%);
-                                                    transition: background 0.4s;
-                                                }
-                                                body.industry-healthcare #hero::before {
-                                                    background: linear-gradient(180deg, rgba(16, 185, 129, 0.38) 0%, rgba(20,28,44,0.35) 40%, rgba(20,28,44,0.22) 100%);
-                                                }
-                                                body.industry-ayurveda #hero::before {
-                                                    background: linear-gradient(180deg, rgba(245, 158, 11, 0.38) 0%, rgba(20,28,44,0.35) 40%, rgba(20,28,44,0.22) 100%);
-                                                }
-                                                body.industry-fashion #hero::before {
-                                                    background: linear-gradient(180deg, rgba(59, 130, 246, 0.38) 0%, rgba(20,28,44,0.35) 40%, rgba(20,28,44,0.22) 100%);
-                                                }
-                                                body.industry-makeup #hero::before {
-                                                    background: linear-gradient(180deg, rgba(236, 72, 153, 0.38) 0%, rgba(20,28,44,0.35) 40%, rgba(20,28,44,0.22) 100%);
-                                                }
-                                                body.industry-logistics #hero::before {
-                                                    background: linear-gradient(180deg, rgba(16, 185, 129, 0.38) 0%, rgba(20,28,44,0.35) 40%, rgba(20,28,44,0.22) 100%);
-                                                }
-                                                body.industry-realestate #hero::before {
-                                                    background: linear-gradient(180deg, rgba(245, 158, 11, 0.38) 0%, rgba(20,28,44,0.35) 40%, rgba(20,28,44,0.22) 100%);
-                                                }
-                                                body.industry-tourism #hero::before {
-                                                    background: linear-gradient(180deg, rgba(59, 130, 246, 0.38) 0%, rgba(20,28,44,0.35) 40%, rgba(20,28,44,0.22) 100%);
-                                                }
-                                                body.industry-techaudit #hero::before {
-                                                    background: linear-gradient(180deg, rgba(245, 158, 11, 0.38) 0%, rgba(20,28,44,0.35) 40%, rgba(20,28,44,0.22) 100%);
-                                                }
-                                                .hero-content-wrapper, .hero-left {
-                                                    position: relative;
-                                                    z-index: 10;
-                                                }
-                                                #main-h1, .tagline {
-                                                    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-                                                }
-                                                /* HERO TEXT CONTRAST */
-                                                #hero .hero-left h1,
-                                                #hero .tagline,
-                                                #hero .malayalam-trust {
-                                                    color: #fff;
-                                                    text-shadow: 0 2px 16px rgba(20,28,44,0.32), 0 1px 2px rgba(0,0,0,0.18);
-                                                }
-                                                #hero .btn,
-                                                #hero .btn-primary,
-                                                #hero .btn-outline {
-                                                    color: #fff;
-                                                    background: var(--secondary);
-                                                    border: none;
-                                                    box-shadow: 0 2px 12px rgba(20,28,44,0.18);
-                                                }
-                                                #hero .btn-outline {
-                                                    background: transparent;
-                                                    border: 2px solid #fff;
-                                                }
-                                                #hero .btn:active,
-                                                #hero .btn-primary:active,
-                                                #hero .btn-outline:active {
-                                                    background: var(--accent);
-                                                    color: #fff;
-                                                }
-                                                #hero .hero-form input,
-                                                #hero .hero-form select {
-                                                    background: rgba(255,255,255,0.92);
-                                                    color: #1e293b;
-                                                    border: 1px solid #fff;
-                                                }
-                                                #hero .hero-form input::placeholder {
-                                                    color: #64748b;
-                                                    opacity: 1;
-                                                }
-                                                #hero .hero-form h3 {
-                                                    color: #fff;
-                                                    text-shadow: 0 2px 12px rgba(20,28,44,0.22);
-                                                }
-                                                /* SECTION SEPARATION */
-                                                .section-padding {
-                                                    background: #fff;
-                                                    color: #1e293b;
-                                                }
-                                                .conditional-section {
-                                                    background: #fff;
-                                                    color: #1e293b;
-                                                }
-                                                /* MICRO-ANIMATION */
-                                                .hero-animate {
-                                                    animation: heroFadeIn 0.45s cubic-bezier(.4,0,.2,1);
-                                                }
-                                                @keyframes heroFadeIn {
-                                                    0% { opacity: 0; transform: translateY(24px); }
-                                                    100% { opacity: 1; transform: translateY(0); }
-                                                }
-                                                @media (max-width: 991px) {
-                                                    #hero .hero-left h1,
-                                                    #hero .tagline,
-                                                    #hero .malayalam-trust,
-                                                    #hero .btn,
-                                                    #hero .btn-primary,
-                                                    #hero .btn-outline {
-                                                        color: #fff;
-                                                        text-shadow: 0 2px 24px rgba(20,28,44,0.45), 0 1px 2px rgba(0,0,0,0.22);
-                                                    }
-                                                    #hero .hero-form input,
-                                                    #hero .hero-form select {
-                                                        background: #fff;
-                                                        color: #1e293b;
-                                                        border: 1px solid #fff;
-                                                    }
-                                                }
-                                /* Duplicate .hero, .hero::before, .hero-bg-video, .hero-content-wrapper removed */
-                /* --- CSS VARIABLES & RESET --- */
-                .hero {
-                    position: relative;
-                    z-index: 1;
-                }
-                .hero::before {
-                    content: "";
-                    position: absolute;
+
+        /* Moved from :root block */
+    /* .hero, .hero::before, .hero-bg-video, .hero-content-wrapper deduplication handled below */
+
+        #sec-healthcare {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            z-index: 1;
+        }
+        #sec-healthcare::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(20, 28, 44, 0.60);
+            z-index: 1;
+            pointer-events: none;
+        }
+        .healthcare-bg-video {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            display: block;
+        }
+        #sec-healthcare > .container,
+        #sec-healthcare .feature-grid,
+        #sec-healthcare .chat-hook {
+            position: relative;
+            z-index: 2;
+        }
+        @media (max-width: 991px) {
+            .healthcare-bg-video {
+                display: none;
+            }
+            #sec-healthcare::before {
+                display: none;
+            }
+        }
+
+        body.night-mode header {
+            background: rgba(15, 23, 42, 0.9);
+        }
+
+        body.night-mode .hero-left h1,
+        body.night-mode .tagline {
+            color: #e5e7eb;
+        }
                     inset: 0;
                     background: rgba(20, 28, 44, 0.60);
                     z-index: 1;
@@ -852,18 +420,65 @@
         }
 
         /* --- HERO SECTION (CHAMELEON) --- */
-        .hero {
-            background: linear-gradient(
-                135deg,
-                color-mix(in srgb, var(--weather-bg) 90%, black),
-                var(--weather-bg)
-            );
-            transition: background 0.8s ease;
-            padding: 60px 0 80px;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
+    .hero {
+        background: linear-gradient(
+            135deg,
+            color-mix(in srgb, var(--weather-bg) 90%, black),
+            var(--weather-bg)
+        );
+        transition: background 0.8s ease;
+        padding: 60px 0 80px;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+    }
+    .hero-bg-video {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        object-fit: cover;
+        z-index: 0;
+    }
+    .hero-content-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        position: relative;
+        z-index: 10;
+    }
+    .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: -1;
+        background: linear-gradient(180deg, rgba(20,28,44,0.5) 0%, rgba(20,28,44,0.35) 40%, rgba(20,28,44,0.22) 100%);
+        transition: background 0.4s;
+    }
+    body.industry-healthcare #hero::before {
+        background: linear-gradient(180deg, rgba(16, 185, 129, 0.38) 0%, rgba(20,28,44,0.35) 40%, rgba(20,28,44,0.22) 100%);
+    }
+    body.industry-ayurveda #hero::before {
+        background: linear-gradient(180deg, rgba(245, 158, 11, 0.38) 0%, rgba(20,28,44,0.35) 40%, rgba(20,28,44,0.22) 100%);
+    }
+    body.industry-fashion #hero::before {
+        background: linear-gradient(180deg, rgba(59, 130, 246, 0.38) 0%, rgba(20,28,44,0.35) 40%, rgba(20,28,44,0.22) 100%);
+    }
+    body.industry-makeup #hero::before {
+        background: linear-gradient(180deg, rgba(236, 72, 153, 0.38) 0%, rgba(20,28,44,0.35) 40%, rgba(20,28,44,0.22) 100%);
+    }
+    body.industry-logistics #hero::before {
+        background: linear-gradient(180deg, rgba(16, 185, 129, 0.38) 0%, rgba(20,28,44,0.35) 40%, rgba(20,28,44,0.22) 100%);
+    }
+    body.industry-realestate #hero::before {
+        background: linear-gradient(180deg, rgba(245, 158, 11, 0.38) 0%, rgba(20,28,44,0.35) 40%, rgba(20,28,44,0.22) 100%);
+    }
+    body.industry-tourism #hero::before {
+        background: linear-gradient(180deg, rgba(59, 130, 246, 0.38) 0%, rgba(20,28,44,0.35) 40%, rgba(20,28,44,0.22) 100%);
+    }
+    body.industry-techaudit #hero::before {
+        background: linear-gradient(180deg, rgba(245, 158, 11, 0.38) 0%, rgba(20,28,44,0.35) 40%, rgba(20,28,44,0.22) 100%);
+    }
         @media (min-width: 992px) {
             .hero {
                 background: none;
@@ -1540,12 +1155,15 @@
                 </div>
             </div>
 
+
+        </section>
+
+        <footer>
             <div class="footer-bottom">
                 <p>&copy; 2026 TechAuditPros. All Rights Reserved. | Privacy Policy | Terms of Service</p>
                 <p style="font-size: 0.8rem; margin-top: 10px; color: #64748b;">Built with performance, security, and search intent in mind.</p>
             </div>
-        </div>
-    </footer>
+        </footer>
 
 
     <!-- JAVASCRIPT: The "Chameleon" Logic -->
@@ -1698,8 +1316,9 @@ window.addEventListener('DOMContentLoaded', restoreUserPreference);
             document.getElementById('main-h1').textContent = data.h1;
             document.getElementById('dynamic-tagline').textContent = data.tagline;
             document.getElementById('malayalam-text').textContent = data.malayalam;
+
             document.getElementById('form-title').textContent = data.formTitle;
-            document.getElementById('dynamicCta').textContent = data.cta;
+            // Removed reference to dynamicCta (element does not exist)
             document.getElementById('mode-display').textContent = industry.toUpperCase();
 
             document.querySelectorAll('.ind-btn').forEach(btn => btn.classList.remove('active'));
@@ -1779,9 +1398,7 @@ function submitForm(event) {
         });
         return;
     }
-    const submitButton = document.getElementById('dynamicCta');
-    submitButton.innerText = 'Submitting...';
-    submitButton.disabled = true;
+    // Removed reference to dynamicCta (element does not exist)
     const formData = new FormData(event.target);
     fetch('https://formsubmit.co/ajax/info@techauditpros.com', {
         method: 'POST',
@@ -1812,46 +1429,10 @@ function submitForm(event) {
         });
     })
     .finally(() => {
-        submitButton.innerText = 'Audit My Site';
-        submitButton.disabled = false;
+        // Removed reference to dynamicCta (element does not exist)
     });
 }
-// Mobile nav logic
-function setupMobileNav() {
-    var toggle = document.getElementById('mobileNavToggle');
-    var drawer = document.getElementById('mobileNavDrawer');
-    var overlay = document.getElementById('mobileNavOverlay');
-    function openNav() {
-        drawer.classList.add('open');
-        overlay.classList.add('open');
-        document.body.style.overflow = 'hidden';
-    }
-    function closeNav() {
-        drawer.classList.remove('open');
-        overlay.classList.remove('open');
-        document.body.style.overflow = '';
-    }
-    if (toggle && drawer && overlay) {
-        toggle.addEventListener('click', openNav);
-        overlay.addEventListener('click', closeNav);
-        // Close nav on link click
-        drawer.querySelectorAll('a').forEach(function(link) {
-            link.addEventListener('click', closeNav);
-        });
-    }
-    // Show/hide hamburger based on screen size
-    function handleHamburger() {
-        if (window.innerWidth <= 600) {
-            toggle.style.display = 'block';
-        } else {
-            toggle.style.display = 'none';
-            closeNav();
-        }
-    }
-    window.addEventListener('resize', handleHamburger);
-    window.addEventListener('DOMContentLoaded', handleHamburger);
-}
-window.addEventListener('DOMContentLoaded', setupMobileNav);
+// Removed dead mobile nav logic (referenced non-existent elements: mobileNavToggle, mobileNavDrawer, mobileNavOverlay)
 </script>
 <script>
 // Hide sticky CTA on desktop, show only on mobile
