@@ -130,18 +130,32 @@
         }
         .btn-outline:hover { background: var(--primary); color: var(--white); }
 
-        /* ===== DESKTOP FULL-WIDTH WHITE HEADER ===== */
-        @media (min-width: 992px) {
+        /* --- FIXED HEADER (GLOBAL) --- */
+        header {
+            position: fixed; /* Changed from sticky to fixed for better support */
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 2000; /* Higher than hero but lower than mobile drawer */
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 12px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Add padding to the top of main so content doesn't hide under the fixed header */
+        main {
+            padding-top: 70px; 
+        }
+
+        @media (max-width: 600px) {
+            main {
+                padding-top: 60px; /* Smaller padding for mobile header height */
+            }
+            
             header {
-                position: sticky;
-                top: 0;
-                z-index: 1000;
-                width: 100vw;
-                left: 0;
-                right: 0;
-                background: #fff;
-                border-bottom: 1px solid #e5e7eb;
-                padding: 16px 0;
+                padding: 8px 0;
             }
         }
         
