@@ -17,6 +17,7 @@
     <link rel="icon" href="/assets/logoonly.svg" type="image/svg+xml">
 
     <style>
+                                                    .video-card video { cursor: pointer; }
                                                 /* HERO OVERLAY: Layered gradient, premium contrast */
                                                 #hero {
                                                     position: relative;
@@ -1019,7 +1020,7 @@
                 <!-- Right Side: Video Stack -->
                 <div class="video-stack">
                     <div class="video-card video-top">
-                        <video src="videos/mainvideos/tech-3.mp4" muted preload="metadata" style="width:100%; height:100%; object-fit:cover; opacity: 0.6;"></video>
+                        <video src="videos/mainvideos/tech-3.mp4" muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover; opacity: 0.6;" onclick="this.paused ? this.play() : this.pause()"></video>
                         <div class="progress-bar"><div class="progress-fill"></div></div>
                         <div class="video-overlay">
                             <h4>Why Traffic Alone Isn't Enough</h4>
@@ -1028,7 +1029,7 @@
                         <div class="play-btn"></div>
                     </div>
                     <div class="video-card video-bottom">
-                        <video src="videos/mainvideos/tech-2.mp4" muted preload="metadata" style="width:100%; height:100%; object-fit:cover; opacity: 0.6;"></video>
+                        <video src="videos/mainvideos/tech-2.mp4" muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover; opacity: 0.6;" onclick="this.paused ? this.play() : this.pause()"></video>
                         <div class="video-overlay">
                             <h4>Clinic Case Study: +300% Calls</h4>
                         </div>
