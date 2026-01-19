@@ -8,11 +8,11 @@
     <meta name="google-site-verification" content="nKm7MzLndhPXbTGfdIvEyhdbTuWd1fgOMhpKg3GPozM">
     <meta name="msvalidate.01" content="3A8272AC48E8C31CE4657BB9F708DB69">
     
-    <!-- Using Google Fonts for a premium look -->
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: var(--font-main);
             color: var(--text-dark);
-            background-color: var(--weather-bg); /* Ensure this uses weather-bg */
+            background-color: var(--weather-bg); /* Always use weather-bg */
             line-height: 1.6;
             overflow-x: hidden;
             transition: background-color 0.8s ease, color 0.8s ease;
@@ -35,7 +35,7 @@
             --weather-bg: #fffcf2;
             --weather-accent: #d4af37;
             --weather-text: #1e293b;
-        }
+        
 
         /* Rain Theme: Monsoon Grey */
         body.monsoon-grey {
@@ -82,15 +82,7 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        body {
-            font-family: var(--font-main);
-            color: var(--text-dark);
-            /* Changed this line to use the weather variable */
-            background-color: var(--weather-bg); 
-            line-height: 1.6;
-            overflow-x: hidden;
-            transition: background-color 0.8s ease, color 0.8s ease; /* Smooth transition */
-        }
+
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         ul { list-style: none; }
@@ -1334,7 +1326,7 @@
                 malayalam: "കൊച്ചിയിലെ മികച്ച ടെക്നിക്കൽ എസ്.ഇ.ഒ ഏജൻസി",
                 formTitle: "Get Your Free SEO Audit",
                 cta: "Audit My Site",
-                sectionId: null // No section shown
+                sectionId: null
             },
             'healthcare': {
                 h1: "Kochi's #1 Medical SEO Agency",
@@ -1370,7 +1362,7 @@
             },
             'logistics': {
                 h1: "Logistics & Supply Chain SEO",
-                tagline: "Connecting your business to global ports.",
+                tagline: "Connecting Kochi to the global market.",
                 malayalam: "ലോക വ്യാപാരത്തിലേക്ക് ബന്ധപ്പെടൂ",
                 formTitle: "Logistics Audit",
                 cta: "Grow My Logistics",
