@@ -1012,6 +1012,10 @@
                             <div class="form-group">
                                 <input type="url" placeholder="Website URL" name="website" required>
                             </div>
+                            <div class="form-group">
+                                <input type="checkbox" id="humanCheck" required>
+                                <label for="humanCheck">I am ready for the audit.</label>
+                            </div>
                             <button type="submit" id="dynamicCta" class="btn btn-primary" style="width: 100%;">Audit My Site</button>
                         </form>
                     </div>
@@ -1647,13 +1651,18 @@ window.addEventListener('DOMContentLoaded', restoreUserPreference);
 <script>
 function submitForm(event) {
     event.preventDefault();
-
+    if (!document.getElementById('humanCheck').checked) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Please verify you are ready',
+            confirmButtonColor: '#38BDF8'
+        });
+        return;
+    }
     const submitButton = document.getElementById('dynamicCta');
     submitButton.innerText = 'Submitting...';
     submitButton.disabled = true;
-
     const formData = new FormData(event.target);
-
     fetch('https://formsubmit.co/ajax/info@techauditpros.com', {
         method: 'POST',
         body: formData,
