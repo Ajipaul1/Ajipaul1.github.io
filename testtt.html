@@ -832,7 +832,7 @@
         <main>
         <!-- 2️⃣ Hero Section (Chameleon) -->
         <section class="hero" id="hero">
-            <video class="hero-bg-video" src="videos/mainvideos/tech-1.mp4" autoplay loop muted playsinline></video>
+            <video id="heroVideo" class="hero-bg-video" src="videos/mainvideos/tech-1.mp4" autoplay loop muted playsinline></video>
             <div class="container hero-content-wrapper">
                 
                 <!-- Left Side: Content & Form -->
@@ -911,7 +911,6 @@
         
         <!-- 🏥 Healthcare Mode -->
         <section id="sec-healthcare" class="conditional-section hidden section-padding">
-    <video class="healthcare-bg-video" src="videos/mainvideos/healthcare.mp4" autoplay loop muted playsinline></video>
     <h2 class="hidden">Healthcare SEO Services in Kochi</h2>
     <div class="container">
                 <div class="chat-hook">
@@ -1406,6 +1405,19 @@ function restoreUserPreference() {
 
 window.addEventListener('DOMContentLoaded', restoreUserPreference);
 
+        const heroVideoSources = {
+            general: "videos/mainvideos/tech-1.mp4",
+            healthcare: "videos/mainvideos/healthcare.mp4",
+            ayurveda: "videos/mainvideos/ayurveda.mp4",
+            artists: "videos/mainvideos/artists.mp4",
+            realestate: "videos/mainvideos/realestate.mp4",
+            logistics: "videos/mainvideos/logistics.mp4",
+            fashion: "videos/mainvideos/fashion.mp4",
+            makeup: "videos/mainvideos/makeup.mp4",
+            tourism: "videos/mainvideos/tourism.mp4",
+            techaudit: "videos/mainvideos/tech-1.mp4"
+        };
+
         function switchIndustry(industry, btnEl) {
             localStorage.setItem('preferredIndustry', industry);
 
@@ -1423,14 +1435,21 @@ window.addEventListener('DOMContentLoaded', restoreUserPreference);
             if (btnEl) btnEl.classList.add('active');
 
             // 3. Handle Conditional Sections
-            // Hide all conditional sections first
             document.querySelectorAll('.conditional-section').forEach(sec => sec.classList.add('hidden'));
-            // Show specific section if it exists
             if (data.sectionId) {
                 const targetSection = document.getElementById(data.sectionId);
                 if (targetSection) {
                     targetSection.classList.remove('hidden');
                 }
+            }
+
+            // 4. Change hero video source
+            const heroVideo = document.getElementById('heroVideo');
+            const newSrc = heroVideoSources[industry] || heroVideoSources['general'];
+            if (heroVideo.src.indexOf(newSrc) === -1) {
+                heroVideo.src = newSrc;
+                heroVideo.load();
+                heroVideo.play();
             }
         }
 
