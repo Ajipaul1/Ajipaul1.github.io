@@ -17,6 +17,119 @@
     <link rel="icon" href="/assets/logoonly.svg" type="image/svg+xml">
 
     <style>
+                                                /* HERO OVERLAY: Layered gradient, premium contrast */
+                                                #hero {
+                                                    position: relative;
+                                                    isolation: isolate;
+                                                    overflow: hidden;
+                                                    z-index: 1;
+                                                }
+                                                #hero::before {
+                                                    content: "";
+                                                    position: absolute;
+                                                    inset: 0;
+                                                    pointer-events: none;
+                                                    z-index: 1;
+                                                    background: linear-gradient(180deg, rgba(20,28,44,0.85) 0%, rgba(20,28,44,0.65) 40%, rgba(20,28,44,0.45) 100%);
+                                                    transition: background 0.4s;
+                                                }
+                                                body.industry-healthcare #hero::before {
+                                                    background: linear-gradient(180deg, rgba(16, 185, 129, 0.82) 0%, rgba(20,28,44,0.65) 40%, rgba(20,28,44,0.45) 100%);
+                                                }
+                                                body.industry-ayurveda #hero::before {
+                                                    background: linear-gradient(180deg, rgba(245, 158, 11, 0.82) 0%, rgba(20,28,44,0.65) 40%, rgba(20,28,44,0.45) 100%);
+                                                }
+                                                body.industry-fashion #hero::before {
+                                                    background: linear-gradient(180deg, rgba(59, 130, 246, 0.82) 0%, rgba(20,28,44,0.65) 40%, rgba(20,28,44,0.45) 100%);
+                                                }
+                                                body.industry-makeup #hero::before {
+                                                    background: linear-gradient(180deg, rgba(236, 72, 153, 0.82) 0%, rgba(20,28,44,0.65) 40%, rgba(20,28,44,0.45) 100%);
+                                                }
+                                                body.industry-logistics #hero::before {
+                                                    background: linear-gradient(180deg, rgba(16, 185, 129, 0.82) 0%, rgba(20,28,44,0.65) 40%, rgba(20,28,44,0.45) 100%);
+                                                }
+                                                body.industry-realestate #hero::before {
+                                                    background: linear-gradient(180deg, rgba(245, 158, 11, 0.82) 0%, rgba(20,28,44,0.65) 40%, rgba(20,28,44,0.45) 100%);
+                                                }
+                                                body.industry-tourism #hero::before {
+                                                    background: linear-gradient(180deg, rgba(59, 130, 246, 0.82) 0%, rgba(20,28,44,0.65) 40%, rgba(20,28,44,0.45) 100%);
+                                                }
+                                                body.industry-techaudit #hero::before {
+                                                    background: linear-gradient(180deg, rgba(245, 158, 11, 0.82) 0%, rgba(20,28,44,0.65) 40%, rgba(20,28,44,0.45) 100%);
+                                                }
+                                                /* HERO TEXT CONTRAST */
+                                                #hero .hero-left h1,
+                                                #hero .tagline,
+                                                #hero .malayalam-trust {
+                                                    color: #fff;
+                                                    text-shadow: 0 2px 16px rgba(20,28,44,0.32), 0 1px 2px rgba(0,0,0,0.18);
+                                                }
+                                                #hero .btn,
+                                                #hero .btn-primary,
+                                                #hero .btn-outline {
+                                                    color: #fff;
+                                                    background: var(--secondary);
+                                                    border: none;
+                                                    box-shadow: 0 2px 12px rgba(20,28,44,0.18);
+                                                }
+                                                #hero .btn-outline {
+                                                    background: transparent;
+                                                    border: 2px solid #fff;
+                                                }
+                                                #hero .btn:active,
+                                                #hero .btn-primary:active,
+                                                #hero .btn-outline:active {
+                                                    background: var(--accent);
+                                                    color: #fff;
+                                                }
+                                                #hero .hero-form input,
+                                                #hero .hero-form select {
+                                                    background: rgba(255,255,255,0.92);
+                                                    color: #1e293b;
+                                                    border: 1px solid #fff;
+                                                }
+                                                #hero .hero-form input::placeholder {
+                                                    color: #64748b;
+                                                    opacity: 1;
+                                                }
+                                                #hero .hero-form h3 {
+                                                    color: #fff;
+                                                    text-shadow: 0 2px 12px rgba(20,28,44,0.22);
+                                                }
+                                                /* SECTION SEPARATION */
+                                                .section-padding {
+                                                    background: #fff;
+                                                    color: #1e293b;
+                                                }
+                                                .conditional-section {
+                                                    background: #fff;
+                                                    color: #1e293b;
+                                                }
+                                                /* MICRO-ANIMATION */
+                                                .hero-animate {
+                                                    animation: heroFadeIn 0.45s cubic-bezier(.4,0,.2,1);
+                                                }
+                                                @keyframes heroFadeIn {
+                                                    0% { opacity: 0; transform: translateY(24px); }
+                                                    100% { opacity: 1; transform: translateY(0); }
+                                                }
+                                                @media (max-width: 991px) {
+                                                    #hero .hero-left h1,
+                                                    #hero .tagline,
+                                                    #hero .malayalam-trust,
+                                                    #hero .btn,
+                                                    #hero .btn-primary,
+                                                    #hero .btn-outline {
+                                                        color: #fff;
+                                                        text-shadow: 0 2px 24px rgba(20,28,44,0.45), 0 1px 2px rgba(0,0,0,0.22);
+                                                    }
+                                                    #hero .hero-form input,
+                                                    #hero .hero-form select {
+                                                        background: #fff;
+                                                        color: #1e293b;
+                                                        border: 1px solid #fff;
+                                                    }
+                                                }
                                 .hero {
                                     position: relative;
                                     z-index: 1;
@@ -1288,6 +1401,22 @@
 
     <!-- JAVASCRIPT: The "Chameleon" Logic -->
     <script>
+                                // Add industry class to body and trigger hero micro-animation
+                                function setIndustryClass(industry) {
+                                    document.body.className = document.body.className.replace(/industry-[^ ]*/g, '').trim();
+                                    document.body.classList.add('industry-' + industry);
+                                    // Animate hero headline, tagline, CTA
+                                    const h1 = document.querySelector('#hero .hero-left h1');
+                                    const tagline = document.querySelector('#hero .tagline');
+                                    const cta = document.querySelector('#hero .btn-primary');
+                                    [h1, tagline, cta].forEach(el => {
+                                        if (el) {
+                                            el.classList.remove('hero-animate');
+                                            void el.offsetWidth;
+                                            el.classList.add('hero-animate');
+                                        }
+                                    });
+                                }
                 /* ⏰ TIME-BASED GREETING + NIGHT MODE */
                 function applyTimeBasedGreeting() {
                     const hour = new Date().getHours();
@@ -1427,6 +1556,7 @@ window.addEventListener('DOMContentLoaded', restoreUserPreference);
         };
 
         function switchIndustry(industry, btnEl) {
+                        setIndustryClass(industry);
             localStorage.setItem('preferredIndustry', industry);
 
             const data = industryData[industry];
