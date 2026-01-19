@@ -1,3 +1,67 @@
+        /* --- DESKTOP PREMIUM HEADER --- */
+        @media (min-width: 992px) {
+            header {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: sticky;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+                border-bottom: 1px solid #e5e7eb;
+                z-index: 2000;
+                min-height: 68px;
+                padding: 0 40px;
+            }
+            .desktop-header-inner {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                max-width: 1280px;
+                margin: 0 auto;
+            }
+            .desktop-header-brand {
+                font-family: 'Inter', sans-serif;
+                font-weight: 800;
+                font-size: 1.6rem;
+                color: #0f172a;
+                letter-spacing: -0.5px;
+            }
+            .desktop-nav {
+                display: flex;
+                gap: 32px;
+            }
+            .desktop-nav a {
+                color: #1e293b;
+                font-weight: 500;
+                font-size: 1.05rem;
+                text-decoration: none;
+                transition: color 0.2s;
+            }
+            .desktop-nav a:hover {
+                color: #3b82f6;
+            }
+            .desktop-header-cta {
+                background: #3b82f6;
+                color: #fff;
+                border: none;
+                border-radius: 6px;
+                padding: 10px 22px;
+                font-weight: 600;
+                font-size: 1rem;
+                cursor: pointer;
+                box-shadow: 0 2px 8px rgba(59,130,246,0.08);
+                transition: background 0.2s;
+            }
+            .desktop-header-cta:hover {
+                background: #2563eb;
+            }
+            /* Hide mobile header on desktop */
+            .mobile-header-brand { display: none; }
+        }
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -130,58 +194,35 @@
         }
         .btn-outline:hover { background: var(--primary); color: var(--white); }
 
-        /* --- FIXED HEADER (GLOBAL) --- */
+        /* --- PREMIUM MOBILE STICKY HEADER --- */
         header {
-            position: fixed; /* Changed from sticky to fixed for better support */
+            position: sticky;
             top: 0;
             left: 0;
-            right: 0;
             width: 100%;
-            z-index: 2000; /* Higher than hero but lower than mobile drawer */
-            background: #ffffff;
+            background: #fff;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
             border-bottom: 1px solid #e5e7eb;
-            padding: 12px 0;
-            transition: all 0.3s ease;
+            z-index: 2000;
+            padding: 0;
         }
-
-        /* Add padding to the top of main so content doesn't hide under the fixed header */
-        main {
-            padding-top: 70px; 
-        }
-
-        @media (max-width: 600px) {
-            main {
-                padding-top: 60px; /* Smaller padding for mobile header height */
-            }
-            
-            header {
-                padding: 8px 0;
-            }
-        }
-        
-        .nav-wrapper {
-            justify-content: space-between;
-        }
-
-        .logo {
+        .mobile-header-brand {
+            font-family: 'Inter', sans-serif;
             font-weight: 800;
-            font-size: 1.5rem;
-            color: var(--primary);
+            font-size: 1.3rem;
+            color: #0f172a;
             letter-spacing: -0.5px;
+            text-align: center;
+            padding: 14px 0 12px 0;
+            background: linear-gradient(90deg, #fff 80%, #f8fafc 100%);
         }
-        .logo span { color: var(--secondary); }
-
-        .nav-links { gap: 30px; }
-        .nav-links a { font-weight: 500; font-size: 0.95rem; color: var(--text-dark); }
-        .nav-links a:hover { color: var(--secondary); }
-
-        .header-actions { gap: 15px; align-items: center; }
-        .region-switch {
-            font-size: 0.85rem;
-            padding: 5px 10px;
-            background: #e2e8f0;
-            border-radius: 20px;
-            cursor: pointer;
+        @media (min-width: 600px) {
+            header {
+                display: none;
+            }
+        }
+        main {
+            padding-top: 54px;
         }
 
         /* --- HERO SECTION (CHAMELEON) --- */
@@ -711,39 +752,18 @@
     <a href="#auditForm" class="sticky-cta" id="mobileStickyCta">Get Your Free SEO Audit</a>
     <!-- 1️⃣ Header -->
     <header>
-        <div class="container flex nav-wrapper" style="position:relative;">
-            <div class="logo">
-                TechAudit<span>Pros</span>
-            </div>
-            <!-- Hamburger for mobile -->
-            <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open menu" style="display:none;">
-                <span>&#9776;</span>
-            </button>
-            <nav>
-                <ul class="nav-links flex">
-                    <li><a href="#methodology">Methodology</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#training">Training</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#footer">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="header-actions flex">
-                <div class="region-switch" onclick="toggleRegion()">🇮🇳 India</div>
-                <a href="#" class="btn btn-primary">WhatsApp Us</a>
-                <a href="#" style="font-size: 0.8rem; text-decoration: underline;">Reset to Kochi Home</a>
-            </div>
-            <!-- Mobile nav drawer and overlay -->
-            <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
-            <nav class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile menu">
+        <div class="mobile-header-brand">TechAuditPros</div>
+        <!-- Desktop header -->
+        <div class="desktop-header-inner">
+            <div class="desktop-header-brand">TechAuditPros</div>
+            <nav class="desktop-nav">
                 <a href="#methodology">Methodology</a>
                 <a href="#services">Services</a>
                 <a href="#training">Training</a>
                 <a href="#pricing">Pricing</a>
                 <a href="#footer">Contact</a>
-                <a href="#" onclick="toggleRegion();return false;">Switch Region</a>
-                <a href="#auditForm">Free SEO Audit</a>
             </nav>
+            <button class="desktop-header-cta">Get Free Audit</button>
         </div>
     </header>
 
