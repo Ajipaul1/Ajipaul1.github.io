@@ -1,88 +1,3 @@
-<!-- ...existing code... -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechAuditPros | Kochi's #1 Technical SEO Agency</title>
-    <meta name="description" content="Engineering-driven SEO agency in Kochi serving Healthcare, Ayurveda, Real Estate, and Artists. Enterprise standards, local heart.">
-    <meta name="google-site-verification" content="nKm7MzLndhPXbTGfdIvEyhdbTuWd1fgOMhpKg3GPozM">
-    <meta name="msvalidate.01" content="3A8272AC48E8C31CE4657BB9F708DB69">
-    <!-- Using Google Fonts for a premium look -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Manjari:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="/assets/favicon-16.png" sizes="16x16" type="image/png">
-    <link rel="icon" href="/assets/logoonly.svg" type="image/svg+xml">
-
-    <style>
-        /* --- DESKTOP PREMIUM HEADER --- */
-        @media (min-width: 992px) {
-            header {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                position: sticky;
-                top: 0;
-                left: 0;
-                width: 100%;
-                background: #fff;
-                box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-                border-bottom: 1px solid #e5e7eb;
-                z-index: 2000;
-                min-height: 68px;
-                padding: 0 40px;
-            }
-            .desktop-header-inner {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                width: 100%;
-                max-width: 1280px;
-                margin: 0 auto;
-            }
-            .desktop-header-brand {
-                font-family: 'Inter', sans-serif;
-                font-weight: 800;
-                font-size: 1.6rem;
-                color: #0f172a;
-                letter-spacing: -0.5px;
-            }
-            .desktop-nav {
-                display: flex;
-                gap: 32px;
-            }
-            .desktop-nav a {
-                color: #1e293b;
-                font-weight: 500;
-                font-size: 1.05rem;
-                text-decoration: none;
-                transition: color 0.2s;
-            }
-            .desktop-nav a:hover {
-                color: #3b82f6;
-            }
-            .desktop-header-cta {
-                background: #3b82f6;
-                color: #fff;
-                border: none;
-                border-radius: 6px;
-                padding: 10px 22px;
-                font-weight: 600;
-                font-size: 1rem;
-                cursor: pointer;
-                box-shadow: 0 2px 8px rgba(59,130,246,0.08);
-                transition: background 0.2s;
-            }
-            .desktop-header-cta:hover {
-                background: #2563eb;
-            }
-            /* Hide mobile header on desktop */
-            .mobile-header-brand { display: none; }
-        }
-        /* ...existing styles... */
-    </style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -257,6 +172,27 @@
             padding: 60px 0 80px;
             position: relative;
             overflow: hidden;
+        }
+        @media (min-width: 992px) {
+            .hero {
+                background: none;
+            }
+            .hero-bg-video {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                z-index: 0;
+                pointer-events: none;
+            }
+        }
+        @media (max-width: 991px) {
+            .hero-bg-video {
+                display: none;
+            }
         }
 
         .breadcrumb {
@@ -803,6 +739,7 @@
     </header>
         <!-- 2️⃣ Hero Section (Chameleon) -->
         <section class="hero" id="hero">
+            <video class="hero-bg-video" src="videos/mainvideos/tech-1.mp4" autoplay loop muted playsinline></video>
             <div class="container hero-content-wrapper">
                 
                 <!-- Left Side: Content & Form -->
