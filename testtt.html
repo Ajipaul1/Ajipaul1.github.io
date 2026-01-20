@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechAuditPros | Kochi Pro Header Demo</title>
-    <meta name="description" content="Premium mobile-first header design for TechAuditPros Kochi">
+    <title>Technical SEO Audit & Best SEO Company in Kochi | TechAuditPros</title>
+    <meta name="description" content="Dominating Kochi SEO with data-driven audits. Specialist in Core Web Vitals, Semrush competitor analysis & ROI-focused Digital Marketing in Kerala. Get a quote!">
+    <meta name="keywords" content="SEO Services Kochi, Technical SEO Audit Kerala, Digital Marketing Agency Kochi, SEO Expert Ernakulam, Core Web Vitals Optimization, Infopark SEO">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/hero-page.css">
+    <link rel="stylesheet" href="style.css">
 
     <!-- Local SEO Schema -->
     <script type="application/ld+json">
@@ -54,6 +55,59 @@
         "https://www.linkedin.com/company/techauditpro/",
         "https://www.youtube.com/@TechAuditPros"
       ]
+    }
+    </script>
+
+    <!-- Services Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Technical SEO Audit",
+      "description": "Comprehensive technical SEO audits focusing on Core Web Vitals, Schema Markup, and local Kochi keyword optimization.",
+      "provider": {
+        "@type": "Organization",
+        "name": "TechAuditPros",
+        "url": "https://techauditpros.com/"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Kochi"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "High-Authority Backlinks",
+      "description": "Semrush-based competitor gap analysis and quality link building from Kerala-relevant domains.",
+      "provider": {
+        "@type": "Organization",
+        "name": "TechAuditPros",
+        "url": "https://techauditpros.com/"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Kochi"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "PPC & Google Ads",
+      "description": "High-conversion search ads for the Kochi market, targeting Ernakulam demographics.",
+      "provider": {
+        "@type": "Organization",
+        "name": "TechAuditPros",
+        "url": "https://techauditpros.com/"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Kochi"
+      }
     }
     </script>
 </head>
@@ -198,11 +252,19 @@
             </div>
             <div class="hero-right">
                 <div class="video-card" data-video="assets/videos/testimonial1.mp4" data-poster="assets/posters/testimonial1.jpg">
-                    <img src="assets/posters/testimonial1.jpg" alt="Client Testimonial">
+                    <img src="assets/posters/testimonial1.jpg" alt="Client Testimonial" loading="lazy">
                     <div class="play-overlay">▶</div>
                 </div>
-                <div class="video-card" data-video="assets/videos/demo1.mp4" data-poster="assets/posters/demo1.jpg">
-                    <img src="assets/posters/demo1.jpg" alt="Service Demo">
+                <div class="video-card data-viz-card" data-video="assets/videos/demo1.mp4" data-poster="assets/posters/demo1.jpg">
+                    <img src="assets/posters/demo1.jpg" alt="SEO Growth Metrics" loading="lazy">
+                    <div class="data-viz-overlay">
+                        <div class="chart-icon">📈</div>
+                        <div class="metrics">
+                            <div class="metric">40% Traffic Increase</div>
+                            <div class="metric">300% Lead Growth</div>
+                            <div class="metric">Page 1 Rankings</div>
+                        </div>
+                    </div>
                     <div class="play-overlay">▶</div>
                 </div>
             </div>
@@ -213,6 +275,19 @@
             <div class="video-container">
                 <video id="overlay-video" controls></video>
                 <button class="close-video">&times;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Project Tracker Marquee -->
+    <section class="live-projects-marquee">
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <span class="live-dot">●</span> LIVE: Optimizing Real Estate Site in Edappally...
+                <span class="live-dot">●</span> LIVE: SEO Audit for Healthcare Brand in Kakkanad...
+                <span class="live-dot">●</span> LIVE: PPC Strategy for Ayurveda Brand in Kochi...
+                <span class="live-dot">●</span> LIVE: Technical Audit for Infopark Startup...
+                <span class="live-dot">●</span> LIVE: Backlink Building for Logistics Firm...
             </div>
         </div>
     </section>
@@ -229,6 +304,7 @@
                     </div>
                     <div class="pain-point-right">
                         <p id="pain-point-content">In today's interconnected world, businesses face unprecedented cyber threats. From data breaches to ransomware attacks, the cost of inadequate security can be devastating. Our comprehensive audits identify vulnerabilities before they become costly incidents.</p>
+                        <p class="local-signals">Strategic SEO Partner for firms in Thrippunithura, Infopark, and Ernakulam. Serving Kochi's tech hubs and traditional businesses.</p>
                     </div>
                 </div>
             </div>
@@ -296,6 +372,7 @@
                         </ul>
                     </div>
                 </div>
+                <div class="swipe-indicator">Swipe for more services →</div>
             </div>
         </section>
 
@@ -306,9 +383,9 @@
         // Industry Data
         const industryData = {
             general: {
-                title: "Secure Your Digital Future",
-                subtitle: "Professional cybersecurity audits and technical SEO for Kochi businesses.",
-                cta: "Get Free Audit",
+                title: "Technical SEO Audit & Digital Growth Strategy in Kochi",
+                subtitle: "We don't just 'do SEO.' We audit your competitors, fix your Core Web Vitals, and dominate the Ernakulam search market using data-driven intelligence. Proven results for businesses in Infopark, Kakkanad, and beyond.",
+                cta: "Get Free SEO Audit",
                 video: "videos/mainvideos/tech-1.mp4",
                 poster: "assets/posters/general.jpg",
                 videos: [
@@ -316,22 +393,23 @@
                     { src: "videos/mainvideos/tech-3.mp4", poster: "assets/posters/demo1.jpg", alt: "Service Demo" }
                 ],
                 painPoint: {
-                    title: "Cybersecurity Risks in Kochi's Digital Landscape",
-                    content: "In today's interconnected world, businesses face unprecedented cyber threats. From data breaches to ransomware attacks, the cost of inadequate security can be devastating. Our comprehensive audits identify vulnerabilities before they become costly incidents."
+                    title: "Is Your Kochi Business Invisible on Google?",
+                    content: "Most agencies in Kerala focus on 'likes.' We focus on ROI. If your website isn't on Page 1 for your high-value keywords, you are losing leads to competitors in Infopark and beyond. We fix the technical foundation first—audit, optimize, and scale."
                 },
                 services: [
-                    { icon: "🔒", title: "Security Audits", desc: "Complete system vulnerability assessment" },
-                    { icon: "📊", title: "SEO Optimization", desc: "Technical SEO and performance audits" },
-                    { icon: "🛡️", title: "Compliance Checks", desc: "Industry standard compliance verification" }
+                    { icon: "🔍", title: "Technical SEO Audit", desc: "LCP, CLS, FID optimization & Schema Markup. On-page for local Kochi keywords." },
+                    { icon: "🔗", title: "High-Authority Backlinks", desc: "Semrush competitor gap analysis & quality link building from Kerala domains." },
+                    { icon: "📈", title: "PPC & Google Ads", desc: "High-conversion search ads for Kochi market, targeting Ernakulam demographics." }
                 ],
                 trust: [
                     { name: "Kochi Tech Hub", logo: "🏢", testimonial: "Protected our digital assets with enterprise-grade security" },
                     { name: "Ernakulam Business Park", logo: "🏢", testimonial: "Comprehensive audit services that exceeded expectations" }
                 ],
                 checklist: [
-                    "Network Security Assessment", "Data Encryption Audit", "Access Control Review", "Incident Response Planning",
-                    "Compliance Documentation", "Risk Assessment Report", "Security Policy Review", "Training Recommendations"
-                ]
+                    "Core Web Vitals Optimization", "Schema Markup Implementation", "Local Keyword Research", "Competitor Gap Analysis",
+                    "Backlink Profile Audit", "PPC Campaign Setup", "Conversion Tracking", "ROI Reporting"
+                ],
+                localSignals: "Strategic SEO Partner for firms in Thrippunithura, Infopark, and Ernakulam. Serving Kochi's tech hubs and traditional businesses."
             },
             healthcare: {
                 title: "Healthcare Data Protection",
@@ -777,6 +855,21 @@
         });
 
         // Initialize everything on DOM load
+        // Mobile video loading optimization
+        function loadMobileVideo() {
+            if (window.innerWidth <= 767) {
+                const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+                if (connection && (connection.effectiveType === '4g' || connection.effectiveType === '5g' || !connection.effectiveType)) {
+                    // Load video
+                    const video = document.querySelector('.background-video');
+                    if (video && video.querySelector('source').src === '') {
+                        video.querySelector('source').src = 'videos/mainvideos/tech-1.mp4';
+                        video.load();
+                    }
+                }
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             initChameleonObserver();
             initMobileDrawer();
@@ -785,6 +878,9 @@
             updateHero('general');
             updateContentSections('general');
             switchIndustry('general', document.querySelector('[data-industry="general"]'));
+
+            // Load mobile video if connection allows
+            loadMobileVideo();
         });
     </script>
 </body>
