@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Manjari:wght@400;700&display=swap" rel="stylesheet">
+
     <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
     <link rel="icon" href="/assets/favicon-16.png" sizes="16x16" type="image/png">
     <link rel="icon" href="/assets/logoonly.svg" type="image/svg+xml">
@@ -71,7 +72,6 @@
 }
 </script>
 </head>
-
 <body>
 
     <div id="rain-overlay"></div>
@@ -88,20 +88,20 @@
                 <a href="#contact">Contact</a>
             </nav>
             <a href="#getaudit" class="cta-btn">Get Free Audit</a>
-            <button class="hamburger" aria-label="Open menu" onclick="document.body.classList.toggle('drawer-open')">
+            <button class="hamburger" aria-label="Open menu">
                 <span></span><span></span><span></span>
             </button>
         </div>
-        <div class="mobile-drawer" onclick="if(event.target===this)document.body.classList.remove('drawer-open')">
+        <div class="mobile-drawer" id="mobile-drawer">
             <div class="drawer-content">
-                <button class="close-drawer" aria-label="Close menu" onclick="document.body.classList.remove('drawer-open')">&times;</button>
+                <button class="close-drawer" aria-label="Close menu">&times;</button>
                 <nav>
-                    <a href="#methodology" onclick="document.body.classList.remove('drawer-open')">Methodology</a>
-                    <a href="#services" onclick="document.body.classList.remove('drawer-open')">Services</a>
-                    <a href="#training" onclick="document.body.classList.remove('drawer-open')">Training</a>
-                    <a href="#pricing" onclick="document.body.classList.remove('drawer-open')">Pricing</a>
-                    <a href="#contact" onclick="document.body.classList.remove('drawer-open')">Contact</a>
-                    <a href="#getaudit" class="cta-btn" onclick="document.body.classList.remove('drawer-open')">Get Free Audit</a>
+                    <a href="#methodology">Methodology</a>
+                    <a href="#services">Services</a>
+                    <a href="#training">Training</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#getaudit" class="cta-btn">Get Free Audit</a>
                 </nav>
             </div>
         </div>
@@ -110,7 +110,7 @@
             <video id="heroVideo" class="hero-bg-video" src="videos/mainvideos/tech-1.mp4" autoplay loop muted playsinline></video>
             <div class="container hero-content-wrapper">
                 <div class="hero-left">
-                    <div id="sector-msg"></div>
+                    <div id="sector-msg" style="color: var(--accent); font-weight: 800; margin-bottom: 10px;"></div>
                     <div class="breadcrumb">SEO DASHBOARD // MODE: <span id="mode-display" class="highlight">DYNAMIC</span></div>
                     <h1 id="main-h1">#1 Technical SEO Agency in Kochi for Real Growth</h1>
                     <p id="dynamic-tagline" class="tagline">Engineered for Ernakulam’s top brands.</p>
@@ -156,27 +156,27 @@
                 </div>
                 <div class="video-stack">
                     <div class="video-card video-top" onclick="const v = this.querySelector('video'); if (v) { v.paused ? v.play() : v.pause(); }">
-                        <video id="side-video-1" src="videos/mainvideos/tech-3.mp4" muted loop playsinline preload="metadata"></video>
+                        <video id="side-video-1" src="videos/mainvideos/tech-3.mp4" muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover; opacity: 0.6;"></video>
                         <div class="progress-bar"><div class="progress-fill"></div></div>
                         <div class="video-overlay">
                             <h4>Why Traffic Alone Isn't Enough</h4>
-                            <p>2 min watch</p>
+                            <p style="font-size: 0.9rem;">2 min watch</p>
                         </div>
                         <div class="play-btn"></div>
                     </div>
                     <div class="video-card video-bottom" onclick="const v = this.querySelector('video'); if (v) { v.paused ? v.play() : v.pause(); }">
-                        <video id="side-video-2" src="videos/mainvideos/tech-2.mp4" muted loop playsinline preload="metadata"></video>
+                        <video id="side-video-2" src="videos/mainvideos/tech-2.mp4" muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover; opacity: 0.6;"></video>
                         <div class="video-overlay">
                             <h4>Clinic Case Study: +300% Calls</h4>
                         </div>
-                        <div class="play-btn"></div>
+                        <div class="play-btn" style="width: 40px; height: 40px;"></div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- 6️⃣ Why Kochi Businesses Fail -->
         <!-- 7️⃣ SEO vs Ads Table -->
-        <section class="section-padding">
+        <section class="section-padding" style="background: #f8fafc;">
             <div class="container">
                 <h2 class="section-title">SEO vs Google Ads: Which Wins?</h2>
                 <table class="comparison-table">
@@ -224,13 +224,17 @@
         </section>
 
         <!-- 6️⃣ Why Kochi Businesses Fail -->
-        <section class="section-padding">
+        <section class="section-padding" style="background: #1e293b; color: white;">
             <div class="container">
-                <h2 class="section-title">Why Kochi Businesses Fail at SEO</h2>
-                <div class="grid">
-                    <p>Managing a clinic in Ernakulam and losing patients to competitors with better Google Maps reviews?</p>
-                    <p>Beautiful websites that Google can't read because of broken code.</p>
-                    <p>Forgetting Malayalam nuances and hyper-local Kochi keywords.</p>
+                <h2 class="section-title" style="color: white;">Why Kochi Businesses Fail at SEO</h2>
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); margin-top: 40px;">
+                    <p style="margin-bottom: 10px;">📍 DNRA 32, Eroor South, Thrippunithura, Kochi - 682306</p>
+                    <p style="margin-bottom: 10px;">📞 +91 62825 20339</p>
+                    <p style="margin-bottom: 20px;">📧 info@techauditpros.com</p>
+                    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px;">
+                        <p style="color: white; font-weight: bold; margin-bottom: 10px;">Not sure where you stand?</p>
+                        <button class="btn btn-primary" style="font-size: 0.8rem; padding: 8px 16px;">Request Free Audit</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -238,7 +242,7 @@
         <footer>
             <div class="footer-bottom">
                 <p>&copy; 2026 TechAuditPros. All Rights Reserved. | Privacy Policy | Terms of Service</p>
-                <p>Built with performance, security, and search intent in mind.</p>
+                <p style="font-size: 0.8rem; margin-top: 10px; color: #64748b;">Built with performance, security, and search intent in mind.</p>
             </div>
         </footer>
 
