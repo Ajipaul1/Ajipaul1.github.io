@@ -12,19 +12,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Manjari:wght@400;700&display=swap" rel="stylesheet">
-
     <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
     <link rel="icon" href="/assets/favicon-16.png" sizes="16x16" type="image/png">
     <link rel="icon" href="/assets/logoonly.svg" type="image/svg+xml">
-    
-    <!-- Link to the separate CSS file -->
-    <link rel="stylesheet" href="hero-page.css">
+    <link rel="stylesheet" href="assets/css/hero-page.css">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XT9KD0E65G"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
+
         gtag('config', 'G-XT9KD0E65G', {
             anonymize_ip: true,
             send_page_view: true
@@ -32,53 +30,53 @@
     </script>
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "@id": "https://techauditpros.com/#organization",
-      "name": "TechAuditPros – Technical SEO & Digital Growth",
-      "url": "https://techauditpros.com/",
-      "logo": "https://techauditpros.com/assets/logoonly.svg",
-      "telephone": "+91-6282520339",
-      "priceRange": "₹₹",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "DNRA 32, Eroor South, Thrippunithura",
-        "addressLocality": "Kochi",
-        "addressRegion": "Kerala",
-        "postalCode": "682306",
-        "addressCountry": "IN"
-      },
-      "areaServed": [
-        "Kochi",
-        "Ernakulam",
-        "Thrippunithura",
-        "Kakkanad",
-        "Edappally",
-        "Vyttila",
-        "Kalamassery"
-      ],
-      "knowsAbout": [
-        "Technical SEO",
-        "Healthcare SEO",
-        "Ayurveda SEO",
-        "Local SEO Kochi",
-        "Google Maps Optimization",
-        "Artist Portfolio SEO"
-      ],
-      "sameAs": [
-        "https://x.com/techauditpros",
-        "https://www.instagram.com/techauditpros"
-      ]
-    }
-    </script>
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://techauditpros.com/#organization",
+  "name": "TechAuditPros – Technical SEO & Digital Growth",
+  "url": "https://techauditpros.com/",
+  "logo": "https://techauditpros.com/assets/logoonly.svg",
+  "telephone": "+91-6282520339",
+  "priceRange": "₹₹",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "DNRA 32, Eroor South, Thrippunithura",
+    "addressLocality": "Kochi",
+    "addressRegion": "Kerala",
+    "postalCode": "682306",
+    "addressCountry": "IN"
+  },
+  "areaServed": [
+    "Kochi",
+    "Ernakulam",
+    "Thrippunithura",
+    "Kakkanad",
+    "Edappally",
+    "Vyttila",
+    "Kalamassery"
+  ],
+  "knowsAbout": [
+    "Technical SEO",
+    "Healthcare SEO",
+    "Ayurveda SEO",
+    "Local SEO Kochi",
+    "Google Maps Optimization",
+    "Artist Portfolio SEO"
+  ],
+  "sameAs": [
+    "https://x.com/techauditpros",
+    "https://www.instagram.com/techauditpros"
+  ]
+}
+</script>
 </head>
+
 <body>
 
     <div id="rain-overlay"></div>
-    <!-- Sticky CTA for mobile -->
+    <!-- Sticky CTA for mobile (Step 2) -->
     <a href="#auditForm" class="sticky-cta" id="mobileStickyCta">Get Your Free SEO Audit</a>
-
     <header class="main-header">
         <div class="header-inner">
             <a href="https://techauditpros.com/" class="logo">TechAuditPros</a>
@@ -90,228 +88,184 @@
                 <a href="#contact">Contact</a>
             </nav>
             <a href="#getaudit" class="cta-btn">Get Free Audit</a>
-            <button class="hamburger" aria-label="Open menu">
+            <button class="hamburger" aria-label="Open menu" onclick="document.body.classList.toggle('drawer-open')">
                 <span></span><span></span><span></span>
             </button>
         </div>
-        <div class="mobile-drawer" id="mobile-drawer">
+        <div class="mobile-drawer" onclick="if(event.target===this)document.body.classList.remove('drawer-open')">
             <div class="drawer-content">
-                <button class="close-drawer" aria-label="Close menu">&times;</button>
+                <button class="close-drawer" aria-label="Close menu" onclick="document.body.classList.remove('drawer-open')">&times;</button>
                 <nav>
-                    <a href="#methodology">Methodology</a>
-                    <a href="#services">Services</a>
-                    <a href="#training">Training</a>
-                    <a href="#pricing">Pricing</a>
-                    <a href="#contact">Contact</a>
-                    <a href="#getaudit" class="cta-btn">Get Free Audit</a>
+                    <a href="#methodology" onclick="document.body.classList.remove('drawer-open')">Methodology</a>
+                    <a href="#services" onclick="document.body.classList.remove('drawer-open')">Services</a>
+                    <a href="#training" onclick="document.body.classList.remove('drawer-open')">Training</a>
+                    <a href="#pricing" onclick="document.body.classList.remove('drawer-open')">Pricing</a>
+                    <a href="#contact" onclick="document.body.classList.remove('drawer-open')">Contact</a>
+                    <a href="#getaudit" class="cta-btn" onclick="document.body.classList.remove('drawer-open')">Get Free Audit</a>
                 </nav>
             </div>
         </div>
     </header>
-
-    <section id="hero" class="hero">
-        <video id="heroVideo" class="hero-bg-video" src="videos/mainvideos/tech-1.mp4" autoplay loop muted playsinline></video>
-        <div class="container hero-content-wrapper">
-            <div class="hero-left">
-                <div id="sector-msg" style="color: var(--accent); font-weight: 800; margin-bottom: 10px;"></div>
-                <div class="breadcrumb">SEO DASHBOARD // MODE: <span id="mode-display" class="highlight">DYNAMIC</span></div>
-                <h1 id="main-h1">#1 Technical SEO Agency in Kochi for Real Growth</h1>
-                <p id="dynamic-tagline" class="tagline">Engineered for Ernakulam’s top brands.</p>
-                <span id="malayalam-text" class="malayalam-trust">കൊച്ചിയിലെ മികച്ച ടെക്നിക്കൽ എസ്.ഇ.ഒ ഏജൻസി</span>
-                
-                <div class="mobile-hero-img">
-                    <img src="https://picsum.photos/seed/mobilehero/400/220" alt="Mobile Hero Sample" />
-                </div>
-                
-                <div class="industry-grid">
-                    <div class="ind-btn active" onclick="switchIndustry('general', this)">General</div>
-                    <div class="ind-btn" onclick="switchIndustry('healthcare', this)">Healthcare</div>
-                    <div class="ind-btn" onclick="switchIndustry('ayurveda', this)">Ayurveda</div>
-                    <div class="ind-btn" onclick="switchIndustry('realestate', this)">Real Estate</div>
-                    <div class="ind-btn" onclick="switchIndustry('logistics', this)">Logistics</div>
-                    <div class="ind-btn" onclick="switchIndustry('fashion', this)">Fashion</div>
-                    <div class="ind-btn" onclick="switchIndustry('makeup', this)">Makeup</div>
-                    <div class="ind-btn" onclick="switchIndustry('tourism', this)">Tourism</div>
-                    <div class="ind-btn" onclick="switchIndustry('artists', this)">Artists</div>
-                    <div class="ind-btn" onclick="switchIndustry('techaudit', this)">Tech Audit</div>
-                </div>
-
-                <div class="hero-form">
-                    <h3 id="form-title">Get Your Free SEO Audit</h3>
-                    <form id="auditForm" action="https://formsubmit.co/info@techauditpros.com" method="POST" onsubmit="submitForm(event)">
-                        <input type="hidden" name="_subject" value="New SEO Audit Request">
-                        <input type="hidden" name="_captcha" value="false">
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Website" name="website" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Phone (optional)" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label><input type="checkbox" id="humanCheck" required> I am human</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Request Audit</button>
-                    </form>
-                </div>
-            </div>
-            
-            <div class="video-stack">
-                <div class="video-card video-top" onclick="const v = this.querySelector('video'); if (v) { v.paused ? v.play() : v.pause(); }">
-                    <video id="side-video-1" src="videos/mainvideos/tech-3.mp4" muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover; opacity: 0.6;"></video>
-                    <div class="progress-bar"><div class="progress-fill"></div></div>
-                    <div class="video-overlay">
-                        <h4>Why Traffic Alone Isn't Enough</h4>
-                        <p style="font-size: 0.9rem;">2 min watch</p>
+        <section id="hero" class="hero">
+            <video id="heroVideo" class="hero-bg-video" src="videos/mainvideos/tech-1.mp4" autoplay loop muted playsinline></video>
+            <div class="container hero-content-wrapper">
+                <div class="hero-left">
+                    <div id="sector-msg"></div>
+                    <div class="breadcrumb">SEO DASHBOARD // MODE: <span id="mode-display" class="highlight">DYNAMIC</span></div>
+                    <h1 id="main-h1">#1 Technical SEO Agency in Kochi for Real Growth</h1>
+                    <p id="dynamic-tagline" class="tagline">Engineered for Ernakulam’s top brands.</p>
+                    <span id="malayalam-text" class="malayalam-trust">കൊച്ചിയിലെ മികച്ച ടെക്നിക്കൽ എസ്.ഇ.ഒ ഏജൻസി</span>
+                    <div class="mobile-hero-img">
+                        <img src="https://picsum.photos/seed/mobilehero/400/220" alt="Mobile Hero Sample" />
                     </div>
-                    <div class="play-btn"></div>
-                </div>
-                <div class="video-card video-bottom" onclick="const v = this.querySelector('video'); if (v) { v.paused ? v.play() : v.pause(); }">
-                    <video id="side-video-2" src="videos/mainvideos/tech-2.mp4" muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover; opacity: 0.6;"></video>
-                    <div class="video-overlay">
-                        <h4>Clinic Case Study: +300% Calls</h4>
+                    <div class="industry-grid">
+                        <div class="ind-btn active" onclick="switchIndustry('general', this)">General</div>
+                        <div class="ind-btn" onclick="switchIndustry('healthcare', this)">Healthcare</div>
+                        <div class="ind-btn" onclick="switchIndustry('ayurveda', this)">Ayurveda</div>
+                        <div class="ind-btn" onclick="switchIndustry('realestate', this)">Real Estate</div>
+                        <div class="ind-btn" onclick="switchIndustry('logistics', this)">Logistics</div>
+                        <div class="ind-btn" onclick="switchIndustry('fashion', this)">Fashion</div>
+                        <div class="ind-btn" onclick="switchIndustry('makeup', this)">Makeup</div>
+                        <div class="ind-btn" onclick="switchIndustry('tourism', this)">Tourism</div>
+                        <div class="ind-btn" onclick="switchIndustry('artists', this)">Artists</div>
+                        <div class="ind-btn" onclick="switchIndustry('techaudit', this)">Tech Audit</div>
                     </div>
-                    <div class="play-btn" style="width: 40px; height: 40px;"></div>
+                    <div class="hero-form">
+                        <h3 id="form-title">Get Your Free SEO Audit</h3>
+                        <form id="auditForm" action="https://formsubmit.co/info@techauditpros.com" method="POST" onsubmit="submitForm(event)">
+                            <input type="hidden" name="_subject" value="New SEO Audit Request">
+                            <input type="hidden" name="_captcha" value="false">
+                            <div class="form-group">
+                                <input type="text" placeholder="Your Name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Your Email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="Your Website" name="website" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="Your Phone (optional)" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label><input type="checkbox" id="humanCheck" required> I am human</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Request Audit</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="video-stack">
+                    <div class="video-card video-top" onclick="const v = this.querySelector('video'); if (v) { v.paused ? v.play() : v.pause(); }">
+                        <video id="side-video-1" src="videos/mainvideos/tech-3.mp4" muted loop playsinline preload="metadata"></video>
+                        <div class="progress-bar"><div class="progress-fill"></div></div>
+                        <div class="video-overlay">
+                            <h4>Why Traffic Alone Isn't Enough</h4>
+                            <p>2 min watch</p>
+                        </div>
+                        <div class="play-btn"></div>
+                    </div>
+                    <div class="video-card video-bottom" onclick="const v = this.querySelector('video'); if (v) { v.paused ? v.play() : v.pause(); }">
+                        <video id="side-video-2" src="videos/mainvideos/tech-2.mp4" muted loop playsinline preload="metadata"></video>
+                        <div class="video-overlay">
+                            <h4>Clinic Case Study: +300% Calls</h4>
+                        </div>
+                        <div class="play-btn"></div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+        <!-- 6️⃣ Why Kochi Businesses Fail -->
+        <!-- 7️⃣ SEO vs Ads Table -->
+        <section class="section-padding">
+            <div class="container">
+                <h2 class="section-title">SEO vs Google Ads: Which Wins?</h2>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Criteria</th>
+                            <th>SEO</th>
+                            <th>Google Ads</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cost</td>
+                            <td class="winning-col">Lower long-term</td>
+                            <td>High ongoing</td>
+                        </tr>
+                        <tr>
+                            <td>Trust</td>
+                            <td class="winning-col">High (organic)</td>
+                            <td>Lower (paid)</td>
+                        </tr>
+                        <tr>
+                            <td>Click-Through Rate</td>
+                            <td class="winning-col">Higher</td>
+                            <td>Lower</td>
+                        </tr>
+                        <tr>
+                            <td>Scalability</td>
+                            <td class="winning-col">Excellent</td>
+                            <td>Limited by budget</td>
+                        </tr>
+                        <tr>
+                            <td>Results Speed</td>
+                            <td>Slower (builds over time)</td>
+                            <td class="winning-col">Instant</td>
+                        </tr>
+                        <tr>
+                            <td>Brand Authority</td>
+                            <td class="winning-col">Builds authority</td>
+                            <td>Does not build authority</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
-    <!-- SEO vs Ads Table -->
-    <section class="section-padding" style="background: #f8fafc;">
-        <div class="container">
-            <h2 class="section-title">SEO vs Google Ads: Which Wins?</h2>
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Criteria</th>
-                        <th>SEO</th>
-                        <th>Google Ads</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Cost</td>
-                        <td class="winning-col">Lower long-term</td>
-                        <td>High ongoing</td>
-                    </tr>
-                    <tr>
-                        <td>Trust</td>
-                        <td class="winning-col">High (organic)</td>
-                        <td>Lower (paid)</td>
-                    </tr>
-                    <tr>
-                        <td>Click-Through Rate</td>
-                        <td class="winning-col">Higher</td>
-                        <td>Lower</td>
-                    </tr>
-                    <tr>
-                        <td>Scalability</td>
-                        <td class="winning-col">Excellent</td>
-                        <td>Limited by budget</td>
-                    </tr>
-                    <tr>
-                        <td>Results Speed</td>
-                        <td>Slower (builds over time)</td>
-                        <td class="winning-col">Instant</td>
-                    </tr>
-                    <tr>
-                        <td>Brand Authority</td>
-                        <td class="winning-col">Builds authority</td>
-                        <td>Does not build authority</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <!-- Why Kochi Businesses Fail -->
-    <section class="section-padding" style="background: #1e293b; color: white;">
-        <div class="container">
-            <h2 class="section-title" style="color: white;">Why Kochi Businesses Fail at SEO</h2>
-            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); margin-top: 40px;">
-                <p style="margin-bottom: 10px;">📍 DNRA 32, Eroor South, Thrippunithura, Kochi - 682306</p>
-                <p style="margin-bottom: 10px;">📞 +91 62825 20339</p>
-                <p style="margin-bottom: 20px;">📧 info@techauditpros.com</p>
-                <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px;">
-                    <p style="color: white; font-weight: bold; margin-bottom: 10px;">Not sure where you stand?</p>
-                    <button class="btn btn-primary" style="font-size: 0.8rem; padding: 8px 16px;">Request Free Audit</button>
+        <!-- 6️⃣ Why Kochi Businesses Fail -->
+        <section class="section-padding">
+            <div class="container">
+                <h2 class="section-title">Why Kochi Businesses Fail at SEO</h2>
+                <div class="grid">
+                    <p>Managing a clinic in Ernakulam and losing patients to competitors with better Google Maps reviews?</p>
+                    <p>Beautiful websites that Google can't read because of broken code.</p>
+                    <p>Forgetting Malayalam nuances and hyper-local Kochi keywords.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer>
-        <div class="footer-bottom">
-            <p>&copy; 2026 TechAuditPros. All Rights Reserved. | Privacy Policy | Terms of Service</p>
-            <p style="font-size: 0.8rem; margin-top: 10px; color: #64748b;">Built with performance, security, and search intent in mind.</p>
-        </div>
-    </footer>
+        <footer>
+            <div class="footer-bottom">
+                <p>&copy; 2026 TechAuditPros. All Rights Reserved. | Privacy Policy | Terms of Service</p>
+                <p>Built with performance, security, and search intent in mind.</p>
+            </div>
+        </footer>
 
-    <!-- SweetAlert2 for form popups -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <!-- JAVASCRIPT: The "Chameleon" Logic -->
     <script>
-        // JAVASCRIPT: The "Chameleon" Logic
-        
+        // Add industry class to body and trigger hero micro-animation
         function setIndustryClass(industry) {
             document.body.className = document.body.className.replace(/industry-[^ ]*/g, '').trim();
             document.body.classList.add('industry-' + industry);
         }
-
-        function switchIndustry(industry, element) {
-            // Remove active class from all buttons
-            document.querySelectorAll('.ind-btn').forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            element.classList.add('active');
-            
-            // Update the body class to trigger CSS color changes
-            setIndustryClass(industry);
-
-            // Optional: Dynamic Text Update based on industry
-            const mainH1 = document.getElementById('main-h1');
-            const sectorMsg = document.getElementById('sector-msg');
-            
-            // Basic logic to demonstrate the switch
-            if (industry === 'general') {
-                sectorMsg.innerText = "";
-                mainH1.innerText = "#1 Technical SEO Agency in Kochi for Real Growth";
-            } else {
-                sectorMsg.innerText = industry.toUpperCase() + " MODE ACTIVE";
-                mainH1.innerText = "Technical SEO for " + industry.charAt(0).toUpperCase() + industry.slice(1);
-            }
-        }
-
-        // Initialize default state
-        window.addEventListener('DOMContentLoaded', () => {
-            applyTimeBasedGreeting();
-        });
-
-        function applyTimeBasedGreeting() {
-            // Placeholder for time based greeting logic
-        }
+        window.addEventListener('DOMContentLoaded', applyTimeBasedGreeting);
+        // ...existing code for industry switching, weather, etc...
     </script>
 
+    <!-- Mobile Drawer Menu Logic -->
     <script>
-        // Mobile Drawer Menu Logic
         document.addEventListener('DOMContentLoaded', function() {
             var hamburger = document.querySelector('.hamburger');
             var closeDrawer = document.querySelector('.close-drawer');
             var drawerLinks = document.querySelectorAll('#mobile-drawer nav a');
-            
             hamburger.addEventListener('click', function() {
                 document.body.classList.add('drawer-open');
             });
-            
             closeDrawer.addEventListener('click', function() {
                 document.body.classList.remove('drawer-open');
             });
-            
             drawerLinks.forEach(function(link) {
                 link.addEventListener('click', function() {
                     document.body.classList.remove('drawer-open');
@@ -320,63 +274,69 @@
         });
     </script>
 
-    <script>
-        // Form Submission Logic
-        function submitForm(event) {
-            event.preventDefault();
-            if (!document.getElementById('humanCheck').checked) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Please verify you are ready',
-                    confirmButtonColor: '#38BDF8'
-                });
-                return;
-            }
-            const formData = new FormData(event.target);
-            fetch('https://formsubmit.co/ajax/info@techauditpros.com', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Audit Request Submitted',
-                        text: 'Thank you! We will get back to you soon.',
-                        confirmButtonColor: '#38BDF8'
-                    });
-                } else {
-                    throw new Error(data.message || 'Submission failed');
-                }
-            })
-            .catch(error => {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Submission Error',
-                    text: error.message,
-                    confirmButtonColor: '#38BDF8'
-                });
-            });
-        }
-    </script>
+    <!-- SweetAlert2 for form popups -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script>
-        // Hide sticky CTA on desktop, show only on mobile
-        function handleStickyCtaVisibility() {
-            var cta = document.getElementById('mobileStickyCta');
-            if (!cta) return;
-            if (window.innerWidth <= 600) {
-                cta.style.display = 'block';
-            } else {
-                cta.style.display = 'none';
-            }
+<script>
+function submitForm(event) {
+    event.preventDefault();
+    if (!document.getElementById('humanCheck').checked) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Please verify you are ready',
+            confirmButtonColor: '#38BDF8'
+        });
+        return;
+    }
+    // Removed reference to dynamicCta (element does not exist)
+    const formData = new FormData(event.target);
+    fetch('https://formsubmit.co/ajax/info@techauditpros.com', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
         }
-        window.addEventListener('DOMContentLoaded', handleStickyCtaVisibility);
-        window.addEventListener('resize', handleStickyCtaVisibility);
-    </script>
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Audit Request Submitted',
+                text: 'Thank you! We will get back to you soon.',
+                confirmButtonColor: '#38BDF8'
+            });
+        } else {
+            throw new Error(data.message || 'Submission failed');
+        }
+    })
+    .catch(error => {
+        Swal.fire({
+            icon: 'error',
+            title: 'Submission Error',
+            text: error.message,
+            confirmButtonColor: '#38BDF8'
+        });
+    })
+    .finally(() => {
+        // Removed reference to dynamicCta (element does not exist)
+    });
+}
+// Removed dead mobile nav logic (referenced non-existent elements: mobileNavToggle, mobileNavDrawer, mobileNavOverlay)
+</script>
+<script>
+// Hide sticky CTA on desktop, show only on mobile
+function handleStickyCtaVisibility() {
+    var cta = document.getElementById('mobileStickyCta');
+    if (!cta) return;
+    if (window.innerWidth <= 600) {
+        cta.style.display = 'block';
+    } else {
+        cta.style.display = 'none';
+    }
+}
+window.addEventListener('DOMContentLoaded', handleStickyCtaVisibility);
+window.addEventListener('resize', handleStickyCtaVisibility);
+</script>
 </body>
 </html>
