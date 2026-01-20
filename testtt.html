@@ -217,6 +217,90 @@
         </div>
     </section>
 
+    <!-- Post-Hero Content Sections -->
+    <main class="content-sections">
+
+        <!-- Block A: Industry Pain-Point -->
+        <section class="pain-point-section" id="pain-point">
+            <div class="container">
+                <div class="pain-point-content">
+                    <div class="pain-point-left">
+                        <h2 id="pain-point-title">Cybersecurity Risks in Kochi's Digital Landscape</h2>
+                    </div>
+                    <div class="pain-point-right">
+                        <p id="pain-point-content">In today's interconnected world, businesses face unprecedented cyber threats. From data breaches to ransomware attacks, the cost of inadequate security can be devastating. Our comprehensive audits identify vulnerabilities before they become costly incidents.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Block B: Services Grid -->
+        <section class="services-section" id="services">
+            <div class="container">
+                <div class="services-grid" id="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🔒</div>
+                        <h3>Security Audits</h3>
+                        <p>Complete system vulnerability assessment</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">📊</div>
+                        <h3>SEO Optimization</h3>
+                        <p>Technical SEO and performance audits</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🛡️</div>
+                        <h3>Compliance Checks</h3>
+                        <p>Industry standard compliance verification</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Block C: Local Trust Slider -->
+        <section class="trust-section" id="trust">
+            <div class="container">
+                <div class="trust-slider" id="trust-slider">
+                    <div class="trust-card">
+                        <div class="trust-logo">🏢</div>
+                        <h4>Kochi Tech Hub</h4>
+                        <p>"Protected our digital assets with enterprise-grade security"</p>
+                    </div>
+                    <div class="trust-card">
+                        <div class="trust-logo">🏢</div>
+                        <h4>Ernakulam Business Park</h4>
+                        <p>"Comprehensive audit services that exceeded expectations"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Block D: Technical Checklist -->
+        <section class="checklist-section" id="checklist">
+            <div class="container">
+                <div class="checklist-content">
+                    <div class="checklist-column">
+                        <ul id="checklist-left">
+                            <li><span class="checkmark">✓</span> Network Security Assessment</li>
+                            <li><span class="checkmark">✓</span> Data Encryption Audit</li>
+                            <li><span class="checkmark">✓</span> Access Control Review</li>
+                            <li><span class="checkmark">✓</span> Incident Response Planning</li>
+                        </ul>
+                    </div>
+                    <div class="checklist-column">
+                        <ul id="checklist-right">
+                            <li><span class="checkmark">✓</span> Compliance Documentation</li>
+                            <li><span class="checkmark">✓</span> Risk Assessment Report</li>
+                            <li><span class="checkmark">✓</span> Security Policy Review</li>
+                            <li><span class="checkmark">✓</span> Training Recommendations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
     <!-- JavaScript -->
     <script>
         // Industry Data
@@ -230,6 +314,23 @@
                 videos: [
                     { src: "videos/mainvideos/tech-4.mp4", poster: "assets/posters/testimonial1.jpg", alt: "Client Testimonial" },
                     { src: "videos/mainvideos/tech-3.mp4", poster: "assets/posters/demo1.jpg", alt: "Service Demo" }
+                ],
+                painPoint: {
+                    title: "Cybersecurity Risks in Kochi's Digital Landscape",
+                    content: "In today's interconnected world, businesses face unprecedented cyber threats. From data breaches to ransomware attacks, the cost of inadequate security can be devastating. Our comprehensive audits identify vulnerabilities before they become costly incidents."
+                },
+                services: [
+                    { icon: "🔒", title: "Security Audits", desc: "Complete system vulnerability assessment" },
+                    { icon: "📊", title: "SEO Optimization", desc: "Technical SEO and performance audits" },
+                    { icon: "🛡️", title: "Compliance Checks", desc: "Industry standard compliance verification" }
+                ],
+                trust: [
+                    { name: "Kochi Tech Hub", logo: "🏢", testimonial: "Protected our digital assets with enterprise-grade security" },
+                    { name: "Ernakulam Business Park", logo: "🏢", testimonial: "Comprehensive audit services that exceeded expectations" }
+                ],
+                checklist: [
+                    "Network Security Assessment", "Data Encryption Audit", "Access Control Review", "Incident Response Planning",
+                    "Compliance Documentation", "Risk Assessment Report", "Security Policy Review", "Training Recommendations"
                 ]
             },
             healthcare: {
@@ -241,6 +342,23 @@
                 videos: [
                     { src: "assets/videos/healthcare-testimonial.mp4", poster: "assets/posters/healthcare-testimonial.jpg", alt: "Healthcare Client Success" },
                     { src: "assets/videos/healthcare-demo.mp4", poster: "assets/posters/healthcare-demo.jpg", alt: "Healthcare Security Demo" }
+                ],
+                painPoint: {
+                    title: "Protecting Patient Privacy in Kochi Healthcare",
+                    content: "One patient data leak in your Kochi clinic can lead to legal action and lost trust. Healthcare providers face stringent HIPAA requirements and increasing cyber threats targeting sensitive medical data. Our specialized audits ensure your patient information remains confidential and secure."
+                },
+                services: [
+                    { icon: "🏥", title: "HIPAA Compliance", desc: "Complete healthcare regulatory compliance" },
+                    { icon: "🔐", title: "Patient Data Security", desc: "Secure electronic health records" },
+                    { icon: "📋", title: "Medical Device Audit", desc: "IoT medical equipment security" }
+                ],
+                trust: [
+                    { name: "Kochi Medical Center", logo: "🏥", testimonial: "HIPAA compliant security that protects our patients" },
+                    { name: "Ernakulam Hospital", logo: "🏥", testimonial: "Comprehensive healthcare security solutions" }
+                ],
+                checklist: [
+                    "HIPAA Compliance Audit", "PHI Data Encryption", "Access Control Systems", "Medical Device Security",
+                    "Staff Training Programs", "Incident Response Plans", "Backup & Recovery", "Third-party Risk Assessment"
                 ]
             },
             ayurveda: {
@@ -252,6 +370,23 @@
                 videos: [
                     { src: "assets/videos/ayurveda-testimonial.mp4", poster: "assets/posters/ayurveda-testimonial.jpg", alt: "Ayurveda Client Story" },
                     { src: "assets/videos/ayurveda-demo.mp4", poster: "assets/posters/ayurveda-demo.jpg", alt: "Ayurveda Security Demo" }
+                ],
+                painPoint: {
+                    title: "Losing Global Trust in Ayurvedic Exports",
+                    content: "Ayurvedic businesses in Kochi face unique challenges with international export compliance and digital wellness standards. A single data breach can jeopardize your global reputation and export licenses. Our specialized audits ensure your traditional medicine business meets modern security requirements."
+                },
+                services: [
+                    { icon: "🌿", title: "Export Compliance", desc: "International regulatory standards" },
+                    { icon: "🔒", title: "Herbal Data Security", desc: "Protect proprietary formulations" },
+                    { icon: "📱", title: "Digital Wellness Audit", desc: "Online consultation security" }
+                ],
+                trust: [
+                    { name: "Kochi Ayurveda Center", logo: "🌿", testimonial: "Secured our global export operations" },
+                    { name: "Ernakulam Wellness Hub", logo: "🌿", testimonial: "Compliance-ready for international markets" }
+                ],
+                checklist: [
+                    "Export Compliance Audit", "Herbal Formulation Security", "Digital Consultation Encryption", "Supply Chain Data Protection",
+                    "International Standards Review", "Quality Control Systems", "Regulatory Documentation", "Risk Management Plans"
                 ]
             },
             realestate: {
@@ -263,6 +398,23 @@
                 videos: [
                     { src: "assets/videos/realestate-testimonial.mp4", poster: "assets/posters/realestate-testimonial.jpg", alt: "Real Estate Success Story" },
                     { src: "assets/videos/realestate-demo.mp4", poster: "assets/posters/realestate-demo.jpg", alt: "Real Estate Security Demo" }
+                ],
+                painPoint: {
+                    title: "Lead Theft by Rivals in Kochi Property Market",
+                    content: "Is your Kochi property lead data sitting in an unencrypted spreadsheet? Real estate agents face constant threats from competitors stealing client information. A single breach can cost you millions in lost commissions and damage your market reputation."
+                },
+                services: [
+                    { icon: "🏠", title: "CRM Protection", desc: "Secure property lead databases" },
+                    { icon: "🔐", title: "Client Data Vault", desc: "Encrypted property transactions" },
+                    { icon: "📊", title: "Market Intelligence", desc: "Competitive advantage security" }
+                ],
+                trust: [
+                    { name: "Kochi Property Group", logo: "🏠", testimonial: "Protected our exclusive property listings" },
+                    { name: "Ernakulam Realty", logo: "🏠", testimonial: "Secure CRM that competitors can't breach" }
+                ],
+                checklist: [
+                    "CRM Security Audit", "Lead Data Encryption", "Property Listing Protection", "Client Database Security",
+                    "Transaction Security", "Competitor Threat Analysis", "Access Control Systems", "Backup & Recovery"
                 ]
             },
             logistics: {
@@ -274,6 +426,23 @@
                 videos: [
                     { src: "assets/videos/logistics-testimonial.mp4", poster: "assets/posters/logistics-testimonial.jpg", alt: "Logistics Client Testimonial" },
                     { src: "assets/videos/logistics-demo.mp4", poster: "assets/posters/logistics-demo.jpg", alt: "Logistics Demo" }
+                ],
+                painPoint: {
+                    title: "System Downtime Costs Kochi Supply Chains",
+                    content: "Logistics companies in Kochi can't afford system downtime. A single cyber attack can halt your entire supply chain, costing thousands per hour. Our 24/7 operational security ensures your fleet tracking, warehouse systems, and supply chain data remain secure and operational."
+                },
+                services: [
+                    { icon: "🚛", title: "Fleet Tracking Security", desc: "GPS and vehicle data protection" },
+                    { icon: "🏭", title: "Warehouse POS Audit", desc: "Inventory management security" },
+                    { icon: "📦", title: "Supply Chain Integrity", desc: "End-to-end data protection" }
+                ],
+                trust: [
+                    { name: "Kochi Logistics Hub", logo: "🚛", testimonial: "Zero downtime since implementing security" },
+                    { name: "Ernakulam Distribution", logo: "🚛", testimonial: "Protected our entire supply chain network" }
+                ],
+                checklist: [
+                    "Fleet Management Security", "Warehouse System Audit", "Supply Chain Monitoring", "GPS Data Protection",
+                    "Inventory Control Systems", "Third-party Vendor Security", "Real-time Threat Detection", "Disaster Recovery"
                 ]
             },
             fashion: {
@@ -285,6 +454,23 @@
                 videos: [
                     { src: "assets/videos/fashion-testimonial.mp4", poster: "assets/posters/fashion-testimonial.jpg", alt: "Fashion Brand Story" },
                     { src: "assets/videos/fashion-demo.mp4", poster: "assets/posters/fashion-demo.jpg", alt: "Fashion Security Demo" }
+                ],
+                painPoint: {
+                    title: "Payment Fraud Threatens Kochi Fashion Brands",
+                    content: "Fashion retailers in Kochi face constant payment fraud attempts. From counterfeit cards to data breaches, a single security incident can destroy customer trust and result in massive chargeback losses. Our secure customer experience protects your brand reputation and bottom line."
+                },
+                services: [
+                    { icon: "💳", title: "Payment Gateway Security", desc: "Secure online transactions" },
+                    { icon: "📱", title: "E-commerce Platform Audit", desc: "Shopping cart and checkout security" },
+                    { icon: "👗", title: "Design IP Protection", desc: "Digital asset and pattern security" }
+                ],
+                trust: [
+                    { name: "Kochi Fashion District", logo: "👗", testimonial: "Zero payment fraud since our audit" },
+                    { name: "Ernakulam Boutique", logo: "👗", testimonial: "Protected our exclusive designs online" }
+                ],
+                checklist: [
+                    "Payment Processing Security", "E-commerce Platform Audit", "Customer Data Protection", "Design Asset Security",
+                    "PCI DSS Compliance", "Fraud Detection Systems", "SSL Certificate Validation", "Transaction Monitoring"
                 ]
             },
             makeup: {
@@ -296,6 +482,23 @@
                 videos: [
                     { src: "assets/videos/makeup-testimonial.mp4", poster: "assets/posters/makeup-testimonial.jpg", alt: "Makeup Client Success" },
                     { src: "assets/videos/makeup-demo.mp4", poster: "assets/posters/makeup-demo.jpg", alt: "Makeup Demo" }
+                ],
+                painPoint: {
+                    title: "Client Privacy Breaches in Beauty Industry",
+                    content: "Beauty professionals in Kochi handle highly sensitive client information - from skin conditions to personal preferences. A data breach can destroy your reputation and client relationships. Our specialized security ensures your client database and consultation records remain completely confidential."
+                },
+                services: [
+                    { icon: "💄", title: "Client Database Security", desc: "Encrypted beauty consultation records" },
+                    { icon: "📸", title: "Before/After Protection", desc: "Secure photo and video assets" },
+                    { icon: "💳", title: "Booking System Audit", desc: "Online appointment security" }
+                ],
+                trust: [
+                    { name: "Kochi Beauty Salon", logo: "💄", testimonial: "Client privacy fully protected" },
+                    { name: "Ernakulam Spa", logo: "💄", testimonial: "Secure booking system with zero breaches" }
+                ],
+                checklist: [
+                    "Client Data Encryption", "Photo Asset Protection", "Booking System Security", "Consultation Record Security",
+                    "Payment Processing Audit", "Staff Access Controls", "Backup & Recovery", "Privacy Compliance"
                 ]
             },
             tourism: {
@@ -307,6 +510,23 @@
                 videos: [
                     { src: "assets/videos/tourism-testimonial.mp4", poster: "assets/posters/tourism-testimonial.jpg", alt: "Tourism Success Story" },
                     { src: "assets/videos/tourism-demo.mp4", poster: "assets/posters/tourism-demo.jpg", alt: "Tourism Demo" }
+                ],
+                painPoint: {
+                    title: "Booking System Vulnerabilities Threaten Tourism",
+                    content: "Tourism businesses in Kochi rely on booking systems that handle sensitive traveler data. A single security breach can result in canceled bookings, legal liabilities, and damage to Kochi's tourism reputation. Our comprehensive security ensures safe, trustworthy travel experiences."
+                },
+                services: [
+                    { icon: "✈️", title: "Booking Platform Security", desc: "Secure reservation systems" },
+                    { icon: "🏨", title: "Hotel Management Audit", desc: "Property management system security" },
+                    { icon: "🚗", title: "Travel Service Protection", desc: "Tour operator data security" }
+                ],
+                trust: [
+                    { name: "Kochi Tourism Board", logo: "✈️", testimonial: "Protected thousands of traveler bookings" },
+                    { name: "Ernakulam Hotels", logo: "🏨", testimonial: "Secure hotel reservation system" }
+                ],
+                checklist: [
+                    "Booking System Security", "Traveler Data Protection", "Payment Processing Audit", "Hotel Management Security",
+                    "Tour Operator Systems", "Travel Agency Databases", "GDPR Compliance", "Incident Response"
                 ]
             },
             artists: {
@@ -318,6 +538,23 @@
                 videos: [
                     { src: "assets/videos/artists-testimonial.mp4", poster: "assets/posters/artists-testimonial.jpg", alt: "Artist Testimonial" },
                     { src: "assets/videos/artists-demo.mp4", poster: "assets/posters/artists-demo.jpg", alt: "Artists Demo" }
+                ],
+                painPoint: {
+                    title: "Digital Art Theft in Kochi's Creative Community",
+                    content: "Artists in Kochi create valuable digital content that's easily copied and stolen. From portfolios to NFT collections, protecting your intellectual property is crucial. Our specialized security prevents unauthorized use and ensures your art remains yours."
+                },
+                services: [
+                    { icon: "🎨", title: "Portfolio Protection", desc: "Secure digital art collections" },
+                    { icon: "🖼️", title: "NFT Security Audit", desc: "Blockchain and crypto art protection" },
+                    { icon: "📱", title: "Social Media Assets", desc: "Instagram and platform security" }
+                ],
+                trust: [
+                    { name: "Kochi Art Gallery", logo: "🎨", testimonial: "Protected our digital art collection" },
+                    { name: "Ernakulam Artists", logo: "🎨", testimonial: "Secure NFT marketplace integration" }
+                ],
+                checklist: [
+                    "Digital Portfolio Security", "Art Asset Encryption", "NFT Platform Audit", "Social Media Protection",
+                    "Copyright Management", "Watermarking Systems", "Backup Solutions", "Access Control"
                 ]
             },
             techaudit: {
@@ -329,6 +566,23 @@
                 videos: [
                     { src: "assets/videos/techaudit-testimonial.mp4", poster: "assets/posters/techaudit-testimonial.jpg", alt: "Tech Audit Success" },
                     { src: "assets/videos/techaudit-demo.mp4", poster: "assets/posters/techaudit-demo.jpg", alt: "Tech Audit Demo" }
+                ],
+                painPoint: {
+                    title: "Enterprise-Level Security for Tech Companies",
+                    content: "Tech companies in Kochi need enterprise-grade security that matches global standards. From server hardening to cloud security, our comprehensive technical audits ensure your infrastructure meets the highest security benchmarks and compliance requirements."
+                },
+                services: [
+                    { icon: "🖥️", title: "Server Hardening", desc: "Infrastructure security optimization" },
+                    { icon: "🔍", title: "VAPT Testing", desc: "Vulnerability assessment & penetration testing" },
+                    { icon: "☁️", title: "Cloud Security", desc: "AWS, Azure, GCP security audits" }
+                ],
+                trust: [
+                    { name: "Kochi Tech Park", logo: "🖥️", testimonial: "Enterprise security for our entire campus" },
+                    { name: "Ernakulam IT Hub", logo: "🖥️", testimonial: "Comprehensive technical audit services" }
+                ],
+                checklist: [
+                    "Server Security Audit", "Network Infrastructure Review", "Cloud Security Assessment", "Application Security Testing",
+                    "Database Security Audit", "API Security Review", "Compliance Certification", "Penetration Testing"
                 ]
             }
         };
@@ -345,6 +599,9 @@
 
             // Update hero content
             updateHero(industry);
+
+            // Update content sections
+            updateContentSections(industry);
         }
 
         // Update Hero Section
@@ -390,6 +647,55 @@
                     nextVideo.style.opacity = '1';
                 }, 500);
             }, 10);
+        }
+
+        // Update Content Sections
+        function updateContentSections(industry) {
+            const data = industryData[industry];
+            if (!data) return;
+
+            // Update Pain-Point Section
+            document.getElementById('pain-point-title').textContent = data.painPoint.title;
+            document.getElementById('pain-point-content').textContent = data.painPoint.content;
+
+            // Update Services Grid
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach((card, index) => {
+                if (data.services[index]) {
+                    card.querySelector('.service-icon').textContent = data.services[index].icon;
+                    card.querySelector('h3').textContent = data.services[index].title;
+                    card.querySelector('p').textContent = data.services[index].desc;
+                }
+            });
+
+            // Update Trust Slider
+            const trustCards = document.querySelectorAll('.trust-card');
+            trustCards.forEach((card, index) => {
+                if (data.trust[index]) {
+                    card.querySelector('.trust-logo').textContent = data.trust[index].logo;
+                    card.querySelector('h4').textContent = data.trust[index].name;
+                    card.querySelector('p').textContent = data.trust[index].testimonial;
+                }
+            });
+
+            // Update Checklist
+            const checklistItems = data.checklist;
+            const leftList = document.getElementById('checklist-left');
+            const rightList = document.getElementById('checklist-right');
+
+            leftList.innerHTML = '';
+            rightList.innerHTML = '';
+
+            checklistItems.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `<span class="checkmark">✓</span> ${item}`;
+
+                if (index < 4) {
+                    leftList.appendChild(li);
+                } else {
+                    rightList.appendChild(li);
+                }
+            });
         }
 
         // Intersection Observer for Auto-Chameleon Effect
@@ -477,6 +783,7 @@
 
             // Set default industry
             updateHero('general');
+            updateContentSections('general');
             switchIndustry('general', document.querySelector('[data-industry="general"]'));
         });
     </script>
