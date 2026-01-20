@@ -766,3 +766,234 @@ body {
         padding: 20px;
     }
 }
+
+/* ==================================================
+    POST-HERO CONTENT SECTIONS
+    ================================================== */
+
+.content-sections {
+    background: #ffffff;
+}
+
+/* Block A: Pain-Point Section */
+.pain-point-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+}
+
+.pain-point-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.pain-point-left h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    line-height: 1.2;
+    margin-bottom: 0;
+}
+
+.pain-point-right p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: #4b5563;
+    margin: 0;
+}
+
+/* Block B: Services Grid */
+.services-section {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.service-card {
+    background: #ffffff;
+    border: 2px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.service-card:hover {
+    border-color: var(--current-chameleon);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.service-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    font-size: 0.875rem;
+    color: #6b7280;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Block C: Trust Slider */
+.trust-section {
+    padding: 80px 0;
+    background: #f8fafc;
+}
+
+.trust-slider {
+    display: flex;
+    gap: 40px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 20px 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.trust-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.trust-card {
+    flex: 0 0 400px;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
+    scroll-snap-align: start;
+}
+
+.trust-logo {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.trust-card h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 16px;
+}
+
+.trust-card p {
+    font-size: 0.875rem;
+    color: #6b7280;
+    line-height: 1.5;
+    font-style: italic;
+    margin: 0;
+}
+
+/* Block D: Technical Checklist */
+.checklist-section {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+.checklist-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+.checklist-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.checklist-column li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-size: 1rem;
+    color: #374151;
+    font-weight: 500;
+}
+
+.checkmark {
+    color: var(--current-chameleon);
+    font-weight: bold;
+    font-size: 1.125rem;
+    flex-shrink: 0;
+}
+
+/* ==================================================
+    MOBILE RESPONSIVE DESIGN
+    ================================================== */
+
+@media (max-width: 767px) {
+    .pain-point-section {
+        padding: 60px 0;
+    }
+
+    .pain-point-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .pain-point-left h2 {
+        font-size: 2rem;
+    }
+
+    .pain-point-right p {
+        font-size: 1rem;
+    }
+
+    .services-section {
+        padding: 60px 0;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .service-card {
+        padding: 30px 20px;
+    }
+
+    .trust-section {
+        padding: 60px 0;
+    }
+
+    .trust-slider {
+        gap: 20px;
+        padding: 10px 0;
+    }
+
+    .trust-card {
+        flex: 0 0 280px;
+        padding: 30px 20px;
+    }
+
+    .checklist-section {
+        padding: 60px 0;
+    }
+
+    .checklist-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
