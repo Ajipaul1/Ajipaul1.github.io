@@ -1,673 +1,283 @@
-/* ==================================================
-   CORE VARIABLES & RESET
-   ================================================== */
-:root {
-  --bg-base: #020617;
-  --accent-primary: #38BDF8; /* Dynamic Variable controlled by JS */
-  --accent-secondary: #A855F7;
-  --accent-success: #22c55e;
-  --text-main: #F1F5F9;
-  --text-muted: #94A3B8;
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-bg: rgba(255, 255, 255, 0.03);
-  --font-body: 'Inter', sans-serif;
-  --font-code: 'JetBrains Mono', monospace;
-  --transition-speed: 0.4s;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechAuditPros | Kochi Pro Header Demo</title>
+    <meta name="description" content="Premium mobile-first header design for TechAuditPros Kochi">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 
-html { scroll-behavior: smooth; }
-@media (min-width: 1024px) { body { scroll-snap-type: y mandatory; } section { scroll-snap-align: start; } }
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { background-color: var(--bg-base); color: var(--text-main); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; }
+    <!-- Local SEO Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "@id": "https://techauditpros.com/#organization",
+      "name": "TechAuditPros: Technical SEO & Audits",
+      "url": "https://techauditpros.com/seo-audit-kochi/",
+      "logo": "https://techauditpros.com/assets/logoonly.svg",
+      "telephone": "+91-6282520339",
+      "email": "info@techauditpros.com",
+      "priceRange": "₹₹",
+      "description": "Kochi's #1 Technical SEO Agency for Real Growth. Enterprise standards, local heart.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "DNRA 32, Eroor South, Thrippunithura",
+        "addressLocality": "Kochi (Ernakulam)",
+        "addressRegion": "Kerala",
+        "postalCode": "682306",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "9.9816",
+        "longitude": "76.2999"
+      },
+      "areaServed": [
+        {"@type": "City", "name": "Kochi"},
+        {"@type": "City", "name": "Ernakulam"},
+        {"@type": "City", "name": "Thrippunithura"}
+      ],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "sameAs": [
+        "https://x.com/techauditpros",
+        "https://www.instagram.com/techauditpros/",
+        "https://www.facebook.com/61586216952623",
+        "https://www.linkedin.com/company/techauditpro/",
+        "https://www.youtube.com/@TechAuditPros"
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Kochi Pro Header - Mobile First, Thumb Optimized -->
+    <header class="kochi-header">
+        <!-- Top Bar - SEO Strip (Desktop Only) -->
+        <div class="top-bar">
+            <div class="container">
+                <span class="verified-text">Verified IT Auditors in Ernakulam, Kerala</span>
+                <a href="tel:+916282520339" class="local-phone">📞 +91 62825 20339</a>
+            </div>
+        </div>
 
-/* UTILITIES */
-.mono { font-family: var(--font-code); }
-.text-accent { color: var(--accent-primary); transition: color var(--transition-speed); }
-.text-muted { color: var(--text-muted); }
-a { text-decoration: none; color: inherit; transition: 0.3s; }
+        <!-- Main Header - Dual Action -->
+        <div class="main-header-bar">
+            <div class="container header-container">
+                <!-- Logo (Sharp SVG) -->
+                <a href="https://techauditpros.com/" class="header-logo">
+                    <img src="https://techauditpros.com/assets/logoonly.svg" alt="TechAuditPros Kochi - Enterprise IT Audits" width="40" height="40">
+                    <span class="logo-text">TechAuditPros</span>
+                </a>
 
-/* VISIBILITY UTILS */
-.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+                <!-- Desktop Navigation (Hidden on Mobile) -->
+                <nav class="desktop-nav">
+                    <a href="#methodology">Methodology</a>
+                    <a href="#services">Services</a>
+                    <a href="#training">Training</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#contact">Contact</a>
+                </nav>
 
-/* BACKGROUND GLOWS */
-.ambient-glow { position: fixed; border-radius: 50%; filter: blur(80px); z-index: -1; opacity: 0.3; pointer-events: none; transition: background 0.5s ease; }
-.glow-1 { top: -10%; left: -5%; width: 500px; height: 500px; background: var(--accent-primary); }
-.glow-2 { bottom: -10%; right: -5%; width: 600px; height: 600px; background: var(--accent-secondary); }
+                <!-- Dual Action: Book Audit + Call/WhatsApp -->
+                <div class="header-actions">
+                    <a href="#auditForm" class="book-audit-btn">Book Kochi Audit</a>
+                    <a href="https://wa.me/916282520339?text=Hi%20TechAuditPros%2C%20I%20need%20SEO%20help%20in%20Kochi" class="call-action" aria-label="WhatsApp Kochi Office">
+                        📞
+                    </a>
+                    <button class="mobile-menu-toggle" aria-label="Open menu">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
 
-/* ==================================================
-    CHAMELEON HERO SPECIFIC STYLES
-    ================================================== */
- .hero { min-height: 100vh; padding-top: 156px; display: flex; align-items: center; position: relative; } /* 80px top bar + 76px header */
-.hero-bg-video {
-	position: absolute;
-	inset: 0;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	z-index: -2 !important;
-	pointer-events: none;
-}
-.hero::before {
-	content: "";
-	position: absolute;
-	inset: 0;
-	background: linear-gradient(180deg, rgba(20,28,44,0.6) 0%, rgba(20,28,44,0.4) 100%);
-	z-index: -1 !important;
-	pointer-events: none;
-}
-.hero-content-wrapper {
-	position: relative;
-	z-index: 10 !important;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 60px;
-}
-.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+        <!-- Industry Slider - Chameleon Pills -->
+        <div class="industry-slider">
+            <div class="slider-container">
+                <div class="industry-pills" id="industry-pills">
+                    <button class="pill active" data-industry="general" onclick="switchIndustry('general', this)">
+                        <span class="pill-dot"></span>
+                        General
+                    </button>
+                    <button class="pill" data-industry="healthcare" onclick="switchIndustry('healthcare', this)">
+                        <span class="pill-dot"></span>
+                        Healthcare
+                    </button>
+                    <button class="pill" data-industry="ayurveda" onclick="switchIndustry('ayurveda', this)">
+                        <span class="pill-dot"></span>
+                        Ayurveda
+                    </button>
+                    <button class="pill" data-industry="realestate" onclick="switchIndustry('realestate', this)">
+                        <span class="pill-dot"></span>
+                        Real Estate
+                    </button>
+                    <button class="pill" data-industry="logistics" onclick="switchIndustry('logistics', this)">
+                        <span class="pill-dot"></span>
+                        Logistics
+                    </button>
+                    <button class="pill" data-industry="fashion" onclick="switchIndustry('fashion', this)">
+                        <span class="pill-dot"></span>
+                        Fashion
+                    </button>
+                    <button class="pill" data-industry="makeup" onclick="switchIndustry('makeup', this)">
+                        <span class="pill-dot"></span>
+                        Makeup
+                    </button>
+                    <button class="pill" data-industry="tourism" onclick="switchIndustry('tourism', this)">
+                        <span class="pill-dot"></span>
+                        Tourism
+                    </button>
+                    <button class="pill" data-industry="artists" onclick="switchIndustry('artists', this)">
+                        <span class="pill-dot"></span>
+                        Artists
+                    </button>
+                    <button class="pill" data-industry="techaudit" onclick="switchIndustry('techaudit', this)">
+                        <span class="pill-dot"></span>
+                        Tech Audit
+                    </button>
+                </div>
+            </div>
+        </div>
 
-/* Left Content */
-.hero-content { position: relative; z-index: 10; }
-.breadcrumb { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; display: block; letter-spacing: 1px; text-transform: uppercase; }
-h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 800; color: white; line-height: 1.1; margin-bottom: 1rem; text-shadow: 0 4px 12px rgba(0,0,0,0.6); }
-.tagline { font-size: 1.25rem; color: #cbd5e1; margin-bottom: 2.5rem; font-weight: 400; line-height: 1.5; text-shadow: 0 4px 12px rgba(0,0,0,0.6); }
+        <!-- Mobile Drawer - Full Screen Overlay -->
+        <div class="mobile-drawer" id="mobile-drawer">
+            <div class="drawer-overlay"></div>
+            <div class="drawer-content">
+                <div class="drawer-header">
+                    <button class="close-drawer" aria-label="Close menu">&times;</button>
+                </div>
+                <nav class="drawer-nav">
+                    <a href="#methodology">Methodology</a>
+                    <a href="#services">Services</a>
+                    <a href="#training">Training</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#auditForm" class="drawer-cta">Book Kochi Audit</a>
+                </nav>
+                <div class="drawer-footer">
+                    <div class="local-office">
+                        <h4>Kochi Office</h4>
+                        <p>📍 DNRA 32, Eroor South<br>Thrippunithura, Kochi - 682306</p>
+                        <p>📞 +91 62825 20339</p>
+                        <p>📧 info@techauditpros.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-/* Transitions for Text Swapping */
-.fade-text { transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease; opacity: 1; transform: translateY(0); }
-.fade-out { opacity: 0; transform: translateY(10px); }
+    <!-- Sticky Contact Footer (Mobile Only) -->
+    <div class="sticky-contact-footer">
+        <a href="https://wa.me/916282520339?text=Hi%20TechAuditPros%2C%20I%20need%20SEO%20help%20in%20Kochi" class="contact-link">
+            💬 WhatsApp Kochi Office
+        </a>
+    </div>
 
-/* Industry Selector (Glassmorphism Buttons) */
-.industry-selector { margin-bottom: 2.5rem; }
-.industry-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); margin-bottom: 0.8rem; display: block; }
-.btn-grid { display: flex; flex-wrap: wrap; gap: 0.8rem; }
-.chameleon-btn {
-background: var(--glass-bg);
-border: 1px solid var(--glass-border);
-color: var(--text-muted);
-padding: 0.6rem 1.2rem;
-border-radius: 8px;
-font-size: 0.85rem;
-font-weight: 600;
-cursor: pointer;
-transition: all 0.3s ease;
-display: flex;
-align-items: center;
-gap: 0.5rem;
-backdrop-filter: blur(4px);
-}
-.chameleon-btn:hover { background: rgba(255,255,255,0.1); color: white; transform: translateY(-2px); }
-.chameleon-btn.active { background: var(--accent-primary); color: #020617; border-color: var(--accent-primary); font-weight: 800; box-shadow: 0 0 15px var(--accent-primary); }
-.dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+    <!-- Demo Content -->
+    <main class="demo-content">
+        <section class="hero-section" data-industry="general">
+            <div class="container">
+                <h1>Kochi Pro Header Demo</h1>
+                <p>This demonstrates the premium mobile-first header design for TechAuditPros.</p>
+                <div class="demo-sections">
+                    <div class="demo-section" data-industry="healthcare">
+                        <h2>Healthcare Section</h2>
+                        <p>Watch the header change to teal when you scroll here.</p>
+                    </div>
+                    <div class="demo-section" data-industry="ayurveda">
+                        <h2>Ayurveda Section</h2>
+                        <p>Green color activation for natural/organic branding.</p>
+                    </div>
+                    <div class="demo-section" data-industry="realestate">
+                        <h2>Real Estate Section</h2>
+                        <p>Maroon color for luxury property marketing.</p>
+                    </div>
+                    <div class="demo-section" data-industry="techaudit">
+                        <h2>Tech Audit Section</h2>
+                        <p>Neon blue for cybersecurity and technical services.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-/* Dynamic Form */
-.hero-form { background: rgba(15, 23, 42, 0.6); border: 1px solid var(--glass-border); padding: 2rem; border-radius: 16px; backdrop-filter: blur(10px); max-width: 450px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
-.form-full { margin-bottom: 1rem; }
-input { width: 100%; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); padding: 0.8rem; border-radius: 8px; color: white; font-family: var(--font-body); outline: none; transition: 0.3s; }
-input:focus { border-color: var(--accent-primary); box-shadow: 0 0 0 2px rgba(56,189,248,0.2); }
-.btn-submit { width: 100%; background: var(--accent-primary); color: #020617; border: none; padding: 1rem; border-radius: 8px; font-weight: 700; cursor: pointer; transition: 0.3s; font-size: 1rem; }
-.btn-submit:hover { transform: translateY(-2px); box-shadow: 0 0 20px var(--accent-primary); filter: brightness(1.1); }
+    <!-- JavaScript -->
+    <script>
+        // Chameleon Industry Switching
+        function switchIndustry(industry, element) {
+            // Update body class for chameleon effect
+            document.body.className = document.body.className.replace(/industry-[^ ]*/g, '').trim();
+            document.body.classList.add('industry-' + industry);
 
-/* Right: Video Stack */
-.video-stack { display: flex; flex-direction: column; gap: 1.5rem; position: sticky; top: 100px; }
-.video-card { position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 20px; overflow: hidden; border: 1px solid var(--glass-border); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); background: #000; }
-.video-card video { width: 100%; height: 100%; object-fit: cover; }
+            // Update active pill
+            document.querySelectorAll('.pill').forEach(pill => pill.classList.remove('active'));
+            element.classList.add('active');
+        }
 
-/* Progress Bar (Only on Top Video) */
-.progress-bar { position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: rgba(255,255,255,0.1); z-index: 30; }
-.progress-fill { height: 100%; background: var(--accent-primary); width: 0%; transition: width 0.1s linear; box-shadow: 0 0 10px var(--accent-primary); }
+        // Intersection Observer for Auto-Chameleon Effect
+        function initChameleonObserver() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '-50% 0px -50% 0px',
+                threshold: 0
+            };
 
-/* ==================================================
-    KOCHI PRO HEADER - MOBILE FIRST, THUMB OPTIMIZED
-    ================================================== */
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const industry = entry.target.dataset.industry;
+                        if (industry) {
+                            switchIndustry(industry, document.querySelector(`[data-industry="${industry}"]`));
+                        }
+                    }
+                });
+            }, observerOptions);
 
-/* Chameleon Color System */
-:root {
-  --chameleon-general: #0F172A;
-  --chameleon-healthcare: #14B8A6;
-  --chameleon-ayurveda: #15803D;
-  --chameleon-realestate: #9F1239;
-  --chameleon-logistics: #7C3AED;
-  --chameleon-fashion: #EC4899;
-  --chameleon-makeup: #BE185D;
-  --chameleon-tourism: #F59E0B;
-  --chameleon-artists: #8B5CF6;
-  --chameleon-techaudit: #6366F1;
-  --current-chameleon: var(--chameleon-general);
-}
+            // Observe industry sections
+            document.querySelectorAll('[data-industry]').forEach(section => {
+                observer.observe(section);
+            });
+        }
 
-/* Top Bar - SEO Strip */
-.top-bar {
-  background: #f8fafc;
-  border-bottom: 1px solid #e2e8f0;
-  padding: 8px 0;
-  font-size: 0.875rem;
-  color: #64748b;
-  display: none; /* Hidden on mobile by default */
-}
-.top-bar .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.verified-text {
-  font-weight: 500;
-}
-.local-phone {
-  color: #059669;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s;
-}
-.local-phone:hover {
-  color: #047857;
-}
+        // Mobile Drawer Logic
+        function initMobileDrawer() {
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const closeDrawer = document.querySelector('.close-drawer');
+            const drawer = document.getElementById('mobile-drawer');
 
-/* Main Header Bar */
-.main-header-bar {
-  background: white;
-  border-bottom: 1px solid #e5e7eb;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  height: 60px; /* Mobile first - 60px */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-.header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-}
+            menuToggle.addEventListener('click', function() {
+                drawer.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
 
-/* Header Logo */
-.header-logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  color: #1f2937;
-  font-weight: 700;
-  font-size: 1.125rem;
-  transition: color 0.3s;
-}
-.header-logo:hover {
-  color: var(--current-chameleon);
-}
-.header-logo img {
-  flex-shrink: 0;
-}
-.logo-text {
-  font-family: 'Inter', sans-serif;
-}
+            closeDrawer.addEventListener('click', function() {
+                drawer.classList.remove('active');
+                document.body.style.overflow = '';
+            });
 
-/* Desktop Navigation */
-.desktop-nav {
-  display: flex;
-  gap: 32px;
-  align-items: center;
-}
-.desktop-nav a {
-  color: #4b5563;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.875rem;
-  letter-spacing: 0.025em;
-  text-transform: uppercase;
-  transition: color 0.3s;
-  position: relative;
-}
-.desktop-nav a:hover,
-.desktop-nav a.active {
-  color: var(--current-chameleon);
-}
-.desktop-nav a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--current-chameleon);
-  transition: width 0.3s;
-}
-.desktop-nav a:hover::after,
-.desktop-nav a.active::after {
-  width: 100%;
-}
+            // Close on overlay click
+            document.querySelector('.drawer-overlay').addEventListener('click', function() {
+                drawer.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        }
 
-/* Header Actions */
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-.book-audit-btn {
-  background: var(--current-chameleon);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.875rem;
-  transition: all 0.3s;
-  border: 1px solid var(--current-chameleon);
-}
-.book-audit-btn:hover {
-  background: white;
-  color: var(--current-chameleon);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-.call-action {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  background: #10b981;
-  color: white;
-  border-radius: 50%;
-  text-decoration: none;
-  font-size: 1.25rem;
-  transition: all 0.3s;
-  border: 2px solid #10b981;
-}
-.call-action:hover {
-  background: white;
-  color: #10b981;
-  transform: scale(1.05);
-}
-.mobile-menu-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 44px;
-  height: 44px;
-  background: none;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
-  cursor: pointer;
-  padding: 0;
-}
-.mobile-menu-toggle span {
-  display: block;
-  width: 20px;
-  height: 2px;
-  background: #374151;
-  margin: 3px 0;
-  border-radius: 1px;
-  transition: all 0.3s;
-}
+        // Initialize everything on DOM load
+        document.addEventListener('DOMContentLoaded', function() {
+            initChameleonObserver();
+            initMobileDrawer();
 
-/* Industry Slider */
-.industry-slider {
-  background: white;
-  border-bottom: 1px solid #e5e7eb;
-  padding: 16px 0;
-  overflow: hidden;
-}
-.slider-container {
-  position: relative;
-}
-.industry-pills {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  padding: 0 20px;
-}
-.industry-pills::-webkit-scrollbar {
-  display: none;
-}
-.pill {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
-  background: #f3f4f6;
-  border: 1px solid #d1d5db;
-  border-radius: 20px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #374151;
-  cursor: pointer;
-  transition: all 0.3s;
-  scroll-snap-align: start;
-  flex-shrink: 0;
-  white-space: nowrap;
-}
-.pill:hover {
-  background: #e5e7eb;
-  border-color: #9ca3af;
-}
-.pill.active {
-  background: var(--current-chameleon);
-  color: white;
-  border-color: var(--current-chameleon);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-.pill-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: currentColor;
-  flex-shrink: 0;
-}
-
-/* Mobile Drawer */
-.mobile-drawer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: 2000;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s;
-}
-.mobile-drawer.active {
-  opacity: 1;
-  visibility: visible;
-}
-.drawer-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
-}
-.drawer-content {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 300px;
-  max-width: 85vw;
-  height: 100vh;
-  background: white;
-  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  transform: translateX(100%);
-  transition: transform 0.3s;
-}
-.mobile-drawer.active .drawer-content {
-  transform: translateX(0);
-}
-.drawer-header {
-  padding: 20px;
-  border-bottom: 1px solid #e5e7eb;
-  display: flex;
-  justify-content: flex-end;
-}
-.close-drawer {
-  background: none;
-  border: none;
-  font-size: 24px;
-  color: #6b7280;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 4px;
-  transition: all 0.3s;
-}
-.close-drawer:hover {
-  background: #f3f4f6;
-  color: #374151;
-}
-.drawer-nav {
-  padding: 20px;
-  flex: 1;
-}
-.drawer-nav a {
-  display: block;
-  padding: 16px 0;
-  color: #374151;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1.125rem;
-  border-bottom: 1px solid #f3f4f6;
-  transition: all 0.3s;
-}
-.drawer-nav a:hover {
-  color: var(--current-chameleon);
-  padding-left: 12px;
-}
-.drawer-cta {
-  background: var(--current-chameleon) !important;
-  color: white !important;
-  padding: 16px !important;
-  border-radius: 8px !important;
-  text-align: center !important;
-  margin-top: 20px !important;
-  border: none !important;
-  font-weight: 600 !important;
-}
-.drawer-footer {
-  padding: 20px;
-  border-top: 1px solid #e5e7eb;
-  background: #f8fafc;
-}
-.local-office h4 {
-  color: #1f2937;
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-.local-office p {
-  color: #6b7280;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  margin-bottom: 8px;
-}
-.local-office p:last-child {
-  margin-bottom: 0;
-}
-
-/* Sticky Contact Footer */
-.sticky-contact-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: white;
-  border-top: 1px solid #e5e7eb;
-  padding: 16px 20px;
-  z-index: 999;
-  display: none; /* Hidden on desktop */
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-}
-.contact-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background: #10b981;
-  color: white;
-  padding: 12px 20px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.875rem;
-  width: 100%;
-  transition: all 0.3s;
-}
-.contact-link:hover {
-  background: #059669;
-  transform: translateY(-1px);
-}
-
-/* ==================================================
-    RESPONSIVE DESIGN - DESKTOP ENHANCEMENTS
-    ================================================== */
-@media (min-width: 768px) {
-  .top-bar {
-    display: block;
-  }
-
-  .main-header-bar {
-    height: 80px; /* Desktop height */
-  }
-
-  .header-logo {
-    font-size: 1.25rem;
-  }
-
-  .desktop-nav {
-    display: flex;
-  }
-
-  .mobile-menu-toggle {
-    display: none;
-  }
-
-  .industry-pills {
-    justify-content: center;
-    padding: 0;
-  }
-
-  .pill {
-    font-size: 0.9rem;
-    padding: 10px 20px;
-  }
-}
-
-@media (max-width: 767px) {
-  .desktop-nav,
-  .book-audit-btn {
-    display: none;
-  }
-
-  .mobile-menu-toggle {
-    display: flex;
-  }
-
-  .sticky-contact-footer {
-    display: block;
-  }
-
-  .call-action {
-    width: 48px;
-    height: 48px;
-    font-size: 1.5rem;
-  }
-
-  /* Adjust hero padding for mobile (no top bar) */
-  .hero {
-    padding-top: 76px; /* 60px header + 16px industry slider */
-  }
-}
-
-/* ==================================================
-    CHAMELEON ANIMATION & INTERSECTION OBSERVER
-    ================================================== */
-.chameleon-transition {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Industry-specific body classes for chameleon effect */
-.industry-general { --current-chameleon: var(--chameleon-general); }
-.industry-healthcare { --current-chameleon: var(--chameleon-healthcare); }
-.industry-ayurveda { --current-chameleon: var(--chameleon-ayurveda); }
-.industry-realestate { --current-chameleon: var(--chameleon-realestate); }
-.industry-logistics { --current-chameleon: var(--chameleon-logistics); }
-.industry-fashion { --current-chameleon: var(--chameleon-fashion); }
-.industry-makeup { --current-chameleon: var(--chameleon-makeup); }
-.industry-tourism { --current-chameleon: var(--chameleon-tourism); }
-.industry-artists { --current-chameleon: var(--chameleon-artists); }
-.industry-techaudit { --current-chameleon: var(--chameleon-techaudit); }
-
-/* ==================================================
-    ORIGINAL STYLES (PRESERVED)
-    ================================================== */
-.container { width: 95%; max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
-.full-screen-section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; position: relative; padding: 6rem 0; }
-@media (max-width: 1023px) { .full-screen-section { min-height: auto; padding: 4rem 0; } }
-h2, h3, h4 { font-weight: 800; line-height: 1.1; }
-h2 { font-size: clamp(2rem, 3.5vw, 3rem); color: white; }
-h3 { font-size: 1.5rem; color: white; }
-
-/* Buttons */
-.btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.8rem 1.8rem; border-radius: 8px; font-weight: 600; cursor: pointer; border: 1px solid transparent; transition: 0.3s; font-size: 0.9rem;}
-.btn-primary { background: var(--accent-primary); color: #020617; }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 20px rgba(56, 189, 248, 0.4); }
-.btn-secondary { background: rgba(255, 255, 255, 0.1); color: white; border: 1px solid var(--glass-border); }
-.btn-outline { background: transparent; color: var(--accent-primary); border: 1px solid var(--accent-primary); }
-.btn-outline:hover { background: rgba(56, 189, 248, 0.1); }
-
-/* Header */
-.main-header { position: fixed; top: 0; width: 100%; background: rgba(2,6,23,0.7); backdrop-filter: blur(18px); border-bottom: 1px solid var(--glass-border); z-index: 1000; transition: box-shadow 0.3s, backdrop-filter 0.3s; }
-.main-header.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.1); backdrop-filter: blur(24px); }
-.header-inner { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 24px; height: 72px; }
-.logo { font-weight: 800; font-size: 1.5rem; color: #0f172a; text-decoration: none; transition: color 0.3s; }
-.logo:hover { color: var(--secondary); }
-.main-nav { display: flex; gap: 28px; }
-.main-nav a { color: #0f172a; font-weight: 600; text-decoration: none; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.3s; position: relative; padding: 4px 0; }
-.main-nav a:hover { color: var(--secondary); }
-.main-nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--secondary); transition: width 0.3s; }
-.main-nav a:hover::after { width: 100%; }
-.cta-btn { background: var(--secondary); color: #fff; font-weight: 700; border: none; border-radius: 5px; padding: 10px 22px; font-size: 1rem; text-decoration: none; transition: all 0.3s; box-shadow: 0 2px 8px rgba(59,130,246,0.08); cursor: pointer; display: inline-block; }
-.cta-btn:hover { background: #2563eb; transform: translateY(-2px); box-shadow: 0 4px 16px rgba(59,130,246,0.3); }
-.hamburger { display: none; flex-direction: column; justify-content: center; align-items: center; width: 40px; height: 40px; background: none; border: none; cursor: pointer; }
-.hamburger span { display: block; width: 24px; height: 3px; background: #0f172a; margin: 3px 0; border-radius: 2px; transition: all 0.2s; }
-
-/* Sections */
-.split-layout { display: flex; align-items: center; gap: 4rem; }
-.split-layout.centered { text-align: left; }
-.mini-stat-card { background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px; text-align: center; min-width: 120px; }
-.mini-stat-card h3 { color: var(--accent-primary); font-size: 2rem; margin-bottom: 0.5rem; }
-.service-grid-wide { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
-.service-card { background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 2rem; border-radius: 16px; transition: 0.3s; }
-.service-card:hover { transform: translateY(-5px); border-color: var(--accent-primary); }
-.highlighted { background: rgba(56, 189, 248, 0.05); border-color: var(--accent-primary); }
-.mistakes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-.mistake-card { padding: 2rem; background: rgba(255,255,255,0.02); border-radius: 12px; text-align: center; }
-
-/* Tables */
-.comparison-table-wrapper { overflow-x: auto; }
-.comparison-table { width: 100%; border-collapse: collapse; color: white; }
-.comparison-table th, .comparison-table td { padding: 1.5rem; text-align: left; border-bottom: 1px solid var(--glass-border); }
-.comparison-table th { font-family: var(--font-code); text-transform: uppercase; }
-.col-technical { color: var(--accent-success); }
-
-/* Pricing */
-.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-.price-card { background: rgba(255,255,255,0.03); padding: 2.5rem; border-radius: 16px; text-align: center; border: 1px solid var(--glass-border); position: relative; }
-.price { font-size: 2.5rem; color: white; font-weight: 800; margin: 1.5rem 0; }
-.price span { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
-.price-card ul { list-style: none; text-align: left; margin-top: 2rem; }
-.price-card ul li { margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
-.featured { border-color: var(--accent-primary); background: rgba(56, 189, 248, 0.05); }
-.popular-tag { position: absolute; top: -15px; left: 50%; transform: translate(-50%, -50%); background: var(--accent-primary); color: #020617; padding: 0.25rem 1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 700; }
-
-/* Maps & Areas */
-.maps-grid, .areas-grid, .industry-grid-wide { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-.map-feature, .area-item, .industry-card { background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--glass-border); }
-.area-item h4, .industry-card h3 { color: var(--accent-primary); margin-bottom: 0.5rem; }
-
-/* Training & Footer */
-.training-card { background: white; color: #0f172a; padding: 2.5rem; border-radius: 20px; }
-.list-item { font-size: 1.1rem; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #e2e8f0; }
-.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
-.footer-col h4 { color: white; margin-bottom: 1.5rem; font-size: 1.1rem; }
-.footer-col ul li { margin-bottom: 0.8rem; }
-.footer-col ul li a { color: var(--text-muted); }
-.sticky-cta { position: fixed; bottom: 30px; right: 30px; z-index: 900; opacity: 0; transform: translateY(20px); transition: 0.3s; pointer-events: none; display: flex; gap: 10px; }
-.sticky-cta.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
-
-@media (max-width: 900px) {
-.main-nav, .cta-btn { display: none; }
-.hamburger { display: flex; }
-}
-@media (max-width: 1023px) {
-body { scroll-snap-type: none; overflow-y: auto; }
-.hero-grid { grid-template-columns: 1fr; gap: 3rem; }
-.hero-content { order: 2; }
-.video-stack { order: 1; }
-.form-row { grid-template-columns: 1fr; }
-.split-layout { flex-direction: column; }
-.sticky-cta { right: 15px; bottom: 15px; flex-direction: column; }
-}
+            // Set default industry
+            switchIndustry('general', document.querySelector('[data-industry="general"]'));
+        });
+    </script>
+</body>
+</html>
