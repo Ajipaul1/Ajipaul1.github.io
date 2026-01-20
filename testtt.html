@@ -181,36 +181,158 @@
         </a>
     </div>
 
-    <!-- Demo Content -->
-    <main class="demo-content">
-        <section class="hero-section" data-industry="general">
-            <div class="container">
-                <h1>Kochi Pro Header Demo</h1>
-                <p>This demonstrates the premium mobile-first header design for TechAuditPros.</p>
-                <div class="demo-sections">
-                    <div class="demo-section" data-industry="healthcare">
-                        <h2>Healthcare Section</h2>
-                        <p>Watch the header change to teal when you scroll here.</p>
-                    </div>
-                    <div class="demo-section" data-industry="ayurveda">
-                        <h2>Ayurveda Section</h2>
-                        <p>Green color activation for natural/organic branding.</p>
-                    </div>
-                    <div class="demo-section" data-industry="realestate">
-                        <h2>Real Estate Section</h2>
-                        <p>Maroon color for luxury property marketing.</p>
-                    </div>
-                    <div class="demo-section" data-industry="techaudit">
-                        <h2>Tech Audit Section</h2>
-                        <p>Neon blue for cybersecurity and technical services.</p>
-                    </div>
+    <!-- Dynamic Hero Section -->
+    <section class="hero-section" id="hero">
+        <video class="background-video current-video" autoplay muted loop playsinline poster="assets/posters/general.jpg">
+            <source src="assets/videos/general.mp4" type="video/mp4">
+        </video>
+        <video class="background-video next-video" autoplay muted loop playsinline style="opacity: 0;">
+            <source src="" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-container">
+            <div class="hero-left">
+                <h1 id="hero-title">Secure Your Digital Future</h1>
+                <p id="hero-subtitle">Professional cybersecurity audits and technical SEO for Kochi businesses.</p>
+                <a href="#auditForm" class="cta-btn" id="cta-btn">Get Free Audit</a>
+            </div>
+            <div class="hero-right">
+                <div class="video-card" data-video="assets/videos/testimonial1.mp4" data-poster="assets/posters/testimonial1.jpg">
+                    <img src="assets/posters/testimonial1.jpg" alt="Client Testimonial">
+                    <div class="play-overlay">▶</div>
+                </div>
+                <div class="video-card" data-video="assets/videos/demo1.mp4" data-poster="assets/posters/demo1.jpg">
+                    <img src="assets/posters/demo1.jpg" alt="Service Demo">
+                    <div class="play-overlay">▶</div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+
+        <!-- Video Overlay -->
+        <div class="video-overlay" id="video-overlay">
+            <div class="video-container">
+                <video id="overlay-video" controls></video>
+                <button class="close-video">&times;</button>
+            </div>
+        </div>
+    </section>
 
     <!-- JavaScript -->
     <script>
+        // Industry Data
+        const industryData = {
+            general: {
+                title: "Secure Your Digital Future",
+                subtitle: "Professional cybersecurity audits and technical SEO for Kochi businesses.",
+                cta: "Get Free Audit",
+                video: "assets/videos/general.mp4",
+                poster: "assets/posters/general.jpg",
+                videos: [
+                    { src: "assets/videos/testimonial1.mp4", poster: "assets/posters/testimonial1.jpg", alt: "Client Testimonial" },
+                    { src: "assets/videos/demo1.mp4", poster: "assets/posters/demo1.jpg", alt: "Service Demo" }
+                ]
+            },
+            healthcare: {
+                title: "Healthcare Data Protection",
+                subtitle: "In Kochi's medical sector, patient data breaches can be catastrophic. We ensure HIPAA compliance and secure your systems.",
+                cta: "Secure Healthcare",
+                video: "assets/videos/healthcare.mp4",
+                poster: "assets/posters/healthcare.jpg",
+                videos: [
+                    { src: "assets/videos/healthcare-testimonial.mp4", poster: "assets/posters/healthcare-testimonial.jpg", alt: "Healthcare Client Success" },
+                    { src: "assets/videos/healthcare-demo.mp4", poster: "assets/posters/healthcare-demo.jpg", alt: "Healthcare Security Demo" }
+                ]
+            },
+            ayurveda: {
+                title: "Ayurveda Business Security",
+                subtitle: "In Kochi's wellness industry, protecting customer data builds trust. We secure your Ayurvedic practice digitally.",
+                cta: "Protect Ayurveda",
+                video: "assets/videos/ayurveda.mp4",
+                poster: "assets/posters/ayurveda.jpg",
+                videos: [
+                    { src: "assets/videos/ayurveda-testimonial.mp4", poster: "assets/posters/ayurveda-testimonial.jpg", alt: "Ayurveda Client Story" },
+                    { src: "assets/videos/ayurveda-demo.mp4", poster: "assets/posters/ayurveda-demo.jpg", alt: "Ayurveda Security Demo" }
+                ]
+            },
+            realestate: {
+                title: "Real Estate Data Security",
+                subtitle: "In the competitive Kochi property market, a data leak can ruin your reputation. We secure your CRM and client data.",
+                cta: "Secure Properties",
+                video: "assets/videos/realestate.mp4",
+                poster: "assets/posters/realestate.jpg",
+                videos: [
+                    { src: "assets/videos/realestate-testimonial.mp4", poster: "assets/posters/realestate-testimonial.jpg", alt: "Real Estate Success Story" },
+                    { src: "assets/videos/realestate-demo.mp4", poster: "assets/posters/realestate-demo.jpg", alt: "Real Estate Security Demo" }
+                ]
+            },
+            logistics: {
+                title: "Logistics Data Integrity",
+                subtitle: "Kochi's supply chain relies on accurate data. We protect your logistics operations from cyber threats.",
+                cta: "Secure Logistics",
+                video: "assets/videos/logistics.mp4",
+                poster: "assets/posters/logistics.jpg",
+                videos: [
+                    { src: "assets/videos/logistics-testimonial.mp4", poster: "assets/posters/logistics-testimonial.jpg", alt: "Logistics Client Testimonial" },
+                    { src: "assets/videos/logistics-demo.mp4", poster: "assets/posters/logistics-demo.jpg", alt: "Logistics Demo" }
+                ]
+            },
+            fashion: {
+                title: "Fashion Brand Protection",
+                subtitle: "In Kochi's fashion scene, intellectual property theft is real. We secure your designs and customer data.",
+                cta: "Protect Fashion",
+                video: "assets/videos/fashion.mp4",
+                poster: "assets/posters/fashion.jpg",
+                videos: [
+                    { src: "assets/videos/fashion-testimonial.mp4", poster: "assets/posters/fashion-testimonial.jpg", alt: "Fashion Brand Story" },
+                    { src: "assets/videos/fashion-demo.mp4", poster: "assets/posters/fashion-demo.jpg", alt: "Fashion Security Demo" }
+                ]
+            },
+            makeup: {
+                title: "Beauty Industry Security",
+                subtitle: "Kochi beauty businesses handle sensitive client data. We ensure privacy and compliance for your makeup brand.",
+                cta: "Secure Beauty",
+                video: "assets/videos/makeup.mp4",
+                poster: "assets/posters/makeup.jpg",
+                videos: [
+                    { src: "assets/videos/makeup-testimonial.mp4", poster: "assets/posters/makeup-testimonial.jpg", alt: "Makeup Client Success" },
+                    { src: "assets/videos/makeup-demo.mp4", poster: "assets/posters/makeup-demo.jpg", alt: "Makeup Demo" }
+                ]
+            },
+            tourism: {
+                title: "Tourism Data Safety",
+                subtitle: "Kochi tourism depends on traveler trust. We protect booking data and ensure secure operations.",
+                cta: "Secure Tourism",
+                video: "assets/videos/tourism.mp4",
+                poster: "assets/posters/tourism.jpg",
+                videos: [
+                    { src: "assets/videos/tourism-testimonial.mp4", poster: "assets/posters/tourism-testimonial.jpg", alt: "Tourism Success Story" },
+                    { src: "assets/videos/tourism-demo.mp4", poster: "assets/posters/tourism-demo.jpg", alt: "Tourism Demo" }
+                ]
+            },
+            artists: {
+                title: "Artist Portfolio Protection",
+                subtitle: "Kochi artists create valuable digital content. We secure your portfolios and prevent unauthorized use.",
+                cta: "Protect Art",
+                video: "assets/videos/artists.mp4",
+                poster: "assets/posters/artists.jpg",
+                videos: [
+                    { src: "assets/videos/artists-testimonial.mp4", poster: "assets/posters/artists-testimonial.jpg", alt: "Artist Testimonial" },
+                    { src: "assets/videos/artists-demo.mp4", poster: "assets/posters/artists-demo.jpg", alt: "Artists Demo" }
+                ]
+            },
+            techaudit: {
+                title: "Technical Audit Excellence",
+                subtitle: "As Kochi's leading technical auditors, we provide comprehensive cybersecurity and SEO assessments.",
+                cta: "Book Tech Audit",
+                video: "assets/videos/techaudit.mp4",
+                poster: "assets/posters/techaudit.jpg",
+                videos: [
+                    { src: "assets/videos/techaudit-testimonial.mp4", poster: "assets/posters/techaudit-testimonial.jpg", alt: "Tech Audit Success" },
+                    { src: "assets/videos/techaudit-demo.mp4", poster: "assets/posters/techaudit-demo.jpg", alt: "Tech Audit Demo" }
+                ]
+            }
+        };
+
         // Chameleon Industry Switching
         function switchIndustry(industry, element) {
             // Update body class for chameleon effect
@@ -220,6 +342,54 @@
             // Update active pill
             document.querySelectorAll('.pill').forEach(pill => pill.classList.remove('active'));
             element.classList.add('active');
+
+            // Update hero content
+            updateHero(industry);
+        }
+
+        // Update Hero Section
+        function updateHero(industry) {
+            const data = industryData[industry];
+            if (!data) return;
+
+            // Update text
+            document.getElementById('hero-title').textContent = data.title;
+            document.getElementById('hero-subtitle').textContent = data.subtitle;
+            document.getElementById('cta-btn').textContent = data.cta;
+
+            // Update video cards
+            const cards = document.querySelectorAll('.video-card');
+            cards.forEach((card, index) => {
+                if (data.videos[index]) {
+                    card.setAttribute('data-video', data.videos[index].src);
+                    card.querySelector('img').src = data.videos[index].poster;
+                    card.querySelector('img').alt = data.videos[index].alt;
+                }
+            });
+
+            // Cross-fade background video
+            const currentVideo = document.querySelector('.current-video');
+            const nextVideo = document.querySelector('.next-video');
+
+            // Set next video source
+            nextVideo.querySelector('source').src = data.video;
+            nextVideo.poster = data.poster;
+            nextVideo.load();
+
+            // Fade out current, fade in next
+            nextVideo.style.opacity = '1';
+            setTimeout(() => {
+                currentVideo.style.opacity = '0';
+                // Swap classes after fade
+                setTimeout(() => {
+                    currentVideo.classList.remove('current-video');
+                    currentVideo.classList.add('next-video');
+                    nextVideo.classList.remove('next-video');
+                    nextVideo.classList.add('current-video');
+                    currentVideo.style.opacity = '0';
+                    nextVideo.style.opacity = '1';
+                }, 500);
+            }, 10);
         }
 
         // Intersection Observer for Auto-Chameleon Effect
@@ -270,12 +440,43 @@
             });
         }
 
+        // Video Card Click Handlers
+        document.querySelectorAll('.video-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const videoSrc = this.getAttribute('data-video');
+                const overlay = document.getElementById('video-overlay');
+                const video = document.getElementById('overlay-video');
+                video.src = videoSrc;
+                overlay.classList.add('active');
+                video.play();
+            });
+        });
+
+        // Close Video Overlay
+        document.querySelector('.close-video').addEventListener('click', function() {
+            const overlay = document.getElementById('video-overlay');
+            const video = document.getElementById('overlay-video');
+            overlay.classList.remove('active');
+            video.pause();
+            video.src = '';
+        });
+
+        // Close on overlay click
+        document.getElementById('video-overlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.remove('active');
+                document.getElementById('overlay-video').pause();
+                document.getElementById('overlay-video').src = '';
+            }
+        });
+
         // Initialize everything on DOM load
         document.addEventListener('DOMContentLoaded', function() {
             initChameleonObserver();
             initMobileDrawer();
 
             // Set default industry
+            updateHero('general');
             switchIndustry('general', document.querySelector('[data-industry="general"]'));
         });
     </script>
