@@ -1371,6 +1371,40 @@ body.industry-ayurveda .cta-btn:hover {
     box-shadow: 0 0 15px rgba(217, 119, 6, 0.6);
 }
 
+/* Real Estate Corporate Sharp Corners & Dark Contrast */
+.industry-realestate .cta-btn,
+.industry-realestate .book-audit-btn,
+.industry-realestate .pill,
+.industry-realestate .service-card,
+.industry-realestate .trust-card,
+.industry-realestate .video-card {
+    border-radius: 4px;
+}
+
+.industry-realestate .hero-section {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.industry-realestate .pain-point-section,
+.industry-realestate .services-section,
+.industry-realestate .trust-section,
+.industry-realestate .checklist-section {
+    background: #0f172a;
+    color: #f1f5f9;
+}
+
+.industry-realestate .pain-point-section h2,
+.industry-realestate .services-section h3,
+.industry-realestate .trust-card h4 {
+    color: #f1f5f9;
+}
+
+.industry-realestate .pain-point-content p,
+.industry-realestate .service-card p,
+.industry-realestate .trust-card p {
+    color: #cbd5e1;
+}
+
 /* ==================================================
     AUTHORITY BAR SECTION
     ================================================== */
