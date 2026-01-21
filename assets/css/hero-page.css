@@ -36,6 +36,17 @@ body {
     --current-chameleon: var(--chameleon-general);
 }
 
+/* Industry-Specific Chameleon Colors */
+body.industry-healthcare { --current-chameleon: var(--chameleon-healthcare); }
+body.industry-ayurveda { --current-chameleon: var(--chameleon-ayurveda); }
+body.industry-realestate { --current-chameleon: var(--chameleon-realestate); }
+body.industry-logistics { --current-chameleon: var(--chameleon-logistics); }
+body.industry-fashion { --current-chameleon: var(--chameleon-fashion); }
+body.industry-makeup { --current-chameleon: var(--chameleon-makeup); }
+body.industry-tourism { --current-chameleon: var(--chameleon-tourism); }
+body.industry-artists { --current-chameleon: var(--chameleon-artists); }
+body.industry-techaudit { --current-chameleon: var(--chameleon-techaudit); }
+
 /* Container */
 .container {
     width: 95%;
@@ -619,6 +630,15 @@ body {
     color: var(--current-chameleon);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Ayurveda Spa Premium Glow */
+body.industry-ayurveda .cta-btn {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 20px rgba(217, 119, 6, 0.5);
+}
+
+body.industry-ayurveda .cta-btn:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 30px rgba(217, 119, 6, 0.7);
 }
 
 .hero-right {
