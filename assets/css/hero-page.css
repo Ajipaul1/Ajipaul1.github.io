@@ -1105,3 +1105,242 @@ body {
         gap: 40px;
     }
 }
+
+/* ==================================================
+    AUTHORITY BAR SECTION
+    ================================================== */
+.authority-bar-section {
+    padding: 80px 0;
+    background: #f8fafc;
+}
+
+.authority-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.authority-item {
+    text-align: center;
+}
+
+.authority-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--current-chameleon);
+    margin-bottom: 8px;
+}
+
+.authority-text {
+    font-size: 1rem;
+    color: #4b5563;
+    font-weight: 500;
+}
+
+/* ==================================================
+    FAQ SECTION
+    ================================================== */
+.faq-section {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+.faq-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 60px;
+}
+
+.faq-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-accordion details {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+.faq-accordion summary {
+    padding: 20px;
+    background: #f8fafc;
+    cursor: pointer;
+    font-weight: 600;
+    color: #1f2937;
+    transition: background 0.3s;
+}
+
+.faq-accordion summary:hover {
+    background: #e5e7eb;
+}
+
+.faq-accordion p {
+    padding: 20px;
+    margin: 0;
+    color: #4b5563;
+    line-height: 1.6;
+}
+
+/* ==================================================
+    FINAL CTA SECTION
+    ================================================== */
+.final-cta-section {
+    padding: 80px 0;
+    background: var(--current-chameleon);
+    color: white;
+    text-align: center;
+}
+
+.final-cta-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.final-cta-btn {
+    display: inline-block;
+    background: white;
+    color: var(--current-chameleon);
+    padding: 16px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.125rem;
+    transition: all 0.3s;
+    border: 2px solid white;
+}
+
+.final-cta-btn:hover {
+    background: var(--current-chameleon);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ==================================================
+    SITE FOOTER
+    ================================================== */
+.site-footer {
+    background: #1f2937;
+    color: white;
+    padding: 80px 0 40px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+    margin-bottom: 40px;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.footer-logo img {
+    flex-shrink: 0;
+}
+
+.footer-contact p {
+    margin: 8px 0;
+    color: #9ca3af;
+}
+
+.footer-right iframe {
+    width: 100%;
+    height: 200px;
+    border: 0;
+    border-radius: 8px;
+    filter: grayscale(100%);
+}
+
+.footer-bottom {
+    border-top: 1px solid #374151;
+    padding-top: 20px;
+    text-align: center;
+    color: #9ca3af;
+}
+
+/* ==================================================
+    MOBILE RESPONSIVE FOR NEW SECTIONS
+    ================================================== */
+@media (max-width: 767px) {
+    .authority-bar-section {
+        padding: 60px 0;
+    }
+
+    .authority-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .authority-number {
+        font-size: 1.5rem;
+    }
+
+    .authority-text {
+        font-size: 0.875rem;
+    }
+
+    .faq-section {
+        padding: 60px 0;
+    }
+
+    .faq-section h2 {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+
+    .faq-accordion {
+        padding: 0 20px;
+    }
+
+    .final-cta-section {
+        padding: 60px 0;
+    }
+
+    .final-cta-content h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .final-cta-btn {
+        padding: 14px 28px;
+        font-size: 1rem;
+    }
+
+    .site-footer {
+        padding: 60px 0 30px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .footer-left {
+        text-align: center;
+    }
+
+    .footer-logo {
+        justify-content: center;
+    }
+
+    .footer-right iframe {
+        height: 150px;
+    }
+}
