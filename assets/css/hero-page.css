@@ -1611,6 +1611,21 @@ body.industry-techaudit .checklist li {
     transform: translateY(0);
 }
 
+.form-success {
+    text-align: center;
+    padding: 20px;
+    background: #f0f9ff;
+    border: 1px solid #0ea5e9;
+    border-radius: 8px;
+    color: #0c4a6e;
+}
+
+.form-success p {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
 /* Button Styles for Audit CTAs */
 .book-audit-btn,
 .cta-btn,
