@@ -14,12 +14,39 @@ html {
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.125rem);
+    line-height: 1.7;
+    letter-spacing: 0.02em;
     color: var(--text-color);
     background: var(--bg-color);
     overflow-x: hidden;
     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    margin: 0 0 1rem 0;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+h3 {
+    font-size: clamp(1.25rem, 3vw, 2rem);
+}
+
+h4 {
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
 }
 
 /* Chameleon Color System */
@@ -46,16 +73,6 @@ body {
     --shadow: rgba(0, 0, 0, 0.1);
 }
 
-/* Dark Mode Colors */
-[data-theme="dark"] {
-    --bg-color: #0f172a;
-    --text-color: #f1f5f9;
-    --header-bg: #1e293b;
-    --top-bar-bg: #0f172a;
-    --border-color: #334155;
-    --card-bg: #1e293b;
-    --shadow: rgba(0, 0, 0, 0.3);
-}
 
 /* Industry-Specific Chameleon Colors */
 body.industry-healthcare { --current-chameleon: var(--chameleon-healthcare); }
@@ -152,7 +169,7 @@ body.industry-techaudit { --current-chameleon: var(--chameleon-techaudit); }
 }
 
 .logo-text {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Desktop Navigation */
@@ -169,13 +186,14 @@ body.industry-techaudit { --current-chameleon: var(--chameleon-techaudit); }
     font-size: 0.875rem;
     letter-spacing: 0.025em;
     text-transform: uppercase;
-    transition: color 0.3s;
+    transition: color 0.3s, transform 0.3s;
     position: relative;
 }
 
 .desktop-nav a:hover,
 .desktop-nav a.active {
     color: var(--current-chameleon);
+    transform: scale(1.05);
 }
 
 .desktop-nav a::after {
@@ -205,19 +223,20 @@ body.industry-techaudit { --current-chameleon: var(--chameleon-techaudit); }
     background: var(--current-chameleon);
     color: white;
     padding: 10px 20px;
-    border-radius: 6px;
+    border-radius: 12px;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.875rem;
     transition: all 0.3s;
-    border: 1px solid var(--current-chameleon);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: none;
 }
 
 .book-audit-btn:hover {
     background: white;
     color: var(--current-chameleon);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .call-action {
@@ -241,40 +260,6 @@ body.industry-techaudit { --current-chameleon: var(--chameleon-techaudit); }
     transform: scale(1.05);
 }
 
-/* Dark Mode Toggle */
-.dark-mode-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.dark-mode-toggle:hover {
-    background: var(--current-chameleon);
-    border-color: var(--current-chameleon);
-}
-
-.dark-mode-toggle:hover svg {
-    stroke: white;
-}
-
-.dark-mode-toggle svg {
-    width: 20px;
-    height: 20px;
-    stroke: var(--text-color);
-    transition: stroke 0.3s ease;
-}
-
-.dark-mode-toggle .moon-icon {
-    display: none;
-}
 
 .mobile-menu-toggle {
     display: none;
@@ -335,8 +320,7 @@ body.industry-techaudit { --current-chameleon: var(--chameleon-techaudit); }
     gap: 6px;
     padding: 8px 16px;
     background: #f3f4f6;
-    border: 1px solid #d1d5db;
-    border-radius: 20px;
+    border-radius: 24px;
     font-size: 0.875rem;
     font-weight: 500;
     color: #374151;
@@ -345,6 +329,7 @@ body.industry-techaudit { --current-chameleon: var(--chameleon-techaudit); }
     scroll-snap-align: start;
     flex-shrink: 0;
     white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .pill:hover {
@@ -355,8 +340,7 @@ body.industry-techaudit { --current-chameleon: var(--chameleon-techaudit); }
 .pill.active {
     background: var(--current-chameleon);
     color: white;
-    border-color: var(--current-chameleon);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .pill-dot {
@@ -460,24 +444,6 @@ body.industry-techaudit { --current-chameleon: var(--chameleon-techaudit); }
     padding-left: 12px;
 }
 
-.drawer-nav .dark-mode-toggle {
-    width: 100%;
-    height: auto;
-    padding: 16px;
-    background: none;
-    border: none;
-    justify-content: flex-start;
-    gap: 12px;
-    font-size: 1.125rem;
-    color: #374151;
-    transition: color 0.3s ease;
-}
-
-.drawer-nav .dark-mode-toggle:hover {
-    color: var(--current-chameleon);
-    background: none;
-    border: none;
-}
 
 .drawer-cta {
     background: var(--current-chameleon) !important;
@@ -552,42 +518,6 @@ body.industry-techaudit { --current-chameleon: var(--chameleon-techaudit); }
     transform: translateY(-1px);
 }
 
-/* Dark Mode FAB */
-.dark-mode-fab {
-    position: fixed;
-    bottom: 100px;
-    right: 20px;
-    width: 56px;
-    height: 56px;
-    background: var(--card-bg);
-    border: 2px solid var(--border-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 999;
-    box-shadow: 0 4px 12px var(--shadow);
-    transition: all 0.3s ease;
-    display: none; /* Hidden on desktop */
-}
-
-.dark-mode-fab:hover {
-    background: var(--current-chameleon);
-    border-color: var(--current-chameleon);
-    transform: scale(1.05);
-}
-
-.dark-mode-fab svg {
-    width: 24px;
-    height: 24px;
-    stroke: var(--text-color);
-    transition: stroke 0.3s ease;
-}
-
-.dark-mode-fab:hover svg {
-    stroke: white;
-}
 
 /* ==================================================
     MOBILE RESPONSIVE
@@ -597,9 +527,6 @@ body.industry-techaudit { --current-chameleon: var(--chameleon-techaudit); }
         display: block;
     }
 
-    .dark-mode-fab {
-        display: flex;
-    }
 }
 
 /* ==================================================
@@ -744,12 +671,11 @@ body.industry-techaudit { --current-chameleon: var(--chameleon-techaudit); }
     background: var(--current-chameleon);
     color: white;
     padding: 16px 32px;
-    border-radius: 8px;
+    border-radius: 12px;
     text-decoration: none;
     font-weight: 600;
     font-size: 1.125rem;
     transition: all 0.3s;
-    border: 2px solid var(--current-chameleon);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     animation: pulse-cta 3s infinite;
 }
@@ -757,7 +683,7 @@ body.industry-techaudit { --current-chameleon: var(--chameleon-techaudit); }
 .cta-btn:hover {
     background: white;
     color: var(--current-chameleon);
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.02);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
@@ -1047,7 +973,7 @@ body.industry-techaudit .checklist li {
 
 /* Block A: Pain-Point Section */
 .pain-point-section {
-    padding: 80px 0;
+    padding: clamp(80px, 10vw, 100px) 0;
     background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
 }
 
@@ -1075,7 +1001,7 @@ body.industry-techaudit .checklist li {
 
 /* Block B: Services Grid */
 .services-section {
-    padding: 80px 0;
+    padding: clamp(80px, 10vw, 100px) 0;
     background: #ffffff;
 }
 
@@ -1087,11 +1013,11 @@ body.industry-techaudit .checklist li {
 
 .service-card {
     background: #ffffff;
-    border: 2px solid #e5e7eb;
-    border-radius: 16px;
+    border-radius: 20px;
     padding: 40px 30px;
     text-align: center;
     transition: all 0.3s;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
@@ -1123,7 +1049,7 @@ body.industry-techaudit .checklist li {
 
 /* Block C: Trust Slider */
 .trust-section {
-    padding: 80px 0;
+    padding: clamp(80px, 10vw, 100px) 0;
     background: #f8fafc;
 }
 
@@ -1144,11 +1070,10 @@ body.industry-techaudit .checklist li {
 .trust-card {
     flex: 0 0 400px;
     background: #ffffff;
-    border-radius: 16px;
+    border-radius: 20px;
     padding: 40px 30px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    border: 1px solid #e5e7eb;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     scroll-snap-align: start;
 }
 
@@ -1175,7 +1100,7 @@ body.industry-techaudit .checklist li {
 
 /* Block D: Technical Checklist */
 .checklist-section {
-    padding: 80px 0;
+    padding: clamp(80px, 10vw, 100px) 0;
     background: #ffffff;
 }
 
@@ -1289,7 +1214,7 @@ body.industry-techaudit .checklist li {
     AUTHORITY BAR SECTION
     ================================================== */
 .authority-bar-section {
-    padding: 80px 0;
+    padding: clamp(80px, 10vw, 100px) 0;
     background: #f8fafc;
 }
 
@@ -1320,7 +1245,7 @@ body.industry-techaudit .checklist li {
     FAQ SECTION
     ================================================== */
 .faq-section {
-    padding: 80px 0;
+    padding: clamp(80px, 10vw, 100px) 0;
     background: #ffffff;
 }
 
@@ -1368,7 +1293,7 @@ body.industry-techaudit .checklist li {
     FINAL CTA SECTION
     ================================================== */
 .final-cta-section {
-    padding: 80px 0;
+    padding: clamp(80px, 10vw, 100px) 0;
     background: var(--current-chameleon);
     color: white;
     text-align: center;
@@ -1385,18 +1310,18 @@ body.industry-techaudit .checklist li {
     background: white;
     color: var(--current-chameleon);
     padding: 16px 32px;
-    border-radius: 8px;
+    border-radius: 12px;
     text-decoration: none;
     font-weight: 600;
     font-size: 1.125rem;
     transition: all 0.3s;
-    border: 2px solid white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .final-cta-btn:hover {
     background: var(--current-chameleon);
     color: white;
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.02);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -1578,7 +1503,7 @@ body.industry-techaudit .checklist li {
     AUTHORITY BAR SECTION
     ================================================== */
 .authority-bar-section {
-    padding: 80px 0;
+    padding: clamp(80px, 10vw, 100px) 0;
     background: #f8fafc;
 }
 
@@ -1609,7 +1534,7 @@ body.industry-techaudit .checklist li {
     FAQ SECTION
     ================================================== */
 .faq-section {
-    padding: 80px 0;
+    padding: clamp(80px, 10vw, 100px) 0;
     background: #ffffff;
 }
 
@@ -1657,7 +1582,7 @@ body.industry-techaudit .checklist li {
     FINAL CTA SECTION
     ================================================== */
 .final-cta-section {
-    padding: 80px 0;
+    padding: clamp(80px, 10vw, 100px) 0;
     background: var(--current-chameleon);
     color: white;
     text-align: center;
