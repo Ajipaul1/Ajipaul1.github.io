@@ -641,6 +641,36 @@ body.industry-ayurveda .cta-btn:hover {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 30px rgba(217, 119, 6, 0.7);
 }
 
+/* Tech Audit Cyber Glow */
+body.industry-techaudit .hero-overlay {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+body.industry-techaudit .cta-btn {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 20px rgba(99, 102, 241, 0.5);
+}
+
+body.industry-techaudit .cta-btn:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 30px rgba(99, 102, 241, 0.7);
+}
+
+body.industry-techaudit .service-card:hover {
+    border-color: var(--current-chameleon);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1), 0 0 15px rgba(99, 102, 241, 0.3);
+}
+
+body.industry-techaudit .video-card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(99, 102, 241, 0.4);
+}
+
+/* Code font for small details */
+body.industry-techaudit .service-card p,
+body.industry-techaudit .pain-point-right p,
+body.industry-techaudit .checklist li {
+    font-family: 'Courier New', monospace;
+    font-size: 0.875rem;
+}
+
 .hero-right {
     flex: 0 0 40%;
     display: flex;
