@@ -8,7 +8,7 @@
     <meta name="keywords" content="SEO Services Kochi, Technical SEO Audit Kerala, Digital Marketing Agency Kochi, SEO Expert Ernakulam, Core Web Vitals Optimization, Infopark SEO">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/hero-page.css">
 
     <!-- Local SEO Schema -->
@@ -191,7 +191,7 @@
                     </button>
                     <button class="pill" data-industry="artists" onclick="switchIndustry('artists', this)">
                         <span class="pill-dot"></span>
-                        Artist & Creative Portfolio
+                        Artists
                     </button>
                     <button class="pill" data-industry="techaudit" onclick="switchIndustry('techaudit', this)">
                         <span class="pill-dot"></span>
@@ -235,14 +235,15 @@
         </a>
     </div>
 
-
     <!-- Dynamic Hero Section -->
     <section class="hero-section" id="hero">
-        <div class="video-container">
-            <video autoplay muted loop playsinline poster="videos/mainvideos/tech-1-poster.jpg">
-                <source src="videos/mainvideos/tech-1-bg.webm" type="video/webm">
-            </video>
-        </div>
+        <video class="background-video current-video" autoplay muted loop playsinline poster="assets/posters/general.jpg">
+            <source src="videos/mainvideos/tech-1.mp4" type="video/mp4">
+        </video>
+        <video class="background-video next-video" autoplay muted loop playsinline style="opacity: 0;">
+            <source src="" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
         <div class="hero-container">
             <div class="hero-left">
                 <h1 id="hero-title">Secure Your Digital Future</h1>
@@ -438,37 +439,23 @@
     <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-column footer-contact">
-                    <h3>TechAuditPros Kochi</h3>
-                    <p><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/></svg> DNRA 32, Eroor South, Thrippunithura, Kochi - 682306</p>
-                    <a href="tel:+916282520339" class="footer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/></svg> +91 62825 20339</a>
-                    <a href="mailto:info@techauditpros.com" class="footer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/></svg> info@techauditpros.com</a>
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <img src="https://techauditpros.com/assets/logoonly.svg" alt="TechAuditPros Kochi" width="40" height="40">
+                        <span>TechAuditPros</span>
+                    </div>
+                    <p>Technical SEO & Cybersecurity Audits for Kochi Businesses</p>
+                    <div class="footer-contact">
+                        <p>📍 DNRA 32, Eroor South, Thrippunithura, Kochi - 682306</p>
+                        <p>📞 +91 62825 20339 | 📧 info@techauditpros.com</p>
+                    </div>
                 </div>
-                <div class="footer-column footer-nav">
-                    <h3>Navigation</h3>
-                    <a href="#methodology" class="footer-link">Methodology</a>
-                    <a href="#services" class="footer-link">Services</a>
-                    <a href="#training" class="footer-link">Training</a>
-                    <a href="#pricing" class="footer-link">Pricing</a>
-                    <a href="#contact" class="footer-link">Contact</a>
-                </div>
-                <div class="footer-column footer-local-seo">
-                    <h3>Local Services</h3>
-                    <p>Kochi SEO Services</p>
-                    <p>Ernakulam Digital Marketing</p>
-                    <p>Infopark SEO Audits</p>
-                    <p>Thrippunithura Agencies</p>
-                </div>
-                <div class="footer-column footer-trust">
-                    <h3>Trust & Legal</h3>
-                    <p>Certified Google Partner</p>
-                    <p>Semrush Pro Partner</p>
-                    <a href="#" class="footer-link">Privacy Policy</a>
-                    <a href="#" class="footer-link">Terms of Service</a>
+                <div class="footer-right">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.844!2d76.2999!3d9.9816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwNTgnNTMuNiJOIDc2wrAxNyc0OS45IkU!5e0!3m2!1sen!2sin!4v1234567890!5m2!1sen!2sin" width="300" height="200" style="border:0; filter: grayscale(100%);" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 All rights reserved.</p>
+                <p>&copy; 2024 TechAuditPros. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -707,8 +694,8 @@
                     { src: "assets/videos/fashion-demo.mp4", poster: "assets/posters/fashion-demo.jpg", alt: "Fashion Security Demo" }
                 ],
                 painPoint: {
-                    title: "Is Payment Fraud Stealing Your Profit Margins?",
-                    content: "Kochi’s fashion and makeup brands rely heavily on instant transactions. A slow website or an insecure payment gateway directly impacts sales and damages your premium brand image. We audit your POS systems, e-commerce platforms, and ensure a seamless, secure experience for every customer on MG Road or online."
+                    title: "Payment Fraud Threatens Kochi Fashion Brands",
+                    content: "Fashion retailers in Kochi face constant payment fraud attempts. From counterfeit cards to data breaches, a single security incident can destroy customer trust and result in massive chargeback losses. Our secure customer experience protects your brand reputation and bottom line."
                 },
                 services: [
                     { icon: "💳", title: "Payment Gateway Security", desc: "Secure online transactions" },
@@ -740,33 +727,32 @@
                 }
             },
             makeup: {
-                title: "Makeup, Beauty & Cosmetic Brand SEO in Kochi | TechAuditPros",
-                subtitle: "Flawless digital presence for your beauty brand. We optimize your e-commerce for speed, integrate AR 'Try-Ons', and rank your salon in Ernakulam.",
-                cta: "Get Free Beauty Audit",
-                video: "videos/mainvideos/beauty-1.mp4",
-                poster: "videos/mainvideos/beauty-1.mp4",
+                title: "Beauty Industry Security",
+                subtitle: "Kochi beauty businesses handle sensitive client data. We ensure privacy and compliance for your makeup brand.",
+                cta: "Secure Beauty",
+                video: "assets/videos/makeup.mp4",
+                poster: "assets/posters/makeup.jpg",
                 videos: [
-                    { src: "videos/mainvideos/beauty-2.mp4", poster: "videos/mainvideos/beauty-2.mp4", alt: "Beauty Brand Success Story" },
-                    { src: "videos/mainvideos/beauty-3.mp4", poster: "videos/mainvideos/beauty-3.mp4", alt: "AR Try-On Demo" }
+                    { src: "assets/videos/makeup-testimonial.mp4", poster: "assets/posters/makeup-testimonial.jpg", alt: "Makeup Client Success" },
+                    { src: "assets/videos/makeup-demo.mp4", poster: "assets/posters/makeup-demo.jpg", alt: "Makeup Demo" }
                 ],
                 painPoint: {
-                    title: "Is Your Mobile Site Losing Customers Before Checkout?",
-                    content: "Beauty shoppers in Kochi are browsing on Instagram and searching on their phones. If your website is slow to load or difficult to navigate on mobile, you lose sales to agile competitors in Lulu Mall and online. We audit your user experience (UX) to create a seamless journey from browsing a look to purchasing a product."
+                    title: "Client Privacy Breaches in Beauty Industry",
+                    content: "Beauty professionals in Kochi handle highly sensitive client information - from skin conditions to personal preferences. A data breach can destroy your reputation and client relationships. Our specialized security ensures your client database and consultation records remain completely confidential."
                 },
                 services: [
-                    { icon: "🛒", title: "E-commerce UI/UX & Speed", desc: "Optimizing image formats (WebP), implementing lazy loading, and ensuring high page speed for a flawless mobile shopping experience." },
-                    { icon: "📱", title: "AR & Virtual Try-On Audit", desc: "Securing the integration of AI-powered virtual makeup try-on features and ensuring a bug-free user experience, as Google is using AI for try-ons." },
-                    { icon: "📸", title: "Social Media & Local SEO", desc: "Boosting your Google Business Profile for \"Bridal Makeup Artist near me\" searches and optimizing content for Instagram Reels and TikTok shop links." }
+                    { icon: "💄", title: "Client Database Security", desc: "Encrypted beauty consultation records" },
+                    { icon: "📸", title: "Before/After Protection", desc: "Secure photo and video assets" },
+                    { icon: "💳", title: "Booking System Audit", desc: "Online appointment security" }
                 ],
                 trust: [
-                    { name: "Panampilly Nagar Salon", logo: "💄", testimonial: "AR try-ons boosted our conversion rates" },
-                    { name: "Lulu Mall Beauty Clinic", logo: "💄", testimonial: "Mobile-first e-commerce transformed our sales" }
+                    { name: "Kochi Beauty Salon", logo: "💄", testimonial: "Client privacy fully protected" },
+                    { name: "Ernakulam Spa", logo: "💄", testimonial: "Secure booking system with zero breaches" }
                 ],
                 checklist: [
-                    "Mobile-First Website Design Audit", "Image Optimization (WebP, Alt Text, File Names)", "Google Business Profile Optimization",
-                    "User-Generated Content (UGC) Integration", "Structured Data Markup for Products & Reviews", "Conversion Rate Optimization (CRO) for Cart Abandonment"
+                    "Client Data Encryption", "Photo Asset Protection", "Booking System Security", "Consultation Record Security",
+                    "Payment Processing Audit", "Staff Access Controls", "Backup & Recovery", "Privacy Compliance"
                 ],
-                localSignals: "Trusted by leading salons in Panampilly Nagar, spas near Lulu Mall, and beauty clinics across Ernakulam.",
                 authorityBar: [
                     { number: "150+", text: "Audits in Infopark" },
                     { number: "Top-Rated", text: "SEO Agency Ernakulam" },
@@ -774,44 +760,42 @@
                     { number: "Certified", text: "Google & Semrush Partners" }
                 ],
                 faq: [
-                    { q: "How long does a Beauty SEO Audit take in Kochi?", a: "48-72 hours. We focus on mobile speed and AR integration for beauty brands." },
-                    { q: "Do you integrate AR try-on features?", a: "Yes, we audit and secure AI-powered virtual makeup try-ons for seamless user experience." },
-                    { q: "Can you optimize for Instagram and TikTok shop?", a: "Absolutely. We boost social commerce and local SEO for beauty brands in Ernakulam." }
+                    { q: "How do you protect client privacy?", a: "We encrypt consultation records and secure booking systems." },
+                    { q: "Can you secure before/after photos?", a: "Yes, we protect digital assets and prevent unauthorized sharing." },
+                    { q: "Do you handle beauty industry compliance?", a: "Absolutely. We ensure privacy compliance for beauty businesses." }
                 ],
                 finalCta: {
-                    title: "Ready to Dominate Beauty Search in Kochi?",
-                    button: "Get My Free Beauty Audit"
+                    title: "Protect Client Trust",
+                    button: "Secure My Salon"
                 }
             },
             tourism: {
-                title: "Tourism SEO & Houseboat Manufacturing Tech Audits in Kochi",
-                subtitle: "From Alappuzha houseboats to Fort Kochi boutique stays. We secure your international booking engines and rank your manufacturing brand globally.",
-                keywords: "Houseboat Manufacturers Kerala, Tourism SEO Kochi, Luxury Resort Marketing Ernakulam, Boat Building Tech Audit, Travel Agency SEO Kochi",
-                cta: "Get Free Tourism Audit",
-                video: "videos/mainvideos/tour-1.mp4",
-                poster: "videos/mainvideos/tour-2.mp4",
+                title: "Tourism Data Safety",
+                subtitle: "Kochi tourism depends on traveler trust. We protect booking data and ensure secure operations.",
+                cta: "Secure Tourism",
+                video: "assets/videos/tourism.mp4",
+                poster: "assets/posters/tourism.jpg",
                 videos: [
-                    { src: "videos/mainvideos/tour-1.mp4", poster: "videos/mainvideos/tour-2.mp4", alt: "Houseboat Manufacturing Success" },
-                    { src: "videos/mainvideos/tour-2.mp4", poster: "videos/mainvideos/tour-1.mp4", alt: "Maritime Tech Demo" }
+                    { src: "assets/videos/tourism-testimonial.mp4", poster: "assets/posters/tourism-testimonial.jpg", alt: "Tourism Success Story" },
+                    { src: "assets/videos/tourism-demo.mp4", poster: "assets/posters/tourism-demo.jpg", alt: "Tourism Demo" }
                 ],
                 painPoint: {
-                    title: "Are Your International Leads Getting Lost in the Backwaters?",
-                    content: "For Kochi's houseboat manufacturers and tourism giants, the market is no longer local—it is global. A slow website or a hacked booking portal doesn't just lose a sale; it ruins your international reputation. Whether you are building luxury cruise vessels or managing a resort in Vyttila, we audit the tech that connects you to the world."
+                    title: "Booking System Vulnerabilities Threaten Tourism",
+                    content: "Tourism businesses in Kochi rely on booking systems that handle sensitive traveler data. A single security breach can result in canceled bookings, legal liabilities, and damage to Kochi's tourism reputation. Our comprehensive security ensures safe, trustworthy travel experiences."
                 },
                 services: [
-                    { icon: "🌍", title: "Global SEO for Manufacturers", desc: "Ranking houseboat builders for international B2B keywords like 'Luxury Cruise Vessel Manufacturers' to find buyers in Europe and the Middle East." },
-                    { icon: "🔒", title: "Booking Engine & Payment Security", desc: "Auditing the security of online reservation systems for resorts and boat charters to prevent guest data leaks." },
-                    { icon: "🚢", title: "Maritime Tech & IoT Audit", desc: "Securing the onboard tech, GPS tracking, and digital maintenance logs for modern houseboat fleets." }
+                    { icon: "✈️", title: "Booking Platform Security", desc: "Secure reservation systems" },
+                    { icon: "🏨", title: "Hotel Management Audit", desc: "Property management system security" },
+                    { icon: "🚗", title: "Travel Service Protection", desc: "Tour operator data security" }
                 ],
                 trust: [
-                    { name: "Kochi Houseboat Association", logo: "🚢", testimonial: "Secured our international bookings and boosted global leads" },
-                    { name: "Fort Kochi Resorts", logo: "🏨", testimonial: "Comprehensive maritime tech audit for our fleet" }
+                    { name: "Kochi Tourism Board", logo: "✈️", testimonial: "Protected thousands of traveler bookings" },
+                    { name: "Ernakulam Hotels", logo: "🏨", testimonial: "Secure hotel reservation system" }
                 ],
                 checklist: [
-                    "International B2B Lead Generation", "Secure Booking Gateway Integration", "Multilingual SEO for Global Tourists",
-                    "Onboard Tech & IoT Security Audit", "High-Resolution Visual Optimization (Core Web Vitals)"
+                    "Booking System Security", "Traveler Data Protection", "Payment Processing Audit", "Hotel Management Security",
+                    "Tour Operator Systems", "Travel Agency Databases", "GDPR Compliance", "Incident Response"
                 ],
-                localSignals: "Serving the maritime hubs of Cochin Shipyard, houseboat yards in Alappuzha, and luxury resorts in Fort Kochi.",
                 authorityBar: [
                     { number: "150+", text: "Audits in Infopark" },
                     { number: "Top-Rated", text: "SEO Agency Ernakulam" },
@@ -819,19 +803,18 @@
                     { number: "Certified", text: "Google & Semrush Partners" }
                 ],
                 faq: [
-                    { q: "How do you secure international booking systems?", a: "We audit reservation platforms and protect traveler data with global compliance standards." },
-                    { q: "Can you handle maritime tech audits?", a: "Yes, we specialize in IoT security for houseboat fleets and GPS tracking systems." },
-                    { q: "Do you optimize for international tourism SEO?", a: "Absolutely. We rank houseboat manufacturers and resorts for global B2B and tourist keywords." }
+                    { q: "How do you secure booking systems?", a: "We audit reservation platforms and protect traveler data." },
+                    { q: "Can you handle GDPR for tourism?", a: "Yes, we ensure compliance with data protection laws for traveler information." },
+                    { q: "Do you secure hotel management systems?", a: "Absolutely. We protect PMS and guest data." }
                 ],
                 finalCta: {
-                    title: "Secure Your Maritime Business Today",
-                    button: "Audit My Tourism Tech"
+                    title: "Secure Traveler Trust",
+                    button: "Audit My Bookings"
                 }
             },
             artists: {
-                title: "Premium Artist Portfolios & Digital Art Sales in Kochi",
-                subtitle: "Turn your creativity into a global brand. We build elite digital galleries and social media funnels that showcase your masterpieces and drive international sales.",
-                keywords: "Artist Portfolio Website Kochi, Sell Art Online Kerala, Fort Kochi Art Gallery SEO, Digital Portfolio for Painters, Creative Agency Ernakulam",
+                title: "Artist Portfolio Protection",
+                subtitle: "Kochi artists create valuable digital content. We secure your portfolios and prevent unauthorized use.",
                 cta: "Protect Art",
                 video: "assets/videos/artists.mp4",
                 poster: "assets/posters/artists.jpg",
@@ -840,23 +823,22 @@
                     { src: "assets/videos/artists-demo.mp4", poster: "assets/posters/artists-demo.jpg", alt: "Artists Demo" }
                 ],
                 painPoint: {
-                    title: "Is Your Art Hidden Behind a Poor Portfolio?",
-                    content: "Kochi is the heart of the Biennale, but many local artists are invisible online. A basic Instagram profile isn't enough to secure high-value commissions or international gallery interest. We build high-speed, secure portfolio websites that act as your 24/7 digital exhibition, ensuring your work is seen by collectors from Fort Kochi to New York."
+                    title: "Digital Art Theft in Kochi's Creative Community",
+                    content: "Artists in Kochi create valuable digital content that's easily copied and stolen. From portfolios to NFT collections, protecting your intellectual property is crucial. Our specialized security prevents unauthorized use and ensures your art remains yours."
                 },
                 services: [
-                    { icon: "🎨", title: "Elite Portfolio Development", desc: "Designing high-resolution, mobile-optimized galleries that load your artwork instantly without losing detail (Core Web Vitals for Creatives)." },
-                    { icon: "🛒", title: "E-commerce for Art & Prints", desc: "Setting up secure print-on-demand or original art sales with global payment gateways and shipping calculators." },
-                    { icon: "📱", title: "Social Media & Brand Funnel", desc: "Integrating your website with Instagram Shopping and Pinterest to turn \"likes\" into \"leads\" and \"sales.\"" }
+                    { icon: "🎨", title: "Portfolio Protection", desc: "Secure digital art collections" },
+                    { icon: "🖼️", title: "NFT Security Audit", desc: "Blockchain and crypto art protection" },
+                    { icon: "📱", title: "Social Media Assets", desc: "Instagram and platform security" }
                 ],
                 trust: [
                     { name: "Kochi Art Gallery", logo: "🎨", testimonial: "Protected our digital art collection" },
                     { name: "Ernakulam Artists", logo: "🎨", testimonial: "Secure NFT marketplace integration" }
                 ],
                 checklist: [
-                    "High-Res Image Protection (Watermarking/Right-Click Disable)", "Global Payment Gateway Integration", "SEO for Art Collectors & Interior Designers",
-                    "Instagram & Pinterest Shop Sync", "Artist Biography & Press Kit Optimization"
+                    "Digital Portfolio Security", "Art Asset Encryption", "NFT Platform Audit", "Social Media Protection",
+                    "Copyright Management", "Watermarking Systems", "Backup Solutions", "Access Control"
                 ],
-                localSignals: "Empowering the creative community in Fort Kochi, Mattancherry, and the contemporary art hubs of Ernakulam.",
                 authorityBar: [
                     { number: "150+", text: "Audits in Infopark" },
                     { number: "Top-Rated", text: "SEO Agency Ernakulam" },
@@ -874,37 +856,32 @@
                 }
             },
             techaudit: {
-                title: "Enterprise IT Audits & Cyber Security Defense in Kochi",
-                subtitle: "We find the vulnerabilities before hackers do. Specialized VAPT, Core Web Vitals, and Infrastructure Audits for Kochi’s tech hubs and FinTech leaders.",
-                keywords: "Technical SEO Audit Kochi, VAPT Services Kerala, Cyber Security Audit Ernakulam, IT Infrastructure Audit Infopark, Network Security Audit Kochi",
-                cta: "Get Free Audit",
-                video: "videos/mainvideos/tech-1.mp4",
+                title: "Technical Audit Excellence",
+                subtitle: "As Kochi's leading technical auditors, we provide comprehensive cybersecurity and SEO assessments.",
+                cta: "Book Tech Audit",
+                video: "assets/videos/techaudit.mp4",
                 poster: "assets/posters/techaudit.jpg",
                 videos: [
-                    { src: "videos/mainvideos/tech-4.mp4", poster: "assets/posters/testimonial1.jpg", alt: "Client Testimonial" },
-                    { src: "videos/mainvideos/tech-3.mp4", poster: "assets/posters/demo1.jpg", alt: "Service Demo" }
+                    { src: "assets/videos/techaudit-testimonial.mp4", poster: "assets/posters/techaudit-testimonial.jpg", alt: "Tech Audit Success" },
+                    { src: "assets/videos/techaudit-demo.mp4", poster: "assets/posters/techaudit-demo.jpg", alt: "Tech Audit Demo" }
                 ],
                 painPoint: {
-                    title: "Is Your Digital Infrastructure a Liability?",
-                    content: "In the high-speed corridors of Infopark and SmartCity, security isn't a luxury—it’s survival. A single unpatched server or a slow-loading API doesn't just hurt your SEO; it exposes your entire enterprise to data theft and system failure. We perform deep-layer audits that go beyond the surface to protect your reputation and revenue."
+                    title: "Enterprise-Level Security for Tech Companies",
+                    content: "Tech companies in Kochi need enterprise-grade security that matches global standards. From server hardening to cloud security, our comprehensive technical audits ensure your infrastructure meets the highest security benchmarks and compliance requirements."
                 },
                 services: [
-                    { icon: "🔍", title: "VAPT & Penetration Testing", desc: "Simulating real-world cyber attacks on your Kochi-based servers to find and fix security holes before they are exploited." },
-                    { icon: "📈", title: "Core Web Vitals & Performance", desc: "Deep-dive technical optimization for LCP, CLS, and FID to ensure your platform meets Google’s elite ranking standards." },
-                    { icon: "🛡️", title: "Compliance & Risk Management", desc: "Ensuring your tech stack meets ISO 27001, GDPR, and Indian IT Act standards for global operation." }
+                    { icon: "🖥️", title: "Server Hardening", desc: "Infrastructure security optimization" },
+                    { icon: "🔍", title: "VAPT Testing", desc: "Vulnerability assessment & penetration testing" },
+                    { icon: "☁️", title: "Cloud Security", desc: "AWS, Azure, GCP security audits" }
                 ],
                 trust: [
-                    { name: "Kochi Tech Hub", logo: "🏢", testimonial: "Protected our digital assets with enterprise-grade security" },
-                    { name: "Ernakulam Business Park", logo: "🏢", testimonial: "Comprehensive audit services that exceeded expectations" }
+                    { name: "Kochi Tech Park", logo: "🖥️", testimonial: "Enterprise security for our entire campus" },
+                    { name: "Ernakulam IT Hub", logo: "🖥️", testimonial: "Comprehensive technical audit services" }
                 ],
                 checklist: [
-                    "Vulnerability Assessment (VAPT)",
-                    "Server & Cloud Security Audit",
-                    "API & Database Encryption Check",
-                    "Technical SEO & Performance Audit",
-                    "Disaster Recovery & Business Continuity Plan"
+                    "Server Security Audit", "Network Infrastructure Review", "Cloud Security Assessment", "Application Security Testing",
+                    "Database Security Audit", "API Security Review", "Compliance Certification", "Penetration Testing"
                 ],
-                localSignals: "Strategic Security Partner for Tech Hubs in Kakkanad, SmartCity, and the FinTech startups of Ernakulam.",
                 authorityBar: [
                     { number: "150+", text: "Audits in Infopark" },
                     { number: "Top-Rated", text: "SEO Agency Ernakulam" },
@@ -912,13 +889,13 @@
                     { number: "Certified", text: "Google & Semrush Partners" }
                 ],
                 faq: [
-                    { q: "How long does a Technical SEO Audit take in Kochi?", a: "48-72 hours. We prioritize speed without compromising quality, ensuring your business gets actionable insights quickly." },
-                    { q: "Do you provide on-site consultations in Thrippunithura or Kakkanad?", a: "Yes, we are local. Our team is based in Kochi and provides on-site support across Ernakulam, including Thrippunithura and Kakkanad." },
-                    { q: "Can you guarantee Page 1 rankings for Kerala-based businesses?", a: "We focus on ROI and sustainable growth. While we can't guarantee rankings (no ethical agency can), our data-driven approach has helped 95% of clients achieve Page 1 results within 6 months." }
+                    { q: "How long does a technical audit take?", a: "48-72 hours for comprehensive enterprise-level assessments." },
+                    { q: "Do you handle cloud security?", a: "Yes, we audit AWS, Azure, and GCP environments." },
+                    { q: "Can you perform penetration testing?", a: "Absolutely. We conduct ethical hacking and vulnerability assessments." }
                 ],
                 finalCta: {
-                    title: "Ready to Outrank Your Kochi Competitors?",
-                    button: "Claim My Free 15-Min Audit"
+                    title: "Enterprise Security Starts Here",
+                    button: "Book Tech Audit"
                 }
             }
         };
@@ -1119,59 +1096,6 @@
                 overlay.classList.add('active');
                 video.play();
             });
-        });
-
-        // Dark Mode Toggle Functionality
-        function initDarkMode() {
-            const body = document.body;
-            const toggles = document.querySelectorAll('.dark-mode-toggle, .dark-mode-fab');
-
-            // Check for saved theme preference or default to light mode
-            const currentTheme = localStorage.getItem('theme') || 'light';
-            if (currentTheme === 'dark') {
-                body.setAttribute('data-theme', 'dark');
-                updateToggleIcons(true);
-            } else {
-                body.setAttribute('data-theme', 'light');
-                updateToggleIcons(false);
-            }
-
-            // Add click event to all toggle buttons
-            toggles.forEach(toggle => {
-                toggle.addEventListener('click', function() {
-                    const currentTheme = body.getAttribute('data-theme');
-                    if (currentTheme === 'dark') {
-                        body.setAttribute('data-theme', 'light');
-                        localStorage.setItem('theme', 'light');
-                        updateToggleIcons(false);
-                    } else {
-                        body.setAttribute('data-theme', 'dark');
-                        localStorage.setItem('theme', 'dark');
-                        updateToggleIcons(true);
-                    }
-                });
-            });
-
-            function updateToggleIcons(isDark) {
-                const sunIcons = document.querySelectorAll('.sun-icon');
-                const moonIcons = document.querySelectorAll('.moon-icon');
-
-                if (isDark) {
-                    sunIcons.forEach(icon => icon.style.display = 'none');
-                    moonIcons.forEach(icon => icon.style.display = 'block');
-                } else {
-                    sunIcons.forEach(icon => icon.style.display = 'block');
-                    moonIcons.forEach(icon => icon.style.display = 'none');
-                }
-            }
-        }
-
-        // Initialize all functions
-        document.addEventListener('DOMContentLoaded', function() {
-            initIndustrySwitcher();
-            initChameleonObserver();
-            initMobileDrawer();
-            initDarkMode();
         });
 
         // Close Video Overlay
