@@ -1297,6 +1297,12 @@ body.industry-techaudit .checklist li {
     font-family: sans-serif;
 }
 
+.footer-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 .footer-content {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -1386,7 +1392,7 @@ body.industry-techaudit .checklist li {
 }
 
 .footer-bottom {
-    border-top: 1px solid #374151;
+    border-top: 1px solid var(--current-chameleon);
     padding-top: 20px;
     text-align: center;
     color: #9ca3af;
@@ -1450,7 +1456,7 @@ body.industry-techaudit .checklist li {
     }
 
     .footer-column {
-        text-align: center;
+        text-align: left;
     }
 
     .back-to-top {
