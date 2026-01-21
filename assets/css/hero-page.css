@@ -1345,6 +1345,12 @@ body {
     }
 }
 
+/* Ayurveda Spa Gold Glow */
+.industry-ayurveda .cta-btn,
+.industry-ayurveda .book-audit-btn {
+    box-shadow: 0 0 15px rgba(217, 119, 6, 0.6);
+}
+
 /* ==================================================
     AUTHORITY BAR SECTION
     ================================================== */
