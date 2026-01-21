@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="nKm7MzLndhPXbTGfdIvEyhdbTuWd1fgOMhpKg3GPozM">
+    <meta name="msvalidate.01" content="3A8272AC48E8C31CE4657BB9F708DB69">
     <title>Technical SEO Audit & Best SEO Company in Kochi | TechAuditPros</title>
     <meta name="description" content="Dominating Kochi SEO with data-driven audits. Specialist in Core Web Vitals, Semrush competitor analysis & ROI-focused Digital Marketing in Kerala. Get a quote!">
     <meta name="keywords" content="SEO Services Kochi, Technical SEO Audit Kerala, Digital Marketing Agency Kochi, SEO Expert Ernakulam, Core Web Vitals Optimization, Infopark SEO">
@@ -10,6 +12,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/hero-page.css">
+    <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/assets/favicon-16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/assets/logoonly.svg" type="image/svg+xml">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XT9KD0E65G"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XT9KD0E65G', {
+      anonymize_ip: true,
+      send_page_view: true
+    });
+    </script>
 
     <!-- Local SEO Schema -->
     <script type="application/ld+json">
@@ -142,7 +157,7 @@
 
                 <!-- Dual Action: Book Audit + Call/WhatsApp -->
                 <div class="header-actions">
-                    <a href="#auditForm" class="book-audit-btn">Book Kochi Audit</a>
+                    <button onclick="openAuditModal()" class="book-audit-btn">Book Kochi Audit</button>
                     <a href="https://wa.me/916282520339?text=Hi%20TechAuditPros%2C%20I%20need%20SEO%20help%20in%20Kochi" class="call-action" aria-label="WhatsApp Kochi Office">
                         📞
                     </a>
@@ -214,7 +229,7 @@
                     <a href="#training">Training</a>
                     <a href="#pricing">Pricing</a>
                     <a href="#contact">Contact</a>
-                    <a href="#auditForm" class="drawer-cta">Book Kochi Audit</a>
+                    <button onclick="openAuditModal()" class="drawer-cta">Book Kochi Audit</button>
                 </nav>
                 <div class="drawer-footer">
                     <div class="local-office">
@@ -249,7 +264,7 @@
             <div class="hero-left">
                 <h1 id="hero-title">Secure Your Digital Future</h1>
                 <p id="hero-subtitle">Professional cybersecurity audits and technical SEO for Kochi businesses.</p>
-                <a href="#auditForm" class="cta-btn" id="cta-btn">Get Free Audit</a>
+                <button onclick="openAuditModal()" class="cta-btn" id="cta-btn">Get Free Audit</button>
             </div>
             <div class="hero-right">
                 <div class="video-card" data-video="assets/videos/testimonial1.mp4" data-poster="assets/posters/testimonial1.jpg">
@@ -431,7 +446,7 @@
         <div class="container">
             <div class="final-cta-content">
                 <h2 id="final-cta-title">Ready to Outrank Your Kochi Competitors?</h2>
-                <a href="#auditForm" class="final-cta-btn" id="final-cta-btn">Claim My Free 15-Min Audit</a>
+                <button onclick="openAuditModal()" class="final-cta-btn" id="final-cta-btn">Claim My Free 15-Min Audit</button>
             </div>
         </div>
     </section>
@@ -1188,6 +1203,58 @@
             // Load mobile video if connection allows
             loadMobileVideo();
         });
+
+        // Audit Modal Functions
+        function openAuditModal() {
+            document.getElementById('auditModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAuditModal() {
+            document.getElementById('auditModal').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on outside click
+        document.addEventListener('click', function(event) {
+            const modal = document.getElementById('auditModal');
+            if (event.target === modal) {
+                closeAuditModal();
+            }
+        });
     </script>
+
+    <!-- Audit Popup Modal -->
+    <div id="auditModal" class="audit-modal">
+        <div class="audit-modal-content">
+            <div class="audit-modal-header">
+                <h2>Get Your Free SEO Audit</h2>
+                <button class="audit-modal-close" onclick="closeAuditModal()">&times;</button>
+            </div>
+            <div class="audit-modal-body">
+                <form action="https://formsubmit.co/info@techauditpros.com" method="POST" class="audit-form">
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="website">Website URL *</label>
+                        <input type="url" id="website" name="website" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="requirement">Requirements</label>
+                        <textarea id="requirement" name="requirement" rows="4" placeholder="Tell us about your SEO needs..."></textarea>
+                    </div>
+                    <div class="form-group captcha-group">
+                        <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+                    </div>
+                    <button type="submit" class="audit-submit-btn">Submit Audit Request</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- reCAPTCHA Script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 </html>

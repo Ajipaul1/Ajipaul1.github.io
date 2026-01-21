@@ -1462,6 +1462,230 @@ body.industry-techaudit .checklist li {
     }
 }
 
+/* ==================================================
+    AUDIT MODAL STYLES
+    ================================================== */
+
+.audit-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.audit-modal-content {
+    background: white;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.audit-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.audit-modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.audit-modal-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #6b7280;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.audit-modal-close:hover {
+    background-color: #f3f4f6;
+    color: #374151;
+}
+
+.audit-modal-body {
+    padding: 30px;
+}
+
+.audit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 8px;
+    font-size: 0.875rem;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--current-chameleon);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.captcha-group {
+    display: flex;
+    justify-content: center;
+}
+
+.audit-submit-btn {
+    background: var(--current-chameleon);
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    margin-top: 10px;
+}
+
+.audit-submit-btn:hover {
+    background: var(--current-chameleon);
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.audit-submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Button Styles for Audit CTAs */
+.book-audit-btn,
+.cta-btn,
+.final-cta-btn,
+.drawer-cta {
+    background: var(--current-chameleon);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.2s, transform 0.1s;
+    text-align: center;
+}
+
+.book-audit-btn:hover,
+.cta-btn:hover,
+.final-cta-btn:hover,
+.drawer-cta:hover {
+    background: var(--current-chameleon);
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.book-audit-btn:active,
+.cta-btn:active,
+.final-cta-btn:active,
+.drawer-cta:active {
+    transform: translateY(0);
+}
+
+/* Mobile Styles for Modal */
+@media (max-width: 767px) {
+    .audit-modal {
+        padding: 10px;
+    }
+
+    .audit-modal-content {
+        max-width: none;
+        margin: 0;
+        max-height: 95vh;
+    }
+
+    .audit-modal-header {
+        padding: 15px 20px;
+    }
+
+    .audit-modal-header h2 {
+        font-size: 1.25rem;
+    }
+
+    .audit-modal-body {
+        padding: 20px;
+    }
+
+    .audit-form {
+        gap: 15px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 10px 14px;
+        font-size: 0.875rem;
+    }
+
+    .audit-submit-btn {
+        padding: 12px 20px;
+        font-size: 0.875rem;
+    }
+}
+
 /* Ayurveda Spa Gold Glow */
 .industry-ayurveda .cta-btn,
 .industry-ayurveda .book-audit-btn {
