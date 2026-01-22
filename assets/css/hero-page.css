@@ -11,6 +11,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -106,6 +107,8 @@ body.industry-techaudit { --current-chameleon: var(--chameleon-techaudit); }
     justify-content: space-between;
     align-items: center;
     height: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 /* Header Logo */
@@ -536,6 +539,7 @@ body.industry-techaudit { --current-chameleon: var(--chameleon-techaudit); }
 
     .mobile-menu-toggle {
         display: flex;
+        margin-right: 0;
     }
 
     .sticky-contact-footer {
@@ -550,6 +554,21 @@ body.industry-techaudit { --current-chameleon: var(--chameleon-techaudit); }
 
     .header-actions {
         gap: 8px;
+    }
+
+    .header-container {
+        padding-right: 15px;
+    }
+
+    .header-logo {
+        margin-left: -10px;
+    }
+}
+
+@media (max-width: 479px) {
+    .book-audit-btn {
+        padding: 4px 8px;
+        font-size: 0.625rem;
     }
 }
 
