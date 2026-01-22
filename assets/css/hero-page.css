@@ -527,6 +527,12 @@ body.industry-techaudit { --current-chameleon: var(--chameleon-techaudit); }
 }
 
 @media (max-width: 767px) {
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+    }
+
     .desktop-nav {
         display: none;
     }

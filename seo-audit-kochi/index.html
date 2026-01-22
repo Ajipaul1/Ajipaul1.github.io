@@ -253,8 +253,8 @@
 
     <!-- Dynamic Hero Section -->
     <section class="hero-section" id="hero">
-        <video id="industryPlayer" class="background-video" autoplay muted loop playsinline preload="none" poster="../videos/mainvideos/tech-1-trim-seo-google.webp">
-            <source id="industrySource" src="../videos/mainvideos/tech-1-trim-seo-google.mp4" type="video/mp4">
+        <video id="industryPlayer" class="background-video" autoplay muted loop playsinline preload="none" poster="../videos/mainvideos/tech-1-poster.jpg">
+            <source id="industrySource" src="../videos/mainvideos/tech-1-trim.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
         <div class="hero-container">
@@ -524,8 +524,8 @@
                 title: "Technical SEO Audit & Digital Growth Strategy in Kochi",
                 subtitle: "We don't just 'do SEO.' We audit your competitors, fix your Core Web Vitals, and dominate the Ernakulam search market using data-driven intelligence. Proven results for businesses in Infopark, Kakkanad, and beyond.",
                 cta: "Get Free SEO Audit",
-                video: "tech-1-trim-seo-google",
-                poster: "tech-1-trim-seo-google",
+                video: "tech-1-trim",
+                poster: "tech-1-poster",
                 videos: [
                     { src: "videos/mainvideos/tech-4.mp4", poster: "assets/posters/testimonial1.jpg", alt: "Client Testimonial" },
                     { src: "videos/mainvideos/tech-3.mp4", poster: "assets/posters/demo1.jpg", alt: "Service Demo" }
@@ -996,8 +996,8 @@
             // Update background video
             const source = document.getElementById('industrySource');
             const video = document.getElementById('industryPlayer');
-            source.src = '../videos/mainvideos/' + data.video.replace('.mp4', '') + '.mp4';
-            video.poster = '../videos/mainvideos/' + data.poster + '.webp';
+            source.src = '../videos/mainvideos/' + data.video + '.mp4';
+            video.poster = '../videos/mainvideos/' + data.poster + '.jpg';
             video.load();
         }
 
