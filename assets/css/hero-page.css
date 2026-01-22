@@ -615,6 +615,21 @@ body.industry-techaudit { --current-chameleon: var(--chameleon-techaudit); }
     z-index: -1;
 }
 
+.background-image-mobile {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    display: none;
+}
+
+.background-image-mobile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -863,6 +878,14 @@ body.industry-techaudit .checklist li {
 }
 
 @media (max-width: 767px) {
+    #industryPlayer {
+        display: none;
+    }
+
+    .background-image-mobile {
+        display: block;
+    }
+
     .hero-container {
         flex-direction: column;
         padding: 80px 20px 40px; /* Mobile header height */
