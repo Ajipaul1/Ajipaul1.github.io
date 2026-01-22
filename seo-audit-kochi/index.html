@@ -2039,6 +2039,54 @@ body.industry-techaudit .cta-btn:hover {
             document.body.style.overflow = '';
         }
 
+        // AUDIT FORM SUBMISSION (AJAX FETCH)
+        function submitAuditForm(e) {
+            e.preventDefault();
+            const form = e.target;
+            const btn = form.querySelector('.audit-submit-btn');
+            const originalText = btn.innerText;
+            const data = new FormData(form);
+
+            btn.innerText = "Submitting...";
+            btn.style.backgroundColor = "#f59e0b"; // Orange
+
+            fetch(form.action, {
+                method: "POST",
+                body: data
+            }).then(response => {
+                if (response.ok) {
+                    // Success State
+                    btn.innerText = "Request Sent!";
+                    btn.style.backgroundColor = "#22c55e"; // Green
+                    form.reset(); // Clear form
+                    // Reset reCAPTCHA
+                    if (window.grecaptcha) {
+                        grecaptcha.reset();
+                    }
+                    setTimeout(() => {
+                        closeAuditModal();
+                        btn.innerText = originalText;
+                        btn.style.backgroundColor = "";
+                    }, 2000);
+                } else {
+                    // Error State
+                    btn.innerText = "Error! Try Again";
+                    btn.style.backgroundColor = "#ef4444"; // Red
+                    setTimeout(() => {
+                        btn.innerText = originalText;
+                        btn.style.backgroundColor = "";
+                    }, 3000);
+                }
+            }).catch(error => {
+                btn.innerText = "Error";
+                btn.style.backgroundColor = "#ef4444";
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.backgroundColor = "";
+                }, 3000);
+            });
+        }
+
         // Close modal on outside click
         document.addEventListener('click', function(event) {
             const modal = document.getElementById('auditModal');
@@ -2057,7 +2105,7 @@ body.industry-techaudit .cta-btn:hover {
                 <button class="audit-modal-close" onclick="closeAuditModal()">&times;</button>
             </div>
             <div class="audit-modal-body">
-                <form action="https://formsubmit.co/info@techauditpros.com" method="POST" class="audit-form">
+                <form action="https://formsubmit.co/info@techauditpros.com" method="POST" class="audit-form" onsubmit="submitAuditForm(event)">
                     <input type="hidden" name="_subject" value="New SEO Audit Request – Kochi Page">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="_captcha" value="true">
