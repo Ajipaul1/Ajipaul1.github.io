@@ -1241,27 +1241,6 @@
 
     <!-- reCAPTCHA Script -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-    <script>
-    function changeIndustryVideo(name) {
-        const video = document.getElementById('industryPlayer');
-        const source = document.getElementById('industrySource');
-        const path = '../videos/mainvideos/';
-        source.src = path + name + '.mp4';
-        video.poster = path + name + '.webp';
-        video.load();
-        video.play();
-    }
-
-    // Event listeners for industry buttons
-    document.querySelectorAll('.pill').forEach(button => {
-        button.addEventListener('click', function() {
-            const videoName = this.getAttribute('data-video');
-            if (videoName) {
-                changeIndustryVideo(videoName);
-            }
-        });
-    });
-    </script>
+    
 </body>
 </html>
