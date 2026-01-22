@@ -172,43 +172,43 @@
         <div class="industry-slider">
             <div class="slider-container">
                 <div class="industry-pills" id="industry-pills">
-                    <button class="pill active" data-industry="general" onclick="switchIndustry('general', this)">
+                    <button class="pill active" data-industry="general" data-video="tech-2-seo-google" onclick="switchIndustry('general', this)">
                         <span class="pill-dot"></span>
                         General
                     </button>
-                    <button class="pill" data-industry="healthcare" onclick="switchIndustry('healthcare', this)">
+                    <button class="pill" data-industry="healthcare" data-video="health-seo-google" onclick="switchIndustry('healthcare', this)">
                         <span class="pill-dot"></span>
                         Healthcare
                     </button>
-                    <button class="pill" data-industry="ayurveda" onclick="switchIndustry('ayurveda', this)">
+                    <button class="pill" data-industry="ayurveda" data-video="ayurveda-seo-google" onclick="switchIndustry('ayurveda', this)">
                         <span class="pill-dot"></span>
                         Ayurveda & Spa
                     </button>
-                    <button class="pill" data-industry="realestate" onclick="switchIndustry('realestate', this)">
+                    <button class="pill" data-industry="realestate" data-video="realty-2" onclick="switchIndustry('realestate', this)">
                         <span class="pill-dot"></span>
                         Real Estate
                     </button>
-                    <button class="pill" data-industry="logistics" onclick="switchIndustry('logistics', this)">
+                    <button class="pill" data-industry="logistics" data-video="logistics-seo-google" onclick="switchIndustry('logistics', this)">
                         <span class="pill-dot"></span>
                         Logistics
                     </button>
-                    <button class="pill" data-industry="fashion" onclick="switchIndustry('fashion', this)">
+                    <button class="pill" data-industry="fashion" data-video="fashion-seo" onclick="switchIndustry('fashion', this)">
                         <span class="pill-dot"></span>
                         Fashion
                     </button>
-                    <button class="pill" data-industry="makeup" onclick="switchIndustry('makeup', this)">
+                    <button class="pill" data-industry="makeup" data-video="makeup1-ready-seo-google" onclick="switchIndustry('makeup', this)">
                         <span class="pill-dot"></span>
                         Makeup
                     </button>
-                    <button class="pill" data-industry="tourism" onclick="switchIndustry('tourism', this)">
+                    <button class="pill" data-industry="tourism" data-video="tour-1-seo-google" onclick="switchIndustry('tourism', this)">
                         <span class="pill-dot"></span>
                         Tourism
                     </button>
-                    <button class="pill" data-industry="artists" onclick="switchIndustry('artists', this)">
+                    <button class="pill" data-industry="artists" data-video="artists-seo-kochi-1-google" onclick="switchIndustry('artists', this)">
                         <span class="pill-dot"></span>
                         Artists
                     </button>
-                    <button class="pill" data-industry="techaudit" onclick="switchIndustry('techaudit', this)">
+                    <button class="pill" data-industry="techaudit" data-video="tech-2-seo-google" onclick="switchIndustry('techaudit', this)">
                         <span class="pill-dot"></span>
                         Tech Audit
                     </button>
@@ -253,11 +253,8 @@
 
     <!-- Dynamic Hero Section -->
     <section class="hero-section" id="hero">
-        <video class="background-video current-video" autoplay muted loop playsinline preload="none" poster="assets/posters/general.jpg">
-            <source src="videos/mainvideos/tech-1-bg.webm" type="video/mp4">
-        </video>
-        <video class="background-video next-video" autoplay muted loop playsinline preload="none" style="opacity: 0;">
-            <source src="" type="video/mp4">
+        <video id="industryPlayer" autoplay muted loop playsinline preload="none" poster="../videos/mainvideos/tech-2-seo-google.webp">
+            <source id="industrySource" src="../videos/mainvideos/tech-2-seo-google.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
         <div class="hero-container">
@@ -1261,5 +1258,27 @@
 
     <!-- reCAPTCHA Script -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <script>
+    function changeIndustryVideo(name) {
+        const video = document.getElementById('industryPlayer');
+        const source = document.getElementById('industrySource');
+        const path = '../videos/mainvideos/';
+        source.src = path + name + '.mp4';
+        video.poster = path + name + '.webp';
+        video.load();
+        video.play();
+    }
+
+    // Event listeners for industry buttons
+    document.querySelectorAll('.pill').forEach(button => {
+        button.addEventListener('click', function() {
+            const videoName = this.getAttribute('data-video');
+            if (videoName) {
+                changeIndustryVideo(videoName);
+            }
+        });
+    });
+    </script>
 </body>
 </html>
