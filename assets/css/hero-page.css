@@ -879,11 +879,11 @@ body.industry-techaudit .checklist li {
 
 @media (max-width: 767px) {
     #industryPlayer {
-        display: none;
+        display: block;
     }
 
     .background-image-mobile {
-        display: block;
+        display: none;
     }
 
     .hero-container {
