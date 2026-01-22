@@ -996,7 +996,7 @@
             // Update background video
             const source = document.getElementById('industrySource');
             const video = document.getElementById('industryPlayer');
-            source.src = '../videos/mainvideos/' + data.video + '.mp4';
+            source.src = '../videos/mainvideos/' + data.video.replace('.mp4', '') + '.mp4';
             video.poster = '../videos/mainvideos/' + data.poster + '.webp';
             video.load();
         }
