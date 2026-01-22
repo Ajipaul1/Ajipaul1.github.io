@@ -1156,21 +1156,6 @@
         });
 
         // Initialize everything on DOM load
-        // Mobile video loading optimization
-        function loadMobileVideo() {
-            if (window.innerWidth <= 767) {
-                const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-                if (connection && (connection.effectiveType === '4g' || connection.effectiveType === '5g' || !connection.effectiveType)) {
-                    // Load video
-                    const video = document.querySelector('.background-video');
-                    if (video && video.querySelector('source').src === '') {
-                        video.querySelector('source').src = 'videos/mainvideos/tech-1.mp4';
-                        video.load();
-                    }
-                }
-            }
-        }
-
         document.addEventListener('DOMContentLoaded', function() {
             initChameleonObserver();
             initMobileDrawer();
@@ -1179,9 +1164,6 @@
             updateHero('general');
             updateContentSections('general');
             switchIndustry('general', document.querySelector('[data-industry="general"]'));
-
-            // Load mobile video if connection allows
-            loadMobileVideo();
         });
 
         // Audit Modal Functions
