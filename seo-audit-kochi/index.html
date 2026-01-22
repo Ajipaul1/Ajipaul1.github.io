@@ -1176,6 +1176,15 @@
         function openAuditModal() {
             document.getElementById('auditModal').style.display = 'flex';
             document.body.style.overflow = 'hidden';
+
+            // Load reCAPTCHA script only when modal opens
+            if (!document.querySelector('script[src*="recaptcha/api.js"]')) {
+                const script = document.createElement('script');
+                script.src = 'https://www.google.com/recaptcha/api.js';
+                script.async = true;
+                script.defer = true;
+                document.head.appendChild(script);
+            }
         }
 
         function closeAuditModal() {
@@ -1227,8 +1236,5 @@
         </div>
     </div>
 
-    <!-- reCAPTCHA Script -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    
 </body>
 </html>
