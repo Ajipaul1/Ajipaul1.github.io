@@ -261,6 +261,28 @@ body.industry-techaudit { --current-chameleon: var(--chameleon-techaudit); }
     overflow: hidden;
 }
 
+/* Location Slider */
+.location-slider {
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 16px 0;
+    overflow: hidden;
+}
+
+.location-pills {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 0 20px;
+}
+
+.location-pills::-webkit-scrollbar {
+    display: none;
+}
+
 .slider-container {
     position: relative;
 }
@@ -586,7 +608,8 @@ body.industry-techaudit .cta-btn:hover {
         display: none;
     }
 
-    .industry-pills {
+    .industry-pills,
+    .location-pills {
         justify-content: center;
         padding: 0;
     }
@@ -1001,6 +1024,22 @@ body.industry-techaudit .cta-btn:hover {
                     <button class="pill" data-industry="logistics" data-video="logistics-seo-google" data-poster="logistics-seo-google" onclick="switchIndustry('logistics', this)">
                         <span class="pill-dot"></span>
                         Logistics SEO
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Location Slider -->
+        <div class="location-slider">
+            <div class="slider-container">
+                <div class="location-pills" id="location-pills">
+                    <button class="pill location-pill active" data-location="kochi" id="kochi-pill">
+                        <span class="pill-dot"></span>
+                        Kochi / Infopark
+                    </button>
+                    <button class="pill location-pill" data-location="ernakulam" id="ernakulam-pill">
+                        <span class="pill-dot"></span>
+                        Ernakulam
                     </button>
                 </div>
             </div>
@@ -2005,6 +2044,41 @@ body.industry-techaudit .cta-btn:hover {
             </div>
         </div>
     </div>
+
+    <script>
+        // AI-powered personalization: Detect location and personalize content
+        async function detectLocation() {
+            try {
+                const response = await fetch('https://ipapi.co/json/');
+                const data = await response.json();
+                const region = data.region;
+                const city = data.city;
+
+                // Remove active from all location pills
+                document.querySelectorAll('.location-pill').forEach(pill => pill.classList.remove('active'));
+
+                // If in Kerala or Ernakulam area, personalize
+                if (region === 'Kerala' || city === 'Kochi' || city === 'Ernakulam' || city.includes('Kochi') || city.includes('Ernakulam')) {
+                    // Highlight Kochi / Infopark pill
+                    document.getElementById('kochi-pill').classList.add('active');
+
+                    // Tweak subtitle
+                    document.getElementById('hero-subtitle').textContent = 'Tailored for Ernakulam Businesses';
+                } else {
+                    // Default, keep Kochi active
+                    document.getElementById('kochi-pill').classList.add('active');
+                }
+            } catch (error) {
+                console.log('Location detection failed, using default');
+                // Default to Kochi
+                document.querySelectorAll('.location-pill').forEach(pill => pill.classList.remove('active'));
+                document.getElementById('kochi-pill').classList.add('active');
+            }
+        }
+
+        // Run on page load
+        document.addEventListener('DOMContentLoaded', detectLocation);
+    </script>
 
 </body>
 </html>
