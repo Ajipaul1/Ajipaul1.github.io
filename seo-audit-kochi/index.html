@@ -1840,30 +1840,9 @@ body.industry-techaudit .cta-btn:hover {
             const cards = document.querySelectorAll('.video-card');
             cards.forEach((card, index) => {
                 if (data.videos[index]) {
-                    if (industry === 'general') {
-                        // Replace with SVG animation for performance
-                        card.innerHTML = `
-                            <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                                <defs>
-                                    <style>
-                                        .magnifier { fill: #6366f1; animation: pulse 2s infinite; }
-                                        .handle { fill: #374151; }
-                                        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-                                    </style>
-                                </defs>
-                                <circle cx="80" cy="80" r="50" stroke="#6366f1" stroke-width="4" fill="none"/>
-                                <circle cx="80" cy="80" r="30" fill="none" stroke="#6366f1" stroke-width="2"/>
-                                <line x1="110" y1="110" x2="140" y2="140" stroke="#6366f1" stroke-width="4"/>
-                                <rect x="75" y="75" width="10" height="10" class="magnifier"/>
-                                <text x="100" y="170" text-anchor="middle" fill="#374151" font-family="Arial" font-size="14">SEO Audit</text>
-                            </svg>
-                            <div class="play-overlay">▶</div>
-                        `;
-                    } else {
-                        card.setAttribute('data-video', data.videos[index].src);
-                        card.querySelector('img').src = data.videos[index].poster;
-                        card.querySelector('img').alt = data.videos[index].alt;
-                    }
+                    card.setAttribute('data-video', data.videos[index].src);
+                    card.querySelector('img').src = data.videos[index].poster;
+                    card.querySelector('img').alt = data.videos[index].alt;
                 }
             });
 
