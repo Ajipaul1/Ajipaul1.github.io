@@ -34,6 +34,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/hero-page.css">
 
   <!-- ==================================================
        STRUCTURED DATA (ORGANIZATION SCHEMA)
@@ -59,9 +60,6 @@
 ================================================== -->
 <body>
 
-  <!-- VIVID BACKGROUND -->
-  <div class="ambient-glow glow-1"></div>
-  <div class="ambient-glow glow-2"></div>
 
   <!-- HEADER -->
   <header>
@@ -111,73 +109,50 @@
       </div>
   </header>
 
+        <!-- Industry Slider - Global Regions -->
+        <div class="industry-slider">
+            <div class="slider-container">
+                <div class="industry-pills" id="industry-pills">
+                    <button class="pill active" data-industry="global" onclick="switchIndustry('global', this)">
+                        <span class="pill-dot"></span>
+                        Global
+                    </button>
+                    <button class="pill" data-industry="kochi" onclick="switchIndustry('kochi', this)">
+                        <span class="pill-dot"></span>
+                        Kochi
+                    </button>
+                    <button class="pill" data-industry="usa" onclick="switchIndustry('usa', this)">
+                        <span class="pill-dot"></span>
+                        USA
+                    </button>
+                    <button class="pill" data-industry="canada" onclick="switchIndustry('canada', this)">
+                        <span class="pill-dot"></span>
+                        Canada
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dynamic Hero Section -->
+        <section class="hero-section" id="hero">
+            <video id="industryPlayer" class="background-video" autoplay muted loop playsinline preload="metadata" poster="videos/mainvideos/tech-1-poster.jpg">
+                <source id="industrySource" src="videos/mainvideos/tech-1-trim.mp4" type="video/mp4">
+            </video>
+            <picture class="background-image-mobile">
+                <source media="(max-width: 767px)" srcset="hero-mobile.jpg">
+                <img src="hero-mobile.jpg" alt="TechAuditPros Hero" loading="lazy">
+            </picture>
+            <div class="hero-overlay"></div>
+            <div class="hero-container">
+                <div class="hero-left">
+                    <h1 id="hero-title">Technical SEO Audit & Growth Engineering</h1>
+                    <p id="hero-subtitle">Enterprise-Grade Technical SEO Audits for Global Businesses</p>
+                    <button onclick="openAuditModal()" class="cta-btn" id="cta-btn">Get Free Global Audit</button>
+                </div>
+            </div>
+        </section>
+
   <main>
-      <!-- HERO SECTION (WIDE SPLIT SCREEN) -->
-      <section class="hero full-screen-section">
-          <div class="container hero-split">
-              <!-- Left: Text -->
-              <div class="hero-text">
-                  <span class="mono text-accent" style="margin-bottom: 1.5rem; display: block; letter-spacing: 2px;">// SYSTEM STATUS: OPTIMAL</span>
-                  <h1>Technical SEO Audit & <br><span class="text-accent">Growth Engineering</span></h1>
-                  <span class="hero-tagline">Enterprise-Grade Technical SEO Audits</span>
-                  <p class="text-muted" style="font-size: 1.25rem; margin-bottom: 2rem; max-width: 600px; line-height: 1.7;">
-                      From Kochi HQ to North America—No More Crawl Budget Waste, No More Technical Debt. We specialize in <strong>Crawl Budget</strong>, <strong>Technical Debt</strong>, and <strong>Entity SEO</strong>.
-                  </p>
-                  <div style="margin-top: 2rem;">
-                      <a href="#methodology" class="btn btn-outline" style="padding: 1rem 2rem; font-size: 1rem;">Explore Methodology</a>
-                  </div>
-              </div>
-              
-              <!-- Right: Lead Form -->
-              <div class="hero-form-wrapper">
-                  <div class="audit-form-container">
-                      <h3 style="text-align: center; margin-bottom: 1.5rem; font-size: 1.5rem;">Get Your Free Technical Audit</h3>
-                      <!-- AJAX SUBMISSION -->
-                      <form action="https://formsubmit.co/info@techauditpros.com" method="POST">
-
-                          <!-- FormSubmit Configuration -->
-                          <input type="hidden" name="_subject" value="New Website Audit Submission!">
-                          <input type="hidden" name="_template" value="table">
-                          <input type="text" name="_honey" style="display:none">
-                          <input type="hidden" name="_delay" value="5">
-                          <input type="hidden" name="_blacklist" value="vtext.com,txt.att.net,messaging.sprintpcs.com,tmomail.net,vmobl.com,email.uscc.net,mymetropcs.com">
-
-                          <div class="form-grid">
-                              <div class="form-group">
-                                  <label>First Name</label>
-                                  <input type="text" name="name" class="form-input" required placeholder="John Doe">
-                              </div>
-                              <div class="form-group">
-                                  <label>Mail</label>
-                                  <input type="email" name="email" class="form-input" required placeholder="john@company.com">
-                              </div>
-                          </div>
-                          <div class="form-grid">
-                              <div class="form-group">
-                                  <label>Website</label>
-                                  <input type="url" name="website" class="form-input" required placeholder="yourwebsite.com">
-                              </div>
-                              <div class="form-group">
-                                  <label>Target Region</label>
-                                  <select name="region" class="form-select">
-                                      <option>Kerala / Kochi</option>
-                                      <option>USA</option>
-                                      <option>Canada</option>
-                                      <option>Global</option>
-                                  </select>
-                              </div>
-                          </div>
-                          <div class="form-full">
-                              <label>Main Challenge</label>
-                              <textarea name="challenge" class="form-textarea" rows="3" placeholder="E.g. Traffic dropped after site migration..."></textarea>
-                          </div>
-                          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem;">Request Audit Analysis</button>
-                      </form>
-                      <span class="permission-text">By filling this form, you give us permission to audit your technical structure.</span>
-                  </div>
-              </div>
-          </div>
-      </section>
 
       <!-- AUTHORITY / TRUST BAR (NEW LOGO MARQUEE) -->
       <div class="trust-bar">
@@ -1549,5 +1524,134 @@
           .spotlight-content { width: 90%; padding: 0 1rem; }
       }
   </style>
+
+  <script>
+      // Industry Data for Global Page
+      const industryData = {
+          global: {
+              title: "Technical SEO Audit & Growth Engineering",
+              subtitle: "Enterprise-Grade Technical SEO Audits for Global Businesses",
+              cta: "Get Free Global Audit",
+              video: "tech-1-trim",
+              poster: "tech-1-poster",
+              videos: [
+                  { src: "videos/mainvideos/tech-1-trim.mp4", poster: "videos/mainvideos/tech-1-poster.jpg" },
+                  { src: "videos/mainvideos/ayurveda-1-seo-google.mp4", poster: "videos/mainvideos/ayurveda-1-seo-google.webp" },
+                  { src: "videos/mainvideos/health-seo-google.mp4", poster: "videos/mainvideos/health-seo-google.webp" },
+                  { src: "videos/mainvideos/logistics-seo-google.mp4", poster: "videos/mainvideos/logistics-seo-google.webp" }
+              ]
+          },
+          kochi: {
+              title: "Secure Your Digital Future",
+              subtitle: "Professional cybersecurity audits and technical SEO for Kochi businesses.",
+              cta: "Get Free Audit",
+              video: "tech-1-trim-seo-google",
+              poster: "tech-1-trim-seo-google"
+          },
+          usa: {
+              title: "Technical SEO for US Businesses",
+              subtitle: "Data-driven audits and growth strategies for American markets.",
+              cta: "Get Free US Audit",
+              video: "tech-1-trim",
+              poster: "tech-1-poster"
+          },
+          canada: {
+              title: "Technical SEO for Canadian Businesses",
+              subtitle: "Comprehensive audits and optimization for Canadian markets.",
+              cta: "Get Free Canada Audit",
+              video: "tech-1-trim",
+              poster: "tech-1-poster"
+          }
+      };
+
+      // Chameleon Industry Switching
+      function switchIndustry(industry, element) {
+          if (industry === 'kochi') {
+              window.location.href = '/seo-audit-kochi/';
+              return;
+          }
+          if (industry === 'usa') {
+              window.location.href = '/us/';
+              return;
+          }
+          if (industry === 'canada') {
+              window.location.href = '/ca/';
+              return;
+          }
+
+          // Update body class for chameleon effect
+          document.body.className = document.body.className.replace(/industry-[^ ]*/g, '').trim();
+          document.body.classList.add('industry-' + industry);
+
+          // Update active pill
+          document.querySelectorAll('.pill').forEach(pill => pill.classList.remove('active'));
+          element.classList.add('active');
+
+          // Update hero content
+          updateHero(industry);
+      }
+
+      // Update Hero Section
+      function updateHero(industry) {
+          const data = industryData[industry];
+          if (!data) return;
+
+          // Update text
+          document.getElementById('hero-title').textContent = data.title;
+          document.getElementById('hero-subtitle').textContent = data.subtitle;
+          document.getElementById('cta-btn').textContent = data.cta;
+
+          // Update background video
+          const source = document.getElementById('industrySource');
+          const video = document.getElementById('industryPlayer');
+          source.src = 'videos/mainvideos/' + data.video + '.mp4';
+          video.poster = 'videos/mainvideos/' + data.poster + '.webp';
+          video.load();
+
+          // For global, start cycling videos
+          if (industry === 'global') {
+              startVideoCycle();
+          } else {
+              stopVideoCycle();
+          }
+      }
+
+      let videoCycleInterval;
+      let currentVideoIndex = 0;
+
+      function startVideoCycle() {
+          stopVideoCycle(); // Clear any existing
+          videoCycleInterval = setInterval(() => {
+              const videos = industryData.global.videos;
+              currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+              const videoData = videos[currentVideoIndex];
+              const source = document.getElementById('industrySource');
+              const video = document.getElementById('industryPlayer');
+              source.src = videoData.src;
+              video.poster = videoData.poster;
+              video.load();
+          }, 10000); // Change every 10 seconds
+      }
+
+      function stopVideoCycle() {
+          if (videoCycleInterval) {
+              clearInterval(videoCycleInterval);
+              videoCycleInterval = null;
+          }
+      }
+
+      // Initialize everything on DOM load
+      document.addEventListener('DOMContentLoaded', function() {
+          // Set default industry
+          updateHero('global');
+          switchIndustry('global', document.querySelector('[data-industry="global"]'));
+      });
+
+      // Audit Modal Functions
+      function openAuditModal() {
+          // Placeholder for modal
+          alert('Audit modal would open here');
+      }
+  </script>
 </body>
 </html>
