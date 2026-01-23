@@ -1848,6 +1848,11 @@ body.industry-techaudit .cta-btn:hover {
                         span.style.transform = 'translate(0, 0) rotate(0deg)';
                         span.style.opacity = '1';
                     });
+
+                    // After animation, replace with plain text to preserve spaces
+                    setTimeout(() => {
+                        element.innerHTML = newText;
+                    }, 300);
                 }, 50);
             }, 300);
         }
