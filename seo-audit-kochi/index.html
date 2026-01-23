@@ -1880,6 +1880,7 @@ body.industry-techaudit .cta-btn:hover {
             source.src = '../videos/mainvideos/' + data.video + '.mp4';
             video.poster = '../videos/mainvideos/' + data.poster + '.webp';
             video.load();
+            video.play().catch(e => console.log('Video play failed:', e));
         }
 
         // Update Content Sections
