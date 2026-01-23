@@ -1501,8 +1501,8 @@ body.industry-techaudit .cta-btn:hover {
                 }
             },
             tourism: {
-                title: "Tourism Data Safety",
-                subtitle: "Kochi tourism depends on traveler trust. We protect booking data and ensure secure operations.",
+                title: "Dominating the Search for Houseboat Manufacturers & Elite Tourism",
+                subtitle: "Kochi's houseboat industry and luxury tour operators deserve more than just a 'pretty' website. We provide technical search dominance for manufacturers and secure booking infrastructure for agencies. Whether you are building premium vessels in Alappuzha or managing global travelers in Fort Kochi, we ensure your brand is visible, fast, and 100% secure.",
                 cta: "Secure Tourism",
                 video: "tour-1-seo-google",
                 poster: "tour-1-seo-google",
@@ -1511,9 +1511,10 @@ body.industry-techaudit .cta-btn:hover {
                     { src: "assets/videos/tourism-demo.mp4", poster: "assets/posters/tourism-demo.jpg", alt: "Tourism Demo" }
                 ],
                 painPoint: {
-                    title: "Booking System Vulnerabilities Threaten Tourism",
+                    title: "Kochi's High-Ticket Lead Leaks Threaten Growth",
                     content: "Tourism businesses in Kochi rely on booking systems that handle sensitive traveler data. A single security breach can result in canceled bookings, legal liabilities, and damage to Kochi's tourism reputation. Our comprehensive security ensures safe, trustworthy travel experiences."
                 },
+                localSignals: "For houseboat manufacturers, a slow site means losing a multi-crore deal. At TechAuditPros, we provide Technical SEO that secures your proprietary designs and lead vaults while ensuring your global showroom stays online 24/7.TechAuditPros: The Strategic SEO & Website Optimization Partner for Houseboat Hubs in Alappuzha and Tourism Firms in Kochi.",
                 services: [
                     { icon: "✈️", title: "Booking Platform Security", desc: "Secure reservation systems" },
                     { icon: "🏨", title: "Hotel Management Audit", desc: "Property management system security" },
@@ -1675,6 +1676,9 @@ body.industry-techaudit .cta-btn:hover {
             // Update Pain-Point Section
             document.getElementById('pain-point-title').textContent = data.painPoint.title;
             document.getElementById('pain-point-content').textContent = data.painPoint.content;
+            if (data.localSignals) {
+                document.querySelector('.local-signals').textContent = data.localSignals;
+            }
 
             // Update Services Grid
             const serviceCards = document.querySelectorAll('.service-card');
