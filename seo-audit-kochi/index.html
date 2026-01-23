@@ -1801,16 +1801,73 @@ body.industry-techaudit .cta-btn:hover {
             updateContentSections(industry);
         }
 
+        // Scatter Text Animation
+        function scatterText(element, oldText, newText) {
+            // Clear element
+            element.innerHTML = '';
+
+            // Create letter spans for old text
+            const letters = oldText.split('');
+            letters.forEach(letter => {
+                const span = document.createElement('span');
+                span.textContent = letter;
+                span.style.display = 'inline-block';
+                span.style.transition = 'all 0.3s ease';
+                element.appendChild(span);
+            });
+
+            // Scatter
+            const spans = element.querySelectorAll('span');
+            spans.forEach((span, i) => {
+                const angle = Math.random() * 360;
+                const distance = 100 + Math.random() * 200;
+                const x = Math.cos(angle * Math.PI / 180) * distance;
+                const y = Math.sin(angle * Math.PI / 180) * distance;
+                span.style.transform = `translate(${x}px, ${y}px) rotate(${angle}deg)`;
+                span.style.opacity = '0';
+            });
+
+            // After scatter, change to new text
+            setTimeout(() => {
+                element.innerHTML = '';
+                const newLetters = newText.split('');
+                newLetters.forEach(letter => {
+                    const span = document.createElement('span');
+                    span.textContent = letter;
+                    span.style.display = 'inline-block';
+                    span.style.transform = `translate(${Math.random() * 400 - 200}px, ${Math.random() * 400 - 200}px) rotate(${Math.random() * 720 - 360}deg)`;
+                    span.style.opacity = '0';
+                    span.style.transition = 'all 0.3s ease';
+                    element.appendChild(span);
+                });
+
+                // Reassemble
+                setTimeout(() => {
+                    const newSpans = element.querySelectorAll('span');
+                    newSpans.forEach(span => {
+                        span.style.transform = 'translate(0, 0) rotate(0deg)';
+                        span.style.opacity = '1';
+                    });
+                }, 50);
+            }, 300);
+        }
+
         // Update Hero Section
         function updateHero(industry) {
             const data = industryData[industry];
             if (!data) return;
 
-            // Update text
-            document.getElementById('hero-title').textContent = data.title;
+            const titleElement = document.getElementById('hero-title');
+            const currentText = titleElement.textContent;
+            const newText = data.title;
+
+            if (currentText !== newText) {
+                scatterText(titleElement, currentText, newText);
+            }
+
+            // Update other text
             document.getElementById('hero-subtitle').textContent = data.subtitle;
             document.getElementById('cta-btn').textContent = data.cta;
-
 
             // Update background video
             const source = document.getElementById('industrySource');
