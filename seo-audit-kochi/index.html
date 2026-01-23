@@ -706,6 +706,100 @@ body.industry-techaudit .cta-btn:hover {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.05); }
 }
+
+/* Exit Intent Popup */
+.exit-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(2px);
+}
+
+.exit-popup.show {
+    display: flex;
+}
+
+.exit-popup-content {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 450px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: popupFadeIn 0.3s ease-out;
+}
+
+@keyframes popupFadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.exit-popup h3 {
+    color: #1f2937;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.exit-popup form {
+    margin-bottom: 20px;
+}
+
+.exit-popup input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    transition: border-color 0.3s;
+}
+
+.exit-popup input[type="email"]:focus {
+    outline: none;
+    border-color: var(--current-chameleon);
+}
+
+.exit-popup button[type="submit"] {
+    background: var(--current-chameleon);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+}
+
+.exit-popup button[type="submit"]:hover {
+    background: white;
+    color: var(--current-chameleon);
+    border: 2px solid var(--current-chameleon);
+}
+
+.exit-popup .close-btn {
+    background: none;
+    border: none;
+    color: #6b7280;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: color 0.3s;
+}
+
+.exit-popup .close-btn:hover {
+    color: #374151;
+}
     </style>
     <link rel="stylesheet" href="../assets/css/hero-page.min.css" media="print" onload="this.media='all'">
     <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
@@ -1847,7 +1941,37 @@ body.industry-techaudit .cta-btn:hover {
             }
         });
 
+        // Exit Intent Popup
+        let exitIntentShown = false;
+        document.addEventListener('mouseleave', function(e) {
+            if (!exitIntentShown && e.clientY <= 0) {
+                document.getElementById('exitPopup').classList.add('show');
+                exitIntentShown = true;
+                gtag('event', 'exit_intent_popup_shown', { event_category: 'engagement', event_label: 'kochi_page' });
+            }
+        });
+
+        function closeExitPopup() {
+            document.getElementById('exitPopup').classList.remove('show');
+        }
+
     </script>
+
+    <!-- Exit Intent Popup -->
+    <div id="exitPopup" class="exit-popup">
+        <div class="exit-popup-content">
+            <h3>Wait! Get Your Free 15-Min Audit Before You Go</h3>
+            <form action="https://formsubmit.co/info@techauditpros.com" method="POST">
+                <input type="hidden" name="_subject" value="Exit Intent - Free 15-Min Audit - Kochi Page">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://techauditpros.com/seo-audit-kochi/">
+                <input type="text" name="_honey" style="display:none">
+                <input type="email" name="email" placeholder="Enter your email address" required>
+                <button type="submit">Get My Free Audit</button>
+            </form>
+            <button class="close-btn" onclick="closeExitPopup()">No Thanks</button>
+        </div>
+    </div>
 
     <!-- Audit Popup Modal -->
     <div id="auditModal" class="audit-modal" role="dialog" aria-modal="true">
