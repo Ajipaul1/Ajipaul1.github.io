@@ -643,24 +643,22 @@
       <div class="chat-modal-content">
           <span class="close-modal" onclick="closeChatModal()">&times;</span>
           <h3 style="color:white; margin-bottom: 1rem;">Quick Inquiry</h3>
-          <form action="https://formsubmit.co/info@techauditpros.com" method="POST">
-              <input type="hidden" name="_subject" value="New Chat Inquiry!">
-              <input type="hidden" name="_template" value="table">
-              <input type="text" name="_honey" style="display:none">
-              <input type="hidden" name="_delay" value="5">
-              <input type="hidden" name="_blacklist" value="vtext.com,txt.att.net,messaging.sprintpcs.com,tmomail.net,vmobl.com,email.uscc.net,mymetropcs.com">
+          <div style="background: rgba(15, 23, 42, 0.95); padding: 1rem; border-radius: 8px; border: 1px solid rgba(56, 189, 248, 0.2);">
+              <iframe aria-label='Contact Us' frameborder="0" style="height:500px;width:99%;border:none;" src='https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg'></iframe>
+          </div>
+      </div>
+  </div>
 
-              <div class="form-group" style="margin-bottom: 1rem;">
-                  <input type="text" name="name" class="form-input" required placeholder="Your Name">
-              </div>
-              <div class="form-group" style="margin-bottom: 1rem;">
-                  <input type="email" name="email" class="form-input" required placeholder="Your Email">
-              </div>
-              <div class="form-group" style="margin-bottom: 1rem;">
-                  <textarea name="message" class="form-textarea" rows="3" required placeholder="Brief details..."></textarea>
-              </div>
-              <button type="submit" id="chatSubmitBtn" class="btn btn-primary" style="width: 100%;">Send Message</button>
-          </form>
+  <!-- Audit Popup Modal -->
+  <div id="auditModal" class="audit-modal" role="dialog" aria-modal="true">
+      <div class="audit-modal-content">
+          <div class="audit-modal-header">
+              <h2>Get Your Free SEO Audit</h2>
+              <button class="audit-modal-close" onclick="closeAuditModal()">&times;</button>
+          </div>
+          <div class="audit-modal-body">
+              <iframe aria-label='Contact Us' frameborder="0" style="height:500px;width:99%;border:none;" src='https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg'></iframe>
+          </div>
       </div>
   </div>
 
@@ -1639,9 +1637,22 @@
 
       // Audit Modal Functions
       function openAuditModal() {
-          // Placeholder for modal
-          alert('Audit modal would open here');
+          document.getElementById('auditModal').style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+          gtag('event', 'modal_open', { event_category: 'engagement', event_label: 'audit_modal' });
       }
+      function closeAuditModal() {
+          document.getElementById('auditModal').style.display = 'none';
+          document.body.style.overflow = '';
+      }
+
+      // Close modal on outside click
+      document.addEventListener('click', function(event) {
+          const modal = document.getElementById('auditModal');
+          if (event.target === modal) {
+              closeAuditModal();
+          }
+      });
   </script>
 </body>
 </html>
