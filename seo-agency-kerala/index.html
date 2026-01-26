@@ -535,60 +535,6 @@
     </div>
   </footer>
 
-  <!-- ==================================================
-       PROTECTED CHATBOT
-  ================================================== -->
-  <button class="chat-fab" id="chatToggle">Ask a question</button>
-  
-  <div class="chat-box" id="chatBox">
-    <div class="chat-header">
-      <strong>TechAuditPros</strong>
-      <button id="chatClose">×</button>
-    </div>
-    <div class="chat-messages" id="chatMessages">
-      <div class="bot-msg">Hi 👋 Interested in SEO services in Kerala?</div>
-    </div>
-    <div class="chat-actions">
-      <button data-intent="FREE_AUDIT">Free Audit</button>
-      <button data-intent="PRICING">Pricing</button>
-      <button data-intent="SERVICES_OVERVIEW">Services</button>
-      <button data-intent="CASE_STUDY">Case Study</button>
-    </div>
-  </div>
-
-  <!-- ==================================================
-       SCRIPT FOR SLIDER ANIMATION
-  ================================================== -->
-  <script>
-    /* --- CHATBOT SCRIPT --- */
-    const chatToggle = document.getElementById("chatToggle");
-    const chatBox = document.getElementById("chatBox");
-    const chatClose = document.getElementById("chatClose");
-    const chatMessages = document.getElementById("chatMessages");
-
-    if(chatToggle && chatBox && chatClose) {
-        chatToggle.onclick = () => chatBox.style.display = "flex";
-        chatClose.onclick = () => chatBox.style.display = "none";
-
-        const RESPONSES = {
-        FREE_AUDIT: { text: "We offer a professional website & SEO audit to help you understand what’s blocking visibility.", buttons: true },
-        PRICING: { text: "Audit pricing depends on website size and complexity.", buttons: true },
-        SERVICES_OVERVIEW: { text: "We specialize in website & technical SEO audits focused on clarity, structure, and long-term trust.", buttons: true },
-        CASE_STUDY: { text: "We document real audits and results to show how technical clarity improves visibility.", link: "/case-studies.html" }
-        };
-
-        document.querySelectorAll(".chat-actions button").forEach(btn => {
-        btn.onclick = () => {
-            const intent = btn.dataset.intent;
-            const data = RESPONSES[intent];
-            const msg = document.createElement("div");
-            msg.className = "bot-msg";
-            msg.innerHTML = data.text;
-            chatMessages.appendChild(msg);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        };
-        });
-    }
 
     /* --- ANIMATION SLIDER SCRIPT --- */
     let slideIndex = 0;
