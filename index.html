@@ -1187,69 +1187,6 @@ footer {
     color: white;
 }
 
-/* Global Presence */
-.global-presence {
-    background: #f8fafc;
-    color: #1f2937;
-}
-
-.global-presence h2 {
-    font-size: 3rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
-    color: #1f2937;
-}
-
-.global-presence .text-muted {
-    font-size: 1.25rem;
-    color: #6b7280;
-}
-
-.global-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.global-card {
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 16px;
-    padding: 2rem;
-    transition: all 0.3s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-}
-
-.global-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-
-.global-card h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: #1f2937;
-}
-
-.global-card p {
-    color: #6b7280;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-}
-
-.global-link {
-    color: var(--current-chameleon);
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s;
-}
-
-.global-link:hover {
-    color: #1f2937;
-    text-decoration: underline;
-}
-
 /* Modal */
 .modal-overlay {
     display: none;
@@ -1469,7 +1406,7 @@ footer {
     }
 
     .footer-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
@@ -1532,6 +1469,9 @@ footer {
 
   <!-- Dynamic Hero Section -->
   <section class="hero-section" id="hero">
+    <video id="industryPlayer" autoplay muted loop playsinline preload="metadata" poster="videos/mainvideos/tech-1-poster.jpg">
+      <source src="videos/mainvideos/tech-1-trim.mp4" type="video/mp4">
+    </video>
     <picture class="background-image-mobile">
       <source media="(max-width: 767px)" srcset="hero-mobile.jpg">
       <img src="hero-mobile.jpg" alt="TechAuditPros Hero" loading="lazy">
@@ -1540,7 +1480,7 @@ footer {
     <div class="hero-container">
       <div class="hero-left">
         <h1 id="hero-title">Technical SEO Audit & Growth Engineering</h1>
-        <p id="hero-subtitle">Enterprise-Grade Technical SEO Audits for Global Businesses - USA, Canada, India, Kerala</p>
+        <p id="hero-subtitle">Enterprise-Grade Technical SEO Audits for Global Businesses</p>
         <button onclick="openAuditModal()" class="cta-btn" id="cta-btn">Get Free Global Audit</button>
       </div>
     </div>
@@ -1599,7 +1539,7 @@ footer {
           <div class="bento-card">
             <span class="phase-tag">PHASE 04</span>
             <h3>Global Expansion</h3>
-            <p class="text-muted" style="margin-top: 1rem; font-size: 1.1rem;"><strong>International SEO Scaling</strong>. Multi-region optimization for USA, Canada, India, and Kerala markets with localized strategies.</p>
+            <p class="text-muted" style="margin-top: 1rem; font-size: 1.1rem;"><strong>International SEO Scaling</strong>. Correct Hreflang implementation and CC-TLD strategies for US/Canada market entry.</p>
           </div>
         </div>
       </div>
@@ -1664,15 +1604,15 @@ footer {
     <!-- KERALA SPOTLIGHT (FULL WIDTH VIDEO, CENTERED CONTENT) -->
     <section class="kerala-spotlight full-screen-section">
       <div class="spotlight-content">
-        <h2 class="mono text-accent" style="text-transform: uppercase; letter-spacing: 2px;">// Global Digital Engine</h2>
-        <h1 style="font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1; margin: 1rem 0;">Powering Worldwide Digital Growth</h1>
+        <h2 class="mono text-accent" style="text-transform: uppercase; letter-spacing: 2px;">// The Kerala Engine</h2>
+        <h1 style="font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1; margin: 1rem 0;">Powering India's Digital Growth</h1>
         <p style="font-size: 1.5rem; margin-bottom: 3rem; color: white; max-width: 1400px; margin-left: auto; margin-right: auto;">
-          From Silicon Valley to Infopark, we engineer digital experiences that convert globally.
-          The technical backbone for international businesses seeking market dominance.
+          From Infopark to Trivandrum, we engineer digital experiences that convert.
+          The technical backbone for Kerala's top-tier service businesses.
         </p>
-        <!-- UPDATED LINK: Global Services Button -->
-        <a href="/seo-agency-kerala/" class="btn btn-primary" style="margin: 0 auto; display: block; width: max-content; padding: 1rem 2.5rem; font-size: 1.1rem;">
-          Explore Global Services
+        <!-- UPDATED LINK: Kochi Services Button -->
+        <a href="https://techauditpros.com/seo-audit-kochi/" class="btn btn-primary" style="margin: 0 auto; display: block; width: max-content; padding: 1rem 2.5rem; font-size: 1.1rem;">
+          View Kerala Services
         </a>
       </div>
       <div class="kerala-overlay"></div>
@@ -1859,96 +1799,35 @@ footer {
     <section id="locations" class="locations full-screen-section">
       <div class="container full-height-container">
         <div style="text-align: center; margin-bottom: 3rem;">
-          <h2>Global Strategic Hubs</h2>
-          <p class="text-muted">Expert technical SEO teams in key markets worldwide</p>
+          <h2>Strategic Hubs</h2>
         </div>
         <div class="loc-grid-wide">
           <div class="loc-card">
-            <h3>🇺🇸 US Operations</h3>
-            <p class="mono text-accent">SILICON VALLEY & NYC</p>
-            <img src="https://picsum.photos/seed/us-tech/500/250" alt="US tech professionals" loading="lazy" width="500" height="250" style="width:100%; height:200px; background:rgba(255,255,255,0.03); margin:1.5rem 0; display:flex; align-items:center; justify-content:center; border-radius:8px; border:1px solid rgba(255,255,255,0.05); object-fit:cover;">
-            <p class="text-muted" style="font-size: 1.1rem;">Enterprise SEO for Fortune 500 companies. HIPAA compliance, advanced technical audits, and Core Web Vitals optimization.</p>
-            <div class="loc-testimonial">"TechAuditPros transformed our enterprise SEO—revenue increased 300% in 6 months."</div>
+            <h3>Kochi HQ</h3>
+            <p class="mono text-accent">TECH CORRIDOR</p>
+            <img src="https://picsum.photos/seed/tech1/500/250" alt="Tech engineers at work in Kakkanad" loading="lazy" width="500" height="250" style="width:100%; height:200px; background:rgba(255,255,255,0.03); margin:1.5rem 0; display:flex; align-items:center; justify-content:center; border-radius:8px; border:1px solid rgba(255,255,255,0.05); object-fit:cover;">
+            <p class="text-muted" style="font-size: 1.1rem;">The central laboratory for deep-diving technical audits and server-side optimizations.</p>
+            <div class="loc-testimonial">"TechAuditPros revamped our crawl structure—our indexation in Kerala doubled in 8 weeks."</div>
             <div class="local-links-list">
-              <span class="local-tag">New York</span>
-              <span class="local-tag">Los Angeles</span>
-              <span class="local-tag">Chicago</span>
+              <span class="local-tag">Kakkanad</span>
+              <span class="local-tag">Edappally</span>
+              <span class="local-tag">Vyttila</span>
             </div>
-            <a href="/seo-audit-usa/" class="loc-link">Explore US Services &rarr;</a>
+            <!-- UPDATED LINK: Kochi HQ -->
+            <a href="https://techauditpros.com/seo-audit-kochi/" class="loc-link">Explore Kochi &rarr;</a>
           </div>
 
           <div class="loc-card">
-            <h3>🇨🇦 Canada Operations</h3>
-            <p class="mono text-accent">TORONTO & VANCOUVER</p>
-            <img src="https://picsum.photos/seed/canada-tech/500/250" alt="Canadian tech team" loading="lazy" width="500" height="250" style="width:100%; height:200px; background:rgba(255,255,255,0.03); margin:1.5rem 0; display:flex; align-items:center; justify-content:center; border-radius:8px; border:1px solid rgba(255,255,255,0.05); object-fit:cover;">
-            <p class="text-muted" style="font-size: 1.1rem;">Bilingual SEO expertise for Canadian businesses. CRA compliance, local search dominance, and e-commerce optimization.</p>
-            <div class="loc-testimonial">"Outstanding bilingual SEO results—our Toronto business grew 250% in local searches."</div>
+            <h3>Kerala Hub</h3>
+            <p class="mono text-accent">STATEWIDE REACH</p>
+            <img src="https://picsum.photos/seed/tech2/500/250" alt="Digital infrastructure in Kerala" loading="lazy" width="500" height="250" style="width:100%; height:200px; background:rgba(255,255,255,0.03); margin:1.5rem 0; display:flex; align-items:center; justify-content:center; border-radius:8px; border:1px solid rgba(255,255,255,0.05); object-fit:cover;">
+            <p class="text-muted" style="font-size: 1.1rem;">Serving to broader Kerala market. Optimizing local search signals for businesses across Trivandrum, Calicut, and beyond.</p>
             <div class="local-links-list">
-              <span class="local-tag">Toronto</span>
-              <span class="local-tag">Vancouver</span>
-              <span class="local-tag">Montreal</span>
-            </div>
-            <a href="/seo-audit-canada/" class="loc-link">Explore Canada Services &rarr;</a>
-          </div>
-
-          <div class="loc-card">
-            <h3>🇮🇳 India Operations</h3>
-            <p class="mono text-accent">MUMBAI & BANGALORE</p>
-            <img src="https://picsum.photos/seed/india-tech/500/250" alt="Indian tech professionals" loading="lazy" width="500" height="250" style="width:100%; height:200px; background:rgba(255,255,255,0.03); margin:1.5rem 0; display:flex; align-items:center; justify-content:center; border-radius:8px; border:1px solid rgba(255,255,255,0.05); object-fit:cover;">
-            <p class="text-muted" style="font-size: 1.1rem;">Comprehensive SEO for Indian businesses. Multi-language support, regional compliance, and scalable enterprise solutions.</p>
-            <div class="loc-testimonial">"TechAuditPros delivered exceptional results—our Mumbai operations saw 500% lead growth."</div>
-            <div class="local-links-list">
-              <span class="local-tag">Mumbai</span>
-              <span class="local-tag">Delhi</span>
-              <span class="local-tag">Bangalore</span>
-            </div>
-            <a href="/seo-audit-india/" class="loc-link">Explore India Services &rarr;</a>
-          </div>
-
-          <div class="loc-card">
-            <h3>🇮🇳 Kerala Hub</h3>
-            <p class="mono text-accent">INFOPARK KOCHI</p>
-            <img src="https://picsum.photos/seed/kerala-tech/500/250" alt="Kerala tech team" loading="lazy" width="500" height="250" style="width:100%; height:200px; background:rgba(255,255,255,0.03); margin:1.5rem 0; display:flex; align-items:center; justify-content:center; border-radius:8px; border:1px solid rgba(255,255,255,0.05); object-fit:cover;">
-            <p class="text-muted" style="font-size: 1.1rem;">Specialized SEO for Kerala businesses. Tourism optimization, healthcare SEO, and local search dominance in God's Own Country.</p>
-            <div class="loc-testimonial">"TechAuditPros revamped our Kochi operations—indexation doubled in 8 weeks."</div>
-            <div class="local-links-list">
-              <span class="local-tag">Kochi</span>
               <span class="local-tag">Trivandrum</span>
               <span class="local-tag">Calicut</span>
+              <span class="local-tag">Kozhikode</span>
             </div>
-            <a href="/seo-agency-kerala/" class="loc-link">Explore Kerala Services &rarr;</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- GLOBAL PRESENCE - HUB SECTION -->
-    <section class="global-presence full-screen-section">
-      <div class="container">
-        <div style="text-align: center; margin-bottom: 3rem;">
-          <h2>Global Technical SEO Expertise</h2>
-          <p class="text-muted">Serving businesses worldwide with localized SEO strategies</p>
-        </div>
-        <div class="global-grid">
-          <div class="global-card">
-            <h3>🇺🇸 United States</h3>
-            <p>Enterprise SEO for American businesses. Core Web Vitals optimization, HIPAA compliance, and advanced technical audits for Fortune 500 companies.</p>
-            <a href="/seo-audit-usa/" class="global-link">Explore US Services →</a>
-          </div>
-          <div class="global-card">
-            <h3>🇨🇦 Canada</h3>
-            <p>Bilingual SEO expertise for Canadian markets. CRA-compliant audits, local search dominance, and e-commerce optimization across provinces.</p>
-            <a href="/seo-audit-canada/" class="global-link">Explore Canada Services →</a>
-          </div>
-          <div class="global-card">
-            <h3>🇮🇳 India</h3>
-            <p>Comprehensive SEO for Indian businesses. Multi-language support, regional compliance, and scalable solutions for startups to enterprises.</p>
-            <a href="/seo-audit-india/" class="global-link">Explore India Services →</a>
-          </div>
-          <div class="global-card">
-            <h3>🇮🇳 Kerala</h3>
-            <p>Specialized SEO for Kerala businesses. Tourism optimization, healthcare SEO, and local search dominance in God's Own Country.</p>
-            <a href="/seo-agency-kerala/" class="global-link">Explore Kerala Services →</a>
+            <a href="/seo-kerala/" class="loc-link">Explore Kerala &rarr;</a>
           </div>
         </div>
       </div>
@@ -1974,7 +1853,7 @@ footer {
             <li><a href="#methodology">Technical SEO Audit</a></li>
             <li><a href="#case-study">Website Optimization</a></li>
             <li><a href="#industries">Industry Solutions</a></li>
-            <li><a href="#global-presence">Global Expansion</a></li>
+            <li><a href="#locations">Global Expansion</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -1984,15 +1863,6 @@ footer {
             <li><a href="#case-study">Case Studies</a></li>
             <li><a href="https://techauditpros.com/blog/">Blog</a></li>
             <li><a href="#timeline">How We Work</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Global Offices</h4>
-          <ul>
-            <li><a href="/seo-audit-usa/">USA Services</a></li>
-            <li><a href="/seo-audit-canada/">Canada Services</a></li>
-            <li><a href="/seo-audit-india/">India Services</a></li>
-            <li><a href="/seo-agency-kerala/">Kerala Services</a></li>
           </ul>
         </div>
         <div class="footer-col">
