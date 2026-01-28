@@ -142,36 +142,144 @@
     </div>
   </section>
 
-  <!-- CERTIFICATES SECTION -->
-  <section class="certificates-section">
+  <!-- CERTIFICATES SECTION (Redesigned: Badge grid + modal) -->
+  <section class="certs-section" aria-labelledby="certs-title">
+    <style>
+      .certs-section{position:relative;padding:64px 0;background:linear-gradient(135deg,#0f172a 0%,#111827 100%);color:#e5e7eb;overflow:hidden}
+      .certs-head{display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:28px}
+      .certs-head h2{font-size:clamp(1.6rem,3.2vw,2.2rem);margin:0 0 8px;background:linear-gradient(135deg,#fff,#93c5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+      .certs-sub{font-size:1rem;color:#9ca3af}
+      .badges{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;max-width:1100px;margin:24px auto 0}
+      .badge{position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(8px);border-radius:12px;padding:16px;display:flex;align-items:center;gap:12px;transition:transform .2s, box-shadow .2s, border-color .2s;cursor:pointer}
+      .badge:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.25);border-color:rgba(255,255,255,.18)}
+      .badge-logo{width:36px;height:36px;flex:0 0 36px;display:grid;place-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:8px}
+      .badge-title{font-size:.95rem;font-weight:700;color:#e5e7eb;line-height:1.2}
+      .badge-meta{font-size:.8rem;color:#9ca3af}
+      .badge-verify{margin-left:auto;font-size:.8rem;color:#93c5fd;text-decoration:none}
+      .proof-strip{display:flex;gap:12px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+      .proof-chip{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:6px 10px;border-radius:999px;font-size:.8rem;color:#cbd5e1}
+      @media (max-width:1024px){.badges{grid-template-columns:repeat(3,minmax(0,1fr))}}
+      @media (max-width:767px){.badges{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.badge{padding:14px}.badge-title{font-size:.9rem}}
+      /* Lightbox */
+      .cert-modal{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;z-index:10000;padding:20px}
+      .cert-modal.active{display:flex}
+      .cert-card{background:#0b1220;border:1px solid #1f2a44;border-radius:12px;max-width:720px;width:100%;padding:16px}
+      .cert-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+      .cert-top h3{margin:0;font-size:1.1rem;color:#e5e7eb}
+      .cert-close{background:none;border:none;color:#9ca3af;font-size:24px;cursor:pointer}
+      .cert-media{background:#0a0f1a;border:1px solid #1f2a44;border-radius:10px;overflow:hidden;display:grid;place-items:center}
+      .cert-media img{max-width:100%;height:auto;display:block}
+      .cert-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:10px}
+      .cert-actions a{background:#1f2a44;color:#93c5fd;border:1px solid #2a3a60;padding:8px 12px;border-radius:8px;text-decoration:none;font-weight:600}
+    </style>
     <div class="container">
-      <div class="certificates-header">
-        <h2>Trusted & Certified</h2>
-        <p>Industry-Leading Certifications You Can Trust</p>
+      <div class="certs-head">
+        <h2 id="certs-title">Trusted & Certified</h2>
+        <p class="certs-sub">Independently verified credentials across Analytics, Ads and SEO platforms</p>
       </div>
-      <div class="certificates-grid">
-        <div class="certificate-card">
-          <img src="videos/mainvideos/Certificates/googleanalytics-certificate-ajipaul-techauditpros.png" alt="Google Analytics (GA4) Certified" class="certificate-image">
-          <h3>Google Analytics (GA4) Certified</h3>
-          <a href="#" class="verify-badge" target="_blank" rel="noopener">🔗 Verify</a>
+
+      <div class="badges">
+        <button class="badge" data-cert="ga4" aria-label="View Google Analytics (GA4) certificate">
+          <span class="badge-logo">📊</span>
+          <span>
+            <div class="badge-title">Google Analytics (GA4)</div>
+            <div class="badge-meta">Verified • 2024</div>
+          </span>
+          <span class="badge-verify">View</span>
+        </button>
+        <button class="badge" data-cert="ads" aria-label="View Google Ads certificate">
+          <span class="badge-logo">🔎</span>
+          <span>
+            <div class="badge-title">Google Ads Search</div>
+            <div class="badge-meta">Verified • 2024</div>
+          </span>
+          <span class="badge-verify">View</span>
+        </button>
+        <button class="badge" data-cert="semrush" aria-label="View Semrush certificate">
+          <span class="badge-logo">🧭</span>
+          <span>
+            <div class="badge-title">Semrush SEO</div>
+            <div class="badge-meta">Verified • 2024</div>
+          </span>
+          <span class="badge-verify">View</span>
+        </button>
+        <button class="badge" data-cert="digital" aria-label="View Digital Marketing certificate">
+          <span class="badge-logo">⚡</span>
+          <span>
+            <div class="badge-title">Digital Marketing</div>
+            <div class="badge-meta">Verified • 2024</div>
+          </span>
+          <span class="badge-verify">View</span>
+        </button>
+      </div>
+      <div class="proof-strip" aria-hidden="true">
+        <span class="proof-chip">8+ active credentials</span>
+        <span class="proof-chip">Issuer-verified</span>
+        <span class="proof-chip">Reviewed annually</span>
+      </div>
+    </div>
+
+    <!-- Modal / Lightbox -->
+    <div class="cert-modal" id="certModal" role="dialog" aria-modal="true" aria-labelledby="certTitle">
+      <div class="cert-card">
+        <div class="cert-top">
+          <h3 id="certTitle">Credential</h3>
+          <button class="cert-close" aria-label="Close" onclick="(function(){document.getElementById('certModal').classList.remove('active')})()">✕</button>
         </div>
-        <div class="certificate-card">
-          <img src="videos/mainvideos/Certificates/googleadssearch-certificate-ajipaul-techauditpros.png.png" alt="Google Ads Certified" class="certificate-image">
-          <h3>Google Ads Certified</h3>
-          <a href="#" class="verify-badge" target="_blank" rel="noopener">🔗 Verify</a>
+        <div class="cert-media">
+          <img id="certImage" alt="Certificate preview" loading="lazy">
         </div>
-        <div class="certificate-card">
-          <img src="videos/mainvideos/Certificates/semrushs-certificate-ajipaul-techauditpros.png" alt="Semrush Certified" class="certificate-image">
-          <h3>Semrush Certified</h3>
-          <a href="#" class="verify-badge" target="_blank" rel="noopener">🔗 Verify</a>
-        </div>
-        <div class="certificate-card">
-          <img src="videos/mainvideos/Certificates/digitalmarketingcourse-certificate-ajipaul-techauditpros.png" alt="Digital Marketing Certified" class="certificate-image">
-          <h3>Digital Marketing Certified</h3>
-          <a href="#" class="verify-badge" target="_blank" rel="noopener">🔗 Verify</a>
+        <div class="cert-actions">
+          <a id="certVerify" href="#" target="_blank" rel="noopener">Verify</a>
         </div>
       </div>
     </div>
+
+    <script>
+      (function(){
+        const modal = document.getElementById('certModal');
+        const img = document.getElementById('certImage');
+        const title = document.getElementById('certTitle');
+        const verify = document.getElementById('certVerify');
+        const map = {
+          ga4: {
+            title: 'Google Analytics (GA4) Certified',
+            img: 'videos/mainvideos/Certificates/googleanalytics-certificate-ajipaul-techauditpros.png',
+            verify: '#'
+          },
+          ads: {
+            title: 'Google Ads Search Certified',
+            img: 'videos/mainvideos/Certificates/googleadssearch-certificate-ajipaul-techauditpros.png.png',
+            verify: '#'
+          },
+          semrush: {
+            title: 'Semrush SEO Certified',
+            img: 'videos/mainvideos/Certificates/semrushs-certificate-ajipaul-techauditpros.png',
+            verify: '#'
+          },
+          digital: {
+            title: 'Digital Marketing Certified',
+            img: 'videos/mainvideos/Certificates/digitalmarketingcourse-certificate-ajipaul-techauditpros.png',
+            verify: '#'
+          }
+        };
+        document.addEventListener('click', function(e){
+          const btn = e.target.closest('.badge');
+          if(!btn) return;
+          const key = btn.getAttribute('data-cert');
+          const data = map[key];
+          if(!data) return;
+          title.textContent = data.title;
+          img.src = data.img;
+          img.alt = data.title;
+          verify.href = data.verify;
+          modal.classList.add('active');
+        });
+        modal.addEventListener('click', function(e){
+          if(e.target === modal){ modal.classList.remove('active'); }
+        });
+      })();
+    </script>
   </section>
 
   <main>
