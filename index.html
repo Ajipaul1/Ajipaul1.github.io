@@ -98,13 +98,17 @@
   <div class="industry-slider">
     <div class="slider-container">
       <div class="industry-pills" id="industry-pills">
-        <button class="pill active" data-industry="global" onclick="switchIndustry('global', this)">
+        <a href="/" class="pill active" style="text-decoration: none;">
           <span class="pill-dot"></span>
           Global
-        </button>
+        </a>
         <a href="/seo-audit-kochi/" class="pill" style="text-decoration: none;">
           <span class="pill-dot"></span>
           Kochi
+        </a>
+        <a href="/seo-audit-india/" class="pill" style="text-decoration: none;">
+          <span class="pill-dot"></span>
+          India
         </a>
         <a href="/seo-audit-usa/" class="pill" style="text-decoration: none;">
           <span class="pill-dot"></span>
@@ -575,55 +579,6 @@
 
   <!-- SCRIPTS -->
   <script>
-    // Industry switching functionality
-    const industryData = {
-      global: {
-        title: "Technical SEO Audit & Growth Engineering",
-        subtitle: "Enterprise-Grade Technical SEO Audits for Global Businesses",
-        video: "tech-1-trim",
-        poster: "tech-1-poster.jpg"
-      },
-      kochi: {
-        title: "Kochi Technical SEO Experts",
-        subtitle: "Infopark's Leading Technical SEO Audit Company",
-        video: "hero-technical-audit",
-        poster: "tech-1-poster.jpg"
-      },
-      usa: {
-        title: "US Technical SEO Audit Services",
-        subtitle: "Enterprise SEO Solutions for American Businesses",
-        video: "tech-1-trim",
-        poster: "tech-1-poster.jpg"
-      },
-      canada: {
-        title: "Canadian Technical SEO Experts",
-        subtitle: "Advanced SEO Audits for Canadian Markets",
-        video: "tech-1-trim",
-        poster: "tech-1-poster.jpg"
-      }
-    };
-
-    function switchIndustry(industry, button) {
-      // Update active pill
-      document.querySelectorAll('.pill').forEach(pill => pill.classList.remove('active'));
-      button.classList.add('active');
-
-      // Update body class for chameleon colors
-      document.body.className = `industry-${industry}`;
-
-      // Update hero content
-      const data = industryData[industry];
-      document.getElementById('hero-title').textContent = data.title;
-      document.getElementById('hero-subtitle').textContent = data.subtitle;
-
-      // Update video
-      const video = document.getElementById('industryPlayer');
-      const source = video.querySelector('source');
-      source.src = `videos/mainvideos/${data.video}.mp4`;
-      video.poster = `videos/mainvideos/${data.poster}`;
-      video.load();
-    }
-
     // Modal functionality
     function openAuditModal() {
       document.getElementById('auditModal').style.display = 'flex';
