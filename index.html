@@ -1516,12 +1516,14 @@ What are the main takeaways and recommended next actions?</code>
             let startX = -totalWidth / 2;
 
             words.forEach((word, i) => {
+                // Measure word + space + small buffer for safety
                 const wWidth = ctx.measureText(word + " ").width;
                 
                 const t = document.createElementNS("http://www.w3.org/2000/svg", "text");
-                t.textContent = word + " ";
+                t.textContent = word;
                 t.setAttribute("x", startX);
                 t.setAttribute("y", line.offset);
+                t.setAttribute("text-anchor", "start"); // Align text from the start (left)
                 t.setAttribute("class", "hero-text");
                 t.style.fontSize = line.size + "px";
                 if (line.color) t.style.fill = line.color;

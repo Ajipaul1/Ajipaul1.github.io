@@ -1828,7 +1828,6 @@ footer {
 .hero-text {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     fill: #ffffff;
-    text-anchor: middle;
     dominant-baseline: middle;
     opacity: 0;
     font-weight: 700;
