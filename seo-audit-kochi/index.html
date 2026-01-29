@@ -34,6 +34,105 @@ body {
     overflow-x: hidden;
 }
 
+/* Custom Cursor Styles */
+.cursor-helper {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: all 0.2s ease;
+    mix-blend-mode: difference;
+    display: none; /* Hidden by default, shown via JS */
+}
+
+.cursor-helper.magnifying-glass {
+    background: #6366F1;
+    box-shadow: 0 0 0 2px #6366F1, 0 0 20px rgba(99, 102, 241, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.cursor-helper.magnifying-glass::after {
+    content: "🔍";
+    color: white;
+    font-size: 16px;
+}
+
+.cursor-helper.wrench {
+    background: #EC4899;
+    box-shadow: 0 0 0 2px #EC4899, 0 0 20px rgba(236, 72, 153, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.cursor-helper.wrench::after {
+    content: "🔧";
+    color: white;
+    font-size: 16px;
+    transform: rotate(45deg);
+}
+
+/* Cursor Helper Text */
+.cursor-text {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 9998;
+}
+
+.cursor-text.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Cursor Helper Instructions */
+.cursor-instruction {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    color: #6b7280;
+    font-size: 12px;
+    pointer-events: none;
+    z-index: 9997;
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Hover Effects to Trigger Cursors */
+a:hover,
+button:hover,
+.cta-btn:hover,
+.book-audit-btn:hover,
+.call-action:hover {
+    cursor: none !important; /* Hide default cursor on interactive elements */
+}
+
+/* Special hover areas for cursor effects */
+.hero-section:hover .cursor-helper,
+.services-section:hover .cursor-helper,
+.checklist-section:hover .cursor-helper {
+    display: block;
+}
+
 /* Chameleon Color System */
 :root {
     --chameleon-general: #0F172A;
@@ -1369,6 +1468,65 @@ body.industry-techaudit .cta-btn:hover {
 
     <!-- JavaScript -->
     <script>
+        // Custom Cursor Helper Logic
+        function initCursorHelper() {
+            // Create cursor elements
+            const cursor = document.createElement('div');
+            cursor.className = 'cursor-helper';
+            document.body.appendChild(cursor);
+
+            const cursorText = document.createElement('div');
+            cursorText.className = 'cursor-text';
+            cursorText.textContent = '🔍 Inspect Tech';
+            document.body.appendChild(cursorText);
+
+            const instruction = document.createElement('div');
+            instruction.className = 'cursor-instruction';
+            instruction.innerHTML = 'Move mouse to see TechAuditPros cursor magic! 🎯';
+            document.body.appendChild(instruction);
+
+            // Mouse tracking
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+                
+                // Update text position
+                cursorText.style.left = (e.clientX + 20) + 'px';
+                cursorText.style.top = (e.clientY - 40) + 'px';
+            });
+
+            // Hover effects to change cursor type
+            const interactiveElements = document.querySelectorAll('a, button, .cta-btn, .book-audit-btn, .call-action');
+            
+            interactiveElements.forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    cursor.classList.add('magnifying-glass');
+                    cursorText.textContent = '🔍 Inspect Tech';
+                    cursorText.classList.add('active');
+                });
+
+                element.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('magnifying-glass');
+                    cursor.classList.add('wrench');
+                    cursorText.textContent = '🔧 Fix Issues';
+                    setTimeout(() => {
+                        cursorText.classList.remove('active');
+                        cursor.classList.remove('wrench');
+                    }, 1000);
+                });
+            });
+
+            // Default cursor behavior
+            document.addEventListener('mouseenter', () => {
+                cursor.style.display = 'block';
+            });
+
+            document.addEventListener('mouseleave', () => {
+                cursor.style.display = 'none';
+                cursorText.classList.remove('active');
+            });
+        }
+
         // Industry Data
         const industryData = {
             general: {
