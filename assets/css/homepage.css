@@ -1479,3 +1479,232 @@ footer {
         max-width: 100%;
     }
 }
+
+/* L-System Fractals Section */
+.ls-fractals-section {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    padding: 80px 20px;
+    color: white;
+}
+
+.ls-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.ls-header h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.ls-header p {
+    font-size: 1.25rem;
+    color: #94a3b8;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.ls-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.ls-controls {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 32px;
+    height: fit-content;
+}
+
+.ls-controls h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: #ffffff;
+    border-bottom: 2px solid var(--current-chameleon);
+    padding-bottom: 12px;
+}
+
+.control-group {
+    margin-bottom: 24px;
+}
+
+.control-group label {
+    display: block;
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.control-group input[type="text"],
+.control-group input[type="number"],
+.control-group input[type="range"] {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.control-group input[type="text"]:focus,
+.control-group input[type="number"]:focus,
+.control-group input[type="range"]:focus {
+    outline: none;
+    border-color: var(--current-chameleon);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.control-group .value-display {
+    float: right;
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.ls-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.ls-btn {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+}
+
+.ls-btn.primary {
+    background: var(--current-chameleon);
+    color: white;
+}
+
+.ls-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+.ls-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.ls-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.ls-canvas-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 500px;
+}
+
+.ls-canvas {
+    background: #0f172a;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ls-info {
+    margin-top: 16px;
+    text-align: center;
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.ls-examples {
+    margin-top: 32px;
+    text-align: center;
+}
+
+.ls-examples h4 {
+    color: #cbd5e1;
+    margin-bottom: 16px;
+    font-size: 1rem;
+}
+
+.ls-example-btns {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.ls-example-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.ls-example-btn:hover {
+    background: var(--current-chameleon);
+    border-color: var(--current-chameleon);
+}
+
+.ls-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #94a3b8;
+    font-size: 1rem;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .ls-fractals-section {
+        padding: 60px 16px;
+    }
+    
+    .ls-header h2 {
+        font-size: 2rem;
+    }
+    
+    .ls-container {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .ls-controls {
+        padding: 24px;
+    }
+    
+    .ls-canvas-container {
+        min-height: 400px;
+    }
+    
+    .ls-example-btns {
+        flex-direction: column;
+        align-items: center;
+    }
+}

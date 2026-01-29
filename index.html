@@ -1340,6 +1340,76 @@ What are the main takeaways and recommended next actions?</code>
   }
   </script>
 
+  <!-- L-System Fractals Section -->
+  <section id="ls-fractals" class="ls-fractals-section full-screen-section">
+    <div class="container">
+      <div class="ls-header">
+        <h2 class="mono text-accent" style="text-transform: uppercase; letter-spacing: 2px;">// L-System Generators</h2>
+        <h1 style="font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1; margin: 1rem 0;">Generate Beautiful Organic Patterns</h1>
+        <p style="font-size: 1.5rem; margin-bottom: 3rem; color: white; max-width: 1400px; margin-left: auto; margin-right: auto;">
+          Create stunning fractal patterns like trees, snowflakes, and organic structures using mathematical L-systems.
+          Perfect for understanding complex patterns and algorithmic beauty.
+        </p>
+      </div>
+      
+      <div class="ls-container">
+        <div class="ls-controls">
+          <h3>Fractal Parameters</h3>
+          
+          <div class="control-group">
+            <label for="lsAxiom">Axiom (Initial String)</label>
+            <input type="text" id="lsAxiom" value="F" placeholder="e.g., F">
+          </div>
+          
+          <div class="control-group">
+            <label for="lsRules">Production Rules</label>
+            <input type="text" id="lsRules" value="F:F+F-F-F+F" placeholder="e.g., F:F+F-F-F+F">
+          </div>
+          
+          <div class="control-group">
+            <label for="lsAngle">Angle (degrees)</label>
+            <input type="number" id="lsAngle" value="90" min="1" max="360" step="1">
+          </div>
+          
+          <div class="control-group">
+            <label for="lsIterations">Iterations</label>
+            <input type="number" id="lsIterations" value="4" min="1" max="8" step="1">
+          </div>
+          
+          <div class="control-group">
+            <label for="lsStepSize">Step Size</label>
+            <input type="number" id="lsStepSize" value="10" min="1" max="50" step="1">
+          </div>
+          
+          <div class="control-group">
+            <label for="lsColor">Line Color</label>
+            <input type="color" id="lsColor" value="#6366F1">
+          </div>
+          
+          <div class="ls-buttons">
+            <button class="ls-btn primary" onclick="generateLSystem()">Generate Fractal</button>
+            <button class="ls-btn secondary" onclick="clearLSystem()">Clear</button>
+          </div>
+          
+          <div class="ls-examples">
+            <h4>Quick Examples</h4>
+            <div class="ls-example-btns">
+              <button class="ls-example-btn" onclick="loadLSystemExample('koch')">Koch Snowflake</button>
+              <button class="ls-example-btn" onclick="loadLSystemExample('tree')">Tree</button>
+              <button class="ls-example-btn" onclick="loadLSystemExample('dragon')">Dragon Curve</button>
+              <button class="ls-example-btn" onclick="loadLSystemExample('plant')">Plant</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="ls-canvas-container">
+          <canvas id="lsCanvas" class="ls-canvas" width="600" height="600" aria-label="L-System fractal generator canvas"></canvas>
+          <div class="ls-info">Tip: Start with simple iterations and increase gradually for complex patterns</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Fluid Dynamics Interactive Section -->
   <section id="fluid-dynamics" class="fluid-section full-screen-section">
     <div class="container full-height-container">
@@ -1360,6 +1430,176 @@ What are the main takeaways and recommended next actions?</code>
       </div>
     </div>
   </section>
+
+  <script>
+    // L-System Fractal Generator
+    (function() {
+      const canvas = document.getElementById('lsCanvas');
+      const ctx = canvas.getContext('2d');
+      
+      // Canvas sizing
+      function resizeCanvas() {
+        const container = canvas.parentElement;
+        const size = Math.min(600, container.clientWidth);
+        canvas.width = size;
+        canvas.height = size;
+      }
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+
+      let currentString = '';
+      let angle = 90;
+      let iterations = 4;
+      let stepSize = 10;
+      let lineColor = '#6366F1';
+
+      function parseRules(rulesStr) {
+        const rules = {};
+        const parts = rulesStr.split(',');
+        for(const part of parts) {
+          const [key, value] = part.split(':');
+          if(key && value) {
+            rules[key.trim()] = value.trim();
+          }
+        }
+        return rules;
+      }
+
+      function generateLSystem(axiom, rules, iterations) {
+        let result = axiom;
+        for(let i = 0; i < iterations; i++) {
+          let next = '';
+          for(const char of result) {
+            next += rules[char] || char;
+          }
+          result = next;
+        }
+        return result;
+      }
+
+      function drawLSystem(axiom, rules, iterations, angle, stepSize, color) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        const instructions = generateLSystem(axiom, rules, iterations);
+        currentString = instructions;
+        
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        
+        ctx.save();
+        ctx.translate(canvas.width / 2, canvas.height);
+        ctx.rotate(-Math.PI / 2);
+        
+        const stack = [];
+        let x = 0;
+        let y = 0;
+        let heading = 0;
+        
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        
+        for(const char of instructions) {
+          switch(char) {
+            case 'F':
+            case 'G':
+              const rad = heading * Math.PI / 180;
+              const newX = x + Math.cos(rad) * stepSize;
+              const newY = y + Math.sin(rad) * stepSize;
+              ctx.lineTo(newX, newY);
+              x = newX;
+              y = newY;
+              break;
+            case '+':
+              heading += angle;
+              break;
+            case '-':
+              heading -= angle;
+              break;
+            case '[':
+              stack.push({x, y, heading});
+              break;
+            case ']':
+              const state = stack.pop();
+              if(state) {
+                x = state.x;
+                y = state.y;
+                heading = state.heading;
+                ctx.moveTo(x, y);
+              }
+              break;
+          }
+        }
+        
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      window.generateLSystem = function() {
+        const axiom = document.getElementById('lsAxiom').value.trim();
+        const rulesStr = document.getElementById('lsRules').value.trim();
+        const angle = parseFloat(document.getElementById('lsAngle').value);
+        const iterations = parseInt(document.getElementById('lsIterations').value);
+        const stepSize = parseInt(document.getElementById('lsStepSize').value);
+        const color = document.getElementById('lsColor').value;
+        
+        const rules = parseRules(rulesStr);
+        drawLSystem(axiom, rules, iterations, angle, stepSize, color);
+      };
+
+      window.clearLSystem = function() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      };
+
+      window.loadLSystemExample = function(type) {
+        const examples = {
+          koch: {
+            axiom: 'F',
+            rules: 'F:F+F-F-F+F',
+            angle: 90,
+            iterations: 4,
+            stepSize: 5
+          },
+          tree: {
+            axiom: 'F',
+            rules: 'F:FF+[+F-F-F]-[-F+F+F]',
+            angle: 25,
+            iterations: 4,
+            stepSize: 10
+          },
+          dragon: {
+            axiom: 'FX',
+            rules: 'X:X+YF+,Y:-FX-Y',
+            angle: 90,
+            iterations: 10,
+            stepSize: 5
+          },
+          plant: {
+            axiom: 'X',
+            rules: 'X:F+[[X]-X]-F[-FX]+X,F:FF',
+            angle: 25,
+            iterations: 5,
+            stepSize: 8
+          }
+        };
+
+        const example = examples[type];
+        if(example) {
+          document.getElementById('lsAxiom').value = example.axiom;
+          document.getElementById('lsRules').value = example.rules;
+          document.getElementById('lsAngle').value = example.angle;
+          document.getElementById('lsIterations').value = example.iterations;
+          document.getElementById('lsStepSize').value = example.stepSize;
+          document.getElementById('lsColor').value = '#6366F1';
+          generateLSystem();
+        }
+      };
+
+      // Initialize with default example
+      loadLSystemExample('tree');
+    })();
+  </script>
 
   <script>
     // Fluid Dynamics Simulation
@@ -1500,21 +1740,21 @@ What are the main takeaways and recommended next actions?</code>
         set_bnd(2, v);
       }
 
-      function vel_step(u, v, u0, v0, visc, dt) {
-        addSource(u, u0, dt);
-        addSource(v, v0, dt);
-        diffuse(1, u0, u, visc, dt);
-        diffuse(2, v0, v, visc, dt);
-        project(u0, v0, u, v);
-        advect(1, u, u0, u0, v0, dt);
-        advect(2, v, v0, u0, v0, dt);
-        project(u, v, u0, v0);
+      function vel_step(u, v, u_prev, v_prev, visc, dt) {
+        addSource(u, u_prev, dt);
+        addSource(v, v_prev, dt);
+        diffuse(1, u_prev, u, visc, dt);
+        diffuse(2, v_prev, v, visc, dt);
+        project(u_prev, v_prev, u, v);
+        advect(1, u, u_prev, u_prev, v_prev, dt);
+        advect(2, v, v_prev, u_prev, v_prev, dt);
+        project(u, v, u_prev, v_prev);
       }
 
-      function dens_step(x, x0, u, v, diff, dt) {
-        addSource(x, x0, dt);
-        diffuse(0, x0, x, diff, dt);
-        advect(0, x, x0, u, v, dt);
+      function dens_step(x, x_prev, u, v, diff, dt) {
+        addSource(x, x_prev, dt);
+        diffuse(0, x_prev, x, diff, dt);
+        advect(0, x, x_prev, u, v, dt);
       }
 
       function draw() {
