@@ -66,12 +66,13 @@
   <link rel="stylesheet" href="assets/css/homepage.css">
   <style>
     /* Animated SVG Hero Styles */
-    .svg-hero{position:relative;min-height:100vh;display:grid;place-items:center;padding:120px 16px 48px;background:radial-gradient(1200px 600px at 10% -10%, rgba(99,102,241,.25), transparent 40%),linear-gradient(135deg,#0b1220 0%,#0f172a 60%,#111827 100%);overflow:hidden}
+    .svg-hero{position:relative;height:100vh;width:100%;display:grid;place-items:center;padding:0;overflow:hidden;transition:background-image 1.2s ease-in-out;background-size:cover;background-position:center;}
     .svg-hero::before{content:"";position:absolute;inset:-20%;background:conic-gradient(from 0deg at 50% 50%,rgba(99,102,241,.08),rgba(34,197,94,.08),rgba(147,197,253,.08),rgba(99,102,241,.08));filter:blur(80px);animation:spinBg 40s linear infinite;opacity:.7}
     @keyframes spinBg{to{transform:rotate(360deg)}}
 
-    .headline-stage{width:100%;max-width:1200px;height:auto}
-    #hero .slide{font-size:clamp(1.2rem,3.2vw,2.2rem);font-weight:800;letter-spacing:.02em;opacity:0;transform:translateY(24px) scale(.98);filter:blur(6px);transition:opacity .6s ease, transform .6s ease, filter .6s ease}
+    .headline-stage{width:100%;max-width:1400px;height:auto;z-index:2;}
+    #hero .slide{font-family:'Inter', sans-serif;font-size:clamp(3rem, 6vw, 6rem);font-weight:900;letter-spacing:-0.02em;opacity:0;transform:translateY(40px) scale(0.95);filter:blur(10px);transition:opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.8s ease; text-shadow: 0 10px 30px rgba(0,0,0,0.3);}
+    #hero .slide tspan { text-shadow: inherit; }
     #hero .slide.is-active{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
     #hero .slide.is-prev{opacity:0;transform:translateY(-18px) scale(.98);filter:blur(4px)}
 
@@ -151,15 +152,14 @@
   <!-- Dynamic Hero Section: Replaced video with animated SVG headline slider -->
   <section class="hero-section full-screen-section" id="hero">
     <div class="svg-hero">
-      <svg class="headline-stage" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" aria-label="TechAuditPros digital marketing headlines">
+      <svg class="headline-stage" viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid meet" aria-label="TechAuditPros digital marketing headlines">
         <defs>
           <linearGradient id="txtGrad" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stop-color="#fff"/>
-            <stop offset="50%" stop-color="#93c5fd"/>
-            <stop offset="100%" stop-color="#22c55e"/>
+            <stop offset="100%" stop-color="#f1f5f9"/>
           </linearGradient>
           <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="6" result="blur"/>
+            <feGaussianBlur stdDeviation="4" result="blur"/>
             <feMerge>
               <feMergeNode in="blur"/>
               <feMergeNode in="SourceGraphic"/>
@@ -167,18 +167,25 @@
           </filter>
         </defs>
 
-        <rect x="0" y="0" width="1200" height="400" fill="url(#bgGrad)"></rect>
-
         <g id="slides" filter="url(#glow)">
           <text class="slide" data-i="0" x="50%" y="50%" text-anchor="middle" fill="url(#txtGrad)">Digital marketing for your website</text>
-          <text class="slide" data-i="1" x="50%" y="50%" text-anchor="middle" fill="url(#txtGrad)">Grow your sales and improve your website with TechAuditPros</text>
+          <text class="slide" data-i="1" x="50%" y="50%" text-anchor="middle" fill="url(#txtGrad)">
+            <tspan x="50%" dy="-0.6em">Grow your sales and improve</tspan>
+            <tspan x="50%" dy="1.3em">your website with TechAuditPros</tspan>
+          </text>
           <text class="slide" data-i="2" x="50%" y="50%" text-anchor="middle" fill="url(#txtGrad)">SEO services for your website</text>
-          <text class="slide" data-i="3" x="50%" y="50%" text-anchor="middle" fill="url(#txtGrad)">Certified in Google Analytics, Google Ads, Semrush</text>
+          <text class="slide" data-i="3" x="50%" y="50%" text-anchor="middle" fill="url(#txtGrad)">
+            <tspan x="50%" dy="-0.6em">Certified in Google Analytics,</tspan>
+            <tspan x="50%" dy="1.3em">Google Ads, Semrush</tspan>
+          </text>
           <text class="slide" data-i="4" x="50%" y="50%" text-anchor="middle" fill="url(#txtGrad)">Web Audits</text>
           <text class="slide" data-i="5" x="50%" y="50%" text-anchor="middle" fill="url(#txtGrad)">Website Creation</text>
           <text class="slide" data-i="6" x="50%" y="50%" text-anchor="middle" fill="url(#txtGrad)">Social Media Posting</text>
           <text class="slide" data-i="7" x="50%" y="50%" text-anchor="middle" fill="url(#txtGrad)">We fix your sites</text>
-          <text class="slide" data-i="8" x="50%" y="50%" text-anchor="middle" fill="url(#txtGrad)">On‑page SEO • Off‑page SEO • Technical SEO</text>
+          <text class="slide" data-i="8" x="50%" y="50%" text-anchor="middle" fill="url(#txtGrad)">
+            <tspan x="50%" dy="-0.6em">On‑page SEO • Off‑page SEO</tspan>
+            <tspan x="50%" dy="1.3em">Technical SEO</tspan>
+          </text>
           <text class="slide" data-i="9" x="50%" y="50%" text-anchor="middle" fill="url(#txtGrad)">Your all‑in‑one digital marketing platform</text>
           <text class="slide" data-i="10" x="50%" y="50%" text-anchor="middle" fill="url(#txtGrad)">TechAuditPros</text>
         </g>
@@ -1322,6 +1329,23 @@ What are the main takeaways and recommended next actions?</code>
     // Animated SVG headline slider (replaces video autoplay logic)
     document.addEventListener('DOMContentLoaded', () => {
       const slides = Array.from(document.querySelectorAll('#hero .slide'));
+      const heroBg = document.querySelector('.svg-hero');
+      
+      // Dynamic backgrounds for each slide
+      const backgrounds = [
+        "linear-gradient(135deg, #0f172a 0%, #334155 100%)", // Digital marketing (Dark Blue)
+        "linear-gradient(135deg, #064e3b 0%, #10b981 100%)", // Grow sales (Green)
+        "linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)", // SEO services (Blue)
+        "linear-gradient(135deg, #7c2d12 0%, #f97316 100%)", // Certified (Orange)
+        "linear-gradient(135deg, #312e81 0%, #6366f1 100%)", // Web Audits (Indigo)
+        "linear-gradient(135deg, #4c1d95 0%, #8b5cf6 100%)", // Website Creation (Violet)
+        "linear-gradient(135deg, #831843 0%, #ec4899 100%)", // Social Media (Pink)
+        "linear-gradient(135deg, #7f1d1d 0%, #ef4444 100%)", // We fix (Red)
+        "linear-gradient(135deg, #14532d 0%, #22c55e 100%)", // On-page SEO (Emerald)
+        "linear-gradient(135deg, #1e40af 0%, #60a5fa 100%)", // All-in-one (Blue)
+        "radial-gradient(circle at center, #111827 0%, #000000 100%)" // TechAuditPros (Black)
+      ];
+
       let i = 0;
       const total = slides.length;
       const show = (idx) => {
@@ -1329,6 +1353,10 @@ What are the main takeaways and recommended next actions?</code>
           el.classList.toggle('is-active', k === idx);
           el.classList.toggle('is-prev', k === (idx - 1 + total) % total);
         });
+        // Update background
+        if(heroBg && backgrounds[idx]) {
+          heroBg.style.backgroundImage = backgrounds[idx];
+        }
       };
       const tick = () => {
         show(i);
