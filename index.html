@@ -457,7 +457,7 @@
             textEl.style.fontSize = line.size + "px";
             textEl.style.fontWeight = line.fontWeight || 700;
             textEl.style.fontStyle = line.italic ? "italic" : "normal";
-            if (line.opacity) textEl.style.opacity = line.opacity;
+            textEl.style.opacity = line.opacity || "1";
             
             // Special handling for Brand Name Gradient
             if (line.isBrand) {
@@ -469,16 +469,17 @@
                 const tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
                 
                 // Determine Color
-                let fill = professionalWhite;
+                let fill = null;
                 
                 // Check if word is a keyword AND line is not a brand gradient
                 if (!line.isBrand) {
+                    fill = professionalWhite;
                     if (keywords.some(kw => word.toLowerCase().includes(kw.toLowerCase()))) {
                         fill = professionalAccentColor;
                     }
                 }
 
-                tspan.style.fill = fill;
+                if (fill) tspan.style.fill = fill;
                 tspan.textContent = (i > 0 ? " " : "") + word;
                 
                 // Initial state: Hidden
