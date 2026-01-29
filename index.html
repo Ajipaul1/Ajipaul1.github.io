@@ -64,6 +64,21 @@
   }
   </script>
   <link rel="stylesheet" href="assets/css/homepage.css">
+  <style>
+    /* Animated SVG Hero Styles */
+    .svg-hero{position:relative;min-height:100vh;display:grid;place-items:center;padding:120px 16px 48px;background:radial-gradient(1200px 600px at 10% -10%, rgba(99,102,241,.25), transparent 40%),linear-gradient(135deg,#0b1220 0%,#0f172a 60%,#111827 100%);overflow:hidden}
+    .svg-hero::before{content:"";position:absolute;inset:-20%;background:conic-gradient(from 0deg at 50% 50%,rgba(99,102,241,.08),rgba(34,197,94,.08),rgba(147,197,253,.08),rgba(99,102,241,.08));filter:blur(80px);animation:spinBg 40s linear infinite;opacity:.7}
+    @keyframes spinBg{to{transform:rotate(360deg)}}
+
+    .headline-stage{width:100%;max-width:1200px;height:auto}
+    #hero .slide{font-size:clamp(1.2rem,3.2vw,2.2rem);font-weight:800;letter-spacing:.02em;opacity:0;transform:translateY(24px) scale(.98);filter:blur(6px);transition:opacity .6s ease, transform .6s ease, filter .6s ease}
+    #hero .slide.is-active{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
+    #hero .slide.is-prev{opacity:0;transform:translateY(-18px) scale(.98);filter:blur(4px)}
+
+    .hero-cta{position:absolute;inset:auto 0 48px;display:grid;place-items:center;z-index:3}
+    .hero-cta .cta-btn{background:#6366f1;border-color:#6366f1}
+    .hero-cta .cta-btn:hover{color:#6366f1}
+  </style>
 </head>
 
 <body>
@@ -133,21 +148,44 @@
     </div>
   </div>
 
-  <!-- Dynamic Hero Section -->
+  <!-- Dynamic Hero Section: Replaced video with animated SVG headline slider -->
   <section class="hero-section full-screen-section" id="hero">
-    <video id="industryPlayer" autoplay muted loop playsinline preload="none" poster="videos/mainvideos/tech-1-poster.jpg" aria-hidden="true" role="presentation" style="width:100%;height:100%;object-fit:cover;">
-      <source src="videos/mainvideos/tech-1-trim.mp4" type="video/mp4">
-    </video>
-    <picture class="background-image-mobile">
-      <source type="image/webp" media="(max-width: 767px)" srcset="hero-mobile.jpg">
-      <img src="hero-mobile.jpg" alt="Technical SEO Audit services for businesses — TechAuditPros" width="1920" height="1080" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;">
-    </picture>
-    <div class="hero-overlay"></div>
-    <div class="hero-container">
-      <div class="hero-left">
-        <h1 id="hero-title">Technical SEO Audit & Growth Engineering</h1>
-        <p id="hero-subtitle">Enterprise-Grade Technical SEO Audits for Global Businesses</p>
-        <button onclick="openAuditModal()" class="cta-btn" id="cta-btn">Get Free Global Audit</button>
+    <div class="svg-hero">
+      <svg class="headline-stage" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" aria-label="TechAuditPros digital marketing headlines">
+        <defs>
+          <linearGradient id="txtGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#fff"/>
+            <stop offset="50%" stop-color="#93c5fd"/>
+            <stop offset="100%" stop-color="#22c55e"/>
+          </linearGradient>
+          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="6" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+
+        <rect x="0" y="0" width="1200" height="400" fill="url(#bgGrad)"></rect>
+
+        <g id="slides" filter="url(#glow)">
+          <text class="slide" data-i="0" x="50%" y="38%" text-anchor="middle" fill="url(#txtGrad)">Digital marketing for your website</text>
+          <text class="slide" data-i="1" x="50%" y="52%" text-anchor="middle" fill="url(#txtGrad)">Grow your sales and improve your website with TechAuditPros</text>
+          <text class="slide" data-i="2" x="50%" y="66%" text-anchor="middle" fill="url(#txtGrad)">SEO services for your website</text>
+
+          <text class="slide" data-i="3" x="50%" y="38%" text-anchor="middle" fill="url(#txtGrad)">Certified in Google Analytics, Google Ads, Semrush</text>
+          <text class="slide" data-i="4" x="50%" y="52%" text-anchor="middle" fill="url(#txtGrad)">Web Audits • Website Creation • Social Media Posting</text>
+          <text class="slide" data-i="5" x="50%" y="66%" text-anchor="middle" fill="url(#txtGrad)">We fix your site</text>
+
+          <text class="slide" data-i="6" x="50%" y="38%" text-anchor="middle" fill="url(#txtGrad)">On‑page SEO • Off‑page SEO • Technical SEO</text>
+          <text class="slide" data-i="7" x="50%" y="52%" text-anchor="middle" fill="url(#txtGrad)">Your all‑in‑one digital marketing platform</text>
+          <text class="slide" data-i="8" x="50%" y="66%" text-anchor="middle" fill="url(#txtGrad)">TechAuditPros</text>
+        </g>
+      </svg>
+
+      <div class="hero-cta">
+        <button onclick="openAuditModal()" class="cta-btn" id="cta-btn">Get Free Audit</button>
       </div>
     </div>
   </section>
@@ -1281,21 +1319,23 @@ What are the main takeaways and recommended next actions?</code>
       nav.classList.toggle('active');
     }
 
-    // Auto-play video only on desktop
-    document.addEventListener("DOMContentLoaded", () => {
-      const isDesktop = window.matchMedia('(min-width: 768px)').matches;
-      const heroVideo = document.getElementById('industryPlayer');
-      if (!isDesktop || !heroVideo) return;
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            heroVideo.play().catch(() => {});
-          } else {
-            heroVideo.pause();
-          }
+    // Animated SVG headline slider (replaces video autoplay logic)
+    document.addEventListener('DOMContentLoaded', () => {
+      const slides = Array.from(document.querySelectorAll('#hero .slide'));
+      let i = 0;
+      const total = slides.length;
+      const show = (idx) => {
+        slides.forEach((el, k) => {
+          el.classList.toggle('is-active', k === idx);
+          el.classList.toggle('is-prev', k === (idx - 1 + total) % total);
         });
-      }, { threshold: 0.3 });
-      observer.observe(heroVideo);
+      };
+      const tick = () => {
+        show(i);
+        i = (i + 1) % total;
+      };
+      tick();
+      setInterval(tick, 2400);
     });
   </script>
 
