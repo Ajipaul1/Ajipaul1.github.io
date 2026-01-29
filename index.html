@@ -134,13 +134,13 @@
 
   <!-- Dynamic Hero Section -->
   <section class="hero-section full-screen-section" id="hero">
-    <video id="industryPlayer" autoplay muted loop playsinline preload="metadata" poster="videos/mainvideos/tech-1-poster.jpg">
+    <video id="industryPlayer" autoplay muted loop playsinline preload="metadata" poster="videos/mainvideos/tech-1-poster.jpg" aria-hidden="true" role="presentation">
       <source src="videos/mainvideos/tech-1-trim.mp4" type="video/mp4">
     </video>
     <picture class="background-image-mobile">
       <source type="image/avif" media="(max-width: 767px)" srcset="hero-mobile.avif">
       <source type="image/webp" media="(max-width: 767px)" srcset="hero-mobile.webp">
-      <img src="hero-mobile.jpg" alt="TechAuditPros Hero" width="1920" height="1080" loading="eager" decoding="async" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;">
+      <img src="hero-mobile.jpg" alt="Technical SEO Audit services for businesses — TechAuditPros" width="1920" height="1080" loading="eager" decoding="async" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;">
     </picture>
     <div class="hero-overlay"></div>
     <div class="hero-container">
@@ -657,26 +657,26 @@ What are the main takeaways and recommended next actions?</code>
 
   <main>
     <!-- AUTHORITY / TRUST BAR (NEW LOGO MARQUEE) -->
-    <div class="trust-bar">
+    <div class="trust-bar" aria-hidden="true">
       <div class="trust-track">
         <div class="trust-scroll">
-          <!-- Requested Assets -->
-          <img src="assets/semrush.svg" class="trust-icon" alt="Semrush">
-          <img src="assets/screamingfrog.svg" class="trust-icon" alt="Screaming Frog">
-          <img src="assets/ashref.svg" class="trust-icon" alt="Ahrefs">
-          <img src="assets/searchconsole.svg" class="trust-icon" alt="Search Console">
-          <img src="assets/PageSpeed.svg" class="trust-icon" alt="PageSpeed">
-          <img src="assets/gptgemini.svg" class="trust-icon" alt="GPT Gemini">
-          <img src="assets/Lumar.svg" class="trust-icon" alt="Lumar">
+          <!-- Requested Assets (decorative) -->
+          <img src="assets/semrush.svg" class="trust-icon" alt="" aria-hidden="true">
+          <img src="assets/screamingfrog.svg" class="trust-icon" alt="" aria-hidden="true">
+          <img src="assets/ashref.svg" class="trust-icon" alt="" aria-hidden="true">
+          <img src="assets/searchconsole.svg" class="trust-icon" alt="" aria-hidden="true">
+          <img src="assets/PageSpeed.svg" class="trust-icon" alt="" aria-hidden="true">
+          <img src="assets/gptgemini.svg" class="trust-icon" alt="" aria-hidden="true">
+          <img src="assets/Lumar.svg" class="trust-icon" alt="" aria-hidden="true">
 
           <!-- Duplicate for seamless loop -->
-          <img src="assets/semrush.svg" class="trust-icon" alt="Semrush">
-          <img src="assets/screamingfrog.svg" class="trust-icon" alt="Screaming Frog">
-          <img src="assets/ashref.svg" class="trust-icon" alt="Ahrefs">
-          <img src="assets/searchconsole.svg" class="trust-icon" alt="Search Console">
-          <img src="assets/PageSpeed.svg" class="trust-icon" alt="PageSpeed">
-          <img src="assets/gptgemini.svg" class="trust-icon" alt="GPT Gemini">
-          <img src="assets/Lumar.svg" class="trust-icon" alt="Lumar">
+          <img src="assets/semrush.svg" class="trust-icon" alt="" aria-hidden="true">
+          <img src="assets/screamingfrog.svg" class="trust-icon" alt="" aria-hidden="true">
+          <img src="assets/ashref.svg" class="trust-icon" alt="" aria-hidden="true">
+          <img src="assets/searchconsole.svg" class="trust-icon" alt="" aria-hidden="true">
+          <img src="assets/PageSpeed.svg" class="trust-icon" alt="" aria-hidden="true">
+          <img src="assets/gptgemini.svg" class="trust-icon" alt="" aria-hidden="true">
+          <img src="assets/Lumar.svg" class="trust-icon" alt="" aria-hidden="true">
         </div>
       </div>
     </div>
@@ -1149,6 +1149,13 @@ What are the main takeaways and recommended next actions?</code>
       .fab-cta{position:fixed;left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:1050;display:flex;justify-content:center}
       .fab-cta a{display:inline-flex;align-items:center;gap:8px;justify-content:center;width:100%;max-width:560px;padding:14px 18px;border-radius:12px;background:#6366f1;color:#fff;text-decoration:none;font-weight:800;box-shadow:0 8px 30px rgba(99,102,241,.45)}
     }
+  </style>
+  <style>
+    /* Global focus-visible styles and small text contrast adjustments */
+    :where(a, button, [role="button"], .badge):focus-visible { outline: 2px solid #93c5fd; outline-offset: 2px; }
+    .ai-badge, .badge-meta, .proof-chip, .certs-sub { color: #cbd5e1; }
+    .loc-link { padding: 10px 12px; display: inline-block; }
+    @media (max-width: 767px){ .badge-meta, .proof-chip, .ai-badge { font-size: 0.95rem; } }
   </style>
   <div class="fab-cta" role="complementary" aria-label="Quick action">
     <a href="#auditModal" onclick="openAuditModal()">Get Free Audit</a>
