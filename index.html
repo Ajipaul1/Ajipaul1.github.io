@@ -1318,24 +1318,24 @@ What are the main takeaways and recommended next actions?</code>
         {
             id: 0,
             lines: [
-                { text: "TechAudit Pros", size: 100, color: "url(#textGradient)", offset: 0, fontWeight: 900 }
+                { text: "TechAudit Pros", size: 140, color: "url(#textGradient)", offset: 0, fontWeight: 900 }
             ],
             duration: 3500 // Short intro
         },
         {
             id: 1,
             lines: [
-                { text: "Digital Marketing", size: 60, color: "url(#textGradient)", offset: -40 },
-                { text: "for your website", size: 40, color: "#ffffff", offset: 30 },
-                { text: "Grow your sales with TechAuditPros", size: 30, color: "#00f2ff", offset: 80, italic: true }
+                { text: "Digital Marketing", size: 90, color: "url(#textGradient)", offset: -70, fontWeight: 700 },
+                { text: "for your website", size: 55, color: "#ffffff", offset: 20 },
+                { text: "Grow your sales with TechAuditPros", size: 40, color: "#00f2ff", offset: 100, italic: true }
             ],
             duration: 5000
         },
         {
             id: 2,
             lines: [
-                { text: "SEO Service", size: 70, color: "#ffffff", offset: -30 },
-                { text: "for your website", size: 50, color: "url(#accentGradient)", offset: 40 }
+                { text: "SEO Service", size: 110, color: "#ffffff", offset: -60, fontWeight: 700 },
+                { text: "for your website", size: 70, color: "url(#accentGradient)", offset: 60 }
             ],
             duration: 4000
         },
@@ -1349,34 +1349,34 @@ What are the main takeaways and recommended next actions?</code>
         {
             id: 4,
             lines: [
-                { text: "Website Creation", size: 60, color: "#ffffff", offset: -30 },
-                { text: "Social Media Posting", size: 60, color: "#ffffff", offset: 40 }
+                { text: "Website Creation", size: 90, color: "#ffffff", offset: -60, fontWeight: 700 },
+                { text: "Social Media Posting", size: 90, color: "#ffffff", offset: 60, fontWeight: 700 }
             ],
             duration: 4000
         },
         {
             id: 5,
             lines: [
-                { text: "We Fix Your Sites", size: 70, color: "url(#accentGradient)", offset: 0 },
-                { text: "Optimization • Speed • Security", size: 25, color: "#ffffff", offset: 70, opacity: 0.8 }
+                { text: "We Fix Your Sites", size: 110, color: "url(#accentGradient)", offset: -30, fontWeight: 700 },
+                { text: "Optimization • Speed • Security", size: 40, color: "#ffffff", offset: 80, opacity: 0.8 }
             ],
             duration: 4000
         },
         {
             id: 6,
             lines: [
-                { text: "On-Page SEO", size: 50, color: "#ffffff", offset: -50 },
-                { text: "Off-Page SEO", size: 50, color: "#ffffff", offset: 0 },
-                { text: "Technical SEO", size: 50, color: "#00f2ff", offset: 50 }
+                { text: "On-Page SEO", size: 80, color: "#ffffff", offset: -90, fontWeight: 700 },
+                { text: "Off-Page SEO", size: 80, color: "#ffffff", offset: 0, fontWeight: 700 },
+                { text: "Technical SEO", size: 80, color: "#00f2ff", offset: 90, fontWeight: 700 }
             ],
             duration: 5000
         },
         {
             id: 7,
             lines: [
-                { text: "Your Digital All-In-One", size: 50, color: "#ffffff", offset: -30 },
-                { text: "Marketing Platform", size: 50, color: "#ffffff", offset: 20 },
-                { text: "TechAudit Pros", size: 80, color: "url(#textGradient)", offset: 90, fontWeight: 900 }
+                { text: "Your Digital All-In-One", size: 70, color: "#ffffff", offset: -70 },
+                { text: "Marketing Platform", size: 70, color: "#ffffff", offset: 20 },
+                { text: "TechAudit Pros", size: 120, color: "url(#textGradient)", offset: 130, fontWeight: 900 }
             ],
             duration: 5000
         }
@@ -1509,7 +1509,7 @@ What are the main takeaways and recommended next actions?</code>
             
             // Helper to measure text for centering
             const ctx = document.createElement("canvas").getContext("2d");
-            ctx.font = `${line.fontWeight || ''} ${line.size}px Segoe UI, Roboto, sans-serif`;
+            ctx.font = `${line.fontWeight || ''} ${line.size}px 'Segoe UI', Roboto, Helvetica, Arial, sans-serif`;
             
             let totalWidth = 0;
             words.forEach(w => totalWidth += ctx.measureText(w + " ").width);
@@ -1551,26 +1551,26 @@ What are the main takeaways and recommended next actions?</code>
         const title = document.createElementNS("http://www.w3.org/2000/svg", "text");
         title.textContent = slide.title;
         title.setAttribute("x", 0);
-        title.setAttribute("y", -100);
+        title.setAttribute("y", -150);
         title.setAttribute("text-anchor", "middle");
         title.setAttribute("class", "hero-text");
-        title.style.fontSize = "40px";
+        title.style.fontSize = "60px";
         title.style.fill = "#ffffff";
         group.appendChild(title);
         
         setTimeout(() => title.classList.add('word-animate'), 100);
 
-        const startY = -20;
-        const gap = 70;
+        const startY = -40;
+        const gap = 100;
         
         slide.items.forEach((item, i) => {
             const y = startY + (i * gap);
             
             const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-            rect.setAttribute("x", -150);
-            rect.setAttribute("y", y - 20);
-            rect.setAttribute("width", 300);
-            rect.setAttribute("height", 40);
+            rect.setAttribute("x", -200);
+            rect.setAttribute("y", y - 30);
+            rect.setAttribute("width", 400);
+            rect.setAttribute("height", 60);
             rect.setAttribute("rx", 20);
             rect.setAttribute("fill", "rgba(255,255,255,0.05)");
             rect.setAttribute("stroke", "url(#accentGradient)");
@@ -1584,7 +1584,7 @@ What are the main takeaways and recommended next actions?</code>
             text.setAttribute("y", y + 8);
             text.setAttribute("text-anchor", "middle");
             text.setAttribute("class", "hero-text");
-            text.style.fontSize = "20px";
+            text.style.fontSize = "35px";
             text.style.fontWeight = "bold";
             text.style.fill = "#fff";
             text.style.opacity = "0";
