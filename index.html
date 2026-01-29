@@ -290,71 +290,76 @@
     const keywords = ["TechAudit", "Pros", "Sales", "SEO", "Service", "Audit", "Optimization", "Security", "Speed", "Digital"];
 
     /**
+     * RESPONSIVE SCALE
+     */
+    const scale = window.innerWidth < 768 ? 0.5 : 1;
+
+    /**
      * CONFIGURATION
      */
     const slides = [
         {
             id: 0,
             lines: [
-                { text: "TechAudit Pros", size: 100, offset: 0, fontWeight: 900, isBrand: true }
+                { text: "TechAudit Pros", size: 100 * scale, offset: 0, fontWeight: 900, isBrand: true }
             ],
-            duration: 3500 
+            duration: 3500
         },
         {
             id: 1,
             lines: [
-                { text: "Digital Marketing", size: 60, offset: -40 },
-                { text: "for your website", size: 40, offset: 30 },
-                { text: "Grow your sales with TechAuditPros", size: 30, offset: 80, italic: true }
+                { text: "Digital Marketing", size: 60 * scale, offset: -40 },
+                { text: "for your website", size: 40 * scale, offset: 30 },
+                { text: "Grow your sales with TechAuditPros", size: 30 * scale, offset: 80, italic: true }
             ],
             duration: 5000
         },
         {
             id: 2,
             lines: [
-                { text: "SEO Service", size: 70, offset: -30 },
-                { text: "for your website", size: 50, offset: 40 }
+                { text: "SEO Service", size: 70 * scale, offset: -30 },
+                { text: "for your website", size: 50 * scale, offset: 40 }
             ],
             duration: 4000
         },
         {
             id: 3,
-            type: "certifications", 
+            type: "certifications",
             title: "We are certified with",
-            items: ["Google Analytics", "Google Ads", "Semrush"], 
+            items: ["Google Analytics", "Google Ads", "Semrush"],
             duration: 5000
         },
         {
             id: 4,
             lines: [
-                { text: "Website Creation", size: 60, offset: -30 },
-                { text: "Social Media Posting", size: 60, offset: 40 }
+                { text: "Website Creation", size: 60 * scale, offset: -30 },
+                { text: "Social Media Posting", size: 60 * scale, offset: 40 }
             ],
             duration: 4000
         },
         {
             id: 5,
             lines: [
-                { text: "We Fix Your Sites", size: 70, offset: 0 },
-                { text: "Optimization • Speed • Security", size: 25, offset: 70, opacity: 0.8 }
+                { text: "We Fix Your Sites", size: 70 * scale, offset: 0 },
+                { text: "Optimization • Speed • Security", size: 25 * scale, offset: 70, opacity: 0.8 }
             ],
             duration: 4000
         },
         {
             id: 6,
             lines: [
-                { text: "On-Page SEO", size: 50, offset: -50 },
-                { text: "Off-Page SEO", size: 50, offset: 0 },
-                { text: "Technical SEO", size: 50, offset: 50 }
+                { text: "On-Page SEO", size: 50 * scale, offset: -50 },
+                { text: "Off-Page SEO", size: 50 * scale, offset: 0 },
+                { text: "Technical SEO", size: 50 * scale, offset: 50 }
             ],
             duration: 5000
         },
         {
             id: 7,
             lines: [
-                { text: "Your Digital All-In-One", size: 50, offset: -30 },
-                { text: "Marketing Platform", size: 50, offset: 20 },
-                { text: "TechAudit Pros", size: 80, offset: 90, fontWeight: 900, isBrand: true }
+                { text: "Your Digital All-In-One", size: 50 * scale, offset: -30 },
+                { text: "Marketing Platform", size: 50 * scale, offset: 20 },
+                { text: "TechAudit Pros", size: 80 * scale, offset: 90, fontWeight: 900, isBrand: true }
             ],
             duration: 5000
         }
