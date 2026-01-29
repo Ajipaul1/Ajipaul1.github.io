@@ -197,6 +197,10 @@
       transform: translateY(-2px);
       box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.5);
     }
+    @media (max-width: 768px) {
+      .intl-bg-layer { filter: blur(30px); }
+      .floater { display: none; }
+    }
   </style>
 </head>
 
@@ -283,7 +287,7 @@
       <div class="intl-content">
         <div class="intl-badge">Global Digital Partner</div>
         <div class="intl-text-container" id="text-rotator">
-          <!-- Text injected by JS -->
+          <span class="hero-word visible brand-name">TechAuditPros</span>
         </div>
         <div class="intl-cta-container">
           <button onclick="openAuditModal()" class="intl-btn">Get Free Audit</button>
@@ -1437,7 +1441,11 @@ What are the main takeaways and recommended next actions?</code>
 
       const container = document.getElementById('text-rotator');
       const hero = document.querySelector('.intl-hero');
-      let i = 0;
+      
+      // Set initial colors for the hardcoded first slide
+      hero.style.setProperty('--hero-accent', slides[0].color1);
+      hero.style.setProperty('--hero-accent-2', slides[0].color2);
+      let i = 1;
 
       const showNext = () => {
         const slide = slides[i];
@@ -1476,7 +1484,7 @@ What are the main takeaways and recommended next actions?</code>
         setTimeout(showNext, duration);
       };
 
-      showNext();
+      setTimeout(showNext, 3500);
     });
   </script>
 
@@ -1500,7 +1508,16 @@ What are the main takeaways and recommended next actions?</code>
     <a href="#auditModal" onclick="openAuditModal()">Get Free Audit</a>
   </div>
 
-  <script src="//code.tidio.co/xfezpk6hohjsnpxmweufbpcwi7audsru.js" async></script>
+  <script>
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        var script = document.createElement('script');
+        script.src = "//code.tidio.co/xfezpk6hohjsnpxmweufbpcwi7audsru.js";
+        script.async = true;
+        document.body.appendChild(script);
+      }, 4000);
+    });
+  </script>
 
   <script type="application/ld+json">
   {
@@ -2231,8 +2248,16 @@ What are the main takeaways and recommended next actions?</code>
       });
 
       // Initialize and start
-      initSimulation();
-      animate();
+      const fluidObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            initSimulation();
+            animate();
+            fluidObserver.disconnect();
+          }
+        });
+      });
+      fluidObserver.observe(document.getElementById('fluid-dynamics'));
     })();
   </script>
 </body>
