@@ -1413,42 +1413,6 @@ footer {
     font-weight: 600;
 }
 
-.founder-list {
-    background: #f9fafb;
-    border-radius: 12px;
-    padding: 32px;
-    margin: 32px 0;
-    border: 1px solid #e5e7eb;
-}
-
-.founder-list h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: #111827;
-}
-
-.founder-list ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.founder-list li {
-    position: relative;
-    padding-left: 32px;
-    margin-bottom: 16px;
-}
-
-.founder-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: var(--current-chameleon);
-    font-weight: bold;
-}
-
 .founder-signature {
     margin-top: 40px;
     border-top: 1px solid #e5e7eb;
@@ -1488,6 +1452,17 @@ footer {
 .founder-cta {
     text-align: center;
     margin-top: 40px;
+}
+
+/* Desktop Enhancements for Founder Section */
+@media (min-width: 1024px) {
+    .founder-welcome {
+        padding: 100px 0;
+    }
+    .founder-content {
+        font-size: 1.25rem; /* Larger text for desktop readability */
+        max-width: 900px;
+    }
 }
 
 /* Certificates Section */
