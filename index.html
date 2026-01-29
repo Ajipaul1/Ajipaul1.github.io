@@ -77,21 +77,52 @@
       overflow: hidden;
       text-align: center;
       padding: 0 20px;
+      transition: background 1s ease;
     }
-    .intl-bg {
+    .intl-bg-layer {
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at center, #1e293b 0%, #0f172a 70%);
-      z-index: 0;
+      background: radial-gradient(circle at 50% 50%, var(--hero-accent, #6366f1) 0%, transparent 60%),
+                  radial-gradient(circle at 80% 20%, var(--hero-accent-2, #a855f7) 0%, transparent 50%);
+      opacity: 0.2;
+      transition: all 1.5s ease;
+      z-index: 1;
+      filter: blur(80px);
+      animation: pulseBg 10s infinite alternate;
     }
-    .intl-bg::after {
+    @keyframes pulseBg {
+      0% { transform: scale(1); opacity: 0.2; }
+      100% { transform: scale(1.2); opacity: 0.3; }
+    }
+    .seo-floaters {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .floater {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.05);
+      font-size: clamp(2rem, 5vw, 6rem);
+      animation: floatUp 20s linear infinite;
+      user-select: none;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+    }
+    .intl-bg-grid {
       content: '';
       position: absolute;
       inset: 0;
       background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
       background-size: 50px 50px;
-      opacity: 0.5;
+      opacity: 0.3;
+      z-index: 0;
     }
     .intl-content {
       position: relative;
@@ -111,30 +142,41 @@
       margin-bottom: 24px;
       letter-spacing: 0.05em;
       text-transform: uppercase;
+      backdrop-filter: blur(5px);
     }
     .intl-text-container {
-      height: 200px; /* Fixed height to prevent layout shift */
+      min-height: 200px;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       margin-bottom: 32px;
     }
-    .intl-text {
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
+    .hero-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(30px);
+      margin: 0 0.15em;
+      background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: clamp(2.5rem, 6vw, 5rem);
       font-weight: 800;
       line-height: 1.1;
-      color: #ffffff;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-      position: absolute;
-      width: 100%;
-      max-width: 1200px;
-      padding: 0 20px;
+      filter: blur(8px);
+      transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
-    .intl-text.active {
+    .hero-word.visible {
       opacity: 1;
       transform: translateY(0);
+      filter: blur(0);
+    }
+    .hero-word.brand-name {
+      background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: clamp(3.5rem, 8vw, 6.5rem);
+      text-shadow: 0 10px 40px rgba(99, 102, 241, 0.4);
     }
     .intl-cta-container {
       margin-top: 20px;
@@ -228,7 +270,16 @@
   <!-- Dynamic Hero Section: Replaced video with animated SVG headline slider -->
   <section class="hero-section full-screen-section" id="hero">
     <div class="intl-hero">
-      <div class="intl-bg"></div>
+      <div class="intl-bg-layer"></div>
+      <div class="intl-bg-grid"></div>
+      <div class="seo-floaters">
+        <div class="floater" style="left: 10%; animation-duration: 25s; animation-delay: 0s;">🔍</div>
+        <div class="floater" style="left: 80%; animation-duration: 22s; animation-delay: 5s;">📈</div>
+        <div class="floater" style="left: 30%; animation-duration: 28s; animation-delay: 2s;">⚙️</div>
+        <div class="floater" style="left: 60%; animation-duration: 24s; animation-delay: 8s;">🔗</div>
+        <div class="floater" style="left: 15%; animation-duration: 30s; animation-delay: 12s;">🚀</div>
+        <div class="floater" style="left: 85%; animation-duration: 26s; animation-delay: 15s;">💻</div>
+      </div>
       <div class="intl-content">
         <div class="intl-badge">Global Digital Partner</div>
         <div class="intl-text-container" id="text-rotator">
@@ -1372,48 +1423,60 @@ What are the main takeaways and recommended next actions?</code>
 
     // Animated SVG headline slider (replaces video autoplay logic)
     document.addEventListener('DOMContentLoaded', () => {
-      const messages = [
-        "Digital marketing for your website",
-        "Grow your sales and improve your website with TechAuditPros",
-        "SEO services for your website",
-        "Certified in Google Analytics, Google Ads, Semrush",
-        "Web Audits • Website Creation • Social Media Posting",
-        "We fix your sites",
-        "On‑page SEO • Off‑page SEO • Technical SEO",
-        "Your all‑in‑one digital marketing platform",
-        "TechAuditPros"
+      const slides = [
+        { text: "TechAuditPros", color1: "#6366f1", color2: "#ec4899", isBrand: true },
+        { text: "Digital marketing for your website", color1: "#3b82f6", color2: "#10b981" },
+        { text: "Grow your sales and improve your website", color1: "#f59e0b", color2: "#ef4444" },
+        { text: "SEO services for your website", color1: "#8b5cf6", color2: "#6366f1" },
+        { text: "Certified in Google Analytics Google Ads Semrush", color1: "#0ea5e9", color2: "#3b82f6" },
+        { text: "Web Audits • Website Creation • Social Media Posting", color1: "#ec4899", color2: "#f43f5e" },
+        { text: "We fix your sites", color1: "#10b981", color2: "#14b8a6" },
+        { text: "On‑page SEO • Off‑page SEO • Technical SEO", color1: "#f97316", color2: "#db2777" },
+        { text: "Your all‑in‑one digital marketing platform", color1: "#6366f1", color2: "#8b5cf6" }
       ];
 
       const container = document.getElementById('text-rotator');
+      const hero = document.querySelector('.intl-hero');
       let i = 0;
 
       const showNext = () => {
-        // Create new text element
-        const el = document.createElement('div');
-        el.className = 'intl-text';
-        el.textContent = messages[i];
-        container.appendChild(el);
+        const slide = slides[i];
+        
+        // Update background colors
+        hero.style.setProperty('--hero-accent', slide.color1);
+        hero.style.setProperty('--hero-accent-2', slide.color2);
 
-        // Trigger reflow
-        void el.offsetWidth;
+        // Clear container
+        container.innerHTML = '';
 
-        // Animate in
-        el.classList.add('active');
+        // Create word elements
+        const words = slide.text.split(' ');
+        const wordElements = [];
 
-        // Remove old element after transition
-        if (container.children.length > 1) {
-          const oldEl = container.children[0];
-          oldEl.classList.remove('active');
+        words.forEach((word, index) => {
+          const span = document.createElement('span');
+          span.textContent = word;
+          span.className = 'hero-word';
+          if (slide.isBrand) span.classList.add('brand-name');
+          container.appendChild(span);
+          wordElements.push(span);
+        });
+
+        // Animate words in sequence
+        wordElements.forEach((el, idx) => {
           setTimeout(() => {
-            oldEl.remove();
-          }, 600);
-        }
+            el.classList.add('visible');
+          }, idx * 150); // 150ms delay per word
+        });
 
-        i = (i + 1) % messages.length;
+        // Calculate duration based on word count (min 3s, max 6s)
+        const duration = Math.max(3000, words.length * 400 + 2000);
+
+        i = (i + 1) % slides.length;
+        setTimeout(showNext, duration);
       };
 
       showNext();
-      setInterval(showNext, 3500);
     });
   </script>
 
