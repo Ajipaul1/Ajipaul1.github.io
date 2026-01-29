@@ -1432,7 +1432,7 @@ What are the main takeaways and recommended next actions?</code>
   </section>
 
   <script>
-    // L-System Fractal Generator
+    // Enhanced L-System Fractal Generator with Visual Effects
     (function() {
       const canvas = document.getElementById('lsCanvas');
       const ctx = canvas.getContext('2d');
@@ -1443,6 +1443,7 @@ What are the main takeaways and recommended next actions?</code>
         const size = Math.min(600, container.clientWidth);
         canvas.width = size;
         canvas.height = size;
+        drawBackground();
       }
       window.addEventListener('resize', resizeCanvas);
       resizeCanvas();
@@ -1452,6 +1453,36 @@ What are the main takeaways and recommended next actions?</code>
       let iterations = 4;
       let stepSize = 10;
       let lineColor = '#6366F1';
+      let isAnimating = false;
+      let animationFrameId;
+
+      // Enhanced background with gradient and grid
+      function drawBackground() {
+        const gradient = ctx.createRadialGradient(
+          canvas.width / 2, canvas.height / 2, 0,
+          canvas.width / 2, canvas.height / 2, canvas.width
+        );
+        gradient.addColorStop(0, '#0f172a');
+        gradient.addColorStop(1, '#0b1220');
+        
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        // Draw subtle grid
+        ctx.strokeStyle = 'rgba(99, 102, 241, 0.1)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        const gridSize = 40;
+        for(let x = 0; x <= canvas.width; x += gridSize) {
+          ctx.moveTo(x, 0);
+          ctx.lineTo(x, canvas.height);
+        }
+        for(let y = 0; y <= canvas.height; y += gridSize) {
+          ctx.moveTo(0, y);
+          ctx.lineTo(canvas.width, y);
+        }
+        ctx.stroke();
+      }
 
       function parseRules(rulesStr) {
         const rules = {};
@@ -1478,16 +1509,20 @@ What are the main takeaways and recommended next actions?</code>
       }
 
       function drawLSystem(axiom, rules, iterations, angle, stepSize, color) {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawBackground();
         
         const instructions = generateLSystem(axiom, rules, iterations);
         currentString = instructions;
         
-        ctx.strokeStyle = color;
-        ctx.lineWidth = 2;
-        ctx.lineCap = 'round';
-        ctx.lineJoin = 'round';
+        // Calculate scale to fit canvas
+        const bounds = calculateBounds(instructions, angle, stepSize);
+        const scaleX = canvas.width / (bounds.maxX - bounds.minX) * 0.8;
+        const scaleY = canvas.height / (bounds.maxY - bounds.minY) * 0.8;
+        const scale = Math.min(scaleX, scaleY, 1);
         
+        const finalStepSize = stepSize * scale;
+        
+        // Enhanced drawing with gradients and effects
         ctx.save();
         ctx.translate(canvas.width / 2, canvas.height);
         ctx.rotate(-Math.PI / 2);
@@ -1497,6 +1532,19 @@ What are the main takeaways and recommended next actions?</code>
         let y = 0;
         let heading = 0;
         
+        // Create gradient stroke
+        const gradient = ctx.createLinearGradient(-200, 0, 200, 0);
+        gradient.addColorStop(0, '#6366F1');
+        gradient.addColorStop(0.5, '#8b5cf6');
+        gradient.addColorStop(1, '#ec4899');
+        
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = 3;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.shadowColor = 'rgba(99, 102, 241, 0.5)';
+        ctx.shadowBlur = 10;
+        
         ctx.beginPath();
         ctx.moveTo(x, y);
         
@@ -1505,8 +1553,8 @@ What are the main takeaways and recommended next actions?</code>
             case 'F':
             case 'G':
               const rad = heading * Math.PI / 180;
-              const newX = x + Math.cos(rad) * stepSize;
-              const newY = y + Math.sin(rad) * stepSize;
+              const newX = x + Math.cos(rad) * finalStepSize;
+              const newY = y + Math.sin(rad) * finalStepSize;
               ctx.lineTo(newX, newY);
               x = newX;
               y = newY;
@@ -1533,10 +1581,112 @@ What are the main takeaways and recommended next actions?</code>
         }
         
         ctx.stroke();
+        
+        // Add glow effect
+        ctx.shadowBlur = 20;
+        ctx.shadowColor = 'rgba(99, 102, 241, 0.3)';
+        ctx.stroke();
+        
         ctx.restore();
+        
+        // Add title overlay
+        const title = document.createElement('div');
+        title.className = 'ls-fractal-title';
+        title.textContent = `L-System: ${axiom} → ${iterations} iterations`;
+        title.style.position = 'absolute';
+        title.style.top = '10px';
+        title.style.right = '20px';
+        title.style.color = '#94a3b8';
+        title.style.fontSize = '0.8rem';
+        title.style.textTransform = 'uppercase';
+        title.style.letterSpacing = '0.1em';
+        title.style.fontWeight = '600';
+        title.style.pointerEvents = 'none';
+        
+        // Remove existing title
+        const existingTitle = canvas.parentElement.querySelector('.ls-fractal-title');
+        if(existingTitle) existingTitle.remove();
+        
+        canvas.parentElement.appendChild(title);
+      }
+
+      function calculateBounds(instructions, angle, stepSize) {
+        const stack = [];
+        let x = 0, y = 0, heading = 0;
+        let minX = 0, maxX = 0, minY = 0, maxY = 0;
+        
+        for(const char of instructions) {
+          switch(char) {
+            case 'F':
+            case 'G':
+              const rad = heading * Math.PI / 180;
+              const newX = x + Math.cos(rad) * stepSize;
+              const newY = y + Math.sin(rad) * stepSize;
+              x = newX;
+              y = newY;
+              minX = Math.min(minX, x);
+              maxX = Math.max(maxX, x);
+              minY = Math.min(minY, y);
+              maxY = Math.max(maxY, y);
+              break;
+            case '+':
+              heading += angle;
+              break;
+            case '-':
+              heading -= angle;
+              break;
+            case '[':
+              stack.push({x, y, heading});
+              break;
+            case ']':
+              const state = stack.pop();
+              if(state) {
+                x = state.x;
+                y = state.y;
+                heading = state.heading;
+              }
+              break;
+          }
+        }
+        
+        return { minX, maxX, minY, maxY };
+      }
+
+      // Animation effects
+      function animateFractal() {
+        if(isAnimating) {
+          // Subtle rotation animation
+          const centerX = canvas.width / 2;
+          const centerY = canvas.height / 2;
+          
+          ctx.save();
+          ctx.translate(centerX, centerY);
+          ctx.rotate(Math.sin(Date.now() / 1000) * 0.05);
+          ctx.translate(-centerX, -centerY);
+          
+          // Redraw with current settings
+          const axiom = document.getElementById('lsAxiom').value.trim();
+          const rulesStr = document.getElementById('lsRules').value.trim();
+          const angle = parseFloat(document.getElementById('lsAngle').value);
+          const iterations = parseInt(document.getElementById('lsIterations').value);
+          const stepSize = parseInt(document.getElementById('lsStepSize').value);
+          const color = document.getElementById('lsColor').value;
+          
+          const rules = parseRules(rulesStr);
+          drawLSystem(axiom, rules, iterations, angle, stepSize, color);
+          
+          ctx.restore();
+          
+          animationFrameId = requestAnimationFrame(animateFractal);
+        }
       }
 
       window.generateLSystem = function() {
+        isAnimating = false;
+        if(animationFrameId) {
+          cancelAnimationFrame(animationFrameId);
+        }
+        
         const axiom = document.getElementById('lsAxiom').value.trim();
         const rulesStr = document.getElementById('lsRules').value.trim();
         const angle = parseFloat(document.getElementById('lsAngle').value);
@@ -1549,7 +1699,11 @@ What are the main takeaways and recommended next actions?</code>
       };
 
       window.clearLSystem = function() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        isAnimating = false;
+        if(animationFrameId) {
+          cancelAnimationFrame(animationFrameId);
+        }
+        drawBackground();
       };
 
       window.loadLSystemExample = function(type) {
@@ -1595,6 +1749,32 @@ What are the main takeaways and recommended next actions?</code>
           generateLSystem();
         }
       };
+
+      // Add animation toggle button
+      const animationToggle = document.createElement('button');
+      animationToggle.className = 'ls-btn secondary';
+      animationToggle.textContent = 'Toggle Animation';
+      animationToggle.style.marginTop = '16px';
+      animationToggle.style.width = '100%';
+      animationToggle.onclick = function() {
+        isAnimating = !isAnimating;
+        if(isAnimating) {
+          animateFractal();
+          animationToggle.textContent = 'Stop Animation';
+          animationToggle.style.background = 'linear-gradient(135deg, #6366F1, #7c3aed)';
+          animationToggle.style.borderColor = '#6366F1';
+        } else {
+          cancelAnimationFrame(animationFrameId);
+          animationToggle.textContent = 'Start Animation';
+          animationToggle.style.background = 'rgba(255, 255, 255, 0.05)';
+          animationToggle.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+          generateLSystem();
+        }
+      };
+
+      // Add to controls
+      const controls = document.querySelector('.ls-controls');
+      controls.appendChild(animationToggle);
 
       // Initialize with default example
       loadLSystemExample('tree');

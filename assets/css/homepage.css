@@ -1485,11 +1485,26 @@ footer {
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     padding: 80px 20px;
     color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.ls-fractals-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 50%);
+    pointer-events: none;
 }
 
 .ls-header {
     text-align: center;
     margin-bottom: 60px;
+    position: relative;
+    z-index: 2;
 }
 
 .ls-header h2 {
@@ -1515,6 +1530,8 @@ footer {
     gap: 40px;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
 }
 
 .ls-controls {
@@ -1524,6 +1541,15 @@ footer {
     border-radius: 16px;
     padding: 32px;
     height: fit-content;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.ls-controls:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .ls-controls h3 {
@@ -1533,10 +1559,23 @@ footer {
     color: #ffffff;
     border-bottom: 2px solid var(--current-chameleon);
     padding-bottom: 12px;
+    position: relative;
+}
+
+.ls-controls h3::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: var(--current-chameleon);
+    box-shadow: 0 0 10px var(--current-chameleon);
 }
 
 .control-group {
     margin-bottom: 24px;
+    position: relative;
 }
 
 .control-group label {
@@ -1545,19 +1584,22 @@ footer {
     color: #cbd5e1;
     margin-bottom: 8px;
     font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .control-group input[type="text"],
 .control-group input[type="number"],
 .control-group input[type="range"] {
     width: 100%;
-    padding: 10px 12px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.1);
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
     color: white;
     font-size: 1rem;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
+    font-family: 'JetBrains Mono', monospace;
 }
 
 .control-group input[type="text"]:focus,
@@ -1565,13 +1607,9 @@ footer {
 .control-group input[type="range"]:focus {
     outline: none;
     border-color: var(--current-chameleon);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
-}
-
-.control-group .value-display {
-    float: right;
-    color: #94a3b8;
-    font-size: 0.9rem;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2), 0 0 20px rgba(99, 102, 241, 0.3);
+    background: rgba(99, 102, 241, 0.1);
+    transform: translateY(-1px);
 }
 
 .ls-buttons {
@@ -1582,33 +1620,56 @@ footer {
 
 .ls-btn {
     flex: 1;
-    padding: 12px 20px;
-    border-radius: 8px;
+    padding: 14px 20px;
+    border-radius: 12px;
     border: none;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s;
-    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: relative;
+    overflow: hidden;
+}
+
+.ls-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.ls-btn:hover::before {
+    left: 100%;
 }
 
 .ls-btn.primary {
-    background: var(--current-chameleon);
+    background: linear-gradient(135deg, var(--current-chameleon), #7c3aed);
     color: white;
-}
-
-.ls-btn.primary:hover {
-    transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
 }
 
+.ls-btn.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
+}
+
 .ls-btn.secondary {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
     color: white;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .ls-btn.secondary:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--current-chameleon);
+    transform: translateY(-2px);
 }
 
 .ls-canvas-container {
@@ -1621,6 +1682,20 @@ footer {
     flex-direction: column;
     align-items: center;
     min-height: 500px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.ls-canvas-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+    pointer-events: none;
 }
 
 .ls-canvas {
@@ -1628,6 +1703,8 @@ footer {
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 2;
 }
 
 .ls-info {
@@ -1635,6 +1712,7 @@ footer {
     text-align: center;
     color: #94a3b8;
     font-size: 0.9rem;
+    font-style: italic;
 }
 
 .ls-examples {
@@ -1646,6 +1724,8 @@ footer {
     color: #cbd5e1;
     margin-bottom: 16px;
     font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 
 .ls-example-btns {
@@ -1656,19 +1736,24 @@ footer {
 }
 
 .ls-example-btn {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.8rem;
+    padding: 10px 16px;
+    border-radius: 24px;
+    font-size: 0.85rem;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
 }
 
 .ls-example-btn:hover {
-    background: var(--current-chameleon);
+    background: linear-gradient(135deg, var(--current-chameleon), #7c3aed);
     border-color: var(--current-chameleon);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
 }
 
 .ls-loading {
@@ -1679,6 +1764,17 @@ footer {
     color: #94a3b8;
     font-size: 1rem;
     pointer-events: none;
+}
+
+.ls-fractal-title {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    font-size: 0.8rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
 }
 
 @media (max-width: 768px) {
