@@ -134,52 +134,431 @@
   </div>
 
   <!-- START TechAudit Pros Hero Section -->
-  <div class="techaudit-hero-wrapper">
-      <!-- SVG ViewBox set to 16:9 ratio -->
-      <svg id="hero-svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-          
-          <defs>
-              <!-- Gradients -->
-              <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style="stop-color:#0b0d17;stop-opacity:1" />
-                  <stop offset="100%" style="stop-color:#1a1f35;stop-opacity:1" />
-              </linearGradient>
-              
-              <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
-                  <stop offset="100%" style="stop-color:#00f2ff;stop-opacity:1" />
-              </linearGradient>
+<style>
+    /* Hero Container Styles */
+    .techaudit-hero-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100vh; /* Use '600px' for fixed height if needed */
+        background-color: #050510; /* Deep dark base */
+        overflow: hidden;
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
 
-              <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" style="stop-color:#7000ff;stop-opacity:1" />
-                  <stop offset="100%" style="stop-color:#ff0055;stop-opacity:1" />
-              </linearGradient>
-              
-              <!-- Glow Filter -->
-              <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
-                  <feMerge>
-                      <feMergeNode in="coloredBlur"/>
-                      <feMergeNode in="SourceGraphic"/>
-                  </feMerge>
-              </filter>
-          </defs>
+    /* SVG Container */
+    #hero-svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+        filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.5));
+    }
 
-          <!-- Background Base -->
-          <rect width="100%" height="100%" fill="url(#bgGradient)" />
-          
-          <!-- Dynamic Background Layer (Bubbles & Lines) -->
-          <g id="dynamic-bg"></g>
+    /* SVG Text Styling */
+    .hero-text {
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        fill: #ffffff;
+        text-anchor: middle; /* Ensures perfect centering */
+        dominant-baseline: middle;
+        font-weight: 700;
+        pointer-events: none;
+        text-shadow: 0px 2px 4px rgba(0,0,0,0.8); /* Professional shadow */
+    }
 
-          <!-- Main Content Group (Center) -->
-          <g id="slide-container" transform="translate(800, 450)"></g>
-          
-          <!-- Bottom Decorative Line -->
-          <path d="M 500 850 L 1100 850" stroke="url(#accentGradient)" stroke-width="2" stroke-linecap="round" opacity="0.5" />
-          <text x="800" y="870" text-anchor="middle" class="hero-subtext">Technology • Audit • Growth</text>
+    /* 
+       BACKGROUND LAYERS
+    */
+    .bg-orb {
+        mix-blend-mode: screen; 
+        opacity: 0.5; /* Slightly dimmed so text pops */
+    }
+    
+    .bg-grid {
+        opacity: 0.1; /* Subtle grid */
+    }
+    
+    .bg-particle {
+        fill: #ffffff;
+        mix-blend-mode: screen;
+        opacity: 0.3;
+    }
+    
+    .conn-line {
+        stroke: #ffffff;
+        stroke-width: 0.5;
+        opacity: 0.2;
+    }
 
-      </svg>
-  </div>
+    /* Keyframes */
+    @keyframes floatOrb1 {
+        0% { transform: translate(0, 0); }
+        50% { transform: translate(60px, -40px); }
+        100% { transform: translate(-40px, 40px); }
+    }
+    @keyframes floatOrb2 {
+        0% { transform: translate(0, 0); }
+        50% { transform: translate(-70px, 60px); }
+        100% { transform: translate(30px, -30px); }
+    }
+    @keyframes gridMove {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(50px); }
+    }
+
+    /* Helper for the bottom text */
+    .hero-subtext {
+        font-size: 14px;
+        letter-spacing: 4px;
+        fill: #ffffff;
+        opacity: 0.5;
+        text-transform: uppercase;
+    }
+</style>
+
+<div class="techaudit-hero-wrapper">
+    <!-- SVG ViewBox set to 16:9 ratio -->
+    <svg id="hero-svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        
+        <defs>
+            <!-- Filter for Background -->
+            <filter id="heavyBlur">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="100" />
+            </filter>
+            
+            <!-- Gradients for 3D Background (Professional Tones) -->
+            <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                <stop offset="0%" style="stop-color:#2c003e;stop-opacity:1" /> <!-- Deep Purple -->
+                <stop offset="100%" style="stop-color:#2c003e;stop-opacity:0" />
+            </radialGradient>
+            <radialGradient id="grad2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                <stop offset="0%" style="stop-color:#004e92;stop-opacity:1" /> <!-- Deep Blue -->
+                <stop offset="100%" style="stop-color:#004e92;stop-opacity:0" />
+            </radialGradient>
+            <radialGradient id="grad3" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                <stop offset="0%" style="stop-color:#00c7fd;stop-opacity:1" /> <!-- Tech Cyan -->
+                <stop offset="100%" style="stop-color:#00c7fd;stop-opacity:0" />
+            </radialGradient>
+
+            <!-- Grid Pattern -->
+            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="0.5"/>
+            </pattern>
+
+            <!-- Text Gradient (Subtle for the Logo) -->
+            <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#004e92;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#00c7fd;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+
+        <!-- BACKGROUND LAYER 1: 3D Moving Colors -->
+        <g id="color-bg" filter="url(#heavyBlur)">
+            <circle cx="800" cy="450" r="400" fill="url(#grad1)" class="bg-orb" style="animation: floatOrb1 20s infinite alternate;" />
+            <circle cx="200" cy="800" r="450" fill="url(#grad2)" class="bg-orb" style="animation: floatOrb2 25s infinite alternate-reverse;" />
+            <circle cx="1400" cy="100" r="350" fill="url(#grad3)" class="bg-orb" style="animation: floatOrb1 18s infinite alternate;" />
+        </g>
+
+        <!-- BACKGROUND LAYER 2: Grid -->
+        <g class="bg-grid" style="animation: gridMove 20s linear infinite;">
+            <rect width="100%" height="100%" fill="url(#grid)" />
+        </g>
+
+        <!-- BACKGROUND LAYER 3: Particles -->
+        <g id="dynamic-particles"></g>
+
+        <!-- FOREGROUND: Main Content Group -->
+        <g id="slide-container" transform="translate(800, 450)"></g>
+        
+        <!-- Bottom Decorative Line -->
+        <path d="M 500 850 L 1100 850" stroke="url(#accentGradient)" stroke-width="2" stroke-linecap="round" opacity="0.8" />
+        <text x="800" y="870" text-anchor="middle" class="hero-subtext">Technology • Audit • Growth</text>
+
+    </svg>
+</div>
+
+<script>
+    /**
+     * PROFESSIONAL COLOR LOGIC
+     * Words are White by default.
+     * Important Keywords are Tech Blue.
+     */
+    const professionalAccentColor = "#00C7FD"; // International Tech Blue
+    const professionalWhite = "#FFFFFF";
+    
+    // Keywords to highlight (Brand, Services, Results)
+    const keywords = ["TechAudit", "Pros", "Sales", "SEO", "Service", "Audit", "Optimization", "Security", "Speed", "Digital"];
+
+    /**
+     * CONFIGURATION
+     */
+    const slides = [
+        {
+            id: 0,
+            lines: [
+                { text: "TechAudit Pros", size: 100, offset: 0, fontWeight: 900, isBrand: true }
+            ],
+            duration: 3500 
+        },
+        {
+            id: 1,
+            lines: [
+                { text: "Digital Marketing", size: 60, offset: -40 },
+                { text: "for your website", size: 40, offset: 30 },
+                { text: "Grow your sales with TechAuditPros", size: 30, offset: 80, italic: true }
+            ],
+            duration: 5000
+        },
+        {
+            id: 2,
+            lines: [
+                { text: "SEO Service", size: 70, offset: -30 },
+                { text: "for your website", size: 50, offset: 40 }
+            ],
+            duration: 4000
+        },
+        {
+            id: 3,
+            type: "certifications", 
+            title: "We are certified with",
+            items: ["Google Analytics", "Google Ads", "Semrush"], 
+            duration: 5000
+        },
+        {
+            id: 4,
+            lines: [
+                { text: "Website Creation", size: 60, offset: -30 },
+                { text: "Social Media Posting", size: 60, offset: 40 }
+            ],
+            duration: 4000
+        },
+        {
+            id: 5,
+            lines: [
+                { text: "We Fix Your Sites", size: 70, offset: 0 },
+                { text: "Optimization • Speed • Security", size: 25, offset: 70, opacity: 0.8 }
+            ],
+            duration: 4000
+        },
+        {
+            id: 6,
+            lines: [
+                { text: "On-Page SEO", size: 50, offset: -50 },
+                { text: "Off-Page SEO", size: 50, offset: 0 },
+                { text: "Technical SEO", size: 50, offset: 50 }
+            ],
+            duration: 5000
+        },
+        {
+            id: 7,
+            lines: [
+                { text: "Your Digital All-In-One", size: 50, offset: -30 },
+                { text: "Marketing Platform", size: 50, offset: 20 },
+                { text: "TechAudit Pros", size: 80, offset: 90, fontWeight: 900, isBrand: true }
+            ],
+            duration: 5000
+        }
+    ];
+
+    const container = document.getElementById('slide-container');
+    const particleContainer = document.getElementById('dynamic-particles');
+    
+    /**
+     * PARTICLE NETWORK ENGINE
+     */
+    function initParticles() {
+        const nodeCount = 15; 
+        const nodes = [];
+        const width = 1600;
+        const height = 900;
+
+        for(let i=0; i<nodeCount; i++) {
+            const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            const x = Math.random() * width;
+            const y = Math.random() * height;
+            const r = Math.random() * 2 + 2; 
+            
+            circle.setAttribute("cx", x);
+            circle.setAttribute("cy", y);
+            circle.setAttribute("r", r);
+            circle.setAttribute("class", "bg-particle");
+            
+            const node = {
+                el: circle,
+                x: x,
+                y: y,
+                vx: (Math.random() - 0.5) * 1.5, 
+                vy: (Math.random() - 0.5) * 1.5
+            };
+            
+            particleContainer.appendChild(circle);
+            nodes.push(node);
+        }
+
+        const linesGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        particleContainer.appendChild(linesGroup);
+
+        function animate() {
+            while (linesGroup.firstChild) {
+                linesGroup.removeChild(linesGroup.firstChild);
+            }
+
+            nodes.forEach((node, i) => {
+                node.x += node.vx;
+                node.y += node.vy;
+
+                if(node.x < 0 || node.x > width) node.vx *= -1;
+                if(node.y < 0 || node.y > height) node.vy *= -1;
+
+                node.el.setAttribute("cx", node.x);
+                node.el.setAttribute("cy", node.y);
+
+                for(let j=i+1; j<nodes.length; j++) {
+                    const other = nodes[j];
+                    const dx = node.x - other.x;
+                    const dy = node.y - other.y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+
+                    if(dist < 200) { 
+                        const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                        line.setAttribute("x1", node.x);
+                        line.setAttribute("y1", node.y);
+                        line.setAttribute("x2", other.x);
+                        line.setAttribute("y2", other.y);
+                        line.setAttribute("class", "conn-line");
+                        line.style.opacity = (1 - (dist / 200)) * 0.4; 
+                        linesGroup.appendChild(line);
+                    }
+                }
+            });
+
+            requestAnimationFrame(animate);
+        }
+        
+        animate();
+    }
+
+    /**
+     * TEXT RENDERING ENGINE (Professional Colors)
+     */
+    async function renderTextSlide(slide) {
+        const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        container.appendChild(group);
+
+        // Process each line of text
+        slide.lines.forEach((line) => {
+            const words = line.text.split(" ");
+            
+            // Create ONE text element per line
+            const textEl = document.createElementNS("http://www.w3.org/2000/svg", "text");
+            textEl.setAttribute("x", 0); // Center X
+            textEl.setAttribute("y", line.offset);
+            textEl.setAttribute("class", "hero-text");
+            textEl.style.fontSize = line.size + "px";
+            textEl.style.fontWeight = line.fontWeight || 700;
+            textEl.style.fontStyle = line.italic ? "italic" : "normal";
+            if (line.opacity) textEl.style.opacity = line.opacity;
+            
+            // Special handling for Brand Name Gradient
+            if (line.isBrand) {
+                 textEl.style.fill = "url(#accentGradient)";
+            }
+            
+            // For each word in the line, create a tspan
+            words.forEach((word, i) => {
+                const tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+                
+                // Determine Color
+                let fill = professionalWhite;
+                
+                // Check if word is a keyword AND line is not a brand gradient
+                if (!line.isBrand) {
+                    if (keywords.some(kw => word.toLowerCase().includes(kw.toLowerCase()))) {
+                        fill = professionalAccentColor;
+                    }
+                }
+
+                tspan.style.fill = fill;
+                tspan.textContent = (i > 0 ? " " : "") + word;
+                
+                // Initial state: Hidden
+                tspan.style.opacity = "0";
+                tspan.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+                
+                textEl.appendChild(tspan);
+
+                // Staggered Animation
+                setTimeout(() => {
+                    tspan.style.opacity = "1";
+                    tspan.setAttribute("dy", "0"); 
+                }, i * 200);
+            });
+
+            group.appendChild(textEl);
+        });
+    }
+
+    async function renderCertificationSlide(slide) {
+        const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        container.appendChild(group);
+
+        const title = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        title.textContent = slide.title;
+        title.setAttribute("x", 0);
+        title.setAttribute("y", -100);
+        title.setAttribute("text-anchor", "middle");
+        title.setAttribute("class", "hero-text");
+        title.style.fontSize = "40px";
+        title.style.fill = "#ffffff";
+        title.style.opacity = "0";
+        title.style.transition = "opacity 0.5s";
+        group.appendChild(title);
+        
+        setTimeout(() => title.style.opacity = "1", 100);
+
+        const startY = -20;
+        const gap = 70;
+        
+        slide.items.forEach((item, i) => {
+            const y = startY + (i * gap);
+            
+            const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+            rect.setAttribute("x", -150);
+            rect.setAttribute("y", y - 20);
+            rect.setAttribute("width", 300);
+            rect.setAttribute("height", 40);
+            rect.setAttribute("rx", 20);
+            rect.setAttribute("fill", "rgba(255,255,255,0.1)");
+            rect.setAttribute("stroke", "url(#accentGradient)");
+            rect.setAttribute("stroke-width", "2");
+            rect.style.opacity = "0";
+            rect.style.transition = "opacity 0.5s";
+            group.appendChild(rect);
+
+            const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+            text.textContent = item;
+            text.setAttribute("x", 0);
+            text.setAttribute("y", y + 8);
+            text.setAttribute("text-anchor", "middle");
+            text.setAttribute("class", "hero-text");
+            text.style.fontSize = "20px";
+            text.style.fontWeight = "bold";
+            text.style.fill = "#fff";
+            text.style.opacity = "0";
+            text.style.transition = "opacity 0.5s";
+            group.appendChild(text);
+
+            setTimeout(() => {
+                rect.style.opacity = "1";
+                text.style.opacity = "1";
+            }, 600 + (i * 300));
+        });
+    }
+
+    // Initialize
+    initParticles();
+    runPresentation();
+
+</script>
+<!-- END TechAudit Pros Hero Section -->
   <!-- END TechAudit Pros Hero Section -->
 
   <!-- Storytelling: The Global Story (white, international look) -->
@@ -1311,298 +1690,6 @@ What are the main takeaways and recommended next actions?</code>
       nav.classList.toggle('active');
     }
 
-    /**
-     * CONFIGURATION
-     */
-    const slides = [
-        {
-            id: 0,
-            lines: [
-                { text: "TechAudit Pros", size: 140, color: "url(#textGradient)", offset: 0, fontWeight: 900 }
-            ],
-            duration: 3500 // Short intro
-        },
-        {
-            id: 1,
-            lines: [
-                { text: "Digital Marketing", size: 90, color: "url(#textGradient)", offset: -70, fontWeight: 700 },
-                { text: "for your website", size: 55, color: "#ffffff", offset: 20 },
-                { text: "Grow your sales with TechAuditPros", size: 40, color: "#00f2ff", offset: 100, italic: true }
-            ],
-            duration: 5000
-        },
-        {
-            id: 2,
-            lines: [
-                { text: "SEO Service", size: 110, color: "#ffffff", offset: -60, fontWeight: 700 },
-                { text: "for your website", size: 70, color: "url(#accentGradient)", offset: 60 }
-            ],
-            duration: 4000
-        },
-        {
-            id: 3,
-            type: "certifications", 
-            title: "We are certified with",
-            items: ["Google Analytics", "Google Ads", "Semrush"], // HubSpot removed
-            duration: 5000
-        },
-        {
-            id: 4,
-            lines: [
-                { text: "Website Creation", size: 90, color: "#ffffff", offset: -60, fontWeight: 700 },
-                { text: "Social Media Posting", size: 90, color: "#ffffff", offset: 60, fontWeight: 700 }
-            ],
-            duration: 4000
-        },
-        {
-            id: 5,
-            lines: [
-                { text: "We Fix Your Sites", size: 110, color: "url(#accentGradient)", offset: -30, fontWeight: 700 },
-                { text: "Optimization • Speed • Security", size: 40, color: "#ffffff", offset: 80, opacity: 0.8 }
-            ],
-            duration: 4000
-        },
-        {
-            id: 6,
-            lines: [
-                { text: "On-Page SEO", size: 80, color: "#ffffff", offset: -90, fontWeight: 700 },
-                { text: "Off-Page SEO", size: 80, color: "#ffffff", offset: 0, fontWeight: 700 },
-                { text: "Technical SEO", size: 80, color: "#00f2ff", offset: 90, fontWeight: 700 }
-            ],
-            duration: 5000
-        },
-        {
-            id: 7,
-            lines: [
-                { text: "Your Digital All-In-One", size: 70, color: "#ffffff", offset: -70 },
-                { text: "Marketing Platform", size: 70, color: "#ffffff", offset: 20 },
-                { text: "TechAudit Pros", size: 120, color: "url(#textGradient)", offset: 130, fontWeight: 900 }
-            ],
-            duration: 5000
-        }
-    ];
-
-    const container = document.getElementById('slide-container');
-    const bgContainer = document.getElementById('dynamic-bg');
-    
-    /**
-     * BACKGROUND ANIMATION ENGINE (Bubbles/Nodes)
-     * Creates moving circles and connecting lines
-     */
-    function initBackground() {
-        const nodeCount = 15; // Number of bubbles
-        const nodes = [];
-        const width = 1600;
-        const height = 900;
-
-        // Create SVG Elements
-        for(let i=0; i<nodeCount; i++) {
-            const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-            const x = Math.random() * width;
-            const y = Math.random() * height;
-            const r = Math.random() * 10 + 5; // Radius between 5 and 15
-            
-            circle.setAttribute("cx", x);
-            circle.setAttribute("cy", y);
-            circle.setAttribute("r", r);
-            circle.setAttribute("fill", Math.random() > 0.5 ? "#7000ff" : "#00f2ff"); // Purple or Cyan
-            circle.setAttribute("class", "bg-bubble");
-            
-            // Random movement speed
-            const node = {
-                el: circle,
-                x: x,
-                y: y,
-                vx: (Math.random() - 0.5) * 1.5,
-                vy: (Math.random() - 0.5) * 1.5,
-                r: r
-            };
-            
-            bgContainer.appendChild(circle);
-            nodes.push(node);
-        }
-
-        // Lines group
-        const linesGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
-        bgContainer.appendChild(linesGroup);
-
-        // Animation Loop
-        function animate() {
-            // Clear previous lines (inefficient but simple for this scope)
-            while (linesGroup.firstChild) {
-                linesGroup.removeChild(linesGroup.firstChild);
-            }
-
-            // Move nodes
-            nodes.forEach((node, i) => {
-                node.x += node.vx;
-                node.y += node.vy;
-
-                // Bounce off walls
-                if(node.x < 0 || node.x > width) node.vx *= -1;
-                if(node.y < 0 || node.y > height) node.vy *= -1;
-
-                // Update SVG
-                node.el.setAttribute("cx", node.x);
-                node.el.setAttribute("cy", node.y);
-
-                // Draw lines to nearby nodes
-                for(let j=i+1; j<nodes.length; j++) {
-                    const other = nodes[j];
-                    const dx = node.x - other.x;
-                    const dy = node.y - other.y;
-                    const dist = Math.sqrt(dx*dx + dy*dy);
-
-                    if(dist < 250) {
-                        const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-                        line.setAttribute("x1", node.x);
-                        line.setAttribute("y1", node.y);
-                        line.setAttribute("x2", other.x);
-                        line.setAttribute("y2", other.y);
-                        line.setAttribute("class", "conn-line");
-                        line.style.opacity = 1 - (dist / 250); // Fade out if far
-                        linesGroup.appendChild(line);
-                    }
-                }
-            });
-
-            requestAnimationFrame(animate);
-        }
-        
-        animate();
-    }
-
-    /**
-     * PRESENTATION LOGIC
-     */
-    async function runPresentation() {
-        let index = 0;
-        while (true) {
-            const slide = slides[index];
-            await playSlide(slide);
-            
-            // Wait before clearing
-            await new Promise(r => setTimeout(r, 1000));
-            
-            index = (index + 1) % slides.length;
-        }
-    }
-
-    async function playSlide(slide) {
-        container.innerHTML = ''; // Clear
-        
-        if (slide.type === 'certifications') {
-            await renderCertificationSlide(slide);
-        } else {
-            await renderTextSlide(slide);
-        }
-
-        await new Promise(r => setTimeout(r, slide.duration));
-    }
-
-    async function renderTextSlide(slide) {
-        const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
-        container.appendChild(group);
-
-        let linePromises = slide.lines.map(async (line) => {
-            const words = line.text.split(" ");
-            
-            // Helper to measure text for centering
-            const ctx = document.createElement("canvas").getContext("2d");
-            ctx.font = `${line.fontWeight || ''} ${line.size}px 'Segoe UI', Roboto, Helvetica, Arial, sans-serif`;
-            
-            let totalWidth = 0;
-            words.forEach(w => totalWidth += ctx.measureText(w + " ").width);
-            let startX = -totalWidth / 2;
-
-            words.forEach((word, i) => {
-                // Measure word + space + small buffer for safety
-                const wWidth = ctx.measureText(word + " ").width;
-                
-                const t = document.createElementNS("http://www.w3.org/2000/svg", "text");
-                t.textContent = word;
-                t.setAttribute("x", startX);
-                t.setAttribute("y", line.offset);
-                t.setAttribute("text-anchor", "start"); // Align text from the start (left)
-                t.setAttribute("class", "hero-text");
-                t.style.fontSize = line.size + "px";
-                if (line.color) t.style.fill = line.color;
-                if (line.fontWeight) t.style.fontWeight = line.fontWeight;
-                if (line.opacity) t.style.opacity = line.opacity;
-                if (line.italic) t.style.fontStyle = "italic";
-                
-                t.style.opacity = "0"; // Start hidden
-                group.appendChild(t);
-
-                // Staggered Animation
-                setTimeout(() => {
-                    t.classList.add('word-animate');
-                }, i * 150);
-
-                startX += wWidth;
-            });
-        });
-
-        await Promise.all(linePromises);
-    }
-
-    async function renderCertificationSlide(slide) {
-        const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
-        container.appendChild(group);
-
-        const title = document.createElementNS("http://www.w3.org/2000/svg", "text");
-        title.textContent = slide.title;
-        title.setAttribute("x", 0);
-        title.setAttribute("y", -150);
-        title.setAttribute("text-anchor", "middle");
-        title.setAttribute("class", "hero-text");
-        title.style.fontSize = "60px";
-        title.style.fill = "#ffffff";
-        group.appendChild(title);
-        
-        setTimeout(() => title.classList.add('word-animate'), 100);
-
-        const startY = -40;
-        const gap = 100;
-        
-        slide.items.forEach((item, i) => {
-            const y = startY + (i * gap);
-            
-            const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-            rect.setAttribute("x", -200);
-            rect.setAttribute("y", y - 30);
-            rect.setAttribute("width", 400);
-            rect.setAttribute("height", 60);
-            rect.setAttribute("rx", 20);
-            rect.setAttribute("fill", "rgba(255,255,255,0.05)");
-            rect.setAttribute("stroke", "url(#accentGradient)");
-            rect.setAttribute("stroke-width", "2");
-            rect.style.opacity = "0";
-            group.appendChild(rect);
-
-            const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-            text.textContent = item;
-            text.setAttribute("x", 0);
-            text.setAttribute("y", y + 8);
-            text.setAttribute("text-anchor", "middle");
-            text.setAttribute("class", "hero-text");
-            text.style.fontSize = "35px";
-            text.style.fontWeight = "bold";
-            text.style.fill = "#fff";
-            text.style.opacity = "0";
-            group.appendChild(text);
-
-            setTimeout(() => {
-                rect.style.transition = "all 0.5s ease";
-                rect.style.opacity = "1";
-                text.classList.add('word-animate');
-            }, 800 + (i * 300));
-        });
-    }
-
-    // Initialize
-    initBackground();
-    runPresentation();
   </script>
 
   <!-- Mobile Floating CTA -->
