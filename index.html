@@ -8,12 +8,12 @@
   <!-- ==================================================
        PAGE TITLE (SEO CRITICAL)
   ================================================== -->
-  <title>TechAuditPros | Website & SEO Audits for Businesses</title>
+  <title>Technical SEO Audit for Businesses | TechAuditPros</title>
 
   <!-- ==================================================
        META DESCRIPTION
   ================================================== -->
-  <meta name="description" content="TechAuditPros helps local service businesses, repair companies, and consultants understand and fix website and SEO issues that stop customers from finding them online.">
+  <meta name="description" content="Technical SEO audits that fix Core Web Vitals, crawl issues, and site structure—so your site ranks and converts. Get a free audit.">
 
   <!-- ==================================================
        GOOGLE SEARCH CONSOLE VERIFICATION
@@ -24,12 +24,22 @@
   <!-- ==================================================
      FAVICON & APP ICONS
   ================================================== -->
-  <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
-  <link rel="icon" href="/assets/favicon-16.png" sizes="16x16" type="image/png">
-  <link rel="icon" href="/assets/favicon-48.png" sizes="48x48" type="image/png">
-  <link rel="icon" href="/assets/favicon-64.png" sizes="64x64" type="image/png">
-  <link rel="icon" href="/assets/logoonly.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/assets/favicon-64.png">
+  <link rel="icon" href="/assets/images/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/assets/images/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="icon" href="/assets/images/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="icon" href="/assets/images/favicon-64.png" sizes="64x64" type="image/png">
+  <link rel="icon" href="/assets/images/logoonly.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/images/favicon-64.png">
+  <link rel="canonical" href="https://techauditpros.com/">
+  <meta property="og:title" content="Technical SEO Audit for Businesses | TechAuditPros">
+  <meta property="og:description" content="Technical SEO audits that fix Core Web Vitals, crawl issues, and structure—so your site ranks and converts. Get a free audit.">
+  <meta property="og:url" content="https://techauditpros.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://techauditpros.com/videos/mainvideos/tech-1-poster.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Technical SEO Audit for Businesses | TechAuditPros">
+  <meta name="twitter:description" content="Technical SEO audits that fix Core Web Vitals, crawl issues, and structure—so your site ranks and converts. Get a free audit.">
+  <meta name="twitter:image" content="https://techauditpros.com/videos/mainvideos/tech-1-poster.jpg">
 
   <!-- Fonts with Display Swap for Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,7 +78,7 @@
   <!-- Main Header Bar -->
   <div class="main-header-bar">
     <div class="container header-container">
-      <a href="#" class="header-logo">
+      <a href="/" class="header-logo">
         <img src="assets/logoonly.svg" alt="TechAuditPros Logo" width="32" height="32">
         <span class="logo-text">TechAuditPros</span>
       </a>
@@ -139,6 +149,31 @@
         <p id="hero-subtitle">Enterprise-Grade Technical SEO Audits for Global Businesses</p>
         <button onclick="openAuditModal()" class="cta-btn" id="cta-btn">Get Free Global Audit</button>
       </div>
+    </div>
+  </section>
+
+  <!-- What’s Included in the Audit (SEO deliverables) -->
+  <section class="audit-includes" aria-labelledby="audit-includes-title">
+    <style>
+      .audit-includes{padding:48px 0;background:#0b1220;color:#e5e7eb}
+      .audit-includes h2{margin:0 0 10px;font-size:clamp(1.4rem,3vw,2rem)}
+      .audit-includes p{color:#9ca3af;margin:0 0 16px}
+      .audit-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;list-style:none;padding:0;margin:18px 0 0}
+      .audit-list li{display:flex;gap:10px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:12px 14px;border-radius:10px}
+      .audit-list .mark{color:#22c55e}
+      @media (max-width:767px){.audit-list{grid-template-columns:1fr}}
+    </style>
+    <div class="container">
+      <h2 id="audit-includes-title">What’s Included in a Technical SEO Audit</h2>
+      <p>Engineering-grade analysis and remediation plan focused on ranking and conversions.</p>
+      <ul class="audit-list">
+        <li><span class="mark">✓</span> Crawl & indexation analysis with log insights</li>
+        <li><span class="mark">✓</span> Core Web Vitals diagnostics and fixes</li>
+        <li><span class="mark">✓</span> Site architecture & internal linking strategy</li>
+        <li><span class="mark">✓</span> Structured data and entity mapping</li>
+        <li><span class="mark">✓</span> Content intent review and on-page opportunities</li>
+        <li><span class="mark">✓</span> Technical debt and render-blocking resources</li>
+      </ul>
     </div>
   </section>
 
@@ -280,6 +315,37 @@
         });
       })();
     </script>
+  </section>
+
+  <!-- FAQ (anchor target for nav/footer internal link) -->
+  <section id="faq" class="faq-section-home" aria-labelledby="faq-title">
+    <style>
+      .faq-section-home{padding:56px 0;background:#0f172a;color:#e5e7eb}
+      .faq-wrap{max-width:900px;margin:0 auto}
+      .faq-section-home h2{margin:0 0 16px;font-size:clamp(1.4rem,3vw,2rem)}
+      .faq{border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden}
+      .faq details{background:rgba(255,255,255,.03)}
+      .faq details+details{border-top:1px solid rgba(255,255,255,.08)}
+      .faq summary{cursor:pointer;padding:16px;font-weight:700}
+      .faq p{padding:0 16px 16px;margin:0;color:#cbd5e1}
+    </style>
+    <div class="container faq-wrap">
+      <h2 id="faq-title">Homepage FAQ</h2>
+      <div class="faq">
+        <details>
+          <summary>What does a Technical SEO Audit include?</summary>
+          <p>We analyze crawl/indexation, Core Web Vitals, structure, schema, and internal linking, then deliver fixes and a prioritized roadmap.</p>
+        </details>
+        <details>
+          <summary>How fast can I see results?</summary>
+          <p>Technical fixes can improve Core Web Vitals and crawl efficiency within weeks, with ranking improvements following as the site is re-crawled.</p>
+        </details>
+        <details>
+          <summary>Do you implement the fixes?</summary>
+          <p>Yes. We can implement changes or work with your dev team. We also provide a verification pass post-deployment.</p>
+        </details>
+      </div>
+    </div>
   </section>
 
   <main>
@@ -782,4 +848,22 @@
   </div>
 
   <script src="//code.tidio.co/xfezpk6hohjsnpxmweufbpcwi7audsru.js" async></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Technical SEO Audit",
+    "description": "Engineering-grade technical SEO audits focused on Core Web Vitals, crawl/indexation, architecture, schema, and internal linking.",
+    "provider": {
+      "@type": "Organization",
+      "name": "TechAuditPros",
+      "url": "https://techauditpros.com/"
+    },
+    "areaServed": {
+      "@type": "Place",
+      "name": "Global"
+    }
+  }
+  </script>
 </body>
