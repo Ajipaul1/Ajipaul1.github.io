@@ -64,144 +64,6 @@
   }
   </script>
   <link rel="stylesheet" href="assets/css/homepage.css">
-  <style>
-    /* International Hero Styles */
-    .intl-hero {
-      position: relative;
-      height: 100vh;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #0f172a;
-      overflow: hidden;
-      text-align: center;
-      padding: 0 20px;
-      transition: background 1s ease;
-    }
-    .intl-bg-layer {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 50% 50%, var(--hero-accent, #6366f1) 0%, transparent 60%),
-                  radial-gradient(circle at 80% 20%, var(--hero-accent-2, #a855f7) 0%, transparent 50%);
-      opacity: 0.2;
-      transition: all 1.5s ease;
-      z-index: 1;
-      filter: blur(80px);
-      animation: pulseBg 10s infinite alternate;
-    }
-    @keyframes pulseBg {
-      0% { transform: scale(1); opacity: 0.2; }
-      100% { transform: scale(1.2); opacity: 0.3; }
-    }
-    .seo-floaters {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      pointer-events: none;
-      overflow: hidden;
-    }
-    .floater {
-      position: absolute;
-      color: rgba(255, 255, 255, 0.05);
-      font-size: clamp(2rem, 5vw, 6rem);
-      animation: floatUp 20s linear infinite;
-      user-select: none;
-    }
-    @keyframes floatUp {
-      0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
-      20% { opacity: 1; }
-      80% { opacity: 1; }
-      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
-    }
-    .intl-bg-grid {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      background-size: 50px 50px;
-      opacity: 0.3;
-      z-index: 0;
-    }
-    .intl-content {
-      position: relative;
-      z-index: 10;
-      max-width: 1200px;
-      width: 100%;
-    }
-    .intl-badge {
-      display: inline-block;
-      padding: 8px 16px;
-      background: rgba(99, 102, 241, 0.1);
-      border: 1px solid rgba(99, 102, 241, 0.3);
-      border-radius: 30px;
-      color: #818cf8;
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 24px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      backdrop-filter: blur(5px);
-    }
-    .intl-text-container {
-      min-height: 200px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 32px;
-    }
-    .hero-word {
-      display: inline-block;
-      opacity: 0;
-      transform: translateY(30px);
-      margin: 0 0.15em;
-      background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-size: clamp(2.5rem, 6vw, 5rem);
-      font-weight: 800;
-      line-height: 1.1;
-      filter: blur(8px);
-      transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-    }
-    .hero-word.visible {
-      opacity: 1;
-      transform: translateY(0);
-      filter: blur(0);
-    }
-    .hero-word.brand-name {
-      background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-size: clamp(3.5rem, 8vw, 6.5rem);
-      text-shadow: 0 10px 40px rgba(99, 102, 241, 0.4);
-    }
-    .intl-cta-container {
-      margin-top: 20px;
-    }
-    .intl-btn {
-      background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
-      color: white;
-      padding: 16px 40px;
-      border-radius: 50px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.4);
-    }
-    .intl-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.5);
-    }
-    @media (max-width: 768px) {
-      .intl-bg-layer { filter: blur(30px); }
-      .floater { display: none; }
-    }
-  </style>
 </head>
 
 <body>
@@ -271,30 +133,54 @@
     </div>
   </div>
 
-  <!-- Dynamic Hero Section: Replaced video with animated SVG headline slider -->
-  <section class="hero-section full-screen-section" id="hero">
-    <div class="intl-hero">
-      <div class="intl-bg-layer"></div>
-      <div class="intl-bg-grid"></div>
-      <div class="seo-floaters">
-        <div class="floater" style="left: 10%; animation-duration: 25s; animation-delay: 0s;">🔍</div>
-        <div class="floater" style="left: 80%; animation-duration: 22s; animation-delay: 5s;">📈</div>
-        <div class="floater" style="left: 30%; animation-duration: 28s; animation-delay: 2s;">⚙️</div>
-        <div class="floater" style="left: 60%; animation-duration: 24s; animation-delay: 8s;">🔗</div>
-        <div class="floater" style="left: 15%; animation-duration: 30s; animation-delay: 12s;">🚀</div>
-        <div class="floater" style="left: 85%; animation-duration: 26s; animation-delay: 15s;">💻</div>
-      </div>
-      <div class="intl-content">
-        <div class="intl-badge">Global Digital Partner</div>
-        <div class="intl-text-container" id="text-rotator">
-          <span class="hero-word visible brand-name">TechAuditPros</span>
-        </div>
-        <div class="intl-cta-container">
-          <button onclick="openAuditModal()" class="intl-btn">Get Free Audit</button>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- START TechAudit Pros Hero Section -->
+  <div class="techaudit-hero-wrapper">
+      <!-- SVG ViewBox set to 16:9 ratio -->
+      <svg id="hero-svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          
+          <defs>
+              <!-- Gradients -->
+              <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#0b0d17;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#1a1f35;stop-opacity:1" />
+              </linearGradient>
+              
+              <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#00f2ff;stop-opacity:1" />
+              </linearGradient>
+
+              <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" style="stop-color:#7000ff;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#ff0055;stop-opacity:1" />
+              </linearGradient>
+              
+              <!-- Glow Filter -->
+              <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                  <feMerge>
+                      <feMergeNode in="coloredBlur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+              </filter>
+          </defs>
+
+          <!-- Background Base -->
+          <rect width="100%" height="100%" fill="url(#bgGradient)" />
+          
+          <!-- Dynamic Background Layer (Bubbles & Lines) -->
+          <g id="dynamic-bg"></g>
+
+          <!-- Main Content Group (Center) -->
+          <g id="slide-container" transform="translate(800, 450)"></g>
+          
+          <!-- Bottom Decorative Line -->
+          <path d="M 500 850 L 1100 850" stroke="url(#accentGradient)" stroke-width="2" stroke-linecap="round" opacity="0.5" />
+          <text x="800" y="870" text-anchor="middle" class="hero-subtext">Technology • Audit • Growth</text>
+
+      </svg>
+  </div>
+  <!-- END TechAudit Pros Hero Section -->
 
   <!-- Storytelling: The Global Story (white, international look) -->
   <section id="story" class="global-story" aria-labelledby="story-title">
@@ -1425,67 +1311,296 @@ What are the main takeaways and recommended next actions?</code>
       nav.classList.toggle('active');
     }
 
-    // Animated SVG headline slider (replaces video autoplay logic)
-    document.addEventListener('DOMContentLoaded', () => {
-      const slides = [
-        { text: "TechAuditPros", color1: "#6366f1", color2: "#ec4899", isBrand: true },
-        { text: "Digital marketing for your website", color1: "#3b82f6", color2: "#10b981" },
-        { text: "Grow your sales and improve your website", color1: "#f59e0b", color2: "#ef4444" },
-        { text: "SEO services for your website", color1: "#8b5cf6", color2: "#6366f1" },
-        { text: "Certified in Google Analytics Google Ads Semrush", color1: "#0ea5e9", color2: "#3b82f6" },
-        { text: "Web Audits • Website Creation • Social Media Posting", color1: "#ec4899", color2: "#f43f5e" },
-        { text: "We fix your sites", color1: "#10b981", color2: "#14b8a6" },
-        { text: "On‑page SEO • Off‑page SEO • Technical SEO", color1: "#f97316", color2: "#db2777" },
-        { text: "Your all‑in‑one digital marketing platform", color1: "#6366f1", color2: "#8b5cf6" }
-      ];
+    /**
+     * CONFIGURATION
+     */
+    const slides = [
+        {
+            id: 0,
+            lines: [
+                { text: "TechAudit Pros", size: 100, color: "url(#textGradient)", offset: 0, fontWeight: 900 }
+            ],
+            duration: 3500 // Short intro
+        },
+        {
+            id: 1,
+            lines: [
+                { text: "Digital Marketing", size: 60, color: "url(#textGradient)", offset: -40 },
+                { text: "for your website", size: 40, color: "#ffffff", offset: 30 },
+                { text: "Grow your sales with TechAuditPros", size: 30, color: "#00f2ff", offset: 80, italic: true }
+            ],
+            duration: 5000
+        },
+        {
+            id: 2,
+            lines: [
+                { text: "SEO Service", size: 70, color: "#ffffff", offset: -30 },
+                { text: "for your website", size: 50, color: "url(#accentGradient)", offset: 40 }
+            ],
+            duration: 4000
+        },
+        {
+            id: 3,
+            type: "certifications", 
+            title: "We are certified with",
+            items: ["Google Analytics", "Google Ads", "Semrush"], // HubSpot removed
+            duration: 5000
+        },
+        {
+            id: 4,
+            lines: [
+                { text: "Website Creation", size: 60, color: "#ffffff", offset: -30 },
+                { text: "Social Media Posting", size: 60, color: "#ffffff", offset: 40 }
+            ],
+            duration: 4000
+        },
+        {
+            id: 5,
+            lines: [
+                { text: "We Fix Your Sites", size: 70, color: "url(#accentGradient)", offset: 0 },
+                { text: "Optimization • Speed • Security", size: 25, color: "#ffffff", offset: 70, opacity: 0.8 }
+            ],
+            duration: 4000
+        },
+        {
+            id: 6,
+            lines: [
+                { text: "On-Page SEO", size: 50, color: "#ffffff", offset: -50 },
+                { text: "Off-Page SEO", size: 50, color: "#ffffff", offset: 0 },
+                { text: "Technical SEO", size: 50, color: "#00f2ff", offset: 50 }
+            ],
+            duration: 5000
+        },
+        {
+            id: 7,
+            lines: [
+                { text: "Your Digital All-In-One", size: 50, color: "#ffffff", offset: -30 },
+                { text: "Marketing Platform", size: 50, color: "#ffffff", offset: 20 },
+                { text: "TechAudit Pros", size: 80, color: "url(#textGradient)", offset: 90, fontWeight: 900 }
+            ],
+            duration: 5000
+        }
+    ];
 
-      const container = document.getElementById('text-rotator');
-      const hero = document.querySelector('.intl-hero');
-      
-      // Set initial colors for the hardcoded first slide
-      hero.style.setProperty('--hero-accent', slides[0].color1);
-      hero.style.setProperty('--hero-accent-2', slides[0].color2);
-      let i = 1;
+    const container = document.getElementById('slide-container');
+    const bgContainer = document.getElementById('dynamic-bg');
+    
+    /**
+     * BACKGROUND ANIMATION ENGINE (Bubbles/Nodes)
+     * Creates moving circles and connecting lines
+     */
+    function initBackground() {
+        const nodeCount = 15; // Number of bubbles
+        const nodes = [];
+        const width = 1600;
+        const height = 900;
 
-      const showNext = () => {
-        const slide = slides[i];
+        // Create SVG Elements
+        for(let i=0; i<nodeCount; i++) {
+            const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            const x = Math.random() * width;
+            const y = Math.random() * height;
+            const r = Math.random() * 10 + 5; // Radius between 5 and 15
+            
+            circle.setAttribute("cx", x);
+            circle.setAttribute("cy", y);
+            circle.setAttribute("r", r);
+            circle.setAttribute("fill", Math.random() > 0.5 ? "#7000ff" : "#00f2ff"); // Purple or Cyan
+            circle.setAttribute("class", "bg-bubble");
+            
+            // Random movement speed
+            const node = {
+                el: circle,
+                x: x,
+                y: y,
+                vx: (Math.random() - 0.5) * 1.5,
+                vy: (Math.random() - 0.5) * 1.5,
+                r: r
+            };
+            
+            bgContainer.appendChild(circle);
+            nodes.push(node);
+        }
+
+        // Lines group
+        const linesGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        bgContainer.appendChild(linesGroup);
+
+        // Animation Loop
+        function animate() {
+            // Clear previous lines (inefficient but simple for this scope)
+            while (linesGroup.firstChild) {
+                linesGroup.removeChild(linesGroup.firstChild);
+            }
+
+            // Move nodes
+            nodes.forEach((node, i) => {
+                node.x += node.vx;
+                node.y += node.vy;
+
+                // Bounce off walls
+                if(node.x < 0 || node.x > width) node.vx *= -1;
+                if(node.y < 0 || node.y > height) node.vy *= -1;
+
+                // Update SVG
+                node.el.setAttribute("cx", node.x);
+                node.el.setAttribute("cy", node.y);
+
+                // Draw lines to nearby nodes
+                for(let j=i+1; j<nodes.length; j++) {
+                    const other = nodes[j];
+                    const dx = node.x - other.x;
+                    const dy = node.y - other.y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+
+                    if(dist < 250) {
+                        const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                        line.setAttribute("x1", node.x);
+                        line.setAttribute("y1", node.y);
+                        line.setAttribute("x2", other.x);
+                        line.setAttribute("y2", other.y);
+                        line.setAttribute("class", "conn-line");
+                        line.style.opacity = 1 - (dist / 250); // Fade out if far
+                        linesGroup.appendChild(line);
+                    }
+                }
+            });
+
+            requestAnimationFrame(animate);
+        }
         
-        // Update background colors
-        hero.style.setProperty('--hero-accent', slide.color1);
-        hero.style.setProperty('--hero-accent-2', slide.color2);
+        animate();
+    }
 
-        // Clear container
-        container.innerHTML = '';
+    /**
+     * PRESENTATION LOGIC
+     */
+    async function runPresentation() {
+        let index = 0;
+        while (true) {
+            const slide = slides[index];
+            await playSlide(slide);
+            
+            // Wait before clearing
+            await new Promise(r => setTimeout(r, 1000));
+            
+            index = (index + 1) % slides.length;
+        }
+    }
 
-        // Create word elements
-        const words = slide.text.split(' ');
-        const wordElements = [];
+    async function playSlide(slide) {
+        container.innerHTML = ''; // Clear
+        
+        if (slide.type === 'certifications') {
+            await renderCertificationSlide(slide);
+        } else {
+            await renderTextSlide(slide);
+        }
 
-        words.forEach((word, index) => {
-          const span = document.createElement('span');
-          span.textContent = word;
-          span.className = 'hero-word';
-          if (slide.isBrand) span.classList.add('brand-name');
-          container.appendChild(span);
-          wordElements.push(span);
+        await new Promise(r => setTimeout(r, slide.duration));
+    }
+
+    async function renderTextSlide(slide) {
+        const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        container.appendChild(group);
+
+        let linePromises = slide.lines.map(async (line) => {
+            const words = line.text.split(" ");
+            
+            // Helper to measure text for centering
+            const ctx = document.createElement("canvas").getContext("2d");
+            ctx.font = `${line.fontWeight || ''} ${line.size}px Segoe UI, Roboto, sans-serif`;
+            
+            let totalWidth = 0;
+            words.forEach(w => totalWidth += ctx.measureText(w + " ").width);
+            let startX = -totalWidth / 2;
+
+            words.forEach((word, i) => {
+                const wWidth = ctx.measureText(word + " ").width;
+                
+                const t = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                t.textContent = word + " ";
+                t.setAttribute("x", startX);
+                t.setAttribute("y", line.offset);
+                t.setAttribute("class", "hero-text");
+                t.style.fontSize = line.size + "px";
+                if (line.color) t.style.fill = line.color;
+                if (line.fontWeight) t.style.fontWeight = line.fontWeight;
+                if (line.opacity) t.style.opacity = line.opacity;
+                if (line.italic) t.style.fontStyle = "italic";
+                
+                t.style.opacity = "0"; // Start hidden
+                group.appendChild(t);
+
+                // Staggered Animation
+                setTimeout(() => {
+                    t.classList.add('word-animate');
+                }, i * 150);
+
+                startX += wWidth;
+            });
         });
 
-        // Animate words in sequence
-        wordElements.forEach((el, idx) => {
-          setTimeout(() => {
-            el.classList.add('visible');
-          }, idx * 150); // 150ms delay per word
+        await Promise.all(linePromises);
+    }
+
+    async function renderCertificationSlide(slide) {
+        const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        container.appendChild(group);
+
+        const title = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        title.textContent = slide.title;
+        title.setAttribute("x", 0);
+        title.setAttribute("y", -100);
+        title.setAttribute("text-anchor", "middle");
+        title.setAttribute("class", "hero-text");
+        title.style.fontSize = "40px";
+        title.style.fill = "#ffffff";
+        group.appendChild(title);
+        
+        setTimeout(() => title.classList.add('word-animate'), 100);
+
+        const startY = -20;
+        const gap = 70;
+        
+        slide.items.forEach((item, i) => {
+            const y = startY + (i * gap);
+            
+            const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+            rect.setAttribute("x", -150);
+            rect.setAttribute("y", y - 20);
+            rect.setAttribute("width", 300);
+            rect.setAttribute("height", 40);
+            rect.setAttribute("rx", 20);
+            rect.setAttribute("fill", "rgba(255,255,255,0.05)");
+            rect.setAttribute("stroke", "url(#accentGradient)");
+            rect.setAttribute("stroke-width", "2");
+            rect.style.opacity = "0";
+            group.appendChild(rect);
+
+            const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+            text.textContent = item;
+            text.setAttribute("x", 0);
+            text.setAttribute("y", y + 8);
+            text.setAttribute("text-anchor", "middle");
+            text.setAttribute("class", "hero-text");
+            text.style.fontSize = "20px";
+            text.style.fontWeight = "bold";
+            text.style.fill = "#fff";
+            text.style.opacity = "0";
+            group.appendChild(text);
+
+            setTimeout(() => {
+                rect.style.transition = "all 0.5s ease";
+                rect.style.opacity = "1";
+                text.classList.add('word-animate');
+            }, 800 + (i * 300));
         });
+    }
 
-        // Calculate duration based on word count (min 3s, max 6s)
-        const duration = Math.max(3000, words.length * 400 + 2000);
-
-        i = (i + 1) % slides.length;
-        setTimeout(showNext, duration);
-      };
-
-      setTimeout(showNext, 3500);
-    });
+    // Initialize
+    initBackground();
+    runPresentation();
   </script>
 
   <!-- Mobile Floating CTA -->

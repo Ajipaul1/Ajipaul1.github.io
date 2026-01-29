@@ -1804,3 +1804,81 @@ footer {
         align-items: center;
     }
 }
+
+/* START TechAudit Pros Hero Section Styles */
+/* Hero Container Styles - Scoped to avoid conflicts with your site */
+.techaudit-hero-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background-color: #0b0d17;
+    overflow: hidden;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* SVG Container */
+#hero-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.2));
+}
+
+/* SVG Text Styling */
+.hero-text {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    fill: #ffffff;
+    text-anchor: middle;
+    dominant-baseline: middle;
+    opacity: 0;
+    font-weight: 700;
+    pointer-events: none; /* Let clicks pass through */
+}
+
+/* Animation Classes */
+.word-animate {
+    animation: textReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.fade-out {
+    animation: textFadeOut 0.5s ease-out forwards;
+}
+
+/* Background "Bumble/Bubble" Animation */
+.bg-bubble {
+    opacity: 0.6;
+    mix-blend-mode: screen;
+}
+
+.conn-line {
+    stroke: #00f2ff;
+    stroke-width: 0.5;
+    opacity: 0.3;
+}
+
+/* Keyframes */
+@keyframes textReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes textFadeOut {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.1); }
+}
+
+/* Helper for the bottom text */
+.hero-subtext {
+    font-size: 14px;
+    letter-spacing: 4px;
+    fill: #ffffff;
+    opacity: 0.5;
+    text-transform: uppercase;
+}
+/* END TechAudit Pros Hero Section Styles */
