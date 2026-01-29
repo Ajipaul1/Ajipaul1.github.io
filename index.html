@@ -454,45 +454,41 @@
             textEl.setAttribute("x", 0); // Center X
             textEl.setAttribute("y", line.offset);
             textEl.setAttribute("class", "hero-text");
+            textEl.setAttribute("text-anchor", "middle");
+            textEl.setAttribute("dominant-baseline", "middle");
             textEl.style.fontSize = line.size + "px";
             textEl.style.fontWeight = line.fontWeight || 700;
             textEl.style.fontStyle = line.italic ? "italic" : "normal";
             textEl.style.opacity = line.opacity || "1";
-            
-            // Special handling for Brand Name Gradient
-            if (line.isBrand) {
-                 textEl.style.fill = "url(#accentGradient)";
-            }
             
             // For each word in the line, create a tspan
             words.forEach((word, i) => {
                 const tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
                 
                 // Determine Color
-                let fill = null;
+                let fill = professionalWhite;
                 
-                // Check if word is a keyword AND line is not a brand gradient
-                if (!line.isBrand) {
-                    fill = professionalWhite;
+                if (line.isBrand) {
+                    fill = "url(#accentGradient)";
+                } else {
                     if (keywords.some(kw => word.toLowerCase().includes(kw.toLowerCase()))) {
                         fill = professionalAccentColor;
                     }
                 }
 
-                if (fill) tspan.style.fill = fill;
+                tspan.style.fill = fill;
                 tspan.textContent = (i > 0 ? " " : "") + word;
                 
                 // Initial state: Hidden
                 tspan.style.opacity = "0";
-                tspan.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+                tspan.style.transition = "opacity 0.5s ease";
                 
                 textEl.appendChild(tspan);
 
                 // Staggered Animation
                 setTimeout(() => {
                     tspan.style.opacity = "1";
-                    tspan.setAttribute("dy", "0"); 
-                }, i * 200);
+                }, i * 200 + 100);
             });
 
             group.appendChild(textEl);
