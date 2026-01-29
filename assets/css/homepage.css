@@ -1365,6 +1365,131 @@ footer {
     }
 }
 
+/* Founder Welcome Section */
+.founder-welcome {
+    background: #ffffff;
+    padding: 80px 0;
+    color: #1f2937;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.founder-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.founder-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.founder-header h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+}
+
+.founder-header .subtitle {
+    font-size: 1.25rem;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.founder-content {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #374151;
+}
+
+.founder-content p {
+    margin-bottom: 24px;
+}
+
+.founder-content strong {
+    color: #111827;
+    font-weight: 600;
+}
+
+.founder-list {
+    background: #f9fafb;
+    border-radius: 12px;
+    padding: 32px;
+    margin: 32px 0;
+    border: 1px solid #e5e7eb;
+}
+
+.founder-list h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #111827;
+}
+
+.founder-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.founder-list li {
+    position: relative;
+    padding-left: 32px;
+    margin-bottom: 16px;
+}
+
+.founder-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--current-chameleon);
+    font-weight: bold;
+}
+
+.founder-signature {
+    margin-top: 40px;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 32px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.founder-avatar {
+    width: 80px;
+    height: 80px;
+    background: #f3f4f6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--current-chameleon);
+    border: 2px solid #e5e7eb;
+}
+
+.founder-info h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 4px;
+}
+
+.founder-info p {
+    color: #6b7280;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.founder-cta {
+    text-align: center;
+    margin-top: 40px;
+}
+
 /* Certificates Section */
 .certificates-section {
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
