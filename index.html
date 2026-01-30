@@ -18,8 +18,8 @@
   <!-- ==================================================
        GOOGLE SEARCH CONSOLE VERIFICATION
   ================================================== -->
-  <meta name="google-site-verification" content="nKm7MzLndhPXbTGfdIvEyhdbTuWd1fgOMhpKg3GPozM" />
-  <meta name="msvalidate.01" content="3A8272AC48E8C31CE4657BB9F708DB69" />
+  <meta name="google-site-verification" content="nKm7MzLndhPXbTGfdIvEyhdbTuWd1fgOMhpKg3GPozM">
+  <meta name="msvalidate.01" content="3A8272AC48E8C31CE4657BB9F708DB69">
 
   <!-- ==================================================
      FAVICON & APP ICONS
@@ -66,77 +66,7 @@
   }
   </script>
   <link rel="stylesheet" href="assets/css/homepage.css">
-</head>
-
-<body>
-  <!-- Top Bar - SEO Strip -->
-  <div class="top-bar">
-    <div class="container">
-      <div class="verified-text">✓ Google Verified Business</div>
-      <a href="https://wa.me/916282520339" class="local-phone">📞 +91 628 252 0339</a>
-    </div>
-  </div>
-
-  <!-- Main Header Bar -->
-  <div class="main-header-bar">
-    <div class="container header-container">
-      <a href="/" class="header-logo">
-        <img src="assets/logoonly.svg" alt="TechAuditPros Logo" width="32" height="32">
-        <span class="logo-text">TechAuditPros</span>
-      </a>
-
-      <nav class="desktop-nav">
-        <a href="#story">Story</a>
-        <a href="#methodology">Methodology</a>
-        <a href="#case-study">Results</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-
-      <div class="header-actions">
-        <a href="https://wa.me/916282520339" class="call-action" title="Call/WhatsApp">
-          <span>📞</span>
-        </a>
-        <a href="#auditModal" class="book-audit-btn" onclick="openAuditModal()">Get Free Audit</a>
-      </div>
-
-      <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </div>
-
-  <!-- Industry Slider - Global Regions -->
-  <div class="industry-slider">
-    <div class="slider-container">
-      <div class="industry-pills" id="industry-pills">
-        <a href="/" class="pill active" style="text-decoration: none;">
-          <span class="pill-dot"></span>
-          Global
-        </a>
-        <a href="/seo-audit-kochi/" class="pill" style="text-decoration: none;">
-          <span class="pill-dot"></span>
-          Kochi
-        </a>
-        <a href="/seo-audit-india/" class="pill" style="text-decoration: none;">
-          <span class="pill-dot"></span>
-          India
-        </a>
-        <a href="/seo-audit-usa/" class="pill" style="text-decoration: none;">
-          <span class="pill-dot"></span>
-          USA
-        </a>
-        <a href="/seo-audit-canada/" class="pill" style="text-decoration: none;">
-          <span class="pill-dot"></span>
-          Canada
-        </a>
-      </div>
-    </div>
-  </div>
-
-<!-- START TechAudit Pros Hero Section -->
-<style>
+  <style>
     /* Hero Container Styles */
     .techaudit-hero-wrapper {
         position: relative;
@@ -214,8 +144,214 @@
         opacity: 0.5;
         text-transform: uppercase;
     }
-</style>
 
+    /* Founder Welcome */
+    .founder-welcome { padding: 60px 0; background: #f9f9f9; }
+    .founder-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    @media (min-width: 768px) {
+        .founder-container { display: flex; flex-direction: column; align-items: center; }
+        .founder-content { max-width: 800px; text-align: center; }
+        .founder-signature { display: flex; align-items: center; gap: 20px; justify-content: center; }
+        .founder-cta { text-align: center; }
+    }
+
+    /* Audit Includes */
+    .audit-includes{padding:48px 0;background:#0b1220;color:#e5e7eb}
+    .audit-includes h2{margin:0 0 10px;font-size:clamp(1.4rem,3vw,2rem)}
+    .audit-includes p{color:#9ca3af;margin:0 0 16px}
+    .audit-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;list-style:none;padding:0;margin:18px 0 0}
+    .audit-list li{display:flex;gap:10px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:12px 14px;border-radius:10px}
+    .audit-list .mark{color:#22c55e}
+    @media (max-width:767px){.audit-list{grid-template-columns:1fr}}
+
+    /* What Audit */
+    .what-audit{padding:56px 0;background:#0f172a;color:#e5e7eb}
+    .what-audit .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+    .what-audit h2{margin:0 0 10px;font-size:clamp(1.6rem,3.2vw,2.2rem)}
+    .what-audit p.lead{color:#9ca3af;margin:0 0 16px}
+    .audit-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
+    .audit-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px}
+    .audit-card h3{margin:0 0 8px;font-size:1.05rem}
+    .audit-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+    .audit-list li{display:flex;gap:8px;align-items:flex-start;color:#cbd5e1}
+    .audit-list .dot{color:#22c55e;flex:0 0 auto}
+    .audit-steps{margin-top:22px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px}
+    .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .step{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:14px}
+    .step strong{display:block;margin-bottom:6px}
+    @media(max-width:1023px){.audit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:1fr}}
+    @media(max-width:767px){.audit-grid{grid-template-columns:1fr}}
+
+    /* Audit Strategy */
+    .audit-strategy{padding:56px 0;background:#0b1220;color:#e5e7eb}
+    .audit-strategy .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+    .audit-strategy h2{margin:0 0 10px;font-size:clamp(1.6rem,3.2vw,2.2rem)}
+    .audit-strategy p.lead{color:#9ca3af;margin:0 0 16px}
+    .strategy-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
+    .strategy-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px}
+    .strategy-card h3{margin:0 0 8px;font-size:1.05rem}
+    .strategy-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+    .strategy-list li{display:flex;gap:8px;align-items:flex-start;color:#cbd5e1}
+    .strategy-list .dot{color:#22c55e;flex:0 0 auto}
+    @media(max-width:1023px){.strategy-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:767px){.strategy-grid{grid-template-columns:1fr}}
+
+    /* Competitor Research */
+    .competitor-research{padding:56px 0;background:#111827;color:#e5e7eb}
+    .competitor-research .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+    .competitor-research h2{margin:0 0 10px;font-size:clamp(1.6rem,3.2vw,2.2rem)}
+    .competitor-research p.lead{color:#9ca3af;margin:0 0 16px}
+    .cr-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
+    .cr-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px}
+    .cr-card h3{margin:0 0 8px;font-size:1.05rem}
+    .cr-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+    .cr-list li{display:flex;gap:8px;align-items:flex-start;color:#cbd5e1}
+    .cr-list .dot{color:#22c55e;flex:0 0 auto}
+    @media(max-width:1023px){.cr-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:767px){.cr-grid{grid-template-columns:1fr}}
+
+    /* AI Intel */
+    .ai-intel{padding:64px 0;background:radial-gradient(1200px 600px at 10% -10%, rgba(99,102,241,.25), transparent 40%),#0f172a;color:#e5e7eb;position:relative}
+    .ai-wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+    .ai-head{display:flex;flex-direction:column;gap:8px;text-align:center;margin-bottom:20px}
+    .ai-badge{display:inline-flex;align-items:center;gap:8px;align-self:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:6px 10px;border-radius:999px;font-size:.8rem;color:#cbd5e1}
+    .ai-head h2{margin:0;font-size:clamp(1.6rem,3.2vw,2.2rem);background:linear-gradient(135deg,#fff,#93c5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .ai-head p{margin:0;color:#9ca3af}
+    .ai-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px}
+    .ai-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:16px}
+    .ai-card h3{margin:0 0 8px;font-size:1.05rem}
+    .ai-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+    .ai-list li{display:flex;gap:8px;align-items:flex-start;color:#cbd5e1}
+    .dot{color:#22c55e;flex:0 0 auto}
+    .prompts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px}
+    .prompt{background:#0b1220;border:1px solid #1f2a44;border-radius:12px;padding:14px}
+    .prompt strong{display:block;color:#93c5fd;margin-bottom:6px}
+    .prompt code{display:block;white-space:pre-wrap;color:#cbd5e1}
+    @media(max-width:1023px){.ai-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.prompts{grid-template-columns:1fr}}
+    @media(max-width:767px){.ai-grid{grid-template-columns:1fr}}
+
+    /* Certs Section */
+    .certs-section{position:relative;padding:64px 0;background:linear-gradient(135deg,#0f172a 0%,#111827 100%);color:#e5e7eb;overflow:hidden}
+    .certs-head{display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:28px}
+    .certs-head h2{font-size:clamp(1.6rem,3.2vw,2.2rem);margin:0 0 8px;background:linear-gradient(135deg,#fff,#93c5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .certs-sub{font-size:1rem;color:#9ca3af}
+    .badges{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;max-width:1100px;margin:24px auto 0}
+    .badge{position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(8px);border-radius:12px;padding:16px;display:flex;align-items:center;gap:12px;transition:transform .2s, box-shadow .2s, border-color .2s;cursor:pointer}
+    .badge:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.25);border-color:rgba(255,255,255,.18)}
+    .badge-logo{width:36px;height:36px;flex:0 0 36px;display:grid;place-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:8px}
+    .badge-title{font-size:.95rem;font-weight:700;color:#e5e7eb;line-height:1.2}
+    .badge-meta{font-size:.8rem;color:#9ca3af}
+    .badge-verify{margin-left:auto;font-size:.8rem;color:#93c5fd;text-decoration:none}
+    .proof-strip{display:flex;gap:12px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+    .proof-chip{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:6px 10px;border-radius:999px;font-size:.8rem;color:#cbd5e1}
+    @media (max-width:1024px){.badges{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media (max-width:767px){.badges{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.badge{padding:14px}.badge-title{font-size:.9rem}}
+    /* Lightbox */
+    .cert-modal{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;z-index:10000;padding:20px}
+    .cert-modal.active{display:flex}
+    .cert-card{background:#0b1220;border:1px solid #1f2a44;border-radius:12px;max-width:720px;width:100%;padding:16px}
+    .cert-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+    .cert-top h3{margin:0;font-size:1.1rem;color:#e5e7eb}
+    .cert-close{background:none;border:none;color:#9ca3af;font-size:24px;cursor:pointer}
+    .cert-media{background:#0a0f1a;border:1px solid #1f2a44;border-radius:10px;overflow:hidden;display:grid;place-items:center}
+    .cert-media img{max-width:100%;height:auto;display:block}
+    .cert-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:10px}
+    .cert-actions a{background:#1f2a44;color:#93c5fd;border:1px solid #2a3a60;padding:8px 12px;border-radius:8px;text-decoration:none;font-weight:600}
+
+    /* FAQ */
+    .faq-section-home{padding:56px 0;background:#0f172a;color:#e5e7eb}
+    .faq-wrap{max-width:900px;margin:0 auto}
+    .faq-section-home h2{margin:0 0 16px;font-size:clamp(1.4rem,3vw,2rem)}
+    .faq{border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden}
+    .faq details{background:rgba(255,255,255,.03)}
+    .faq details+details{border-top:1px solid rgba(255,255,255,.08)}
+    .faq summary{cursor:pointer;padding:16px;font-weight:700}
+    .faq p{padding:0 16px 16px;margin:0;color:#cbd5e1}
+
+    /* Mobile Floating CTA */
+    @media (max-width: 767px){
+      .full-screen-section{scroll-snap-align:start}
+      body{scroll-snap-type:y proximity}
+      .fab-cta{position:fixed;left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:1050;display:flex;justify-content:center}
+      .fab-cta a{display:inline-flex;align-items:center;gap:8px;justify-content:center;width:100%;max-width:560px;padding:14px 18px;border-radius:12px;background:#6366f1;color:#fff;text-decoration:none;font-weight:800;box-shadow:0 8px 30px rgba(99,102,241,.45)}
+    }
+
+    /* Global focus-visible styles and small text contrast adjustments */
+    :where(a, button, [role="button"], .badge):focus-visible { outline: 2px solid #93c5fd; outline-offset: 2px; }
+    .ai-badge, .badge-meta, .proof-chip, .certs-sub { color: #cbd5e1; }
+    .loc-link { padding: 10px 12px; display: inline-block; }
+    @media (max-width: 767px){ .badge-meta, .proof-chip, .ai-badge { font-size: 0.95rem; } }
+  </style>
+</head>
+
+<body>
+  <!-- Top Bar - SEO Strip -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="verified-text">✓ Google Verified Business</div>
+      <a href="https://wa.me/916282520339" class="local-phone">📞 +91 628 252 0339</a>
+    </div>
+  </div>
+
+  <!-- Main Header Bar -->
+  <div class="main-header-bar">
+    <div class="container header-container">
+      <a href="/" class="header-logo">
+        <img src="assets/logoonly.svg" alt="TechAuditPros Logo" width="32" height="32">
+        <span class="logo-text">TechAuditPros</span>
+      </a>
+
+      <nav class="desktop-nav">
+        <a href="#story">Story</a>
+        <a href="#methodology">Methodology</a>
+        <a href="#case-study">Results</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="https://wa.me/916282520339" class="call-action" title="Call/WhatsApp">
+          <span>📞</span>
+        </a>
+        <a href="#auditModal" class="book-audit-btn" onclick="openAuditModal()">Get Free Audit</a>
+      </div>
+
+      <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Industry Slider - Global Regions -->
+  <div class="industry-slider">
+    <div class="slider-container">
+      <div class="industry-pills" id="industry-pills">
+        <a href="/" class="pill active" style="text-decoration: none;">
+          <span class="pill-dot"></span>
+          Global
+        </a>
+        <a href="/seo-audit-kochi/" class="pill" style="text-decoration: none;">
+          <span class="pill-dot"></span>
+          Kochi
+        </a>
+        <a href="/seo-audit-india/" class="pill" style="text-decoration: none;">
+          <span class="pill-dot"></span>
+          India
+        </a>
+        <a href="/seo-audit-usa/" class="pill" style="text-decoration: none;">
+          <span class="pill-dot"></span>
+          USA
+        </a>
+        <a href="/seo-audit-canada/" class="pill" style="text-decoration: none;">
+          <span class="pill-dot"></span>
+          Canada
+        </a>
+      </div>
+    </div>
+  </div>
+
+<!-- START TechAudit Pros Hero Section -->
 <div class="techaudit-hero-wrapper">
     <!-- SVG ViewBox set to 16:9 ratio -->
     <svg id="hero-svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
@@ -597,16 +733,6 @@
 
   <!-- Founder Welcome Section -->
   <section class="founder-welcome">
-    <style>
-        .founder-welcome { padding: 60px 0; background: #f9f9f9; }
-        .founder-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        @media (min-width: 768px) {
-            .founder-container { display: flex; flex-direction: column; align-items: center; }
-            .founder-content { max-width: 800px; text-align: center; }
-            .founder-signature { display: flex; align-items: center; gap: 20px; justify-content: center; }
-            .founder-cta { text-align: center; }
-        }
-    </style>
     <div class="founder-container">
         <div class="founder-header">
             <h2>Welcome to TechAuditPros</h2>
@@ -640,15 +766,6 @@
 
   <!-- What’s Included in the Audit (SEO deliverables) -->
   <section class="audit-includes" aria-labelledby="audit-includes-title">
-    <style>
-      .audit-includes{padding:48px 0;background:#0b1220;color:#e5e7eb}
-      .audit-includes h2{margin:0 0 10px;font-size:clamp(1.4rem,3vw,2rem)}
-      .audit-includes p{color:#9ca3af;margin:0 0 16px}
-      .audit-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;list-style:none;padding:0;margin:18px 0 0}
-      .audit-list li{display:flex;gap:10px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:12px 14px;border-radius:10px}
-      .audit-list .mark{color:#22c55e}
-      @media (max-width:767px){.audit-list{grid-template-columns:1fr}}
-    </style>
     <div class="container">
       <h2 id="audit-includes-title">What’s Included in a Technical SEO Audit</h2>
       <p>Engineering-grade analysis and remediation plan focused on ranking and conversions.</p>
@@ -665,24 +782,6 @@
 
   <!-- What is a Website Audit -->
   <section class="what-audit" aria-labelledby="what-audit-title">
-    <style>
-      .what-audit{padding:56px 0;background:#0f172a;color:#e5e7eb}
-      .what-audit .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
-      .what-audit h2{margin:0 0 10px;font-size:clamp(1.6rem,3.2vw,2.2rem)}
-      .what-audit p.lead{color:#9ca3af;margin:0 0 16px}
-      .audit-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
-      .audit-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px}
-      .audit-card h3{margin:0 0 8px;font-size:1.05rem}
-      .audit-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
-      .audit-list li{display:flex;gap:8px;align-items:flex-start;color:#cbd5e1}
-      .audit-list .dot{color:#22c55e;flex:0 0 auto}
-      .audit-steps{margin-top:22px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px}
-      .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-      .step{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:14px}
-      .step strong{display:block;margin-bottom:6px}
-      @media(max-width:1023px){.audit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:1fr}}
-      @media(max-width:767px){.audit-grid{grid-template-columns:1fr}}
-    </style>
     <div class="wrap">
       <h2 id="what-audit-title">What is a Website Audit?</h2>
       <p class="lead">A website audit measures how easy it is to find, trust, and use your business online — then turns those insights into a clear plan for improvements.</p>
@@ -738,20 +837,6 @@
 
   <!-- Audit Strategy We Offer -->
   <section class="audit-strategy" aria-labelledby="audit-strategy-title">
-    <style>
-      .audit-strategy{padding:56px 0;background:#0b1220;color:#e5e7eb}
-      .audit-strategy .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
-      .audit-strategy h2{margin:0 0 10px;font-size:clamp(1.6rem,3.2vw,2.2rem)}
-      .audit-strategy p.lead{color:#9ca3af;margin:0 0 16px}
-      .strategy-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
-      .strategy-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px}
-      .strategy-card h3{margin:0 0 8px;font-size:1.05rem}
-      .strategy-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
-      .strategy-list li{display:flex;gap:8px;align-items:flex-start;color:#cbd5e1}
-      .strategy-list .dot{color:#22c55e;flex:0 0 auto}
-      @media(max-width:1023px){.strategy-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-      @media(max-width:767px){.strategy-grid{grid-template-columns:1fr}}
-    </style>
     <div class="wrap">
       <h2 id="audit-strategy-title">Strategy We Deliver from Your Audit</h2>
       <p class="lead">We turn audit findings into a focused, measurable plan—aligned to your goals and your customers’ real behaviour.</p>
@@ -813,20 +898,6 @@
 
   <!-- Competitor Research in Your Audit -->
   <section class="competitor-research" aria-labelledby="competitor-title">
-    <style>
-      .competitor-research{padding:56px 0;background:#111827;color:#e5e7eb}
-      .competitor-research .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
-      .competitor-research h2{margin:0 0 10px;font-size:clamp(1.6rem,3.2vw,2.2rem)}
-      .competitor-research p.lead{color:#9ca3af;margin:0 0 16px}
-      .cr-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
-      .cr-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px}
-      .cr-card h3{margin:0 0 8px;font-size:1.05rem}
-      .cr-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
-      .cr-list li{display:flex;gap:8px;align-items:flex-start;color:#cbd5e1}
-      .cr-list .dot{color:#22c55e;flex:0 0 auto}
-      @media(max-width:1023px){.cr-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-      @media(max-width:767px){.cr-grid{grid-template-columns:1fr}}
-    </style>
     <div class="wrap">
       <h2 id="competitor-title">Why We Research Competitors During Your Audit</h2>
       <p class="lead">Competitor research shows where you stand today—and where you can win tomorrow. We turn market signals into positioning, offers, and channel choices that differentiate your brand.</p>
@@ -889,26 +960,6 @@
 
   <!-- AI-Powered Competitive Intelligence -->
   <section class="ai-intel" aria-labelledby="ai-intel-title">
-    <style>
-      .ai-intel{padding:64px 0;background:radial-gradient(1200px 600px at 10% -10%, rgba(99,102,241,.25), transparent 40%),#0f172a;color:#e5e7eb;position:relative}
-      .ai-wrap{max-width:1100px;margin:0 auto;padding:0 16px}
-      .ai-head{display:flex;flex-direction:column;gap:8px;text-align:center;margin-bottom:20px}
-      .ai-badge{display:inline-flex;align-items:center;gap:8px;align-self:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:6px 10px;border-radius:999px;font-size:.8rem;color:#cbd5e1}
-      .ai-head h2{margin:0;font-size:clamp(1.6rem,3.2vw,2.2rem);background:linear-gradient(135deg,#fff,#93c5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-      .ai-head p{margin:0;color:#9ca3af}
-      .ai-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px}
-      .ai-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:16px}
-      .ai-card h3{margin:0 0 8px;font-size:1.05rem}
-      .ai-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
-      .ai-list li{display:flex;gap:8px;align-items:flex-start;color:#cbd5e1}
-      .dot{color:#22c55e;flex:0 0 auto}
-      .prompts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px}
-      .prompt{background:#0b1220;border:1px solid #1f2a44;border-radius:12px;padding:14px}
-      .prompt strong{display:block;color:#93c5fd;margin-bottom:6px}
-      .prompt code{display:block;white-space:pre-wrap;color:#cbd5e1}
-      @media(max-width:1023px){.ai-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.prompts{grid-template-columns:1fr}}
-      @media(max-width:767px){.ai-grid{grid-template-columns:1fr}}
-    </style>
     <div class="ai-wrap">
       <div class="ai-head">
         <span class="ai-badge">AI SEO • Competitive Intelligence • Gemini Workflows</span>
@@ -946,7 +997,7 @@
       </div>
 
       <div class="prompts" aria-label="Example Gemini prompts">
-        <div class="prompt">
+        <div class="prompt" role="region" aria-label="Example Gemini prompts">
           <strong>Perception & Messaging</strong>
           <code>What is the core message in [competitor]'s mission statement?
 Summarise tone and key value claims in 3 bullets.</code>
@@ -972,34 +1023,6 @@ What are the main takeaways and recommended next actions?</code>
 
   <!-- CERTIFICATES SECTION (Redesigned: Badge grid + modal) -->
   <section class="certs-section" aria-labelledby="certs-title">
-    <style>
-      .certs-section{position:relative;padding:64px 0;background:linear-gradient(135deg,#0f172a 0%,#111827 100%);color:#e5e7eb;overflow:hidden}
-      .certs-head{display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:28px}
-      .certs-head h2{font-size:clamp(1.6rem,3.2vw,2.2rem);margin:0 0 8px;background:linear-gradient(135deg,#fff,#93c5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-      .certs-sub{font-size:1rem;color:#9ca3af}
-      .badges{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;max-width:1100px;margin:24px auto 0}
-      .badge{position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(8px);border-radius:12px;padding:16px;display:flex;align-items:center;gap:12px;transition:transform .2s, box-shadow .2s, border-color .2s;cursor:pointer}
-      .badge:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.25);border-color:rgba(255,255,255,.18)}
-      .badge-logo{width:36px;height:36px;flex:0 0 36px;display:grid;place-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:8px}
-      .badge-title{font-size:.95rem;font-weight:700;color:#e5e7eb;line-height:1.2}
-      .badge-meta{font-size:.8rem;color:#9ca3af}
-      .badge-verify{margin-left:auto;font-size:.8rem;color:#93c5fd;text-decoration:none}
-      .proof-strip{display:flex;gap:12px;justify-content:center;margin-top:18px;flex-wrap:wrap}
-      .proof-chip{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:6px 10px;border-radius:999px;font-size:.8rem;color:#cbd5e1}
-      @media (max-width:1024px){.badges{grid-template-columns:repeat(3,minmax(0,1fr))}}
-      @media (max-width:767px){.badges{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.badge{padding:14px}.badge-title{font-size:.9rem}}
-      /* Lightbox */
-      .cert-modal{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;z-index:10000;padding:20px}
-      .cert-modal.active{display:flex}
-      .cert-card{background:#0b1220;border:1px solid #1f2a44;border-radius:12px;max-width:720px;width:100%;padding:16px}
-      .cert-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-      .cert-top h3{margin:0;font-size:1.1rem;color:#e5e7eb}
-      .cert-close{background:none;border:none;color:#9ca3af;font-size:24px;cursor:pointer}
-      .cert-media{background:#0a0f1a;border:1px solid #1f2a44;border-radius:10px;overflow:hidden;display:grid;place-items:center}
-      .cert-media img{max-width:100%;height:auto;display:block}
-      .cert-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:10px}
-      .cert-actions a{background:#1f2a44;color:#93c5fd;border:1px solid #2a3a60;padding:8px 12px;border-radius:8px;text-decoration:none;font-weight:600}
-    </style>
     <div class="container">
       <div class="certs-head">
         <h2 id="certs-title">Trusted & Certified</h2>
@@ -1009,34 +1032,34 @@ What are the main takeaways and recommended next actions?</code>
       <div class="badges">
         <button class="badge" data-cert="ga4" aria-label="View Google Analytics (GA4) certificate">
           <span class="badge-logo">📊</span>
-          <span>
+          <div style="display: flex; flex-direction: column; align-items: flex-start;">
             <div class="badge-title">Google Analytics (GA4)</div>
             <div class="badge-meta">Verified • 2024</div>
-          </span>
+          </div>
           <span class="badge-verify">View</span>
         </button>
         <button class="badge" data-cert="ads" aria-label="View Google Ads certificate">
           <span class="badge-logo">🔎</span>
-          <span>
+          <div style="display: flex; flex-direction: column; align-items: flex-start;">
             <div class="badge-title">Google Ads Search</div>
             <div class="badge-meta">Verified • 2024</div>
-          </span>
+          </div>
           <span class="badge-verify">View</span>
         </button>
         <button class="badge" data-cert="semrush" aria-label="View Semrush certificate">
           <span class="badge-logo">🧭</span>
-          <span>
+          <div style="display: flex; flex-direction: column; align-items: flex-start;">
             <div class="badge-title">Semrush SEO</div>
             <div class="badge-meta">Verified • 2024</div>
-          </span>
+          </div>
           <span class="badge-verify">View</span>
         </button>
         <button class="badge" data-cert="digital" aria-label="View Digital Marketing certificate">
           <span class="badge-logo">⚡</span>
-          <span>
+          <div style="display: flex; flex-direction: column; align-items: flex-start;">
             <div class="badge-title">Digital Marketing</div>
             <div class="badge-meta">Verified • 2024</div>
-          </span>
+          </div>
           <span class="badge-verify">View</span>
         </button>
       </div>
@@ -1055,7 +1078,7 @@ What are the main takeaways and recommended next actions?</code>
           <button class="cert-close" aria-label="Close" onclick="(function(){document.getElementById('certModal').classList.remove('active')})()">✕</button>
         </div>
         <div class="cert-media">
-          <img id="certImage" alt="Certificate preview" loading="lazy">
+          <img id="certImage" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Certificate preview" loading="lazy">
         </div>
         <div class="cert-actions">
           <a id="certVerify" href="#" target="_blank" rel="noopener">Verify</a>
@@ -1112,16 +1135,6 @@ What are the main takeaways and recommended next actions?</code>
 
   <!-- FAQ (anchor target for nav/footer internal link) -->
   <section id="faq" class="faq-section-home" aria-labelledby="faq-title">
-    <style>
-      .faq-section-home{padding:56px 0;background:#0f172a;color:#e5e7eb}
-      .faq-wrap{max-width:900px;margin:0 auto}
-      .faq-section-home h2{margin:0 0 16px;font-size:clamp(1.4rem,3vw,2rem)}
-      .faq{border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden}
-      .faq details{background:rgba(255,255,255,.03)}
-      .faq details+details{border-top:1px solid rgba(255,255,255,.08)}
-      .faq summary{cursor:pointer;padding:16px;font-weight:700}
-      .faq p{padding:0 16px 16px;margin:0;color:#cbd5e1}
-    </style>
     <div class="container faq-wrap">
       <h2 id="faq-title">Homepage FAQ</h2>
       <div class="faq">
@@ -1580,12 +1593,12 @@ What are the main takeaways and recommended next actions?</code>
       <span class="close-modal" onclick="closeAuditModal()">&times;</span>
       <h2>Get Your Free Technical SEO Audit</h2>
       <p>Complete the form below and we'll send you a comprehensive audit report within 24 hours.</p>
-      <iframe id="zohoForm" aria-label='Contact Us' frameborder="0" style="height:600px;width:100%;border:none;" data-src='https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg'></iframe>
+      <iframe id="zohoForm" aria-label='Contact Us' style="height:600px;width:100%;border:none;" data-src='https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg'></iframe>
     </div>
   </div>
 
   <!-- SCRIPTS -->
-  <script defer>
+  <script>
     // Modal functionality
     function openAuditModal() {
       document.getElementById('auditModal').style.display = 'flex';
@@ -1617,21 +1630,6 @@ What are the main takeaways and recommended next actions?</code>
   </script>
 
   <!-- Mobile Floating CTA -->
-  <style>
-    @media (max-width: 767px){
-      .full-screen-section{scroll-snap-align:start}
-      body{scroll-snap-type:y proximity}
-      .fab-cta{position:fixed;left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:1050;display:flex;justify-content:center}
-      .fab-cta a{display:inline-flex;align-items:center;gap:8px;justify-content:center;width:100%;max-width:560px;padding:14px 18px;border-radius:12px;background:#6366f1;color:#fff;text-decoration:none;font-weight:800;box-shadow:0 8px 30px rgba(99,102,241,.45)}
-    }
-  </style>
-  <style>
-    /* Global focus-visible styles and small text contrast adjustments */
-    :where(a, button, [role="button"], .badge):focus-visible { outline: 2px solid #93c5fd; outline-offset: 2px; }
-    .ai-badge, .badge-meta, .proof-chip, .certs-sub { color: #cbd5e1; }
-    .loc-link { padding: 10px 12px; display: inline-block; }
-    @media (max-width: 767px){ .badge-meta, .proof-chip, .ai-badge { font-size: 0.95rem; } }
-  </style>
   <div class="fab-cta" role="complementary" aria-label="Quick action">
     <a href="#auditModal" onclick="openAuditModal()">Get Free Audit</a>
   </div>
