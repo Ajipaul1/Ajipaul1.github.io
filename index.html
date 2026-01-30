@@ -13,6 +13,7 @@
   <!-- ==================================================
        META DESCRIPTION
   ================================================== -->
+  <meta name="robots" content="index, follow">
   <meta name="description" content="Technical SEO audits that fix Core Web Vitals, crawl issues, and site structure—so your site ranks and converts. Get a free audit.">
 
   <!-- ==================================================
@@ -44,7 +45,8 @@
   <!-- Fonts with Display Swap for Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
   <link rel="preconnect" href="https://static.zohocdn.com">
   <link rel="preconnect" href="https://forms.zohopublic.in">
 
@@ -65,7 +67,8 @@
     }
   }
   </script>
-  <link rel="stylesheet" href="assets/css/homepage.css">
+  <link rel="preload" href="assets/css/homepage.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="assets/css/homepage.css"></noscript>
   <style>
     /* Hero Container Styles */
     .techaudit-hero-wrapper {
@@ -95,6 +98,14 @@
         pointer-events: none;
         text-shadow: 0px 2px 4px rgba(0,0,0,0.8); /* Professional shadow */
     }
+    
+    /* LCP Optimization for Hero Text */
+    .hero-text-lcp {
+        font-size: 100px;
+        font-weight: 900;
+        fill: url(#accentGradient);
+    }
+    @media (max-width: 767px) { .hero-text-lcp { font-size: 50px; } }
 
     /* 
        BACKGROUND LAYERS
@@ -407,7 +418,7 @@
         <g id="slide-container" transform="translate(800, 450)">
             <!-- Pre-rendered LCP Content -->
             <g>
-                <text x="0" y="0" class="hero-text" style="font-size: 100px; font-weight: 900; fill: url(#accentGradient);">
+                <text x="0" y="0" class="hero-text hero-text-lcp">
                     <tspan style="fill: #ffffff; opacity: 1;">TechAudit Pros</tspan>
                 </text>
             </g>
@@ -708,7 +719,11 @@
      * PRESENTATION LOGIC
      */
     async function runPresentation() {
-        let index = 0;
+        // Slide 0 is pre-rendered in HTML to boost LCP.
+        // We wait for its duration before starting the loop from Slide 1.
+        await new Promise(r => setTimeout(r, slides[0].duration));
+        
+        let index = 1;
         while (true) {
             const slide = slides[index];
             await playSlide(slide);
