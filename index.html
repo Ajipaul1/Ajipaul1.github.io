@@ -369,10 +369,10 @@
     const particleContainer = document.getElementById('dynamic-particles');
     
     /**
-     * PARTICLE NETWORK ENGINE
+     * PARTICLE NETWORK ENGINE (Optimized for Performance)
      */
     function initParticles() {
-        const nodeCount = 15; 
+        const nodeCount = 8; // Reduced from 15
         const nodes = [];
         const width = 1600;
         const height = 900;
@@ -381,21 +381,21 @@
             const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
             const x = Math.random() * width;
             const y = Math.random() * height;
-            const r = Math.random() * 2 + 2; 
-            
+            const r = Math.random() * 1.5 + 1.5; // Smaller particles
+
             circle.setAttribute("cx", x);
             circle.setAttribute("cy", y);
             circle.setAttribute("r", r);
             circle.setAttribute("class", "bg-particle");
-            
+
             const node = {
                 el: circle,
                 x: x,
                 y: y,
-                vx: (Math.random() - 0.5) * 1.5, 
-                vy: (Math.random() - 0.5) * 1.5
+                vx: (Math.random() - 0.5) * 1, // Slower movement
+                vy: (Math.random() - 0.5) * 1
             };
-            
+
             particleContainer.appendChild(circle);
             nodes.push(node);
         }
@@ -418,20 +418,21 @@
                 node.el.setAttribute("cx", node.x);
                 node.el.setAttribute("cy", node.y);
 
-                for(let j=i+1; j<nodes.length; j++) {
+                // Reduced connections for performance
+                for(let j=i+1; j<nodes.length && j<i+3; j++) {
                     const other = nodes[j];
                     const dx = node.x - other.x;
                     const dy = node.y - other.y;
                     const dist = Math.sqrt(dx*dx + dy*dy);
 
-                    if(dist < 200) { 
+                    if(dist < 150) { // Smaller connection distance
                         const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
                         line.setAttribute("x1", node.x);
                         line.setAttribute("y1", node.y);
                         line.setAttribute("x2", other.x);
                         line.setAttribute("y2", other.y);
                         line.setAttribute("class", "conn-line");
-                        line.style.opacity = (1 - (dist / 200)) * 0.4; 
+                        line.style.opacity = (1 - (dist / 150)) * 0.3;
                         linesGroup.appendChild(line);
                     }
                 }
@@ -439,7 +440,7 @@
 
             requestAnimationFrame(animate);
         }
-        
+
         animate();
     }
 
