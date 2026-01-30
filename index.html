@@ -272,7 +272,7 @@
     @media (max-width: 767px){
       .full-screen-section{scroll-snap-align:start}
       body{scroll-snap-type:y proximity}
-      .fab-cta{position:fixed;left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:1050;display:flex;justify-content:center}
+      .fab-cta{position:fixed;left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom, 0px));z-index:1050;display:flex;justify-content:center}
       .fab-cta a{display:inline-flex;align-items:center;gap:8px;justify-content:center;width:100%;max-width:560px;padding:14px 18px;border-radius:12px;background:#4338ca;color:#fff;text-decoration:none;font-weight:800;box-shadow:0 8px 30px rgba(99,102,241,.45)}
     }
 
@@ -1003,7 +1003,7 @@
         </div>
       </div>
 
-      <div class="prompts" role="group" aria-label="Example Gemini prompts">
+      <section class="prompts" aria-label="Example Gemini prompts">
         <div class="prompt" role="region" aria-label="Example Gemini prompts">
           <strong>Perception & Messaging</strong>
           <code>What is the core message in [competitor]'s mission statement?
@@ -1024,7 +1024,7 @@ Map to strengths, weaknesses, opportunities.</code>
           <code>Summarise my research on [competitor].
 What are the main takeaways and recommended next actions?</code>
         </div>
-      </div>
+      </section>
     </div>
   </section>
 
@@ -1668,6 +1668,9 @@ What are the main takeaways and recommended next actions?</code>
       "name": "Global"
     }
   }
+  </script>
+
+</body>
   </script>
 
 </body>
