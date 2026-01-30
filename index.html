@@ -273,7 +273,7 @@
       .full-screen-section{scroll-snap-align:start}
       body{scroll-snap-type:y proximity}
       .fab-cta{position:fixed;left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:1050;display:flex;justify-content:center}
-      .fab-cta a{display:inline-flex;align-items:center;gap:8px;justify-content:center;width:100%;max-width:560px;padding:14px 18px;border-radius:12px;background:#6366f1;color:#fff;text-decoration:none;font-weight:800;box-shadow:0 8px 30px rgba(99,102,241,.45)}
+      .fab-cta a{display:inline-flex;align-items:center;gap:8px;justify-content:center;width:100%;max-width:560px;padding:14px 18px;border-radius:12px;background:#4338ca;color:#fff;text-decoration:none;font-weight:800;box-shadow:0 8px 30px rgba(99,102,241,.45)}
     }
 
     /* Global focus-visible styles and small text contrast adjustments */
@@ -404,7 +404,14 @@
         <g id="dynamic-particles"></g>
 
         <!-- FOREGROUND: Main Content Group -->
-        <g id="slide-container" transform="translate(800, 450)"></g>
+        <g id="slide-container" transform="translate(800, 450)">
+            <!-- Pre-rendered LCP Content -->
+            <g>
+                <text x="0" y="0" class="hero-text" style="font-size: 100px; font-weight: 900; fill: url(#accentGradient);">
+                    <tspan style="fill: #ffffff; opacity: 1;">TechAudit Pros</tspan>
+                </text>
+            </g>
+        </g>
         
         <!-- Bottom Decorative Line -->
         <path d="M 500 850 L 1100 850" stroke="url(#accentGradient)" stroke-width="2" stroke-linecap="round" opacity="0.8" />
@@ -1160,22 +1167,22 @@ What are the main takeaways and recommended next actions?</code>
       <div class="trust-track">
         <div class="trust-scroll">
           <!-- Requested Assets (decorative) -->
-          <img src="assets/semrush.svg" class="trust-icon" alt="" aria-hidden="true">
-          <img src="assets/screamingfrog.svg" class="trust-icon" alt="" aria-hidden="true">
-          <img src="assets/ashref.svg" class="trust-icon" alt="" aria-hidden="true">
-          <img src="assets/searchconsole.svg" class="trust-icon" alt="" aria-hidden="true">
-          <img src="assets/PageSpeed.svg" class="trust-icon" alt="" aria-hidden="true">
-          <img src="assets/gptgemini.svg" class="trust-icon" alt="" aria-hidden="true">
-          <img src="assets/Lumar.svg" class="trust-icon" alt="" aria-hidden="true">
+          <img src="assets/semrush.svg" class="trust-icon" alt="" aria-hidden="true" width="60" height="40">
+          <img src="assets/screamingfrog.svg" class="trust-icon" alt="" aria-hidden="true" width="60" height="40">
+          <img src="assets/ashref.svg" class="trust-icon" alt="" aria-hidden="true" width="60" height="40">
+          <img src="assets/searchconsole.svg" class="trust-icon" alt="" aria-hidden="true" width="60" height="40">
+          <img src="assets/PageSpeed.svg" class="trust-icon" alt="" aria-hidden="true" width="60" height="40">
+          <img src="assets/gptgemini.svg" class="trust-icon" alt="" aria-hidden="true" width="60" height="40">
+          <img src="assets/Lumar.svg" class="trust-icon" alt="" aria-hidden="true" width="60" height="40">
 
           <!-- Duplicate for seamless loop -->
-          <img src="assets/semrush.svg" class="trust-icon" alt="" aria-hidden="true">
-          <img src="assets/screamingfrog.svg" class="trust-icon" alt="" aria-hidden="true">
-          <img src="assets/ashref.svg" class="trust-icon" alt="" aria-hidden="true">
-          <img src="assets/searchconsole.svg" class="trust-icon" alt="" aria-hidden="true">
-          <img src="assets/PageSpeed.svg" class="trust-icon" alt="" aria-hidden="true">
-          <img src="assets/gptgemini.svg" class="trust-icon" alt="" aria-hidden="true">
-          <img src="assets/Lumar.svg" class="trust-icon" alt="" aria-hidden="true">
+          <img src="assets/semrush.svg" class="trust-icon" alt="" aria-hidden="true" width="60" height="40">
+          <img src="assets/screamingfrog.svg" class="trust-icon" alt="" aria-hidden="true" width="60" height="40">
+          <img src="assets/ashref.svg" class="trust-icon" alt="" aria-hidden="true" width="60" height="40">
+          <img src="assets/searchconsole.svg" class="trust-icon" alt="" aria-hidden="true" width="60" height="40">
+          <img src="assets/PageSpeed.svg" class="trust-icon" alt="" aria-hidden="true" width="60" height="40">
+          <img src="assets/gptgemini.svg" class="trust-icon" alt="" aria-hidden="true" width="60" height="40">
+          <img src="assets/Lumar.svg" class="trust-icon" alt="" aria-hidden="true" width="60" height="40">
         </div>
       </div>
     </div>
