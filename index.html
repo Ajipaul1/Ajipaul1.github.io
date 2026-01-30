@@ -453,81 +453,54 @@
 
         // Process each line of text
         slide.lines.forEach((line) => {
-            // Special letter-by-letter animation for brand name
-            if (line.isBrand && line.text === "TechAuditPros") {
-                const letters = line.text.split("");
-                const textEl = document.createElementNS("http://www.w3.org/2000/svg", "text");
-                textEl.setAttribute("x", 0);
-                textEl.setAttribute("y", line.offset);
-                textEl.setAttribute("class", "hero-text");
-                textEl.style.fontSize = line.size + "px";
-                textEl.style.fontWeight = line.fontWeight || 700;
-                textEl.style.fill = "url(#accentGradient)";
-
-                letters.forEach((letter, i) => {
-                    const tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-                    tspan.textContent = letter;
-                    tspan.style.opacity = "0";
-                    tspan.style.transition = "opacity 0.3s ease";
-                    textEl.appendChild(tspan);
-
-                    // Animate each letter with delay
-                    setTimeout(() => {
-                        tspan.style.opacity = "1";
-                    }, i * 150); // 150ms delay between letters
-                });
-
-                group.appendChild(textEl);
-            } else {
-                const words = line.text.split(" ");
-
-                // Create ONE text element per line
-                const textEl = document.createElementNS("http://www.w3.org/2000/svg", "text");
-                textEl.setAttribute("x", 0); // Center X
-                textEl.setAttribute("y", line.offset);
-                textEl.setAttribute("class", "hero-text");
-                textEl.style.fontSize = line.size + "px";
-                textEl.style.fontWeight = line.fontWeight || 700;
-                textEl.style.fontStyle = line.italic ? "italic" : "normal";
-                if (line.opacity) textEl.style.opacity = line.opacity;
-
-                // Special handling for Brand Name Gradient
-                if (line.isBrand) {
-                     textEl.style.fill = "url(#accentGradient)";
+            const words = line.text.split(" ");
+            
+            // Create ONE text element per line
+            const textEl = document.createElementNS("http://www.w3.org/2000/svg", "text");
+            textEl.setAttribute("x", 0); // Center X
+            textEl.setAttribute("y", line.offset);
+            textEl.setAttribute("class", "hero-text");
+            textEl.style.fontSize = line.size + "px";
+            textEl.style.fontWeight = line.fontWeight || 700;
+            textEl.style.fontStyle = line.italic ? "italic" : "normal";
+            if (line.opacity) textEl.style.opacity = line.opacity;
+            
+            // Special handling for Brand Name Gradient
+            if (line.isBrand) {
+                 textEl.style.fill = "url(#accentGradient)";
+            }
+            
+            // For each word in the line, create a tspan
+            words.forEach((word, i) => {
+                const tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+                
+                // Determine Color
+                let fill = professionalWhite;
+                
+                // Check if word is a keyword AND line is not a brand gradient
+                if (!line.isBrand) {
+                    if (keywords.some(kw => word.toLowerCase().includes(kw.toLowerCase()))) {
+                        fill = professionalAccentColor;
+                    }
                 }
 
-                // For each word in the line, create a tspan
-                words.forEach((word, i) => {
-                    const tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+                tspan.style.fill = fill;
+                tspan.textContent = (i > 0 ? " " : "") + word;
+                
+                // Initial state: Hidden
+                tspan.style.opacity = "0";
+                tspan.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+                
+                textEl.appendChild(tspan);
 
-                    // Determine Color
-                    let fill = professionalWhite;
+                // Staggered Animation
+                setTimeout(() => {
+                    tspan.style.opacity = "1";
+                    tspan.setAttribute("dy", "0"); 
+                }, i * 200);
+            });
 
-                    // Check if word is a keyword AND line is not a brand gradient
-                    if (!line.isBrand) {
-                        if (keywords.some(kw => word.toLowerCase().includes(kw.toLowerCase()))) {
-                            fill = professionalAccentColor;
-                        }
-                    }
-
-                    tspan.style.fill = fill;
-                    tspan.textContent = (i > 0 ? " " : "") + word;
-
-                    // Initial state: Hidden
-                    tspan.style.opacity = "0";
-                    tspan.style.transition = "opacity 0.8s ease, transform 0.8s ease";
-
-                    textEl.appendChild(tspan);
-
-                    // Staggered Animation
-                    setTimeout(() => {
-                        tspan.style.opacity = "1";
-                        tspan.setAttribute("dy", "0");
-                    }, i * 200);
-                });
-
-                group.appendChild(textEl);
-            }
+            group.appendChild(textEl);
         });
     }
 
