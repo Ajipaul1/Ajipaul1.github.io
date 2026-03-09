@@ -1794,3 +1794,145 @@ body.home-page-redesign {
         height: 24px;
     }
 }
+
+/* ==================================================
+   RESTORED CONTENT SECTIONS (Clean White Theme)
+   ================================================== */
+
+/* Founder Section */
+.founder-section-clean {
+    padding: 100px 0;
+}
+
+.founder-grid-clean {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.founder-image-clean .founder-avatar-placeholder {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--current-chameleon);
+    margin: 0 auto;
+    border: 4px solid white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+}
+
+.section-header-left {
+    text-align: left;
+}
+
+.section-header-left h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 16px;
+}
+
+.section-header-left p {
+    font-size: 1.1rem;
+    color: #4b5563;
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+/* Checklist / What's Included Section */
+.checklist-grid-clean {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.checklist-clean {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.checklist-clean li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.05rem;
+    color: #374151;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.checkmark-clean {
+    color: #22c55e; /* Green checkmark for positive reinforcement */
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+/* FAQ Section */
+.faq-accordion-clean {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item-clean {
+    border-bottom: 1px solid #e5e7eb;
+    padding: 24px 0;
+}
+
+.faq-item-clean summary {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1f2937;
+    cursor: pointer;
+    list-style: none; /* Remove default marker */
+    position: relative;
+    padding-right: 30px;
+}
+
+.faq-item-clean summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item-clean summary::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: var(--current-chameleon);
+    transition: transform 0.2s;
+}
+
+.faq-item-clean[open] summary::after {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.faq-item-clean p {
+    margin-top: 16px;
+    color: #6b7280;
+    line-height: 1.7;
+    padding-left: 8px;
+}
+
+/* Responsive adjustments for restored content */
+@media (max-width: 768px) {
+    .founder-grid-clean {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .section-header-left {
+        text-align: center;
+    }
+    .checklist-grid-clean {
+        grid-template-columns: 1fr;
+    }
+}
