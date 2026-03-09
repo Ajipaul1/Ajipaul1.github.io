@@ -1935,4 +1935,41 @@ body.home-page-redesign {
     .checklist-grid-clean {
         grid-template-columns: 1fr;
     }
+    .locations-grid-clean {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Locations Grid */
+.locations-grid-clean {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.location-card-clean {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+    background: #f9fafb;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #1f2937;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+}
+
+.location-card-clean:hover {
+    background: white;
+    border-color: #e5e7eb;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transform: translateY(-3px);
+}
+
+.loc-flag { font-size: 2rem; margin-bottom: 12px; }
+.location-card-clean h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+.location-card-clean p { font-size: 0.9rem; color: #6b7280; margin: 0; }
 }
