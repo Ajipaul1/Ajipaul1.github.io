@@ -1575,3 +1575,222 @@ footer {
     .certificate-image {
         max-width: 100%;
     }
+}
+
+/* ==================================================
+   NEW HOMEPAGE REDESIGN (Clean White Theme)
+   ================================================== */
+body.home-page-redesign {
+    background: #ffffff;
+    color: #1f2937;
+}
+
+.hero-section-white {
+    padding: 120px 0 80px;
+    background: #ffffff;
+    text-align: center;
+}
+
+.hero-content-white h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #111827;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    letter-spacing: -0.03em;
+}
+
+.hero-content-white .text-highlight {
+    color: var(--current-chameleon);
+    background: linear-gradient(120deg, rgba(99, 102, 241, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 40%;
+    background-position: 0 88%;
+}
+
+.hero-content-white p {
+    font-size: 1.25rem;
+    color: #4b5563;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.primary-btn-large {
+    background: #111827;
+    color: white;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.primary-btn-large:hover {
+    background: var(--current-chameleon);
+    transform: translateY(-2px);
+}
+
+.secondary-btn-large {
+    background: white;
+    color: #111827;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s;
+}
+
+.secondary-btn-large:hover {
+    border-color: #111827;
+    background: #f9fafb;
+}
+
+.hero-trust {
+    font-size: 0.875rem;
+    color: #6b7280;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.flag-row {
+    font-size: 1.5rem;
+    display: flex;
+    gap: 12px;
+}
+
+.trust-bar-white {
+    background: #f9fafb;
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid #f3f4f6;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.trust-bar-white p {
+    font-size: 0.875rem;
+    color: #9ca3af;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.logos-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    opacity: 0.6;
+}
+
+.logos-grid img {
+    height: 32px;
+    width: auto;
+    filter: grayscale(100%);
+    transition: all 0.3s;
+}
+
+.logos-grid img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.section-white {
+    padding: 100px 0;
+    background: white;
+}
+
+.section-header-center {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+.section-header-center h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 16px;
+}
+
+.services-grid-clean {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.service-card-clean {
+    padding: 32px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    transition: all 0.3s;
+    background: white;
+}
+
+.service-card-clean:hover {
+    border-color: var(--current-chameleon);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    transform: translateY(-5px);
+}
+
+.icon-box {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.service-card-clean h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #111827;
+}
+
+.service-card-clean p {
+    color: #6b7280;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.final-cta-clean {
+    background: #111827;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.final-cta-clean h2 {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+}
+
+.final-cta-clean p {
+    color: #9ca3af;
+    margin-bottom: 40px;
+    font-size: 1.25rem;
+}
+
+@media (max-width: 768px) {
+    .hero-content-white h1 {
+        font-size: 2.5rem;
+    }
+    .hero-btns {
+        flex-direction: column;
+    }
+    .logos-grid {
+        gap: 20px;
+    }
+    .logos-grid img {
+        height: 24px;
+    }
+}
