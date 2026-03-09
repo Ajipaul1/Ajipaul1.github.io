@@ -1589,6 +1589,8 @@ body.home-page-redesign {
     padding: 120px 0 80px;
     background: #ffffff;
     text-align: center;
+    background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+    background-size: 32px 32px;
 }
 
 .hero-content-white h1 {
@@ -1972,4 +1974,70 @@ body.home-page-redesign {
 .loc-flag { font-size: 2rem; margin-bottom: 12px; }
 .location-card-clean h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
 .location-card-clean p { font-size: 0.9rem; color: #6b7280; margin: 0; }
+
+/* Process Section */
+.process-grid-clean {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.process-step-card {
+    position: relative;
+    padding: 32px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    transition: transform 0.3s;
+}
+
+.process-step-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--current-chameleon);
+}
+
+.step-number {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #f3f4f6;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    line-height: 1;
+    z-index: 0;
+}
+
+.process-step-card h3, 
+.process-step-card p {
+    position: relative;
+    z-index: 1;
+}
+
+/* Testimonials Section */
+.testimonials-grid-clean {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card-clean {
+    background: #f9fafb;
+    padding: 32px;
+    border-radius: 16px;
+    border: 1px solid #f3f4f6;
+}
+
+.testimonial-stars {
+    color: #F59E0B;
+    margin-bottom: 16px;
+    font-size: 1.2rem;
+}
+
+.testimonial-author {
+    margin-top: 20px;
+    font-weight: 700;
+    color: #111827;
+    font-size: 0.9rem;
+}
 }
