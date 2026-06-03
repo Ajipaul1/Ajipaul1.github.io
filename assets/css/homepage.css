@@ -2013,3 +2013,102 @@ body.home-page-redesign {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* --- HEADER MEGA DROPDOWN --- */
+.nav-dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: #4b5563;
+    font-weight: 500;
+    font-size: 0.875rem;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+.dropdown-trigger .arrow {
+    font-size: 0.65rem;
+    transition: transform 0.3s ease;
+}
+.nav-dropdown:hover .dropdown-trigger .arrow {
+    transform: rotate(180deg);
+}
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(15px);
+    display: flex;
+    gap: 40px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 2000;
+    min-width: 750px;
+    margin-top: 10px;
+}
+/* Hover Bridge */
+.dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+}
+.nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+.dropdown-silo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.dropdown-silo h4 {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #111827;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    letter-spacing: 0.075em;
+    border-bottom: 2px solid #f3f4f6;
+    padding-bottom: 6px;
+}
+.dropdown-silo a {
+    font-size: 0.875rem;
+    color: #4b5563;
+    text-decoration: none;
+    padding: 4px 0;
+    transition: all 0.2s ease;
+    text-transform: none; /* Override parent uppercase */
+    letter-spacing: normal;
+    display: block;
+    font-weight: 400;
+}
+.dropdown-silo a::after {
+    display: none !important; /* Disable active underline effect from navigation links */
+}
+.dropdown-silo a:hover {
+    color: var(--current-chameleon, #6366F1);
+    padding-left: 4px;
+}
+@media (max-width: 1023px) {
+    /* Hide dropdown on mobile drawer and use standard lists */
+    .dropdown-menu {
+        display: none !important;
+    }
+}
+
+
