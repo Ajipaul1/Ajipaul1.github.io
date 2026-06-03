@@ -1961,3 +1961,55 @@ body.home-page-redesign {
     color: #64748b;
     font-size: 0.875rem;
 }
+
+/* --- SERVICE CATEGORIES DASHBOARD --- */
+.category-dashboard {
+    padding: 20px 0 80px;
+    background: #ffffff;
+}
+.dashboard-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+.dashboard-tab-btn {
+    background: #f9fafb;
+    color: #4b5563;
+    padding: 14px 28px;
+    border: 1px solid #e5e7eb;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+.dashboard-tab-btn:hover {
+    border-color: var(--current-chameleon, #6366F1);
+    color: var(--current-chameleon, #6366F1);
+    transform: translateY(-1px);
+}
+.dashboard-tab-btn.active {
+    background: var(--current-chameleon, #6366F1);
+    color: white;
+    border-color: var(--current-chameleon, #6366F1);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+}
+.dashboard-panel {
+    display: none;
+    opacity: 0;
+}
+.dashboard-panel.active {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    opacity: 1;
+    animation: dashboardFadeIn 0.5s ease forwards;
+}
+@keyframes dashboardFadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+

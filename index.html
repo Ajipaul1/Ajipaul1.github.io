@@ -108,33 +108,100 @@
         </div>
     </div>
 
-    <!-- Services Grid -->
+    <!-- Services Grid (Interactive Category Dashboard) -->
     <section id="services" class="section-white">
         <div class="container">
             <div class="section-header-center">
-                <h2>Our Commercial Silos</h2>
-                <p>We build scalable digital architecture. No marketing fluff.</p>
+                <h2>Service Categories Dashboard</h2>
+                <p>Explore our engineering-grade commercial silos. Click a category to view specialized solutions.</p>
             </div>
-            <div class="services-grid-clean">
+            
+            <!-- Dashboard Category Selector Tabs -->
+            <div class="dashboard-tabs">
+                <button class="dashboard-tab-btn active" data-tab="seo-panel">🔍 Technical SEO Silo</button>
+                <button class="dashboard-tab-btn" data-tab="saas-panel">⚙️ Custom SaaS Silo</button>
+                <button class="dashboard-tab-btn" data-tab="web-design-panel">🏗️ Web Design Silo</button>
+            </div>
+
+            <!-- SEO Panel -->
+            <div class="dashboard-panel active" id="seo-panel">
                 <div class="service-card-clean">
-                    <div class="icon-box">🔍</div>
-                    <h3><a href="/seo-services/" style="text-decoration:none; color:inherit;">Technical SEO & Organic Growth</a></h3>
-                    <p>We resolve indexability issues that block enterprise websites. Our technical audits surface an average of 47 critical crawl errors per site. From schema to authoritative backlinks, we engineer organic visibility.</p>
+                    <div class="icon-box">⚡</div>
+                    <h3><a href="/technical-seo-audit/" style="text-decoration:none; color:inherit;">Technical SEO Audit</a></h3>
+                    <p>Our flagship technical audit surfaces indexability issues, Javascript rendering blocks, and stabilized Core Web Vitals to unlock search organic growth.</p>
                 </div>
                 <div class="service-card-clean">
-                    <div class="icon-box">⚙️</div>
-                    <h3><a href="/saas-app-development/" style="text-decoration:none; color:inherit;">Custom SaaS & Business Apps</a></h3>
-                    <p>Off-the-shelf software limits growth. We engineer bespoke business logic, CRM portals, and ERP integrations using Next.js and Supabase, sustaining 10,000+ concurrent users without degradation.</p>
+                    <div class="icon-box">🏢</div>
+                    <h3><a href="/seo-services/enterprise-seo/" style="text-decoration:none; color:inherit;">Enterprise SEO Optimization</a></h3>
+                    <p>Resolving massive-scale crawl budget bottlenecks, index bloat, internal linking architectures, and search query cannibalization on complex domains.</p>
                 </div>
                 <div class="service-card-clean">
-                    <div class="icon-box">🏗️</div>
-                    <h3><a href="/website-design-development/" style="text-decoration:none; color:inherit;">High-Performance Web Design</a></h3>
-                    <p>We design high-converting digital assets tailored for B2B buyers. Built natively on Next.js, Webflow, or WordPress, our websites consistently score 95+ on PageSpeed Insights.</p>
+                    <div class="icon-box">📈</div>
+                    <h3><a href="/seo-services/saas-seo-strategy/" style="text-decoration:none; color:inherit;">SaaS SEO Strategy</a></h3>
+                    <p>Product-led search strategy mapping feature benefits to high-intent keywords to convert organic searchers directly into signups and product trials.</p>
+                </div>
+                <div class="service-card-clean">
+                    <div class="icon-box">🛒</div>
+                    <h3><a href="/seo-services/ecommerce-seo/" style="text-decoration:none; color:inherit;">E-commerce SEO</a></h3>
+                    <p>Optimizing dynamic category layouts, product pages, rich product snippets, schema structure, and crawl traps on large e-commerce catalogs.</p>
                 </div>
                 <div class="service-card-clean">
                     <div class="icon-box">🤖</div>
-                    <h3><a href="/seo-services/geo-aeo-optimisation/" style="text-decoration:none; color:inherit;">GEO & Answer Engine Optimisation</a></h3>
-                    <p>We pioneer Generative Engine Optimisation. By structuring data for Gemini, ChatGPT, and Perplexity, clients see a 30% average uplift in AI search citations within 90 days.</p>
+                    <h3><a href="/seo-services/geo-aeo-optimisation/" style="text-decoration:none; color:inherit;">GEO & AEO Optimization</a></h3>
+                    <p>Generative Engine Optimisation. Formatting structures so LLM models like ChatGPT, Gemini, and Perplexity list and cite your brand as the top solution.</p>
+                </div>
+            </div>
+
+            <!-- SaaS Panel -->
+            <div class="dashboard-panel" id="saas-panel">
+                <div class="service-card-clean">
+                    <div class="icon-box">🔑</div>
+                    <h3><a href="/saas-app-development/custom-crm-portals/" style="text-decoration:none; color:inherit;">Custom CRM Portals</a></h3>
+                    <p>Building secure, scalable, multi-tenant portal solutions tailored to match your precise workflows and customer onboarding pipelines.</p>
+                </div>
+                <div class="service-card-clean">
+                    <div class="icon-box">🔄</div>
+                    <h3><a href="/saas-app-development/erp-integrations/" style="text-decoration:none; color:inherit;">ERP Integrations</a></h3>
+                    <p>Building real-time API integrations linking legacy systems, databases, stock systems, and external vendor data with no latency.</p>
+                </div>
+                <div class="service-card-clean">
+                    <div class="icon-box">📊</div>
+                    <h3><a href="/saas-app-development/b2b-dashboards/" style="text-decoration:none; color:inherit;">B2B Dashboards</a></h3>
+                    <p>Beautiful, low-latency client-facing analytics, tracking panels, reporting frameworks, and visual metrics platforms powered by Next.js.</p>
+                </div>
+                <div class="service-card-clean">
+                    <div class="icon-box">🚀</div>
+                    <h3><a href="/saas-app-development/mvp-development/" style="text-decoration:none; color:inherit;">MVP Development</a></h3>
+                    <p>Rapid, robust product prototyping built to scale. Launch your SaaS platform within weeks using optimized relational databases and clean code.</p>
+                </div>
+            </div>
+
+            <!-- Web Design Panel -->
+            <div class="dashboard-panel" id="web-design-panel">
+                <div class="service-card-clean">
+                    <div class="icon-box">📋</div>
+                    <h3><a href="/website-seo-audit/" style="text-decoration:none; color:inherit;">Website SEO & UX Audit</a></h3>
+                    <p>A comprehensive assessment analyzing user flows, layout bottlenecks, mobile responsiveness, and visual optimization metrics.</p>
+                </div>
+                <div class="service-card-clean">
+                    <div class="icon-box">💼</div>
+                    <h3><a href="/website-design-development/b2b-corporate-websites/" style="text-decoration:none; color:inherit;">B2B Corporate Websites</a></h3>
+                    <p>High-conversion marketing sites built specifically to support complex B2B buyer journeys, sales structures, and brand credibility.</p>
+                </div>
+                <div class="service-card-clean">
+                    <div class="icon-box">⚡</div>
+                    <h3><a href="/website-design-development/core-web-vitals-optimization/" style="text-decoration:none; color:inherit;">Core Web Vitals Optimization</a></h3>
+                    <p>Refactoring layouts, compression algorithms, server caching, and bundle files to achieve perfect 100 PageSpeed scores.</p>
+                </div>
+                <div class="service-card-clean">
+                    <div class="icon-box">⚛️</div>
+                    <h3><a href="/website-design-development/nextjs-development/" style="text-decoration:none; color:inherit;">Next.js Development</a></h3>
+                    <p>Building blazing-fast, server-side rendered websites that combine rich design experiences with search crawlability.</p>
+                </div>
+                <div class="service-card-clean">
+                    <div class="icon-box">🕸️</div>
+                    <h3><a href="/website-design-development/headless-cms/" style="text-decoration:none; color:inherit;">Headless CMS Integration</a></h3>
+                    <p>Integrating modern content frameworks (Sanity, Strapi, Contentful) to allow teams to publish pages with zero coding dependencies.</p>
                 </div>
             </div>
         </div>
@@ -335,5 +402,16 @@
             </div>
         </div>
     </footer>
+    <script>
+        document.querySelectorAll('.dashboard-tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.dashboard-tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.dashboard-panel').forEach(p => p.classList.remove('active'));
+                btn.classList.add('active');
+                const targetId = btn.getAttribute('data-tab');
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>
