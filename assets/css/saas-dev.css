@@ -1,0 +1,301 @@
+/* SaaS Dev Premium Design System */
+:root {
+  --saas-bg-dark: #0f1115;
+  --saas-bg-darker: #08090b;
+  --saas-bg-light: #ffffff;
+  --saas-bg-gray: #f9fafb;
+  --saas-primary: #3b82f6; /* Modern Blue */
+  --saas-primary-hover: #2563eb;
+  --saas-accent: #8b5cf6; /* Violet */
+  --saas-accent-glow: rgba(139, 92, 246, 0.4);
+  --saas-text-dark: #e2e8f0;
+  --saas-text-light: #1e293b;
+  --saas-text-muted: #64748b;
+  --saas-text-muted-dark: #94a3b8;
+  --saas-border-light: #e2e8f0;
+  --saas-border-dark: #1e293b;
+  --saas-glass-bg: rgba(255, 255, 255, 0.05);
+  --saas-glass-border: rgba(255, 255, 255, 0.1);
+  --saas-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --saas-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --saas-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --saas-shadow-glow: 0 0 40px var(--saas-accent-glow);
+  --saas-radius-md: 0.5rem;
+  --saas-radius-lg: 1rem;
+  --saas-radius-xl: 1.5rem;
+}
+
+body.saas-premium {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--saas-text-light);
+  background-color: var(--saas-bg-light);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Typography Enhancements */
+.saas-premium h1, .saas-premium h2, .saas-premium h3, .saas-premium h4 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.saas-premium p {
+  color: var(--saas-text-muted);
+  font-size: 1.125rem;
+  margin-bottom: 1.5rem;
+}
+
+.saas-premium .text-gradient {
+  background: linear-gradient(135deg, var(--saas-primary), var(--saas-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Hero Section: Floating App Mockup (Layout 1) */
+.saas-hero-floating {
+  position: relative;
+  padding: 8rem 0 4rem;
+  background-color: var(--saas-bg-dark);
+  color: var(--saas-text-dark);
+  overflow: hidden;
+  text-align: center;
+}
+.saas-hero-floating::before {
+  content: '';
+  position: absolute;
+  top: -20%; left: -10%; width: 50%; height: 50%;
+  background: radial-gradient(circle, var(--saas-accent-glow) 0%, transparent 70%);
+  z-index: 0;
+  filter: blur(80px);
+}
+.saas-hero-floating .container {
+  position: relative;
+  z-index: 1;
+}
+.saas-hero-floating h1 {
+  font-size: 4rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+.saas-hero-floating p {
+  color: var(--saas-text-muted-dark);
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+}
+.saas-floating-mockup {
+  margin-top: 4rem;
+  perspective: 1000px;
+  animation: float 6s ease-in-out infinite;
+}
+.saas-floating-mockup img {
+  border-radius: var(--saas-radius-lg);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 40px var(--saas-accent-glow);
+  max-width: 80%;
+  border: 1px solid var(--saas-glass-border);
+  transform: rotateX(5deg) translateY(0);
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotateX(5deg); }
+  50% { transform: translateY(-20px) rotateX(5deg); }
+  100% { transform: translateY(0px) rotateX(5deg); }
+}
+
+/* Hero Section: Asymmetrical Split Layout (Layout 2) */
+.saas-hero-split {
+  display: flex;
+  min-height: 90vh;
+  background: var(--saas-bg-light);
+  align-items: center;
+}
+.saas-hero-split .split-content {
+  flex: 1;
+  padding: 4rem 10%;
+}
+.saas-hero-split h1 {
+  font-size: 3.5rem;
+  color: var(--saas-text-light);
+}
+.saas-hero-split .split-image {
+  flex: 1;
+  height: 90vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+/* Dark Mode Section */
+.saas-dark-section {
+  background-color: var(--saas-bg-darker);
+  color: var(--saas-text-dark);
+  padding: 6rem 0;
+  position: relative;
+}
+.saas-dark-section h2 {
+  color: #fff;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+.saas-dark-section p {
+  color: var(--saas-text-muted-dark);
+}
+
+/* 4-Column Feature Grid */
+.saas-feature-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  padding: 0 1rem;
+}
+@media (max-width: 1024px) {
+  .saas-feature-grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .saas-feature-grid-4 { grid-template-columns: 1fr; }
+}
+
+/* Grid Cards (Replaces Bullets) */
+.saas-card {
+  background: var(--saas-bg-light);
+  border: 1px solid var(--saas-border-light);
+  border-radius: var(--saas-radius-lg);
+  padding: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--saas-shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+.saas-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--saas-shadow-lg);
+  border-color: var(--saas-primary);
+}
+.saas-card .icon-wrapper {
+  width: 50px;
+  height: 50px;
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--saas-primary);
+  border-radius: var(--saas-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.saas-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+.saas-card p {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+/* Dark Cards */
+.saas-dark-section .saas-card {
+  background: var(--saas-glass-bg);
+  border: 1px solid var(--saas-glass-border);
+  backdrop-filter: blur(10px);
+}
+.saas-dark-section .saas-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--saas-accent);
+  box-shadow: var(--saas-shadow-glow);
+}
+.saas-dark-section .saas-card h3 { color: #fff; }
+
+/* 2-Column Grid (For standard layouts) */
+.saas-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .saas-grid-2 { grid-template-columns: 1fr; }
+}
+
+/* 3-Column Grid */
+.saas-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+@media (max-width: 900px) {
+  .saas-grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .saas-grid-3 { grid-template-columns: 1fr; }
+}
+
+/* Utility / Helpers */
+.saas-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.saas-section {
+  padding: 6rem 0;
+}
+.saas-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: all 0.2s;
+  text-decoration: none;
+  font-size: 1.125rem;
+}
+.saas-btn-primary {
+  background-color: var(--saas-primary);
+  color: #fff;
+  box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.39);
+}
+.saas-btn-primary:hover {
+  background-color: var(--saas-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.23);
+}
+.saas-btn-outline {
+  background: transparent;
+  color: var(--saas-text-light);
+  border: 1px solid var(--saas-border-light);
+}
+.saas-dark-section .saas-btn-outline {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.saas-dark-section .saas-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.saas-text-center { text-align: center; }
+.saas-mt-8 { margin-top: 2rem; }
+.saas-mb-8 { margin-bottom: 2rem; }
+.saas-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: rgba(139, 92, 246, 0.1);
+  color: var(--saas-accent);
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.saas-dark-section .saas-badge {
+  background: rgba(139, 92, 246, 0.2);
+  color: #c4b5fd;
+}

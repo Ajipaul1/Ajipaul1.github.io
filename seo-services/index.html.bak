@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>High-Performance Website Design & Development | TechAuditPros</title>
-  <meta name="description" content="Corporate website design company in Kerala. We build SEO-friendly, mobile-first websites optimized for Core Web Vitals using Next.js and Webflow.">
+  <title>Enterprise SEO Services & Technical Organic Growth | TechAuditPros</title>
+  <meta name="description" content="Data-driven enterprise SEO services in Kochi, India. We fix technical debt, map entity clusters, and engineer sustainable organic growth for B2B brands globally.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://techauditpros.com/website-design-development/">
+  <link rel="canonical" href="https://techauditpros.com/seo-services/">
   
   <link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="icon" href="../assets/favicon-16.png" sizes="16x16" type="image/png">
@@ -16,31 +16,30 @@
   <link rel="apple-touch-icon" href="../assets/favicon-64.png">
   
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://techauditpros.com/website-design-development/">
-  <meta property="og:title" content="High-Performance Website Design | TechAuditPros">
-  <meta property="og:description" content="SEO-friendly B2B website design engineered for Core Web Vitals.">
+  <meta property="og:url" content="https://techauditpros.com/seo-services/">
+  <meta property="og:title" content="Enterprise SEO Services | TechAuditPros">
+  <meta property="og:description" content="Engineering-grade SEO services. Fix technical debt and dominate search.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/homepage.css">
-  <link rel="stylesheet" href="../assets/css/web-design.css">
   
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "serviceType": "Web Design",
+    "serviceType": "Enterprise SEO Services",
     "provider": {
       "@type": "ProfessionalService",
       "name": "TechAuditPros",
       "url": "https://techauditpros.com"
     },
-    "description": "B2B and corporate website design focused on SEO and Core Web Vitals."
+    "description": "Technical and enterprise SEO services including technical audits, AEO, and organic growth strategies."
   }
   </script>
 </head>
-<body class="wd-page">
+<body class="home-page-redesign">
 
     <header class="main-header-bar">
         <div class="container header-container">
@@ -109,57 +108,80 @@
         </div>
     </header>
 
-    <section class="wd-hero-split">
-        <div class="wd-hero-content">
-            <h1>High-Performance <br><span class="text-highlight">Website Design</span></h1>
-            <p>We build digital assets, not digital brochures. From our headquarters in Kochi, Kerala, we engineer SEO-friendly corporate websites guaranteed to pass Google's Core Web Vitals and convert B2B traffic.</p>
-            <div class="hero-btns">
-                <a href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" class="wd-btn wd-btn-primary">Get a Design Quote</a>
-            </div>
-        </div>
-        <div class="wd-hero-image">
-            <img src="C:/Users/marke/.gemini/antigravity/brain/c0cd8166-7649-4084-9569-7898420fc789/web_design_hero_1780481240674.png" alt="Premium Website Design" />
-        </div>
-    </section>
-
-    <section class="wd-glass-section">
+    <section class="hero-section-white">
         <div class="container">
-            <div class="section-header-center" style="margin-bottom: 50px; text-align: center; color: white;">
-                <h2 style="font-size: 2.5rem; margin-bottom: 16px;">Our Web Design Focus</h2>
-                <p style="font-size: 1.125rem; opacity: 0.9;">Where aesthetics meet engineering precision.</p>
-            </div>
-            <div class="wd-glass-grid">
-                <div class="wd-glass-card">
-                    <div class="icon-box" style="font-size: 2rem; margin-bottom: 16px;">🏢</div>
-                    <h3><a href="/website-design-development/b2b-corporate-websites/" style="text-decoration:none; color:inherit;">B2B Corporate Websites</a></h3>
-                    <p>Clean, authoritative designs that establish trust instantly. We map complex buyer journeys to intuitive navigation structures designed for enterprise decision-makers.</p>
-                </div>
-                <div class="wd-glass-card">
-                    <div class="icon-box" style="font-size: 2rem; margin-bottom: 16px;">⚡</div>
-                    <h3><a href="/website-design-development/core-web-vitals-optimization/" style="text-decoration:none; color:inherit;">Core Web Vitals Optimization</a></h3>
-                    <p>Speed is a ranking factor. Every site we build is mathematically optimized to score 95+ on PageSpeed Insights, eliminating layout shifts and massive load delays.</p>
-                </div>
-                <div class="wd-glass-card">
-                    <div class="icon-box" style="font-size: 2rem; margin-bottom: 16px;">⚛️</div>
-                    <h3><a href="/website-design-development/nextjs-development/" style="text-decoration:none; color:inherit;">Next.js Development</a></h3>
-                    <p>For high-traffic portals, we use Next.js. It delivers the speed of a static site with the power of a dynamic application, ensuring flawless SEO indexability.</p>
-                </div>
-                <div class="wd-glass-card">
-                    <div class="icon-box" style="font-size: 2rem; margin-bottom: 16px;">📱</div>
-                    <h3><a href="/website-design-development/headless-cms/" style="text-decoration:none; color:inherit;">Headless CMS Integration</a></h3>
-                    <p>Manage content effortlessly while keeping the frontend lightning fast. We integrate Sanity, Contentful, or headless WordPress for ultimate flexibility.</p>
+            <div class="hero-content-white">
+                <h1>Engineering-Grade <br><span class="text-highlight">SEO Services</span></h1>
+                <p>We provide enterprise SEO optimization services designed to dismantle your technical debt and establish absolute topical authority. If your organic growth has plateaued, you don't need another marketing package—you need a technical intervention.</p>
+                <div class="hero-btns">
+                    <a href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" class="primary-btn-large">Request an SEO Audit</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="wd-masonry-section">
+    <section class="section-white">
         <div class="container">
-            <h2 style="text-align:center; font-size: 2.5rem; margin-bottom: 20px;">Your website should be your best salesperson.</h2>
-            <p style="text-align:center; font-size: 1.125rem; color: #64748b; margin-bottom: 40px;">Let's design a site that ranks and converts.</p>
-            <div style="text-align:center;">
-                <a href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" class="wd-btn wd-btn-primary">Start Your Project</a>
+            <div class="section-header-center">
+                <h2>Our Core SEO Competencies</h2>
+                <p>We execute advanced SEO strategies for SaaS and B2B enterprises.</p>
             </div>
+            <div class="services-grid-clean">
+                <div class="service-card-clean">
+                    <div class="icon-box">🔍</div>
+                    <h3><a href="/seo-services/enterprise-seo/" style="text-decoration:none; color:inherit;">Enterprise SEO Optimization</a></h3>
+                    <p>Large-scale architecture remediation. We resolve index bloat, crawl budget inefficiencies, and faceted navigation traps that hold back enterprise domains.</p>
+                </div>
+                <div class="service-card-clean">
+                    <div class="icon-box">⚙️</div>
+                    <h3><a href="/seo-services/saas-seo-strategy/" style="text-decoration:none; color:inherit;">SaaS SEO Strategy</a></h3>
+                    <p>Product-led SEO strategies designed for software companies. We map feature sets to high-intent BOFU (Bottom of Funnel) search demand to drive software demo requests.</p>
+                </div>
+                <div class="service-card-clean">
+                    <div class="icon-box">🤖</div>
+                    <h3><a href="/seo-services/geo-aeo-optimisation/" style="text-decoration:none; color:inherit;">GEO & AEO Optimization</a></h3>
+                    <p>Generative Engine Optimisation. We structure your entity data so your brand is cited by LLMs like Google Gemini, ChatGPT, and Perplexity in conversational search.</p>
+                </div>
+                <div class="service-card-clean">
+                    <div class="icon-box">⚡</div>
+                    <h3><a href="/technical-seo-audit/" style="text-decoration:none; color:inherit;">Technical Auditing</a></h3>
+                    <p>Our flagship technical audit surfaces an average of 47 critical crawl errors per site, establishing a prioritized roadmap for fixing Core Web Vitals and indexability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-white" style="background: #f9fafb;">
+        <div class="container">
+            <div class="section-header-center">
+                <h2>The 3-Pillar SEO Methodology</h2>
+                <p>How an elite SEO company in India engineers global results.</p>
+            </div>
+            <div class="process-grid-clean">
+                <div class="process-step-card">
+                    <div class="step-number">01</div>
+                    <h3>Technical Foundation (The Code)</h3>
+                    <p>Content cannot rank if Google cannot render it. We fix JavaScript rendering issues, repair broken internal linking silos, and optimize server response times.</p>
+                </div>
+                <div class="process-step-card">
+                    <div class="step-number">02</div>
+                    <h3>Topical Mapping (The Content)</h3>
+                    <p>We analyze your competitor's content gaps using advanced TF-IDF analysis. We don't just write blogs; we build interconnected entity clusters that blanket your entire industry.</p>
+                </div>
+                <div class="process-step-card">
+                    <div class="step-number">03</div>
+                    <h3>Digital PR (The Authority)</h3>
+                    <p>We execute surgical link-building campaigns. By securing placements on high-DR, contextually relevant B2B domains, we signal immense trust to the search algorithms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta-clean">
+        <div class="container">
+            <h2>Ready to dominate your search vertical?</h2>
+            <p>Our engineering team is ready to analyze your architecture.</p>
+            <a href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" class="primary-btn-large">Start Your Project</a>
         </div>
     </section>
 
@@ -196,3 +218,4 @@
     </footer>
 </body>
 </html>
+
