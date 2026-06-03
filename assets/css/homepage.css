@@ -2041,3 +2041,197 @@ body.home-page-redesign {
     font-size: 0.9rem;
 }
 }
+/* --- NEW PREMIUM MASTER DRAFT CSS --- */
+.section-white {
+    padding: 80px 0;
+    background-color: #ffffff;
+    color: #111827;
+}
+.section-header-center {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+}
+.section-header-center h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+    color: #111827;
+}
+.section-header-center p {
+    font-size: 1.125rem;
+    color: #4b5563;
+}
+.services-grid-clean, .process-grid-clean, .testimonials-grid-clean, .locations-grid-clean {
+    display: grid;
+    gap: 30px;
+}
+.services-grid-clean { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.process-grid-clean { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.testimonials-grid-clean { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.locations-grid-clean { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.service-card-clean, .process-step-card, .testimonial-card-clean, .location-card-clean {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 32px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+.service-card-clean:hover, .process-step-card:hover, .location-card-clean:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    border-color: #cbd5e1;
+}
+.icon-box {
+    font-size: 2rem;
+    margin-bottom: 16px;
+}
+.service-card-clean h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+.service-card-clean p, .process-step-card p {
+    color: #4b5563;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+.step-number {
+    display: inline-block;
+    background: #f3f4f6;
+    color: #374151;
+    font-size: 0.875rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+}
+.process-step-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+.founder-grid-clean {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+.section-header-left h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 24px;
+}
+.section-header-left p {
+    font-size: 1.125rem;
+    color: #4b5563;
+    margin-bottom: 16px;
+    line-height: 1.7;
+}
+@media (max-width: 768px) {
+    .founder-grid-clean { grid-template-columns: 1fr; }
+}
+.testimonial-stars {
+    color: #fbbf24;
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+}
+.testimonial-card-clean p {
+    font-size: 1.125rem;
+    font-style: italic;
+    color: #1f2937;
+    margin-bottom: 20px;
+}
+.testimonial-author {
+    font-weight: 600;
+    color: #4b5563;
+    font-size: 0.9rem;
+}
+.checklist-grid-clean {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.checklist-clean {
+    list-style: none;
+}
+.checklist-clean li {
+    font-size: 1.125rem;
+    color: #374151;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+}
+.checkmark-clean {
+    color: #10b981;
+    font-weight: 800;
+    margin-right: 12px;
+}
+@media (max-width: 600px) {
+    .checklist-grid-clean { grid-template-columns: 1fr; }
+}
+.faq-accordion-clean {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.faq-item-clean {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+.faq-item-clean summary {
+    padding: 20px;
+    font-weight: 600;
+    font-size: 1.125rem;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.faq-item-clean summary::-webkit-details-marker { display: none; }
+.faq-item-clean p {
+    padding: 0 20px 20px;
+    color: #4b5563;
+    line-height: 1.6;
+}
+.location-card-clean {
+    text-align: center;
+    text-decoration: none;
+    display: block;
+}
+.loc-flag {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 12px;
+}
+.location-card-clean h3 {
+    color: #111827;
+    margin-bottom: 8px;
+}
+.location-card-clean p {
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+.final-cta-clean {
+    background: var(--current-chameleon, #0F172A);
+    color: #ffffff;
+    padding: 100px 20px;
+    text-align: center;
+}
+.final-cta-clean h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+.final-cta-clean p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    margin-bottom: 32px;
+}
