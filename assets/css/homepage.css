@@ -52,7 +52,7 @@ body.industry-techaudit { --current-chameleon: var(--chameleon-techaudit); }
 /* Container */
 .container {
     width: 95%;
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -1618,7 +1618,7 @@ body.home-page-redesign {
 .hero-content-white p {
     font-size: 1.25rem;
     color: #4b5563;
-    max-width: 700px;
+    max-width: 900px;
     margin: 0 auto 40px;
     line-height: 1.6;
 }
@@ -1720,7 +1720,7 @@ body.home-page-redesign {
 }
 .section-header-center {
     text-align: center;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto 50px;
 }
 .section-header-center h2 {
@@ -1824,7 +1824,7 @@ body.home-page-redesign {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
-    max-width: 800px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 .checklist-clean {
@@ -1846,7 +1846,7 @@ body.home-page-redesign {
     .checklist-grid-clean { grid-template-columns: 1fr; }
 }
 .faq-accordion-clean {
-    max-width: 800px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 .faq-item-clean {
@@ -1916,7 +1916,7 @@ body.home-page-redesign {
 }
 .footer-container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 0 20px;
 }
