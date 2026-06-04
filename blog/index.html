@@ -1,675 +1,1518 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="index, follow" name="robots"/>
-<title>TechAuditPros Blog | Digital Marketing Consultant in Kerala | Web Guides</title>
-<meta content="Read expert guides on technical SEO, Next.js, and web performance. Partner with Aji Paul, digital marketing consultant in kerala, to scale search traffic." name="description"/>
-<link href="https://techauditpros.com/blog/" rel="canonical"/>
-<!-- Favicons -->
-<link href="../assets/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
-<link href="../assets/favicon-16.png" rel="icon" sizes="16x16" type="image/png"/>
-<link href="../assets/favicon-48.png" rel="icon" sizes="48x48" type="image/png"/>
-<link href="../assets/favicon-64.png" rel="icon" sizes="64x64" type="image/png"/>
-<link href="../assets/logoonly.svg" rel="icon" type="image/svg+xml"/>
-<link href="../assets/favicon-64.png" rel="apple-touch-icon"/>
-<!-- Open Graph -->
-<meta content="website" property="og:type"/>
-<meta content="https://techauditpros.com/blog/" property="og:url"/>
-<meta content="TechAuditPros Blog | Digital Marketing Consultant in Kerala | Web Guides" property="og:title"/>
-<meta content="Read expert guides on technical SEO, Next.js, and web performance. Partner with Aji Paul, digital marketing consultant in kerala, to scale search traffic." property="og:description"/>
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Outfit:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<!-- Core CSS (Main Site) -->
-<link href="../assets/css/homepage.css" rel="stylesheet"/>
-<!-- Custom Style Block for White Theme and Layouts -->
-<style>
-        /* White Theme System Theme Overrides */
-        :root {
-            --color-bg-main: #ffffff;
-            --color-bg-surface: #f8fafc;
-            --color-text-main: #0f172a;
-            --color-text-muted: #475569;
-            --color-accent-primary: #4f46e5; /* Indigo */
-            --color-accent-secondary: #0d9488; /* Teal */
-            --color-border: #e2e8f0;
-            --chameleon-general: #4f46e5;
-            --current-chameleon: #4f46e5;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>TechAuditPros Blog | Technical SEO Guides | Digital Marketing Consultant Kerala</title>
+  <meta name="description" content="Expert technical SEO guides, Next.js tutorials, crawlability fixes, and GEO optimization insights by Aji Paul — digital marketing consultant in Kerala. Read all articles.">
+  <link rel="canonical" href="https://techauditpros.com/blog/">
 
-        body {
-            background-color: var(--color-bg-main) !important;
-            color: var(--color-text-main) !important;
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-        }
+  <!-- Favicons -->
+  <link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="../assets/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="icon" href="../assets/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="icon" href="../assets/favicon-64.png" sizes="64x64" type="image/png">
+  <link rel="icon" href="../assets/logoonly.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/favicon-64.png">
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Outfit', sans-serif;
-            color: var(--color-text-main) !important;
-            margin-top: 0;
-            font-weight: 700;
-        }
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://techauditpros.com/blog/">
+  <meta property="og:title" content="TechAuditPros Blog | Technical SEO Guides | Digital Marketing Consultant Kerala">
+  <meta property="og:description" content="Expert technical SEO guides, Next.js tutorials, crawlability fixes, and GEO optimization insights by Aji Paul.">
+  <meta property="og:image" content="https://techauditpros.com/assets/images/services/seo_services_hero.png">
 
-        /* Navigation Header overrides */
-        .main-header-bar {
-            background: rgba(255, 255, 255, 0.95) !important;
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--color-border) !important;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            height: 70px;
-        }
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
-        .logo-text {
-            color: var(--color-text-main) !important;
-            font-weight: 800;
-            font-size: 1.3rem;
-            font-family: 'Outfit', sans-serif;
-        }
-
-        .desktop-nav a {
-            color: var(--color-text-muted) !important;
-            font-weight: 600 !important;
-            text-transform: none !important;
-            font-size: 0.95rem !important;
-            letter-spacing: normal !important;
-            transition: color 0.2s ease;
-        }
-        
-        .desktop-nav a:hover {
-            color: var(--color-accent-primary) !important;
-        }
-
-        /* Dropdown overrides for White Theme */
-        .dropdown-menu {
-            background: #ffffff !important;
-            border: 1px solid var(--color-border) !important;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05) !important;
-        }
-
-        .dropdown-silo h4 {
-            color: var(--color-accent-primary) !important;
-            border-bottom: 1px solid var(--color-border) !important;
-        }
-
-        .dropdown-silo a {
-            color: var(--color-text-muted) !important;
-        }
-
-        .dropdown-silo a:hover {
-            color: var(--color-accent-secondary) !important;
-            background: var(--color-bg-surface);
-            padding-left: 8px;
-        }
-
-        .book-audit-btn {
-            background: var(--color-accent-primary) !important;
-            border-color: var(--color-accent-primary) !important;
-            color: #ffffff !important;
-            border-radius: 6px;
-            padding: 10px 20px;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
-
-        .book-audit-btn:hover {
-            background: #4338ca !important;
-            color: #ffffff !important;
-            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2) !important;
-            transform: translateY(-1px);
-        }
-
-        /* Vertical Page: Tech-Agency Grid Cards Layout */
-        .vertical-hero {
-            background: radial-gradient(circle at top right, rgba(79, 70, 229, 0.05) 0%, rgba(255, 255, 255, 1) 70%);
-            padding: 6rem 20px 4rem;
-            text-align: center;
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .vertical-hero h1 {
-            font-size: 3rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            color: var(--color-text-main);
-        }
-
-        .vertical-hero p.lead {
-            font-size: 1.25rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            color: var(--color-text-muted);
-        }
-
-        .vertical-container {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 20px;
-        }
-
-        .vertical-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .vertical-card {
-            background-color: var(--color-bg-surface);
-            border: 1px solid var(--color-border);
-            border-radius: 12px;
-            padding: 2.5rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .vertical-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--color-accent-primary);
-            box-shadow: 0 12px 24px rgba(79, 70, 229, 0.08);
-        }
-
-        .vertical-card h3 {
-            color: var(--color-text-main);
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .vertical-card h3 .icon {
-            color: var(--color-accent-secondary);
-            font-size: 1.6rem;
-        }
-
-        .vertical-card p {
-            color: var(--color-text-muted);
-            font-size: 1.05rem;
-            line-height: 1.65;
-            margin-bottom: 0;
-        }
-
-        /* Blog Page: Rich Content Layout */
-        .blog-container-custom {
-            display: grid;
-            grid-template-columns: 1fr 320px;
-            gap: 4rem;
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 20px;
-        }
-
-        @media (max-width: 992px) {
-            .blog-container-custom {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-            }
-        }
-
-        .blog-main {
-            background: #ffffff;
-        }
-
-        .blog-sidebar {
-            position: sticky;
-            top: 100px;
-            height: fit-content;
-        }
-
-        .sidebar-widget {
-            background-color: var(--color-bg-surface);
-            border: 1px solid var(--color-border);
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .sidebar-widget h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1.2rem;
-            font-weight: 700;
-            border-bottom: 2px solid var(--color-accent-secondary);
-            padding-bottom: 0.5rem;
-            color: var(--color-text-main);
-        }
-
-        .sidebar-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .sidebar-links li {
-            margin-bottom: 0.9rem;
-            border-bottom: 1px solid rgba(0,0,0,0.03);
-            padding-bottom: 0.5rem;
-        }
-
-        .sidebar-links li:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .sidebar-links a {
-            color: var(--color-text-muted);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s ease, padding-left 0.2s ease;
-            display: block;
-        }
-
-        .sidebar-links a:hover {
-            color: var(--color-accent-primary);
-            padding-left: 5px;
-        }
-
-        /* Content Typography & Elements */
-        .rich-content h1 {
-            font-size: 2.8rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            color: var(--color-text-main);
-        }
-
-        .rich-content h2 {
-            font-size: 1.85rem;
-            margin-top: 3rem;
-            margin-bottom: 1.2rem;
-            font-weight: 800;
-            color: var(--color-text-main);
-            border-left: 4px solid var(--color-accent-primary);
-            padding-left: 1rem;
-        }
-
-        .rich-content h3 {
-            font-size: 1.4rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            color: var(--color-text-main);
-        }
-
-        .rich-content p {
-            font-size: 1.075rem;
-            line-height: 1.75;
-            color: var(--color-text-muted);
-            margin-bottom: 1.5rem;
-        }
-
-        .rich-content ul, .rich-content ol {
-            margin-bottom: 1.8rem;
-            padding-left: 1.8rem;
-        }
-
-        .rich-content li {
-            font-size: 1.075rem;
-            line-height: 1.75;
-            color: var(--color-text-muted);
-            margin-bottom: 0.6rem;
-        }
-
-        /* Code block highlights */
-        pre {
-            background-color: var(--color-bg-surface) !important;
-            border: 1px solid var(--color-border);
-            border-radius: 8px;
-            padding: 1.5rem;
-            overflow-x: auto;
-            margin: 2rem 0;
-        }
-
-        code {
-            font-family: 'JetBrains Mono', Courier, monospace;
-            font-size: 0.925rem;
-            color: #d97706; /* deep amber for inline codes */
-            background-color: var(--color-bg-surface);
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
-
-        pre code {
-            color: var(--color-text-main) !important;
-            font-size: 0.875rem;
-            background: none;
-            padding: 0;
-        }
-
-        /* Highlight box / list summary */
-        .summary-box {
-            background-color: #f0fdf4; /* soft light green */
-            border-left: 4px solid #16a34a;
-            padding: 1.5rem 2rem;
-            border-radius: 4px 8px 8px 4px;
-            margin: 2.5rem 0;
-        }
-
-        .summary-box h4 {
-            margin-bottom: 0.5rem;
-            color: #14532d !important;
-            font-weight: 700;
-            margin-top: 0;
-        }
-
-        .summary-box p {
-            color: #166534;
-            margin-bottom: 0;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        /* Zoho form iframe section */
-        .glass-section {
-            background-color: var(--color-bg-surface) !important;
-            border: 1px solid var(--color-border) !important;
-            padding: 4rem 2rem !important;
-            border-radius: 16px;
-            margin: 4rem 0;
-            text-align: center;
-        }
-
-        .glass-section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .glass-section p {
-            color: var(--color-text-muted);
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            font-size: 1.1rem;
-        }
-
-        /* Footer styling overrides */
-        .site-footer {
-            background-color: var(--color-bg-surface) !important;
-            border-top: 1px solid var(--color-border) !important;
-            color: var(--color-text-main) !important;
-            padding: 5rem 20px 2rem !important;
-            margin-top: 6rem;
-        }
-
-        .footer-column h3 {
-            color: var(--color-text-main) !important;
-            font-weight: 700;
-            font-size: 1.15rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid var(--color-border);
-            padding-bottom: 0.5rem;
-        }
-
-        .footer-link {
-            color: var(--color-text-muted) !important;
-            transition: color 0.2s ease;
-            text-decoration: none;
-        }
-
-        .footer-link:hover {
-            color: var(--color-accent-primary) !important;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid var(--color-border) !important;
-            margin-top: 4rem;
-            padding-top: 2rem;
-            color: var(--color-text-muted) !important;
-        }
-    
-
-    .custom-layout-container {
-        max-width: 1200px;
-        margin: 4rem auto;
-        padding: 0 1.5rem;
-    }
-    .layout-bento-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
-        margin-top: 2rem;
-    }
-    .bento-card {
-        background: var(--premium-surface);
-        border: 1px solid var(--glass-border);
-        border-radius: 20px;
-        padding: 2.5rem;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        box-shadow: var(--shadow-sm);
-    }
-    .bento-card:hover {
-        transform: translateY(-4px);
-        border-color: var(--accent-teal);
-        box-shadow: 0 12px 30px rgba(99, 102, 241, 0.08);
-    }
-    .bento-card h3 {
-        font-size: 1.6rem;
-        color: var(--text-primary);
-        margin-bottom: 1rem;
-    }
-    .bento-card p {
-        color: var(--text-secondary);
-        font-size: 1rem;
-        line-height: 1.6;
-    }
-    .bento-large { grid-column: span 2; grid-row: span 2; }
-    .bento-tall { grid-row: span 2; }
-    .bento-wide { grid-column: span 2; }
-    @media (max-width: 900px) {
-        .layout-bento-grid { grid-template-columns: 1fr; }
-        .bento-large, .bento-tall, .bento-wide { grid-column: span 1; grid-row: span 1; }
-    }
-    </style>
-<script type="application/ld+json">
-{
-      "@context": "https://schema.org",
-      "@type": "Blog",
-      "name": "TechAuditPros Blog",
-      "description": "Expert guides on technical SEO, sitemaps, server parameters, and digital marketing consulting by Aji Paul, digital marketing consultant in kerala.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "TechAuditPros",
-        "logo": "https://techauditpros.com/assets/logoonly.svg"
+  <!-- Schema: Blog -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "TechAuditPros Blog",
+    "url": "https://techauditpros.com/blog/",
+    "description": "Expert technical SEO guides and digital marketing insights from Aji Paul, leading SEO consultant in Kerala.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "TechAuditPros",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://techauditpros.com/assets/logoonly.svg"
       }
-    }
-</script>
-<script type="application/ld+json">
-{
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "Digital Marketing Consulting Kerala",
-      "provider": {
-        "@type": "Person",
-        "name": "Aji Paul",
-        "jobTitle": "Digital Marketing Consultant in Kerala",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Kochi",
-          "addressRegion": "Kerala",
-          "addressCountry": "IN"
-        }
+    },
+    "blogPost": [
+      {
+        "@type": "BlogPosting",
+        "headline": "What is SERP in SEO?",
+        "url": "https://techauditpros.com/blog/what-is-serp-in-seo/"
       },
-      "description": "Premium technical SEO consulting, log analysis, Next.js performance tuning, and digital marketing roadmap generation by Aji Paul."
+      {
+        "@type": "BlogPosting",
+        "headline": "SaaS vs Custom Software",
+        "url": "https://techauditpros.com/blog/saas-vs-custom-software/"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "How to Fix Crawlability Issues",
+        "url": "https://techauditpros.com/blog/how-to-fix-crawlability-issues/"
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* =============================================
+       ROOT DESIGN SYSTEM — WHITE PREMIUM THEME
+    ============================================= */
+    :root {
+      --bg-white: #ffffff;
+      --bg-surface: #f8fafc;
+      --bg-surface-2: #f1f5f9;
+      --border-light: #e2e8f0;
+      --border-mid: #cbd5e1;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --accent-indigo: #4f46e5;
+      --accent-indigo-hover: #4338ca;
+      --accent-indigo-light: rgba(79, 70, 229, 0.07);
+      --accent-teal: #0d9488;
+      --accent-teal-light: rgba(13, 148, 136, 0.07);
+      --accent-amber: #d97706;
+      --accent-rose: #e11d48;
+      --accent-purple: #7c3aed;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -1px rgba(0,0,0,0.05);
+      --shadow-lg: 0 10px 25px -3px rgba(0,0,0,0.08), 0 4px 6px -2px rgba(0,0,0,0.04);
+      --shadow-xl: 0 20px 40px -5px rgba(0,0,0,0.1), 0 8px 16px -4px rgba(0,0,0,0.06);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
     }
-</script>
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-white);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Outfit', sans-serif;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* =============================================
+       HEADER
+    ============================================= */
+    .main-header-bar {
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 70px;
+    }
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--text-primary);
+    }
+    .desktop-nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    .desktop-nav > a {
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: color 0.2s ease;
+      font-size: 0.925rem;
+    }
+    .desktop-nav > a:hover { color: var(--accent-indigo); }
+    .nav-dropdown { position: relative; }
+    .dropdown-trigger {
+      font-weight: 500;
+      color: var(--text-secondary);
+      font-size: 0.925rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: -200px;
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      padding: 1.5rem;
+      border-radius: var(--radius-lg);
+      width: 750px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.25rem;
+      box-shadow: var(--shadow-xl);
+    }
+    .nav-dropdown:hover .dropdown-menu { display: grid; }
+    .dropdown-silo h4 {
+      color: var(--accent-indigo);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 0.4rem;
+    }
+    .dropdown-silo a {
+      display: block;
+      padding: 0.3rem 0;
+      color: var(--text-secondary);
+      font-size: 0.825rem;
+      transition: all 0.15s ease;
+    }
+    .dropdown-silo a:hover { color: var(--accent-indigo); padding-left: 4px; }
+    .book-audit-btn {
+      background: var(--accent-indigo);
+      color: #fff;
+      padding: 0.55rem 1.25rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.875rem;
+      transition: all 0.2s ease;
+    }
+    .book-audit-btn:hover {
+      background: var(--accent-indigo-hover);
+      box-shadow: 0 4px 12px rgba(79,70,229,0.25);
+      transform: translateY(-1px);
+    }
+
+    /* =============================================
+       BLOG HERO SECTION
+    ============================================= */
+    .blog-hero {
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(79,70,229,0.06) 0%, #ffffff 70%);
+      border-bottom: 1px solid var(--border-light);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .blog-hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(13,148,136,0.05), transparent 70%);
+      border-radius: 50%;
+    }
+    .blog-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: -80px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(79,70,229,0.05), transparent 70%);
+      border-radius: 50%;
+    }
+    .blog-hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent-indigo-light);
+      color: var(--accent-indigo);
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(79,70,229,0.15);
+    }
+    .blog-hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 900;
+      color: var(--text-primary);
+      margin-bottom: 1.25rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .blog-hero h1 span {
+      color: var(--accent-indigo);
+    }
+    .blog-hero p {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 620px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+    .blog-hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .hero-stat {
+      text-align: center;
+    }
+    .hero-stat .stat-num {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent-indigo);
+      display: block;
+    }
+    .hero-stat .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+
+    /* =============================================
+       FILTER BAR
+    ============================================= */
+    .filter-bar {
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border-light);
+      padding: 0;
+      position: sticky;
+      top: 70px;
+      z-index: 900;
+    }
+    .filter-bar-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .filter-bar-inner::-webkit-scrollbar { display: none; }
+    .filter-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.6rem 1.1rem;
+      border-radius: 999px;
+      font-size: 0.825rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      border: 1px solid transparent;
+      color: var(--text-secondary);
+      background: transparent;
+      margin: 0.75rem 0;
+    }
+    .filter-pill:hover {
+      background: var(--bg-surface);
+      color: var(--text-primary);
+    }
+    .filter-pill.active {
+      background: var(--accent-indigo);
+      color: #fff;
+      border-color: var(--accent-indigo);
+    }
+
+    /* =============================================
+       MAIN BLOG LAYOUT
+    ============================================= */
+    .blog-layout {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 3rem;
+      align-items: start;
+    }
+    @media (max-width: 1024px) {
+      .blog-layout { grid-template-columns: 1fr; }
+    }
+
+    /* =============================================
+       FEATURED POST (BIG CARD)
+    ============================================= */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-light);
+    }
+
+    .featured-post {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 0;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      margin-bottom: 3rem;
+      background: var(--bg-white);
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+    }
+    .featured-post:hover {
+      box-shadow: var(--shadow-xl);
+      transform: translateY(-2px);
+    }
+    .featured-post-image {
+      position: relative;
+      overflow: hidden;
+      min-height: 340px;
+      background: var(--bg-surface-2);
+    }
+    .featured-post-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .featured-post:hover .featured-post-image img { transform: scale(1.04); }
+    .featured-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: var(--accent-indigo);
+      color: #fff;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .featured-post-content {
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .post-category-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+    .tag-seo { background: rgba(79,70,229,0.09); color: var(--accent-indigo); }
+    .tag-dev { background: rgba(13,148,136,0.09); color: var(--accent-teal); }
+    .tag-crawl { background: rgba(217,119,6,0.09); color: var(--accent-amber); }
+    .tag-saas { background: rgba(124,58,237,0.09); color: var(--accent-purple); }
+    .tag-geo { background: rgba(225,29,72,0.09); color: var(--accent-rose); }
+    .tag-design { background: rgba(15,148,136,0.09); color: var(--accent-teal); }
+
+    .featured-post-content h2 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      line-height: 1.25;
+    }
+    .featured-post-content p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .post-meta-item { display: flex; align-items: center; gap: 0.3rem; }
+    .read-more-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent-indigo);
+      color: #fff;
+      padding: 0.7rem 1.5rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.875rem;
+      transition: all 0.2s ease;
+      align-self: flex-start;
+    }
+    .read-more-btn:hover {
+      background: var(--accent-indigo-hover);
+      transform: translateX(3px);
+    }
+    .read-more-btn .arrow { transition: transform 0.2s ease; }
+    .read-more-btn:hover .arrow { transform: translateX(4px); }
+
+    @media (max-width: 768px) {
+      .featured-post { grid-template-columns: 1fr; }
+      .featured-post-image { min-height: 220px; }
+    }
+
+    /* =============================================
+       BLOG GRID (ALL POSTS)
+    ============================================= */
+    .blog-grid-heading {
+      margin-bottom: 1.5rem;
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    @media (max-width: 700px) {
+      .blog-grid { grid-template-columns: 1fr; }
+    }
+
+    .blog-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+    }
+    .blog-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+      border-color: rgba(79,70,229,0.2);
+    }
+    .blog-card-image {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+      background: var(--bg-surface-2);
+    }
+    .blog-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .blog-card:hover .blog-card-image img { transform: scale(1.06); }
+    .card-category-badge {
+      position: absolute;
+      top: 0.75rem;
+      left: 0.75rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+    }
+    .blog-card-body {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-card-body .post-category-tag { margin-bottom: 0.75rem; }
+    .blog-card-body h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+      line-height: 1.35;
+    }
+    .blog-card-body h3:hover { color: var(--accent-indigo); }
+    .blog-card-body p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 1.25rem;
+    }
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-light);
+    }
+    .card-meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .card-read-link {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent-indigo);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: gap 0.2s ease;
+    }
+    .blog-card:hover .card-read-link { gap: 0.6rem; }
+
+    /* =============================================
+       HORIZONTAL LIST POSTS (remaining)
+    ============================================= */
+    .post-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+    .post-list-item {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 1.25rem;
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: all 0.25s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .post-list-item:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateX(3px);
+      border-color: rgba(79,70,229,0.2);
+    }
+    .post-list-thumb {
+      background: var(--bg-surface-2);
+      overflow: hidden;
+    }
+    .post-list-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .post-list-item:hover .post-list-thumb img { transform: scale(1.08); }
+    .post-list-body {
+      padding: 1.1rem 1.1rem 1.1rem 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .post-list-body h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.4rem;
+      line-height: 1.35;
+      transition: color 0.2s;
+    }
+    .post-list-item:hover .post-list-body h4 { color: var(--accent-indigo); }
+    .post-list-body p {
+      font-size: 0.825rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      margin-bottom: 0.6rem;
+    }
+    .post-list-body .card-meta {
+      font-size: 0.72rem;
+    }
+
+    /* =============================================
+       NEWSLETTER BANNER
+    ============================================= */
+    .newsletter-banner {
+      background: linear-gradient(135deg, var(--accent-indigo) 0%, #7c3aed 100%);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .newsletter-banner::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 300px;
+      height: 300px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+    .newsletter-banner h3 {
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    .newsletter-banner p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 1.5rem;
+    }
+    .newsletter-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #fff;
+      color: var(--accent-indigo);
+      padding: 0.7rem 1.4rem;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 0.875rem;
+      transition: all 0.2s ease;
+    }
+    .newsletter-cta:hover {
+      background: var(--bg-surface);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+
+    /* =============================================
+       SIDEBAR
+    ============================================= */
+    .blog-sidebar { position: sticky; top: 130px; }
+
+    .sidebar-widget {
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .sidebar-widget h3 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    /* Sidebar: Topic Chips */
+    .topic-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .topic-chip {
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border: 1px solid var(--border-light);
+      color: var(--text-secondary);
+      background: var(--bg-surface);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .topic-chip:hover {
+      border-color: var(--accent-indigo);
+      color: var(--accent-indigo);
+      background: var(--accent-indigo-light);
+    }
+
+    /* Sidebar: Recent list */
+    .sidebar-post-list { list-style: none; }
+    .sidebar-post-list li {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .sidebar-post-list li:last-child { border-bottom: none; padding-bottom: 0; }
+    .sidebar-post-list a {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.4;
+      transition: color 0.2s;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    .sidebar-post-list a:hover { color: var(--accent-indigo); }
+    .sidebar-post-list .mini-meta {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    /* Sidebar: CTA widget */
+    .cta-widget {
+      background: linear-gradient(135deg, var(--accent-indigo) 0%, #7c3aed 100%);
+      border: none;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-widget::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.07);
+    }
+    .cta-widget h3 {
+      color: #fff;
+      border-bottom-color: rgba(255,255,255,0.2);
+      font-size: 1rem;
+    }
+    .cta-widget p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+    .cta-widget-btn {
+      display: block;
+      background: #fff;
+      color: var(--accent-indigo);
+      padding: 0.7rem 1rem;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 0.875rem;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+    .cta-widget-btn:hover {
+      background: var(--bg-surface);
+      transform: translateY(-1px);
+    }
+
+    /* Sidebar: Author card */
+    .author-card { text-align: center; }
+    .author-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--accent-indigo-light);
+      border: 3px solid var(--accent-indigo);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 0.75rem;
+      font-size: 1.5rem;
+    }
+    .author-card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.3rem;
+    }
+    .author-card .role {
+      font-size: 0.75rem;
+      color: var(--accent-indigo);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
+    .author-card p {
+      font-size: 0.825rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* =============================================
+       TOPICS BANNER
+    ============================================= */
+    .topics-section {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      padding: 3rem 2rem;
+      margin-bottom: 0;
+    }
+    .topics-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .topics-inner h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+    }
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+    }
+    .topic-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .topic-card:hover {
+      border-color: var(--accent-indigo);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .topic-card .topic-icon { font-size: 1.75rem; margin-bottom: 0.5rem; }
+    .topic-card h4 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+    .topic-card .count {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    /* =============================================
+       ZOHO FORM SECTION
+    ============================================= */
+    .audit-section {
+      background: var(--bg-surface);
+      padding: 5rem 2rem;
+      border-top: 1px solid var(--border-light);
+      text-align: center;
+    }
+    .audit-section h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+    }
+    .audit-section p {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 540px;
+      margin: 0 auto 2rem;
+    }
+    .audit-form-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      padding: 1rem;
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    .site-footer {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-light);
+      padding: 4rem 2rem 2rem;
+    }
+    .footer-container { max-width: 1280px; margin: 0 auto; }
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+    @media (max-width: 768px) {
+      .footer-content { grid-template-columns: repeat(2, 1fr); }
+    }
+    .footer-column h3 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+    }
+    .footer-column p { margin-bottom: 0.75rem; }
+    .footer-link {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      transition: color 0.2s;
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+    .footer-link:hover { color: var(--accent-indigo); }
+    .footer-brand { font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.75rem; display: block; }
+    .footer-desc { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65; }
+    .footer-bottom {
+      border-top: 1px solid var(--border-light);
+      padding-top: 1.5rem;
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* Reading time pill */
+    .read-time {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: var(--bg-surface);
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      border: 1px solid var(--border-light);
+    }
+  </style>
 </head>
 <body>
-<header class="main-header-bar">
-<div class="container header-container">
-<a class="header-logo" href="../">
-<img alt="TechAuditPros Logo" height="32" src="../assets/logoonly.svg" width="32"/>
-<span class="logo-text">TechAuditPros</span>
-</a>
-<nav class="desktop-nav">
-<a href="../#services">Services</a>
-<div class="nav-dropdown">
-<a class="dropdown-trigger" href="#" onclick="return false;">Categories <span class="arrow">▼</span></a>
-<div class="dropdown-menu">
-<div class="dropdown-silo">
-<h4>Technical SEO</h4>
-<a href="../technical-seo-audit/">Technical Audit</a>
-<a href="../seo-services/enterprise-seo/">Enterprise SEO</a>
-<a href="../seo-services/saas-seo-strategy/">SaaS SEO</a>
-<a href="../seo-services/ecommerce-seo/">E-commerce SEO</a>
-<a href="../seo-services/geo-aeo-optimisation/">GEO &amp; AEO</a>
-</div>
-<div class="dropdown-silo">
-<h4>Custom SaaS</h4>
-<a href="../saas-app-development/custom-crm-portals/">Custom CRM</a>
-<a href="../saas-app-development/erp-integrations/">ERP Integrations</a>
-<a href="../saas-app-development/b2b-dashboards/">B2B Dashboards</a>
-<a href="../saas-app-development/mvp-development/">MVP Development</a>
-</div>
-<div class="dropdown-silo">
-<h4>Web Design</h4>
-<a href="../website-seo-audit/">Website Audit</a>
-<a href="../website-design-development/b2b-corporate-websites/">B2B Corporate</a>
-<a href="../website-design-development/core-web-vitals-optimization/">Core Web Vitals</a>
-<a href="../website-design-development/nextjs-development/">Next.js Dev</a>
-<a href="../website-design-development/headless-cms/">Headless CMS</a>
-</div>
-<div class="dropdown-silo">
-<h4>Markets</h4>
-<a href="../seo-audit-kochi/">Kochi HQ</a>
-<a href="../seo-agency-kerala/">Kerala Agency</a>
-<a href="../seo-audit-india/">India National</a>
-<a href="../seo-company/mumbai/">Mumbai Office</a>
-<a href="../seo-company/bangalore/">Bangalore Office</a>
-<a href="../seo-company/london-uk/">London UK</a>
-<a href="../seo-audit-usa/">USA Market</a>
-<a href="../seo-audit-canada/">Canada Market</a>
-</div>
-<div class="dropdown-silo">
-<h4>Blog &amp; Guides</h4>
-<a href="../blog/">Blog Hub</a>
-<a href="../blog/what-is-serp-in-seo/">What is SERP?</a>
-<a href="../blog/seo-friendly-web-design-guide/">SEO Web Design</a>
-<a href="../blog/saas-vs-custom-software/">SaaS vs Custom</a>
-<a href="../blog/how-to-fix-crawlability-issues/">Fix Crawlability</a>
-<a href="../blog/generative-engine-optimization-geo/">GEO Guide</a>
-<a href="../blog/react-vs-nextjs-for-seo/">React vs Next.js</a>
-</div>
-</div>
-</div>
-<a href="../case-studies.html">Case Studies</a>
-<a href="../about.html">About</a>
-<a href="../#contact">Contact</a>
-</nav>
-<div class="header-actions">
-<a class="book-audit-btn" href="#audit-form">Get Free Audit</a>
-</div>
-</div>
-</header>
-<div class="blog-container-custom">
-<article class="blog-main rich-content">
-<h1>Guides &amp; Insights: Scaling Global Brands from Kerala</h1>
-<p class="lead" style="font-size:1.2rem; color:var(--color-text-muted);">
-                Welcome to the TechAuditPros Resource Centre. Explore technical guides, code blueprints, and research papers on search engine indexability and performance optimization.
-            </p>
-<div class="summary-box">
-<h4>Editorial Directive</h4>
-<p>Our blog provides detailed, engineering-driven guides for developers, webmasters, and business owners. We focus on clarifying the technical systems that power search indexing and modern web performance.</p>
-</div>
-<h2>The Role of a Digital Marketing Consultant in Kerala</h2>
-<p>Kerala is known for its highly literate workforce, growing startup ecosystem, and expanding technology parks in Kochi and Thiruvananthapuram. As businesses here expand to target international markets in the USA, Canada, and the United Kingdom, the demand for a qualified <strong>digital marketing consultant in kerala</strong> has grown. A consultant’s primary responsibility is bridging the gap between digital marketing and software engineering, ensuring that client platforms are structurally optimized for global search visibility.</p>
-<p>Generic marketing strategies that rely solely on template designs and social media posts are no longer enough. Modern search success requires clean code structures, fast database performance, and robust technical SEO foundations. We work directly with local and international brands to audit their code, resolve caching issues, and configure secure hosting environments, laying a strong foundation for organic search growth.</p>
-<p>Our technical focus ensures that business platforms satisfy both human users and search engine crawlers, driving search performance and establishing your business as a leader in your target market. We don't guess at algorithms; we analyze data, resolve technical debt, and deploy scalable solutions that drive measurable business outcomes.</p>
-<h2>Chapter 1: The Technical Landscape of Regional Web Environments</h2>
-<p>Regional businesses often operate in bandwidth-constrained networks. If a company website is slow, bloated with unnecessary tracking scripts, or poorly structured, it will fail to retain visitors and rank in search engines. A digital consultant focuses on optimizing page speed by refactoring script payloads, compressing visual assets, and configuring server caching parameters, ensuring fast load times on all network types.</p>
-<p>We transition client-side rendered (CSR) platforms to Server-Side Rendering (SSR) or Incremental Static Regeneration (ISR) using Next.js. This guarantees that search engine bots receive fully rendered HTML pages instantly without waiting for JavaScript execution, securing crawl stability and indexing accuracy. We also address Core Web Vitals issues by optimizing image formats, minifying CSS payloads, and removing render-blocking resources, helping your site achieve fast loading times and better search rankings.</p>
-<p>By building fast, lightweight web architectures, we help regional businesses overcome bandwidth limits, reducing bounce rates and improving search visibility in both local and international markets.</p>
-<h2>Chapter 2: Technical SEO Strategy for Service Enterprises</h2>
-<p>For service businesses targeting specific geographic areas, search engine optimization must be precise. This means structuring schema markups to define service offerings, location details, and parent organizations clearly. We write and deploy LocalBusiness, Corporation, and ProfessionalService schemas, mapping local coordinates and postal codes directly in the code. This structured data helps search engines connect your brand to specific user queries and locations.</p>
-<p>We work to eliminate technical obstacles such as indexing errors, broken redirect paths, and crawl path loops, ensuring that search engines can easily discover and index your key business pages. By configuring clean category structures and self-referencing canonical tags, we prevent duplicate content issues, keeping search engine crawlers focused on your primary service offerings.</p>
-<p>We also audit robots.txt directives and configure sitemaps dynamically, ensuring that new services, locations, or blog articles are indexed without delay.</p>
-<h2>Chapter 3: Web Performance and Client Experience</h2>
-<p>A fast, responsive website is crucial for user retention. When a page loads instantly, visitors are more likely to stay and engage. We focus on optimizing Core Web Vitals—including Largest Contentful Paint (LCP) and Interaction to Next Paint (INP)—to provide a smooth experience on all device types and network speeds. We compress images to WebP/AVIF formats, minimize visual payload sizes, and implement clean styling to keep page designs clean and fast-loading.</p>
-<p>We also configure CDNs like Cloudflare to serve cached pages at the edge, reducing latency and database load during peak traffic times. By preventing layout shifts during React hydration, we ensure stable visual experiences, improving mobile usability and client engagement.</p>
-<h2>Chapter 4: Custom Software vs Pre-built Templates</h2>
-<p>While template-based platforms (like WordPress or Shopify) are easy to set up, they often introduce technical debt, slow load times, and limited code flexibility. Custom software built with modern frameworks (like Next.js and Supabase) gives you full control over site structure, rendering strategies, and metadata injection, laying a strong foundation for long-term search success.</p>
-<p>Custom applications allow developers to optimize database queries, build custom routing configurations, and integrate secure third-party APIs without slowing down page load times. This flexibility is essential for businesses that require custom workflows, secure database portals, and optimized search performance.</p>
-<h2>Meet Aji Paul: Leading Technical Search Architect in Kerala</h2>
-<p>TechAuditPros, led by founder <strong>Aji Paul</strong> in Kochi, Kerala, India, approaches digital marketing as a performance engineering discipline. We analyze site architectures, audit server configurations, and write custom schemas to help businesses build stable, fast-loading, and visible online platforms. Our team works with B2B and enterprise brands across the US, UK, Canada, and India to deliver clean, fast, and optimized digital solutions that support long-term search growth.</p>
-<p>By resolving technical debt, optimizing page rendering, and building solid database architectures, we help clients build search authority and scale their organic search visibility, driving sustainable traffic and business growth.</p>
-<section class="glass-section" id="audit-form">
-<h2>Request Your Free Technical Audit</h2>
-<p>Consult with our lead technical SEO and performance engineers. Receive a comprehensive roadmap identifying and resolving architectural bottlenecks on your platform.</p>
-<div style="background: #ffffff; padding: 1.5rem; border-radius: 12px; border: 1px solid var(--color-border); max-width: 800px; margin: 0 auto; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
-<iframe aria-label="Contact Us" frameborder="0" src="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" style="height:550px;width:100%;border:none;"></iframe>
-</div>
-</section>
-</article>
-<aside class="blog-sidebar">
-<div class="sidebar-widget">
-<h3>Technical Resources</h3>
-<ul class="sidebar-links">
-<li><a href="../blog/">Blog Hub</a></li>
-<li><a href="../blog/what-is-serp-in-seo/">What is SERP in SEO?</a></li>
-<li><a href="../blog/saas-vs-custom-software/">SaaS vs Custom Software</a></li>
-<li><a href="../blog/how-to-fix-crawlability-issues/">How to Fix Crawlability Issues</a></li>
-<li><a href="../blog/seo-friendly-web-design-guide/">SEO-Friendly Web Design</a></li>
-<li><a href="../blog/react-vs-nextjs-for-seo/">React vs Next.js for SEO</a></li>
-<li><a href="../blog/generative-engine-optimization-geo/">Generative Engine Optimization</a></li>
-</ul>
-</div>
-<div class="sidebar-widget" style="background: var(--color-accent-primary); color: var(--text-primary);">
-<h3 style="color: var(--text-primary); border-bottom-color: var(--text-primary);">Need an Audit?</h3>
-<p style="color: rgba(255,255,255,0.9); font-size: 0.95rem; margin-bottom: 1.5rem;">Let our engineering-driven team analyze your site architecture and logs.</p>
-<a class="book-audit-btn" href="#audit-form" style="background: #ffffff !important; color: var(--color-accent-primary) !important; display: block; text-align: center; text-decoration: none;">Get Started</a>
-</div>
-</aside>
-</div>
-<footer class="site-footer" id="contact">
-<div class="footer-container">
-<div class="footer-content">
-<div class="footer-column">
-<h3>TechAuditPros</h3>
-<p>Enterprise-grade technical SEO audits &amp; performance engineering for global healthcare and B2B firms.</p>
-<div style="margin-top: 15px; font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6;">
-<strong>Corporate Office (Kochi HQ):</strong><br/>
-                        2nd Floor, Imperial Amity, Kochi,<br/>
-                        Kerala, India - 682025<br/>
-                        Phone: <a href="tel:+916282520339" style="color: var(--color-accent-primary); text-decoration: none;">+91 6282520339</a><br/>
-                        Email: <a href="mailto:info@techauditpros.com" style="color: var(--color-accent-primary); text-decoration: none;">info@techauditpros.com</a>
-</div>
-</div>
-<div class="footer-column">
-<h3>Services</h3>
-<p><a class="footer-link" href="../technical-seo-audit/">Technical Audit</a></p>
-<p><a class="footer-link" href="../website-seo-audit/">Website Audit</a></p>
-<p><a class="footer-link" href="../seo-agency-kerala/">Kerala SEO</a></p>
-<p><a class="footer-link" href="../website-design-development/nextjs-development/">Next.js Development</a></p>
-</div>
-<div class="footer-column">
-<h3>Markets</h3>
-<p><a class="footer-link" href="../seo-audit-kochi/">Kochi</a></p>
-<p><a class="footer-link" href="../seo-audit-usa/">USA</a></p>
-<p><a class="footer-link" href="../seo-audit-canada/">Canada</a></p>
-<p><a class="footer-link" href="../seo-company/london-uk/">London UK</a></p>
-</div>
-<div class="footer-column">
-<h3>Company</h3>
-<p><a class="footer-link" href="../about.html">About Us</a></p>
-<p><a class="footer-link" href="../case-studies.html">Case Studies</a></p>
-<p><a class="footer-link" href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank">Contact Form</a></p>
-</div>
-</div>
-<div class="footer-bottom">
-<p>© 2026 TechAuditPros. All rights reserved. Under leadership of founder Aji Paul.</p>
-</div>
-</div>
-</footer>
-<script async="" src="//code.tidio.co/xfezpk6hohjsnpxmweufbpcwi7audsru.js"></script>
+
+  <!-- ========== HEADER ========== -->
+  <header class="main-header-bar">
+    <div class="header-container">
+      <a href="../" class="header-logo">
+        <img src="../assets/logoonly.svg" alt="TechAuditPros Logo" width="32" height="32">
+        <span>TechAuditPros</span>
+      </a>
+      <nav class="desktop-nav">
+        <a href="../#services">Services</a>
+        <div class="nav-dropdown">
+          <a href="#" class="dropdown-trigger" onclick="return false;">Categories <span class="arrow">▼</span></a>
+          <div class="dropdown-menu">
+            <div class="dropdown-silo">
+              <h4>Technical SEO</h4>
+              <a href="../technical-seo-audit/">Technical Audit</a>
+              <a href="../seo-services/enterprise-seo/">Enterprise SEO</a>
+              <a href="../seo-services/saas-seo-strategy/">SaaS SEO</a>
+              <a href="../seo-services/ecommerce-seo/">E-commerce SEO</a>
+              <a href="../seo-services/geo-aeo-optimisation/">GEO &amp; AEO</a>
+            </div>
+            <div class="dropdown-silo">
+              <h4>Custom SaaS</h4>
+              <a href="../saas-app-development/custom-crm-portals/">Custom CRM</a>
+              <a href="../saas-app-development/erp-integrations/">ERP Integrations</a>
+              <a href="../saas-app-development/b2b-dashboards/">B2B Dashboards</a>
+              <a href="../saas-app-development/mvp-development/">MVP Development</a>
+            </div>
+            <div class="dropdown-silo">
+              <h4>Web Design</h4>
+              <a href="../website-seo-audit/">Website Audit</a>
+              <a href="../website-design-development/b2b-corporate-websites/">B2B Corporate</a>
+              <a href="../website-design-development/core-web-vitals-optimization/">Core Web Vitals</a>
+              <a href="../website-design-development/nextjs-development/">Next.js Dev</a>
+              <a href="../website-design-development/headless-cms/">Headless CMS</a>
+            </div>
+            <div class="dropdown-silo">
+              <h4>Markets</h4>
+              <a href="../seo-audit-kochi/">Kochi HQ</a>
+              <a href="../seo-agency-kerala/">Kerala Agency</a>
+              <a href="../seo-audit-india/">India National</a>
+              <a href="../seo-company/mumbai/">Mumbai Office</a>
+              <a href="../seo-company/bangalore/">Bangalore Office</a>
+              <a href="../seo-company/london-uk/">London UK</a>
+              <a href="../seo-audit-usa/">USA Market</a>
+              <a href="../seo-audit-canada/">Canada Market</a>
+            </div>
+            <div class="dropdown-silo">
+              <h4>Blog &amp; Guides</h4>
+              <a href="../blog/">Blog Hub</a>
+              <a href="../blog/what-is-serp-in-seo/">What is SERP?</a>
+              <a href="../blog/seo-friendly-web-design-guide/">SEO Web Design</a>
+              <a href="../blog/saas-vs-custom-software/">SaaS vs Custom</a>
+              <a href="../blog/how-to-fix-crawlability-issues/">Fix Crawlability</a>
+              <a href="../blog/generative-engine-optimization-geo/">GEO Guide</a>
+              <a href="../blog/react-vs-nextjs-for-seo/">React vs Next.js</a>
+            </div>
+          </div>
+        </div>
+        <a href="../case-studies.html">Case Studies</a>
+        <a href="../about.html">About</a>
+        <a href="../#contact">Contact</a>
+      </nav>
+      <div>
+        <a href="#audit-form" class="book-audit-btn">Get Free Audit</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== BLOG HERO ========== -->
+  <section class="blog-hero">
+    <div class="blog-hero-eyebrow">📚 Resource Centre</div>
+    <h1>Technical <span>SEO Guides</span> &amp; Insights</h1>
+    <p>Expert engineering articles on crawlability, Core Web Vitals, GEO optimization, and Next.js architecture. Written by Aji Paul — digital marketing consultant in Kerala.</p>
+    <div class="blog-hero-stats">
+      <div class="hero-stat">
+        <span class="stat-num">6+</span>
+        <span class="stat-label">Guides Published</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-num">1,200+</span>
+        <span class="stat-label">Words Per Guide</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-num">5</span>
+        <span class="stat-label">Core Topics</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-num">Free</span>
+        <span class="stat-label">Always Open Access</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FILTER BAR ========== -->
+  <div class="filter-bar">
+    <div class="filter-bar-inner">
+      <span class="filter-pill active">🔍 All Articles</span>
+      <span class="filter-pill">⚙️ Technical SEO</span>
+      <span class="filter-pill">🤖 GEO &amp; AI Search</span>
+      <span class="filter-pill">🚀 Web Performance</span>
+      <span class="filter-pill">💻 Development</span>
+      <span class="filter-pill">📊 SaaS Growth</span>
+    </div>
+  </div>
+
+  <!-- ========== MAIN BLOG LAYOUT ========== -->
+  <div class="blog-layout">
+
+    <!-- LEFT: ARTICLES COLUMN -->
+    <main>
+
+      <!-- FEATURED POST -->
+      <div class="section-label">⭐ Featured Article</div>
+      <a href="../blog/how-to-fix-crawlability-issues/" style="display:block;">
+        <article class="featured-post">
+          <div class="featured-post-image">
+            <img src="../assets/images/services/seo_services_hero.png" alt="How to Fix Crawlability Issues — TechAuditPros Guide">
+            <span class="featured-badge">🔥 Most Read</span>
+          </div>
+          <div class="featured-post-content">
+            <span class="post-category-tag tag-crawl">⚙️ Technical SEO</span>
+            <h2>How to Fix Crawlability Issues: Step-by-Step Diagnostic Guide</h2>
+            <p>Learn to diagnose and resolve search indexing blockages, redirect loop failures, robots.txt configuration errors, and crawl budget waste. A hands-on technical walkthrough for developers and webmasters.</p>
+            <div class="post-meta">
+              <span class="post-meta-item">👤 Aji Paul</span>
+              <span class="post-meta-item">📅 May 2026</span>
+              <span class="read-time">⏱ 9 min read</span>
+            </div>
+            <span class="read-more-btn">Read Full Guide <span class="arrow">→</span></span>
+          </div>
+        </article>
+      </a>
+
+      <!-- ALL POSTS GRID -->
+      <div class="blog-grid-heading">
+        <div class="section-label">📰 All Articles</div>
+      </div>
+      <div class="blog-grid">
+
+        <!-- Post 1: SERP -->
+        <a href="../blog/what-is-serp-in-seo/" style="display:flex; flex-direction:column;">
+          <article class="blog-card">
+            <div class="blog-card-image">
+              <img src="../assets/images/services/enterprise_seo_hero.png" alt="What is SERP in SEO — TechAuditPros">
+              <span class="card-category-badge tag-seo">📈 SEO Basics</span>
+            </div>
+            <div class="blog-card-body">
+              <span class="post-category-tag tag-seo">📈 SEO</span>
+              <h3>What is SERP in SEO? A Visual Breakdown</h3>
+              <p>Demystify Search Engine Results Pages. Learn how Google's layout components — Map Pack, Featured Snippets, and organic results — each function and how to target them.</p>
+              <div class="card-footer">
+                <div class="card-meta">
+                  <span>Aji Paul</span>
+                  <span class="read-time">⏱ 7 min</span>
+                </div>
+                <span class="card-read-link">Read <span>→</span></span>
+              </div>
+            </div>
+          </article>
+        </a>
+
+        <!-- Post 2: SaaS vs Custom -->
+        <a href="../blog/saas-vs-custom-software/" style="display:flex; flex-direction:column;">
+          <article class="blog-card">
+            <div class="blog-card-image">
+              <img src="../assets/images/services/saas_seo_strategy_unique.png" alt="SaaS vs Custom Software — TechAuditPros">
+              <span class="card-category-badge tag-saas">💻 Development</span>
+            </div>
+            <div class="blog-card-body">
+              <span class="post-category-tag tag-saas">💻 SaaS Strategy</span>
+              <h3>SaaS vs Custom Software: Objective Comparison for Growing Businesses</h3>
+              <p>Off-the-shelf SaaS vs customized systems. An objective technical comparison covering database security, hosting flexibility, API integration depth, and long-term cost models.</p>
+              <div class="card-footer">
+                <div class="card-meta">
+                  <span>Aji Paul</span>
+                  <span class="read-time">⏱ 8 min</span>
+                </div>
+                <span class="card-read-link">Read <span>→</span></span>
+              </div>
+            </div>
+          </article>
+        </a>
+
+        <!-- Post 3: GEO -->
+        <a href="../blog/generative-engine-optimization-geo/" style="display:flex; flex-direction:column;">
+          <article class="blog-card">
+            <div class="blog-card-image">
+              <img src="../assets/images/services/geo_aeo_hero.png" alt="Generative Engine Optimization GEO — TechAuditPros">
+              <span class="card-category-badge tag-geo">🤖 GEO / AI</span>
+            </div>
+            <div class="blog-card-body">
+              <span class="post-category-tag tag-geo">🤖 GEO Optimization</span>
+              <h3>Generative Engine Optimization (GEO): How to Rank in AI Search</h3>
+              <p>The future of search optimization. Learn how to structure Q&amp;A blocks, entity signals, and semantic schemas to secure citations inside Google AI Overviews and LLM-based search engines.</p>
+              <div class="card-footer">
+                <div class="card-meta">
+                  <span>Aji Paul</span>
+                  <span class="read-time">⏱ 10 min</span>
+                </div>
+                <span class="card-read-link">Read <span>→</span></span>
+              </div>
+            </div>
+          </article>
+        </a>
+
+        <!-- Post 4: React vs Next.js -->
+        <a href="../blog/react-vs-nextjs-for-seo/" style="display:flex; flex-direction:column;">
+          <article class="blog-card">
+            <div class="blog-card-image">
+              <img src="../assets/images/services/nextjs_dev_hero.png" alt="React vs Next.js for SEO — TechAuditPros">
+              <span class="card-category-badge tag-dev">⚡ Dev Guide</span>
+            </div>
+            <div class="blog-card-body">
+              <span class="post-category-tag tag-dev">⚡ Framework SEO</span>
+              <h3>React vs Next.js for SEO: Crawlability Deep Dive</h3>
+              <p>Server-side rendering vs client-side loading. A detailed code comparison analyzing crawl path behavior, robots header handling, and indexing rate differences between React SPA and Next.js SSR.</p>
+              <div class="card-footer">
+                <div class="card-meta">
+                  <span>Aji Paul</span>
+                  <span class="read-time">⏱ 11 min</span>
+                </div>
+                <span class="card-read-link">Read <span>→</span></span>
+              </div>
+            </div>
+          </article>
+        </a>
+
+      </div>
+
+      <!-- POST LIST: Remaining Articles -->
+      <div class="section-label">🗂️ More from TechAuditPros</div>
+      <div class="post-list">
+
+        <!-- SEO-Friendly Web Design -->
+        <a href="../blog/seo-friendly-web-design-guide/">
+          <article class="post-list-item">
+            <div class="post-list-thumb">
+              <img src="../assets/images/services/web_design_hero.png" alt="SEO Friendly Web Design Guide">
+            </div>
+            <div class="post-list-body">
+              <span class="post-category-tag tag-design" style="margin-bottom:0.4rem; font-size:0.65rem;">🎨 Design</span>
+              <h4>SEO-Friendly Web Design Guide: DOM Structure to Crawl Hierarchy</h4>
+              <p>Step-by-step design blueprint mapping code cleanliness, DOM structure, heading hierarchies, and mobile layout performance directly to Google ranking signals.</p>
+              <div class="card-meta">
+                <span>Aji Paul</span>
+                <span class="read-time">⏱ 9 min</span>
+                <span>May 2026</span>
+              </div>
+            </div>
+          </article>
+        </a>
+
+        <!-- B2B SEO -->
+        <a href="../b2b-seo-strategy/">
+          <article class="post-list-item">
+            <div class="post-list-thumb">
+              <img src="../assets/images/services/b2b_seo_strategy_unique.png" alt="B2B SEO Strategy Guide">
+            </div>
+            <div class="post-list-body">
+              <span class="post-category-tag tag-saas" style="margin-bottom:0.4rem; font-size:0.65rem;">📊 B2B SEO</span>
+              <h4>B2B SEO Strategy: Building Corporate Buyer Search Funnels</h4>
+              <p>Connect with enterprise decision-makers through technical content silos aligned to multi-step corporate buying journeys. Includes CRM integration patterns and buyer intent mapping.</p>
+              <div class="card-meta">
+                <span>Aji Paul</span>
+                <span class="read-time">⏱ 8 min</span>
+                <span>Apr 2026</span>
+              </div>
+            </div>
+          </article>
+        </a>
+
+      </div>
+
+      <!-- NEWSLETTER BANNER -->
+      <div class="newsletter-banner">
+        <h3>📬 Stay Ahead of Algorithm Updates</h3>
+        <p>Get actionable technical SEO guides, Core Web Vitals tips, and GEO insights — straight from Aji Paul's engineering desk.</p>
+        <a href="#audit-form" class="newsletter-cta">📩 Request a Free Consultation</a>
+      </div>
+
+    </main>
+
+    <!-- RIGHT: SIDEBAR -->
+    <aside class="blog-sidebar">
+
+      <!-- Author Card -->
+      <div class="sidebar-widget">
+        <div class="author-card">
+          <div class="author-avatar">👨‍💻</div>
+          <h4>Aji Paul</h4>
+          <div class="role">Digital Marketing Consultant · Kerala</div>
+          <p>Founder of TechAuditPros. Technical SEO engineer specializing in crawl diagnostics, Core Web Vitals, and GEO optimization for global brands.</p>
+        </div>
+      </div>
+
+      <!-- CTA Widget -->
+      <div class="sidebar-widget cta-widget">
+        <h3>🔍 Free Site Audit</h3>
+        <p>Our engineers analyze your site architecture, crawl logs, and index health. Get a full diagnostic report in 48 hours.</p>
+        <a href="#audit-form" class="cta-widget-btn">Get Your Free Audit →</a>
+      </div>
+
+      <!-- Recent Posts -->
+      <div class="sidebar-widget">
+        <h3>Recent Articles</h3>
+        <ul class="sidebar-post-list">
+          <li>
+            <a href="../blog/how-to-fix-crawlability-issues/">How to Fix Crawlability Issues</a>
+            <span class="mini-meta">⏱ 9 min · Technical SEO</span>
+          </li>
+          <li>
+            <a href="../blog/what-is-serp-in-seo/">What is SERP in SEO?</a>
+            <span class="mini-meta">⏱ 7 min · SEO Basics</span>
+          </li>
+          <li>
+            <a href="../blog/generative-engine-optimization-geo/">Generative Engine Optimization</a>
+            <span class="mini-meta">⏱ 10 min · GEO / AI</span>
+          </li>
+          <li>
+            <a href="../blog/react-vs-nextjs-for-seo/">React vs Next.js for SEO</a>
+            <span class="mini-meta">⏱ 11 min · Dev Guide</span>
+          </li>
+          <li>
+            <a href="../blog/saas-vs-custom-software/">SaaS vs Custom Software</a>
+            <span class="mini-meta">⏱ 8 min · SaaS Strategy</span>
+          </li>
+          <li>
+            <a href="../blog/seo-friendly-web-design-guide/">SEO-Friendly Web Design Guide</a>
+            <span class="mini-meta">⏱ 9 min · Design</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Topics -->
+      <div class="sidebar-widget">
+        <h3>Browse Topics</h3>
+        <div class="topic-chips">
+          <span class="topic-chip">Technical SEO</span>
+          <span class="topic-chip">Crawlability</span>
+          <span class="topic-chip">Core Web Vitals</span>
+          <span class="topic-chip">GEO / AI</span>
+          <span class="topic-chip">Next.js</span>
+          <span class="topic-chip">Schema Markup</span>
+          <span class="topic-chip">SaaS SEO</span>
+          <span class="topic-chip">Local SEO</span>
+          <span class="topic-chip">Web Design</span>
+          <span class="topic-chip">E-commerce</span>
+          <span class="topic-chip">Robots.txt</span>
+          <span class="topic-chip">Hreflang</span>
+        </div>
+      </div>
+
+      <!-- Services Links -->
+      <div class="sidebar-widget">
+        <h3>Our Services</h3>
+        <ul class="sidebar-post-list">
+          <li><a href="../technical-seo-audit/">Technical SEO Audit</a></li>
+          <li><a href="../seo-services/saas-seo-strategy/">SaaS SEO Strategy</a></li>
+          <li><a href="../seo-services/ecommerce-seo/">E-commerce SEO</a></li>
+          <li><a href="../international-seo/">International SEO</a></li>
+          <li><a href="../healthcare-seo-services/">Healthcare SEO</a></li>
+          <li><a href="../website-design-development/nextjs-development/">Next.js Development</a></li>
+        </ul>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- ========== TOPIC EXPLORATION ========== -->
+  <section class="topics-section" id="topics">
+    <div class="topics-inner">
+      <h2>Browse by Topic</h2>
+      <div class="topics-grid">
+        <a href="../blog/how-to-fix-crawlability-issues/">
+          <div class="topic-card">
+            <div class="topic-icon">⚙️</div>
+            <h4>Crawl Diagnostics</h4>
+            <span class="count">2 articles</span>
+          </div>
+        </a>
+        <a href="../blog/what-is-serp-in-seo/">
+          <div class="topic-card">
+            <div class="topic-icon">📈</div>
+            <h4>SEO Basics</h4>
+            <span class="count">2 articles</span>
+          </div>
+        </a>
+        <a href="../blog/generative-engine-optimization-geo/">
+          <div class="topic-card">
+            <div class="topic-icon">🤖</div>
+            <h4>GEO &amp; AI Search</h4>
+            <span class="count">1 article</span>
+          </div>
+        </a>
+        <a href="../blog/react-vs-nextjs-for-seo/">
+          <div class="topic-card">
+            <div class="topic-icon">⚡</div>
+            <h4>Web Frameworks</h4>
+            <span class="count">1 article</span>
+          </div>
+        </a>
+        <a href="../blog/saas-vs-custom-software/">
+          <div class="topic-card">
+            <div class="topic-icon">💻</div>
+            <h4>SaaS Strategy</h4>
+            <span class="count">1 article</span>
+          </div>
+        </a>
+        <a href="../blog/seo-friendly-web-design-guide/">
+          <div class="topic-card">
+            <div class="topic-icon">🎨</div>
+            <h4>Web Design SEO</h4>
+            <span class="count">1 article</span>
+          </div>
+        </a>
+        <a href="../on-page-seo/">
+          <div class="topic-card">
+            <div class="topic-icon">🏗️</div>
+            <h4>On-Page SEO</h4>
+            <span class="count">Service guide</span>
+          </div>
+        </a>
+        <a href="../local-seo-services/">
+          <div class="topic-card">
+            <div class="topic-icon">📍</div>
+            <h4>Local SEO</h4>
+            <span class="count">Service guide</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== AUDIT FORM ========== -->
+  <section class="audit-section" id="audit-form">
+    <h2>Get Your Free Technical Audit</h2>
+    <p>Consult with our lead technical SEO engineers. Receive a comprehensive roadmap resolving architectural bottlenecks on your platform.</p>
+    <div class="audit-form-wrap">
+      <iframe
+        aria-label="Contact Us"
+        frameborder="0"
+        style="height:550px;width:100%;border:none;"
+        src="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer" id="contact">
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <span class="footer-brand">TechAuditPros</span>
+          <p class="footer-desc">Enterprise-grade technical SEO audits &amp; performance engineering. Headquartered in Kochi, Kerala, India. Serving global brands since 2022.</p>
+          <p style="margin-top:0.75rem; font-size:0.825rem; color: var(--text-muted);">
+            📞 <a href="tel:+916282520339" style="color:var(--accent-indigo);">+91 6282520339</a><br>
+            ✉️ <a href="mailto:info@techauditpros.com" style="color:var(--accent-indigo);">info@techauditpros.com</a>
+          </p>
+        </div>
+        <div class="footer-column">
+          <h3>Services</h3>
+          <a href="../technical-seo-audit/" class="footer-link">Technical Audit</a>
+          <a href="../website-seo-audit/" class="footer-link">Website Audit</a>
+          <a href="../seo-agency-kerala/" class="footer-link">Kerala SEO</a>
+          <a href="../seo-services/saas-seo-strategy/" class="footer-link">SaaS SEO</a>
+          <a href="../website-design-development/nextjs-development/" class="footer-link">Next.js Development</a>
+        </div>
+        <div class="footer-column">
+          <h3>Markets</h3>
+          <a href="../seo-audit-kochi/" class="footer-link">Kochi</a>
+          <a href="../seo-audit-usa/" class="footer-link">USA</a>
+          <a href="../seo-audit-canada/" class="footer-link">Canada</a>
+          <a href="../seo-company/london-uk/" class="footer-link">London UK</a>
+          <a href="../seo-company-delhi/" class="footer-link">Delhi</a>
+          <a href="../charlotte-seo-company/" class="footer-link">Charlotte</a>
+        </div>
+        <div class="footer-column">
+          <h3>Company</h3>
+          <a href="../about.html" class="footer-link">About Us</a>
+          <a href="../case-studies.html" class="footer-link">Case Studies</a>
+          <a href="../blog/" class="footer-link">Blog</a>
+          <a href="mailto:info@techauditpros.com" class="footer-link">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 TechAuditPros. All rights reserved. Founded by Aji Paul, Kochi, Kerala, India.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Tidio -->
+  <script src="//code.tidio.co/xfezpk6hohjsnpxmweufbpcwi7audsru.js" async></script>
+
+  <!-- Filter Pill Interaction -->
+  <script>
+    document.querySelectorAll('.filter-pill').forEach(pill => {
+      pill.addEventListener('click', function() {
+        document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
+
 </body>
 </html>
