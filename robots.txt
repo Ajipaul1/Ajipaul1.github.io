@@ -3,6 +3,6 @@ User-agent: *
 Allow: /
 
 # This tells them where to find your map
-Sitemap: https://ajipaul1.github.io/sitemap.xml
+Sitemap: https://techauditpros.com/sitemap.xml
 
 # Demo line for Kochi page check
