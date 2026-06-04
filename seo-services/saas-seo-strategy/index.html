@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
-  <title>B2B SaaS SEO Strategy Services | TechAuditPros</title>
-  <meta name="description" content="Drive high-intent software trial signups with product-led SaaS SEO strategy services. We map search intents to Bottom-of-Funnel organic pathways.">
+  <title>B2B SaaS SEO Strategy Services | Pipeline Scale | TechAuditPros</title>
+  <meta name="description" content="Scale B2B SaaS demos and product signups with a technical saas seo strategy. We resolve JavaScript rendering blocks and optimize crawl budgets.">
   <link rel="canonical" href="https://techauditpros.com/seo-services/saas-seo-strategy/">
   
   <link rel="icon" href="../../assets/favicon-32.png" sizes="32x32" type="image/png">
@@ -17,53 +17,135 @@
   
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://techauditpros.com/seo-services/saas-seo-strategy/">
-  <meta property="og:title" content="B2B SaaS SEO Strategy Services | TechAuditPros">
-  <meta property="og:description" content="Drive high-intent software trial signups with product-led SaaS SEO strategy services. We map search intents to Bottom-of-Funnel organic pathways.">
+  <meta property="og:title" content="B2B SaaS SEO Strategy Services | Pipeline Scale | TechAuditPros">
+  <meta property="og:description" content="Scale B2B SaaS demos and product signups with a technical saas seo strategy. We resolve JavaScript rendering blocks and optimize crawl budgets.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/css/homepage.css">
   <link rel="stylesheet" href="../../assets/css/seo-services.css">
+
+  <style>
+    /* Custom Bento Grid for SaaS page */
+    .saas-bento-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+    .saas-bento-card {
+      background: var(--premium-surface);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .saas-bento-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-teal);
+      box-shadow: 0 12px 30px rgba(99, 102, 241, 0.08);
+    }
+    .saas-bento-large {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    .saas-bento-tall {
+      grid-row: span 2;
+    }
+    .saas-bento-wide {
+      grid-column: span 2;
+    }
+    @media (max-width: 900px) {
+      .saas-bento-grid {
+        grid-template-columns: 1fr;
+      }
+      .saas-bento-large, .saas-bento-tall, .saas-bento-wide {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+    }
+  </style>
   
   <!-- Schema Markup -->
   <script type="application/ld+json">
   {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "B2B SaaS SEO Strategy Services | TechAuditPros",
-  "provider": {
-    "@type": "Organization",
-    "name": "TechAuditPros",
-    "url": "https://techauditpros.com/"
-  },
-  "description": "Drive high-intent software trial signups with product-led SaaS SEO strategy services. We map search intents to Bottom-of-Funnel organic pathways."
-}
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "B2B SaaS SEO Strategy Services",
+    "provider": {
+      "@type": "Organization",
+      "name": "TechAuditPros",
+      "url": "https://techauditpros.com/",
+      "logo": "https://techauditpros.com/assets/logoonly.svg"
+    },
+    "description": "Enterprise-grade B2B SaaS SEO strategy services focusing on JavaScript rendering, crawl budget optimization, and conversion-focused topical structures.",
+    "areaServed": ["US", "CA", "GB", "IN"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "SaaS SEO Solutions",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "SaaS Crawl Budget and Indexing Audit"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Product-Led Topical Clustering"
+          }
+        }
+      ]
+    }
+  }
   </script>
   
   <script type="application/ld+json">
   {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is your approach to saas seo strategy?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Our approach to saas seo strategy focuses on resolving code errors, aligning header tags, structuring sitemaps, and integrating verified Schema schemas for maximum search trust."
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What makes a B2B SaaS SEO strategy different from standard SEO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "B2B SaaS SEO requires targeting searchers at specific stages of the software evaluation lifecycle. Instead of generic high-volume traffic, it maps features directly to user pain points, optimizing for high-intent Bottom-of-Funnel (BoFu) terms, and resolving JavaScript rendering limitations that affect modern single-page applications."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you handle JavaScript rendering issues on SaaS websites?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We evaluate client-side rendering (CSR) versus server-side rendering (SSR). By auditing DOM hydration, fixing API latency blocks, and ensuring that Googlebot receives complete pre-rendered HTML content, we ensure search engine spiders index all product features."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does TechAuditPros optimize the crawl budget for large SaaS blogs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We audit sitemaps, robots.txt directives, and server logs. By pruning low-value pages, fixing redirect loops, consolidating content parameters, and creating structured internal linking networks, we guide search bots to your high-value transactional landing pages."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What metrics do you track for SaaS SEO campaigns?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We track organic pipeline metrics: product trial signups, demo requests, organic visibility, keyword positioning for high-intent queries, indexation health, and Core Web Vitals performance."
+        }
       }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you use automated SEO checklists?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. We manually audit sitemaps, check server logs, audit canonical setups, and inspect code files individually for each brand."
-      }
-    }
-  ]
-}
+    ]
+  }
   </script>
 </head>
 <body class="premium-seo-service">
@@ -136,125 +218,124 @@
         </div>
     </header>
 
-    <!-- Split Hero -->
-    <section class="hero-split" style="min-height: 80vh; background: radial-gradient(circle at center, rgba(0, 210, 255, 0.1) 0%, var(--premium-bg) 70%);">
+    <!-- Split Hero Layout (Left text, right image/mockup) -->
+    <section class="hero-split" style="min-height: 80vh; background: radial-gradient(circle at center, rgba(14, 165, 233, 0.08) 0%, var(--premium-bg) 75%);">
         <div class="hero-split-text" style="padding-left: 5%;">
-            <span class="eyebrow" style="color:var(--accent-teal); font-weight:700; letter-spacing: 0.1em; margin-bottom: 16px; display:block;">SaaS MARKETING</span>
+            <span class="eyebrow" style="color:var(--accent-teal); font-weight:700; letter-spacing: 0.1em; margin-bottom: 16px; display:block; text-transform: uppercase;">PRODUCT-LED SEARCH SCALE</span>
             <h1 class="premium-heading">B2B SaaS <span class='text-gradient-teal'>SEO</span> Strategy</h1>
-            <p class="premium-subheading">Turn organic search into software demo pipelines. We align your product features with high-intent search terms to drive trials and sales.</p>
-            <a href="#audit-form" class="premium-btn">Get Technical Audit</a>
+            <p class="premium-subheading">Turn search rankings into product trials. We specialize in mapping complex user intents, optimizing Javascript architectures, and debugging SaaS crawl blocks.</p>
+            <a href="#audit-form" class="premium-btn">Initiate SaaS SEO Audit</a>
         </div>
-        <div class="hero-split-image" style="padding-right: 5%;">
-            <img src="../../assets/images/services/saas_seo_hero.jpg" alt="B2B SaaS SEO Strategy Services | TechAuditPros">
+        <div class="hero-split-image" style="padding-right: 5%; text-align: center;">
+            <img src="../../assets/images/services/saas_seo_hero.jpg" alt="B2B SaaS SEO Strategy Dashboard Mockup" style="max-width: 500px; border: 1px solid var(--glass-border);">
         </div>
     </section>
 
-    <!-- Content Sections -->
-    
+    <!-- Bespoke Technical Copy Content Section (Alternating layouts & detailed descriptions) -->
     <section class="zigzag-section" style="padding-top: 0; background: var(--premium-bg);">
         <div class="container">
             <div class="zigzag-row">
                 <div class="zigzag-text">
-                    <h2 style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 1rem;">Optimized <span class="text-gradient-magenta">B2B SaaS SEO Strategy</span> Services</h2>
-                    <p><strong>TechAuditPros</strong> is a technical SEO and custom software engineering agency headquartered in Kochi, Kerala, India. We deliver professional <strong>saas seo strategy</strong> solutions tailored to businesses operating in India, the USA, Canada, and the United Kingdom. Search engine algorithms demand clear code hierarchy and semantic authority. Our solutions ensure your code meets these standards.</p>
-                    <p style="margin-top: 1rem;">Under founder <strong>Aji Paul</strong>, our Kochi-based team ensures that your pages integrate exact entity indicators, structured schemas, and clean HTML, helping search engines crawl, render, and rank your content naturally.</p>
+                    <h2 style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 1.5rem;">Unlocking Technical Efficiency for SaaS Platforms</h2>
+                    <p>A successful <strong>saas seo strategy</strong> is built on clean codebase architecture and dynamic search performance. Many software companies rely on modern JavaScript frameworks like React, Next.js, or Vue to build fast, interactive interfaces. However, if client-side rendering is poorly configured, search engines may crawl empty container HTML elements, leading to slow indexation and lost visibility.</p>
+                    <p style="margin-top: 1rem;">At <strong>TechAuditPros</strong>, founded by <strong>Aji Paul</strong> in Kochi, Kerala, we bridge this gap. Our engineers evaluate server-side rendering (SSR), static site generation (SSG), and incremental static regeneration (ISR) setups. We ensure that Googlebot receives fully pre-rendered HTML payloads during the first wave of crawling, avoiding rendering queue delays.</p>
+                    <p style="margin-top: 1rem;">We analyze how your marketing site communicates with your product app domain. Cross-domain tracking, canonical path configurations, and subdirectory structures are audited to prevent authority fragmentation and ensure that PageRank flows seamlessly from educational blog resources to key signup landing pages.</p>
                 </div>
-                <div class="zigzag-image" style="background: var(--premium-surface); border: 1px solid var(--glass-border); border-radius: 16px; padding: 2.5rem;">
-                    <h3 style="font-size: 1.8rem; color: var(--text-primary); margin-bottom: 1.5rem;">The SEO Blueprint</h3>
-                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">To rank for search queries including <em>product-led seo, b2b saas content map</em>, a website must optimize its data structure. We resolve crawl path traps, dynamic parameter duplication, render-blocking JS bundles, and header redirect failures.</p>
-                    <p style="color: var(--text-secondary);">We build clear category paths and verify indexing configurations, ensuring PageRank passes to your transactional sections without authority leaks.</p>
+                <div class="zigzag-image" style="background: var(--premium-surface); border: 1px solid var(--glass-border); border-radius: 20px; padding: 3rem;">
+                    <h3 style="font-size: 1.8rem; color: var(--text-primary); margin-bottom: 1.5rem;">Crawl Budget & Asset Diagnostics</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">SaaS platforms often face crawl budget exhaustion due to page bloat. Dynamic routing, sorting parameters, and session tokens can create infinite loops of crawler traps. We run custom Python-based sitemap and log file analyzers to detect bot waste.</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Our team prunes duplicate taxonomy paths, implements absolute canonical tags, and optimizes robots.txt logic to block low-value tracking pages. This redirects search bot attention to high-value product comparison structures.</p>
+                    <p style="color: var(--text-secondary);">Additionally, we test Core Web Vitals using tools like Lighthouse-CI, resolving issues such as excessive DOM sizes, main-thread rendering blocks, and uncompressed WebP/Brotli assets.</p>
                 </div>
             </div>
         </div>
     </section>
-    <section class="feature-grid" style="border-top: 1px solid var(--glass-border);">
-        <div class="section-header-center" style="grid-column: 1 / -1; margin-bottom: 3rem; text-align: center;">
-            <h2 style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 1rem;">Core Pillars of Search Success</h2>
-            <p style="color: var(--text-secondary); font-size: 1.2rem;">Our approach covers the technical, content, and trust signals Google uses to rank your site.</p>
-        </div>
 
-        <div class="feature-card">
-            <div class="feature-icon">🔍</div>
-            <h3>Keyword Target Alignment</h3>
-            <p style="color: var(--text-secondary);">We align meta tags, titles, and headers to match user search intent, ensuring your pages address both commercial and informational queries.</p>
-        </div>
+    <!-- Bento Grid Section: Custom 3-column / Multi-row Bento Layout -->
+    <section class="section-white" style="background: #f8fafc; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); padding: 5rem 5%;">
+        <div class="container">
+            <div class="section-header-center" style="text-align: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 1rem;">Advanced SaaS SEO Blueprint</h2>
+                <p style="color: var(--text-secondary); font-size: 1.2rem; max-width: 700px; margin: 0 auto;">A multi-dimensional approach to search architecture, built to drive pipeline growth.</p>
+            </div>
 
-        <div class="feature-card">
-            <div class="feature-icon">⚡</div>
-            <h3>Core Web Vitals</h3>
-            <p style="color: var(--text-secondary);">We inspect Largest Contentful Paint (LCP), layout shifts, and bundle payloads, keeping your code light and fast-loading.</p>
-        </div>
+            <div class="saas-bento-grid">
+                <!-- Card 1: Large Bento Card (Spans 2 columns) -->
+                <div class="saas-bento-card saas-bento-large">
+                    <div>
+                        <div class="feature-icon">🔍</div>
+                        <h3 style="font-size: 1.8rem;">Topical Clustering & Intent Mapping</h3>
+                        <p style="color: var(--text-secondary); margin-top: 1rem;">We map the complete B2B software purchasing path. Our team builds technical topic clusters linking Top-of-Funnel guides, Middle-of-Funnel checklists, and Bottom-of-Funnel comparison assets. This establishes clear semantic relationships that help search engines understand your software's core value proposition.</p>
+                    </div>
+                    <span style="font-weight: 600; color: var(--accent-teal); margin-top: 2rem;">Topical Authority System &rarr;</span>
+                </div>
 
-        <div class="feature-card">
-            <div class="feature-icon">🧱</div>
-            <h3>Index & Crawl Path Setup</h3>
-            <p style="color: var(--text-secondary);">We clean up robots.txt rules, configure self-referencing canonical attributes, and align sitemaps to prevent index errors.</p>
-        </div>
+                <!-- Card 2: Tall Bento Card (Spans 2 rows vertically) -->
+                <div class="saas-bento-card saas-bento-tall">
+                    <div>
+                        <div class="feature-icon">⚡</div>
+                        <h3>DOM Hydration & JS Optimization</h3>
+                        <p style="color: var(--text-secondary); margin-top: 1rem;">We analyze how browser-side JS bundles render content. We check for hydration mismatches, optimize LCP layout timings, compress heavy script payloads, and structure critical CSS, ensuring fast loading speeds and high search indexing rates.</p>
+                    </div>
+                    <span style="font-weight: 600; color: var(--accent-teal); margin-top: 2rem;">Core Web Vitals &rarr;</span>
+                </div>
 
-        <div class="feature-card">
-            <div class="feature-icon">🤝</div>
-            <h3>Trust & E-E-A-T Signals</h3>
-            <p style="color: var(--text-secondary);">We integrate verified LocalBusiness address details, author bios, and citation data to build domain search trust.</p>
+                <!-- Card 3: Standard Bento Card -->
+                <div class="saas-bento-card">
+                    <div>
+                        <div class="feature-icon">🤖</div>
+                        <h3>LLM & AI citation formatting</h3>
+                        <p style="color: var(--text-secondary);">We structure FAQ content and insert rich semantic entity markups, preparing your pages to be cited as top solutions in ChatGPT, Gemini, and Perplexity engines.</p>
+                    </div>
+                    <span style="font-weight: 600; color: var(--accent-teal); margin-top: 1rem;">GEO Readiness &rarr;</span>
+                </div>
+
+                <!-- Card 4: Wide Bento Card (Spans 2 columns) -->
+                <div class="saas-bento-card saas-bento-wide">
+                    <div>
+                        <div class="feature-icon">🏢</div>
+                        <h3>Enterprise Subdirectory Planning</h3>
+                        <p style="color: var(--text-secondary); margin-top: 0.5rem;">We design international search setups using localized subdirectories, hreflang tags, and Edge CDN routing policies, enabling your software to rank in the US, UK, Canada, and European markets seamlessly.</p>
+                    </div>
+                    <span style="font-weight: 600; color: var(--accent-teal); margin-top: 1.5rem;">Global Infrastructure &rarr;</span>
+                </div>
+            </div>
         </div>
     </section>
-    <section class="zigzag-section" style="background: var(--premium-surface); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+
+    <!-- Clean Bullet Card Details Section -->
+    <section class="section-white" style="padding: 5rem 5%;">
         <div class="container">
-            <div class="section-header-center" style="text-align: center; margin-bottom: 2rem;">
-                <h2 style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 1rem;">Targeted Search Strategy</h2>
-                <p style="color: var(--text-secondary); font-size: 1.2rem;">Building search structures optimized for LLMs and Google AI Overviews.</p>
+            <div class="section-header-center" style="text-align: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 1rem;">Why SaaS Brands Partner With TechAuditPros</h2>
+                <p style="color: var(--text-secondary); font-size: 1.2rem;">Our operations prioritize transparent, code-first engineering over automated templates.</p>
             </div>
 
             <ul class="bullet-cards">
                 <li class="bullet-card">
-                    <span class="bullet-card-title">📈 Transactional Search Optimization</span>
-                    We align pages to Bottom-of-Funnel target keywords, helping search engine spiders index your product offerings for buying audiences.
+                    <span class="bullet-card-title">📈 Precision Pipeline Audits</span>
+                    We align technical SEO audits with key pipeline metrics, ensuring every structural update supports signup and demo conversions.
                 </li>
                 <li class="bullet-card">
-                    <span class="bullet-card-title">🤖 AI search Citations</span>
-                    We structure clear, direct Q&A blocks and rich semantic descriptions to ensure generative engines can cite your brand.
+                    <span class="bullet-card-title">💻 Code-Level Debugging</span>
+                    We work directly inside your code repositories to resolve canonical redirects, structure sitemaps, and optimize JavaScript hydration paths.
                 </li>
                 <li class="bullet-card">
-                    <span class="bullet-card-title">🏢 Certified Engineering</span>
-                    Our Kochi team handles database integrations, bundle size optimizations, redirects audits, and schema markup injection.
+                    <span class="bullet-card-title">📊 Multi-Domain Log Analysis</span>
+                    We analyze server response logs to identify crawl frequency patterns and locate indexing bottlenecks on massive SaaS directories.
+                </li>
+                <li class="bullet-card">
+                    <span class="bullet-card-title">🌍 Multi-Regional Hreflang Alignment</span>
+                    We configure localized head tags and sitemap routing directories, ensuring correct page variants appear for international users.
                 </li>
             </ul>
-        </div>
-    </section>
-    <section class="feature-grid" style="background: var(--premium-bg);">
-        <div class="section-header-center" style="grid-column: 1 / -1; margin-bottom: 3rem; text-align: center;">
-            <h2 style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 1rem;">Our Optimization Process</h2>
-            <p style="color: var(--text-secondary); font-size: 1.2rem;">How we analyze, optimize, and scale your search rankings.</p>
-        </div>
-
-        <div class="feature-card">
-            <div style="font-size: 1.2rem; font-weight: 800; color: var(--accent-teal); margin-bottom: 1rem;">STEP 01</div>
-            <h3>Crawl & Audit</h3>
-            <p style="color: var(--text-secondary);">We index and crawl your layout to discover crawl bloat, script locks, indexing errors, and canonical traps.</p>
-        </div>
-
-        <div class="feature-card">
-            <div style="font-size: 1.2rem; font-weight: 800; color: var(--accent-teal); margin-bottom: 1rem;">STEP 02</div>
-            <h3>On-Page Alignment</h3>
-            <p style="color: var(--text-secondary);">We set up keyword tags in headings, title tags, and first 100 words while verifying W3C HTML structures.</p>
-        </div>
-
-        <div class="feature-card">
-            <div style="font-size: 1.2rem; font-weight: 800; color: var(--accent-teal); margin-bottom: 1rem;">STEP 03</div>
-            <h3>Schema Integration</h3>
-            <p style="color: var(--text-secondary);">We write LocalBusiness, Service, and FAQPage JSON-LD code blocks to pass trust signals directly to bots.</p>
-        </div>
-
-        <div class="feature-card">
-            <div style="font-size: 1.2rem; font-weight: 800; color: var(--accent-teal); margin-bottom: 1rem;">STEP 04</div>
-            <h3>Performance tuning</h3>
-            <p style="color: var(--text-secondary);">We compress assets to WebP formats, minified CSS/JS styling, and cache parameters to boost loading times.</p>
         </div>
     </section>
 
     <!-- Zoho Audit Form Section -->
     <section id="audit-form" class="glass-section">
-        <h2 class="premium-heading" style="font-size: 2.8rem; margin-bottom: 1rem;">Get Your Free Consultation</h2>
-        <p class="premium-subheading" style="margin: 0 auto 2rem auto;">Consult with our technical SEO and web development engineers. Get a roadmap for scaling your business search rankings.</p>
+        <h2 class="premium-heading" style="font-size: 2.8rem; margin-bottom: 1rem;">Request Your SaaS SEO Audit</h2>
+        <p class="premium-subheading" style="margin: 0 auto 2rem auto;">Speak with our engineering team in Kochi, Kerala. Let us analyze your JS framework performance, crawl path bottlenecks, and trial conversion funnels.</p>
         <div style="background: var(--premium-surface); padding: 1.5rem; border-radius: 16px; border: 1px solid var(--glass-border); max-width: 800px; margin: 0 auto; overflow: hidden; box-shadow: var(--neon-glow);">
             <iframe aria-label='Contact Us' frameborder="0" style="height:550px;width:100%;border:none;" src='https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg'></iframe>
         </div>
@@ -288,7 +369,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 TechAuditPros. All rights reserved.</p>
+                <p>&copy; 2026 TechAuditPros. All rights reserved. Founded by Aji Paul, Kochi, Kerala, India.</p>
             </div>
         </div>
     </footer>

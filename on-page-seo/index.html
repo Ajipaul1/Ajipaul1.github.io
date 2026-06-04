@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
-  <title>On-Page SEO Services | Content Architecture | TechAuditPros</title>
-  <meta name="description" content="Optimize content structure and keyword signals with on-page SEO services. We structure titles, H1-H3 headings, and keyword density.">
+  <title>On-Page SEO Services | Semantic & Code Alignment | TechAuditPros</title>
+  <meta name="description" content="Optimize rankings with technical on page seo services. We align HTML tags, map target keyword structures, build topic hubs, and optimize loading times.">
   <link rel="canonical" href="https://techauditpros.com/on-page-seo/">
   
   <link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png">
@@ -17,53 +17,132 @@
   
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://techauditpros.com/on-page-seo/">
-  <meta property="og:title" content="On-Page SEO Services | Content Architecture | TechAuditPros">
-  <meta property="og:description" content="Optimize content structure and keyword signals with on-page SEO services. We structure titles, H1-H3 headings, and keyword density.">
+  <meta property="og:title" content="On-Page SEO Services | Semantic & Code Alignment | TechAuditPros">
+  <meta property="og:description" content="Optimize rankings with technical on page seo services. We align HTML tags, map target keyword structures, build topic hubs, and optimize loading times.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/homepage.css">
   <link rel="stylesheet" href="../assets/css/seo-services.css">
+
+  <style>
+    /* Custom Bento Grid for On-Page SEO */
+    .onpage-bento-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+    .onpage-bento-card {
+      background: var(--premium-surface);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .onpage-bento-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-teal);
+      box-shadow: 0 12px 30px rgba(99, 102, 241, 0.08);
+    }
+    .onpage-bento-large {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    .onpage-bento-tall {
+      grid-row: span 2;
+    }
+    @media (max-width: 900px) {
+      .onpage-bento-grid {
+        grid-template-columns: 1fr;
+      }
+      .onpage-bento-large, .onpage-bento-tall {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+    }
+  </style>
   
   <!-- Schema Markup -->
   <script type="application/ld+json">
   {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "On-Page SEO Services | Content Architecture | TechAuditPros",
-  "provider": {
-    "@type": "Organization",
-    "name": "TechAuditPros",
-    "url": "https://techauditpros.com/"
-  },
-  "description": "Optimize content structure and keyword signals with on-page SEO services. We structure titles, H1-H3 headings, and keyword density."
-}
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "On-Page SEO Services",
+    "provider": {
+      "@type": "Organization",
+      "name": "TechAuditPros",
+      "url": "https://techauditpros.com/",
+      "logo": "https://techauditpros.com/assets/logoonly.svg"
+    },
+    "description": "Professional on-page SEO services focusing on HTML semantics, structured schema injection, keyword-to-entity mapping, and internal linking optimizations.",
+    "areaServed": ["US", "CA", "GB", "IN"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "On-Page Optimization Framework",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Semantic HTML & Header Restructuring"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Internal Link Distribution Auditing"
+          }
+        }
+      ]
+    }
+  }
   </script>
   
   <script type="application/ld+json">
   {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is your approach to on page seo services?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Our approach to on page seo services focuses on resolving code errors, aligning header tags, structuring sitemaps, and integrating verified Schema schemas for maximum search trust."
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why is W3C HTML validation important for on-page SEO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Valid HTML prevents search engine crawlers from encountering parsing errors. When tags are properly opened, nested, and closed, bots can quickly read, understand, and extract the page's contents without getting stuck."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does TechAuditPros map keyword target phrases?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We map keywords based on user search intent, grouping queries into semantic topics. We place high-intent keywords within headings, meta tags, and natural copy structures to ensure the page ranks for both primary and related long-tail search queries."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What role does internal linking play in on-page SEO services?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Internal links distribute page authority (PageRank) across your site. By linking related posts together in organized topic clusters, we help search bots discover pages and pass ranking signals to your primary service listings."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you optimize images for on-page performance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We compress images using WebP/AVIF formats, configure descriptive alt text tags containing relevant entities, and define height and width dimensions to prevent Cumulative Layout Shifts (CLS)."
+        }
       }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you use automated SEO checklists?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. We manually audit sitemaps, check server logs, audit canonical setups, and inspect code files individually for each brand."
-      }
-    }
-  ]
-}
+    ]
+  }
   </script>
 </head>
 <body class="premium-seo-service">
@@ -136,125 +215,114 @@
         </div>
     </header>
 
-    <!-- Split Hero -->
-    <section class="hero-split" style="min-height: 80vh; background: radial-gradient(circle at center, rgba(0, 210, 255, 0.1) 0%, var(--premium-bg) 70%);">
+    <!-- Split Hero Layout (Left text, right image/mockup) -->
+    <section class="hero-split" style="min-height: 80vh; background: radial-gradient(circle at center, rgba(99, 102, 241, 0.08) 0%, var(--premium-bg) 75%);">
         <div class="hero-split-text" style="padding-left: 5%;">
-            <span class="eyebrow" style="color:var(--accent-teal); font-weight:700; letter-spacing: 0.1em; margin-bottom: 16px; display:block;">PAGE METRICS</span>
-            <h1 class="premium-heading">On-Page <span class='text-gradient-teal'>SEO</span> Optimization</h1>
-            <p class="premium-subheading">Align your page signals. We structure headlines, check readability, optimize alt attributes, and position keywords to build ranking authority.</p>
-            <a href="#audit-form" class="premium-btn">Get Technical Audit</a>
+            <span class="eyebrow" style="color:var(--accent-teal); font-weight:700; letter-spacing: 0.1em; margin-bottom: 16px; display:block; text-transform: uppercase;">ON-PAGE OPTIMIZATION</span>
+            <h1 class="premium-heading">Code-Level <span class='text-gradient-teal'>On Page SEO</span> Services</h1>
+            <p class="premium-subheading">Optimize your site's structure. We align semantic HTML elements, map target keyword structures, build content hubs, and optimize loading times for search crawlers.</p>
+            <a href="#audit-form" class="premium-btn">Run On-Page Diagnostics</a>
         </div>
-        <div class="hero-split-image" style="padding-right: 5%;">
-            <img src="../assets/images/services/on-page-seo-content-structure.webp" alt="On-Page SEO Services | Content Architecture | TechAuditPros">
+        <div class="hero-split-image" style="padding-right: 5%; text-align: center;">
+            <img src="../assets/images/services/on_page_hero.png" alt="On-Page SEO Optimization Mockup" style="max-width: 500px; border: 1px solid var(--glass-border);">
         </div>
     </section>
 
-    <!-- Content Sections -->
-    
+    <!-- Bespoke Technical Copy Content Section -->
     <section class="zigzag-section" style="padding-top: 0; background: var(--premium-bg);">
         <div class="container">
             <div class="zigzag-row">
                 <div class="zigzag-text">
-                    <h2 style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 1rem;">Optimized <span class="text-gradient-magenta">On-Page SEO Optimization</span> Services</h2>
-                    <p><strong>TechAuditPros</strong> is a technical SEO and custom software engineering agency headquartered in Kochi, Kerala, India. We deliver professional <strong>on page seo services</strong> solutions tailored to businesses operating in India, the USA, Canada, and the United Kingdom. Search engine algorithms demand clear code hierarchy and semantic authority. Our solutions ensure your code meets these standards.</p>
-                    <p style="margin-top: 1rem;">Under founder <strong>Aji Paul</strong>, our Kochi-based team ensures that your pages integrate exact entity indicators, structured schemas, and clean HTML, helping search engines crawl, render, and rank your content naturally.</p>
+                    <h2 style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 1.5rem;">Semantic Code Tuning & Header Architectures</h2>
+                    <p>Modern search bots analyze your site's code hierarchy to index its content. Many agencies limit their <strong>on page seo services</strong> to adjusting meta description lengths and injecting keywords. However, search engines like Google look for structured HTML hierarchy, descriptive heading structures, and semantic relationships between pages.</p>
+                    <p style="margin-top: 1rem;">At <strong>TechAuditPros</strong>, founded by <strong>Aji Paul</strong> in Kochi, Kerala, we approach on-page optimization as an engineering task. We audit your site's template files, clean up heading structures (ensuring a single H1 per page followed by logical H2-H4 subheadings), and remove unused script blocks to create clean, easy-to-read pages for search bots.</p>
+                    <p style="margin-top: 1rem;">We map target keyword phrases across your site's content, focusing on primary term placement within titles, meta descriptions, and header tags. This clear semantic organization makes it easy for search bots to index your pages for target search terms.</p>
                 </div>
-                <div class="zigzag-image" style="background: var(--premium-surface); border: 1px solid var(--glass-border); border-radius: 16px; padding: 2.5rem;">
-                    <h3 style="font-size: 1.8rem; color: var(--text-primary); margin-bottom: 1.5rem;">The SEO Blueprint</h3>
-                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">To rank for search queries including <em>heading tag optimization, image alt tags</em>, a website must optimize its data structure. We resolve crawl path traps, dynamic parameter duplication, render-blocking JS bundles, and header redirect failures.</p>
-                    <p style="color: var(--text-secondary);">We build clear category paths and verify indexing configurations, ensuring PageRank passes to your transactional sections without authority leaks.</p>
+                <div class="zigzag-image" style="background: var(--premium-surface); border: 1px solid var(--glass-border); border-radius: 20px; padding: 3rem;">
+                    <h3 style="font-size: 1.8rem; color: var(--text-primary); margin-bottom: 1.5rem;">Internal Linking & Metadata Optimization</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Optimizing your site's internal links is key to distributing page authority. We analyze your site's structure using custom log crawlers to locate orphan pages and resolve authority leaks. We build clear topic networks, using descriptive anchor text to pass authority from high-power pages to key service listings.</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">We also implement structured JSON-LD schemas (such as Product, Service, and FAQPage) to provide search engines with a clear, readable map of your site's content.</p>
+                    <p style="color: var(--text-secondary);">Additionally, we optimize loading speeds. We compress images to WebP formats, configure responsive srcset rules, and lazy-load below-the-fold media, reducing page sizes and improving mobile performance.</p>
                 </div>
             </div>
         </div>
     </section>
-    <section class="feature-grid" style="border-top: 1px solid var(--glass-border);">
-        <div class="section-header-center" style="grid-column: 1 / -1; margin-bottom: 3rem; text-align: center;">
-            <h2 style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 1rem;">Core Pillars of Search Success</h2>
-            <p style="color: var(--text-secondary); font-size: 1.2rem;">Our approach covers the technical, content, and trust signals Google uses to rank your site.</p>
-        </div>
 
-        <div class="feature-card">
-            <div class="feature-icon">🔍</div>
-            <h3>Keyword Target Alignment</h3>
-            <p style="color: var(--text-secondary);">We align meta tags, titles, and headers to match user search intent, ensuring your pages address both commercial and informational queries.</p>
-        </div>
+    <!-- Bento Grid Section: Custom 3-column Bento Layout -->
+    <section class="section-white" style="background: #f8fafc; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); padding: 5rem 5%;">
+        <div class="container">
+            <div class="section-header-center" style="text-align: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 1rem;">On-Page Optimization Bento Grid</h2>
+                <p style="color: var(--text-secondary); font-size: 1.2rem; max-width: 700px; margin: 0 auto;">Our technical operations focus on clean code setups, structured markups, and fast catalog rendering.</p>
+            </div>
 
-        <div class="feature-card">
-            <div class="feature-icon">⚡</div>
-            <h3>Core Web Vitals</h3>
-            <p style="color: var(--text-secondary);">We inspect Largest Contentful Paint (LCP), layout shifts, and bundle payloads, keeping your code light and fast-loading.</p>
-        </div>
+            <div class="onpage-bento-grid">
+                <!-- Card 1: Large Bento Card -->
+                <div class="onpage-bento-card onpage-bento-large">
+                    <div>
+                        <div class="feature-icon">⛓️</div>
+                        <h3 style="font-size: 1.8rem;">Page Authority Distribution</h3>
+                        <p style="color: var(--text-secondary); margin-top: 1rem;">We analyze how internal links distribute page authority across your site. By linking related posts together in organized topic clusters, we help search bots discover pages and pass ranking signals to your primary service listings, helping them rank for competitive keywords.</p>
+                    </div>
+                    <span style="font-weight: 600; color: var(--accent-teal); margin-top: 2rem;">Internal Link Network &rarr;</span>
+                </div>
 
-        <div class="feature-card">
-            <div class="feature-icon">🧱</div>
-            <h3>Index & Crawl Path Setup</h3>
-            <p style="color: var(--text-secondary);">We clean up robots.txt rules, configure self-referencing canonical attributes, and align sitemaps to prevent index errors.</p>
-        </div>
+                <!-- Card 2: Tall Bento Card -->
+                <div class="onpage-bento-card onpage-bento-tall">
+                    <div>
+                        <div class="feature-icon">⚡</div>
+                        <h3>Code Cleanups & Core Vitals</h3>
+                        <p style="color: var(--text-secondary); margin-top: 1rem;">We audit site templates to remove unused CSS, compress JS files, optimize database response times, and implement browser caching systems, helping you achieve high PageSpeed scores and improve user conversions.</p>
+                    </div>
+                    <span style="font-weight: 600; color: var(--accent-teal); margin-top: 2rem;">Core Web Vitals &rarr;</span>
+                </div>
 
-        <div class="feature-card">
-            <div class="feature-icon">🤝</div>
-            <h3>Trust & E-E-A-T Signals</h3>
-            <p style="color: var(--text-secondary);">We integrate verified LocalBusiness address details, author bios, and citation data to build domain search trust.</p>
+                <!-- Card 3: Standard Bento Card -->
+                <div class="onpage-bento-card">
+                    <div>
+                        <div class="feature-icon">🤖</div>
+                        <h3>Semantic Schema Injection</h3>
+                        <p style="color: var(--text-secondary);">We insert structured JSON-LD schemas (such as Service and FAQPage) into your pages, providing search bots with a clear map of your content and securing rich snippet listings.</p>
+                    </div>
+                    <span style="font-weight: 600; color: var(--accent-teal); margin-top: 1rem;">JSON-LD Schema &rarr;</span>
+                </div>
+            </div>
         </div>
     </section>
-    <section class="zigzag-section" style="background: var(--premium-surface); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+
+    <!-- Clean Bullet Card Details Section -->
+    <section class="section-white" style="padding: 5rem 5%;">
         <div class="container">
-            <div class="section-header-center" style="text-align: center; margin-bottom: 2rem;">
-                <h2 style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 1rem;">Targeted Search Strategy</h2>
-                <p style="color: var(--text-secondary); font-size: 1.2rem;">Building search structures optimized for LLMs and Google AI Overviews.</p>
+            <div class="section-header-center" style="text-align: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 1rem;">Why On-Page SEO Requires Engineering</h2>
+                <p style="color: var(--text-secondary); font-size: 1.2rem;">Our operations prioritize transparent, code-first engineering over automated templates.</p>
             </div>
 
             <ul class="bullet-cards">
                 <li class="bullet-card">
-                    <span class="bullet-card-title">📈 Transactional Search Optimization</span>
-                    We align pages to Bottom-of-Funnel target keywords, helping search engine spiders index your product offerings for buying audiences.
+                    <span class="bullet-card-title">🔍 HTML Code Diagnostics</span>
+                    We audit site templates to fix nested code errors, optimize tag hierarchy, and ensure clean pages for search bots.
                 </li>
                 <li class="bullet-card">
-                    <span class="bullet-card-title">🤖 AI search Citations</span>
-                    We structure clear, direct Q&A blocks and rich semantic descriptions to ensure generative engines can cite your brand.
+                    <span class="bullet-card-title">📝 Entity & Topic Mapping</span>
+                    We structure pages using relevant keywords and entities, helping search engines understand the context of your content.
                 </li>
                 <li class="bullet-card">
-                    <span class="bullet-card-title">🏢 Certified Engineering</span>
-                    Our Kochi team handles database integrations, bundle size optimizations, redirects audits, and schema markup injection.
+                    <span class="bullet-card-title">⏱️ Image Asset Optimization</span>
+                    We compress images to WebP formats, configure responsive srcset rules, and lazy-load below-the-fold media.
+                </li>
+                <li class="bullet-card">
+                    <span class="bullet-card-title">📈 Performance Tracking</span>
+                    We monitor indexation rates, crawl frequency patterns, and organic pipeline conversions using Search Console and custom scripts.
                 </li>
             </ul>
-        </div>
-    </section>
-    <section class="feature-grid" style="background: var(--premium-bg);">
-        <div class="section-header-center" style="grid-column: 1 / -1; margin-bottom: 3rem; text-align: center;">
-            <h2 style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 1rem;">Our Optimization Process</h2>
-            <p style="color: var(--text-secondary); font-size: 1.2rem;">How we analyze, optimize, and scale your search rankings.</p>
-        </div>
-
-        <div class="feature-card">
-            <div style="font-size: 1.2rem; font-weight: 800; color: var(--accent-teal); margin-bottom: 1rem;">STEP 01</div>
-            <h3>Crawl & Audit</h3>
-            <p style="color: var(--text-secondary);">We index and crawl your layout to discover crawl bloat, script locks, indexing errors, and canonical traps.</p>
-        </div>
-
-        <div class="feature-card">
-            <div style="font-size: 1.2rem; font-weight: 800; color: var(--accent-teal); margin-bottom: 1rem;">STEP 02</div>
-            <h3>On-Page Alignment</h3>
-            <p style="color: var(--text-secondary);">We set up keyword tags in headings, title tags, and first 100 words while verifying W3C HTML structures.</p>
-        </div>
-
-        <div class="feature-card">
-            <div style="font-size: 1.2rem; font-weight: 800; color: var(--accent-teal); margin-bottom: 1rem;">STEP 03</div>
-            <h3>Schema Integration</h3>
-            <p style="color: var(--text-secondary);">We write LocalBusiness, Service, and FAQPage JSON-LD code blocks to pass trust signals directly to bots.</p>
-        </div>
-
-        <div class="feature-card">
-            <div style="font-size: 1.2rem; font-weight: 800; color: var(--accent-teal); margin-bottom: 1rem;">STEP 04</div>
-            <h3>Performance tuning</h3>
-            <p style="color: var(--text-secondary);">We compress assets to WebP formats, minified CSS/JS styling, and cache parameters to boost loading times.</p>
         </div>
     </section>
 
     <!-- Zoho Audit Form Section -->
     <section id="audit-form" class="glass-section">
-        <h2 class="premium-heading" style="font-size: 2.8rem; margin-bottom: 1rem;">Get Your Free Consultation</h2>
-        <p class="premium-subheading" style="margin: 0 auto 2rem auto;">Consult with our technical SEO and web development engineers. Get a roadmap for scaling your business search rankings.</p>
+        <h2 class="premium-heading" style="font-size: 2.8rem; margin-bottom: 1rem;">Request Your On-Page Audit</h2>
+        <p class="premium-subheading" style="margin: 0 auto 2rem auto;">Consult with our technical SEO and web development engineers in Kochi, Kerala. Let us analyze your heading structures, internal links, and code files.</p>
         <div style="background: var(--premium-surface); padding: 1.5rem; border-radius: 16px; border: 1px solid var(--glass-border); max-width: 800px; margin: 0 auto; overflow: hidden; box-shadow: var(--neon-glow);">
             <iframe aria-label='Contact Us' frameborder="0" style="height:550px;width:100%;border:none;" src='https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg'></iframe>
         </div>
@@ -288,7 +356,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 TechAuditPros. All rights reserved.</p>
+                <p>&copy; 2026 TechAuditPros. All rights reserved. Founded by Aji Paul, Kochi, Kerala, India.</p>
             </div>
         </div>
     </footer>

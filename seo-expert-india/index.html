@@ -1,34 +1,538 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="index, follow">
-  <title>SEO Expert India | Aji Paul | Technical Consultant</title>
-  <meta name="description" content="Solve indexing and crawling issues with Aji Paul, a leading SEO expert in India & Kerala. Get data-driven technical audits.">
-  <link rel="canonical" href="https://techauditpros.com/seo-expert-india/">
-  
-  <link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png">
-  <link rel="icon" href="../assets/favicon-16.png" sizes="16x16" type="image/png">
-  <link rel="icon" href="../assets/favicon-48.png" sizes="48x48" type="image/png">
-  <link rel="icon" href="../assets/favicon-64.png" sizes="64x64" type="image/png">
-  <link rel="icon" href="../assets/logoonly.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="../assets/favicon-64.png">
-  
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://techauditpros.com/seo-expert-india/">
-  <meta property="og:title" content="SEO Expert India | Aji Paul | Technical Consultant">
-  <meta property="og:description" content="Solve indexing and crawling issues with Aji Paul, a leading SEO expert in India & Kerala. Get data-driven technical audits.">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/homepage.css">
-  <link rel="stylesheet" href="../assets/css/seo-services.css">
-  
-  <!-- Schema Markup -->
-  <script type="application/ld+json">
-  {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Consult with a leading technical SEO expert in India. Aji Paul provides detailed code audits, schema architecture, and speed optimization.">
+    <title>SEO Expert India | Custom Search Engineering | TechAuditPros</title>
+    <link rel="canonical" href="https://techauditpros.com/seo-expert-india/">
+    
+    <!-- Favicons -->
+    <link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="../assets/favicon-16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="../assets/favicon-48.png" sizes="48x48" type="image/png">
+    <link rel="icon" href="../assets/favicon-64.png" sizes="64x64" type="image/png">
+    <link rel="icon" href="../assets/logoonly.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../assets/favicon-64.png">
+    
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://techauditpros.com/seo-expert-india/">
+    <meta property="og:title" content="SEO Expert India | Custom Search Engineering | TechAuditPros">
+    <meta property="og:description" content="Consult with a leading technical SEO expert in India. Aji Paul provides detailed code audits, schema architecture, and speed optimization.">
+    <meta property="og:image" content="https://techauditpros.com/assets/logoonly.svg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- White Theme Stylesheet -->
+    <style>
+        
+:root {
+    --bg-white: #ffffff;
+    --bg-surface: #f8fafc;
+    --border-light: #e2e8f0;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --accent-indigo: #4f46e5;
+    --accent-indigo-hover: #4338ca;
+    --accent-teal: #0d9488;
+    --accent-teal-hover: #0f766e;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-white);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header Styles */
+.main-header-bar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-light);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 0;
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+.logo-text {
+    color: var(--text-primary);
+}
+.desktop-nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+.desktop-nav a {
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: color 0.2s ease;
+    font-size: 0.95rem;
+}
+.desktop-nav a:hover {
+    color: var(--accent-indigo);
+}
+.nav-dropdown {
+    position: relative;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -200px;
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    padding: 2rem;
+    border-radius: 12px;
+    width: 800px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    box-shadow: var(--shadow-lg);
+    margin-top: 0.5rem;
+}
+.nav-dropdown:hover .dropdown-menu {
+    display: grid;
+}
+.dropdown-silo h4 {
+    color: var(--accent-indigo);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 0.25rem;
+}
+.dropdown-silo a {
+    display: block;
+    padding: 0.35rem 0;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+.dropdown-silo a:hover {
+    color: var(--text-primary);
+    padding-left: 3px;
+}
+.book-audit-btn {
+    background: var(--accent-indigo);
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 600;
+    color: #ffffff !important;
+    transition: background 0.2s ease;
+    font-size: 0.9rem;
+}
+.book-audit-btn:hover {
+    background: var(--accent-indigo-hover);
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, var(--bg-surface) 0%, #ffffff 100%);
+    text-align: center;
+    border-bottom: 1px solid var(--border-light);
+}
+.hero-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+.hero-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: #e0f2fe;
+    color: var(--accent-teal);
+    font-weight: 600;
+    font-size: 0.85rem;
+    border-radius: 9999px;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.hero-section h1 {
+    font-size: 3.5rem;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+.hero-section p.lead {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.cta-button-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.btn-primary {
+    background: var(--accent-indigo);
+    color: var(--text-primary);
+    padding: 0.8rem 1.8rem;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+.btn-primary:hover {
+    background: var(--accent-indigo-hover);
+}
+.btn-secondary {
+    background: var(--bg-white);
+    color: var(--text-primary);
+    border: 1px solid var(--border-light);
+    padding: 0.8rem 1.8rem;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+.btn-secondary:hover {
+    background: var(--bg-surface);
+}
+
+/* Content Layouts */
+.content-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+}
+.content-section {
+    margin-bottom: 4rem;
+}
+.content-section h2 {
+    font-size: 2.25rem;
+    margin-bottom: 1.25rem;
+}
+.content-section h3 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+}
+.content-section p {
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+    font-size: 1.05rem;
+}
+.content-section ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+}
+.content-section li {
+    margin-bottom: 0.5rem;
+}
+
+/* Layout Variations */
+/* Bento Grid Layout */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 3rem 0;
+}
+.bento-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.bento-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+.bento-card h4 {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+.bento-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+.bento-card.large {
+    grid-column: span 2;
+}
+.bento-card.tall {
+    grid-row: span 2;
+}
+@media (max-width: 768px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+    .bento-card.large, .bento-card.tall {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+}
+
+/* Timeline Layout */
+.timeline-container {
+    position: relative;
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 1rem 0;
+}
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background: var(--border-light);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+}
+.timeline-step {
+    padding: 1rem 2.5rem;
+    position: relative;
+    width: 50%;
+}
+.timeline-step::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    right: -7px;
+    background-color: var(--bg-white);
+    border: 3px solid var(--accent-indigo);
+    border-radius: 50%;
+    top: 1.5rem;
+    z-index: 2;
+}
+.step-left {
+    left: 0;
+    text-align: right;
+}
+.step-right {
+    left: 50%;
+}
+.step-right::after {
+    left: -7px;
+}
+.step-card {
+    padding: 1.5rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+}
+.step-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent-indigo);
+}
+.step-card p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 0;
+}
+@media (max-width: 768px) {
+    .timeline-container::after {
+        left: 31px;
+    }
+    .timeline-step {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 20px;
+    }
+    .timeline-step::after {
+        left: 24px;
+    }
+    .step-left {
+        left: 0;
+        text-align: left;
+    }
+    .step-right {
+        left: 0;
+    }
+}
+
+/* Comparison Table Layout */
+.comparison-container {
+    overflow-x: auto;
+    margin: 3rem 0;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+}
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-white);
+    text-align: left;
+    min-width: 600px;
+}
+.comparison-table th, .comparison-table td {
+    padding: 1.1rem 1.5rem;
+    border-bottom: 1px solid var(--border-light);
+}
+.comparison-table th {
+    background: var(--bg-surface);
+    color: var(--text-primary);
+    font-weight: 600;
+}
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
+.comparison-table tbody tr:hover {
+    background: #fafafb;
+}
+.comparison-table td.highlight {
+    background: #f0fdfa;
+    color: var(--accent-teal);
+    font-weight: 600;
+}
+
+/* FAQ Accordion */
+.faq-section {
+    margin-top: 4rem;
+    border-top: 1px solid var(--border-light);
+    padding-top: 4rem;
+}
+.faq-section h2 {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+.faq-item {
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    background: var(--bg-surface);
+    overflow: hidden;
+}
+.faq-question {
+    padding: 1.25rem 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.faq-answer {
+    padding: 0 1.5rem 1.25rem 1.5rem;
+    color: var(--text-secondary);
+}
+
+/* Contact Form Section */
+.form-section {
+    background: var(--bg-surface);
+    padding: 5rem 2rem;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+    text-align: center;
+}
+.form-container {
+    max-width: 750px;
+    margin: 0 auto;
+}
+.form-container h2 {
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+}
+.form-container p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+.iframe-wrapper {
+    background: #ffffff;
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Footer Section */
+.site-footer {
+    background: #fafafa;
+    border-top: 1px solid var(--border-light);
+    padding: 5rem 2rem 2rem;
+}
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+.footer-column h3 {
+    font-size: 1.15rem;
+    margin-bottom: 1.25rem;
+    color: var(--text-primary);
+}
+.footer-link {
+    display: block;
+    color: var(--text-secondary);
+    margin-bottom: 0.6rem;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+.footer-link:hover {
+    color: var(--accent-indigo);
+}
+
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    .desktop-nav {
+        display: none;
+    }
+}
+
+    </style>
+    
+    <!-- Local Business Schema -->
+    <script type="application/ld+json">
+{
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "TechAuditPros - SEO Expert India",
@@ -43,263 +547,264 @@
     "postalCode": "682306",
     "addressCountry": "IN"
   },
-  "url": "https://techauditpros.com/seo-expert-india/index.html"
+  "url": "https://techauditpros.com/seo-expert-india/"
 }
-  </script>
-  
-  <script type="application/ld+json">
-  {
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+{
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What is your approach to seo expert india?",
+      "name": "Who is the lead SEO expert at TechAuditPros?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Our approach to seo expert india focuses on resolving code errors, aligning header tags, structuring sitemaps, and integrating verified Schema schemas for maximum search trust."
+        "text": "Aji Paul, a senior technical SEO engineer and software developer based in Kochi, Kerala, leads our audits and code optimization projects."
       }
     },
     {
       "@type": "Question",
-      "name": "Do you use automated SEO checklists?",
+      "name": "How does technical SEO consulting work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. We manually audit sitemaps, check server logs, audit canonical setups, and inspect code files individually for each brand."
+        "text": "We review your site structure, server configurations, and database layouts. We then provide a clear, actionable document with code changes to resolve crawl blocks and index issues."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What industries do you specialize in?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We specialize in complex industries, including SaaS platforms, large enterprise e-commerce portals, fintech systems, and healthcare directories where clean code structure is critical."
       }
     }
   ]
 }
-  </script>
+    </script>
 </head>
-<body class="premium-seo-service">
+<body>
 
-    <!-- Header -->
-    <header class="main-header-bar">
-        <div class="container header-container">
-            <a href="/" class="header-logo">
-                <img src="../assets/logoonly.svg" alt="TechAuditPros Logo" width="32" height="32">
-                <span class="logo-text">TechAuditPros</span>
-            </a>
-            <nav class="desktop-nav">
-                <a href="/#services">Services</a>
-                <div class="nav-dropdown">
-                    <a href="#" class="dropdown-trigger" onclick="return false;">Categories <span class="arrow">▼</span></a>
-                    <div class="dropdown-menu">
-                        <div class="dropdown-silo">
-                            <h4>Technical SEO</h4>
-                            <a href="/technical-seo-audit/">Technical Audit</a>
-                            <a href="/seo-services/enterprise-seo/">Enterprise SEO</a>
-                            <a href="/seo-services/saas-seo-strategy/">SaaS SEO</a>
-                            <a href="/seo-services/ecommerce-seo/">E-commerce SEO</a>
-                            <a href="/seo-services/geo-aeo-optimisation/">GEO & AEO</a>
-                        </div>
-                        <div class="dropdown-silo">
-                            <h4>Custom SaaS</h4>
-                            <a href="/saas-app-development/custom-crm-portals/">Custom CRM</a>
-                            <a href="/saas-app-development/erp-integrations/">ERP Integrations</a>
-                            <a href="/saas-app-development/b2b-dashboards/">B2B Dashboards</a>
-                            <a href="/saas-app-development/mvp-development/">MVP Development</a>
-                        </div>
-                        <div class="dropdown-silo">
-                            <h4>Web Design</h4>
-                            <a href="/website-seo-audit/">Website Audit</a>
-                            <a href="/website-design-development/b2b-corporate-websites/">B2B Corporate</a>
-                            <a href="/website-design-development/core-web-vitals-optimization/">Core Web Vitals</a>
-                            <a href="/website-design-development/nextjs-development/">Next.js Dev</a>
-                            <a href="/website-design-development/headless-cms/">Headless CMS</a>
-                        </div>
-                        <div class="dropdown-silo">
-                            <h4>Markets</h4>
-                            <a href="/seo-audit-kochi/">Kochi HQ</a>
-                            <a href="/seo-agency-kerala/">Kerala Agency</a>
-                            <a href="/seo-audit-india/">India National</a>
-                            <a href="/seo-company/mumbai/">Mumbai Office</a>
-                            <a href="/seo-company/bangalore/">Bangalore Office</a>
-                            <a href="/seo-company/london-uk/">London UK</a>
-                            <a href="/seo-audit-usa/">USA Market</a>
-                            <a href="/seo-audit-canada/">Canada Market</a>
-                        </div>
-                        <div class="dropdown-silo">
-                            <h4>Blog & Guides</h4>
-                            <a href="/blog/">Blog Hub</a>
-                            <a href="/blog/what-is-serp-in-seo/">What is SERP?</a>
-                            <a href="/blog/seo-friendly-web-design-guide/">SEO Web Design</a>
-                            <a href="/blog/saas-vs-custom-software/">SaaS vs Custom</a>
-                            <a href="/blog/how-to-fix-crawlability-issues/">Fix Crawlability</a>
-                            <a href="/blog/generative-engine-optimization-geo/">GEO Guide</a>
-                            <a href="/blog/react-vs-nextjs-for-seo/">React vs Next.js</a>
-                        </div>
+<header class="main-header-bar">
+    <div class="container header-container">
+        <a href="../index.html" class="header-logo">
+            <img src="../assets/logoonly.svg" alt="TechAuditPros Logo" width="32" height="32">
+            <span class="logo-text">TechAuditPros</span>
+        </a>
+        <nav class="desktop-nav">
+            <a href="../index.html#services">Services</a>
+            <div class="nav-dropdown">
+                <a href="#" class="dropdown-trigger" onclick="return false;">Categories <span class="arrow">▼</span></a>
+                <div class="dropdown-menu">
+                    <div class="dropdown-silo">
+                        <h4>Technical SEO</h4>
+                        <a href="../technical-seo-audit/index.html">Technical Audit</a>
+                        <a href="../seo-services/enterprise-seo/index.html">Enterprise SEO</a>
+                        <a href="../seo-services/saas-seo-strategy/index.html">SaaS SEO</a>
+                        <a href="../seo-services/ecommerce-seo/index.html">E-commerce SEO</a>
+                        <a href="../seo-services/geo-aeo-optimisation/index.html">GEO & AEO</a>
+                    </div>
+                    <div class="dropdown-silo">
+                        <h4>Custom SaaS</h4>
+                        <a href="../saas-app-development/custom-crm-portals/index.html">Custom CRM</a>
+                        <a href="../saas-app-development/erp-integrations/index.html">ERP Integrations</a>
+                        <a href="../saas-app-development/b2b-dashboards/index.html">B2B Dashboards</a>
+                        <a href="../saas-app-development/mvp-development/index.html">MVP Development</a>
+                    </div>
+                    <div class="dropdown-silo">
+                        <h4>Web Design</h4>
+                        <a href="../website-seo-audit/index.html">Website Audit</a>
+                        <a href="../website-design-development/b2b-corporate-websites/index.html">B2B Corporate</a>
+                        <a href="../website-design-development/core-web-vitals-optimization/index.html">Core Web Vitals</a>
+                        <a href="../website-design-development/nextjs-development/index.html">Next.js Dev</a>
+                        <a href="../website-design-development/headless-cms/index.html">Headless CMS</a>
+                    </div>
+                    <div class="dropdown-silo">
+                        <h4>Markets</h4>
+                        <a href="../seo-audit-kochi/index.html">Kochi HQ</a>
+                        <a href="../seo-agency-kerala/index.html">Kerala Agency</a>
+                        <a href="../seo-audit-india/index.html">India National</a>
+                        <a href="../seo-company/mumbai/index.html">Mumbai Office</a>
+                        <a href="../seo-company/bangalore/index.html">Bangalore Office</a>
+                        <a href="../seo-company/london-uk/index.html">London UK</a>
+                        <a href="../seo-audit-usa/index.html">USA Market</a>
+                        <a href="../seo-audit-canada/index.html">Canada Market</a>
+                    </div>
+                    <div class="dropdown-silo">
+                        <h4>Blog & Guides</h4>
+                        <a href="../blog/index.html">Blog Hub</a>
+                        <a href="../blog/what-is-serp-in-seo/index.html">What is SERP?</a>
+                        <a href="../blog/seo-friendly-web-design-guide/index.html">SEO Web Design</a>
+                        <a href="../blog/saas-vs-custom-software/index.html">SaaS vs Custom</a>
+                        <a href="../blog/how-to-fix-crawlability-issues/index.html">Fix Crawlability</a>
+                        <a href="../blog/generative-engine-optimization-geo/index.html">GEO Guide</a>
+                        <a href="../blog/react-vs-nextjs-for-seo/index.html">React vs Next.js</a>
                     </div>
                 </div>
-                <a href="/case-studies.html">Case Studies</a>
-                <a href="/about.html">About</a>
-                <a href="/#contact">Contact</a>
-            </nav>
-            <div class="header-actions">
-                <a href="#audit-form" class="book-audit-btn">Get Free Audit</a>
+            </div>
+            <a href="../case-studies.html">Case Studies</a>
+            <a href="../about.html">About</a>
+            <a href="../index.html#contact">Contact</a>
+        </nav>
+        <div class="header-actions">
+            <a href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" class="book-audit-btn">Get Free Audit</a>
+        </div>
+    </div>
+</header>
+
+
+    <section class="hero-section">
+        <div class="hero-container">
+            <span class="hero-tag">seo expert india</span>
+            <h1>Technical SEO Expert India</h1>
+            <p class="lead">Get specialized search engineering consulting from a technical SEO expert in India. We debug complex crawl errors, optimize API response times, and build custom schema structures.</p>
+            <div class="cta-button-group">
+                <a href="#audit-form" class="btn-primary">Schedule Consultation</a>
+                <a href="../case-studies.html" class="btn-secondary">View Case Studies</a>
             </div>
         </div>
-    </header>
-
-    <!-- Split Hero -->
-    <section class="hero-split" style="min-height: 80vh; background: radial-gradient(circle at center, rgba(0, 210, 255, 0.1) 0%, var(--premium-bg) 70%);">
-        <div class="hero-split-text" style="padding-left: 5%;">
-            <span class="eyebrow" style="color:var(--accent-teal); font-weight:700; letter-spacing: 0.1em; margin-bottom: 16px; display:block;">TECHNICAL CONSULTANT</span>
-            <h1 class="premium-heading">SEO Expert <span class='text-gradient-teal'>India</span></h1>
-            <p class="premium-subheading">Data-driven SEO engineering by Aji Paul. We use custom Python diagnostics and Semrush essentials to rebuild your organic visibility.</p>
-            <a href="#audit-form" class="premium-btn">Get Technical Audit</a>
-        </div>
-        <div class="hero-split-image" style="padding-right: 5%;">
-            <img src="../assets/images/services/seo_services_hero.jpg" alt="SEO Expert India | Aji Paul | Technical Consultant">
-        </div>
     </section>
-
-    <!-- Content Sections -->
     
-    <section class="zigzag-section" style="padding-top: 0; background: var(--premium-bg);">
-        <div class="container">
-            <div class="zigzag-row">
-                <div class="zigzag-text">
-                    <h2 style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 1rem;">Optimized <span class="text-gradient-magenta">SEO Expert India</span> Services</h2>
-                    <p><strong>TechAuditPros</strong> is a technical SEO and custom software engineering agency headquartered in Kochi, Kerala, India. We deliver professional <strong>seo expert india</strong> solutions tailored to businesses operating in India, the USA, Canada, and the United Kingdom. Search engine algorithms demand clear code hierarchy and semantic authority. Our solutions ensure your code meets these standards.</p>
-                    <p style="margin-top: 1rem;">Under founder <strong>Aji Paul</strong>, our Kochi-based team ensures that your pages integrate exact entity indicators, structured schemas, and clean HTML, helping search engines crawl, render, and rank your content naturally.</p>
-                </div>
-                <div class="zigzag-image" style="background: var(--premium-surface); border: 1px solid var(--glass-border); border-radius: 16px; padding: 2.5rem;">
-                    <h3 style="font-size: 1.8rem; color: var(--text-primary); margin-bottom: 1.5rem;">The SEO Blueprint</h3>
-                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">To rank for search queries including <em>seo expert kerala, freelance seo expert in kerala</em>, a website must optimize its data structure. We resolve crawl path traps, dynamic parameter duplication, render-blocking JS bundles, and header redirect failures.</p>
-                    <p style="color: var(--text-secondary);">We build clear category paths and verify indexing configurations, ensuring PageRank passes to your transactional sections without authority leaks.</p>
-                </div>
-            </div>
+    <div class="content-wrapper">
+        <section class="content-section">
+            
+    <h2>Why You Need a Technical SEO Expert in India</h2>
+    <p>Modern search engines demand a highly structured website architecture. Standard marketing advice like 'writing quality content' is ineffective if your website has underlying crawl barriers. Consulting with a dedicated <strong>seo expert india</strong> like Aji Paul ensures your code, server, and content work together to achieve top visibility.</p>
+    <p>With experience in software development and search algorithm systems, Aji Paul provides deep diagnostics. We resolve index locks, clean up dynamic parameter paths, fix canonical structures, and implement localized schemas that build trust with crawlers.</p>
+    
+    <h2>Resolving Complex Technical Search Bottlenecks</h2>
+    <p>Many enterprise sites struggle with search visibility because of crawl budget wastage. When search crawlers encounter slow page loads or broken links, they leave before indexing key transactional pages. TechAuditPros addresses these issues directly, ensuring your important content is crawled and indexed.</p>
+    <p>From our engineering center in Kochi, we support organizations across India and international markets. We clean up codebase issues that hinder performance, ensuring your site is fully optimized for speed, usability, and search compatibility.</p>
+    
+    <h2>Actionable Audits and Code Integrations</h2>
+    <p>We don't just deliver generic spreadsheets. We analyze your backend configurations, review database query times, and clean up server response codes to ensure optimal performance. This technical focus helps your domain build authority and rank naturally in search results.</p>
+    <p>Additionally, we work closely with your internal development teams to implement these technical fixes quickly and safely. This collaborative approach minimizes delay and ensures all technical changes are deployed correctly.</p>
+    
+    <h2>Custom Enterprise Data Architectures</h2>
+    <p>For large directories and platforms, structured data is essential. We design and inject custom schema configurations that help search engines understand your content. This increases your chances of capturing rich snippets and other prominent search result features.</p>
+    
+    <h2>Adapting to the Evolution of Search Systems</h2>
+    <p>Search engines are constantly updating their algorithms to prioritize user experience and site performance. We monitor these updates and adjust your technical setup accordingly, protecting your organic traffic and maintaining your competitive edge. Our continuous maintenance plans guarantee that your site remains error-free in Google Search Console, preventing unexpected ranking drops and ensuring stable growth over time. We help build authority by verifying code quality and site structures on a daily basis.</p>
+    
+    <h2>Personalized Search Engineering Consulting for Overseas Brands</h2>
+    <p>Operating from Kochi, Kerala, Aji Paul provides direct technical search consulting to clients in North America, Europe, and the Middle East. We conduct detailed reviews of web hosting environments, check API responsiveness, trace headless routing systems, and clean up client-side rendering bottlenecks. By aligning site layouts, server settings, and index controls, we build an optimized platform that ranks well across global markets.</p>
+    
+        </section>
+        
+        <section class="content-section">
+            <h2>Our Custom Implementation Model</h2>
+            
+    <div class="comparison-container">
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Capability</th>
+                    <th>Standard Marketing Agency</th>
+                    <th class="highlight">TechAuditPros (SEO Engineering)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Code Optimizations</strong></td>
+                    <td>Vague recommendation checklists</td>
+                    <td class="highlight">Direct code audits and modifications</td>
+                </tr>
+                <tr>
+                    <td><strong>Core Web Vitals</strong></td>
+                    <td>Basic image resizing advice</td>
+                    <td class="highlight">Asset minification, JS splitting, SSR config</td>
+                </tr>
+                <tr>
+                    <td><strong>Structured Schema</strong></td>
+                    <td>Generic plug-in outputs</td>
+                    <td class="highlight">Custom nested JSON-LD schema blocks</td>
+                </tr>
+                <tr>
+                    <td><strong>Crawl Diagnostics</strong></td>
+                    <td>Simple automated scans</td>
+                    <td class="highlight">Server log auditing and crawl route cleanup</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+        </section>
+        
+        <div class="faq-section"><h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <div class="faq-question">Who is the lead SEO expert at TechAuditPros? <span>▼</span></div>
+            <div class="faq-answer">Aji Paul, a senior technical SEO engineer and software developer based in Kochi, Kerala, leads our audits and code optimization projects.</div>
         </div>
-    </section>
-    <section class="feature-grid" style="border-top: 1px solid var(--glass-border);">
-        <div class="section-header-center" style="grid-column: 1 / -1; margin-bottom: 3rem; text-align: center;">
-            <h2 style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 1rem;">Core Pillars of Search Success</h2>
-            <p style="color: var(--text-secondary); font-size: 1.2rem;">Our approach covers the technical, content, and trust signals Google uses to rank your site.</p>
+        <div class="faq-item">
+            <div class="faq-question">How does technical SEO consulting work? <span>▼</span></div>
+            <div class="faq-answer">We review your site structure, server configurations, and database layouts. We then provide a clear, actionable document with code changes to resolve crawl blocks and index issues.</div>
         </div>
+        <div class="faq-item">
+            <div class="faq-question">What industries do you specialize in? <span>▼</span></div>
+            <div class="faq-answer">We specialize in complex industries, including SaaS platforms, large enterprise e-commerce portals, fintech systems, and healthcare directories where clean code structure is critical.</div>
+        </div></div>
+    </div>
+    
 
-        <div class="feature-card">
-            <div class="feature-icon">🔍</div>
-            <h3>Keyword Target Alignment</h3>
-            <p style="color: var(--text-secondary);">We align meta tags, titles, and headers to match user search intent, ensuring your pages address both commercial and informational queries.</p>
+<!-- Contact Zoho Form -->
+<section class="form-section" id="audit-form">
+    <div class="form-container">
+        <h2>Schedule a Technical Consultation</h2>
+        <p>Unlock detailed code reviews, Core Web Vitals profiling, crawl budget analysis, and specialized search engine scaling recommendations.</p>
+        <div class="iframe-wrapper">
+            <iframe aria-label='Contact Us' style="height:550px;width:100%;border:none;" src='https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg'></iframe>
         </div>
+    </div>
+</section>
 
-        <div class="feature-card">
-            <div class="feature-icon">⚡</div>
-            <h3>Core Web Vitals</h3>
-            <p style="color: var(--text-secondary);">We inspect Largest Contentful Paint (LCP), layout shifts, and bundle payloads, keeping your code light and fast-loading.</p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon">🧱</div>
-            <h3>Index & Crawl Path Setup</h3>
-            <p style="color: var(--text-secondary);">We clean up robots.txt rules, configure self-referencing canonical attributes, and align sitemaps to prevent index errors.</p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon">🤝</div>
-            <h3>Trust & E-E-A-T Signals</h3>
-            <p style="color: var(--text-secondary);">We integrate verified LocalBusiness address details, author bios, and citation data to build domain search trust.</p>
-        </div>
-    </section>
-    <section class="zigzag-section" style="background: var(--premium-surface); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
-        <div class="container">
-            <div class="section-header-center" style="text-align: center; margin-bottom: 2rem;">
-                <h2 style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 1rem;">Targeted Search Strategy</h2>
-                <p style="color: var(--text-secondary); font-size: 1.2rem;">Building search structures optimized for LLMs and Google AI Overviews.</p>
-            </div>
-
-            <ul class="bullet-cards">
-                <li class="bullet-card">
-                    <span class="bullet-card-title">📈 Transactional Search Optimization</span>
-                    We align pages to Bottom-of-Funnel target keywords, helping search engine spiders index your product offerings for buying audiences.
-                </li>
-                <li class="bullet-card">
-                    <span class="bullet-card-title">🤖 AI search Citations</span>
-                    We structure clear, direct Q&A blocks and rich semantic descriptions to ensure generative engines can cite your brand.
-                </li>
-                <li class="bullet-card">
-                    <span class="bullet-card-title">🏢 Certified Engineering</span>
-                    Our Kochi team handles database integrations, bundle size optimizations, redirects audits, and schema markup injection.
-                </li>
-            </ul>
-        </div>
-    </section>
-    <section class="feature-grid" style="background: var(--premium-bg);">
-        <div class="section-header-center" style="grid-column: 1 / -1; margin-bottom: 3rem; text-align: center;">
-            <h2 style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 1rem;">Our Optimization Process</h2>
-            <p style="color: var(--text-secondary); font-size: 1.2rem;">How we analyze, optimize, and scale your search rankings.</p>
-        </div>
-
-        <div class="feature-card">
-            <div style="font-size: 1.2rem; font-weight: 800; color: var(--accent-teal); margin-bottom: 1rem;">STEP 01</div>
-            <h3>Crawl & Audit</h3>
-            <p style="color: var(--text-secondary);">We index and crawl your layout to discover crawl bloat, script locks, indexing errors, and canonical traps.</p>
-        </div>
-
-        <div class="feature-card">
-            <div style="font-size: 1.2rem; font-weight: 800; color: var(--accent-teal); margin-bottom: 1rem;">STEP 02</div>
-            <h3>On-Page Alignment</h3>
-            <p style="color: var(--text-secondary);">We set up keyword tags in headings, title tags, and first 100 words while verifying W3C HTML structures.</p>
-        </div>
-
-        <div class="feature-card">
-            <div style="font-size: 1.2rem; font-weight: 800; color: var(--accent-teal); margin-bottom: 1rem;">STEP 03</div>
-            <h3>Schema Integration</h3>
-            <p style="color: var(--text-secondary);">We write LocalBusiness, Service, and FAQPage JSON-LD code blocks to pass trust signals directly to bots.</p>
-        </div>
-
-        <div class="feature-card">
-            <div style="font-size: 1.2rem; font-weight: 800; color: var(--accent-teal); margin-bottom: 1rem;">STEP 04</div>
-            <h3>Performance tuning</h3>
-            <p style="color: var(--text-secondary);">We compress assets to WebP formats, minified CSS/JS styling, and cache parameters to boost loading times.</p>
-        </div>
-    </section>
-
-    <!-- Zoho Audit Form Section -->
-    <section id="audit-form" class="glass-section">
-        <h2 class="premium-heading" style="font-size: 2.8rem; margin-bottom: 1rem;">Get Your Free Consultation</h2>
-        <p class="premium-subheading" style="margin: 0 auto 2rem auto;">Consult with our technical SEO and web development engineers. Get a roadmap for scaling your business search rankings.</p>
-        <div style="background: var(--premium-surface); padding: 1.5rem; border-radius: 16px; border: 1px solid var(--glass-border); max-width: 800px; margin: 0 auto; overflow: hidden; box-shadow: var(--neon-glow);">
-            <iframe aria-label='Contact Us' frameborder="0" style="height:550px;width:100%;border:none;" src='https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg'></iframe>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="site-footer" id="contact">
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>TechAuditPros</h3>
-                    <p>Enterprise-grade technical SEO audits for businesses that demand clarity.</p>
-                </div>
-                <div class="footer-column">
-                    <h3>Services</h3>
-                    <p><a href="/technical-seo-audit/" class="footer-link">Technical Audit</a></p>
-                    <p><a href="/website-seo-audit/" class="footer-link">Website Audit</a></p>
-                    <p><a href="/seo-agency-kerala/" class="footer-link">Kerala SEO</a></p>
-                </div>
-                <div class="footer-column">
-                    <h3>Markets</h3>
-                    <p><a href="/seo-audit-kochi/" class="footer-link">Kochi</a></p>
-                    <p><a href="/seo-audit-usa/" class="footer-link">USA</a></p>
-                    <p><a href="/seo-audit-canada/" class="footer-link">Canada</a></p>
-                </div>
-                <div class="footer-column">
-                    <h3>Company</h3>
-                    <p><a href="/about.html" class="footer-link">About Us</a></p>
-                    <p><a href="/case-studies.html" class="footer-link">Case Studies</a></p>
-                    <p><a href="mailto:info@techauditpros.com" class="footer-link">Contact</a></p>
+<footer class="site-footer" id="contact-info">
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>TechAuditPros</h3>
+                <p>Enterprise-grade technical SEO audits and search engineering solutions. Built for organizations that demand web speed, clean code, and search visibility.</p>
+                <div class="footer-nap" style="margin-top: 1.5rem; font-size: 0.9rem; color: #475569; line-height: 1.6;">
+                    <p><strong>Headquarters (Kochi, India):</strong></p>
+                    <p>TechAuditPros</p>
+                    <p>DNRA 32, Eroor South, Thrippunithura</p>
+                    <p>Kochi, Kerala, India - 682306</p>
+                    <p>Phone: <a href="tel:+916282520339" style="color: #4f46e5;">+91 62825 20339</a></p>
+                    <p>Email: <a href="mailto:info@techauditpros.com" style="color: #4f46e5;">info@techauditpros.com</a></p>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 TechAuditPros. All rights reserved.</p>
+            <div class="footer-column">
+                <h3>Core Services</h3>
+                <p><a href="../technical-seo-audit/index.html" class="footer-link">Technical SEO Audit</a></p>
+                <p><a href="../website-seo-audit/index.html" class="footer-link">Website Audit</a></p>
+                <p><a href="../seo-services/enterprise-seo/index.html" class="footer-link">Enterprise SEO Strategy</a></p>
+                <p><a href="../seo-services/saas-seo-strategy/index.html" class="footer-link">SaaS SEO Architecture</a></p>
+                <p><a href="../website-design-development/nextjs-development/index.html" class="footer-link">Next.js Development</a></p>
+            </div>
+            <div class="footer-column">
+                <h3>Global Markets</h3>
+                <p><a href="../seo-audit-kochi/index.html" class="footer-link">Kochi (HQ)</a></p>
+                <p><a href="../seo-agency-kerala/index.html" class="footer-link">Kerala Agency</a></p>
+                <p><a href="../seo-audit-india/index.html" class="footer-link">India National</a></p>
+                <p><a href="../seo-audit-usa/index.html" class="footer-link">United States</a></p>
+                <p><a href="../seo-audit-canada/index.html" class="footer-link">Canada</a></p>
+            </div>
+            <div class="footer-column">
+                <h3>Information</h3>
+                <p><a href="../about.html" class="footer-link">About Us</a></p>
+                <p><a href="../case-studies.html" class="footer-link">Case Studies</a></p>
+                <p><a href="../blog/index.html" class="footer-link">Blog & Guides</a></p>
+                <p><a href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" class="footer-link">Contact Support</a></p>
             </div>
         </div>
-    </footer>
+        <div class="footer-bottom" style="margin-top: 3rem; border-top: 1px solid #e2e8f0; padding-top: 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; font-size: 0.85rem; color: #64748b;">
+            <p>&copy; 2026 TechAuditPros. All rights reserved.</p>
+            <p>Founder: Aji Paul | Specialized Offshore Technical SEO Engineering</p>
+        </div>
+    </div>
+</footer>
 
-    <!-- Tidio Widget -->
-    <script src="//code.tidio.co/xfezpk6hohjsnpxmweufbpcwi7audsru.js" async></script>
+<script src="//code.tidio.co/xfezpk6hohjsnpxmweufbpcwi7audsru.js" async></script>
 </body>
 </html>

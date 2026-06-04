@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
-  <title>E-commerce SEO Services | Scale Shop Traffic | TechAuditPros</title>
-  <meta name="description" content="Scale organic transaction revenues with ecommerce SEO services. We resolve faceted crawl bloat and structure category paths.">
+  <title>Enterprise E-commerce SEO Services | Scale Catalog Visibility | TechAuditPros</title>
+  <meta name="description" content="Dominate search rankings with professional ecommerce seo services. We fix facet-navigation crawl traps, resolve indexing bloat, and optimize loading times.">
   <link rel="canonical" href="https://techauditpros.com/seo-services/ecommerce-seo/">
   
   <link rel="icon" href="../../assets/favicon-32.png" sizes="32x32" type="image/png">
@@ -17,53 +17,137 @@
   
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://techauditpros.com/seo-services/ecommerce-seo/">
-  <meta property="og:title" content="E-commerce SEO Services | Scale Shop Traffic | TechAuditPros">
-  <meta property="og:description" content="Scale organic transaction revenues with ecommerce SEO services. We resolve faceted crawl bloat and structure category paths.">
+  <meta property="og:title" content="Enterprise E-commerce SEO Services | Scale Catalog Visibility | TechAuditPros">
+  <meta property="og:description" content="Dominate search rankings with professional ecommerce seo services. We fix facet-navigation crawl traps, resolve indexing bloat, and optimize loading times.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/css/homepage.css">
   <link rel="stylesheet" href="../../assets/css/seo-services.css">
+
+  <style>
+    /* Custom Bento Grid for E-commerce */
+    .ecom-bento-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+    .ecom-bento-card {
+      background: var(--premium-surface);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .ecom-bento-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-teal);
+      box-shadow: 0 12px 30px rgba(99, 102, 241, 0.08);
+    }
+    .ecom-bento-wide {
+      grid-column: span 2;
+    }
+    .ecom-bento-large {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    @media (max-width: 992px) {
+      .ecom-bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .ecom-bento-grid {
+        grid-template-columns: 1fr;
+      }
+      .ecom-bento-wide, .ecom-bento-large {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+    }
+  </style>
   
   <!-- Schema Markup -->
   <script type="application/ld+json">
   {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "E-commerce SEO Services | Scale Shop Traffic | TechAuditPros",
-  "provider": {
-    "@type": "Organization",
-    "name": "TechAuditPros",
-    "url": "https://techauditpros.com/"
-  },
-  "description": "Scale organic transaction revenues with ecommerce SEO services. We resolve faceted crawl bloat and structure category paths."
-}
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Enterprise E-commerce SEO Services",
+    "provider": {
+      "@type": "Organization",
+      "name": "TechAuditPros",
+      "url": "https://techauditpros.com/",
+      "logo": "https://techauditpros.com/assets/logoonly.svg"
+    },
+    "description": "Professional e-commerce SEO audits resolving faceted navigation crawl bloat, database-driven product schema setups, and Core Web Vitals optimization.",
+    "areaServed": ["US", "CA", "GB", "IN"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "E-commerce SEO Audit Framework",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Faceted Navigation Audit & Pruning"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Structured Product Schema Orchestration"
+          }
+        }
+      ]
+    }
+  }
   </script>
   
   <script type="application/ld+json">
   {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is your approach to ecommerce seo services?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Our approach to ecommerce seo services focuses on resolving code errors, aligning header tags, structuring sitemaps, and integrating verified Schema schemas for maximum search trust."
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is faceted navigation index bloat in e-commerce SEO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Faceted navigation allows users to filter products by size, price, color, or brand. If left unmanaged, search engines crawl millions of unique filter URL permutations, consuming the website's crawl budget. We resolve this by configuring canonical links, robots.txt directives, and using clean JavaScript to display filters without creating indexable duplicate pages."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does TechAuditPros implement Product schema for online catalogs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We inject structured JSON-LD code blocks directly into your backend template or databases. This includes product titles, aggregate ratings, stock availability, pricing, and nested review components, ensuring search bots display rich snippet features."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Core Web Vitals performance affect e-commerce search rankings?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Slow loading times directly reduce user conversions and search engine rankings. We optimize Largest Contentful Paint (LCP) and Interaction to Next Paint (INP) by utilizing image compression algorithms, lazy loading, script bundling, and edge database caching."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you configure multi-currency and international configurations?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We set up multi-currency indexing canonical models, configure localized hreflang tags across subfolders, and verify regional content variations to ensure that correct prices and languages appear globally."
+        }
       }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you use automated SEO checklists?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. We manually audit sitemaps, check server logs, audit canonical setups, and inspect code files individually for each brand."
-      }
-    }
-  ]
-}
+    ]
+  }
   </script>
 </head>
 <body class="premium-seo-service">
@@ -136,125 +220,131 @@
         </div>
     </header>
 
-    <!-- Split Hero -->
-    <section class="hero-split" style="min-height: 80vh; background: radial-gradient(circle at center, rgba(0, 210, 255, 0.1) 0%, var(--premium-bg) 70%);">
-        <div class="hero-split-text" style="padding-left: 5%;">
-            <span class="eyebrow" style="color:var(--accent-teal); font-weight:700; letter-spacing: 0.1em; margin-bottom: 16px; display:block;">E-COMMERCE GROWTH</span>
-            <h1 class="premium-heading">E-commerce <span class='text-gradient-teal'>SEO</span> Solutions</h1>
-            <p class="premium-subheading">Drive more store sales. We resolve index bloat, optimize Shopify setups, and improve category structure to capture transactional queries.</p>
-            <a href="#audit-form" class="premium-btn">Get Technical Audit</a>
-        </div>
-        <div class="hero-split-image" style="padding-right: 5%;">
-            <img src="../../assets/images/services/ecommerce_seo_hero.jpg" alt="E-commerce SEO Services | Scale Shop Traffic | TechAuditPros">
+    <!-- Centered Hero Layout (Gradient Overlay, Centered Content) -->
+    <section class="hero-centered" style="background-image: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,250,252,0.85) 100%); min-height: 85vh;">
+        <div class="hero-centered-content">
+            <span class="eyebrow" style="color:var(--accent-blue); font-weight:700; letter-spacing: 0.1em; margin-bottom: 16px; display:inline-block; text-transform: uppercase;">Enterprise E-commerce Scale</span>
+            <h1 class="premium-heading">Enterprise E-Commerce <span class="text-gradient-teal">SEO</span> Services</h1>
+            <p class="premium-subheading" style="margin: 0 auto 2.5rem auto;">Increase category page visibility, fix faceted navigation traps, prune index bloat, and optimize JSON-LD structures for massive product catalogs.</p>
+            <a href="#audit-form" class="premium-btn">Request E-commerce Audit</a>
         </div>
     </section>
 
-    <!-- Content Sections -->
-    
+    <!-- Bespoke Technical Copy Content Section (Alternating layouts & detailed descriptions) -->
     <section class="zigzag-section" style="padding-top: 0; background: var(--premium-bg);">
         <div class="container">
             <div class="zigzag-row">
                 <div class="zigzag-text">
-                    <h2 style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 1rem;">Optimized <span class="text-gradient-magenta">E-commerce SEO Solutions</span> Services</h2>
-                    <p><strong>TechAuditPros</strong> is a technical SEO and custom software engineering agency headquartered in Kochi, Kerala, India. We deliver professional <strong>ecommerce seo services</strong> solutions tailored to businesses operating in India, the USA, Canada, and the United Kingdom. Search engine algorithms demand clear code hierarchy and semantic authority. Our solutions ensure your code meets these standards.</p>
-                    <p style="margin-top: 1rem;">Under founder <strong>Aji Paul</strong>, our Kochi-based team ensures that your pages integrate exact entity indicators, structured schemas, and clean HTML, helping search engines crawl, render, and rank your content naturally.</p>
+                    <h2 style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 1.5rem;">Resolving Catalog Crawlability & Index Bloat</h2>
+                    <p>High-performance online stores require robust crawling solutions. Large online catalogs running on platforms like Shopify, Magento, or custom frameworks often generate millions of product variations. When these variations are linked via faceted navigation sidebars (allowing users to filter by color, price, size, and material), search engine bots can get stuck in infinite crawling paths, leading to indexation bottlenecks.</p>
+                    <p style="margin-top: 1rem;">At <strong>TechAuditPros</strong>, led by founder <strong>Aji Paul</strong> in Kochi, Kerala, we deploy custom server-log log parsers to isolate search bot crawling patterns. We implement clean PRG (Post-Redirect-Get) architectures or configure Ajax-based faceted selections, keeping search crawlers focused on primary category and product landing pages.</p>
+                    <p style="margin-top: 1rem;">We also resolve sitemap inconsistencies. We ensure sitemaps only list high-value, indexable URLs (200 status code, canonical tags pointing to self), pruning broken canonical loops and redirect hops that consume search bot processing bandwidth.</p>
                 </div>
-                <div class="zigzag-image" style="background: var(--premium-surface); border: 1px solid var(--glass-border); border-radius: 16px; padding: 2.5rem;">
-                    <h3 style="font-size: 1.8rem; color: var(--text-primary); margin-bottom: 1.5rem;">The SEO Blueprint</h3>
-                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">To rank for search queries including <em>shopify crawl optimization, faceted navigation fix</em>, a website must optimize its data structure. We resolve crawl path traps, dynamic parameter duplication, render-blocking JS bundles, and header redirect failures.</p>
-                    <p style="color: var(--text-secondary);">We build clear category paths and verify indexing configurations, ensuring PageRank passes to your transactional sections without authority leaks.</p>
+                <div class="zigzag-image" style="background: var(--premium-surface); border: 1px solid var(--glass-border); border-radius: 20px; padding: 3rem;">
+                    <h3 style="font-size: 1.8rem; color: var(--text-primary); margin-bottom: 1.5rem;">Product Schema & Entity Integrations</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">To capture competitive search real estate, e-commerce stores must leverage structured schema data. We configure dynamic JSON-LD scripts that pull real-time data from your product database, ensuring accurate price, stock status, ratings, and shipping values are passed directly to search bots.</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">This database-driven approach prevents markup mismatches, securing rich product snippet features like stars, price tags, and inventory indicators across organic results.</p>
+                    <p style="color: var(--text-secondary);">Additionally, we optimize image loading speeds. Large catalogs are often slowed down by unoptimized images. We build automatic WebP compression pipelines, set up responsive `srcset` attributes, and implement fast content delivery network (CDN) routing policies.</p>
                 </div>
             </div>
         </div>
     </section>
-    <section class="feature-grid" style="border-top: 1px solid var(--glass-border);">
-        <div class="section-header-center" style="grid-column: 1 / -1; margin-bottom: 3rem; text-align: center;">
-            <h2 style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 1rem;">Core Pillars of Search Success</h2>
-            <p style="color: var(--text-secondary); font-size: 1.2rem;">Our approach covers the technical, content, and trust signals Google uses to rank your site.</p>
-        </div>
 
-        <div class="feature-card">
-            <div class="feature-icon">🔍</div>
-            <h3>Keyword Target Alignment</h3>
-            <p style="color: var(--text-secondary);">We align meta tags, titles, and headers to match user search intent, ensuring your pages address both commercial and informational queries.</p>
-        </div>
+    <!-- Bento Grid Section: Custom 4-column Bento Layout -->
+    <section class="section-white" style="background: #f8fafc; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); padding: 5rem 5%;">
+        <div class="container">
+            <div class="section-header-center" style="text-align: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 1rem;">E-Commerce SEO Bento Grid</h2>
+                <p style="color: var(--text-secondary); font-size: 1.2rem; max-width: 700px; margin: 0 auto;">Our technical operations focus on clean code setups, structured markups, and fast catalog rendering.</p>
+            </div>
 
-        <div class="feature-card">
-            <div class="feature-icon">⚡</div>
-            <h3>Core Web Vitals</h3>
-            <p style="color: var(--text-secondary);">We inspect Largest Contentful Paint (LCP), layout shifts, and bundle payloads, keeping your code light and fast-loading.</p>
-        </div>
+            <div class="ecom-bento-grid">
+                <!-- Card 1: Wide Bento Card -->
+                <div class="ecom-bento-card ecom-bento-wide">
+                    <div>
+                        <div class="feature-icon">⚙️</div>
+                        <h3>Facet Navigation Management</h3>
+                        <p style="color: var(--text-secondary); margin-top: 0.5rem;">We prune and restrict crawler access to dynamically generated URL parameters using robots.txt filters, rel="nofollow" attributes, and server-side canonicalization, protecting your site's crawl budget from index bloat.</p>
+                    </div>
+                    <span style="font-weight: 600; color: var(--accent-teal); margin-top: 1.5rem;">Crawl Budget Shield &rarr;</span>
+                </div>
 
-        <div class="feature-card">
-            <div class="feature-icon">🧱</div>
-            <h3>Index & Crawl Path Setup</h3>
-            <p style="color: var(--text-secondary);">We clean up robots.txt rules, configure self-referencing canonical attributes, and align sitemaps to prevent index errors.</p>
-        </div>
+                <!-- Card 2: Standard Bento Card -->
+                <div class="ecom-bento-card">
+                    <div>
+                        <div class="feature-icon">🏷️</div>
+                        <h3>Product Rich Snippets</h3>
+                        <p style="color: var(--text-secondary);">We implement Product schema markups, pulling real-time pricing and stock data, to display stars, reviews, and sale pricing across organic search listings.</p>
+                    </div>
+                    <span style="font-weight: 600; color: var(--accent-teal); margin-top: 1rem;">Rich Snippets &rarr;</span>
+                </div>
 
-        <div class="feature-card">
-            <div class="feature-icon">🤝</div>
-            <h3>Trust & E-E-A-T Signals</h3>
-            <p style="color: var(--text-secondary);">We integrate verified LocalBusiness address details, author bios, and citation data to build domain search trust.</p>
+                <!-- Card 3: Standard Bento Card -->
+                <div class="ecom-bento-card">
+                    <div>
+                        <div class="feature-icon">⚡</div>
+                        <h3>Fast Page Rendering</h3>
+                        <p style="color: var(--text-secondary);">We audit database queries, eliminate render-blocking CSS/JS, and implement caching systems to achieve fast loading times and improve conversions.</p>
+                    </div>
+                    <span style="font-weight: 600; color: var(--accent-teal); margin-top: 1rem;">Core Web Vitals &rarr;</span>
+                </div>
+
+                <!-- Card 4: Wide Bento Card -->
+                <div class="ecom-bento-card ecom-bento-wide">
+                    <div>
+                        <div class="feature-icon">⛓️</div>
+                        <h3>Category Internal Linking</h3>
+                        <p style="color: var(--text-secondary); margin-top: 0.5rem;">We optimize category hierarchy layouts, implementing clean breadcrumb markup and contextual links to distribute page authority and help search bots discover new products.</p>
+                    </div>
+                    <span style="font-weight: 600; color: var(--accent-teal); margin-top: 1.5rem;">Internal Link Network &rarr;</span>
+                </div>
+
+                <!-- Card 5: Large Bento Card -->
+                <div class="ecom-bento-card ecom-bento-large">
+                    <div>
+                        <div class="feature-icon">🌐</div>
+                        <h3>Multi-Region & Hreflang Alignment</h3>
+                        <p style="color: var(--text-secondary); margin-top: 1rem;">We build international store configurations using localized subdirectories, distinct language directories, and hreflang tag matrices. We ensure that search bots display localized pricing, currencies, and languages based on the searcher's physical location, scaling store rankings in the US, UK, Canada, and India.</p>
+                    </div>
+                    <span style="font-weight: 600; color: var(--accent-teal); margin-top: 2rem;">Global Store Architectures &rarr;</span>
+                </div>
+            </div>
         </div>
     </section>
-    <section class="zigzag-section" style="background: var(--premium-surface); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+
+    <!-- Clean Bullet Card Details Section -->
+    <section class="section-white" style="padding: 5rem 5%;">
         <div class="container">
-            <div class="section-header-center" style="text-align: center; margin-bottom: 2rem;">
-                <h2 style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 1rem;">Targeted Search Strategy</h2>
-                <p style="color: var(--text-secondary); font-size: 1.2rem;">Building search structures optimized for LLMs and Google AI Overviews.</p>
+            <div class="section-header-center" style="text-align: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 1rem;">Our E-commerce Optimization Framework</h2>
+                <p style="color: var(--text-secondary); font-size: 1.2rem;">We analyze, optimize, and secure your site infrastructure for search engine crawlers.</p>
             </div>
 
             <ul class="bullet-cards">
                 <li class="bullet-card">
-                    <span class="bullet-card-title">📈 Transactional Search Optimization</span>
-                    We align pages to Bottom-of-Funnel target keywords, helping search engine spiders index your product offerings for buying audiences.
+                    <span class="bullet-card-title">🔍 Dynamic Filter Crawl Auditing</span>
+                    We map all dynamic parameter URLs and configure crawl limits to prevent bots from index-bloating your site's profile.
                 </li>
                 <li class="bullet-card">
-                    <span class="bullet-card-title">🤖 AI search Citations</span>
-                    We structure clear, direct Q&A blocks and rich semantic descriptions to ensure generative engines can cite your brand.
+                    <span class="bullet-card-title">🛍️ Microdata & Schema Injection</span>
+                    We integrate JSON-LD tags into product cards, categories, and breadcrumbs, creating clean semantic layers for search crawlers.
                 </li>
                 <li class="bullet-card">
-                    <span class="bullet-card-title">🏢 Certified Engineering</span>
-                    Our Kochi team handles database integrations, bundle size optimizations, redirects audits, and schema markup injection.
+                    <span class="bullet-card-title">⏱️ Database Response Optimization</span>
+                    We audit server response logs and database queries, resolving latency issues that affect catalog loading speeds.
+                </li>
+                <li class="bullet-card">
+                    <span class="bullet-card-title">📈 Analytics & Conversion Integration</span>
+                    We set up clear conversion funnels, ecommerce tracking, and core organic pipeline analytics to measure ROI.
                 </li>
             </ul>
-        </div>
-    </section>
-    <section class="feature-grid" style="background: var(--premium-bg);">
-        <div class="section-header-center" style="grid-column: 1 / -1; margin-bottom: 3rem; text-align: center;">
-            <h2 style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 1rem;">Our Optimization Process</h2>
-            <p style="color: var(--text-secondary); font-size: 1.2rem;">How we analyze, optimize, and scale your search rankings.</p>
-        </div>
-
-        <div class="feature-card">
-            <div style="font-size: 1.2rem; font-weight: 800; color: var(--accent-teal); margin-bottom: 1rem;">STEP 01</div>
-            <h3>Crawl & Audit</h3>
-            <p style="color: var(--text-secondary);">We index and crawl your layout to discover crawl bloat, script locks, indexing errors, and canonical traps.</p>
-        </div>
-
-        <div class="feature-card">
-            <div style="font-size: 1.2rem; font-weight: 800; color: var(--accent-teal); margin-bottom: 1rem;">STEP 02</div>
-            <h3>On-Page Alignment</h3>
-            <p style="color: var(--text-secondary);">We set up keyword tags in headings, title tags, and first 100 words while verifying W3C HTML structures.</p>
-        </div>
-
-        <div class="feature-card">
-            <div style="font-size: 1.2rem; font-weight: 800; color: var(--accent-teal); margin-bottom: 1rem;">STEP 03</div>
-            <h3>Schema Integration</h3>
-            <p style="color: var(--text-secondary);">We write LocalBusiness, Service, and FAQPage JSON-LD code blocks to pass trust signals directly to bots.</p>
-        </div>
-
-        <div class="feature-card">
-            <div style="font-size: 1.2rem; font-weight: 800; color: var(--accent-teal); margin-bottom: 1rem;">STEP 04</div>
-            <h3>Performance tuning</h3>
-            <p style="color: var(--text-secondary);">We compress assets to WebP formats, minified CSS/JS styling, and cache parameters to boost loading times.</p>
         </div>
     </section>
 
     <!-- Zoho Audit Form Section -->
     <section id="audit-form" class="glass-section">
-        <h2 class="premium-heading" style="font-size: 2.8rem; margin-bottom: 1rem;">Get Your Free Consultation</h2>
-        <p class="premium-subheading" style="margin: 0 auto 2rem auto;">Consult with our technical SEO and web development engineers. Get a roadmap for scaling your business search rankings.</p>
+        <h2 class="premium-heading" style="font-size: 2.8rem; margin-bottom: 1rem;">Get E-commerce SEO Diagnostics</h2>
+        <p class="premium-subheading" style="margin: 0 auto 2rem auto;">Consult with our technical SEO and web development engineers in Kochi, Kerala. Let us analyze your faceted navigation structures, database queries, and rich snippets.</p>
         <div style="background: var(--premium-surface); padding: 1.5rem; border-radius: 16px; border: 1px solid var(--glass-border); max-width: 800px; margin: 0 auto; overflow: hidden; box-shadow: var(--neon-glow);">
             <iframe aria-label='Contact Us' frameborder="0" style="height:550px;width:100%;border:none;" src='https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg'></iframe>
         </div>
@@ -288,7 +378,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 TechAuditPros. All rights reserved.</p>
+                <p>&copy; 2026 TechAuditPros. All rights reserved. Founded by Aji Paul, Kochi, Kerala, India.</p>
             </div>
         </div>
     </footer>
