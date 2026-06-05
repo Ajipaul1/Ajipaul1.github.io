@@ -843,6 +843,8 @@ body.industry-techaudit .cta-btn:hover {
     align-items: center;
     justify-content: center;
     backdrop-filter: blur(2px);
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .exit-popup.show {
@@ -854,7 +856,10 @@ body.industry-techaudit .cta-btn:hover {
     padding: 30px;
     border-radius: 12px;
     max-width: 450px;
-    width: 90%;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     animation: popupFadeIn 0.3s ease-out;
@@ -865,11 +870,37 @@ body.industry-techaudit .cta-btn:hover {
     to { opacity: 1; transform: scale(1); }
 }
 
+.exit-popup-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #6b7280;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s, color 0.2s;
+    z-index: 10;
+}
+
+.exit-popup-close:hover {
+    background-color: #f3f4f6;
+    color: #374151;
+}
+
 .exit-popup h3 {
     color: #1f2937;
     font-size: 1.5rem;
     margin-bottom: 20px;
     font-weight: 700;
+    padding-right: 20px; /* Leave space for the close button */
 }
 
 .exit-popup form {
@@ -2316,6 +2347,10 @@ body.industry-techaudit .cta-btn:hover {
             if (event.target === modal) {
                 closeAuditModal();
             }
+            const exitPopup = document.getElementById('exitPopup');
+            if (event.target === exitPopup) {
+                closeExitPopup();
+            }
         });
 
         // Exit Intent Popup
@@ -2323,6 +2358,7 @@ body.industry-techaudit .cta-btn:hover {
         document.addEventListener('mouseleave', function(e) {
             if (!exitIntentShown && e.clientY <= 0) {
                 document.getElementById('exitPopup').classList.add('show');
+                document.body.style.overflow = 'hidden';
                 exitIntentShown = true;
                 gtag('event', 'exit_intent_popup_shown', { event_category: 'engagement', event_label: 'kochi_page' });
             }
@@ -2330,12 +2366,14 @@ body.industry-techaudit .cta-btn:hover {
 
         function closeExitPopup() {
             document.getElementById('exitPopup').classList.remove('show');
+            document.body.style.overflow = '';
         }
 
     </script>
 <!-- Exit Intent Popup -->
 <div class="exit-popup" id="exitPopup">
 <div class="exit-popup-content">
+<button class="exit-popup-close" onclick="closeExitPopup()">×</button>
 <h3>Wait! Get Your Free 15-Min Audit Before You Go</h3>
 <div style="background: var(--premium-surface); padding: 1rem; border-radius: 8px; border: 1px solid rgba(56, 189, 248, 0.2);">
 <iframe aria-label="Contact Us" src="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" style="height:500px;width:99%;border:none;"></iframe>
