@@ -4,10 +4,29 @@ const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '.env') });
 const { readDb, writeDb } = require('./config');
 
+function extractBingUrl(bingUrl) {
+  try {
+    const urlObj = new URL(bingUrl);
+    const uParam = urlObj.searchParams.get('u');
+    if (uParam) {
+      // Bing URLs contain a base64 encoded URL prefixed with 'a1' (or similar two characters)
+      const base64Str = uParam.substring(2);
+      const cleanBase64 = base64Str.replace(/-/g, '+').replace(/_/g, '/');
+      const decoded = Buffer.from(cleanBase64, 'base64').toString('utf8');
+      if (decoded.startsWith('http')) {
+        return decoded;
+      }
+    }
+  } catch (e) {
+    // Fallback if parsing fails
+  }
+  return bingUrl;
+}
+
 async function checkDomainAuthority(domain) {
   const apiKey = process.env.OPEN_PAGE_RANK_KEY;
   if (!apiKey) {
-    // Heuristic fallback based on extension and domain length
+    // Heuristic fallback based on extension
     const ext = domain.split('.').pop();
     let score = Math.floor(Math.random() * 20) + 50; // Random 50 - 70
     if (ext === 'edu' || ext === 'gov') {
@@ -24,8 +43,7 @@ async function checkDomainAuthority(domain) {
     });
     if (response.data && response.data.response && response.data.response[0]) {
       const pr = response.data.response[0].page_rank_decimal || 0;
-      // Convert 0-10 PR scale to 0-100 DA scale
-      return Math.round(pr * 10) || 50; // Fallback to 50 if 0
+      return Math.round(pr * 10) || 50;
     }
   } catch (e) {
     console.error(`Error fetching OpenPageRank for ${domain}:`, e.message);
@@ -34,37 +52,36 @@ async function checkDomainAuthority(domain) {
 }
 
 async function discoverProspects(keyword = 'digital marketing') {
-  console.log(`🔍 Starting prospect search for footprint: "${keyword}" "write for us"...`);
+  console.log(`🔍 Starting Bing prospect search for footprint: "${keyword}" "write for us"...`);
   const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({
     userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
   });
   const page = await context.newPage();
   
-  // Format query for guest posting footprints on DuckDuckGo (clean HTML layout, no complex captchas)
+  // Format query for guest posting footprints on Bing
   const searchQuery = `"${keyword}" "write for us"`;
-  const url = `https://html.duckduckgo.com/html/?q=${encodeURIComponent(searchQuery)}`;
+  const url = `https://www.bing.com/search?q=${encodeURIComponent(searchQuery)}`;
   
-  console.log(`Navigating to DuckDuckGo search: ${url}`);
+  console.log(`Navigating to Bing: ${url}`);
   await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });
   
-  const links = await page.$$eval('.result__url', els => els.map(el => el.textContent.trim()));
-  console.log(`Found ${links.length} raw search result links.`);
+  // Extract organic search result links
+  const bingLinks = await page.$$eval('li.b_algo h2 a', anchors => anchors.map(a => a.href));
+  console.log(`Found ${bingLinks.length} raw search result links from Bing.`);
   
   const db = readDb();
   let addedCount = 0;
   
-  for (let rawUrl of links) {
-    if (!rawUrl.startsWith('http')) {
-      rawUrl = 'https://' + rawUrl;
-    }
+  for (const rawBingUrl of bingLinks) {
+    const targetUrl = extractBingUrl(rawBingUrl);
     
     try {
-      const parsedUrl = new URL(rawUrl);
+      const parsedUrl = new URL(targetUrl);
       const domain = parsedUrl.hostname.replace('www.', '');
       
-      // Skip local files or loopbacks
-      if (domain.includes('localhost') || domain.includes('127.0.0.1')) {
+      // Skip search engine loopbacks or common false positives
+      if (domain.includes('localhost') || domain.includes('bing.com') || domain.includes('google.com')) {
         continue;
       }
       
@@ -81,8 +98,7 @@ async function discoverProspects(keyword = 'digital marketing') {
       if (daScore >= 50) {
         console.log(`Domain authority score is ${daScore} (DA >= 50). Crawling contact page...`);
         
-        // Let's find a contact/guest-post page by checking links
-        let contactUrl = rawUrl;
+        let contactUrl = targetUrl;
         const sitePage = await context.newPage();
         try {
           await sitePage.goto(`https://${domain}`, { waitUntil: 'domcontentloaded', timeout: 15000 });
@@ -124,7 +140,7 @@ async function discoverProspects(keyword = 'digital marketing') {
         addedCount++;
         writeDb(db);
         
-        // Limit to 3 prospects per run to save run-time and avoid heavy load
+        // Limit to 3 new prospects to save run-time and show instant results
         if (addedCount >= 3) {
           console.log("Found 3 qualifying prospects. Stopping search.");
           break;
@@ -133,7 +149,7 @@ async function discoverProspects(keyword = 'digital marketing') {
         console.log(`Domain ${domain} has DA of ${daScore}. Discarding (under 50).`);
       }
     } catch (e) {
-      console.error(`Error parsing URL ${rawUrl}:`, e.message);
+      console.error(`Error parsing URL ${targetUrl}:`, e.message);
     }
   }
   
