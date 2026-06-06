@@ -717,6 +717,7 @@
         .log-status.failed { background: rgba(239,68,68,0.1); color: #ef4444; border: 1px solid #ef4444; }
 
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
@@ -760,6 +761,7 @@
             <button class="tab-btn" onclick="switchTab('prospector')">Autofill Browser Simulator</button>
             <button class="tab-btn" onclick="switchTab('social')">Social & Ad Generator</button>
             <button class="tab-btn" onclick="switchTab('code')">Backend Code Exporter</button>
+            <button class="tab-btn" onclick="switchTab('settings')">Settings & Database</button>
         </div>
 
         <!-- DASHBOARD TAB -->
@@ -1012,6 +1014,61 @@ We audit Core Web Vitals, fix schema markup, and build local trust backlinks. Re
             </div>
         </div>
 
+        <!-- SETTINGS TAB -->
+        <div id="tab-settings" class="tab-panel">
+            <div class="split-layout">
+                <div class="card">
+                    <h2>⚙️ API Credentials Configuration</h2>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+                        Configure your keys here. They are stored securely in your browser's local storage and are never sent to external servers except direct API requests.
+                    </p>
+                    <div class="form-group">
+                        <label for="sb-url">Supabase Project URL</label>
+                        <input type="text" id="sb-url" placeholder="https://your-project.supabase.co">
+                    </div>
+                    <div class="form-group">
+                        <label for="sb-key">Supabase Public Anon Key</label>
+                        <input type="password" id="sb-key" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...">
+                    </div>
+                    <div class="form-group">
+                        <label for="gemini-key">Gemini API Key (Free Tier)</label>
+                        <input type="password" id="gemini-key" placeholder="AIzaSy...">
+                    </div>
+                    <button class="btn" onclick="saveCredentials()">💾 Save API Credentials</button>
+                    <button class="btn btn-secondary" onclick="clearCredentials()">Clear Saved Credentials</button>
+                    
+                    <div id="settings-status" style="margin-top: 15px; font-size: 0.9rem; font-weight: 600; display: none;"></div>
+                </div>
+
+                <div class="card">
+                    <h2>🗄️ Database Table Setup</h2>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">
+                        Create the database structure in Supabase. Paste this SQL into the **SQL Editor** of your Supabase dashboard and run it:
+                    </p>
+                    <textarea id="sql-schema" rows="12" style="width: 100%; font-family: 'Fira Code', monospace; font-size: 0.8rem; background: #050811; color: #38bdf8; padding: 10px; border-radius: 8px; border: 1px solid var(--border-color);" readonly>-- Create Prospects Table
+CREATE TABLE prospects (
+    id SERIAL PRIMARY KEY,
+    domain VARCHAR(255) UNIQUE NOT NULL,
+    contact_url TEXT,
+    da_score INTEGER NOT NULL,
+    status VARCHAR(50) DEFAULT 'discovered',
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create Outreach Logs Table
+CREATE TABLE outreach_logs (
+    id SERIAL PRIMARY KEY,
+    domain VARCHAR(255) NOT NULL,
+    method VARCHAR(50) NOT NULL,
+    status VARCHAR(50) NOT NULL,
+    screenshot_url TEXT,
+    date TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);</textarea>
+                    <button class="btn btn-secondary" style="margin-top: 15px;" onclick="copySQL()">📋 Copy SQL Script</button>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script>
@@ -1137,22 +1194,40 @@ We audit Core Web Vitals, fix schema markup, and build local trust backlinks. Re
                 addConsoleLine(`Form submission confirmed! Server responded: "200 Success".`, 'success');
                 addConsoleLine(`Taking success screenshot log...`, 'info');
                 document.getElementById('simulated-success').classList.add('active');
-                addConsoleLine(`Screenshot and logging stored to Supabase database. Script finished.`, 'success');
                 
-                // Update stats counter
-                document.getElementById('met-pitched').textContent = "105";
-                
-                // Append row to dashboard
-                const tbody = document.getElementById('log-table-body');
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>technopark-blogs.org</td>
-                    <td>DA 54</td>
-                    <td>Contact Form Fill</td>
-                    <td><span class="log-status success">Completed</span></td>
-                    <td>Today (Simulated)</td>
-                `;
-                tbody.insertBefore(row, tbody.firstChild);
+                if (supabaseClient) {
+                    addConsoleLine(`Writing success log to Supabase 'outreach_logs' table...`, 'info');
+                    supabaseClient.from('outreach_logs').insert({
+                        domain: 'technopark-blogs.org',
+                        method: 'Contact Form Fill',
+                        status: 'Completed',
+                        screenshot_url: 'https://techauditpros.com/assets/screenshot-mock.png'
+                    }).then(({ error }) => {
+                        if (error) {
+                            addConsoleLine(`Supabase error: ${error.message}`, 'system');
+                        } else {
+                            addConsoleLine(`Successfully recorded log to your database!`, 'success');
+                            fetchRealDatabaseStats();
+                        }
+                    });
+                } else {
+                    addConsoleLine(`Screenshot and logging simulated (Connect your Supabase database in Settings to save logs!).`, 'success');
+                    
+                    // Update stats counter
+                    document.getElementById('met-pitched').textContent = "105";
+                    
+                    // Append row to dashboard
+                    const tbody = document.getElementById('log-table-body');
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>technopark-blogs.org</td>
+                        <td>DA 54</td>
+                        <td>Contact Form Fill</td>
+                        <td><span class="log-status success">Completed</span></td>
+                        <td>Today (Simulated)</td>
+                    `;
+                    tbody.insertBefore(row, tbody.firstChild);
+                }
 
             }, 25000);
 
@@ -1387,9 +1462,139 @@ async function getDomainAuthorityScore(domain) {
             document.getElementById('code-display').textContent = codeFiles[fileKey];
         }
 
-        // Initialize defaults
+        // --- Supabase & Credentials Logic ---
+        let supabaseClient = null;
+
+        function saveCredentials() {
+            const url = document.getElementById('sb-url').value.trim();
+            const key = document.getElementById('sb-key').value.trim();
+            const gemini = document.getElementById('gemini-key').value.trim();
+
+            localStorage.setItem('supabase_url', url);
+            localStorage.setItem('supabase_key', key);
+            localStorage.setItem('gemini_key', gemini);
+
+            const status = document.getElementById('settings-status');
+            status.style.display = 'block';
+            status.style.color = 'var(--accent-green)';
+            status.textContent = '💾 Credentials saved successfully! Refreshing database status...';
+
+            setTimeout(() => {
+                status.style.display = 'none';
+                initSupabaseConnection();
+            }, 1500);
+        }
+
+        function clearCredentials() {
+            localStorage.removeItem('supabase_url');
+            localStorage.removeItem('supabase_key');
+            localStorage.removeItem('gemini_key');
+
+            document.getElementById('sb-url').value = '';
+            document.getElementById('sb-key').value = '';
+            document.getElementById('gemini-key').value = '';
+
+            const status = document.getElementById('settings-status');
+            status.style.display = 'block';
+            status.style.color = '#ef4444';
+            status.textContent = 'Cleared saved credentials.';
+            
+            supabaseClient = null;
+
+            setTimeout(() => { status.style.display = 'none'; }, 1500);
+        }
+
+        function loadCredentials() {
+            document.getElementById('sb-url').value = localStorage.getItem('supabase_url') || '';
+            document.getElementById('sb-key').value = localStorage.getItem('supabase_key') || '';
+            document.getElementById('gemini-key').value = localStorage.getItem('gemini_key') || '';
+        }
+
+        function copySQL() {
+            const sqlText = document.getElementById('sql-schema');
+            sqlText.select();
+            document.execCommand('copy');
+            alert('SQL schema copied to clipboard!');
+        }
+
+        function initSupabaseConnection() {
+            const url = localStorage.getItem('supabase_url');
+            const key = localStorage.getItem('supabase_key');
+            if (url && key) {
+                try {
+                    supabaseClient = supabase.createClient(url, key);
+                    fetchRealDatabaseStats();
+                } catch(e) {
+                    console.error("Supabase connection error:", e);
+                }
+            }
+        }
+
+        async function fetchRealDatabaseStats() {
+            if (!supabaseClient) return;
+            try {
+                // Fetch prospects count
+                const { count: prospectsCount, error: err1 } = await supabaseClient
+                    .from('prospects')
+                    .select('*', { count: 'exact', head: true });
+                
+                if (prospectsCount !== null && !err1) {
+                    document.getElementById('met-found').textContent = prospectsCount;
+                }
+
+                // Fetch outreach logs count
+                const { count: logsCount, error: err2 } = await supabaseClient
+                    .from('outreach_logs')
+                    .select('*', { count: 'exact', head: true });
+                    
+                if (logsCount !== null && !err2) {
+                    document.getElementById('met-pitched').textContent = logsCount;
+                }
+
+                // Fetch logs and populate table
+                const { data: logs, error: err3 } = await supabaseClient
+                    .from('outreach_logs')
+                    .select('*')
+                    .order('date', { ascending: false })
+                    .limit(20);
+                    
+                if (logs && !err3) {
+                    const tbody = document.getElementById('log-table-body');
+                    tbody.innerHTML = ''; // Clear simulated logs
+                    if (logs.length === 0) {
+                        tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: var(--text-muted); padding: 20px;">No logs found in Supabase database. Run a simulation to log results!</td></tr>';
+                    } else {
+                        logs.forEach(log => {
+                            const row = document.createElement('tr');
+                            const formattedDate = new Date(log.date).toLocaleString();
+                            const statusClass = log.status.toLowerCase().includes('success') || log.status.toLowerCase().includes('completed') ? 'success' : (log.status.toLowerCase().includes('failed') ? 'failed' : 'pending');
+                            
+                            row.innerHTML = `
+                                <td>${escapeHtml(log.domain)}</td>
+                                <td>DA 50+</td>
+                                <td>${escapeHtml(log.method)}</td>
+                                <td><span class="log-status ${statusClass}">${escapeHtml(log.status)}</span></td>
+                                <td>${formattedDate}</td>
+                            `;
+                            tbody.appendChild(row);
+                        });
+                    }
+                }
+            } catch(e) {
+                console.error("Failed fetching Supabase logs:", e);
+            }
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        }
+
+        // Initialize defaults on load
         document.addEventListener('DOMContentLoaded', () => {
             switchCodeTab('package');
+            loadCredentials();
+            initSupabaseConnection();
         });
 
     </script>
