@@ -1,0 +1,37 @@
+{
+  "prospects": [
+    {
+      "domain": "technopark-blogs.org",
+      "contact_url": "file:///c:/Users/Elitebook/OneDrive/Documents/GitHub/Ajipaul1.github.io/autopilot-engine/mock-form.html",
+      "da_score": 54,
+      "status": "completed"
+    }
+  ],
+  "outreach_logs": [
+    {
+      "domain": "technopark-blogs.org",
+      "method": "Contact Form Fill",
+      "status": "Completed",
+      "date": "2026-06-06T17:37:55.884Z"
+    },
+    {
+      "domain": "techcrunch.com",
+      "method": "Contact Form Fill",
+      "status": "Completed",
+      "date": "2026-06-05T14:23:00.000Z"
+    },
+    {
+      "domain": "searchengineland.com",
+      "method": "Email Outreach",
+      "status": "Completed",
+      "date": "2026-06-04T11:05:00.000Z"
+    },
+    {
+      "domain": "backlinko.com",
+      "method": "Contact Form Fill",
+      "status": "Completed",
+      "date": "2026-06-03T09:41:00.000Z"
+    }
+  ],
+  "social_posts": []
+}

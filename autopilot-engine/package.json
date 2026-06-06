@@ -1,0 +1,12 @@
+{
+  "name": "seo-growth-autopilot",
+  "version": "1.0.0",
+  "description": "Local SEO autopilot and backlink builder",
+  "main": "run.js",
+  "scripts": {
+    "start": "node run.js"
+  },
+  "dependencies": {
+    "playwright": "^1.44.0"
+  }
+}

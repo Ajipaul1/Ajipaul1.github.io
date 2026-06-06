@@ -1526,7 +1526,55 @@ async function getDomainAuthorityScore(domain) {
                     fetchRealDatabaseStats();
                 } catch(e) {
                     console.error("Supabase connection error:", e);
+                    loadLocalDbData();
                 }
+            } else {
+                loadLocalDbData();
+            }
+        }
+
+        async function loadLocalDbData() {
+            try {
+                const response = await fetch('/autopilot-engine/db.json');
+                if (!response.ok) throw new Error("Local DB file not found");
+                const data = await response.json();
+                
+                // Update metrics
+                if (data.prospects) {
+                    document.getElementById('met-found').textContent = data.prospects.length;
+                }
+                if (data.outreach_logs) {
+                    document.getElementById('met-pitched').textContent = data.outreach_logs.filter(l => l.status === 'Completed').length;
+                }
+                if (data.social_posts) {
+                    document.getElementById('met-social').textContent = data.social_posts.length;
+                }
+                
+                // Populate log table
+                if (data.outreach_logs) {
+                    const tbody = document.getElementById('log-table-body');
+                    tbody.innerHTML = '';
+                    if (data.outreach_logs.length === 0) {
+                        tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: var(--text-muted); padding: 20px;">No logs found in local JSON database.</td></tr>';
+                    } else {
+                        data.outreach_logs.forEach(log => {
+                            const row = document.createElement('tr');
+                            const formattedDate = new Date(log.date).toLocaleString();
+                            const statusClass = log.status.toLowerCase().includes('success') || log.status.toLowerCase().includes('completed') ? 'success' : (log.status.toLowerCase().includes('failed') ? 'failed' : 'pending');
+                            
+                            row.innerHTML = `
+                                <td>${escapeHtml(log.domain)}</td>
+                                <td>DA 50+</td>
+                                <td>${escapeHtml(log.method)}</td>
+                                <td><span class="log-status ${statusClass}">${escapeHtml(log.status)}</span></td>
+                                <td>${formattedDate}</td>
+                            `;
+                            tbody.appendChild(row);
+                        });
+                    }
+                }
+            } catch(e) {
+                console.log("Could not load local db.json data, using mock fallback:", e.message);
             }
         }
 
@@ -1582,6 +1630,7 @@ async function getDomainAuthorityScore(domain) {
                 }
             } catch(e) {
                 console.error("Failed fetching Supabase logs:", e);
+                loadLocalDbData();
             }
         }
 
