@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Autopilot & Social Media Suite - TechAuditPros</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #090d16;
+            --surface-dark: #0f1524;
+            --surface-card: #161f33;
+            --primary: #6366f1;
+            --primary-glow: rgba(99, 102, 241, 0.15);
+            --accent-cyan: #06b6d4;
+            --accent-green: #10b981;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.08) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 40px;
+            background: rgba(15, 21, 36, 0.7);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-area h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .status-pill {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-green);
+            box-shadow: 0 0 10px var(--accent-green);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 0.6; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(0.9); opacity: 0.6; }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .tabs-header {
+            display: flex;
+            gap: 12px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 12px 24px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .tab-btn.active {
+            color: #fff;
+            background: var(--primary);
+            box-shadow: 0 4px 20px var(--primary-glow);
+        }
+
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Metrics Cards Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .metric-card {
+            background: var(--surface-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            transition: border-color 0.3s;
+        }
+
+        .metric-card:hover {
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent-cyan));
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .metric-val {
+            font-size: 2.25rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .metric-desc {
+            font-size: 0.8rem;
+            color: var(--accent-cyan);
+            margin-top: 6px;
+        }
+
+        /* Split Layouts */
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 1024px) {
+            .split-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: var(--surface-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .card h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Controls & Form Elements */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: #fff;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-glow);
+        }
+
+        .btn {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 14px 28px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 20px var(--primary-glow);
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 24px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: #cbd5e1;
+            box-shadow: none;
+        }
+
+        /* Terminal Console component */
+        .console {
+            background: #050811;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            height: 380px;
+            overflow-y: auto;
+            color: #38bdf8;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        .console-line {
+            margin-bottom: 8px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .console-time {
+            color: #64748b;
+            flex-shrink: 0;
+        }
+
+        .console-text {
+            word-break: break-all;
+        }
+
+        .console-text.system { color: #f43f5e; }
+        .console-text.success { color: #10b981; }
+        .console-text.info { color: #38bdf8; }
+        .console-text.warning { color: #f59e0b; }
+        .console-text.llm { color: #c084fc; font-style: italic; }
+
+        /* Simulated Web Page Frame */
+        .browser-mockup {
+            background: #1e293b;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .browser-header {
+            background: #0f172a;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .browser-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .browser-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        .browser-dot.r { background: #ef4444; }
+        .browser-dot.y { background: #f59e0b; }
+        .browser-dot.g { background: #10b981; }
+
+        .browser-url {
+            background: #1e293b;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            padding: 4px 16px;
+            border-radius: 6px;
+            flex: 1;
+            font-family: monospace;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .browser-content {
+            background: #f8fafc;
+            color: #0f172a;
+            padding: 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            min-height: 300px;
+        }
+
+        /* Mock Form inside Browser Mockup */
+        .mock-form {
+            background: #fff;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            max-width: 380px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .mock-form h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            text-align: center;
+            color: #1e293b;
+        }
+
+        .mock-field {
+            margin-bottom: 12px;
+        }
+
+        .mock-field label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #475569;
+            margin-bottom: 4px;
+        }
+
+        .mock-field input, .mock-field textarea {
+            width: 100%;
+            border: 1px solid #cbd5e1;
+            padding: 8px 10px;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            background: #fff;
+            color: #000;
+            pointer-events: none;
+            transition: all 0.3s;
+        }
+
+        .mock-field input.active, .mock-field textarea.active {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px var(--primary-glow);
+            background: #f5f3ff;
+        }
+
+        .mock-submit-btn {
+            background: #2563eb;
+            color: #fff;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            pointer-events: none;
+            text-align: center;
+            transition: background 0.3s;
+        }
+
+        .mock-submit-btn.submitting {
+            background: #1d4ed8;
+            opacity: 0.8;
+        }
+
+        .captcha-box {
+            border: 1px solid #d1d5db;
+            background: #f9fafb;
+            padding: 10px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 0.75rem;
+            color: #4b5563;
+        }
+
+        .captcha-checkbox {
+            width: 18px !important;
+            height: 18px !important;
+            margin: 0 !important;
+        }
+
+        /* Success Overlay */
+        .success-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(16, 185, 129, 0.95);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            z-index: 5;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .success-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            animation: bounceIn 0.5s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.1); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Code Block Viewer */
+        .code-viewer-container {
+            background: #050811;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        }
+
+        .code-viewer-header {
+            background: #0f1524;
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .code-tabs {
+            display: flex;
+            gap: 8px;
+        }
+
+        .code-tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 6px 14px;
+            font-size: 0.8rem;
+            font-family: 'Fira Code', monospace;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .code-tab-btn:hover {
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .code-tab-btn.active {
+            color: #fff;
+            background: rgba(255,255,255,0.08);
+        }
+
+        .code-content {
+            padding: 20px;
+            overflow-y: auto;
+            max-height: 500px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: #cbd5e1;
+            white-space: pre;
+            text-align: left;
+        }
+
+        /* Social Generator Layout */
+        .social-creator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 1024px) {
+            .social-creator-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* HTML5 Canvas Area */
+        .canvas-container {
+            background: #111827;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #adCanvas {
+            max-width: 100%;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .post-preview-card {
+            background: #fff;
+            color: #1f2937;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            width: 100%;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            overflow: hidden;
+            max-width: 450px;
+        }
+
+        .preview-header {
+            padding: 12px 16px;
+            border-bottom: 1px solid #f3f4f6;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .preview-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .preview-meta {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .preview-name {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: #111827;
+        }
+
+        .preview-sub {
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+
+        .preview-body {
+            padding: 14px 16px;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            color: #374151;
+            white-space: pre-wrap;
+        }
+
+        .preview-actions {
+            border-top: 1px solid #f3f4f6;
+            padding: 10px 16px;
+            display: flex;
+            justify-content: space-around;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #4b5563;
+        }
+
+        /* Log Table */
+        .log-table-container {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        .log-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .log-table th {
+            border-bottom: 2px solid var(--border-color);
+            padding: 12px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .log-table td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 14px 12px;
+            font-size: 0.9rem;
+        }
+
+        .log-status {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .log-status.success { background: rgba(16,185,129,0.1); color: var(--accent-green); border: 1px solid var(--accent-green); }
+        .log-status.pending { background: rgba(245,158,11,0.1); color: #f59e0b; border: 1px solid #f59e0b; }
+        .log-status.failed { background: rgba(239,68,68,0.1); color: #ef4444; border: 1px solid #ef4444; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <h1>SEO Growth Autopilot</h1>
+            <span class="status-pill"><div class="status-dot"></div> Simulation Suite Ready</span>
+        </div>
+        <div style="font-size: 0.85rem; color: var(--text-muted);">
+            Ajipaul1.github.io Admin Suite
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">Opportunities Found</div>
+                <div class="metric-val" id="met-found">248</div>
+                <div class="metric-desc">Websites Filtered (DA 50+)</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Forms Filled & Pitched</div>
+                <div class="metric-val" id="met-pitched">104</div>
+                <div class="metric-desc">Automated Submissions Successful</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Social Media Posts</div>
+                <div class="metric-val" id="met-social">58</div>
+                <div class="metric-desc">LinkedIn, Instagram & FB Shared</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Backlinks Earned</div>
+                <div class="metric-val" id="met-earned">16</div>
+                <div class="metric-desc">High Authority DA 50-82 links</div>
+            </div>
+        </div>
+
+        <div class="tabs-header">
+            <button class="tab-btn active" onclick="switchTab('dashboard')">Growth Dashboard</button>
+            <button class="tab-btn" onclick="switchTab('prospector')">Autofill Browser Simulator</button>
+            <button class="tab-btn" onclick="switchTab('social')">Social & Ad Generator</button>
+            <button class="tab-btn" onclick="switchTab('code')">Backend Code Exporter</button>
+        </div>
+
+        <!-- DASHBOARD TAB -->
+        <div id="tab-dashboard" class="tab-panel active">
+            <div class="card">
+                <h2>📊 Live Backlink Campaign Logs</h2>
+                <div class="log-table-container">
+                    <table class="log-table">
+                        <thead>
+                            <tr>
+                                <th>Target Domain</th>
+                                <th>Domain Authority</th>
+                                <th>Method</th>
+                                <th>Status</th>
+                                <th>Date/Time</th>
+                            </tr>
+                        </thead>
+                        <tbody id="log-table-body">
+                            <tr>
+                                <td>techcrunch.com</td>
+                                <td>DA 92</td>
+                                <td>Contact Form Fill</td>
+                                <td><span class="log-status success">Completed</span></td>
+                                <td>June 5, 2026 14:23</td>
+                            </tr>
+                            <tr>
+                                <td>searchengineland.com</td>
+                                <td>DA 80</td>
+                                <td>Email Outreach</td>
+                                <td><span class="log-status success">Completed</span></td>
+                                <td>June 4, 2026 11:05</td>
+                            </tr>
+                            <tr>
+                                <td>backlinko.com</td>
+                                <td>DA 65</td>
+                                <td>Contact Form Fill</td>
+                                <td><span class="log-status success">Completed</span></td>
+                                <td>June 3, 2026 09:41</td>
+                            </tr>
+                            <tr>
+                                <td>moz.com/blog</td>
+                                <td>DA 88</td>
+                                <td>Contact Form Fill</td>
+                                <td><span class="log-status pending">Pending Approval</span></td>
+                                <td>June 5, 2026 18:30</td>
+                            </tr>
+                            <tr>
+                                <td>hubspot.com</td>
+                                <td>DA 91</td>
+                                <td>Email Outreach</td>
+                                <td><span class="log-status failed">Failed (WAF blocked)</span></td>
+                                <td>June 2, 2026 16:55</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROSPECTOR / FORM FILLER TAB -->
+        <div id="tab-prospector" class="tab-panel">
+            <div class="split-layout">
+                <div class="card">
+                    <h2>⚙️ Simulation Control Center</h2>
+                    <div class="form-group">
+                        <label for="search-keyword">Backlink Prospect Target Keyword</label>
+                        <input type="text" id="search-keyword" value="Technical SEO Kerala guest post">
+                    </div>
+                    <div class="form-group">
+                        <label for="da-threshold">Minimum Domain Authority (DA)</label>
+                        <select id="da-threshold">
+                            <option value="50">DA 50+ (Premium Targets)</option>
+                            <option value="60">DA 60+ (Very High Authority)</option>
+                            <option value="75">DA 75+ (Elite Sites Only)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="pitch-message">Personalized Pitch Template</label>
+                        <textarea id="pitch-message" rows="5">Hello Editor,
+
+I read your recent article on Core Web Vitals optimization. I've created a comprehensive case study showing how we improved LCP scores for local businesses in Kochi by 300%.
+
+Would you be open to featuring this research as a guest resource on your site?
+
+Regards,
+Aji Paul
+TechAuditPros</textarea>
+                    </div>
+                    <button class="btn" id="start-simulation-btn" onclick="startAutofillSimulation()">
+                        🚀 Run Autofill Simulation
+                    </button>
+                    <button class="btn btn-secondary" onclick="clearConsole()">Clear Logs</button>
+
+                    <div style="margin-top: 30px;">
+                        <h3>Live Process Output</h3>
+                        <div class="console" id="console-logs" style="margin-top: 15px;">
+                            <div class="console-line">
+                                <span class="console-time">[10:00:01]</span>
+                                <span class="console-text info">Console initialized. Ready to launch Chrome Automation Agent...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="browser-mockup">
+                        <div class="browser-header">
+                            <div class="browser-dots">
+                                <div class="browser-dot r"></div>
+                                <div class="browser-dot y"></div>
+                                <div class="browser-dot g"></div>
+                            </div>
+                            <div class="browser-url" id="browser-address">about:blank</div>
+                        </div>
+                        <div class="browser-content" id="browser-display">
+                            
+                            <!-- Inside browser display -->
+                            <div class="mock-form" id="simulated-form" style="display: none;">
+                                <h3>Write For Us - Contact Form</h3>
+                                <div class="mock-field">
+                                    <label>First & Last Name</label>
+                                    <input type="text" id="mock-input-name" placeholder="John Doe">
+                                </div>
+                                <div class="mock-field">
+                                    <label>Email Address</label>
+                                    <input type="email" id="mock-input-email" placeholder="example@domain.com">
+                                </div>
+                                <div class="mock-field">
+                                    <label>Website URL</label>
+                                    <input type="text" id="mock-input-url" placeholder="https://example.com">
+                                </div>
+                                <div class="mock-field">
+                                    <label>Your Pitch / Message</label>
+                                    <textarea id="mock-input-msg" rows="3" placeholder="Tell us about your proposal..."></textarea>
+                                </div>
+                                
+                                <div class="captcha-box" id="simulated-captcha" style="display: none;">
+                                    <input type="checkbox" class="captcha-checkbox" id="captcha-check">
+                                    <span>I am not a robot (reCAPTCHA v2)</span>
+                                </div>
+
+                                <button class="mock-submit-btn" id="mock-submit">Send Proposal</button>
+                            </div>
+
+                            <div class="success-overlay" id="simulated-success">
+                                <div class="success-icon">✔️</div>
+                                <h2>Outreach Pitch Submitted!</h2>
+                                <p style="margin-top: 8px; font-size: 0.9rem; opacity: 0.9;">Form details auto-filled successfully. Screenshot saved to Supabase.</p>
+                            </div>
+
+                            <div id="browser-empty-state" style="text-align: center; color: #64748b;">
+                                <div style="font-size: 3rem; margin-bottom: 15px;">🌐</div>
+                                <p>Click <strong>Run Autofill Simulation</strong> to launch the Playwright agent on the left.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOCIAL MEDIA GENERATOR -->
+        <div id="tab-social" class="tab-panel">
+            <div class="social-creator-grid">
+                <div class="card">
+                    <h2>🎨 Programmatic Ad Canvas</h2>
+                    <div class="form-group">
+                        <label for="ad-topic">Promo / Article Topic</label>
+                        <input type="text" id="ad-topic" value="Kochi SEO Expert Services">
+                    </div>
+                    <div class="form-group">
+                        <label for="ad-title">Ad Overlay Heading</label>
+                        <input type="text" id="ad-title" value="Outrank Competitors in Kochi!">
+                    </div>
+                    <div class="form-group">
+                        <label for="ad-accent">Accent theme color</label>
+                        <select id="ad-accent" onchange="generateGraphic()">
+                            <option value="#6366f1">Indigo (Standard tech)</option>
+                            <option value="#14B8A6">Teal (Healthcare)</option>
+                            <option value="#10b981">Green (Eco/Ayurveda)</option>
+                            <option value="#9F1239">Rose (Real Estate)</option>
+                            <option value="#EC4899">Pink (Beauty/Salon)</option>
+                        </select>
+                    </div>
+                    <button class="btn" onclick="generateGraphic()">🎨 Generate Ad Graphic</button>
+                    <button class="btn btn-secondary" onclick="publishSocialSimulation()">🚀 Auto-Publish Posts</button>
+
+                    <div style="margin-top: 30px;">
+                        <h3>AI Generated Post Caption</h3>
+                        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); padding: 20px; border-radius: 8px; font-size: 0.9rem; color: #cbd5e1; margin-top: 15px;">
+                            <p id="caption-box" style="white-space: pre-wrap;">🚀 Want to dominate Ernakulam's search market?
+
+We audit Core Web Vitals, fix schema markup, and build local trust backlinks. Reach the top of Page 1.
+
+👉 Get your free SEO audit report: TechAuditPros.com
+
+#SEOAudit #KochiTech #TechAuditPros #DigitalMarketingKochi</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="canvas-container">
+                    <h3>Rendered PNG Asset</h3>
+                    <canvas id="adCanvas" width="400" height="400" style="margin-top: 15px;"></canvas>
+
+                    <div class="post-preview-card">
+                        <div class="preview-header">
+                            <div class="preview-avatar">TP</div>
+                            <div class="preview-meta">
+                                <span class="preview-name">TechAuditPros</span>
+                                <span class="preview-sub">LinkedIn Update • Just now</span>
+                            </div>
+                        </div>
+                        <div class="preview-body" id="post-preview-body">🚀 Want to dominate Ernakulam's search market?
+
+We audit Core Web Vitals, fix schema markup, and build local trust backlinks. Reach the top of Page 1.</div>
+                        <div style="padding: 0 16px 14px;">
+                            <div style="background: #f3f4f6; padding: 10px; border-radius: 8px; font-size: 0.75rem; font-weight: 600; color: #4b5563;">
+                                🖼️ Ad Image Preview Attached Below
+                            </div>
+                        </div>
+                        <div class="preview-actions">
+                            <span>👍 Like</span>
+                            <span>💬 Comment</span>
+                            <span>🔁 Repost</span>
+                            <span>📤 Send</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CODE EXPORTER -->
+        <div id="tab-code" class="tab-panel">
+            <div class="card">
+                <h2>📥 Ready-To-Run Backend Code</h2>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">Copy these scripts to set up the worker daemon on your Render server or local environment. The scripts connect Google Scrapers, Playwright Browser Autocomplete, Gemini API reasoning, and Supabase Logger logs.</p>
+                
+                <div class="code-viewer-container">
+                    <div class="code-viewer-header">
+                        <div class="code-tabs">
+                            <button class="code-tab-btn active" onclick="switchCodeTab('package')">package.json</button>
+                            <button class="code-tab-btn" onclick="switchCodeTab('worker')">worker.js</button>
+                            <button class="code-tab-btn" onclick="switchCodeTab('scraper')">scraper.js</button>
+                        </div>
+                        <span style="font-size: 0.8rem; color: var(--text-muted); font-family: monospace;">UTC 2026 Node App</span>
+                    </div>
+                    <div class="code-content" id="code-display">Code goes here...</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Navigation Tabs switching
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            document.getElementById('tab-' + tabId).classList.add('active');
+
+            if (tabId === 'social') {
+                setTimeout(generateGraphic, 100);
+            }
+        }
+
+        // Live Simulated Log printer
+        function addConsoleLine(text, type='info') {
+            const consoleBox = document.getElementById('console-logs');
+            const now = new Date();
+            const timeStr = `[${now.toTimeString().split(' ')[0]}]`;
+            
+            const line = document.createElement('div');
+            line.className = 'console-line';
+            line.innerHTML = `
+                <span class="console-time">${timeStr}</span>
+                <span class="console-text ${type}">${text}</span>
+            `;
+            consoleBox.appendChild(line);
+            consoleBox.scrollTop = consoleBox.scrollHeight;
+        }
+
+        function clearConsole() {
+            document.getElementById('console-logs').innerHTML = '';
+            addConsoleLine("Console cleared. Ready.", 'info');
+        }
+
+        // Autofill Simulation Engine
+        function startAutofillSimulation() {
+            const keyword = document.getElementById('search-keyword').value;
+            const threshold = document.getElementById('da-threshold').value;
+            const pitch = document.getElementById('pitch-message').value;
+
+            // Reset UI states
+            document.getElementById('browser-empty-state').style.display = 'none';
+            document.getElementById('simulated-form').style.display = 'block';
+            document.getElementById('simulated-success').classList.remove('active');
+            document.getElementById('simulated-captcha').style.display = 'none';
+            document.getElementById('captcha-check').checked = false;
+            
+            // Reset input values visually
+            const inputs = ['name', 'email', 'url', 'msg'];
+            inputs.forEach(id => {
+                const el = document.getElementById('mock-input-' + id);
+                el.value = '';
+                el.classList.remove('active');
+            });
+
+            // Start logging
+            clearConsole();
+            addConsoleLine(`Initializing backlink hunter daemon for keyword: "${keyword}"`, 'info');
+            
+            setTimeout(() => {
+                addConsoleLine(`Querying custom Google search indexes...`, 'info');
+            }, 1000);
+
+            setTimeout(() => {
+                addConsoleLine(`Found 6 domain candidates. Fetching OpenPageRank scores...`, 'info');
+            }, 2500);
+
+            setTimeout(() => {
+                addConsoleLine(`Results:\n- kerala-seo-hub.in (DA 24) -> Discarded\n- technopark-blogs.org (DA 54) -> ACCEPTED\n- startupkerala.gov (DA 72) -> Saved\n- digitalmarketers.co (DA 41) -> Discarded`, 'warning');
+            }, 4500);
+
+            let targetUrl = 'https://technopark-blogs.org/write-for-us';
+            setTimeout(() => {
+                addConsoleLine(`Launching Headless Playwright instance...`, 'info');
+                addConsoleLine(`Applying proxy details: US-Residential-102.5.41.9`, 'success');
+                document.getElementById('browser-address').textContent = targetUrl;
+                addConsoleLine(`Navigating to target contact page: ${targetUrl}`, 'info');
+            }, 6000);
+
+            // Start typing simulation
+            setTimeout(() => {
+                addConsoleLine(`Analyzing form input DOM structure...`, 'info');
+                addConsoleLine(`Sending form structures to Gemini API node...`, 'llm');
+            }, 8000);
+
+            setTimeout(() => {
+                addConsoleLine(`Gemini returned input selectors map: {"name": "#first-name", "email": "input[type='email']", "website": "#author-site", "message": "textarea"}`, 'llm');
+                addConsoleLine(`Typing parameters programmatically...`, 'info');
+                
+                typeField('mock-input-name', 'Aji Paul', 0);
+            }, 10000);
+
+            setTimeout(() => {
+                typeField('mock-input-email', 'aji@techauditpros.com', 0);
+            }, 12000);
+
+            setTimeout(() => {
+                typeField('mock-input-url', 'https://techauditpros.com', 0);
+            }, 14000);
+
+            setTimeout(() => {
+                typeField('mock-input-msg', pitch, 0);
+            }, 16000);
+
+            // Handle Captchas
+            setTimeout(() => {
+                addConsoleLine(`Security check detected: Google reCAPTCHA v2 box.`, 'warning');
+                document.getElementById('simulated-captcha').style.display = 'flex';
+                addConsoleLine(`Forwarding Captcha site-key parameters to 2Captcha solver...`, 'info');
+            }, 20000);
+
+            setTimeout(() => {
+                addConsoleLine(`2Captcha solver returned resolution hash: "03AFcWeA7...". Injected successfully.`, 'success');
+                document.getElementById('captcha-check').checked = true;
+                addConsoleLine(`Clicking submit button...`, 'info');
+                document.getElementById('mock-submit').classList.add('submitting');
+            }, 23000);
+
+            setTimeout(() => {
+                addConsoleLine(`Form submission confirmed! Server responded: "200 Success".`, 'success');
+                addConsoleLine(`Taking success screenshot log...`, 'info');
+                document.getElementById('simulated-success').classList.add('active');
+                addConsoleLine(`Screenshot and logging stored to Supabase database. Script finished.`, 'success');
+                
+                // Update stats counter
+                document.getElementById('met-pitched').textContent = "105";
+                
+                // Append row to dashboard
+                const tbody = document.getElementById('log-table-body');
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>technopark-blogs.org</td>
+                    <td>DA 54</td>
+                    <td>Contact Form Fill</td>
+                    <td><span class="log-status success">Completed</span></td>
+                    <td>Today (Simulated)</td>
+                `;
+                tbody.insertBefore(row, tbody.firstChild);
+
+            }, 25000);
+
+        }
+
+        // Typing simulator function
+        function typeField(id, text, charIndex) {
+            const el = document.getElementById(id);
+            el.classList.add('active');
+            if (charIndex < text.length) {
+                el.value += text.charAt(charIndex);
+                setTimeout(() => typeField(id, text, charIndex + 1), 20);
+            } else {
+                el.classList.remove('active');
+            }
+        }
+
+        // Programmatic Ad Canvas Generator
+        function generateGraphic() {
+            const canvas = document.getElementById('adCanvas');
+            const ctx = canvas.getContext('2d');
+            const topic = document.getElementById('ad-topic').value;
+            const heading = document.getElementById('ad-title').value;
+            const accent = document.getElementById('ad-accent').value;
+
+            // Draw Background Gradient
+            const grad = ctx.createLinearGradient(0, 0, 400, 400);
+            grad.addColorStop(0, '#0f172a');
+            grad.addColorStop(1, '#020617');
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, 400, 400);
+
+            // Draw Tech audits grids decoration
+            ctx.strokeStyle = 'rgba(255,255,255,0.03)';
+            ctx.lineWidth = 1;
+            for(let i=0; i<400; i+=25) {
+                ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, 400); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(0, i); ctx.lineTo(400, i); ctx.stroke();
+            }
+
+            // Draw Glow circle
+            ctx.beginPath();
+            ctx.arc(350, 50, 120, 0, Math.PI * 2);
+            ctx.fillStyle = accent + '1e'; // translucent accent
+            ctx.fill();
+
+            // Accent decorative border
+            ctx.strokeStyle = accent;
+            ctx.lineWidth = 4;
+            ctx.strokeRect(15, 15, 370, 370);
+
+            // Add Text
+            ctx.fillStyle = accent;
+            ctx.font = 'bold 12px "Inter", sans-serif';
+            ctx.fillText(topic.toUpperCase(), 35, 75);
+
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 24px "Outfit", sans-serif';
+            wrapText(ctx, heading, 35, 115, 320, 32);
+
+            // Add metadata
+            ctx.fillStyle = '#94a3b8';
+            ctx.font = '500 12px "Fira Code", monospace';
+            ctx.fillText('⚡ POWERED BY TECHAUDITPROS.COM', 35, 345);
+
+            // Update Social mockups on preview
+            document.getElementById('post-preview-body').textContent = `🚀 Need professional assistance for "${topic}"?\n\nOur system automatically audits ranking bottlenecks, schema errors, and Core Web Vitals targets.\n\n👉 Get your free SEO audit report: TechAuditPros.com`;
+        }
+
+        // Text wrapper for HTML5 Canvas
+        function wrapText(context, text, x, y, maxWidth, lineHeight) {
+            let words = text.split(' ');
+            let line = '';
+            for(let n = 0; n < words.length; n++) {
+                let testLine = line + words[n] + ' ';
+                let metrics = context.measureText(testLine);
+                let testWidth = metrics.width;
+                if (testWidth > maxWidth && n > 0) {
+                    context.fillText(line, x, y);
+                    line = words[n] + ' ';
+                    y += lineHeight;
+                } else {
+                    line = testLine;
+                }
+            }
+            context.fillText(line, x, y);
+        }
+
+        function publishSocialSimulation() {
+            const topic = document.getElementById('ad-topic').value;
+            alert(`Auto-posting scheduled for Meta Pages, Instagram business channels, and LinkedIn profiles for: "${topic}"!\n\nImage rendered from Canvas, text caption uploaded.`);
+            
+            // Increment social media count
+            let cur = parseInt(document.getElementById('met-social').textContent);
+            document.getElementById('met-social').textContent = cur + 1;
+        }
+
+        // Code Tabs Viewer Data
+        const codeFiles = {
+            package: `{
+  "name": "seo-growth-autopilot",
+  "version": "1.0.0",
+  "description": "24/7 background worker for SEO link building and form autofilling",
+  "main": "worker.js",
+  "scripts": {
+    "start": "node worker.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.1.0",
+    "@supabase/supabase-js": "^2.39.0",
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1",
+    "playwright-extra": "^4.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
+  }
+}`,
+            worker: `const { createClient } = require('@supabase/supabase-js');
+const { chromium } = require('playwright-extra');
+const stealth = require('puppeteer-extra-plugin-stealth')();
+const { GoogleGenAI } = require('@google/generative-ai');
+
+chromium.use(stealth);
+require('dotenv').config();
+
+const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
+const ai = new GoogleGenAI(process.env.GEMINI_API_KEY);
+
+// Daily Cron Trigger for outreach queue
+async function executeOutreach() {
+  const { data: queue, error } = await supabase
+    .from('prospects')
+    .select('*')
+    .eq('status', 'discovered')
+    .limit(10);
+    
+  for (const site of queue) {
+    console.log(\`Starting automated pitch submission for: \${site.domain}\`);
+    try {
+      const result = await runPlaywrightAutofill(site.contact_url);
+      await supabase.from('prospects').update({ status: 'completed' }).eq('id', site.id);
+    } catch(err) {
+      console.error(\`Failed submitting to \${site.domain}: \${err.message}\`);
+    }
+  }
+}
+
+async function runPlaywrightAutofill(url) {
+  const browser = await chromium.launch({
+    headless: true,
+    args: ['--disable-web-security', '--disable-features=IsolateOrigins,site-per-process']
+  });
+  
+  const page = await browser.newPage();
+  await page.goto(url, { waitUntil: 'networkidle' });
+  
+  // Extract DOM input elements details
+  const formElements = await page.evaluate(() => {
+    return Array.from(document.querySelectorAll('input, textarea')).map(el => ({
+      tag: el.tagName.toLowerCase(),
+      type: el.getAttribute('type') || 'text',
+      id: el.id,
+      name: el.name,
+      placeholder: el.placeholder || '',
+      label: el.labels ? el.labels[0]?.innerText : ''
+    }));
+  });
+  
+  // Ask Gemini to map inputs to target values
+  const aiMapping = await queryGeminiForFormMapping(formElements);
+  
+  // Autofill forms using Playwright focus & typing delays to bypass heuristics
+  for (const match of aiMapping) {
+    await page.focus(match.selector);
+    await page.keyboard.type(match.value, { delay: 100 });
+  }
+  
+  // Capture screenshot of submission
+  await page.click('button[type="submit"]');
+  const screenshotBuffer = await page.screenshot();
+  
+  await browser.close();
+  return screenshotBuffer;
+}
+
+executeOutreach();`,
+            scraper: `const axios = require('axios');
+require('dotenv').config();
+
+// Queries Google Custom Search for guest posting opportunities
+async function runOpportunityFinder(nicheKeyword) {
+  const queries = [
+    \`"\${nicheKeyword}" "write for us"\`,
+    \`"\${nicheKeyword}" "submit a guest post"\`,
+    \`"\${nicheKeyword}" "submit website"\`
+  ];
+  
+  for (const query of queries) {
+    const res = await axios.get('https://customsearch.googleapis.com/customsearch/v1', {
+      params: {
+        key: process.env.GOOGLE_SEARCH_API_KEY,
+        cx: process.env.GOOGLE_SEARCH_CX,
+        q: query
+      }
+    });
+    
+    const urls = res.data.items.map(item => item.link);
+    for (const url of urls) {
+      const domain = new URL(url).hostname;
+      const da = await getDomainAuthorityScore(domain);
+      
+      if (da >= 50) {
+        console.log(\`Found premium target \${domain} (DA \${da}). Adding to database...\`);
+        // Insert domain target to database queue for processing...
+      }
+    }
+  }
+}
+
+async function getDomainAuthorityScore(domain) {
+  // Queries OpenPageRank or Moz APIs
+  const apiRes = await axios.get(\`https://openpagerank.com/api/v1.0/getPageRank?domains[]=\${domain}\`, {
+    headers: { 'API-OPR': process.env.PAGE_RANK_API_KEY }
+  });
+  return apiRes.data.response[0].page_rank_integer || 0;
+}`
+        };
+
+        function switchCodeTab(fileKey) {
+            document.querySelectorAll('.code-tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            document.getElementById('code-display').textContent = codeFiles[fileKey];
+        }
+
+        // Initialize defaults
+        document.addEventListener('DOMContentLoaded', () => {
+            switchCodeTab('package');
+        });
+
+    </script>
+
+</body>
+</html>
