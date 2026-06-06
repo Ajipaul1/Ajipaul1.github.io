@@ -64,7 +64,7 @@ async function discoverProspects(keyword = 'digital marketing') {
   const url = `https://www.bing.com/search?q=${encodeURIComponent(searchQuery)}`;
   
   console.log(`Navigating to Bing: ${url}`);
-  await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });
+  await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 15000 });
   
   // Extract organic search result links
   const bingLinks = await page.$$eval('li.b_algo h2 a', anchors => anchors.map(a => a.href));
