@@ -1,0 +1,14 @@
+# Node.js dependencies
+node_modules/
+package-lock.json
+
+# Local environment variables and credentials
+autopilot-engine/.env
+
+# Local screenshots and proofs
+autopilot-engine/screenshots/
+*.png
+*.jpg
+*.jpeg
+*.mp4
+*.pdf
