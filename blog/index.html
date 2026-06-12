@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -64,7 +64,8 @@
       }
     ]
   }
-  </script><style>
+  </script>
+<style>
     /* =============================================
        ROOT DESIGN SYSTEM — LUXURY OBSIDIAN EMERALD THEME
     ============================================= */
@@ -390,7 +391,7 @@
     }
 
     /* =============================================
-       GLOBAL FIXED SCROLLYTELLING CONTAINER
+       GLOBAL FLOATING ICON — SMALL PATH NAVIGATOR
     ============================================= */
     .global-scrolly-wrapper {
       position: fixed;
@@ -399,95 +400,55 @@
       width: 100vw;
       height: 100vh;
       pointer-events: none;
-      z-index: 2;
+      z-index: 10;
       overflow: hidden;
     }
-    .global-scrolly-grid {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: 
-        linear-gradient(rgba(16, 185, 129, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(16, 185, 129, 0.04) 1px, transparent 1px);
-      background-size: 60px 60px;
-      background-position: center center;
-      transform: perspective(1000px) rotateX(65deg) translateZ(-150px) scale(1.8);
-      transform-origin: center center;
-      z-index: 1;
-      pointer-events: none;
-      opacity: 0.3;
-      will-change: transform, opacity;
-      transition: opacity 0.3s ease;
-    }
-    .global-scrolly-glow {
+    /* Floating icon anchor — positioned in right margin by default */
+    .global-float-icon-wrap {
       position: absolute;
       top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
-      z-index: 1;
+      right: 3vw;
+      transform: translateY(-50%);
+      z-index: 10;
       pointer-events: none;
-    }
-    .global-scrolly-card-wrap {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 5;
-      perspective: 1200px;
-      transform-style: preserve-3d;
-      will-change: transform, opacity;
       opacity: 0;
-      width: 440px;
-      pointer-events: auto;
+      will-change: transform, opacity;
     }
-    .global-scrolly-card {
-      background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: var(--radius-xl);
-      padding: 1.25rem;
-      box-shadow: var(--shadow-xl), 0 0 40px rgba(16, 185, 129, 0.05);
-      transform-style: preserve-3d;
-      backface-visibility: hidden;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-      width: 100%;
+    /* The bare icon image — small, cute, no card */
+    .global-float-icon {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 0 12px rgba(16, 185, 129, 0.6)) drop-shadow(0 0 24px rgba(16, 185, 129, 0.3));
+      will-change: transform;
+      animation: iconBob 3s ease-in-out infinite;
     }
-    .global-scrolly-card:hover {
-      border-color: rgba(16, 185, 129, 0.3);
-      box-shadow: var(--shadow-xl), 0 0 50px rgba(16, 185, 129, 0.15);
+    /* Continuous gentle bob animation */
+    @keyframes iconBob {
+      0%, 100% { transform: translateY(0px) rotate(-4deg); }
+      50%       { transform: translateY(-12px) rotate(4deg); }
     }
-    .visual-card-img-wrap {
-      overflow: hidden;
-      border-radius: var(--radius-lg);
-      aspect-ratio: 4 / 3;
-      background: #06120e;
+    /* Glow pulse ring behind icon */
+    .global-float-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.18) 0%, transparent 70%);
+      animation: glowPulse 3s ease-in-out infinite;
     }
-    .global-scrolly-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
+    @keyframes glowPulse {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+      50%       { transform: translate(-50%, -50%) scale(1.4); opacity: 0.2; }
     }
-    .global-scrolly-card:hover img {
-      transform: scale(1.03);
-    }
-    .visual-card-title {
-      margin-top: 1.25rem;
-      font-family: 'Outfit', sans-serif;
-      font-weight: 700;
-      color: #ffffff;
-      font-size: 1rem;
-      text-align: center;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
+    /* Mobile: smaller icon */
+    @media (max-width: 900px) {
+      .global-float-icon { width: 56px; height: 56px; }
+      .global-float-glow { width: 70px; height: 70px; }
     }
 
     /* =============================================
@@ -1557,22 +1518,12 @@
   </style>
 </head>
 <body>
-<!-- ========== GLOBAL SCROLLYTELLING VIEWPORT ========== -->
-<div class="global-scrolly-wrapper">
-    <!-- Holographic Parallax Depth Grid -->
-    <div class="global-scrolly-grid"></div>
-    <div class="global-scrolly-glow"></div>
-    
-    <!-- Central Floating 3D Card -->
-    <div class="global-scrolly-card-wrap">
-        <div class="global-scrolly-card">
-            <div class="visual-card-img-wrap">
-                <img alt="TechAuditPros 3D Cybernetic Audit Device" src="../assets/images/blog/volumetric_audit_device.png"/>
-            </div>
-            <div class="visual-card-title">
-                <span>⚡ Interactive Audit Device</span>
-            </div>
-        </div>
+<!-- ========== GLOBAL FLOATING ICON NAVIGATOR ========== -->
+<div class="global-scrolly-wrapper" aria-hidden="true">
+    <!-- Small cute floating SEO icon -->
+    <div class="global-float-icon-wrap" id="globalFloatIcon">
+        <div class="global-float-glow"></div>
+        <img class="global-float-icon" src="../assets/images/blog/blog_float_icon.png" alt="" />
     </div>
 </div>
 
@@ -2599,262 +2550,143 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // 4. GSAP ScrollTrigger Global Timeline for continuous 3D card scrollytelling
+    // 4. GSAP Path-Aware Floating Icon — moves through empty page spaces
     gsap.registerPlugin(ScrollTrigger);
 
-    const cardWrap = document.querySelector('.global-scrolly-card-wrap');
-    const globalGrid = document.querySelector('.global-scrolly-grid');
-    const globalCard = document.querySelector('.global-scrolly-card');
-    
+    const iconWrap = document.getElementById('globalFloatIcon');
     const heroSection = document.querySelector('.blog-hero');
     const methodologySection = document.querySelector('.methodology-scroll-wrapper');
     const blogLayout = document.querySelector('.blog-layout');
     const siteFooter = document.querySelector('.site-footer');
 
-    let heroTrigger, methodologyTimeline, blogTrigger, footerTrigger;
+    // Viewport helpers
+    const vw = () => window.innerWidth;
+    const vh = () => window.innerHeight;
 
-    function initGlobalScrollytelling() {
-        // Kill existing triggers/timelines to prevent duplicates on resize
-        if (heroTrigger) heroTrigger.kill();
-        if (methodologyTimeline) methodologyTimeline.kill();
-        if (blogTrigger) blogTrigger.kill();
-        if (footerTrigger) footerTrigger.kill();
+    // Calculate safe X positions: right margin, left margin, centre-right
+    // These are viewport pixel offsets from the element's default position (right: 3vw)
+    // The icon is positioned right: 3vw in CSS, so x=0 keeps it in the right margin
+    // Negative x pushes it further right (off screen direction is +x for absolute right-anchored)
+    // We use GSAP x on the fixed wrapper centred at top:50% right:3vw
 
-        if (window.innerWidth <= 900) {
-            // Reset mobile properties
-            gsap.set([cardWrap, ".methodology-text-phase"], { clearProps: "all" });
-            gsap.set(globalGrid, { clearProps: "all" });
-            return;
-        }
+    let allTriggers = [];
 
-        // Establish initial 3D transforms for desktop
-        // Hero watermark state: large, semi-transparent background orb behind slides
-        gsap.set(cardWrap, { 
-            scale: 1.4, 
-            opacity: 0.15, 
-            x: 0, 
-            y: 50, 
-            rotationX: 15, 
-            rotationY: 0, 
-            transformStyle: "preserve-3d",
-            force3D: true
+    function killAllTriggers() {
+        allTriggers.forEach(t => t && t.kill && t.kill());
+        allTriggers = [];
+    }
+
+    function initFloatingIcon() {
+        killAllTriggers();
+
+        if (!iconWrap) return;
+
+        // Always run on both mobile and desktop — icon is small enough
+        // Set initial state: hidden, starting in the right margin at hero viewport
+        gsap.set(iconWrap, {
+            opacity: 0,
+            x: 0,     // right margin (CSS: right: 3vw)
+            y: '-50%', // centred vertically (CSS: top: 50%, transform: translateY(-50%))
+            scale: 0.8,
+            rotation: -10
         });
-        
-        gsap.set(".methodology-text-phase", { opacity: 0, yPercent: -50 });
-        gsap.set(".phase-left", { x: -60 });
-        gsap.set(".phase-right", { x: 60 });
 
-        // 4.1 Hero Section ScrollTrigger: Watermark -> Focus Methodology Start
-        heroTrigger = ScrollTrigger.create({
+        // ── SEGMENT 1: Hero section ──────────────────────────────────────────
+        // Icon fades in at the right margin, drifts slightly downward
+        // Hero text is centered, so right margin (x=0) is always safe
+        const t1 = ScrollTrigger.create({
             trigger: heroSection,
-            start: "top top",
-            end: "bottom top",
-            scrub: 1.2,
-            animation: gsap.to(cardWrap, {
-                scale: 1.0,
-                opacity: 1.0,
-                x: 0,
-                y: 0,
-                rotationX: 0,
-                rotationY: 0,
-                ease: "power1.out"
-            })
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 1.5,
+            animation: gsap.timeline()
+                .to(iconWrap, { opacity: 1, scale: 1, rotation: 0, duration: 0.3, ease: 'power2.out' }, 0)
+                .to(iconWrap, { y: '-30%', x: 0, rotation: 5, duration: 1, ease: 'none' }, 0)
         });
+        allTriggers.push(t1);
 
-        // 4.2 Methodology ScrollTrigger Timeline: Detailed Phase Shifts & Grid Parallax
-        methodologyTimeline = gsap.timeline({
+        // ── SEGMENT 2: Methodology section ───────────────────────────────────
+        // Phase 1: text is on LEFT → icon floats in RIGHT margin (x = 0, default)
+        // Phase 2: text is on RIGHT → icon floats in LEFT margin (opposite side)
+        // Phase 3: text is on LEFT → icon floats in RIGHT margin
+        // The methodology wrapper is 300vh tall; divide into thirds
+        const methTl = gsap.timeline({
             scrollTrigger: {
                 trigger: methodologySection,
-                start: "top 70px",
-                end: "bottom bottom",
-                scrub: 1.2,
+                start: 'top 70px',
+                end: 'bottom bottom',
+                scrub: 1.5,
                 invalidateOnRefresh: true
             }
         });
 
-        // Parallax background grid movement
-        if (globalGrid) {
-            methodologyTimeline.fromTo(globalGrid, 
-                { transform: "perspective(1000px) rotateX(65deg) translateY(0px) translateZ(-150px) scale(1.8)", opacity: 0.3 },
-                { transform: "perspective(1000px) rotateX(65deg) translateY(-120px) translateZ(-150px) scale(1.8)", opacity: 0.5, ease: "none" },
-                0
-            );
-        }
+        // Phase text setup
+        methTl.set('.methodology-text-phase', { opacity: 0, yPercent: -50 })
+              .set('.phase-left', { x: -60 })
+              .set('.phase-right', { x: 60 });
 
-        // Phase 1: Core Web Vitals (Shifts Right, Slides Text Left)
-        methodologyTimeline.to(cardWrap, {
-            x: 140,
-            rotationY: 12,
-            rotationX: -5,
+        // Entry: drift into phase-1 position (icon stays right, text comes from left)
+        methTl.to(iconWrap, { x: 0, rotation: 8, scale: 1.1, duration: 1, ease: 'power1.out' }, 0);
+
+        // Phase 1 text reveal (left side text)
+        methTl.to('.phase-1', { opacity: 1, x: 0, duration: 0.7, ease: 'power2.out' }, 0.5);
+
+        // Phase 2: icon crosses to LEFT margin — text is on RIGHT so we use left margin
+        // LEFT margin: position from right = vw - 3vw - icon_width ≈ -vw + 140px offset
+        // In GSAP x terms (starting from right:3vw): x = -(vw() - 160) moves icon to left edge
+        methTl.to('.phase-1', { opacity: 0, x: -50, duration: 0.5, ease: 'power2.in' }, 1.5);
+        methTl.to(iconWrap, {
+            x: () => -(vw() - 160),
+            rotation: -8,
+            scale: 1.0,
             duration: 1.2,
-            ease: "power1.inOut"
-        }, 0.5);
-        methodologyTimeline.to(".phase-1", {
-            opacity: 1,
-            x: 0,
-            duration: 0.8,
-            ease: "power2.out"
-        }, 0.6);
-        methodologyTimeline.to(".phase-1", {
-            opacity: 0,
-            x: -60,
-            duration: 0.8,
-            ease: "power2.in"
-        }, 1.8);
+            ease: 'power1.inOut'
+        }, 1.7);
+        methTl.to('.phase-2', { opacity: 1, x: 0, duration: 0.7, ease: 'power2.out' }, 2.2);
 
-        // Phase 2: Crawl Diagnostics (Shifts Left, Slides Text Right)
-        methodologyTimeline.to(cardWrap, {
-            x: -140,
-            rotationY: -12,
-            rotationX: 5,
-            duration: 1.5,
-            ease: "power1.inOut"
-        }, 2.2);
-        methodologyTimeline.to(".phase-2", {
-            opacity: 1,
-            x: 0,
-            duration: 0.8,
-            ease: "power2.out"
-        }, 2.4);
-        methodologyTimeline.to(".phase-2", {
-            opacity: 0,
-            x: 60,
-            duration: 0.8,
-            ease: "power2.in"
-        }, 3.6);
+        // Phase 3: icon crosses back to RIGHT margin (text is on LEFT)
+        methTl.to('.phase-2', { opacity: 0, x: 60, duration: 0.5, ease: 'power2.in' }, 3.2);
+        methTl.to(iconWrap, { x: 0, rotation: 6, scale: 1.1, duration: 1.2, ease: 'power1.inOut' }, 3.4);
+        methTl.to('.phase-3', { opacity: 1, x: 0, duration: 0.7, ease: 'power2.out' }, 4.0);
 
-        // Phase 3: Semantic Schemes (Shifts Right, Slides Text Left)
-        methodologyTimeline.to(cardWrap, {
-            x: 140,
-            rotationY: 12,
-            rotationX: -5,
-            duration: 1.5,
-            ease: "power1.inOut"
-        }, 4.0);
-        methodologyTimeline.to(".phase-3", {
-            opacity: 1,
-            x: 0,
-            duration: 0.8,
-            ease: "power2.out"
-        }, 4.2);
+        // End of methodology: icon fades slightly, text fades
+        methTl.to('.phase-3', { opacity: 0, duration: 0.6, ease: 'power1.in' }, 5.0);
+        methTl.to(iconWrap, { opacity: 0.4, scale: 0.85, rotation: 0, duration: 0.8 }, 5.0);
 
-        // Transition to Blog Grid watermark state at the end of Methodology
-        methodologyTimeline.to(cardWrap, {
-            x: 0,
-            y: 0,
-            scale: 0.7,
-            opacity: 0.12,
-            rotationX: 20,
-            rotationY: 10,
-            duration: 1.2,
-            ease: "power1.inOut"
-        }, 5.2);
-        methodologyTimeline.to(".phase-3", {
-            opacity: 0,
-            duration: 0.8,
-            ease: "power1.in"
-        }, 5.2);
+        allTriggers.push(methTl.scrollTrigger);
 
-        // 4.3 Blog Grid Layout ScrollTrigger: Maintain watermark state
-        blogTrigger = ScrollTrigger.create({
+        // ── SEGMENT 3: Blog grid — float in right margin, subtle ─────────────
+        const t3 = ScrollTrigger.create({
             trigger: blogLayout,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 1.2,
-            onEnter: () => {
-                gsap.to(cardWrap, {
-                    scale: 0.7,
-                    opacity: 0.12,
-                    x: 0,
-                    y: 0,
-                    rotationX: 20,
-                    rotationY: 10,
-                    duration: 0.5,
-                    overwrite: "auto"
-                });
-            }
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1.5,
+            animation: gsap.timeline()
+                // Reset to right margin at blog section entry
+                .set(iconWrap, { x: 0 })
+                .to(iconWrap, { opacity: 0.55, scale: 0.9, rotation: -5, y: '-60%', duration: 0.5 }, 0)
+                // Float gently down through the blog section
+                .to(iconWrap, { y: '-20%', rotation: 8, duration: 1, ease: 'none' }, 0)
         });
+        allTriggers.push(t3);
 
-        // 4.4 Footer ScrollTrigger: Fade out completely
-        footerTrigger = ScrollTrigger.create({
+        // ── SEGMENT 4: Footer — fade out ─────────────────────────────────────
+        const t4 = ScrollTrigger.create({
             trigger: siteFooter,
-            start: "top bottom",
-            end: "top center",
-            scrub: 1.2,
-            animation: gsap.to(cardWrap, {
-                opacity: 0,
-                scale: 0.5,
-                ease: "power1.in"
-            })
+            start: 'top bottom',
+            end: 'top center',
+            scrub: 1.5,
+            animation: gsap.to(iconWrap, { opacity: 0, scale: 0.6, ease: 'power1.in' })
         });
+        allTriggers.push(t4);
     }
 
-    initGlobalScrollytelling();
+    initFloatingIcon();
 
-    // 5. Interactive Mouse Hover Tilt specifically for Global Floating Card
-    if (globalCard && cardWrap) {
-        globalCard.addEventListener('mousemove', (e) => {
-            // Only apply tilt if the card is visible/focused (opacity is high)
-            const currentOpacity = gsap.getProperty(cardWrap, "opacity");
-            if (currentOpacity < 0.5) return;
-
-            globalCard.classList.add('is-hovered');
-            const rect = globalCard.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const rotateY = ((x - centerX) / centerX) * 15; // max 15deg
-            const rotateX = ((centerY - y) / centerY) * 15; // max 15deg
-            
-            // Get current layout translations from cardWrap computed style
-            const transformMatrix = window.getComputedStyle(cardWrap).transform;
-            let currentX = 0;
-            let currentY = 0;
-            if (transformMatrix !== 'none') {
-                const values = transformMatrix.split('(')[1].split(')')[0].split(',');
-                if (values.length === 6) {
-                    currentX = parseFloat(values[4]);
-                    currentY = parseFloat(values[5]);
-                } else if (values.length === 16) {
-                    currentX = parseFloat(values[12]);
-                    currentY = parseFloat(values[13]);
-                }
-            }
-
-            // Temporarily suspend ScrollTrigger scrub values, apply tilt
-            gsap.killTweensOf(cardWrap);
-            gsap.to(cardWrap, {
-                x: currentX,
-                y: currentY,
-                rotationX: rotateX,
-                rotationY: rotateY,
-                scale: 1.03,
-                duration: 0.3,
-                overwrite: "auto"
-            });
-        });
-        
-        globalCard.addEventListener('mouseleave', () => {
-            globalCard.classList.remove('is-hovered');
-            // Animate card back to neutral, then let ScrollTrigger resume control
-            gsap.to(cardWrap, {
-                rotationX: 0,
-                rotationY: 0,
-                scale: 1.0,
-                duration: 0.5,
-                overwrite: "auto",
-                onComplete: () => {
-                    ScrollTrigger.update();
-                }
-            });
-        });
-    }
-
-    // 6. Handle resizing & orientation updates
+    // 5. Handle resizing & re-init
     window.addEventListener('resize', () => {
         initLenis();
-        initGlobalScrollytelling();
+        initFloatingIcon();
         ScrollTrigger.refresh();
     });
 });
