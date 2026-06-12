@@ -43,6 +43,303 @@
     "priceRange": "$$"
   }
   </script>
+
+    <!-- Scoped Homepage Redesign CSS -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Dashboard Silo Bento Grid styling */
+        .dashboard-panel {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 35px;
+            animation: fadeIn 0.4s ease;
+        }
+        .dashboard-panel.active {
+            display: grid;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .service-card-clean {
+            background: #ffffff !important;
+            border: 1px solid #e2e8f0 !important;
+            border-radius: 16px !important;
+            padding: 30px !important;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01) !important;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            text-align: left;
+        }
+        .service-card-clean::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #4f46e5 0%, #818cf8 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.35s ease;
+        }
+        .service-card-clean:hover::before {
+            transform: scaleX(1);
+        }
+        .service-card-clean:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02) !important;
+            border-color: #cbd5e1 !important;
+        }
+        .service-card-clean h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.25rem !important;
+            font-weight: 700 !important;
+            color: #0f172a !important;
+            margin-bottom: 10px !important;
+            margin-top: 15px !important;
+        }
+        .service-card-clean p {
+            font-size: 0.925rem !important;
+            color: #475569 !important;
+            line-height: 1.6 !important;
+            margin: 0 !important;
+            flex-grow: 1;
+        }
+        .service-card-clean .icon-box {
+            font-size: 2rem !important;
+            background: #f1f5f9;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            margin-bottom: 5px;
+            transition: all 0.3s ease;
+        }
+        .service-card-clean:hover .icon-box {
+            background: #e0e7ff;
+            transform: scale(1.05);
+        }
+
+        /* Process Timeline flow */
+        .process-grid-clean {
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+            position: relative;
+            max-width: 900px;
+            margin: 50px auto 0 auto;
+        }
+        .process-grid-clean::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: #e2e8f0;
+            top: 25px;
+            bottom: 25px;
+            left: 31px;
+        }
+        .process-step-card {
+            display: flex;
+            gap: 30px;
+            background: transparent !important;
+            border: none !important;
+            padding: 20px 0 !important;
+            position: relative;
+            text-align: left !important;
+            align-items: flex-start;
+        }
+        .step-number {
+            flex: 0 0 66px;
+            width: 66px;
+            height: 66px;
+            background: #ffffff !important;
+            border: 4px solid #4f46e5 !important;
+            color: #4f46e5 !important;
+            font-weight: 800 !important;
+            font-size: 1.35rem !important;
+            border-radius: 50% !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+        }
+        .process-step-card:hover .step-number {
+            background: #4f46e5 !important;
+            color: #ffffff !important;
+            transform: scale(1.08);
+        }
+        .step-info-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 25px 30px;
+            flex: 1;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01);
+            transition: all 0.3s ease;
+        }
+        .process-step-card:hover .step-info-card {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.02);
+            border-color: #818cf8;
+        }
+        .step-info-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.25rem !important;
+            font-weight: 700;
+            color: #0f172a;
+            margin-top: 0 !important;
+            margin-bottom: 8px !important;
+        }
+        .step-info-card p {
+            color: #475569 !important;
+            font-size: 0.95rem !important;
+            line-height: 1.6 !important;
+            margin: 0 !important;
+        }
+
+        /* Stats Banner Section */
+        .stats-section-clean {
+            background: #0b111e;
+            padding: 80px 0;
+            color: white;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .stats-grid-clean {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+        .stats-item-clean h3 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #818cf8;
+            font-family: 'Outfit', sans-serif;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #818cf8 0%, #c7d2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .stats-item-clean p {
+            color: #94a3b8;
+            font-size: 1rem;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        /* Accordion details */
+        .faq-item-clean {
+            background: #ffffff !important;
+            border: 1px solid #e2e8f0 !important;
+            border-radius: 12px !important;
+            margin-bottom: 18px !important;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: left;
+        }
+        .faq-item-clean[open] {
+            border-color: #818cf8 !important;
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.05);
+        }
+        .faq-item-clean summary {
+            font-weight: 600 !important;
+            font-size: 1.1rem !important;
+            color: #0f172a !important;
+            padding: 22px 28px !important;
+            list-style: none !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            cursor: pointer !important;
+            outline: none;
+        }
+        .faq-item-clean summary::-webkit-details-marker {
+            display: none !important;
+        }
+        .faq-item-clean summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: #64748b;
+            transition: transform 0.3s ease;
+            font-weight: 400;
+        }
+        .faq-item-clean[open] summary::after {
+            content: '−';
+            transform: rotate(180deg);
+            color: #4f46e5;
+        }
+        .faq-item-clean p {
+            padding: 0 28px 24px 28px !important;
+            color: #475569 !important;
+            line-height: 1.65 !important;
+            font-size: 0.975rem !important;
+            margin: 0 !important;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.08) translateY(-3px);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+        }
+        .whatsapp-icon {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        /* Responsive Overrides */
+        @media (max-width: 992px) {
+            .stats-grid-clean {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+        }
+        @media (max-width: 768px) {
+            .stats-grid-clean {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .faq-item-clean summary {
+                font-size: 1rem !important;
+                padding: 18px 20px !important;
+            }
+            .faq-item-clean p {
+                padding: 0 20px 20px 20px !important;
+            }
+        }
+    </style>
+
 </head>
 <body class="home-page-redesign">
 <!-- Header -->
@@ -323,6 +620,31 @@
 </div>
 </div>
 </section>
+
+<!-- Statistics Bar Section -->
+<section class="stats-section-clean">
+    <div class="container">
+        <div class="stats-grid-clean">
+            <div class="stats-item-clean">
+                <h3>300%+</h3>
+                <p>Average Organic Traffic Increase</p>
+            </div>
+            <div class="stats-item-clean">
+                <h3>12M+ INR</h3>
+                <p>Managed Advertising Budget</p>
+            </div>
+            <div class="stats-item-clean">
+                <h3>150+</h3>
+                <p>Technical & Content Audits Run</p>
+            </div>
+            <div class="stats-item-clean">
+                <h3>98%</h3>
+                <p>Verifiable Client Retention Rate</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Growth Framework Section -->
 <section class="section-white" style="background: #f8fafc; border-top: 1px solid #f1f5f9; border-bottom: 1px solid #f1f5f9;">
 <div class="container">
@@ -331,28 +653,41 @@
 <p>Our 4-phase rollout for capturing absolute market share.</p>
 </div>
 <div class="process-grid-clean">
-<div class="process-step-card">
-<div class="step-number">01</div>
-<h3>Architecture Remediation</h3>
-<p>Clients receive a fully resolved technical foundation. We fix broken internal linking, stabilize Core Web Vitals, and eliminate crawl traps.</p>
-</div>
-<div class="process-step-card">
-<div class="step-number">02</div>
-<h3>Content &amp; Entity Authority</h3>
-<p>Clients receive mapped topical clusters and aggressive backlink acquisition. We secure placements on high-DR domains aligned with search demand.</p>
-</div>
-<div class="process-step-card">
-<div class="step-number">03</div>
-<h3>Scalable Software Integration</h3>
-<p>For clients needing operational tools, we deploy custom SaaS applications offering secure, API-driven software that scales seamlessly.</p>
-</div>
-<div class="process-step-card">
-<div class="step-number">04</div>
-<h3>AI Search Dominance</h3>
-<p>Clients achieve visibility in next-gen search. We deploy Q&amp;A schema and entity-rich formatting to ensure your brand is cited by AI.</p>
-</div>
-</div>
-</div>
+                <!-- Step 1 -->
+                <div class="process-step-card">
+                    <div class="step-number">01</div>
+                    <div class="step-info-card">
+                        <h3>Architecture Remediation</h3>
+                        <p>Clients receive a fully resolved technical foundation. We fix broken internal linking, stabilize Core Web Vitals, and eliminate crawl traps.</p>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="process-step-card">
+                    <div class="step-number">02</div>
+                    <div class="step-info-card">
+                        <h3>Content &amp; Entity Authority</h3>
+                        <p>Clients receive mapped topical clusters and aggressive backlink acquisition. We secure placements on high-DR domains aligned with search demand.</p>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="process-step-card">
+                    <div class="step-number">03</div>
+                    <div class="step-info-card">
+                        <h3>Scalable Software Integration</h3>
+                        <p>For clients needing operational tools, we deploy custom SaaS applications offering secure, API-driven software that scales seamlessly.</p>
+                    </div>
+                </div>
+                <!-- Step 4 -->
+                <div class="process-step-card">
+                    <div class="step-number">04</div>
+                    <div class="step-info-card">
+                        <h3>AI Search Dominance</h3>
+                        <p>Clients achieve visibility in next-gen search. We deploy Q&amp;A schema and entity-rich formatting to ensure your brand is cited by AI.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 <!-- Founder Welcome Section -->
 <section class="section-white founder-section-clean" id="founder">
@@ -764,5 +1099,13 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <!-- MOBILE_SCRIPT_END -->
+
+<!-- Floating WhatsApp Widget -->
+<a href="https://wa.me/916282520339?text=Hi%20TechAuditPros,%20I%20am%20interested%20in%20a%20Technical%20SEO%20&%20Digital%20Marketing%20Audit." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with TechAuditPros on WhatsApp">
+    <svg class="whatsapp-icon" viewBox="0 0 24 24">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.488 1.451 5.42 1.452 5.518 0 10.006-4.486 10.01-10.002.002-2.673-1.037-5.184-2.927-7.076C17.26 1.636 14.755.596 12.01.595 6.492.595 2.006 5.08 2.002 10.596c-.001 1.956.507 3.867 1.47 5.485L2.477 20.91l4.17-1.756zM17.36 14.9c-.29-.146-1.722-.85-1.99-.947-.266-.097-.461-.146-.655.146-.194.29-.753.947-.923 1.14-.17.193-.34.218-.63.073-.29-.146-1.227-.452-2.337-1.443-.864-.771-1.447-1.723-1.617-2.014-.17-.29-.018-.447.128-.592.13-.13.29-.34.436-.509.145-.17.194-.29.29-.485.097-.194.049-.364-.025-.509-.073-.146-.655-1.577-.9-2.16-.24-.574-.48-.495-.655-.504-.17-.008-.364-.01-.557-.01-.194 0-.509.073-.776.364-.266.29-1.02 1.02-1.02 2.477 0 1.457 1.062 2.864 1.208 3.058.146.194 2.094 3.2 5.074 4.49.708.306 1.26.489 1.692.627.712.227 1.36.195 1.871.118.571-.085 1.722-.704 1.965-1.385.243-.68.243-1.263.17-1.385-.073-.122-.267-.194-.558-.34z"/>
+    </svg>
+</a>
+
 </body>
 </html>
