@@ -217,101 +217,146 @@
     }
 
     /* =============================================
-       BLOG HERO SECTION (CINEMATIC)
+       BLOG HERO SECTION (CINEMATIC SLIDESHOW)
     ============================================= */
     .blog-hero {
-      background: linear-gradient(180deg, rgba(4, 9, 7, 0.4) 0%, rgba(4, 9, 7, 0.95) 100%), 
-                  url('../assets/images/blog/blog_luxury_hero.png') no-repeat center center;
-      background-size: cover;
+      position: relative;
       min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-light);
+      background-color: #040907;
+    }
+    .hero-slides-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+    .hero-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.2s;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 6rem 2rem 5rem;
       text-align: center;
-      position: relative;
-      overflow: hidden;
-      border-bottom: 1px solid var(--border-light);
+      padding: 6rem 2rem 5rem;
+      z-index: 1;
     }
-    .blog-hero::before {
-      content: '';
+    .hero-slide.active {
+      opacity: 1;
+      visibility: visible;
+      z-index: 2;
+    }
+    .slide-bg {
       position: absolute;
-      bottom: -150px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      z-index: -2;
+      transform: scale(1.0);
+    }
+    .hero-slide.active .slide-bg {
+      animation: kenBurnsEffect 7s ease-out forwards;
+    }
+    .slide-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(4, 9, 7, 0.35) 0%, rgba(4, 9, 7, 0.95) 100%);
+      z-index: -1;
+    }
+    .slide-content {
+      position: relative;
+      z-index: 3;
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    /* Staggered Animations */
+    .hero-slide .slide-eyebrow,
+    .hero-slide .slide-title,
+    .hero-slide .slide-desc,
+    .hero-slide .blog-hero-stats {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    
+    .hero-slide.active .slide-eyebrow {
+      animation: slideUpFade 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+    }
+    .hero-slide.active .slide-title {
+      animation: slideUpFade 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+    }
+    .hero-slide.active .slide-desc {
+      animation: slideUpFade 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
+    }
+    .hero-slide.active .blog-hero-stats {
+      animation: slideUpFade 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards;
+    }
+
+    /* Keyframes */
+    @keyframes kenBurnsEffect {
+      0% { transform: scale(1.05); }
+      100% { transform: scale(1.0); }
+    }
+    @keyframes slideUpFade {
+      0% {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Slideshow Dots */
+    .slide-dots {
+      position: absolute;
+      bottom: 2rem;
       left: 50%;
       transform: translateX(-50%);
-      width: 600px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(16, 185, 129, 0.08), transparent 70%);
-      pointer-events: none;
-      filter: blur(50px);
-    }
-    .blog-hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(16, 185, 129, 0.1);
-      color: #10b981;
-      padding: 0.4rem 1.2rem;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      border: 1px solid rgba(16, 185, 129, 0.2);
-    }
-    .blog-hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.6rem, 5.5vw, 4.2rem);
-      font-weight: 800;
-      color: #ffffff;
-      margin-bottom: 1.5rem;
-      max-width: 900px;
-      line-height: 1.15;
-      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
-    }
-    .blog-hero h1 span {
-      background: linear-gradient(90deg, #10b981, #14b8a6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .blog-hero p {
-      font-size: 1.2rem;
-      color: #cbd5e1;
-      max-width: 700px;
-      margin: 0 auto 3rem;
-      line-height: 1.8;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-    }
-    .blog-hero-stats {
       display: flex;
-      justify-content: center;
-      gap: 3rem;
-      flex-wrap: wrap;
-      background: rgba(10, 19, 16, 0.8);
-      backdrop-filter: blur(10px);
-      padding: 1.5rem 3rem;
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--border-light);
-      box-shadow: var(--shadow-lg);
+      gap: 0.75rem;
+      z-index: 10;
     }
-    .hero-stat {
-      text-align: center;
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
-    .hero-stat .stat-num {
-      font-family: 'Outfit', sans-serif;
-      font-size: 2.25rem;
-      font-weight: 800;
-      color: var(--accent-indigo);
-      display: block;
+    .dot:hover {
+      background: rgba(255, 255, 255, 0.5);
     }
-    .hero-stat .stat-label {
-      font-size: 0.75rem;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 700;
+    .dot.active {
+      background: var(--accent-indigo);
+      width: 24px;
+      border-radius: 999px;
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
     }
 
     /* =============================================
@@ -1481,27 +1526,89 @@
 <!-- MOBILE_DRAWER_END -->
 <!-- ========== BLOG HERO ========== -->
 <section class="blog-hero">
-<div class="blog-hero-eyebrow">📚 Premium Technical Ledger</div>
-<h1>The <span>Technical Ledger</span></h1>
-<p>Deep engineering audits, crawlability diagnostics, Core Web Vitals optimization, and Generative Engine Optimization (GEO). The structural blueprints that drive search authority.</p>
-<div class="blog-hero-stats">
-<div class="hero-stat">
-<span class="stat-num">13+</span>
-<span class="stat-label">In-depth Guides</span>
-</div>
-<div class="hero-stat">
-<span class="stat-num">1,800+</span>
-<span class="stat-label">Words Per Guide</span>
-</div>
-<div class="hero-stat">
-<span class="stat-num">5</span>
-<span class="stat-label">Engineering Focuses</span>
-</div>
-<div class="hero-stat">
-<span class="stat-num">100%</span>
-<span class="stat-label">Open Access</span>
-</div>
-</div>
+    <div class="hero-slides-wrapper">
+        <!-- Slide 1 -->
+        <div class="hero-slide active">
+            <div class="slide-bg" style="background-image: url('../assets/images/blog/blog_luxury_hero.png');"></div>
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <div class="slide-eyebrow">⚡ Platform Performance</div>
+                <h1 class="slide-title">Optimizing <span>Core Vitals</span> &amp; Hydration</h1>
+                <p class="slide-desc">Instant rendering, optimized DOM depth, and absolute PageSpeed. Building seamless interactive experiences that convert search visitors.</p>
+                <div class="blog-hero-stats">
+                    <div class="hero-stat">
+                        <span class="stat-num">99+</span>
+                        <span class="stat-label">PageSpeed Mobile</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-num">0.8s</span>
+                        <span class="stat-label">LCP Average</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-num">0ms</span>
+                        <span class="stat-label">CLS Deviation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="hero-slide">
+            <div class="slide-bg" style="background-image: url('../assets/images/blog/blog_luxury_crawl.png');"></div>
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <div class="slide-eyebrow">⚙️ Crawl Diagnostics</div>
+                <h1 class="slide-title">Eliminating <span>Crawl Budget</span> Waste</h1>
+                <p class="slide-desc">Zero indexing blockages, clean canonical routing, and solved redirect loops. Making your platform architecture fully transparent to search engines.</p>
+                <div class="blog-hero-stats">
+                    <div class="hero-stat">
+                        <span class="stat-num">100%</span>
+                        <span class="stat-label">Index Rate</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-num">0</span>
+                        <span class="stat-label">Crawl Blockages</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-num">48h</span>
+                        <span class="stat-label">Audit Turnaround</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="hero-slide">
+            <div class="slide-bg" style="background-image: url('../assets/images/blog/blog_luxury_ai.png');"></div>
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <div class="slide-eyebrow">🤖 Generative Search</div>
+                <h1 class="slide-title">Securing Citations in <span>AI Overviews</span></h1>
+                <p class="slide-desc">Injecting robust semantic schemas, Q&amp;A graphs, and entity indicators to claim top citations in Google AI search and LLM engines.</p>
+                <div class="blog-hero-stats">
+                    <div class="hero-stat">
+                        <span class="stat-num">10x</span>
+                        <span class="stat-label">AEO Citations</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-num">Schema</span>
+                        <span class="stat-label">LLM Optimized</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-num">Future</span>
+                        <span class="stat-label">Proof SEO</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide Indicators -->
+    <div class="slide-dots">
+        <span class="dot active" data-slide="0"></span>
+        <span class="dot" data-slide="1"></span>
+        <span class="dot" data-slide="2"></span>
+    </div>
 </section>
 
 <!-- ========== METHODOLOGY SPLIT SECTION (SELVA CONCEPT) ========== -->
@@ -2156,6 +2263,51 @@
       });
     });
   </script>
+<!-- HERO SLIDESHOW SCRIPT -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.dot');
+    let currentSlide = 0;
+    let slideInterval;
+    const intervalTime = 5500; // 5.5 seconds per slide
+
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+        currentSlide = index;
+    }
+
+    function nextSlide() {
+        let nextIndex = currentSlide + 1;
+        if (nextIndex >= slides.length) {
+            nextIndex = 0;
+        }
+        showSlide(nextIndex);
+    }
+
+    function startSlideShow() {
+        slideInterval = setInterval(nextSlide, intervalTime);
+    }
+
+    function stopSlideShow() {
+        clearInterval(slideInterval);
+    }
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            stopSlideShow();
+            showSlide(index);
+            startSlideShow();
+        });
+    });
+
+    startSlideShow();
+});
+</script>
 <!-- MOBILE_SCRIPT_START -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
