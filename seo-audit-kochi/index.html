@@ -1105,7 +1105,7 @@ body.industry-techaudit .cta-btn:hover {
 <span class="logo-text">TechAuditPros</span>
 </a>
 <!-- Desktop Navigation (Hidden on Mobile) -->
-                        <nav class="desktop-nav">
+                                    <nav class="desktop-nav">
                 <a href="/#services">Services</a>
                 <div class="nav-dropdown">
                     <a href="#" class="dropdown-trigger" onclick="return false;">Categories <span class="arrow">▼</span></a>
@@ -1173,6 +1173,11 @@ body.industry-techaudit .cta-btn:hover {
                 <a href="/about.html">About</a>
                 <a href="/#contact">Contact</a>
             </nav>
+            <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 <!-- Dual Action: Book Audit + Call/WhatsApp -->
 <div class="header-actions">
 <button class="book-audit-btn" onclick="openAuditModal()">Book Kochi Audit</button>
@@ -1272,6 +1277,35 @@ body.industry-techaudit .cta-btn:hover {
 </div>
 </div>
 </header>
+<!-- MOBILE_DRAWER_START -->
+<div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="drawer-content">
+        <div class="drawer-header">
+            <button class="close-drawer" id="closeDrawer" aria-label="Close Navigation">&times;</button>
+        </div>
+        <nav class="drawer-nav">
+            <a href="/">Home</a>
+            <a href="/#services">Services</a>
+            <a href="/seo-services/">SEO Services</a>
+            <a href="/saas-app-development/">SaaS Development</a>
+            <a href="/website-design-development/">Website Design</a>
+            <a href="/digital-marketing-services/">Digital Marketing</a>
+            <a href="/case-studies.html">Case Studies</a>
+            <a href="/about.html">About</a>
+            <a href="/#contact">Contact</a>
+            <a href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" class="drawer-cta">Get Free Audit</a>
+        </nav>
+        <div class="drawer-footer">
+            <div class="local-office">
+                <h4>TechAuditPros</h4>
+                <p>Enterprise Technical SEO & Software Development</p>
+                <p><a href="mailto:info@techauditpros.com" style="color: inherit; text-decoration: none;">info@techauditpros.com</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- MOBILE_DRAWER_END -->
 <!-- Sticky Contact Footer (Mobile Only) -->
 <div class="sticky-contact-footer">
 <a class="contact-btn whatsapp-btn" href="https://wa.me/916282520339?text=Hi%20TechAuditPros%2C%20I%20need%20SEO%20help%20in%20Kochi">
@@ -2453,5 +2487,41 @@ body.industry-techaudit .cta-btn:hover {
 <svg aria-hidden="true" class="github-icon" version="1.1" viewbox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" fill-rule="evenodd"></path></svg>
 <span>Developer Profile</span>
 </a>
+<!-- MOBILE_SCRIPT_START -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.querySelector('.mobile-menu-toggle');
+    const closeBtn = document.querySelector('.close-drawer');
+    const drawer = document.getElementById('mobileDrawer');
+    const overlay = document.getElementById('drawerOverlay');
+    
+    if (toggleBtn && drawer) {
+        toggleBtn.addEventListener('click', function() {
+            drawer.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+    
+    function closeDrawer() {
+        if (drawer) {
+            drawer.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+    
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeDrawer);
+    }
+    if (overlay) {
+        overlay.addEventListener('click', closeDrawer);
+    }
+    
+    const drawerLinks = document.querySelectorAll('.drawer-nav a');
+    drawerLinks.forEach(link => {
+        link.addEventListener('click', closeDrawer);
+    });
+});
+</script>
+<!-- MOBILE_SCRIPT_END -->
 </body>
 </html>

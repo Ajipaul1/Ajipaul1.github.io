@@ -143,7 +143,7 @@
 <img alt="TechAuditPros Logo" height="32" src="../assets/logoonly.svg" width="32"/>
 <span class="logo-text">TechAuditPros</span>
 </a>
-                        <nav class="desktop-nav">
+                                    <nav class="desktop-nav">
                 <a href="/#services">Services</a>
                 <div class="nav-dropdown">
                     <a href="#" class="dropdown-trigger" onclick="return false;">Categories <span class="arrow">▼</span></a>
@@ -211,6 +211,11 @@
                 <a href="/about.html">About</a>
                 <a href="/#contact">Contact</a>
             </nav>
+            <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 <div class="header-actions">
 <a class="call-action" href="https://wa.me/916282520339" title="Call/WhatsApp">
 <span>📞</span>
@@ -846,5 +851,41 @@
     });
   </script>
 <script async="" src="//code.tidio.co/xfezpk6hohjsnpxmweufbpcwi7audsru.js"></script>
+<!-- MOBILE_SCRIPT_START -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.querySelector('.mobile-menu-toggle');
+    const closeBtn = document.querySelector('.close-drawer');
+    const drawer = document.getElementById('mobileDrawer');
+    const overlay = document.getElementById('drawerOverlay');
+    
+    if (toggleBtn && drawer) {
+        toggleBtn.addEventListener('click', function() {
+            drawer.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+    
+    function closeDrawer() {
+        if (drawer) {
+            drawer.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+    
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeDrawer);
+    }
+    if (overlay) {
+        overlay.addEventListener('click', closeDrawer);
+    }
+    
+    const drawerLinks = document.querySelectorAll('.drawer-nav a');
+    drawerLinks.forEach(link => {
+        link.addEventListener('click', closeDrawer);
+    });
+});
+</script>
+<!-- MOBILE_SCRIPT_END -->
 </body>
 </html>

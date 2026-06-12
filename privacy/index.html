@@ -24,7 +24,7 @@
 <img alt="TechAuditPros Logo" height="32" src="../assets/logoonly.svg" width="32"/>
 <span class="logo-text">TechAuditPros</span>
 </a>
-                        <nav class="desktop-nav">
+                                    <nav class="desktop-nav">
                 <a href="/#services">Services</a>
                 <div class="nav-dropdown">
                     <a href="#" class="dropdown-trigger" onclick="return false;">Categories <span class="arrow">▼</span></a>
@@ -92,11 +92,45 @@
                 <a href="/about.html">About</a>
                 <a href="/#contact">Contact</a>
             </nav>
+            <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 <div class="header-actions">
 <a class="book-audit-btn" href="#contact">Get Free Audit</a>
 </div>
 </div>
 </header>
+<!-- MOBILE_DRAWER_START -->
+<div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="drawer-content">
+        <div class="drawer-header">
+            <button class="close-drawer" id="closeDrawer" aria-label="Close Navigation">&times;</button>
+        </div>
+        <nav class="drawer-nav">
+            <a href="/">Home</a>
+            <a href="/#services">Services</a>
+            <a href="/seo-services/">SEO Services</a>
+            <a href="/saas-app-development/">SaaS Development</a>
+            <a href="/website-design-development/">Website Design</a>
+            <a href="/digital-marketing-services/">Digital Marketing</a>
+            <a href="/case-studies.html">Case Studies</a>
+            <a href="/about.html">About</a>
+            <a href="/#contact">Contact</a>
+            <a href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" class="drawer-cta">Get Free Audit</a>
+        </nav>
+        <div class="drawer-footer">
+            <div class="local-office">
+                <h4>TechAuditPros</h4>
+                <p>Enterprise Technical SEO & Software Development</p>
+                <p><a href="mailto:info@techauditpros.com" style="color: inherit; text-decoration: none;">info@techauditpros.com</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- MOBILE_DRAWER_END -->
 <!-- Main Content -->
 <main style="max-width: 800px; margin: 4rem auto; padding: 0 2rem;">
 <h1 class="premium-heading">Privacy Policy</h1>
@@ -231,5 +265,41 @@
             </div>
         </div>
     </footer>
+<!-- MOBILE_SCRIPT_START -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.querySelector('.mobile-menu-toggle');
+    const closeBtn = document.querySelector('.close-drawer');
+    const drawer = document.getElementById('mobileDrawer');
+    const overlay = document.getElementById('drawerOverlay');
+    
+    if (toggleBtn && drawer) {
+        toggleBtn.addEventListener('click', function() {
+            drawer.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+    
+    function closeDrawer() {
+        if (drawer) {
+            drawer.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+    
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeDrawer);
+    }
+    if (overlay) {
+        overlay.addEventListener('click', closeDrawer);
+    }
+    
+    const drawerLinks = document.querySelectorAll('.drawer-nav a');
+    drawerLinks.forEach(link => {
+        link.addEventListener('click', closeDrawer);
+    });
+});
+</script>
+<!-- MOBILE_SCRIPT_END -->
 </body>
 </html>
