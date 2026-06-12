@@ -79,6 +79,561 @@
     ]
 }
 </script>
+
+    <!-- Custom Scoped Redesign CSS -->
+    <style>
+        :root {
+            --primary-glow: rgba(99, 102, 241, 0.15);
+            --primary-border: rgba(99, 102, 241, 0.3);
+            --card-hover-border: #818cf8;
+            --accent-glow: rgba(99, 102, 241, 0.05);
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .hero-section-custom {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0F172A 0%, #1e293b 100%) !important;
+            padding: 120px 0 90px 0 !important;
+        }
+        .hero-section-custom::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(99, 102, 241, 0) 70%);
+            top: -100px;
+            right: -100px;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .hero-container-custom {
+            display: flex;
+            align-items: center;
+            gap: 45px;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-left-custom {
+            flex: 1.2;
+            max-width: 650px;
+        }
+        .hero-right-custom {
+            flex: 0.8;
+            text-align: right;
+            position: relative;
+        }
+        .hero-right-custom img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform: translateY(0);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hero-right-custom img:hover {
+            transform: translateY(-8px);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 30%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cta-btn-primary {
+            background: #6366F1 !important;
+            color: white !important;
+            padding: 14px 32px !important;
+            border-radius: 10px !important;
+            font-weight: 600 !important;
+            text-decoration: none !important;
+            display: inline-block !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.35) !important;
+            border: 1px solid transparent !important;
+        }
+        .cta-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.5) !important;
+            background: #4f46e5 !important;
+        }
+        .cta-btn-secondary {
+            background: rgba(255, 255, 255, 0.03) !important;
+            color: white !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            padding: 14px 32px !important;
+            border-radius: 10px !important;
+            font-weight: 600 !important;
+            text-decoration: none !important;
+            display: inline-block !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+        .cta-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border-color: rgba(255, 255, 255, 0.4) !important;
+            transform: translateY(-3px);
+        }
+
+        .trust-bar-custom {
+            background: #090d16 !important;
+            padding: 35px 0 !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+            color: #94a3b8;
+        }
+        .trust-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .trust-badge {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 10px 24px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #f1f5f9;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+        .trust-badge:hover {
+            transform: translateY(-2px);
+            background: rgba(99, 102, 241, 0.08);
+            border-color: rgba(99, 102, 241, 0.3);
+            color: #818cf8;
+        }
+
+        .services-section-custom {
+            padding: 100px 0 !important;
+            background: #f8fafc !important;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .bento-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+        .bento-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #6366F1 0%, #818cf8 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .bento-card:hover::before {
+            transform: scaleX(1);
+        }
+        .bento-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+            border-color: #cbd5e1;
+        }
+        .bento-card-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #f1f5f9;
+            transition: transform 0.5s ease;
+        }
+        .bento-card:hover .bento-card-image {
+            transform: scale(1.03);
+        }
+        .bento-card-content h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 12px;
+            font-family: 'Outfit', sans-serif;
+        }
+        .bento-card-content p {
+            color: #475569;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        .bento-card-footer {
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .bento-card-tag {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .bento-card-link {
+            color: #6366F1;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .bento-card-link:hover {
+            color: #4f46e5;
+        }
+
+        .stats-section {
+            background: #0b111e;
+            padding: 80px 0;
+            color: white;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+        .stats-item h3 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #818cf8;
+            font-family: 'Outfit', sans-serif;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #818cf8 0%, #c7d2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .stats-item p {
+            color: #94a3b8;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .process-section {
+            padding: 100px 0;
+            background: #ffffff;
+        }
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 50px auto 0 auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: #e2e8f0;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: white;
+            border: 4px solid #6366F1;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        .left-timeline {
+            left: 0;
+        }
+        .right-timeline {
+            left: 50%;
+        }
+        .right-timeline::after {
+            left: -10px;
+        }
+        .timeline-content {
+            padding: 25px 30px;
+            background-color: #f8fafc;
+            position: relative;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        .timeline-content:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+            border-color: #818cf8;
+        }
+        .timeline-container:hover::after {
+            background-color: #6366F1;
+            transform: scale(1.2);
+        }
+        .timeline-content h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+        .timeline-content p {
+            color: #475569;
+            font-size: 0.925rem;
+            line-height: 1.5;
+        }
+
+        .founder-section {
+            background: #f8fafc;
+            padding: 100px 0;
+            border-top: 1px solid #e2e8f0;
+        }
+        .founder-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 24px;
+            padding: 50px;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 960px;
+            margin: 40px auto 0 auto;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.03);
+        }
+        .founder-img-wrapper {
+            flex: 0 0 240px;
+            height: 240px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid white;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+        }
+        .founder-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .founder-info {
+            flex: 1;
+        }
+        .founder-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 5px;
+        }
+        .founder-title {
+            color: #6366F1;
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        .founder-bio {
+            color: #475569;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+        }
+        .founder-social {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #0f172a;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+        .founder-social:hover {
+            color: #6366F1;
+        }
+
+        .faq-container-custom {
+            max-width: 850px;
+            margin: 40px auto 0 auto;
+        }
+        .faq-item-custom {
+            background: #ffffff !important;
+            border: 1px solid #e2e8f0 !important;
+            border-radius: 12px !important;
+            margin-bottom: 18px !important;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .faq-item-custom[open] {
+            border-color: #818cf8 !important;
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.05);
+        }
+        .faq-summary-custom {
+            font-weight: 600 !important;
+            font-size: 1.1rem !important;
+            color: #0f172a !important;
+            padding: 22px 28px !important;
+            list-style: none !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            cursor: pointer !important;
+            user-select: none;
+            outline: none;
+        }
+        .faq-summary-custom::-webkit-details-marker {
+            display: none !important;
+        }
+        .faq-summary-custom::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: #64748b;
+            transition: transform 0.3s ease;
+            font-weight: 400;
+        }
+        .faq-item-custom[open] .faq-summary-custom::after {
+            content: '−';
+            transform: rotate(180deg);
+            color: #6366F1;
+        }
+        .faq-content-custom {
+            padding: 0 28px 24px 28px !important;
+            color: #475569 !important;
+            line-height: 1.65 !important;
+            font-size: 0.975rem !important;
+            margin: 0 !important;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.08) translateY(-3px);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+        }
+        .whatsapp-icon {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        @media (max-width: 992px) {
+            .hero-section-custom {
+                padding: 100px 0 60px 0 !important;
+            }
+            .hero-container-custom {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+            .hero-left-custom {
+                max-width: 100%;
+            }
+            .hero-right-custom {
+                text-align: center;
+                width: 100%;
+            }
+            .hero-right-custom img {
+                max-width: 85%;
+                margin: 0 auto;
+            }
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+            .timeline::after {
+                left: 31px;
+            }
+            .timeline-container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            .timeline-container::after {
+                left: 21px;
+                right: auto;
+            }
+            .right-timeline {
+                left: 0%;
+            }
+            .founder-card {
+                flex-direction: column;
+                padding: 40px 30px;
+                text-align: center;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-left-custom h1 {
+                font-size: 2.25rem !important;
+            }
+            .hero-right-custom img {
+                max-width: 100%;
+            }
+            .faq-summary-custom {
+                font-size: 1rem !important;
+                padding: 18px 20px !important;
+            }
+            .faq-content-custom {
+                padding: 0 20px 20px 20px !important;
+            }
+        }
+    </style>
+
 </head>
 <body class="industry-techaudit">
 
@@ -198,33 +753,33 @@
 
     
     <!-- Hero Section -->
-    <section class="hero-section" style="background: linear-gradient(135deg, #0F172A 0%, #1e293b 100%); padding: 100px 0 80px 0; color: #ffffff;">
-        <div class="container hero-container" style="display: flex; align-items: center; gap: 40px; justify-content: space-between;">
-            <div class="hero-left" style="flex: 1; max-width: 600px;">
-                <span class="pill" style="background: rgba(99, 102, 241, 0.15); color: #818cf8; padding: 6px 12px; border-radius: 20px; font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; margin-bottom: 20px; border: 1px solid rgba(99, 102, 241, 0.3);">Enterprise Growth</span>
-                <h1 style="font-family: 'Outfit', sans-serif; font-size: 3rem; font-weight: 800; line-height: 1.15; margin-bottom: 20px; color: #ffffff;">Expert Digital Marketing Services That Drive Measurable Business Growth</h1>
-                <p style="font-size: 1.125rem; line-height: 1.6; color: #cbd5e1; margin-bottom: 30px;">Partner with the best digital marketing agency in India. We construct high-impact search, paid ads, and content strategy programs targeting corporate decision-makers globally.</p>
+    <section class="hero-section-custom">
+        <div class="container hero-container-custom">
+            <div class="hero-left-custom">
+                <span class="pill" style="background: rgba(99, 102, 241, 0.15); color: #818cf8; padding: 6px 12px; border-radius: 20px; font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; margin-bottom: 20px; border: 1px solid rgba(99, 102, 241, 0.3);">Enterprise Growth Silo</span>
+                <h1 class="gradient-text" style="font-family: 'Outfit', sans-serif; font-size: 3.25rem; font-weight: 800; line-height: 1.15; margin-bottom: 20px; color: #ffffff;">Expert Digital Marketing Services that Power Enterprise Pipeline Growth</h1>
+                <p style="font-size: 1.15rem; line-height: 1.65; color: #cbd5e1; margin-bottom: 35px;">Partner with the best digital marketing agency in India. We engineer hyper-targeted technical SEO clusters, ROI-focused PPC search campaigns, and inbound content systems that convert.</p>
                 <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                    <a href="#audit-form" class="cta-btn" style="background: #6366F1; color: white; padding: 12px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; display: inline-block; transition: all 0.3s ease; box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);">Get Your Growth Plan</a>
-                    <a href="#services-grid" class="cta-btn" style="background: transparent; color: white; border: 1px solid rgba(255, 255, 255, 0.3); padding: 12px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; display: inline-block; transition: all 0.3s ease;">Explore Solutions</a>
+                    <a href="#audit-form" class="cta-btn-primary">Get Your Custom Growth Plan</a>
+                    <a href="#services-grid" class="cta-btn-secondary">Explore Specialized Services</a>
                 </div>
             </div>
-            <div class="hero-right" style="flex: 1; text-align: right;">
-                <img src="../assets/images/digital-marketing/dm-hero.png" alt="TechAuditPros Digital Marketing Services" style="max-width: 100%; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1);">
+            <div class="hero-right-custom">
+                <img src="../assets/images/digital-marketing/dm-hero.png" alt="TechAuditPros Enterprise Digital Marketing Services Dashboard" width="580" height="380">
             </div>
         </div>
     </section>
 
     <!-- Trust Bar -->
-    <section style="background: #0b0f19; padding: 25px 0; border-bottom: 1px solid #1e293b; color: #94a3b8; text-align: center;">
-        <div class="container">
-            <p style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 15px; font-weight: 600;">Proven Results Across Major Advertising & Analytics Channels</p>
-            <div style="display: flex; justify-content: center; gap: 40px; align-items: center; flex-wrap: wrap; opacity: 0.7;">
-                <span style="font-weight: 700; font-size: 1.2rem; color: #ffffff;">Google Ads</span>
-                <span style="font-weight: 700; font-size: 1.2rem; color: #ffffff;">Meta Business</span>
-                <span style="font-weight: 700; font-size: 1.2rem; color: #ffffff;">Google Analytics 4</span>
-                <span style="font-weight: 700; font-size: 1.2rem; color: #ffffff;">Semrush</span>
-                <span style="font-weight: 700; font-size: 1.2rem; color: #ffffff;">HubSpot</span>
+    <section class="trust-bar-custom">
+        <div class="container" style="text-align: center;">
+            <p style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 5px; font-weight: 600; color: #64748b;">Proven Results Across Major Advertising & Analytics Channels</p>
+            <div class="trust-grid">
+                <span class="trust-badge">Google Ads Premier</span>
+                <span class="trust-badge">Meta Business Partner</span>
+                <span class="trust-badge">Google Analytics 4</span>
+                <span class="trust-badge">Semrush Advanced</span>
+                <span class="trust-badge">HubSpot Gold Partner</span>
             </div>
         </div>
     </section>
@@ -237,44 +792,95 @@
                 <p style="color: #64748b; font-size: 1.1rem; line-height: 1.6;">We don't believe in vanity metrics like clicks or traffic. Our digital marketing strategy centers on pipeline leads, demo bookings, online store revenue, and verifiable return on ad spend (ROAS).</p>
             </div>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-bottom: 60px;">
-                <!-- Card 1 -->
-                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 30px; transition: all 0.3s ease;">
-                    <div style="font-size: 2.5rem; margin-bottom: 20px;">🔍</div>
-                    <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 10px; color: #0f172a;">Search Engine Optimization (SEO)</h3>
-                    <p style="color: #475569; line-height: 1.6; font-size: 0.95rem;">Rank for your most valuable high-intent transactional search queries. We resolve crawl path traps, structure topic clusters, write semantic contents, and optimize layouts to boost your rankings.</p>
+            
+            <div class="bento-grid">
+                <!-- Bento Card 1 -->
+                <div class="bento-card">
+                    <div>
+                        <img src="../assets/images/digital-marketing/dm-strategy.png" alt="Technical SEO & Topic Clustering Strategy" class="bento-card-image" width="340" height="180" loading="lazy">
+                        <div class="bento-card-content">
+                            <h3>Search Engine Optimization (SEO)</h3>
+                            <p>Rank high-intent commercial terms with advanced seo digital marketing techniques. We run technical audits, map out semantic crawl architectures, structure silos, and fix Core Web Vitals to compound organic acquisition.</p>
+                        </div>
+                    </div>
+                    <div class="bento-card-footer">
+                        <span class="bento-card-tag">High ROAS</span>
+                        <a href="../seo-services/" class="bento-card-link">View Details &rarr;</a>
+                    </div>
                 </div>
-                <!-- Card 2 -->
-                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 30px; transition: all 0.3s ease;">
-                    <div style="font-size: 2.5rem; margin-bottom: 20px;">💳</div>
-                    <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 10px; color: #0f172a;">Pay-Per-Click Advertising (PPC)</h3>
-                    <p style="color: #475569; line-height: 1.6; font-size: 0.95rem;">Highly optimized paid campaigns across Google Search, Display, Meta (Facebook & Instagram), and LinkedIn. We minimize cost-per-acquisition while maximizing qualified lead flow.</p>
+                <!-- Bento Card 2 -->
+                <div class="bento-card">
+                    <div>
+                        <img src="../assets/images/digital-marketing/dm-resources.png" alt="Google Search Ads & PPC Campaign Management" class="bento-card-image" width="340" height="180" loading="lazy">
+                        <div class="bento-card-content">
+                            <h3>Pay-Per-Click Advertising (PPC)</h3>
+                            <p>Highly optimized paid acquisition campaigns across Google Search, Display, Meta, and LinkedIn. We maximize lead quality while keeping customer acquisition cost (CAC) low.</p>
+                        </div>
+                    </div>
+                    <div class="bento-card-footer">
+                        <span class="bento-card-tag">Instant Scale</span>
+                        <a href="../digital-marketing-strategy/" class="bento-card-link">View Details &rarr;</a>
+                    </div>
                 </div>
-                <!-- Card 3 -->
-                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 30px; transition: all 0.3s ease;">
-                    <div style="font-size: 2.5rem; margin-bottom: 20px;">📱</div>
-                    <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 10px; color: #0f172a;">Social Media Marketing (SMM)</h3>
-                    <p style="color: #475569; line-height: 1.6; font-size: 0.95rem;">Build an active, loyal community around your brand. We manage organic content calendars, handle community interactions, and design creative campaigns that establish market credibility.</p>
+                <!-- Bento Card 3 -->
+                <div class="bento-card">
+                    <div>
+                        <img src="../assets/images/digital-marketing/dm-faq.png" alt="Social Media Strategy & Engagement" class="bento-card-image" width="340" height="180" loading="lazy">
+                        <div class="bento-card-content">
+                            <h3>Social Media Marketing (SMM)</h3>
+                            <p>Establish industry leadership on LinkedIn, Twitter, and Meta. We coordinate organic posting calendars, graphic content, and community interactions that build trust.</p>
+                        </div>
+                    </div>
+                    <div class="bento-card-footer">
+                        <span class="bento-card-tag">Authority</span>
+                        <a href="../digital-marketing-faq/" class="bento-card-link">View Details &rarr;</a>
+                    </div>
                 </div>
-                <!-- Card 4 -->
-                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 30px; transition: all 0.3s ease;">
-                    <div style="font-size: 2.5rem; margin-bottom: 20px;">✍️</div>
-                    <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 10px; color: #0f172a;">Content Marketing & Strategy</h3>
-                    <p style="color: #475569; line-height: 1.6; font-size: 0.95rem;">Map your product features and features directly to buyer persona queries. We write long-form educational blogs, downloadable whitepapers, checklists, and conversion-optimized sales copy.</p>
+                <!-- Bento Card 4 -->
+                <div class="bento-card">
+                    <div>
+                        <img src="../assets/images/digital-marketing/dm-healthcare.png" alt="Healthcare Digital Marketing Services" class="bento-card-image" width="340" height="180" loading="lazy">
+                        <div class="bento-card-content">
+                            <h3>Healthcare Digital Marketing</h3>
+                            <p>Dedicated medical marketing systems complying with local rules. We design custom search acquisition models to generate high-intent appointments and patient signups.</p>
+                        </div>
+                    </div>
+                    <div class="bento-card-footer">
+                        <span class="bento-card-tag">Specialized</span>
+                        <a href="../digital-marketing-for-healthcare/" class="bento-card-link">View Details &rarr;</a>
+                    </div>
                 </div>
-                <!-- Card 5 -->
-                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 30px; transition: all 0.3s ease;">
-                    <div style="font-size: 2.5rem; margin-bottom: 20px;">✉️</div>
-                    <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 10px; color: #0f172a;">Email Marketing & Automation</h3>
-                    <p style="color: #475569; line-height: 1.6; font-size: 0.95rem;">Nurture raw leads into sales-ready prospects. We build automated email funnels, newsletter updates, customer onboarding drip sequences, and cart abandonment triggers.</p>
+                <!-- Bento Card 5 -->
+                <div class="bento-card">
+                    <div>
+                        <img src="../assets/images/digital-marketing/dm-ecommerce.png" alt="E-commerce Marketing & ROAS Scaling" class="bento-card-image" width="340" height="180" loading="lazy">
+                        <div class="bento-card-content">
+                            <h3>E-commerce ROAS Scaling</h3>
+                            <p>Direct-to-consumer store growth programs. We construct Google Shopping Ads, cart abandonment email automation loops, and high-impact Meta catalog retargeting campaigns.</p>
+                        </div>
+                    </div>
+                    <div class="bento-card-footer">
+                        <span class="bento-card-tag">Sales Focus</span>
+                        <a href="../digital-marketing-for-ecommerce/" class="bento-card-link">View Details &rarr;</a>
+                    </div>
                 </div>
-                <!-- Card 6 -->
-                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 30px; transition: all 0.3s ease;">
-                    <div style="font-size: 2.5rem; margin-bottom: 20px;">📊</div>
-                    <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 10px; color: #0f172a;">Conversion Rate Optimization (CRO)</h3>
-                    <p style="color: #475569; line-height: 1.6; font-size: 0.95rem;">Turn more of your current traffic into customers. We analyze user behavior via heatmaps, construct A/B test hypotheses, and redesign landing page layouts for max efficiency.</p>
+                <!-- Bento Card 6 -->
+                <div class="bento-card">
+                    <div>
+                        <img src="../assets/images/digital-marketing/dm-course.png" alt="Digital Marketing Training & Resources" class="bento-card-image" width="340" height="180" loading="lazy">
+                        <div class="bento-card-content">
+                            <h3>Courses, Syllabus & Resources</h3>
+                            <p>Accelerate your in-house marketing capability. Access our downloadable frameworks, complete digital marketing course syllabus, templates, checklists, and guides.</p>
+                        </div>
+                    </div>
+                    <div class="bento-card-footer">
+                        <span class="bento-card-tag">Training</span>
+                        <a href="../digital-marketing-courses/" class="bento-card-link">View Details &rarr;</a>
+                    </div>
                 </div>
             </div>
+
+        </div>
 
             <!-- Deep Copy -->
             <div style="max-width: 900px; margin: 0 auto; line-height: 1.75; color: #334155; font-size: 1.05rem;">
@@ -282,28 +888,98 @@
                 <p>Executing an effective digital marketing strategy requires a methodical, multi-channel approach. We start by performing a thorough competitor keyword gap analysis and market demographic review. By understanding exactly who your target customers are and where they look for solutions, we can build custom acquisition funnels. This human-centric content, backed by technical optimization, is what helps brands stand out in crowded search markets.</p>
                 <p style="margin-top: 15px;">Whether you're looking for local SEO services to dominate regional markets, SaaS SEO strategy to scale product demo signups, or custom ERP integration analytics panels to track marketing return on investment, our technical team aligns your codebase to pass search engine crawls. We specialize in resolving index bloat, redirect hops, server bottlenecks, and render-blocking scripts, providing you with a clean, fast platform that converts ad traffic smoothly.</p>
 
-                <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.75rem; font-weight: 700; color: #0f172a; margin-top: 40px; margin-bottom: 15px;">Our Digital Marketing Process</h3>
-                <div style="display: flex; flex-direction: column; gap: 20px; margin-top: 25px;">
-                    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border-left: 4px solid #6366F1;">
-                        <strong>Step 1: Technical & Content Audit</strong>
-                        <p style="margin-top: 5px; font-size: 0.95rem; color: #475569;">We analyze your existing setup, tracking errors, site speed parameters, keyword rankings, and competitor backlink graphs.</p>
+                <h3 style="font-family: 'Outfit', sans-serif; font-size: 2.25rem; font-weight: 800; color: #0f172a; margin-top: 50px; margin-bottom: 15px; text-align: center;">Our 5-Step Inbound Growth Process</h3>
+                <p style="color: #64748b; text-align: center; max-width: 700px; margin: 0 auto 40px auto; font-size: 1.05rem;">We implement a structured, data-first digital marketing strategy to control ad-spend and guarantee qualified pipeline leads.</p>
+                
+                <div class="timeline">
+                    <!-- Step 1 -->
+                    <div class="timeline-container left-timeline">
+                        <div class="timeline-content">
+                            <h4>Step 1: Technical & Content Audit</h4>
+                            <p>We audit search path errors, analytics setups, site speed benchmarks, historical keyword positions, and competitor backlink patterns.</p>
+                        </div>
                     </div>
-                    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border-left: 4px solid #6366F1;">
-                        <strong>Step 2: Custom Strategy Definition</strong>
-                        <p style="margin-top: 5px; font-size: 0.95rem; color: #475569;">We establish a 90-day roadmap defining target keyword clusters, budget allocations across paid channels, content calendars, and KPIs.</p>
+                    <!-- Step 2 -->
+                    <div class="timeline-container right-timeline">
+                        <div class="timeline-content">
+                            <h4>Step 2: Custom Strategy Definition</h4>
+                            <p>We build a bespoke 90-day execution roadmap mapping target semantic queries, paid budget allocations, Content clusters, and conversion funnels.</p>
+                        </div>
                     </div>
-                    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border-left: 4px solid #6366F1;">
-                        <strong>Step 3: Funnel Setup & Creative Creation</strong>
-                        <p style="margin-top: 5px; font-size: 0.95rem; color: #475569;">We draft ad copy, design conversion-oriented landing pages, configure tracking webhooks, and set up CRM data flows.</p>
+                    <!-- Step 3 -->
+                    <div class="timeline-container left-timeline">
+                        <div class="timeline-content">
+                            <h4>Step 3: Funnel Setup & Creative Creation</h4>
+                            <p>We draft ad copies, design landing pages, configure tracking webhooks, and construct inbound marketing trigger-flows.</p>
+                        </div>
                     </div>
-                    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border-left: 4px solid #6366F1;">
-                        <strong>Step 4: Campaign Execution & Optimization</strong>
-                        <p style="margin-top: 5px; font-size: 0.95rem; color: #475569;">We launch campaigns and optimize bids, target demographics, and keyword exclusions daily to control ad spend.</p>
+                    <!-- Step 4 -->
+                    <div class="timeline-container right-timeline">
+                        <div class="timeline-content">
+                            <h4>Step 4: Campaign Execution & Optimization</h4>
+                            <p>We deploy paid campaigns and optimize bidding models, exclude negative search terms, and test landing page copy variants daily.</p>
+                        </div>
                     </div>
-                    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border-left: 4px solid #6366F1;">
-                        <strong>Step 5: transparent reporting & Scaling</strong>
-                        <p style="margin-top: 5px; font-size: 0.95rem; color: #475569;">We review ROI parameters monthly through low-latency dashboard interfaces, shifting budgets toward the top-converting keyword terms.</p>
+                    <!-- Step 5 -->
+                    <div class="timeline-container left-timeline">
+                        <div class="timeline-content">
+                            <h4>Step 5: Transparent Reporting & Scaling</h4>
+                            <p>We evaluate conversion metrics monthly, presenting progress in real-time dashboards and shifting ad budgets into highest-ROAS channels.</p>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Founder & Authority Section -->
+    <section class="founder-section">
+        <div class="container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+                <span class="pill" style="background: rgba(99, 102, 241, 0.1); color: #6366F1; padding: 6px 12px; border-radius: 20px; font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; margin-bottom: 15px;">Technical Authority</span>
+                <h2 style="font-family: 'Outfit', sans-serif; font-size: 2.25rem; font-weight: 800; color: #0f172a;">Led by Er. Aji Paul</h2>
+                <p style="color: #64748b; margin-top: 10px; font-size: 1.05rem;">We blend engineering-level technical precision with data-driven inbound advertising growth strategies.</p>
+            </div>
+            
+            <div class="founder-card">
+                <div class="founder-img-wrapper">
+                    <img src="../assets/images/founder/aji-paul.webp" alt="Er. Aji Paul - Chief Technical Marketer & Founder TechAuditPros" width="240" height="240" loading="lazy">
+                </div>
+                <div class="founder-info">
+                    <h3 class="founder-name">Er. Aji Paul</h3>
+                    <span class="founder-title">Founder & Chief Technical Marketer</span>
+                    <p class="founder-bio">"At TechAuditPros, we do away with vanity metrics. We construct digital marketing campaigns based on transparent codebase parameters, rigorous search engine crawl optimizations, and direct pipeline returns. Every marketing decision is backed by engineering precision and clean analytics reporting."</p>
+                    <a href="https://www.linkedin.com/in/ajipaul-officia/" class="founder-social" target="_blank" rel="noopener">
+                        <svg style="width:20px;height:20px;fill:#0077B5;" viewBox="0 0 24 24">
+                            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                        </svg>
+                        Connect on LinkedIn &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Bar Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stats-item">
+                    <h3>300%+</h3>
+                    <p>Average Organic Traffic Increase</p>
+                </div>
+                <div class="stats-item">
+                    <h3>12M+ INR</h3>
+                    <p>Managed Advertising Budget</p>
+                </div>
+                <div class="stats-item">
+                    <h3>150+</h3>
+                    <p>Technical & Content Audits Run</p>
+                </div>
+                <div class="stats-item">
+                    <h3>98%</h3>
+                    <p>Verifiable Client Retention Rate</p>
                 </div>
             </div>
         </div>
@@ -318,41 +994,41 @@
             </div>
 
             <div style="max-width: 850px; margin: 0 auto;">
-                <details style="background: white; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; padding: 20px; cursor: pointer;">
-                    <summary style="font-weight: 600; font-size: 1.1rem; color: #0f172a; list-style: none; display: flex; justify-content: space-between; align-items: center;">
-                        What is digital marketing? <span style="font-size: 0.8rem;">▼</span>
+                <details class="faq-item-custom">
+                    <summary class="faq-summary-custom">
+                        What is digital marketing?
                     </summary>
-                    <p style="margin-top: 15px; color: #475569; line-height: 1.6; font-size: 0.95rem;">Digital marketing encompasses all promotional efforts that use an electronic device or the internet. Businesses leverage digital channels such as search engines, social media, email, and websites to connect with current and prospective customers.</p>
+                    <p class="faq-content-custom">Digital marketing encompasses all promotional efforts that use an electronic device or the internet. Businesses leverage digital channels such as search engines, social media, email, and websites to connect with current and prospective customers.</p>
                 </details>
-                <details style="background: white; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; padding: 20px; cursor: pointer;">
-                    <summary style="font-weight: 600; font-size: 1.1rem; color: #0f172a; list-style: none; display: flex; justify-content: space-between; align-items: center;">
-                        How much does digital marketing cost in India? <span style="font-size: 0.8rem;">▼</span>
+                <details class="faq-item-custom">
+                    <summary class="faq-summary-custom">
+                        How much does digital marketing cost in India?
                     </summary>
-                    <p style="margin-top: 15px; color: #475569; line-height: 1.6; font-size: 0.95rem;">The cost of digital marketing services varies greatly depending on project scale. Small local campaigns can cost between ₹15,000 to ₹30,000 monthly, while comprehensive enterprise campaigns targeting international markets like the USA and UK can range from ₹75,000 to ₹3,00,000+ per month depending on ad spend requirements.</p>
+                    <p class="faq-content-custom">The cost of digital marketing services varies greatly depending on project scale. Small local campaigns can cost between ₹15,000 to ₹30,000 monthly, while comprehensive enterprise campaigns targeting international markets like the USA and UK can range from ₹75,000 to ₹3,00,000+ per month depending on ad spend requirements.</p>
                 </details>
-                <details style="background: white; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; padding: 20px; cursor: pointer;">
-                    <summary style="font-weight: 600; font-size: 1.1rem; color: #0f172a; list-style: none; display: flex; justify-content: space-between; align-items: center;">
-                        What is the ROI of digital marketing? <span style="font-size: 0.8rem;">▼</span>
+                <details class="faq-item-custom">
+                    <summary class="faq-summary-custom">
+                        What is the ROI of digital marketing?
                     </summary>
-                    <p style="margin-top: 15px; color: #475569; line-height: 1.6; font-size: 0.95rem;">Return on investment (ROI) in digital marketing is highly measurable. Paid ad campaigns (PPC) can target a specific cost-per-lead, while organic content and technical SEO strategies build long-term value, compounding organic clicks over time with zero media costs.</p>
+                    <p class="faq-content-custom">Return on investment (ROI) in digital marketing is highly measurable. Paid ad campaigns (PPC) can target a specific cost-per-lead, while organic content and technical SEO strategies build long-term value, compounding organic clicks over time with zero media costs.</p>
                 </details>
-                <details style="background: white; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; padding: 20px; cursor: pointer;">
-                    <summary style="font-weight: 600; font-size: 1.1rem; color: #0f172a; list-style: none; display: flex; justify-content: space-between; align-items: center;">
-                        What is SEO in digital marketing? <span style="font-size: 0.8rem;">▼</span>
+                <details class="faq-item-custom">
+                    <summary class="faq-summary-custom">
+                        What is SEO in digital marketing?
                     </summary>
-                    <p style="margin-top: 15px; color: #475569; line-height: 1.6; font-size: 0.95rem;">SEO (Search Engine Optimization) is the process of optimizing a website to increase its visibility when people search for products or services related to your business in search engines. Greater visibility leads to more attention and attracts prospective customers.</p>
+                    <p class="faq-content-custom">SEO (Search Engine Optimization) is the process of optimizing a website to increase its visibility when people search for products or services related to your business in search engines. Greater visibility leads to more attention and attracts prospective customers.</p>
                 </details>
-                <details style="background: white; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; padding: 20px; cursor: pointer;">
-                    <summary style="font-weight: 600; font-size: 1.1rem; color: #0f172a; list-style: none; display: flex; justify-content: space-between; align-items: center;">
-                        What is PPC in digital marketing? <span style="font-size: 0.8rem;">▼</span>
+                <details class="faq-item-custom">
+                    <summary class="faq-summary-custom">
+                        What is PPC in digital marketing?
                     </summary>
-                    <p style="margin-top: 15px; color: #475569; line-height: 1.6; font-size: 0.95rem;">PPC (Pay-Per-Click) is a model of digital advertising where advertisers pay a fee each time one of their ads is clicked. Essentially, it is a way of buying visits to your site, rather than attempting to "earn" those visits organically.</p>
+                    <p class="faq-content-custom">PPC (Pay-Per-Click) is a model of digital advertising where advertisers pay a fee each time one of their ads is clicked. Essentially, it is a way of buying visits to your site, rather than attempting to "earn" those visits organically.</p>
                 </details>
-                <details style="background: white; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; padding: 20px; cursor: pointer;">
-                    <summary style="font-weight: 600; font-size: 1.1rem; color: #0f172a; list-style: none; display: flex; justify-content: space-between; align-items: center;">
-                        How long does digital marketing take to show results? <span style="font-size: 0.8rem;">▼</span>
+                <details class="faq-item-custom">
+                    <summary class="faq-summary-custom">
+                        How long does digital marketing take to show results?
                     </summary>
-                    <p style="margin-top: 15px; color: #475569; line-height: 1.6; font-size: 0.95rem;">Paid advertising (Google and Meta Ads) can drive immediate traffic and leads within 24 to 48 hours of campaign launch. Technical SEO and content marketing strategy generally take between 3 to 6 months to demonstrate compounding organic keyword ranking results.</p>
+                    <p class="faq-content-custom">Paid advertising (Google and Meta Ads) can drive immediate traffic and leads within 24 to 48 hours of campaign launch. Technical SEO and content marketing strategy generally take between 3 to 6 months to demonstrate compounding organic keyword ranking results.</p>
                 </details>
             </div>
         </div>
@@ -552,5 +1228,13 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <!-- MOBILE_SCRIPT_END -->
+
+    <!-- Floating WhatsApp Widget -->
+    <a href="https://wa.me/919447477543?text=Hi%20TechAuditPros,%20I%20am%20interested%20in%20a%20Digital%20Marketing%20Consultation." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with TechAuditPros on WhatsApp">
+        <svg class="whatsapp-icon" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.488 1.451 5.42 1.452 5.518 0 10.006-4.486 10.01-10.002.002-2.673-1.037-5.184-2.927-7.076C17.26 1.636 14.755.596 12.01.595 6.492.595 2.006 5.08 2.002 10.596c-.001 1.956.507 3.867 1.47 5.485L2.477 20.91l4.17-1.756zM17.36 14.9c-.29-.146-1.722-.85-1.99-.947-.266-.097-.461-.146-.655.146-.194.29-.753.947-.923 1.14-.17.193-.34.218-.63.073-.29-.146-1.227-.452-2.337-1.443-.864-.771-1.447-1.723-1.617-2.014-.17-.29-.018-.447.128-.592.13-.13.29-.34.436-.509.145-.17.194-.29.29-.485.097-.194.049-.364-.025-.509-.073-.146-.655-1.577-.9-2.16-.24-.574-.48-.495-.655-.504-.17-.008-.364-.01-.557-.01-.194 0-.509.073-.776.364-.266.29-1.02 1.02-1.02 2.477 0 1.457 1.062 2.864 1.208 3.058.146.194 2.094 3.2 5.074 4.49.708.306 1.26.489 1.692.627.712.227 1.36.195 1.871.118.571-.085 1.722-.704 1.965-1.385.243-.68.243-1.263.17-1.385-.073-.122-.267-.194-.558-.34z"/>
+        </svg>
+    </a>
+
 </body>
 </html>
