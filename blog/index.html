@@ -97,7 +97,22 @@
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html { scroll-behavior: smooth; }
+    /* Lenis Smooth Scroll Setup */
+    html.lenis, html.lenis body {
+      height: auto;
+    }
+    .lenis-smooth {
+      scroll-behavior: auto !important;
+    }
+    .lenis-smooth [data-lenis-prevent] {
+      overscroll-behavior: contain;
+    }
+    .lenis-stopped {
+      overflow: hidden;
+    }
+    .lenis-scrolling iframe {
+      pointer-events: none;
+    }
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -1724,10 +1739,10 @@
         <div class="methodology-sticky-card-wrap">
             <div class="methodology-sticky-card">
                 <div class="visual-card-img-wrap">
-                    <img alt="TechAuditPros Speed Dashboard" src="../assets/images/blog/audit_speed_dashboard.png"/>
+                    <img alt="TechAuditPros 3D Cybernetic Audit Device" src="../assets/images/blog/volumetric_audit_device.png"/>
                 </div>
                 <div class="visual-card-title">
-                    <span>🚀 Platform Performance Card</span>
+                    <span>⚡ Interactive Audit Device</span>
                 </div>
             </div>
         </div>
@@ -2413,6 +2428,15 @@ document.addEventListener('DOMContentLoaded', function() {
     startSlideShow();
 });
 </script>
+
+<!-- Lenis Smooth Scroll Library -->
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<!-- GSAP & ScrollTrigger Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<!-- ========== GSAP, SCROLLTRIGGER, LENIS, & 3D CONTROLLER ========== -->
+<script>
 document.addEventListener('DOMContentLoaded', function() {
     // 1. Dynamic wrapper initialization for blog cards in grid
     document.querySelectorAll('.blog-card').forEach(card => {
@@ -2430,273 +2454,292 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // 2. High-Performance GPU-Accelerated 3D Scroll Rotation for general cards
+    // 1. Initialize Lenis Smooth Scrolling
+    let lenis;
+    function initLenis() {
+        if (window.innerWidth > 900) {
+            lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // S-curve easing
+                orientation: 'vertical',
+                gestureOrientation: 'vertical',
+                smoothWheel: true,
+                wheelMultiplier: 1,
+                smoothTouch: false,
+                touchMultiplier: 2,
+                infinite: false,
+            });
+
+            function raf(time) {
+                if (lenis) {
+                    lenis.raf(time);
+                    requestAnimationFrame(raf);
+                }
+            }
+            requestAnimationFrame(raf);
+
+            // Connect Lenis to GSAP ScrollTrigger
+            lenis.on('scroll', ScrollTrigger.update);
+            gsap.ticker.add((time) => {
+                if (lenis) lenis.raf(time * 1000);
+            });
+            gsap.ticker.lagSmoothing(0);
+        } else {
+            if (lenis) {
+                lenis.destroy();
+                lenis = null;
+            }
+        }
+    }
+    initLenis();
+
+    // 2. GSAP ScrollTrigger for general cards (Blog Feed Grid & Featured Article)
     const scroll3dCards = document.querySelectorAll('.scroll-3d-card:not(.methodology-sticky-card)');
-    
-    function update3dScroll() {
-        const viewportHeight = window.innerHeight;
-        scroll3dCards.forEach(card => {
-            const rect = card.getBoundingClientRect();
-            const cardCenter = rect.top + rect.height / 2;
-            const normalizedPos = cardCenter / viewportHeight; // 0 (top) to 1 (bottom)
-            
-            // Only animate if card is visible in viewport
-            if (rect.top < viewportHeight && rect.bottom > 0) {
-                // Rotation angle: tilt backward at bottom, forward at top (max 10 degrees)
-                const rotateX = (normalizedPos - 0.5) * -20; 
-                const scale = 1 - Math.abs(normalizedPos - 0.5) * 0.05;
-                const shadowY = (normalizedPos - 0.5) * 15;
-                
-                // Keep the active hover rotation override if card is currently hovered
-                if (!card.classList.contains('is-hovered')) {
-                    card.style.transform = `rotateX(${rotateX}deg) scale(${scale})`;
-                }
-                card.style.boxShadow = `0 ${20 + shadowY}px ${40 - Math.abs(normalizedPos - 0.5) * 8}px rgba(0, 0, 0, 0.4), 0 0 20px rgba(16, 185, 129, ${0.06 - Math.abs(normalizedPos - 0.5) * 0.03})`;
-            }
-        });
-    }
-
-    // 3. Methodology Section Scroll-Progress Sticky 3D Animation
-    const scrollWrapper = document.querySelector('.methodology-scroll-wrapper');
-    const depthGrid = document.querySelector('.methodology-depth-grid');
-    const cardWrap = document.querySelector('.methodology-sticky-card-wrap');
-    const methCard = document.querySelector('.methodology-sticky-card');
-    const phase1 = document.querySelector('.methodology-text-phase.phase-1');
-    const phase2 = document.querySelector('.methodology-text-phase.phase-2');
-    const phase3 = document.querySelector('.methodology-text-phase.phase-3');
-
-    function animateMethodology() {
-        if (!scrollWrapper || window.innerWidth <= 900) return;
-        
-        const rect = scrollWrapper.getBoundingClientRect();
-        const viewHeight = window.innerHeight;
-        
-        // Progress of scroll within the wrapper (0 when top is at viewport top, 1 when bottom is at viewport bottom)
-        const totalScrollable = rect.height - viewHeight;
-        const scrollOffset = -rect.top;
-        const progress = Math.max(0, Math.min(1, scrollOffset / totalScrollable));
-        
-        // 3.1 Depth Grid Animation
-        if (depthGrid) {
-            const gridTranslateY = -progress * 80;
-            depthGrid.style.transform = `perspective(1000px) rotateX(65deg) translateY(${gridTranslateY}px) translateZ(-150px) scale(1.8)`;
-            // Glow intensity rises in the middle of the scroll sequence
-            const glowVal = 0.15 + (1 - Math.abs(progress - 0.5) * 2) * 0.25;
-            depthGrid.style.opacity = Math.max(0.1, Math.min(0.5, glowVal));
-        }
-        
-        // 3.2 Card Animation (Position & 3D tilt)
-        if (cardWrap && (!methCard || !methCard.classList.contains('is-hovered'))) {
-            let cardScale = 1;
-            let cardOpacity = 1;
-            let cardRotateX = 0;
-            let cardRotateY = 0;
-            let cardTranslateX = 0;
-            
-            if (progress < 0.15) {
-                // Entrance Phase (zoom in)
-                const enterProg = progress / 0.15; // 0 to 1
-                cardScale = 0.8 + enterProg * 0.2;
-                cardOpacity = enterProg;
-                cardRotateX = 15 * (1 - enterProg);
-                cardTranslateX = 0;
-            } else if (progress >= 0.15 && progress < 0.45) {
-                // Phase 1 (Core Web Vitals): Card shifts right, tilts right (rotateY > 0)
-                const phaseProg = (progress - 0.15) / 0.3; // 0 to 1
-                const eased = Math.sin(phaseProg * Math.PI / 2); // 0 to 1
-                cardTranslateX = eased * 120; // shift right
-                cardRotateY = eased * 10;
-                cardRotateX = eased * -5;
-            } else if (progress >= 0.45 && progress < 0.55) {
-                // Phase 1 to Phase 2 transition: Card shifts from right to left
-                const transProg = (progress - 0.45) / 0.1; // 0 to 1
-                const eased = Math.sin(transProg * Math.PI - Math.PI / 2) * 0.5 + 0.5; // 0 to 1 (S-curve)
-                cardTranslateX = 120 - eased * 240; // 120 to -120
-                cardRotateY = 10 - eased * 20; // 10 to -10
-                cardRotateX = -5 + eased * 10; // -5 to 5
-            } else if (progress >= 0.55 && progress < 0.8) {
-                // Phase 2 (Crawl): Card stays left, tilts left (rotateY < 0)
-                cardTranslateX = -120;
-                cardRotateY = -10;
-                cardRotateX = 5;
-            } else if (progress >= 0.8 && progress < 0.9) {
-                // Phase 2 to Phase 3 transition: Card shifts from left to right again
-                const transProg = (progress - 0.8) / 0.1; // 0 to 1
-                const eased = Math.sin(transProg * Math.PI - Math.PI / 2) * 0.5 + 0.5; // 0 to 1
-                cardTranslateX = -120 + eased * 240; // -120 to 120
-                cardRotateY = -10 + eased * 20; // -10 to 10
-                cardRotateX = 5 - eased * 10; // 5 to -5
-            } else {
-                // Phase 3 active / exit
-                cardTranslateX = 120;
-                cardRotateY = 10;
-                cardRotateX = -5;
-                if (progress > 0.95) {
-                    const exitProg = (progress - 0.95) / 0.05; // 0 to 1
-                    cardOpacity = 1 - exitProg;
-                    cardScale = 1 - exitProg * 0.05;
-                }
-            }
-            
-            cardWrap.style.transform = `translate3d(${cardTranslateX}px, 0, 0) rotateX(${cardRotateX}deg) rotateY(${cardRotateY}deg) scale(${cardScale})`;
-            cardWrap.style.opacity = cardOpacity;
-        }
-        
-        // 3.3 Text Phases Animation (opacities and horizontal slides)
-        // Phase 1 text: active between 0.15 and 0.48
-        if (phase1) {
-            let p1Opacity = 0;
-            let p1TranslateX = -60;
-            if (progress >= 0.15 && progress < 0.48) {
-                if (progress < 0.23) {
-                    const prog = (progress - 0.15) / 0.08;
-                    p1Opacity = prog;
-                    p1TranslateX = -60 * (1 - prog);
-                } else if (progress >= 0.23 && progress < 0.38) {
-                    p1Opacity = 1;
-                    p1TranslateX = 0;
-                } else {
-                    const prog = (progress - 0.38) / 0.1;
-                    p1Opacity = 1 - prog;
-                    p1TranslateX = -60 * prog;
-                }
-            }
-            phase1.style.opacity = p1Opacity;
-            phase1.style.transform = `translate3d(${p1TranslateX}px, -50%, 0)`;
-            phase1.style.pointerEvents = p1Opacity > 0.1 ? 'auto' : 'none';
-        }
-        
-        // Phase 2 text: active between 0.48 and 0.82
-        if (phase2) {
-            let p2Opacity = 0;
-            let p2TranslateX = 60;
-            if (progress >= 0.48 && progress < 0.82) {
-                if (progress < 0.58) {
-                    const prog = (progress - 0.48) / 0.1;
-                    p2Opacity = prog;
-                    p2TranslateX = 60 * (1 - prog);
-                } else if (progress >= 0.58 && progress < 0.72) {
-                    p2Opacity = 1;
-                    p2TranslateX = 0;
-                } else {
-                    const prog = (progress - 0.72) / 0.1;
-                    p2Opacity = 1 - prog;
-                    p2TranslateX = 60 * prog;
-                }
-            }
-            phase2.style.opacity = p2Opacity;
-            phase2.style.transform = `translate3d(${p2TranslateX}px, -50%, 0)`;
-            phase2.style.pointerEvents = p2Opacity > 0.1 ? 'auto' : 'none';
-        }
-        
-        // Phase 3 text: active between 0.8 and 1.0
-        if (phase3) {
-            let p3Opacity = 0;
-            let p3TranslateX = -60;
-            if (progress >= 0.8) {
-                if (progress < 0.86) {
-                    const prog = (progress - 0.8) / 0.06;
-                    p3Opacity = prog;
-                    p3TranslateX = -60 * (1 - prog);
-                } else if (progress >= 0.86 && progress < 0.95) {
-                    p3Opacity = 1;
-                    p3TranslateX = 0;
-                } else {
-                    const prog = (progress - 0.95) / 0.05;
-                    p3Opacity = Math.max(0, 1 - prog);
-                    p3TranslateX = -60 * prog;
-                }
-            }
-            phase3.style.opacity = p3Opacity;
-            phase3.style.transform = `translate3d(${p3TranslateX}px, -50%, 0)`;
-            phase3.style.pointerEvents = p3Opacity > 0.1 ? 'auto' : 'none';
-        }
-    }
-    
-    // Throttle scroll events via requestAnimationFrame
-    window.addEventListener('scroll', () => {
-        window.requestAnimationFrame(() => {
-            update3dScroll();
-            animateMethodology();
-        });
-    });
-    
-    // Run once on load
-    update3dScroll();
-    animateMethodology();
-
-    // 4. 3D Mouse Hover Tilt Effect for general cards
     scroll3dCards.forEach(card => {
+        gsap.set(card, {
+            transformStyle: "preserve-3d",
+            backfaceVisibility: "hidden"
+        });
+
+        // Create scroll-driven 3D tilt using GSAP ScrollTrigger
+        gsap.fromTo(card, 
+            { rotationX: -12, scale: 0.95, y: 30 },
+            {
+                rotationX: 12,
+                scale: 0.95,
+                y: -30,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1
+                }
+            }
+        );
+
+        // General cards 3D Hover Tilt Effect
         card.addEventListener('mousemove', (e) => {
             card.classList.add('is-hovered');
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-            
             const rotateY = ((x - centerX) / centerX) * 12; // max 12deg
             const rotateX = ((centerY - y) / centerY) * 12; // max 12deg
-            
-            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+
+            // Temporarily kill ScrollTrigger animations on hover
+            gsap.killTweensOf(card);
+            gsap.to(card, {
+                rotationX: rotateX,
+                rotationY: rotateY,
+                scale: 1.02,
+                duration: 0.3,
+                overwrite: "auto",
+                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 30px rgba(16, 185, 129, 0.15)"
+            });
         });
-        
+
         card.addEventListener('mouseleave', () => {
             card.classList.remove('is-hovered');
-            card.style.transform = '';
-            window.requestAnimationFrame(update3dScroll);
+            gsap.to(card, {
+                rotationX: 0,
+                rotationY: 0,
+                scale: 1,
+                duration: 0.5,
+                overwrite: "auto",
+                clearProps: "transform,boxShadow"
+            });
         });
     });
 
-    // 5. 3D Mouse Hover Tilt Effect specifically for Methodology sticky card
+    // 3. GSAP ScrollTrigger Timeline for Pinned Methodology Section
+    let methodologyTimeline;
+    const scrollWrapper = document.querySelector('.methodology-scroll-wrapper');
+    const depthGrid = document.querySelector('.methodology-depth-grid');
+    const cardWrap = document.querySelector('.methodology-sticky-card-wrap');
+    const methCard = document.querySelector('.methodology-sticky-card');
+    
+    function initMethodologyScrollytelling() {
+        if (!scrollWrapper || window.innerWidth <= 900) {
+            // Kill existing timeline if active
+            if (methodologyTimeline) {
+                methodologyTimeline.kill();
+                methodologyTimeline = null;
+            }
+            // Reset mobile properties
+            gsap.set([cardWrap, ".methodology-text-phase"], { clearProps: "all" });
+            gsap.set(depthGrid, { clearProps: "all" });
+            return;
+        }
+
+        // Establish initial 3D transforms for desktop
+        gsap.set(cardWrap, { scale: 0.75, opacity: 0, rotationX: 18, x: 0, transformStyle: "preserve-3d" });
+        gsap.set(".methodology-text-phase", { opacity: 0, yPercent: -50 });
+        gsap.set(".phase-left", { x: -60 });
+        gsap.set(".phase-right", { x: 60 });
+
+        // Create scrubbing timeline
+        methodologyTimeline = gsap.timeline({
+            scrollTrigger: {
+                trigger: scrollWrapper,
+                start: "top 70px",
+                end: "bottom bottom",
+                scrub: 1,
+                invalidateOnRefresh: true
+            }
+        });
+
+        // 3.1 Depth Grid Parallax movement
+        if (depthGrid) {
+            methodologyTimeline.fromTo(depthGrid, 
+                { transform: "perspective(1000px) rotateX(65deg) translateY(0px) translateZ(-150px) scale(1.8)", opacity: 0.25 },
+                { transform: "perspective(1000px) rotateX(65deg) translateY(-80px) translateZ(-150px) scale(1.8)", opacity: 0.45, ease: "none" },
+                0
+            );
+        }
+
+        // 3.2 Card Entrance
+        methodologyTimeline.to(cardWrap, {
+            scale: 1,
+            opacity: 1,
+            rotationX: 0,
+            duration: 0.8,
+            ease: "power2.out"
+        }, 0);
+
+        // 3.3 Phase 1: Core Web Vitals (Shifts Right, Slides Text Left)
+        methodologyTimeline.to(cardWrap, {
+            x: 120,
+            rotationY: 10,
+            rotationX: -5,
+            duration: 1.2,
+            ease: "power1.inOut"
+        }, 0.8);
+        methodologyTimeline.to(".phase-1", {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            ease: "power2.out"
+        }, 0.9);
+        methodologyTimeline.to(".phase-1", {
+            opacity: 0,
+            x: -60,
+            duration: 0.8,
+            ease: "power2.in"
+        }, 2.0);
+
+        // 3.4 Phase 2: Crawl Diagnostics (Shifts Left, Slides Text Right)
+        methodologyTimeline.to(cardWrap, {
+            x: -120,
+            rotationY: -10,
+            rotationX: 5,
+            duration: 1.5,
+            ease: "power1.inOut"
+        }, 2.4);
+        methodologyTimeline.to(".phase-2", {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            ease: "power2.out"
+        }, 2.6);
+        methodologyTimeline.to(".phase-2", {
+            opacity: 0,
+            x: 60,
+            duration: 0.8,
+            ease: "power2.in"
+        }, 3.8);
+
+        // 3.5 Phase 3: Semantic Schemes (Shifts Right, Slides Text Left)
+        methodologyTimeline.to(cardWrap, {
+            x: 120,
+            rotationY: 10,
+            rotationX: -5,
+            duration: 1.5,
+            ease: "power1.inOut"
+        }, 4.2);
+        methodologyTimeline.to(".phase-3", {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            ease: "power2.out"
+        }, 4.4);
+
+        // 3.6 Final Exit (Zoom out and Fade before wrapper ends)
+        methodologyTimeline.to([cardWrap, ".phase-3"], {
+            scale: 0.95,
+            opacity: 0,
+            duration: 1.0,
+            ease: "power2.in"
+        }, 5.5);
+    }
+    initMethodologyScrollytelling();
+
+    // 4. Interactive Mouse Hover Tilt specifically for Methodology sticky card
     if (methCard && cardWrap) {
         methCard.addEventListener('mousemove', (e) => {
             methCard.classList.add('is-hovered');
             const rect = methCard.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-            
             const rotateY = ((x - centerX) / centerX) * 15; // max 15deg
             const rotateX = ((centerY - y) / centerY) * 15; // max 15deg
             
-            // Keep card shifting position but apply custom hover rotation
-            const currentTransform = cardWrap.style.transform;
-            const regex = /translate3d\(([^)]+)\)/;
-            const match = currentTransform.match(regex);
-            const translateStr = match ? `translate3d(${match[1]})` : 'translate3d(0,0,0)';
-            
-            cardWrap.style.transform = `${translateStr} rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+            // Get current timeline translation parameters to preserve position
+            const transformMatrix = window.getComputedStyle(cardWrap).transform;
+            let currentX = 0;
+            if (transformMatrix !== 'none') {
+                const values = transformMatrix.split('(')[1].split(')')[0].split(',');
+                // 2D transform vs 3D transform matrix parsing
+                if (values.length === 6) {
+                    currentX = parseFloat(values[4]);
+                } else if (values.length === 16) {
+                    currentX = parseFloat(values[12]);
+                }
+            }
+
+            // Pause scrubbing animation on card Wrap, apply interactive hover transforms
+            gsap.killTweensOf(cardWrap);
+            gsap.to(cardWrap, {
+                x: currentX,
+                rotationX: rotateX,
+                rotationY: rotateY,
+                scale: 1.03,
+                duration: 0.3,
+                overwrite: "auto"
+            });
         });
         
         methCard.addEventListener('mouseleave', () => {
             methCard.classList.remove('is-hovered');
-            window.requestAnimationFrame(animateMethodology);
+            // Re-sync with timeline scroll triggered values
+            if (methodologyTimeline) {
+                // Force timeline update to match scroll position
+                const currentProgress = methodologyTimeline.scrollTrigger.progress;
+                gsap.to(cardWrap, {
+                    x: methodologyTimeline.tweenTo(currentProgress).vars.x || 0,
+                    rotationX: methodologyTimeline.tweenTo(currentProgress).vars.rotationX || 0,
+                    rotationY: methodologyTimeline.tweenTo(currentProgress).vars.rotationY || 0,
+                    scale: methodologyTimeline.tweenTo(currentProgress).vars.scale || 1,
+                    duration: 0.6,
+                    overwrite: "auto",
+                    onComplete: () => {
+                        // Refresh the scroll trigger to snap back to regular timeline
+                        ScrollTrigger.refresh();
+                    }
+                });
+            }
         });
     }
 
-    // Handle Resize resets
+    // 5. Handle Resize and resets
     window.addEventListener('resize', () => {
-        if (window.innerWidth <= 900) {
-            // Reset styles for mobile stack
-            if (depthGrid) depthGrid.style.transform = '';
-            if (cardWrap) {
-                cardWrap.style.transform = '';
-                cardWrap.style.opacity = '';
-            }
-            [phase1, phase2, phase3].forEach(p => {
-                if (p) {
-                    p.style.opacity = '';
-                    p.style.transform = '';
-                    p.style.pointerEvents = '';
-                }
-            });
-        } else {
-            window.requestAnimationFrame(animateMethodology);
-        }
+        initLenis();
+        initMethodologyScrollytelling();
+        ScrollTrigger.refresh();
     });
 });
 </script>
