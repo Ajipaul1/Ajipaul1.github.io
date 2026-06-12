@@ -375,118 +375,77 @@
     }
 
     /* =============================================
-       METHODOLOGY NARRATIVE SPLIT SECTION (SELVA CONCEPT)
+       METHODOLOGY SCROLL-DRIVEN STICKY 3D SECTION
     ============================================= */
-    .methodology-section {
-      background: radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.05) 0%, #040907 60%);
-      padding: 6rem 2rem;
+    .methodology-scroll-wrapper {
+      position: relative;
+      height: 300vh;
+      background: #040907;
       border-bottom: 1px solid var(--border-light);
     }
-    .methodology-container {
-      max-width: 1280px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    @media (max-width: 900px) {
-      .methodology-container {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-      }
-    }
-    .methodology-text {
-      display: flex;
-      flex-direction: column;
-    }
-    .methodology-eyebrow {
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent-indigo);
-      margin-bottom: 1rem;
+    .methodology-sticky-container {
+      position: sticky;
+      top: 70px;
+      height: calc(100vh - 70px);
+      overflow: hidden;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-    }
-    .methodology-text h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800;
-      color: #ffffff;
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
-    }
-    .methodology-desc {
-      font-size: 1.05rem;
-      color: var(--text-secondary);
-      margin-bottom: 2.5rem;
-      line-height: 1.75;
-    }
-    .methodology-notes {
-      display: flex;
-      flex-direction: column;
-      gap: 1.75rem;
-    }
-    .note-item {
-      display: grid;
-      grid-template-columns: 80px 1fr;
-      gap: 1.5rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      padding-bottom: 1.25rem;
-    }
-    .note-item:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-    .note-label {
-      font-family: 'Outfit', sans-serif;
-      font-weight: 800;
-      font-size: 0.8rem;
-      color: #ffffff;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      display: inline-block;
-      padding: 0.25rem 0.6rem;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 4px;
-      text-align: center;
-      align-self: flex-start;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .note-content h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 0.4rem;
-    }
-    .note-content p {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-    .methodology-visual {
-      display: flex;
       justify-content: center;
-      position: relative;
     }
-    .visual-card {
-      background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+    .methodology-depth-grid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(rgba(16, 185, 129, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16, 185, 129, 0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      background-position: center center;
+      transform: perspective(1000px) rotateX(65deg) translateZ(-150px) scale(1.8);
+      transform-origin: center center;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.3;
+      will-change: transform, opacity;
+      transition: opacity 0.3s ease;
+    }
+    .methodology-glow-orb {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .methodology-sticky-card-wrap {
+      position: relative;
+      z-index: 5;
+      perspective: 1200px;
+      transform-style: preserve-3d;
+      transition: transform 0.1s cubic-bezier(0.1, 0.8, 0.2, 1), opacity 0.2s ease;
+      will-change: transform, opacity;
+      opacity: 0;
+    }
+    .methodology-sticky-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: var(--radius-xl);
       padding: 1.25rem;
       box-shadow: var(--shadow-xl), 0 0 40px rgba(16, 185, 129, 0.05);
-      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      max-width: 480px;
-      width: 100%;
-      cursor: pointer;
+      width: 440px;
+      max-width: 90vw;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
-    .visual-card:hover {
-      transform: translateY(-8px) rotate(1deg);
-      border-color: rgba(16, 185, 129, 0.2);
-      box-shadow: var(--shadow-xl), 0 0 50px rgba(16, 185, 129, 0.1);
+    .methodology-sticky-card:hover {
+      border-color: rgba(16, 185, 129, 0.3);
+      box-shadow: var(--shadow-xl), 0 0 50px rgba(16, 185, 129, 0.15);
     }
     .visual-card-img-wrap {
       overflow: hidden;
@@ -494,14 +453,14 @@
       aspect-ratio: 4 / 3;
       background: #06120e;
     }
-    .visual-card img {
+    .methodology-sticky-card img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.6s ease;
     }
-    .visual-card:hover img {
-      transform: scale(1.04);
+    .methodology-sticky-card:hover img {
+      transform: scale(1.03);
     }
     .visual-card-title {
       margin-top: 1.25rem;
@@ -516,6 +475,134 @@
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
+    }
+    .methodology-phase-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .methodology-text-phase {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 380px;
+      pointer-events: auto;
+      opacity: 0;
+      transition: transform 0.1s cubic-bezier(0.1, 0.8, 0.2, 1), opacity 0.15s ease;
+      will-change: transform, opacity;
+      display: flex;
+      flex-direction: column;
+    }
+    .phase-left {
+      left: calc(50% - 480px);
+      text-align: left;
+    }
+    .phase-right {
+      right: calc(50% - 480px);
+      text-align: left;
+    }
+    .methodology-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-indigo);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .methodology-text-phase h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+    .methodology-text-phase p {
+      font-size: 1.025rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 1200px) {
+      .phase-left {
+        left: 5%;
+      }
+      .phase-right {
+        right: 5%;
+      }
+      .methodology-text-phase {
+        width: 320px;
+      }
+      .methodology-text-phase h3 {
+        font-size: 1.8rem;
+      }
+      .methodology-sticky-card {
+        width: 380px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .methodology-scroll-wrapper {
+        height: auto !important;
+        padding: 4rem 1.5rem !important;
+      }
+      .methodology-sticky-container {
+        position: relative !important;
+        top: 0 !important;
+        height: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 3rem !important;
+        overflow: visible !important;
+      }
+      .methodology-depth-grid,
+      .methodology-glow-orb {
+        display: none !important;
+      }
+      .methodology-sticky-card-wrap {
+        position: relative !important;
+        transform: none !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+        max-width: 440px !important;
+        opacity: 1 !important;
+        z-index: 2 !important;
+      }
+      .methodology-sticky-card {
+        transform: none !important;
+        box-shadow: var(--shadow-lg) !important;
+        width: 100% !important;
+      }
+      .methodology-phase-container {
+        position: relative !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 3rem !important;
+        pointer-events: auto !important;
+      }
+      .methodology-text-phase {
+        position: relative !important;
+        top: 0 !important;
+        transform: none !important;
+        width: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        opacity: 1 !important;
+      }
+      .methodology-text-phase h3 {
+        font-size: 1.75rem !important;
+      }
     }
 
     /* =============================================
@@ -1626,48 +1713,49 @@
     </div>
 </section>
 
-<!-- ========== METHODOLOGY SPLIT SECTION (SELVA CONCEPT) ========== -->
-<section class="methodology-section">
-<div class="methodology-container">
-<div class="methodology-text">
-<div class="methodology-eyebrow">⚡ Technical Audit Methodology</div>
-<h2>How We Analyze &amp; Build Search Dominance</h2>
-<p class="methodology-desc">We don't guess. We inspect. Our proprietary diagnostic layers audit the exact factors Google and LLM crawlers use to classify, index, and rank your enterprise platform.</p>
-<div class="methodology-notes">
-<div class="note-item">
-<div class="note-label">Core</div>
-<div class="note-content">
-<h3>Web Vitals &amp; Performance Hydration</h3>
-<p>LCP, FID, CLS. We audit DOM rendering depth, critical rendering paths, CSS blockages, and server response times to ensure an instant-load user experience.</p>
-</div>
-</div>
-<div class="note-item">
-<div class="note-label">Engine</div>
-<div class="note-content">
-<h3>Crawl Architecture &amp; Index Diagnostics</h3>
-<p>Eliminating canonical loops, crawl budget leaks, robots.txt exclusions, and faceted pagination bloat. We secure clean, fast access paths for all search engines.</p>
-</div>
-</div>
-<div class="note-item">
-<div class="note-label">Base</div>
-<div class="note-content">
-<h3>Semantic Schemes &amp; GEO Optimization</h3>
-<p>Injecting robust graph schemas, Q&A patterns, and entity signals to ensure your content is cited inside Google AI Overviews and modern LLM interfaces.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="methodology-visual scroll-3d-card-wrap">
-<div class="visual-card scroll-3d-card">
-<div class="visual-card-img-wrap">
-<img alt="TechAuditPros Speed Dashboard" src="../assets/images/blog/audit_speed_dashboard.png"/>
-</div>
-<div class="visual-card-title">
-<span>🚀 Platform Performance Card</span>
-</div>
-</div>
-</div>
-</div>
+<!-- ========== METHODOLOGY SCROLL-DRIVEN STICKY 3D SECTION ========== -->
+<section class="methodology-scroll-wrapper" id="methodology">
+    <div class="methodology-sticky-container">
+        <!-- Holographic Parallax Depth Grid -->
+        <div class="methodology-depth-grid"></div>
+        <div class="methodology-glow-orb"></div>
+        
+        <!-- Central Sticky 3D Card -->
+        <div class="methodology-sticky-card-wrap">
+            <div class="methodology-sticky-card">
+                <div class="visual-card-img-wrap">
+                    <img alt="TechAuditPros Speed Dashboard" src="../assets/images/blog/audit_speed_dashboard.png"/>
+                </div>
+                <div class="visual-card-title">
+                    <span>🚀 Platform Performance Card</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Text Reveal Panels (Staggered Phases) -->
+        <div class="methodology-phase-container">
+            <!-- Phase 1: Left Slide -->
+            <div class="methodology-text-phase phase-1 phase-left">
+                <div class="methodology-eyebrow">⚡ Phase 01 / Core</div>
+                <h3>Web Vitals &amp; Performance Hydration</h3>
+                <p>LCP, FID, CLS. We audit DOM rendering depth, critical rendering paths, CSS blockages, and server response times to ensure an instant-load user experience.</p>
+            </div>
+            
+            <!-- Phase 2: Right Slide -->
+            <div class="methodology-text-phase phase-2 phase-right">
+                <div class="methodology-eyebrow">⚙️ Phase 02 / Engine</div>
+                <h3>Crawl Architecture &amp; Index Diagnostics</h3>
+                <p>Eliminating canonical loops, crawl budget leaks, robots.txt exclusions, and faceted pagination bloat. We secure clean, fast access paths for all search engines.</p>
+            </div>
+
+            <!-- Phase 3: Left Slide -->
+            <div class="methodology-text-phase phase-3 phase-left">
+                <div class="methodology-eyebrow">🤖 Phase 03 / Base</div>
+                <h3>Semantic Schemes &amp; GEO Optimization</h3>
+                <p>Injecting robust graph schemas, Q&amp;A patterns, and entity signals to claim top citations in Google AI search and LLM engines.</p>
+            </div>
+        </div>
+    </div>
 </section>
 <!-- ========== FILTER BAR ========== -->
 <div class="filter-bar">
@@ -2325,8 +2413,6 @@ document.addEventListener('DOMContentLoaded', function() {
     startSlideShow();
 });
 </script>
-<!-- ========== 3D CARD SCROLL & HOVER CONTROLLER ========== -->
-<script>
 document.addEventListener('DOMContentLoaded', function() {
     // 1. Dynamic wrapper initialization for blog cards in grid
     document.querySelectorAll('.blog-card').forEach(card => {
@@ -2344,8 +2430,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // 2. High-Performance GPU-Accelerated 3D Scroll Rotation
-    const scroll3dCards = document.querySelectorAll('.scroll-3d-card');
+    // 2. High-Performance GPU-Accelerated 3D Scroll Rotation for general cards
+    const scroll3dCards = document.querySelectorAll('.scroll-3d-card:not(.methodology-sticky-card)');
     
     function update3dScroll() {
         const viewportHeight = window.innerHeight;
@@ -2369,21 +2455,183 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // 3. Methodology Section Scroll-Progress Sticky 3D Animation
+    const scrollWrapper = document.querySelector('.methodology-scroll-wrapper');
+    const depthGrid = document.querySelector('.methodology-depth-grid');
+    const cardWrap = document.querySelector('.methodology-sticky-card-wrap');
+    const methCard = document.querySelector('.methodology-sticky-card');
+    const phase1 = document.querySelector('.methodology-text-phase.phase-1');
+    const phase2 = document.querySelector('.methodology-text-phase.phase-2');
+    const phase3 = document.querySelector('.methodology-text-phase.phase-3');
+
+    function animateMethodology() {
+        if (!scrollWrapper || window.innerWidth <= 900) return;
+        
+        const rect = scrollWrapper.getBoundingClientRect();
+        const viewHeight = window.innerHeight;
+        
+        // Progress of scroll within the wrapper (0 when top is at viewport top, 1 when bottom is at viewport bottom)
+        const totalScrollable = rect.height - viewHeight;
+        const scrollOffset = -rect.top;
+        const progress = Math.max(0, Math.min(1, scrollOffset / totalScrollable));
+        
+        // 3.1 Depth Grid Animation
+        if (depthGrid) {
+            const gridTranslateY = -progress * 80;
+            depthGrid.style.transform = `perspective(1000px) rotateX(65deg) translateY(${gridTranslateY}px) translateZ(-150px) scale(1.8)`;
+            // Glow intensity rises in the middle of the scroll sequence
+            const glowVal = 0.15 + (1 - Math.abs(progress - 0.5) * 2) * 0.25;
+            depthGrid.style.opacity = Math.max(0.1, Math.min(0.5, glowVal));
+        }
+        
+        // 3.2 Card Animation (Position & 3D tilt)
+        if (cardWrap && (!methCard || !methCard.classList.contains('is-hovered'))) {
+            let cardScale = 1;
+            let cardOpacity = 1;
+            let cardRotateX = 0;
+            let cardRotateY = 0;
+            let cardTranslateX = 0;
+            
+            if (progress < 0.15) {
+                // Entrance Phase (zoom in)
+                const enterProg = progress / 0.15; // 0 to 1
+                cardScale = 0.8 + enterProg * 0.2;
+                cardOpacity = enterProg;
+                cardRotateX = 15 * (1 - enterProg);
+                cardTranslateX = 0;
+            } else if (progress >= 0.15 && progress < 0.45) {
+                // Phase 1 (Core Web Vitals): Card shifts right, tilts right (rotateY > 0)
+                const phaseProg = (progress - 0.15) / 0.3; // 0 to 1
+                const eased = Math.sin(phaseProg * Math.PI / 2); // 0 to 1
+                cardTranslateX = eased * 120; // shift right
+                cardRotateY = eased * 10;
+                cardRotateX = eased * -5;
+            } else if (progress >= 0.45 && progress < 0.55) {
+                // Phase 1 to Phase 2 transition: Card shifts from right to left
+                const transProg = (progress - 0.45) / 0.1; // 0 to 1
+                const eased = Math.sin(transProg * Math.PI - Math.PI / 2) * 0.5 + 0.5; // 0 to 1 (S-curve)
+                cardTranslateX = 120 - eased * 240; // 120 to -120
+                cardRotateY = 10 - eased * 20; // 10 to -10
+                cardRotateX = -5 + eased * 10; // -5 to 5
+            } else if (progress >= 0.55 && progress < 0.8) {
+                // Phase 2 (Crawl): Card stays left, tilts left (rotateY < 0)
+                cardTranslateX = -120;
+                cardRotateY = -10;
+                cardRotateX = 5;
+            } else if (progress >= 0.8 && progress < 0.9) {
+                // Phase 2 to Phase 3 transition: Card shifts from left to right again
+                const transProg = (progress - 0.8) / 0.1; // 0 to 1
+                const eased = Math.sin(transProg * Math.PI - Math.PI / 2) * 0.5 + 0.5; // 0 to 1
+                cardTranslateX = -120 + eased * 240; // -120 to 120
+                cardRotateY = -10 + eased * 20; // -10 to 10
+                cardRotateX = 5 - eased * 10; // 5 to -5
+            } else {
+                // Phase 3 active / exit
+                cardTranslateX = 120;
+                cardRotateY = 10;
+                cardRotateX = -5;
+                if (progress > 0.95) {
+                    const exitProg = (progress - 0.95) / 0.05; // 0 to 1
+                    cardOpacity = 1 - exitProg;
+                    cardScale = 1 - exitProg * 0.05;
+                }
+            }
+            
+            cardWrap.style.transform = `translate3d(${cardTranslateX}px, 0, 0) rotateX(${cardRotateX}deg) rotateY(${cardRotateY}deg) scale(${cardScale})`;
+            cardWrap.style.opacity = cardOpacity;
+        }
+        
+        // 3.3 Text Phases Animation (opacities and horizontal slides)
+        // Phase 1 text: active between 0.15 and 0.48
+        if (phase1) {
+            let p1Opacity = 0;
+            let p1TranslateX = -60;
+            if (progress >= 0.15 && progress < 0.48) {
+                if (progress < 0.23) {
+                    const prog = (progress - 0.15) / 0.08;
+                    p1Opacity = prog;
+                    p1TranslateX = -60 * (1 - prog);
+                } else if (progress >= 0.23 && progress < 0.38) {
+                    p1Opacity = 1;
+                    p1TranslateX = 0;
+                } else {
+                    const prog = (progress - 0.38) / 0.1;
+                    p1Opacity = 1 - prog;
+                    p1TranslateX = -60 * prog;
+                }
+            }
+            phase1.style.opacity = p1Opacity;
+            phase1.style.transform = `translate3d(${p1TranslateX}px, -50%, 0)`;
+            phase1.style.pointerEvents = p1Opacity > 0.1 ? 'auto' : 'none';
+        }
+        
+        // Phase 2 text: active between 0.48 and 0.82
+        if (phase2) {
+            let p2Opacity = 0;
+            let p2TranslateX = 60;
+            if (progress >= 0.48 && progress < 0.82) {
+                if (progress < 0.58) {
+                    const prog = (progress - 0.48) / 0.1;
+                    p2Opacity = prog;
+                    p2TranslateX = 60 * (1 - prog);
+                } else if (progress >= 0.58 && progress < 0.72) {
+                    p2Opacity = 1;
+                    p2TranslateX = 0;
+                } else {
+                    const prog = (progress - 0.72) / 0.1;
+                    p2Opacity = 1 - prog;
+                    p2TranslateX = 60 * prog;
+                }
+            }
+            phase2.style.opacity = p2Opacity;
+            phase2.style.transform = `translate3d(${p2TranslateX}px, -50%, 0)`;
+            phase2.style.pointerEvents = p2Opacity > 0.1 ? 'auto' : 'none';
+        }
+        
+        // Phase 3 text: active between 0.8 and 1.0
+        if (phase3) {
+            let p3Opacity = 0;
+            let p3TranslateX = -60;
+            if (progress >= 0.8) {
+                if (progress < 0.86) {
+                    const prog = (progress - 0.8) / 0.06;
+                    p3Opacity = prog;
+                    p3TranslateX = -60 * (1 - prog);
+                } else if (progress >= 0.86 && progress < 0.95) {
+                    p3Opacity = 1;
+                    p3TranslateX = 0;
+                } else {
+                    const prog = (progress - 0.95) / 0.05;
+                    p3Opacity = Math.max(0, 1 - prog);
+                    p3TranslateX = -60 * prog;
+                }
+            }
+            phase3.style.opacity = p3Opacity;
+            phase3.style.transform = `translate3d(${p3TranslateX}px, -50%, 0)`;
+            phase3.style.pointerEvents = p3Opacity > 0.1 ? 'auto' : 'none';
+        }
+    }
     
     // Throttle scroll events via requestAnimationFrame
     window.addEventListener('scroll', () => {
-        window.requestAnimationFrame(update3dScroll);
+        window.requestAnimationFrame(() => {
+            update3dScroll();
+            animateMethodology();
+        });
     });
+    
     // Run once on load
     update3dScroll();
+    animateMethodology();
 
-    // 3. 3D Mouse Hover Tilt Effect
+    // 4. 3D Mouse Hover Tilt Effect for general cards
     scroll3dCards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
             card.classList.add('is-hovered');
             const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left; // x position within element
-            const y = e.clientY - rect.top;  // y position within element
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
             
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
@@ -2396,9 +2644,59 @@ document.addEventListener('DOMContentLoaded', function() {
         
         card.addEventListener('mouseleave', () => {
             card.classList.remove('is-hovered');
-            card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+            card.style.transform = '';
             window.requestAnimationFrame(update3dScroll);
         });
+    });
+
+    // 5. 3D Mouse Hover Tilt Effect specifically for Methodology sticky card
+    if (methCard && cardWrap) {
+        methCard.addEventListener('mousemove', (e) => {
+            methCard.classList.add('is-hovered');
+            const rect = methCard.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateY = ((x - centerX) / centerX) * 15; // max 15deg
+            const rotateX = ((centerY - y) / centerY) * 15; // max 15deg
+            
+            // Keep card shifting position but apply custom hover rotation
+            const currentTransform = cardWrap.style.transform;
+            const regex = /translate3d\(([^)]+)\)/;
+            const match = currentTransform.match(regex);
+            const translateStr = match ? `translate3d(${match[1]})` : 'translate3d(0,0,0)';
+            
+            cardWrap.style.transform = `${translateStr} rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+        });
+        
+        methCard.addEventListener('mouseleave', () => {
+            methCard.classList.remove('is-hovered');
+            window.requestAnimationFrame(animateMethodology);
+        });
+    }
+
+    // Handle Resize resets
+    window.addEventListener('resize', () => {
+        if (window.innerWidth <= 900) {
+            // Reset styles for mobile stack
+            if (depthGrid) depthGrid.style.transform = '';
+            if (cardWrap) {
+                cardWrap.style.transform = '';
+                cardWrap.style.opacity = '';
+            }
+            [phase1, phase2, phase3].forEach(p => {
+                if (p) {
+                    p.style.opacity = '';
+                    p.style.transform = '';
+                    p.style.pointerEvents = '';
+                }
+            });
+        } else {
+            window.requestAnimationFrame(animateMethodology);
+        }
     });
 });
 </script>
