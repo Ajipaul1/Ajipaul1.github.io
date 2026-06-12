@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -420,7 +420,9 @@
       height: 80px;
       object-fit: contain;
       display: block;
-      filter: drop-shadow(0 0 12px rgba(16, 185, 129, 0.6)) drop-shadow(0 0 24px rgba(16, 185, 129, 0.3));
+      /* mix-blend-mode:screen removes the dark PNG background — black becomes transparent */
+      mix-blend-mode: screen;
+      filter: drop-shadow(0 0 14px rgba(16, 185, 129, 0.75)) drop-shadow(0 0 28px rgba(16, 185, 129, 0.4));
       will-change: transform;
       animation: iconBob 3s ease-in-out infinite;
     }
@@ -2655,18 +2657,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
         allTriggers.push(methTl.scrollTrigger);
 
-        // ── SEGMENT 3: Blog grid — float in right margin, subtle ─────────────
+        // ── SEGMENT 3: Blog grid — icon traverses TOP→BOTTOM through each blog card row ──
+        // As user scrolls through the blog cards, the icon moves from top of viewport
+        // to bottom, giving the effect of "visiting" each blog card.
+        // pixel-based y: since icon is anchored at top:50% (50vh), we shift it
+        // from -38vh above center (near top) to +38vh below center (near bottom)
         const t3 = ScrollTrigger.create({
             trigger: blogLayout,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 1.5,
-            animation: gsap.timeline()
-                // Reset to right margin at blog section entry
-                .set(iconWrap, { x: 0 })
-                .to(iconWrap, { opacity: 0.55, scale: 0.9, rotation: -5, y: '-60%', duration: 0.5 }, 0)
-                // Float gently down through the blog section
-                .to(iconWrap, { y: '-20%', rotation: 8, duration: 1, ease: 'none' }, 0)
+            start: 'top center',     // starts when top of blog grid hits viewport center
+            end: 'bottom center',    // ends when bottom of blog grid hits viewport center
+            scrub: 2,                // slightly smoother for the longer travel
+            onEnter: () => gsap.to(iconWrap, { opacity: 0.8, scale: 1, duration: 0.4, overwrite: 'auto' }),
+            onLeaveBack: () => gsap.to(iconWrap, { opacity: 0.4, duration: 0.3, overwrite: 'auto' }),
+            animation: gsap.fromTo(iconWrap,
+                // Start: near top of viewport, right margin
+                {
+                    y: () => -(window.innerHeight * 0.38),
+                    x: 0,
+                    rotation: -12,
+                    scale: 1.05
+                },
+                // End: near bottom of viewport, right margin
+                {
+                    y: () => window.innerHeight * 0.38,
+                    x: 0,
+                    rotation: 12,
+                    scale: 1.05,
+                    ease: 'none'   // linear travel so it matches each card row perfectly
+                }
+            )
         });
         allTriggers.push(t3);
 
