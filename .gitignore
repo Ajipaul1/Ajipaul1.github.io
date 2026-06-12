@@ -12,3 +12,4 @@ autopilot-engine/screenshots/
 *.jpeg
 *.mp4
 *.pdf
+!assets/images/**
