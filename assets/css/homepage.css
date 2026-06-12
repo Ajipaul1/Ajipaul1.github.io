@@ -1874,11 +1874,11 @@ body.home-page-redesign {
 }
 
 .founder-image-clean img {
-    width: 380px;
+    width: 440px;
     height: auto;
-    border-radius: 16px;
-    border: 6px solid #ffffff;
-    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+    border-radius: 20px;
+    border: 8px solid #ffffff;
+    box-shadow: 0 30px 60px -15px rgba(15, 23, 42, 0.3);
     display: block;
     position: relative;
     z-index: 1;
@@ -1912,10 +1912,11 @@ body.home-page-redesign {
         text-align: center;
     }
     .founder-image-clean img {
-        width: 320px;
-        max-width: 90%;
+        width: 380px;
+        max-width: 95%;
         height: auto;
-        border-radius: 12px;
+        border-radius: 16px;
+        border: 6px solid #ffffff;
     }
     .founder-image-clean::before {
         left: calc(50% - 170px);
