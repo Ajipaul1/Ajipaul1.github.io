@@ -390,24 +390,19 @@
     }
 
     /* =============================================
-       METHODOLOGY SCROLL-DRIVEN STICKY 3D SECTION
+       GLOBAL FIXED SCROLLYTELLING CONTAINER
     ============================================= */
-    .methodology-scroll-wrapper {
-      position: relative;
-      height: 300vh;
-      background: #040907;
-      border-bottom: 1px solid var(--border-light);
-    }
-    .methodology-sticky-container {
-      position: sticky;
-      top: 70px;
-      height: calc(100vh - 70px);
+    .global-scrolly-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 2;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
-    .methodology-depth-grid {
+    .global-scrolly-grid {
       position: absolute;
       top: 0;
       left: 0;
@@ -426,7 +421,7 @@
       will-change: transform, opacity;
       transition: opacity 0.3s ease;
     }
-    .methodology-glow-orb {
+    .global-scrolly-glow {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -437,28 +432,31 @@
       z-index: 1;
       pointer-events: none;
     }
-    .methodology-sticky-card-wrap {
-      position: relative;
+    .global-scrolly-card-wrap {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       z-index: 5;
       perspective: 1200px;
       transform-style: preserve-3d;
-      transition: transform 0.1s cubic-bezier(0.1, 0.8, 0.2, 1), opacity 0.2s ease;
       will-change: transform, opacity;
       opacity: 0;
+      width: 440px;
+      pointer-events: auto;
     }
-    .methodology-sticky-card {
+    .global-scrolly-card {
       background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: var(--radius-xl);
       padding: 1.25rem;
       box-shadow: var(--shadow-xl), 0 0 40px rgba(16, 185, 129, 0.05);
-      width: 440px;
-      max-width: 90vw;
       transform-style: preserve-3d;
       backface-visibility: hidden;
       transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
     }
-    .methodology-sticky-card:hover {
+    .global-scrolly-card:hover {
       border-color: rgba(16, 185, 129, 0.3);
       box-shadow: var(--shadow-xl), 0 0 50px rgba(16, 185, 129, 0.15);
     }
@@ -468,13 +466,13 @@
       aspect-ratio: 4 / 3;
       background: #06120e;
     }
-    .methodology-sticky-card img {
+    .global-scrolly-card img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.6s ease;
     }
-    .methodology-sticky-card:hover img {
+    .global-scrolly-card:hover img {
       transform: scale(1.03);
     }
     .visual-card-title {
@@ -490,6 +488,25 @@
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
+    }
+
+    /* =============================================
+       METHODOLOGY SCROLL-DRIVEN STICKY 3D SECTION
+    ============================================= */
+    .methodology-scroll-wrapper {
+      position: relative;
+      height: 300vh;
+      background: #040907;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .methodology-sticky-container {
+      position: sticky;
+      top: 70px;
+      height: calc(100vh - 70px);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .methodology-phase-container {
       position: absolute;
@@ -545,6 +562,28 @@
       line-height: 1.7;
     }
 
+    /* Mobile stacked card definitions */
+    .methodology-visual-mobile {
+      display: none;
+    }
+    .methodology-sticky-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-xl);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-xl), 0 0 40px rgba(16, 185, 129, 0.05);
+      width: 100%;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .methodology-sticky-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
     @media (max-width: 1200px) {
       .phase-left {
         left: 5%;
@@ -558,12 +597,15 @@
       .methodology-text-phase h3 {
         font-size: 1.8rem;
       }
-      .methodology-sticky-card {
+      .global-scrolly-card-wrap {
         width: 380px;
       }
     }
 
     @media (max-width: 900px) {
+      .global-scrolly-wrapper {
+        display: none !important;
+      }
       .methodology-scroll-wrapper {
         height: auto !important;
         padding: 4rem 1.5rem !important;
@@ -577,23 +619,11 @@
         gap: 3rem !important;
         overflow: visible !important;
       }
-      .methodology-depth-grid,
-      .methodology-glow-orb {
-        display: none !important;
-      }
-      .methodology-sticky-card-wrap {
-        position: relative !important;
-        transform: none !important;
-        margin: 0 auto !important;
-        width: 100% !important;
-        max-width: 440px !important;
-        opacity: 1 !important;
-        z-index: 2 !important;
-      }
-      .methodology-sticky-card {
-        transform: none !important;
-        box-shadow: var(--shadow-lg) !important;
-        width: 100% !important;
+      .methodology-visual-mobile {
+        display: block !important;
+        width: 100%;
+        max-width: 440px;
+        margin: 0 auto;
       }
       .methodology-phase-container {
         position: relative !important;
@@ -1527,6 +1557,25 @@
   </style>
 </head>
 <body>
+<!-- ========== GLOBAL SCROLLYTELLING VIEWPORT ========== -->
+<div class="global-scrolly-wrapper">
+    <!-- Holographic Parallax Depth Grid -->
+    <div class="global-scrolly-grid"></div>
+    <div class="global-scrolly-glow"></div>
+    
+    <!-- Central Floating 3D Card -->
+    <div class="global-scrolly-card-wrap">
+        <div class="global-scrolly-card">
+            <div class="visual-card-img-wrap">
+                <img alt="TechAuditPros 3D Cybernetic Audit Device" src="../assets/images/blog/volumetric_audit_device.png"/>
+            </div>
+            <div class="visual-card-title">
+                <span>⚡ Interactive Audit Device</span>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- ========== HEADER ========== -->
 <header class="main-header-bar">
 <div class="header-container">
@@ -1731,12 +1780,8 @@
 <!-- ========== METHODOLOGY SCROLL-DRIVEN STICKY 3D SECTION ========== -->
 <section class="methodology-scroll-wrapper" id="methodology">
     <div class="methodology-sticky-container">
-        <!-- Holographic Parallax Depth Grid -->
-        <div class="methodology-depth-grid"></div>
-        <div class="methodology-glow-orb"></div>
-        
-        <!-- Central Sticky 3D Card -->
-        <div class="methodology-sticky-card-wrap">
+        <!-- Mobile Fallback Card (visible on mobile, hidden on desktop) -->
+        <div class="methodology-visual-mobile">
             <div class="methodology-sticky-card">
                 <div class="visual-card-img-wrap">
                     <img alt="TechAuditPros 3D Cybernetic Audit Device" src="../assets/images/blog/volumetric_audit_device.png"/>
@@ -2454,7 +2499,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // 1. Initialize Lenis Smooth Scrolling
+    // 2. Initialize Lenis Smooth Scrolling
     let lenis;
     function initLenis() {
         if (window.innerWidth > 900) {
@@ -2493,8 +2538,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     initLenis();
 
-    // 2. GSAP ScrollTrigger for general cards (Blog Feed Grid & Featured Article)
-    const scroll3dCards = document.querySelectorAll('.scroll-3d-card:not(.methodology-sticky-card)');
+    // 3. GSAP ScrollTrigger for general grid cards (Blog Feed Grid & Featured Article)
+    const scroll3dCards = document.querySelectorAll('.scroll-3d-card:not(.global-scrolly-card):not(.methodology-sticky-card)');
     scroll3dCards.forEach(card => {
         gsap.set(card, {
             transformStyle: "preserve-3d",
@@ -2554,133 +2599,207 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // 3. GSAP ScrollTrigger Timeline for Pinned Methodology Section
-    let methodologyTimeline;
-    const scrollWrapper = document.querySelector('.methodology-scroll-wrapper');
-    const depthGrid = document.querySelector('.methodology-depth-grid');
-    const cardWrap = document.querySelector('.methodology-sticky-card-wrap');
-    const methCard = document.querySelector('.methodology-sticky-card');
+    // 4. GSAP ScrollTrigger Global Timeline for continuous 3D card scrollytelling
+    gsap.registerPlugin(ScrollTrigger);
+
+    const cardWrap = document.querySelector('.global-scrolly-card-wrap');
+    const globalGrid = document.querySelector('.global-scrolly-grid');
+    const globalCard = document.querySelector('.global-scrolly-card');
     
-    function initMethodologyScrollytelling() {
-        if (!scrollWrapper || window.innerWidth <= 900) {
-            // Kill existing timeline if active
-            if (methodologyTimeline) {
-                methodologyTimeline.kill();
-                methodologyTimeline = null;
-            }
+    const heroSection = document.querySelector('.blog-hero');
+    const methodologySection = document.querySelector('.methodology-scroll-wrapper');
+    const blogLayout = document.querySelector('.blog-layout');
+    const siteFooter = document.querySelector('.site-footer');
+
+    let heroTrigger, methodologyTimeline, blogTrigger, footerTrigger;
+
+    function initGlobalScrollytelling() {
+        // Kill existing triggers/timelines to prevent duplicates on resize
+        if (heroTrigger) heroTrigger.kill();
+        if (methodologyTimeline) methodologyTimeline.kill();
+        if (blogTrigger) blogTrigger.kill();
+        if (footerTrigger) footerTrigger.kill();
+
+        if (window.innerWidth <= 900) {
             // Reset mobile properties
             gsap.set([cardWrap, ".methodology-text-phase"], { clearProps: "all" });
-            gsap.set(depthGrid, { clearProps: "all" });
+            gsap.set(globalGrid, { clearProps: "all" });
             return;
         }
 
         // Establish initial 3D transforms for desktop
-        gsap.set(cardWrap, { scale: 0.75, opacity: 0, rotationX: 18, x: 0, transformStyle: "preserve-3d" });
+        // Hero watermark state: large, semi-transparent background orb behind slides
+        gsap.set(cardWrap, { 
+            scale: 1.4, 
+            opacity: 0.15, 
+            x: 0, 
+            y: 50, 
+            rotationX: 15, 
+            rotationY: 0, 
+            transformStyle: "preserve-3d",
+            force3D: true
+        });
+        
         gsap.set(".methodology-text-phase", { opacity: 0, yPercent: -50 });
         gsap.set(".phase-left", { x: -60 });
         gsap.set(".phase-right", { x: 60 });
 
-        // Create scrubbing timeline
+        // 4.1 Hero Section ScrollTrigger: Watermark -> Focus Methodology Start
+        heroTrigger = ScrollTrigger.create({
+            trigger: heroSection,
+            start: "top top",
+            end: "bottom top",
+            scrub: 1.2,
+            animation: gsap.to(cardWrap, {
+                scale: 1.0,
+                opacity: 1.0,
+                x: 0,
+                y: 0,
+                rotationX: 0,
+                rotationY: 0,
+                ease: "power1.out"
+            })
+        });
+
+        // 4.2 Methodology ScrollTrigger Timeline: Detailed Phase Shifts & Grid Parallax
         methodologyTimeline = gsap.timeline({
             scrollTrigger: {
-                trigger: scrollWrapper,
+                trigger: methodologySection,
                 start: "top 70px",
                 end: "bottom bottom",
-                scrub: 1,
+                scrub: 1.2,
                 invalidateOnRefresh: true
             }
         });
 
-        // 3.1 Depth Grid Parallax movement
-        if (depthGrid) {
-            methodologyTimeline.fromTo(depthGrid, 
-                { transform: "perspective(1000px) rotateX(65deg) translateY(0px) translateZ(-150px) scale(1.8)", opacity: 0.25 },
-                { transform: "perspective(1000px) rotateX(65deg) translateY(-80px) translateZ(-150px) scale(1.8)", opacity: 0.45, ease: "none" },
+        // Parallax background grid movement
+        if (globalGrid) {
+            methodologyTimeline.fromTo(globalGrid, 
+                { transform: "perspective(1000px) rotateX(65deg) translateY(0px) translateZ(-150px) scale(1.8)", opacity: 0.3 },
+                { transform: "perspective(1000px) rotateX(65deg) translateY(-120px) translateZ(-150px) scale(1.8)", opacity: 0.5, ease: "none" },
                 0
             );
         }
 
-        // 3.2 Card Entrance
+        // Phase 1: Core Web Vitals (Shifts Right, Slides Text Left)
         methodologyTimeline.to(cardWrap, {
-            scale: 1,
-            opacity: 1,
-            rotationX: 0,
-            duration: 0.8,
-            ease: "power2.out"
-        }, 0);
-
-        // 3.3 Phase 1: Core Web Vitals (Shifts Right, Slides Text Left)
-        methodologyTimeline.to(cardWrap, {
-            x: 120,
-            rotationY: 10,
+            x: 140,
+            rotationY: 12,
             rotationX: -5,
             duration: 1.2,
             ease: "power1.inOut"
-        }, 0.8);
+        }, 0.5);
         methodologyTimeline.to(".phase-1", {
             opacity: 1,
             x: 0,
             duration: 0.8,
             ease: "power2.out"
-        }, 0.9);
+        }, 0.6);
         methodologyTimeline.to(".phase-1", {
             opacity: 0,
             x: -60,
             duration: 0.8,
             ease: "power2.in"
-        }, 2.0);
+        }, 1.8);
 
-        // 3.4 Phase 2: Crawl Diagnostics (Shifts Left, Slides Text Right)
+        // Phase 2: Crawl Diagnostics (Shifts Left, Slides Text Right)
         methodologyTimeline.to(cardWrap, {
-            x: -120,
-            rotationY: -10,
+            x: -140,
+            rotationY: -12,
             rotationX: 5,
             duration: 1.5,
             ease: "power1.inOut"
-        }, 2.4);
+        }, 2.2);
         methodologyTimeline.to(".phase-2", {
             opacity: 1,
             x: 0,
             duration: 0.8,
             ease: "power2.out"
-        }, 2.6);
+        }, 2.4);
         methodologyTimeline.to(".phase-2", {
             opacity: 0,
             x: 60,
             duration: 0.8,
             ease: "power2.in"
-        }, 3.8);
+        }, 3.6);
 
-        // 3.5 Phase 3: Semantic Schemes (Shifts Right, Slides Text Left)
+        // Phase 3: Semantic Schemes (Shifts Right, Slides Text Left)
         methodologyTimeline.to(cardWrap, {
-            x: 120,
-            rotationY: 10,
+            x: 140,
+            rotationY: 12,
             rotationX: -5,
             duration: 1.5,
             ease: "power1.inOut"
-        }, 4.2);
+        }, 4.0);
         methodologyTimeline.to(".phase-3", {
             opacity: 1,
             x: 0,
             duration: 0.8,
             ease: "power2.out"
-        }, 4.4);
+        }, 4.2);
 
-        // 3.6 Final Exit (Zoom out and Fade before wrapper ends)
-        methodologyTimeline.to([cardWrap, ".phase-3"], {
-            scale: 0.95,
+        // Transition to Blog Grid watermark state at the end of Methodology
+        methodologyTimeline.to(cardWrap, {
+            x: 0,
+            y: 0,
+            scale: 0.7,
+            opacity: 0.12,
+            rotationX: 20,
+            rotationY: 10,
+            duration: 1.2,
+            ease: "power1.inOut"
+        }, 5.2);
+        methodologyTimeline.to(".phase-3", {
             opacity: 0,
-            duration: 1.0,
-            ease: "power2.in"
-        }, 5.5);
-    }
-    initMethodologyScrollytelling();
+            duration: 0.8,
+            ease: "power1.in"
+        }, 5.2);
 
-    // 4. Interactive Mouse Hover Tilt specifically for Methodology sticky card
-    if (methCard && cardWrap) {
-        methCard.addEventListener('mousemove', (e) => {
-            methCard.classList.add('is-hovered');
-            const rect = methCard.getBoundingClientRect();
+        // 4.3 Blog Grid Layout ScrollTrigger: Maintain watermark state
+        blogTrigger = ScrollTrigger.create({
+            trigger: blogLayout,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1.2,
+            onEnter: () => {
+                gsap.to(cardWrap, {
+                    scale: 0.7,
+                    opacity: 0.12,
+                    x: 0,
+                    y: 0,
+                    rotationX: 20,
+                    rotationY: 10,
+                    duration: 0.5,
+                    overwrite: "auto"
+                });
+            }
+        });
+
+        // 4.4 Footer ScrollTrigger: Fade out completely
+        footerTrigger = ScrollTrigger.create({
+            trigger: siteFooter,
+            start: "top bottom",
+            end: "top center",
+            scrub: 1.2,
+            animation: gsap.to(cardWrap, {
+                opacity: 0,
+                scale: 0.5,
+                ease: "power1.in"
+            })
+        });
+    }
+
+    initGlobalScrollytelling();
+
+    // 5. Interactive Mouse Hover Tilt specifically for Global Floating Card
+    if (globalCard && cardWrap) {
+        globalCard.addEventListener('mousemove', (e) => {
+            // Only apply tilt if the card is visible/focused (opacity is high)
+            const currentOpacity = gsap.getProperty(cardWrap, "opacity");
+            if (currentOpacity < 0.5) return;
+
+            globalCard.classList.add('is-hovered');
+            const rect = globalCard.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
             const centerX = rect.width / 2;
@@ -2688,23 +2807,26 @@ document.addEventListener('DOMContentLoaded', function() {
             const rotateY = ((x - centerX) / centerX) * 15; // max 15deg
             const rotateX = ((centerY - y) / centerY) * 15; // max 15deg
             
-            // Get current timeline translation parameters to preserve position
+            // Get current layout translations from cardWrap computed style
             const transformMatrix = window.getComputedStyle(cardWrap).transform;
             let currentX = 0;
+            let currentY = 0;
             if (transformMatrix !== 'none') {
                 const values = transformMatrix.split('(')[1].split(')')[0].split(',');
-                // 2D transform vs 3D transform matrix parsing
                 if (values.length === 6) {
                     currentX = parseFloat(values[4]);
+                    currentY = parseFloat(values[5]);
                 } else if (values.length === 16) {
                     currentX = parseFloat(values[12]);
+                    currentY = parseFloat(values[13]);
                 }
             }
 
-            // Pause scrubbing animation on card Wrap, apply interactive hover transforms
+            // Temporarily suspend ScrollTrigger scrub values, apply tilt
             gsap.killTweensOf(cardWrap);
             gsap.to(cardWrap, {
                 x: currentX,
+                y: currentY,
                 rotationX: rotateX,
                 rotationY: rotateY,
                 scale: 1.03,
@@ -2713,32 +2835,26 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
-        methCard.addEventListener('mouseleave', () => {
-            methCard.classList.remove('is-hovered');
-            // Re-sync with timeline scroll triggered values
-            if (methodologyTimeline) {
-                // Force timeline update to match scroll position
-                const currentProgress = methodologyTimeline.scrollTrigger.progress;
-                gsap.to(cardWrap, {
-                    x: methodologyTimeline.tweenTo(currentProgress).vars.x || 0,
-                    rotationX: methodologyTimeline.tweenTo(currentProgress).vars.rotationX || 0,
-                    rotationY: methodologyTimeline.tweenTo(currentProgress).vars.rotationY || 0,
-                    scale: methodologyTimeline.tweenTo(currentProgress).vars.scale || 1,
-                    duration: 0.6,
-                    overwrite: "auto",
-                    onComplete: () => {
-                        // Refresh the scroll trigger to snap back to regular timeline
-                        ScrollTrigger.refresh();
-                    }
-                });
-            }
+        globalCard.addEventListener('mouseleave', () => {
+            globalCard.classList.remove('is-hovered');
+            // Animate card back to neutral, then let ScrollTrigger resume control
+            gsap.to(cardWrap, {
+                rotationX: 0,
+                rotationY: 0,
+                scale: 1.0,
+                duration: 0.5,
+                overwrite: "auto",
+                onComplete: () => {
+                    ScrollTrigger.update();
+                }
+            });
         });
     }
 
-    // 5. Handle Resize and resets
+    // 6. Handle resizing & orientation updates
     window.addEventListener('resize', () => {
         initLenis();
-        initMethodologyScrollytelling();
+        initGlobalScrollytelling();
         ScrollTrigger.refresh();
     });
 });
