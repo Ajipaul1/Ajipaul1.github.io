@@ -360,6 +360,21 @@
     }
 
     /* =============================================
+       3D CARD ROTATION & TRANSFORM EFFECTS
+    ============================================= */
+    .scroll-3d-card-wrap {
+      perspective: 1200px;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+    .scroll-3d-card {
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+      will-change: transform, box-shadow;
+    }
+
+    /* =============================================
        METHODOLOGY NARRATIVE SPLIT SECTION (SELVA CONCEPT)
     ============================================= */
     .methodology-section {
@@ -1642,8 +1657,8 @@
 </div>
 </div>
 </div>
-<div class="methodology-visual">
-<div class="visual-card">
+<div class="methodology-visual scroll-3d-card-wrap">
+<div class="visual-card scroll-3d-card">
 <div class="visual-card-img-wrap">
 <img alt="TechAuditPros Speed Dashboard" src="../assets/images/blog/audit_speed_dashboard.png"/>
 </div>
@@ -1671,8 +1686,9 @@
 <main>
 <!-- FEATURED POST -->
 <div class="section-label">⭐ Featured Article</div>
+<div class="scroll-3d-card-wrap">
 <a href="../blog/how-to-fix-crawlability-issues/" style="display:block;">
-<article class="featured-post">
+<article class="featured-post scroll-3d-card">
 <div class="featured-post-image">
 <img alt="How to Fix Crawlability Issues — TechAuditPros Guide" src="../assets/images/services/seo_services_hero.png"/>
 <span class="featured-badge">🔥 Most Read</span>
@@ -1690,6 +1706,7 @@
 </div>
 </article>
 </a>
+</div>
 <!-- ALL POSTS GRID -->
 <div class="blog-grid-heading">
 <div class="section-label">📰 All Articles</div>
@@ -2306,6 +2323,83 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     startSlideShow();
+});
+</script>
+<!-- ========== 3D CARD SCROLL & HOVER CONTROLLER ========== -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Dynamic wrapper initialization for blog cards in grid
+    document.querySelectorAll('.blog-card').forEach(card => {
+        card.classList.add('scroll-3d-card');
+        const anchor = card.parentElement;
+        if (anchor && anchor.tagName === 'A') {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'scroll-3d-card-wrap';
+            wrapper.style.display = 'flex';
+            wrapper.style.flexDirection = 'column';
+            wrapper.style.height = '100%';
+            
+            anchor.parentNode.insertBefore(wrapper, anchor);
+            wrapper.appendChild(anchor);
+        }
+    });
+
+    // 2. High-Performance GPU-Accelerated 3D Scroll Rotation
+    const scroll3dCards = document.querySelectorAll('.scroll-3d-card');
+    
+    function update3dScroll() {
+        const viewportHeight = window.innerHeight;
+        scroll3dCards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            const cardCenter = rect.top + rect.height / 2;
+            const normalizedPos = cardCenter / viewportHeight; // 0 (top) to 1 (bottom)
+            
+            // Only animate if card is visible in viewport
+            if (rect.top < viewportHeight && rect.bottom > 0) {
+                // Rotation angle: tilt backward at bottom, forward at top (max 10 degrees)
+                const rotateX = (normalizedPos - 0.5) * -20; 
+                const scale = 1 - Math.abs(normalizedPos - 0.5) * 0.05;
+                const shadowY = (normalizedPos - 0.5) * 15;
+                
+                // Keep the active hover rotation override if card is currently hovered
+                if (!card.classList.contains('is-hovered')) {
+                    card.style.transform = `rotateX(${rotateX}deg) scale(${scale})`;
+                }
+                card.style.boxShadow = `0 ${20 + shadowY}px ${40 - Math.abs(normalizedPos - 0.5) * 8}px rgba(0, 0, 0, 0.4), 0 0 20px rgba(16, 185, 129, ${0.06 - Math.abs(normalizedPos - 0.5) * 0.03})`;
+            }
+        });
+    }
+    
+    // Throttle scroll events via requestAnimationFrame
+    window.addEventListener('scroll', () => {
+        window.requestAnimationFrame(update3dScroll);
+    });
+    // Run once on load
+    update3dScroll();
+
+    // 3. 3D Mouse Hover Tilt Effect
+    scroll3dCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            card.classList.add('is-hovered');
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left; // x position within element
+            const y = e.clientY - rect.top;  // y position within element
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateY = ((x - centerX) / centerX) * 12; // max 12deg
+            const rotateX = ((centerY - y) / centerY) * 12; // max 12deg
+            
+            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.classList.remove('is-hovered');
+            card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+            window.requestAnimationFrame(update3dScroll);
+        });
+    });
 });
 </script>
 <!-- MOBILE_SCRIPT_START -->
