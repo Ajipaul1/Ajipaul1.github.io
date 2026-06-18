@@ -4,44 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Viraat Marine | Premium Marine Design & Shipbuilding Kerala</title>
-  <meta name="description" content="Welcome to Viraat Marine, an ISO 9001:2015 and ISO 14001:2015 certified company where competence and passion meet the ocean. Discover premium marine design, fabrication, custom boat building, and project management in Kochi, Kerala.">
+  <meta name="description" content="Welcome to Viraat Marine, an ISO 9001:2015 and ISO 14001:2015 certified shipyard and naval consultancy. Custom building houseboats, yachts, tugs, barges, and passenger boats in Kochi, Kerala.">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="../favicon.png" type="image/png">
-  
-  <!-- GSAP & ScrollTrigger CDNs -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
 
-  <!-- Tech Grid Background -->
-  <div class="tech-grid-bg"></div>
-
-  <!-- Ambient Glow Spotlights -->
-  <div class="glow-spotlight-1"></div>
-  <div class="glow-spotlight-2"></div>
-
-  <!-- Header -->
+  <!-- Header Section -->
   <header id="main-header">
     <div class="nav-container">
-      <a href="#" class="logo-wrapper" id="logo">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M16 2L30 10L16 18L2 10L16 2Z" fill="#00f2fe" />
-          <path d="M2 12L16 20L30 12" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" />
-          <path d="M2 20L16 28L30 20" stroke="#10b981" stroke-width="2" stroke-linecap="round" />
+      <a href="#" class="logo-wrapper">
+        <!-- SVG Custom Crest -->
+        <svg class="logo-crest" width="38" height="38" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 5C25.1 5 5 25.1 5 50s20.1 45 45 45 45-20.1 45-45S74.9 5 50 5zm0 84c-21.5 0-39-17.5-39-39s17.5-39 39-39 39 17.5 39 39-17.5 39-39 39z"/>
+          <path d="M50 20c-1.7 0-3 1.3-3 3v20.2c-2.4 1.2-4 3.7-4 6.8 0 4.1 3.4 7.5 7.5 7.5s7.5-3.4 7.5-7.5c0-3.1-1.6-5.6-4-6.8V23c0-1.7-1.3-3-3-3z"/>
+          <path d="M68.8 62.5c-1.2-1.2-3.1-1.2-4.2 0L50 77.1 35.4 62.5c-1.2-1.2-3.1-1.2-4.2 0s-1.2 3.1 0 4.2l16.7 16.7c.6.6 1.4.9 2.1.9s1.5-.3 2.1-.9l16.7-16.7c1.2-1.2 1.2-3.1 0-4.2z"/>
         </svg>
-        <span class="logo-text">VIRAAT<span>MARINE</span></span>
+        <div class="logo-text-group">
+          <span class="logo-title">Viraat Marine</span>
+          <span class="logo-subtitle">Naval Architects & Shipbuilders</span>
+        </div>
       </a>
       <nav>
         <ul class="nav-menu" id="nav-links">
-          <li><a href="#" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#history">Our Journey</a></li>
-          <li><a href="#blueprints">Blueprint 3D</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#builder">Planner</a></li>
-          <li><a href="#careers">Careers</a></li>
-          <li><a href="#contact" class="cta-btn">Contact</a></li>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#range">Our Range</a></li>
+          <li><a href="#services">Our Services</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact" class="cta-btn-green">CONTACT &gt;&gt;</a></li>
         </ul>
       </nav>
       <button class="mob-toggle" id="mobile-menu-btn" aria-label="Toggle Navigation">
@@ -52,965 +42,368 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <!-- Immersive Video Background -->
-    <video class="hero-video-bg" autoplay loop muted playsinline poster="images/yacht_hero_3d.png">
-      <source src="yacht_scroll_reference.mp4" type="video/mp4">
-    </video>
-    <div class="hero-overlay-gradient"></div>
+  <!-- Hero Slider Section -->
+  <section class="hero-slider-container" id="hero">
+    <!-- Slide 1 -->
+    <div class="hero-slide active">
+      <img src="images/hero_image_1.png" alt="Traditional Kerala Boatyard Mooring" class="hero-slide-img">
+    </div>
+    <!-- Slide 2 -->
+    <div class="hero-slide">
+      <img src="images/hero_image_2.png" alt="Luxury Houseboat cruising on Vembanad Lake" class="hero-slide-img">
+    </div>
+    <!-- Slide 3 -->
+    <div class="hero-slide">
+      <img src="images/hero_image_3.png" alt="Modern Passenger Boat cruising Kochi Harbour" class="hero-slide-img">
+    </div>
+    <!-- Slide 4 -->
+    <div class="hero-slide">
+      <img src="images/hero_image_4.png" alt="Speedboats Docked at Luxury Resort Jetty" class="hero-slide-img">
+    </div>
+    <!-- Slide 5 -->
+    <div class="hero-slide">
+      <img src="images/hero_image_5.png" alt="Luxury Yacht sailing off the coast of Kochi" class="hero-slide-img">
+    </div>
 
-    <!-- Perspective 3D Grid background -->
-    <div class="hero-3d-grid-wrap">
-      <div class="hero-3d-grid"></div>
+    <!-- Overlay Content -->
+    <div class="hero-overlay">
+      <div class="hero-seal">
+        <svg width="45" height="45" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 10L12 30v40l38 20 38-20V30L50 10zm0 7.2l30 15.8v34L50 82.8 20 67v-34l30-15.8z"/>
+        </svg>
+        <div class="hero-seal-text">ESTD 2017</div>
+      </div>
+      <h1 class="hero-title">A Leading Indian Shipbuilder<br>with Tradition</h1>
+      <div class="hero-btn-wrap">
+        <a href="#range" class="cta-btn-green">OUR RANGE &gt;&gt;</a>
+      </div>
+    </div>
+
+    <!-- Slider Dots -->
+    <div class="slider-dots">
+      <div class="slider-dot active" data-index="0"></div>
+      <div class="slider-dot" data-index="1"></div>
+      <div class="slider-dot" data-index="2"></div>
+      <div class="slider-dot" data-index="3"></div>
+      <div class="slider-dot" data-index="4"></div>
+    </div>
+  </section>
+
+  <!-- Introduction Section -->
+  <section class="intro-section">
+    <div class="intro-container">
+      <p class="intro-text">
+        Our family business, Viraat Marine, is a market-leading Indian manufacturer and supplier of mixed watercraft. We have supplied our traditional and modern vessels to dozens of satisfied clients across the nation since our inception in 2017.
+      </p>
+    </div>
+  </section>
+
+  <!-- Our Range Section -->
+  <section class="section-wrap" id="range">
+    <div class="section-title-wrap">
+      <h2>Our Range</h2>
     </div>
     
-    <div class="hero-grid">
-      <div class="hero-content" id="hero-text-block">
-        <div class="hero-tag">ISO 9001 & 14001 Certified</div>
-        <h1>
-          <span>Engineering</span><br>
-          <em>The Horizon</em>
-        </h1>
-        <p>Viraat Marine merges computational naval architecture with master steel craftsmanship to build state-of-the-art houseboats, yachts, and commercial vessels in Kochi, Kerala.</p>
-        <div class="hero-btns">
-          <a href="#about" class="secondary-btn">Explore Vision</a>
-          <a href="#contact" class="apply-btn">Get A Proposal</a>
+    <div class="range-grid">
+      <!-- 1. Houseboat and Yacht -->
+      <div class="range-card">
+        <div class="range-img-wrap">
+          <img src="images/range_houseboat_yacht.png" alt="Houseboat and Yacht range Viraat Marine" class="range-img">
+        </div>
+        <div class="range-info">
+          <h3>Houseboat &amp; Yacht</h3>
+          <p>Luxurious custom houseboats and elegant cruising yachts, combining Kerala heritage with modern IRS stability standards.</p>
+          <a href="#contact" class="range-link-btn">&gt;&gt;</a>
         </div>
       </div>
-      
-      <div class="hero-image-container" id="hero-interactive-3d">
-        <div class="hero-image-wrapper" id="yacht-3d-wrapper">
-          <img src="images/yacht_hero_3d.png" alt="3D Yacht Rendering Viraat Marine" id="hero-img-3d">
-          <div class="hero-image-glow-ring"></div>
+
+      <!-- 2. Barge and Pontoon -->
+      <div class="range-card">
+        <div class="range-img-wrap">
+          <img src="images/range_barge_pontoon.png" alt="Barge and Pontoon range Viraat Marine" class="range-img">
+        </div>
+        <div class="range-info">
+          <h3>Barge &amp; Pontoon</h3>
+          <p>Heavy-duty steel flat-top cargo barges, work pontoon platforms, and modular floating docks built for ports and shipyards.</p>
+          <a href="#contact" class="range-link-btn">&gt;&gt;</a>
+        </div>
+      </div>
+
+      <!-- 3. Tug and Workboat -->
+      <div class="range-card">
+        <div class="range-img-wrap">
+          <img src="images/range_tug_workboat.png" alt="Tug and Workboat range Viraat Marine" class="range-img">
+        </div>
+        <div class="range-info">
+          <h3>Tug &amp; Workboat</h3>
+          <p>Powerful steel tugboats, utility workboats, and mooring launches engineered for high bollard pull and reliability.</p>
+          <a href="#contact" class="range-link-btn">&gt;&gt;</a>
+        </div>
+      </div>
+
+      <!-- 4. Fishing Boat -->
+      <div class="range-card">
+        <div class="range-img-wrap">
+          <img src="images/range_fishing.png" alt="Fishing Boat range Viraat Marine" class="range-img">
+        </div>
+        <div class="range-info">
+          <h3>Fishing Boat</h3>
+          <p>Modern commercial deep-sea trawlers, purse seiners, and fiberglass line fishing vessels designed for Indian waters.</p>
+          <a href="#contact" class="range-link-btn">&gt;&gt;</a>
+        </div>
+      </div>
+
+      <!-- 5. Passenger Boat and Ferry boat -->
+      <div class="range-card">
+        <div class="range-img-wrap">
+          <img src="images/range_passenger_ferry.png" alt="Passenger Boat and Ferry range Viraat Marine" class="range-img">
+        </div>
+        <div class="range-info">
+          <h3>Passenger Boat &amp; Ferry</h3>
+          <p>High-capacity double-decker passenger catamaran ferries, water buses, and tourist sightseeing cruisers.</p>
+          <a href="#contact" class="range-link-btn">&gt;&gt;</a>
+        </div>
+      </div>
+
+      <!-- 6. Speed boat and Water Taxi -->
+      <div class="range-card">
+        <div class="range-img-wrap">
+          <img src="images/range_speed_taxi.png" alt="Speed boat and Water Taxi range Viraat Marine" class="range-img">
+        </div>
+        <div class="range-info">
+          <h3>Speed Boat &amp; Water Taxi</h3>
+          <p>High-speed fiberglass hulls, water taxis, and patrol vessels built for speed, fuel efficiency, and rapid water transport.</p>
+          <a href="#contact" class="range-link-btn">&gt;&gt;</a>
+        </div>
+      </div>
+
+      <!-- 7. Canoe and Kayak -->
+      <div class="range-card">
+        <div class="range-img-wrap">
+          <img src="images/range_canoe_kayak.png" alt="Canoe and Kayak range Viraat Marine" class="range-img">
+        </div>
+        <div class="range-info">
+          <h3>Canoe &amp; Kayak</h3>
+          <p>Premium wooden and modern composite canoes and kayaks, handcrafted for resort recreation and backwater paddling.</p>
+          <a href="#contact" class="range-link-btn">&gt;&gt;</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Certifications Banner -->
-  <section class="certs-strip">
-    <div class="cert-badge" id="cert-iso9001">
-      <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M2.166 4.9L10 .954 17.834 4.9a1 1 0 01.566.9v7.948a6 6 0 01-3.14 5.268L10 20l-5.26-2.984A6 6 0 011.6 11.75V5.8a1 1 0 01.566-.9zm7.11 3.292a1 1 0 00-1.414 1.414L9.414 11l-1.55 1.55a1 1 0 101.414 1.414L10.828 12.4l1.55 1.55a1 1 0 101.414-1.414L12.242 11l1.55-1.55a1 1 0 00-1.414-1.414L10.828 9.6l-1.55-1.55z" clip-rule="evenodd"></path>
+  <!-- Client Logos Divider Section -->
+  <section class="client-badge-section">
+    <div class="client-crest-divider">
+      <svg width="45" height="45" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 15c-19.3 0-35 15.7-35 35s15.7 35 35 35 35-15.7 35-35-15.7-35-35-35zm0 64c-16 0-29-13-29-29s13-29 29-29 29 13 29 29-13 29-29 29z"/>
+        <path d="M49 32h2v20h-2V32zm0 24h2v2h-2v-2z"/>
       </svg>
-      <div class="cert-text">
-        <h4>ISO 9001:2015</h4>
-        <p>Quality Management Systems</p>
-      </div>
-    </div>
-    <div class="cert-badge" id="cert-iso14001">
-      <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M2.166 4.9L10 .954 17.834 4.9a1 1 0 01.566.9v7.948a6 6 0 01-3.14 5.268L10 20l-5.26-2.984A6 6 0 011.6 11.75V5.8a1 1 0 01.566-.9zm7.11 3.292a1 1 0 00-1.414 1.414L9.414 11l-1.55 1.55a1 1 0 101.414 1.414L10.828 12.4l1.55 1.55a1 1 0 101.414-1.414L12.242 11l1.55-1.55a1 1 0 00-1.414-1.414L10.828 9.6l-1.55-1.55z" clip-rule="evenodd"></path>
-      </svg>
-      <div class="cert-text">
-        <h4>ISO 14001:2015</h4>
-        <p>Environmental Stewardship</p>
-      </div>
-    </div>
-    <div class="cert-badge" id="cert-irs">
-      <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-      </svg>
-      <div class="cert-text">
-        <h4>Class Approvals</h4>
-        <p>IRS, ABS, LRS Compliant Specifications</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section class="calc-sec scroll-reveal-sec" id="about" style="border-bottom: 1px solid var(--border-glass);">
-    <div class="section-header">
-      <span class="section-tag">Competence & Passion</span>
-      <h2>Navigating Marine Excellence</h2>
-      <p>A trusted partner where modernistic technology and maritime skill intersect.</p>
-    </div>
-    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 55px; align-items: center;" class="gsap-reveal-grid">
-      <div>
-        <h3 style="font-family: var(--font-heading); font-size: 1.85rem; margin-bottom: 20px; color: var(--primary);">Crafted for Sustainability</h3>
-        <p style="color: var(--text-muted); margin-bottom: 20px;">Welcome to Viraat Marine, where competence and passion meet the ocean. With a passion for marine design and fabrication, we specialize in crafting innovative solutions for a diverse range of marine applications. Our team of experienced engineers, managers, and skilled craftsmen is dedicated to delivering high-quality, custom designs that meet the unique needs of our clients.</p>
-        <p style="color: var(--text-muted); margin-bottom: 30px;">At Viraat Marine, sustainability is at the core of our mission. We strive to incorporate eco-friendly materials and practices into our processes, protecting our oceans for future generations while delivering 100% quality and 24/7 support.</p>
-        <div style="display: flex; gap: 30px;">
-          <div>
-            <span style="font-size: 2.25rem; font-weight: 800; color: var(--accent-neon);">100%</span>
-            <p style="font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Guarantee</p>
-          </div>
-          <div>
-            <span style="font-size: 2.25rem; font-weight: 800; color: var(--accent-neon);">24/7</span>
-            <p style="font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Support Desk</p>
-          </div>
-        </div>
-      </div>
-      <div style="background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: 20px; padding: 40px;" class="tilt-card">
-        <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 25px; border-bottom: 1px solid var(--border-glass); padding-bottom: 15px;">Our Ideology</h3>
-        <div style="margin-bottom: 25px;">
-          <h4 style="font-family: var(--font-heading); color: var(--primary); margin-bottom: 5px;">Mission Statement</h4>
-          <p style="color: var(--text-muted); font-size: 0.95rem;">To deliver innovative marine design and fabrication solutions that exceed client expectations by maintaining the sustainability of our oceans for future generations.</p>
-        </div>
-        <div>
-          <h4 style="font-family: var(--font-heading); color: var(--accent-neon); margin-bottom: 5px;">Core Vision</h4>
-          <p style="color: var(--text-muted); font-size: 0.95rem;">To be a global leader in providing solutions to the marine fraternity with a recognized commitment to innovation, sustainability, and quality.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- History Timeline Section -->
-  <section class="history-sec" id="history">
-    <div class="section-header">
-      <span class="section-tag">A Legacy of Quality</span>
-      <h2>A Journey of Vision, Growth & Excellence</h2>
-      <p>From a small marine consultancy in 2017 to a premier shipbuilding and fabrication enterprise in 2026.</p>
-    </div>
-
-    <div class="timeline">
-      <!-- Active scroll path line -->
-      <div class="timeline-active-line" id="timeline-path"></div>
-      
-      <!-- 2017 -->
-      <div class="timeline-item gsap-timeline-item">
-        <div class="timeline-badge"></div>
-        <div class="timeline-content tilt-card">
-          <span class="timeline-year">2017</span>
-          <h3>Consultancy Foundations</h3>
-          <p>Founded Viraat Marine as a marine consultancy. Specialized in vessel design, stability assessments, and preparing stability booklets, building early client trust in Kochi's naval sectors.</p>
-        </div>
-      </div>
-
-      <!-- 2019 -->
-      <div class="timeline-item gsap-timeline-item">
-        <div class="timeline-badge"></div>
-        <div class="timeline-content tilt-card">
-          <span class="timeline-year">2019</span>
-          <h3>Entering Steel Construction</h3>
-          <p>Successfully undertook the hull fabrication of "Rainbow", marking the company's entry into metal vessel construction and expanding beyond design consultancy services.</p>
-        </div>
-      </div>
-
-      <!-- 2020 -->
-      <div class="timeline-item gsap-timeline-item">
-        <div class="timeline-badge"></div>
-        <div class="timeline-content tilt-card">
-          <span class="timeline-year">2020</span>
-          <h3>SILK Royal Tourism Project</h3>
-          <p>Secured the labor contract for the complete construction of "Royal Tourism", a passenger vessel for SILK. Proved project management capabilities and technical construction skills.</p>
-        </div>
-      </div>
-
-      <!-- 2021 -->
-      <div class="timeline-item gsap-timeline-item">
-        <div class="timeline-badge"></div>
-        <div class="timeline-content tilt-card">
-          <span class="timeline-year">2021</span>
-          <h3>Incorporation & Taj Cruise</h3>
-          <p>Incorporated as a Private Limited Company. Began construction of the prestigious "Taj Cruise", a luxury 2-bedroom houseboat that redefined backwater elegance.</p>
-        </div>
-      </div>
-
-      <!-- 2022 -->
-      <div class="timeline-item gsap-timeline-item">
-        <div class="timeline-badge"></div>
-        <div class="timeline-content tilt-card">
-          <span class="timeline-year">2022</span>
-          <h3>Portfolio Expansion</h3>
-          <p>Commenced Falcon Cruise and Blue Whale II (a 16m cruise vessel). Completed the retrofit and modernization of Royal Tourism I, showcasing versatility in retrofits.</p>
-        </div>
-      </div>
-
-      <!-- 2023 -->
-      <div class="timeline-item gsap-timeline-item">
-        <div class="timeline-badge"></div>
-        <div class="timeline-content tilt-card">
-          <span class="timeline-year">2023</span>
-          <h3>Tourism Craftsmanship</h3>
-          <p>Built Malabar Palace 2-bedroom houseboat, Vellikkeel Houseboat, and Black Pearl Shikkara, achieving high customer satisfaction in the tourism sector.</p>
-        </div>
-      </div>
-
-      <!-- 2025 - 2026 -->
-      <div class="timeline-item gsap-timeline-item">
-        <div class="timeline-badge"></div>
-        <div class="timeline-content tilt-card">
-          <span class="timeline-year">2025 - 2026</span>
-          <h3>Leading Inland Cruise Builders</h3>
-          <p>Established as a premier brand across India. Built Kochi Pandaw and Wave Rider (Club Mahindra) in 2025. Followed by Kerala Pandaw and the Aqua Castle houseboat in 2026.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Interactive 3D Hotspot Vessel Blueprint Section -->
-  <section class="blueprint-sec scroll-reveal-sec" id="blueprints">
-    <div class="section-header">
-      <span class="section-tag">Interactive Blueprint</span>
-      <h2>Explore Vessel Architecture</h2>
-      <p>Hover or click on the pulsing hotspots to reveal internal structural specs and custom naval designs.</p>
     </div>
     
-    <div class="blueprint-container" id="blueprint-zoom-box">
-      <div class="blueprint-img-wrapper">
-        <img src="images/vessel_hull_blueprint.png" alt="Interactive Ship Blueprint Structure" id="blueprint-img">
-        
-        <!-- Hotspots -->
-        <div class="hotspot hotspot-1" data-id="1"><span></span></div>
-        <div class="hotspot hotspot-2" data-id="2"><span></span></div>
-        <div class="hotspot hotspot-3" data-id="3"><span></span></div>
-        <div class="hotspot hotspot-4" data-id="4"><span></span></div>
-        
-        <!-- Hotspot Cards -->
-        <div class="hotspot-card hotspot-card-1" id="card-1">
-          <h4>Bridge & Control Console</h4>
-          <p>Features state-of-the-art navigation instrumentation, integrated autopilot setups, dual radar systems, and IRS-certified controls.</p>
+    <div class="client-logos-row">
+      <!-- 1. SILK -->
+      <div class="client-logo-item">
+        <span style="font-family: var(--font-serif); font-size: 1.4rem; font-weight: 700; color: var(--text-primary);">S I L K</span>
+      </div>
+      <!-- 2. TAJ -->
+      <div class="client-logo-item">
+        <span style="font-family: var(--font-serif); font-size: 1.4rem; font-weight: 700; color: var(--text-primary);">TAJ CRUISES</span>
+      </div>
+      <!-- 3. KSINC -->
+      <div class="client-logo-item">
+        <span style="font-family: var(--font-serif); font-size: 1.4rem; font-weight: 700; color: var(--text-primary);">K S I N C</span>
+      </div>
+      <!-- 4. CLUB MAHINDRA -->
+      <div class="client-logo-item">
+        <span style="font-family: var(--font-serif); font-size: 1.4rem; font-weight: 700; color: var(--text-primary);">CLUB MAHINDRA</span>
+      </div>
+    </div>
+
+    <div>
+      <a href="#contact" class="pill-btn-green">OUR CLIENTS &gt;&gt;</a>
+    </div>
+  </section>
+
+  <!-- Our Services Section -->
+  <section class="section-wrap alt-bg" id="services">
+    <div class="section-title-wrap">
+      <h2>Our Services</h2>
+    </div>
+
+    <div class="services-grid">
+      <!-- 1. Accessories -->
+      <div class="range-card">
+        <div class="range-img-wrap">
+          <img src="images/service_accessories.png" alt="Marine Accessories Viraat Marine" class="range-img">
         </div>
-        <div class="hotspot-card hotspot-card-2" id="card-2">
-          <h4>Engine & Propulsion Room</h4>
-          <p>Equipped with twin fuel-efficient marine diesels, soundproofed structural chambers, bilge safety systems, and vibration-damped mounts.</p>
+        <div class="range-info">
+          <h3>Accessories</h3>
+          <p>We supply a certified range of marine hardware, ropes, steering wheels, cleats, and navigation lights to outfit your vessels.</p>
+          <a href="#contact" class="range-link-btn">&gt;&gt;</a>
         </div>
-        <div class="hotspot-card hotspot-card-3" id="card-3">
-          <h4>Bronze Propulsion System</h4>
-          <p>Custom-fabricated high-pitch bronze propellers paired with high-efficiency rudders for exceptional steering responsive control.</p>
+      </div>
+
+      <!-- 2. Repairs & Restoration -->
+      <div class="range-card">
+        <div class="range-img-wrap">
+          <img src="images/service_repairs.png" alt="Vessel Repairs & Restoration Viraat Marine" class="range-img">
         </div>
-        <div class="hotspot-card hotspot-card-4" id="card-4">
-          <h4>Double Bottom Steel Hull</h4>
-          <p>Reinforced double-skin marine grade structural plates designed to withstand high tensile loads while maintaining buoyancy margins.</p>
+        <div class="range-info">
+          <h3>Repairs &amp; Restoration</h3>
+          <p>We offer specialized steel and fiberglass hull repair, restoration, retrofits, and classification compliance surveys in Kochi.</p>
+          <a href="#contact" class="range-link-btn">&gt;&gt;</a>
+        </div>
+      </div>
+
+      <!-- 3. Brokerage & Consultancy -->
+      <div class="range-card">
+        <div class="range-img-wrap">
+          <img src="images/service_brokerage.png" alt="Marine Brokerage and Consultancy Viraat Marine" class="range-img">
+        </div>
+        <div class="range-info">
+          <h3>Brokerage</h3>
+          <p>In-house naval architecture consultancy, lines plan development, stability booklets preparation, and project brokerage services.</p>
+          <a href="#contact" class="range-link-btn">&gt;&gt;</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Services Bento Grid Section -->
-  <section class="services-sec scroll-reveal-sec" id="services">
-    <div class="section-header">
-      <span class="section-tag">Specialized Portfolios</span>
-      <h2>Marine Engineering Capabilities</h2>
-      <p>From lines plan calculations to specialized steel structures fabrication, we manage the complete lifecycle.</p>
+  <!-- Footer Section -->
+  <footer id="main-footer">
+    <div class="footer-top-seal">
+      <h3>VIRAAT MARINE</h3>
+      <p>A FAMILY BOAT BUSINESS WITH TRADITION</p>
     </div>
 
-    <div class="bento-grid">
-      <!-- Card 1 (Design) -->
-      <div class="bento-card span-2-col tilt-card" id="service-design">
-        <div class="bento-card-img">
-          <img src="images/marine_design.png" alt="Marine Design Viraat Marine">
-        </div>
-        <div class="bento-card-header">
-          <span class="bento-card-num">01 / ENGINEERING</span>
-          <div class="bento-card-icon">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-            </svg>
-          </div>
-        </div>
-        <div class="bento-card-body">
-          <h3>Marine Design Services</h3>
-          <p>Our marine design services focus on creating efficient and innovative solutions for various marine vessels and structures. We leverage advanced engineering principles and modernistic CAD/FEA technology to optimize stability analysis, structural lines, hull lines, propulsion integration, fuel efficiency, and structural safety to meet class standards.</p>
-        </div>
-      </div>
-
-      <!-- Card 2 (Fabrication) -->
-      <div class="bento-card span-2-row tilt-card" id="service-fabrication">
-        <div class="bento-card-img" style="height: 380px;">
-          <img src="images/marine_fab.png" alt="Marine Fabrication Viraat Marine" style="height: 100%;">
-        </div>
-        <div class="bento-card-header">
-          <span class="bento-card-num">02 / CRAFTSMANSHIP</span>
-          <div class="bento-card-icon">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
-            </svg>
-          </div>
-        </div>
-        <div class="bento-card-body">
-          <h3>Marine Fabrication</h3>
-          <p>Construction and assembly of marine structures using specialized steel, aluminum, and composite materials. Our fabrication ranges from custom offshore equipment, platforms, and structural frames to custom marine retrofits, using precision CNC plasma profiling, advanced MIG/TIG welding, and stringent ISO quality assurance checks.</p>
-        </div>
-      </div>
-
-      <!-- Card 3 (Boat Building) -->
-      <div class="bento-card tilt-card" id="service-building">
-        <div class="bento-card-img">
-          <img src="images/boat_build.png" alt="Boat Building Viraat Marine">
-        </div>
-        <div class="bento-card-header">
-          <span class="bento-card-num">03 / SHIPBUILDING</span>
-          <div class="bento-card-icon">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-            </svg>
-          </div>
-        </div>
-        <div class="bento-card-body">
-          <h3>Custom Boat Building</h3>
-          <p>Specializing in luxury houseboats, custom speedboats, and passenger vessels. We build each hull to exact client specifications, ensuring safety, IRS-class compliance, and high durability.</p>
-        </div>
-      </div>
-
-      <!-- Card 4 (Project Management) -->
-      <div class="bento-card span-2-col tilt-card" id="service-mgmt">
-        <div class="bento-card-img">
-          <img src="images/project_mgmt.png" alt="Project Management Viraat Marine">
-        </div>
-        <div class="bento-card-header">
-          <span class="bento-card-num">04 / MANAGEMENT</span>
-          <div class="bento-card-icon">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
-            </svg>
-          </div>
-        </div>
-        <div class="bento-card-body">
-          <h3>Marine Project Management</h3>
-          <p>Our project managers drive the lifecycle from scheduling, resource allocation, and risk management through to dry-docking, sea trials, and final commissioning. We guarantee on-time project delivery within budget while satisfying all safety regulations and stakeholder requirements.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Scroll Pinned CAD Blueprint Slider Section -->
-  <div class="slider-sec-pin-wrap" id="slider-sec-pin-wrap">
-    <section class="slider-sec" id="slider-pin-section">
-      <div class="section-header">
-        <span class="section-tag">Design to Reality</span>
-        <h2>Interactive CAD Slider</h2>
-        <p>Scroll down inside this section to slide and wipe the computational steel blueprint of the vessel structure.</p>
-      </div>
-
-      <div class="slider-wrapper">
-        <div class="cad-slider-container" id="cad-slider">
-          <!-- Underlay: Real Boat Image -->
-          <div class="cad-img-panel">
-            <img src="images/boat_build.png" alt="Completed Vessel Fabrication">
-          </div>
-          
-          <!-- Overlay: Blueprint Image (restricted width) -->
-          <div class="cad-blueprint-overlay" id="slider-overlay">
-            <img src="images/vessel_hull_blueprint.png" alt="Vessel Hull CAD Blueprint" id="slider-blueprint-img">
-          </div>
-
-          <!-- Slider Bar Indicator -->
-          <div class="slider-handle" id="slider-bar">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path>
-            </svg>
-          </div>
-
-          <div class="slider-info-tag">
-            <span></span> Scroll to wipe structures
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- Interactive Project Planner / Cost Calculator -->
-  <section class="calc-sec scroll-reveal-sec" id="builder">
-    <div class="section-header">
-      <span class="section-tag">Vessel Architect</span>
-      <h2>Plan Your Build</h2>
-      <p>Use our interactive configuration planner to calculate estimated timeline, material mass, and project specifications.</p>
-    </div>
-
-    <div class="calc-container tilt-card">
-      <div class="calc-inputs">
-        <div class="form-group-custom">
-          <label for="vessel-type">Vessel Class & Profile</label>
-          <select id="vessel-type" class="calc-select">
-            <option value="houseboat">Premium Kerala Houseboat</option>
-            <option value="yacht">Custom Motor Yacht</option>
-            <option value="passenger">Catamaran Passenger Vessel</option>
-            <option value="barge">Commercial Cargo Barge</option>
-          </select>
-        </div>
-
-        <div class="form-group-custom">
-          <label for="hull-material">Hull Construction Material</label>
-          <select id="hull-material" class="calc-select">
-            <option value="steel">Marine Grade Steel (DH36)</option>
-            <option value="aluminum">Aluminum Alloy (5083)</option>
-            <option value="composite">Carbon Fiber Composite</option>
-          </select>
-        </div>
-
-        <div class="form-group-custom">
-          <label for="vessel-length">Vessel Length: <span id="length-display" class="range-val">24 meters</span></label>
-          <input type="range" id="vessel-length" min="10" max="60" value="24">
-        </div>
-
-        <div class="form-group-custom">
-          <label for="class-rules">Classification & Surveys</label>
-          <select id="class-rules" class="calc-select">
-            <option value="irs">Indian Register of Shipping (IRS)</option>
-            <option value="nonclass">Standard State Inland Rules</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="calc-results">
-        <div class="results-header">
-          <h3>Calculated Engineering Profile</h3>
-          <div class="result-item">
-            <span>Estimated Build Duration</span>
-            <span id="est-duration">6.5 Months</span>
-          </div>
-          <div class="result-item">
-            <span>Estimated Structural Weight</span>
-            <span id="est-weight">42 Tons</span>
-          </div>
-          <div class="result-item">
-            <span>Engineering Complexity</span>
-            <span id="est-complexity" style="color: var(--primary);">High</span>
-          </div>
-          <div class="result-item">
-            <span>Compliance Audit Score</span>
-            <span id="est-compliance" style="color: var(--accent-neon);">99.8% Pass Rate</span>
-          </div>
-        </div>
-
-        <div class="total-est">
-          <span>Est. Project Cost</span>
-          <span class="price" id="est-price">₹1.80 Cr</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Careers Section -->
-  <section class="careers-sec scroll-reveal-sec" id="careers">
-    <div class="section-header">
-      <span class="section-tag">Join Viraat Marine</span>
-      <h2>Careers in Marine Architecture</h2>
-      <p>We are searching for naval architects, engineers, and draftsmen to shape the future of shipbuilding in Kerala.</p>
-    </div>
-
-    <div class="jobs-grid">
-      <!-- Job 1 -->
-      <div class="job-card tilt-card" id="job-architect">
-        <div class="job-header">
-          <div>
-            <h3 style="margin-bottom: 5px;">Naval Architect</h3>
-            <span style="color: var(--primary); font-size: 0.95rem; font-weight: 500;">Design Consultancy</span>
-          </div>
-          <div class="job-tags">
-            <span class="job-tag job-tag-ft">Full-Time</span>
-            <span class="job-tag job-tag-exp">3-5 Yrs Exp</span>
-          </div>
-        </div>
-        <p>Requirements include stability calculations using Maxsurf/GHS, detailed lines plan designs, structural calculations under class rules, and general arrangement layouts.</p>
-        <a href="#contact" class="apply-btn" onclick="prefillSubject('Naval Architect Position')">Apply Now</a>
-      </div>
-
-      <!-- Job 2 -->
-      <div class="job-card tilt-card" id="job-engineer">
-        <div class="job-header">
-          <div>
-            <h3 style="margin-bottom: 5px;">Structural Engineer</h3>
-            <span style="color: var(--primary); font-size: 0.95rem; font-weight: 500;">Steel & Marine Fab</span>
-          </div>
-          <div class="job-tags">
-            <span class="job-tag job-tag-ft">Full-Time</span>
-            <span class="job-tag job-tag-exp">2-3 Yrs Exp</span>
-          </div>
-        </div>
-        <p>Candidates must possess solid knowledge of FEA modeling, marine structural plate welding guidelines, scoping weight optimization, and steel panel drafting.</p>
-        <a href="#contact" class="apply-btn" onclick="prefillSubject('Structural Engineer Position')">Apply Now</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="contact-sec scroll-reveal-sec" id="contact">
-    <div class="section-header">
-      <span class="section-tag">Start Your Project</span>
-      <h2>Get In Touch</h2>
-      <p>Contact Amal Binoy or our design office in Kochi to schedule a site consultation.</p>
-    </div>
-
-    <div class="contact-container">
-      <div class="contact-info">
-        <div>
-          <h3 style="font-family: var(--font-heading); font-size: 1.85rem; margin-bottom: 25px;">Corporate Office</h3>
-          <p style="color: var(--text-muted); margin-bottom: 30px;">Visit our design headquarters located in Kochi's commercial district. We are open Monday to Saturday, 9:00 AM - 6:00 PM.</p>
-          
-          <div class="contact-details">
-            <div class="contact-item">
-              <div class="contact-icon">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                </svg>
-              </div>
-              <div class="contact-text">
-                <h4>Location</h4>
-                <p>61/2579, 2nd Floor, Pattoor Chambers, Alappat Cross Road, Perumanoor, Kochi, Kerala, 682016</p>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <div class="contact-icon">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                </svg>
-              </div>
-              <div class="contact-text">
-                <h4>Email Addresses</h4>
-                <p>
-                  <a href="mailto:operations@viraatmarine.com">operations@viraatmarine.com</a><br>
-                  <a href="mailto:amal.binoy@viraatmarine.com">amal.binoy@viraatmarine.com</a>
-                </p>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <div class="contact-icon">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                </svg>
-              </div>
-              <div class="contact-text">
-                <h4>Direct Phone</h4>
-                <p><a href="tel:+918075785379">+91 8075 785 379</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="map-container" style="margin-top: 30px;">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.670575344372!2d76.2908331!3d9.9613889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d5bdf8e98bb%3A0xeab4e0988582d92d!2sAlappat%20Cross%20Rd%2C%20Perumanoor%2C%20Kochi%2C%20Kerala%20682016!5e0!3m2!1sen!2sin!4v1718685124016!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-      </div>
-
-      <div class="contact-form tilt-card">
-        <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 25px; border-bottom: 1px solid var(--border-glass); padding-bottom: 15px;">Send a Message</h3>
-        <form id="project-contact-form" action="#" onsubmit="handleFormSubmit(event)">
-          <div class="form-row">
-            <input type="text" placeholder="Your Name" required id="form-name">
-            <input type="email" placeholder="Your E-mail" required id="form-email">
-          </div>
-          <div class="form-row">
-            <input type="tel" placeholder="Phone Number" id="form-phone">
-            <input type="text" placeholder="Subject" required id="form-subject">
-          </div>
-          <textarea placeholder="Tell us about your vessel details (length, certification, class rule rules, layout preferences)..." required id="form-message"></textarea>
-          <button type="submit" class="submit-btn" id="form-submit-btn">Submit Request</button>
-        </form>
-        <div id="form-response-success" style="display: none; background: rgba(16, 185, 129, 0.1); border: 1px solid var(--accent-neon); padding: 15px; border-radius: 12px; margin-top: 20px; text-align: center; color: var(--accent-neon);">
-          Thank you! Mr. Amal Binoy or our design engineer will contact you shortly with preliminary estimates.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-logo">
-        <a href="#" class="logo-wrapper" style="margin-bottom: 10px;">
-          <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16 2L30 10L16 18L2 10L16 2Z" fill="#00f2fe" />
-            <path d="M2 12L16 20L30 12" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" />
-            <path d="M2 20L16 28L30 20" stroke="#10b981" stroke-width="2" stroke-linecap="round" />
-          </svg>
-          <span class="logo-text" style="font-size: 1.35rem;">VIRAAT<span>MARINE</span></span>
-        </a>
-        <p>ISO 9001:2015 and ISO 14001:2015 certified marine design, fabrication, and shipbuilding consultancy headquartered in Kochi, Kerala.</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/company/viraat-marine/" class="social-icon" target="_blank" aria-label="LinkedIn">
-            <svg fill="currentColor" width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-          </a>
-          <a href="https://www.instagram.com/_viraatmarine_/" class="social-icon" target="_blank" aria-label="Instagram">
-            <svg fill="currentColor" width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          </a>
-          <a href="https://youtube.com/@viraatmarine" class="social-icon" target="_blank" aria-label="YouTube">
-            <svg fill="currentColor" width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.163a3.003 3.003 0 00-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.519 0-9.388.508a3.003 3.003 0 00-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 002.11 2.11c1.87.508 9.388.508 9.388.508s7.518 0 9.388-.508a3.003 3.003 0 002.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-          </a>
-        </div>
-      </div>
+    <div class="footer-columns">
       <div class="footer-col">
-        <h3>Page Links</h3>
+        <h4>Our Range</h4>
         <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#history">Our Journey</a></li>
-          <li><a href="#blueprints">Blueprint 3D</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#builder">Planner</a></li>
-          <li><a href="#careers">Careers</a></li>
+          <li><a href="#range">Houseboat &amp; Yacht</a></li>
+          <li><a href="#range">Barge &amp; Pontoon</a></li>
+          <li><a href="#range">Tug &amp; Workboat</a></li>
+          <li><a href="#range">Fishing Boat</a></li>
+          <li><a href="#range">Passenger Boat &amp; Ferry</a></li>
+          <li><a href="#range">Speed Boat &amp; Water Taxi</a></li>
+          <li><a href="#range">Canoe &amp; Kayak</a></li>
         </ul>
       </div>
+
       <div class="footer-col">
-        <h3>Services Portfolio</h3>
+        <h4>Our Services</h4>
         <ul>
-          <li><a href="#services">Marine Design</a></li>
-          <li><a href="#services">Marine Fabrication</a></li>
-          <li><a href="#services">Custom Shipbuilding</a></li>
-          <li><a href="#services">Structural Refits</a></li>
-          <li><a href="#services">Project Management</a></li>
+          <li><a href="#services">Accessories</a></li>
+          <li><a href="#services">Repairs &amp; Restoration</a></li>
+          <li><a href="#services">Brokerage</a></li>
         </ul>
       </div>
+
       <div class="footer-col">
-        <h3>Design Head</h3>
+        <h4>About Us</h4>
         <ul>
-          <li><strong>Founder:</strong> Mr. Amal Binoy</li>
-          <li><strong>Kochi Office:</strong> Pattoor Chambers</li>
-          <li><strong>WhatsApp Direct:</strong> <a href="https://wa.me/918075785379" target="_blank">+91 8075 785 379</a></li>
-          <li><strong>Tech Audit Pros Redesign</strong></li>
+          <li><a href="#about">Our Company</a></li>
+          <li><a href="#about">History &amp; Milestones</a></li>
+          <li><a href="#about">Certifications</a></li>
+          <li><a href="#about">Careers</a></li>
         </ul>
+      </div>
+
+      <div class="footer-col" id="about">
+        <h4>Get In Touch</h4>
+        <div class="footer-contact-info">
+          <span>📞 <a href="tel:+919876543210">+91 98765 43210</a></span>
+          <span>✉️ <a href="mailto:info@viraatmarine.com">info@viraatmarine.com</a></span>
+          <span>📍 Viraat Marine Pvt Ltd,<br>Shipyard Lane, Kochi,<br>Kerala, India</span>
+          <span>🕒 Mon-Sat: 08:30 - 17:30</span>
+        </div>
+        <div style="margin-top: 25px;">
+          <a href="#contact" class="cta-btn-green" id="contact">CONTACT &gt;&gt;</a>
+        </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Viraat Marine. Redesigned Prototype by TechAuditPros.</p>
+
+    <div class="footer-bottom-bar">
+      <div>Privacy Policy</div>
+      <div>&copy; 2026 Viraat Marine. All Rights Reserved.</div>
       <div class="footer-links-bottom">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
+        <a href="#">Open Cookie Settings</a>
       </div>
     </div>
   </footer>
 
-  <!-- GSAP scroll timeline, parallax and scroll wipe scripts -->
+  <!-- Page Logic (Slider & Mobile menu) -->
   <script>
-    // Initialize GSAP ScrollTrigger
-    gsap.registerPlugin(ScrollTrigger);
+    // Hero Slider Logic
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.slider-dot');
+    let currentSlide = 0;
+    const slideInterval = 5000; // 5 seconds
 
-    // Header Scroll transition
-    window.addEventListener('scroll', () => {
-      const header = document.getElementById('main-header');
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
+    function showSlide(index) {
+      slides[currentSlide].classList.remove('active');
+      dots[currentSlide].classList.remove('active');
+      
+      currentSlide = (index + slides.length) % slides.length;
+      
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
+    }
+
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+
+    let timer = setInterval(nextSlide, slideInterval);
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        clearInterval(timer);
+        showSlide(index);
+        timer = setInterval(nextSlide, slideInterval);
+      });
     });
 
-    // Mobile Navigation Drawer Toggle
+    // Mobile Navigation Toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const navLinks = document.getElementById('nav-links');
+
     mobileMenuBtn.addEventListener('click', () => {
-      if (navLinks.style.display === 'flex') {
-        navLinks.style.display = 'none';
+      mobileMenuBtn.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Close menu when clicking nav link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
         mobileMenuBtn.classList.remove('active');
-      } else {
-        navLinks.style.display = 'flex';
-        mobileMenuBtn.classList.add('active');
-      }
-    });
-
-    // GSAP Scroll Parallax on Hero Yacht & perspective grid
-    gsap.to('#yacht-3d-wrapper', {
-      scrollTrigger: {
-        trigger: '#hero',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: 1
-      },
-      y: 120,
-      scale: 1.08,
-      rotation: 2,
-      opacity: 0.95
-    });
-
-    gsap.to('.hero-3d-grid', {
-      scrollTrigger: {
-        trigger: '#hero',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: 1
-      },
-      y: -150,
-      rotationX: 78
-    });
-
-    // GSAP ScrollTrigger timeline connector line animation
-    gsap.to('#timeline-path', {
-      scrollTrigger: {
-        trigger: '.timeline',
-        start: 'top 40%',
-        end: 'bottom 60%',
-        scrub: true
-      },
-      height: '100%',
-      ease: 'none'
-    });
-
-    // GSAP timeline item badges and content cards reveal on scroll
-    const timelineItems = document.querySelectorAll('.gsap-timeline-item');
-    timelineItems.forEach((item, index) => {
-      const badge = item.querySelector('.timeline-badge');
-      const card = item.querySelector('.timeline-content');
-      
-      // Animate Badge
-      gsap.fromTo(badge, 
-        { borderColor: 'rgba(6, 182, 212, 0.12)', backgroundColor: '#020409', scale: 0.8 },
-        {
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 65%',
-            end: 'top 50%',
-            scrub: true,
-            toggleActions: 'play none none reverse'
-          },
-          borderColor: index % 2 === 0 ? '#00f2fe' : '#10b981',
-          backgroundColor: index % 2 === 0 ? '#00f2fe' : '#10b981',
-          scale: 1.2,
-          boxShadow: index % 2 === 0 ? '0 0 15px rgba(0, 242, 254, 0.8)' : '0 0 15px rgba(16, 185, 129, 0.8)'
-        }
-      );
-
-      // Slide/Fade in content cards
-      gsap.fromTo(card,
-        { opacity: 0, x: index % 2 === 0 ? -60 : 60, scale: 0.95 },
-        {
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 80%',
-            end: 'top 55%',
-            scrub: 1,
-            toggleActions: 'play none none reverse'
-          },
-          opacity: 1,
-          x: 0,
-          scale: 1
-        }
-      );
-    });
-
-    // Blueprint blueprint zoom-in on scroll trigger
-    gsap.fromTo('#blueprint-zoom-box', 
-      { scale: 0.9, opacity: 0.75 },
-      {
-        scrollTrigger: {
-          trigger: '#blueprints',
-          start: 'top 80%',
-          end: 'top 30%',
-          scrub: 1
-        },
-        scale: 1,
-        opacity: 1
-      }
-    );
-
-    // Bento grid cards entrance animation
-    gsap.from('.bento-card', {
-      scrollTrigger: {
-        trigger: '.bento-grid',
-        start: 'top 85%',
-        end: 'top 45%',
-        scrub: 1
-      },
-      opacity: 0,
-      y: 60,
-      stagger: 0.2,
-      scale: 0.95
-    });
-
-    // GSAP Scroll Pinned CAD Slider logic
-    // Screen pins at viewport. Scrolling wipes the split width from 0% to 100%
-    if (window.innerWidth > 768) {
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: '#slider-sec-pin-wrap',
-          start: 'top top',
-          end: '+=1200', // Scroll length for the wipe
-          scrub: true,
-          pin: '#slider-pin-section',
-          anticipatePin: 1
-        }
-      })
-      .fromTo('#slider-overlay', { width: '0%' }, { width: '100%', ease: 'none' })
-      .fromTo('#slider-bar', { left: '0%' }, { left: '100%', ease: 'none' }, 0);
-    } else {
-      // Mobile fallback: simple hover/drag fallback logic
-      const cadSlider = document.getElementById('cad-slider');
-      const sliderOverlay = document.getElementById('slider-overlay');
-      const sliderBar = document.getElementById('slider-bar');
-      
-      cadSlider.addEventListener('mousemove', (e) => {
-        const rect = cadSlider.getBoundingClientRect();
-        const posX = e.clientX - rect.left;
-        const percent = (posX / rect.width) * 100;
-        sliderOverlay.style.width = `${percent}%`;
-        sliderBar.style.left = `${percent}%`;
+        navLinks.classList.remove('active');
       });
+    });
+
+    // Simple active link highlight on scroll
+    window.addEventListener('scroll', () => {
+      const scrollPos = window.scrollY;
+      const headerHeight = document.getElementById('main-header').offsetHeight;
       
-      cadSlider.addEventListener('touchmove', (e) => {
-        if (e.touches.length > 0) {
-          const rect = cadSlider.getBoundingClientRect();
-          const posX = e.touches[0].clientX - rect.left;
-          const percent = (posX / rect.width) * 100;
-          sliderOverlay.style.width = `${percent}%`;
-          sliderBar.style.left = `${percent}%`;
+      const sections = ['hero', 'range', 'services', 'about'];
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.offsetTop - headerHeight - 10;
+          const bottom = top + el.offsetHeight;
+          if (scrollPos >= top && scrollPos < bottom) {
+            navLinks.querySelectorAll('a').forEach(a => {
+              if (a.getAttribute('href') === `#${id}`) {
+                a.classList.add('active');
+              } else {
+                a.classList.remove('active');
+              }
+            });
+          }
         }
       });
-    }
-
-    // Set slider blueprint width matching container size on load/resize
-    const sliderBlueprintImg = document.getElementById('slider-blueprint-img');
-    const cadSlider = document.getElementById('cad-slider');
-    function resizeBlueprintImage() {
-      sliderBlueprintImg.style.width = `${cadSlider.offsetWidth}px`;
-    }
-    window.addEventListener('resize', resizeBlueprintImage);
-    resizeBlueprintImage();
-
-    // Blueprint Hotspots interactive card reveals
-    const hotspots = document.querySelectorAll('.hotspot');
-    hotspots.forEach(hotspot => {
-      hotspot.addEventListener('mouseenter', () => {
-        const id = hotspot.getAttribute('data-id');
-        const card = document.getElementById(`card-${id}`);
-        if (card) card.classList.add('active');
-      });
-
-      hotspot.addEventListener('mouseleave', () => {
-        const id = hotspot.getAttribute('data-id');
-        const card = document.getElementById(`card-${id}`);
-        if (card) card.classList.remove('active');
-      });
-
-      hotspot.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const id = hotspot.getAttribute('data-id');
-        const card = document.getElementById(`card-${id}`);
-        
-        document.querySelectorAll('.hotspot-card').forEach(c => {
-          if (c.id !== `card-${id}`) c.classList.remove('active');
-        });
-        
-        if (card) card.classList.toggle('active');
-      });
     });
-
-    document.addEventListener('click', () => {
-      document.querySelectorAll('.hotspot-card').forEach(c => c.classList.remove('active'));
-    });
-
-    // 3D Card Hover Tilt Effect (Vanilla JS)
-    const tiltCards = document.querySelectorAll('.tilt-card');
-    tiltCards.forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        // Calculate tilt percentages
-        const xc = rect.width / 2;
-        const yc = rect.height / 2;
-        
-        // Tilt bounds: max 8 degrees
-        const tiltX = (yc - y) / yc * 8;
-        const tiltY = (x - xc) / xc * 8;
-        
-        card.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.02)`;
-        card.style.transition = 'none';
-      });
-      
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
-        card.style.transition = 'all 0.5s ease';
-      });
-    });
-
-    // Dynamic cost calculator planner logic
-    const vesselTypeSelect = document.getElementById('vessel-type');
-    const hullMaterialSelect = document.getElementById('hull-material');
-    const vesselLengthInput = document.getElementById('vessel-length');
-    const lengthDisplay = document.getElementById('length-display');
-    const classRulesSelect = document.getElementById('class-rules');
-
-    const estDurationEl = document.getElementById('est-duration');
-    const estWeightEl = document.getElementById('est-weight');
-    const estComplexityEl = document.getElementById('est-complexity');
-    const estComplianceEl = document.getElementById('est-compliance');
-    const estPriceEl = document.getElementById('est-price');
-
-    function calculateSpecifications() {
-      const vesselType = vesselTypeSelect.value;
-      const material = hullMaterialSelect.value;
-      const length = parseInt(vesselLengthInput.value);
-      const classRules = classRulesSelect.value;
-
-      lengthDisplay.innerText = `${length} meters`;
-
-      let baseCostMultiplier = 5; 
-      let weightFactor = 1.2; 
-      let complexity = "Medium";
-      let compliance = 98.4;
-      let durationMonths = 4;
-
-      if (vesselType === 'yacht') {
-        baseCostMultiplier = 15;
-        weightFactor = 1.5;
-        complexity = "Ultra-High";
-        durationMonths = 7;
-      } else if (vesselType === 'passenger') {
-        baseCostMultiplier = 12;
-        weightFactor = 1.8;
-        complexity = "High";
-        durationMonths = 8;
-      } else if (vesselType === 'barge') {
-        baseCostMultiplier = 8;
-        weightFactor = 3.0;
-        complexity = "Medium";
-        durationMonths = 5;
-      } else { // houseboat
-        baseCostMultiplier = 7.5;
-        weightFactor = 1.4;
-        complexity = "High";
-        durationMonths = 6.5;
-      }
-
-      let matWeightMult = 1.0;
-      let matCostMult = 1.0;
-      if (material === 'composite') {
-        matWeightMult = 0.5;
-        matCostMult = 2.2;
-      } else if (material === 'aluminum') {
-        matWeightMult = 0.75;
-        matCostMult = 1.5;
-      }
-
-      let classCostMult = 1.0;
-      if (classRules === 'irs') {
-        classCostMult = 1.25;
-        compliance = 99.8;
-      }
-
-      const estDuration = Math.round((durationMonths + (length * 0.08)) * 10) / 10;
-      const estWeight = Math.round(length * weightFactor * matWeightMult);
-      const totalCostLakhs = Math.round(length * baseCostMultiplier * matCostMult * classCostMult);
-      const totalCostCrores = (totalCostLakhs / 100).toFixed(2);
-
-      estDurationEl.innerText = `${estDuration} Months`;
-      estWeightEl.innerText = `${estWeight} Tons`;
-      estComplexityEl.innerText = complexity;
-      estComplianceEl.innerText = `${compliance}% Pass Rate`;
-      estPriceEl.innerText = `₹${totalCostCrores} Cr`;
-
-      if (complexity === "Ultra-High") {
-        estComplexityEl.style.color = '#ef4444';
-      } else if (complexity === "High") {
-        estComplexityEl.style.color = '#fbbf24';
-      } else {
-        estComplexityEl.style.color = '#00f2fe';
-      }
-    }
-
-    vesselTypeSelect.addEventListener('change', calculateSpecifications);
-    hullMaterialSelect.addEventListener('change', calculateSpecifications);
-    vesselLengthInput.addEventListener('input', calculateSpecifications);
-    classRulesSelect.addEventListener('change', calculateSpecifications);
-
-    calculateSpecifications();
-
-    function prefillSubject(subjectText) {
-      document.getElementById('form-subject').value = subjectText;
-      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function handleFormSubmit(e) {
-      e.preventDefault();
-      document.getElementById('project-contact-form').style.display = 'none';
-      document.getElementById('form-response-success').style.display = 'block';
-    }
   </script>
 </body>
 </html>
