@@ -3,24 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Viraat Marine | Marine Design, Fabrication & Shipbuilding Kerala</title>
+  <title>Viraat Marine | Premium Marine Design & Shipbuilding Kerala</title>
   <meta name="description" content="Welcome to Viraat Marine, an ISO 9001:2015 and ISO 14001:2015 certified company where competence and passion meet the ocean. Discover premium marine design, fabrication, custom boat building, and project management in Kochi, Kerala.">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="../favicon.png" type="image/png">
+  
+  <!-- GSAP & ScrollTrigger CDNs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
 
-  <!-- Ambient Glow Effects -->
-  <div class="glow-bg"></div>
-  <div class="glow-bg-left"></div>
+  <!-- Tech Grid Background -->
+  <div class="tech-grid-bg"></div>
+
+  <!-- Ambient Glow Spotlights -->
+  <div class="glow-spotlight-1"></div>
+  <div class="glow-spotlight-2"></div>
 
   <!-- Header -->
   <header id="main-header">
     <div class="nav-container">
       <a href="#" class="logo-wrapper" id="logo">
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M16 2L30 10L16 18L2 10L16 2Z" fill="#06b6d4" />
-          <path d="M2 12L16 20L30 12" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" />
+          <path d="M16 2L30 10L16 18L2 10L16 2Z" fill="#00f2fe" />
+          <path d="M2 12L16 20L30 12" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" />
           <path d="M2 20L16 28L30 20" stroke="#10b981" stroke-width="2" stroke-linecap="round" />
         </svg>
         <span class="logo-text">VIRAAT<span>MARINE</span></span>
@@ -47,23 +54,29 @@
 
   <!-- Hero Section -->
   <section class="hero" id="hero">
+    <!-- Perspective 3D Grid background -->
+    <div class="hero-3d-grid-wrap">
+      <div class="hero-3d-grid"></div>
+    </div>
+    
     <div class="hero-grid">
-      <div class="hero-content">
+      <div class="hero-content" id="hero-text-block">
         <div class="hero-tag">ISO 9001 & 14001 Certified</div>
         <h1>
-          <span>Engineering the Horizon</span><br>
-          <em>Marine Design & Fabrication</em>
+          <span>Engineering</span><br>
+          <em>The Horizon</em>
         </h1>
-        <p>Viraat Marine merges rigorous computational naval architecture with master steel craftsmanship to build state-of-the-art houseboats, yachts, and commercial vessels in Kochi, Kerala.</p>
+        <p>Viraat Marine merges computational naval architecture with master steel craftsmanship to build state-of-the-art houseboats, yachts, and commercial vessels in Kochi, Kerala.</p>
         <div class="hero-btns">
           <a href="#about" class="secondary-btn">Explore Vision</a>
           <a href="#contact" class="apply-btn">Get A Proposal</a>
         </div>
       </div>
-      <div class="hero-image-container">
-        <div class="hero-image-wrapper">
+      
+      <div class="hero-image-container" id="hero-interactive-3d">
+        <div class="hero-image-wrapper" id="yacht-3d-wrapper">
           <img src="images/yacht_hero_3d.png" alt="3D Yacht Rendering Viraat Marine" id="hero-img-3d">
-          <div class="hero-image-glow"></div>
+          <div class="hero-image-glow-ring"></div>
         </div>
       </div>
     </div>
@@ -101,36 +114,36 @@
   </section>
 
   <!-- About Section -->
-  <section class="calc-sec" id="about" style="border-bottom: 1px solid var(--border-glass);">
+  <section class="calc-sec scroll-reveal-sec" id="about" style="border-bottom: 1px solid var(--border-glass);">
     <div class="section-header">
       <span class="section-tag">Competence & Passion</span>
       <h2>Navigating Marine Excellence</h2>
       <p>A trusted partner where modernistic technology and maritime skill intersect.</p>
     </div>
-    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 55px; align-items: center;">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 55px; align-items: center;" class="gsap-reveal-grid">
       <div>
         <h3 style="font-family: var(--font-heading); font-size: 1.85rem; margin-bottom: 20px; color: var(--primary);">Crafted for Sustainability</h3>
         <p style="color: var(--text-muted); margin-bottom: 20px;">Welcome to Viraat Marine, where competence and passion meet the ocean. With a passion for marine design and fabrication, we specialize in crafting innovative solutions for a diverse range of marine applications. Our team of experienced engineers, managers, and skilled craftsmen is dedicated to delivering high-quality, custom designs that meet the unique needs of our clients.</p>
         <p style="color: var(--text-muted); margin-bottom: 30px;">At Viraat Marine, sustainability is at the core of our mission. We strive to incorporate eco-friendly materials and practices into our processes, protecting our oceans for future generations while delivering 100% quality and 24/7 support.</p>
         <div style="display: flex; gap: 30px;">
           <div>
-            <span style="font-size: 2rem; font-weight: 800; color: var(--secondary);">100%</span>
+            <span style="font-size: 2.25rem; font-weight: 800; color: var(--accent-neon);">100%</span>
             <p style="font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Guarantee</p>
           </div>
           <div>
-            <span style="font-size: 2rem; font-weight: 800; color: var(--secondary);">24/7</span>
+            <span style="font-size: 2.25rem; font-weight: 800; color: var(--accent-neon);">24/7</span>
             <p style="font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Support Desk</p>
           </div>
         </div>
       </div>
-      <div style="background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: 20px; padding: 40px;">
+      <div style="background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: 20px; padding: 40px;" class="tilt-card">
         <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 25px; border-bottom: 1px solid var(--border-glass); padding-bottom: 15px;">Our Ideology</h3>
         <div style="margin-bottom: 25px;">
           <h4 style="font-family: var(--font-heading); color: var(--primary); margin-bottom: 5px;">Mission Statement</h4>
           <p style="color: var(--text-muted); font-size: 0.95rem;">To deliver innovative marine design and fabrication solutions that exceed client expectations by maintaining the sustainability of our oceans for future generations.</p>
         </div>
         <div>
-          <h4 style="font-family: var(--font-heading); color: var(--secondary); margin-bottom: 5px;">Core Vision</h4>
+          <h4 style="font-family: var(--font-heading); color: var(--accent-neon); margin-bottom: 5px;">Core Vision</h4>
           <p style="color: var(--text-muted); font-size: 0.95rem;">To be a global leader in providing solutions to the marine fraternity with a recognized commitment to innovation, sustainability, and quality.</p>
         </div>
       </div>
@@ -146,10 +159,13 @@
     </div>
 
     <div class="timeline">
+      <!-- Active scroll path line -->
+      <div class="timeline-active-line" id="timeline-path"></div>
+      
       <!-- 2017 -->
-      <div class="timeline-item">
+      <div class="timeline-item gsap-timeline-item">
         <div class="timeline-badge"></div>
-        <div class="timeline-content">
+        <div class="timeline-content tilt-card">
           <span class="timeline-year">2017</span>
           <h3>Consultancy Foundations</h3>
           <p>Founded Viraat Marine as a marine consultancy. Specialized in vessel design, stability assessments, and preparing stability booklets, building early client trust in Kochi's naval sectors.</p>
@@ -157,9 +173,9 @@
       </div>
 
       <!-- 2019 -->
-      <div class="timeline-item">
+      <div class="timeline-item gsap-timeline-item">
         <div class="timeline-badge"></div>
-        <div class="timeline-content">
+        <div class="timeline-content tilt-card">
           <span class="timeline-year">2019</span>
           <h3>Entering Steel Construction</h3>
           <p>Successfully undertook the hull fabrication of "Rainbow", marking the company's entry into metal vessel construction and expanding beyond design consultancy services.</p>
@@ -167,9 +183,9 @@
       </div>
 
       <!-- 2020 -->
-      <div class="timeline-item">
+      <div class="timeline-item gsap-timeline-item">
         <div class="timeline-badge"></div>
-        <div class="timeline-content">
+        <div class="timeline-content tilt-card">
           <span class="timeline-year">2020</span>
           <h3>SILK Royal Tourism Project</h3>
           <p>Secured the labor contract for the complete construction of "Royal Tourism", a passenger vessel for SILK. Proved project management capabilities and technical construction skills.</p>
@@ -177,9 +193,9 @@
       </div>
 
       <!-- 2021 -->
-      <div class="timeline-item">
+      <div class="timeline-item gsap-timeline-item">
         <div class="timeline-badge"></div>
-        <div class="timeline-content">
+        <div class="timeline-content tilt-card">
           <span class="timeline-year">2021</span>
           <h3>Incorporation & Taj Cruise</h3>
           <p>Incorporated as a Private Limited Company. Began construction of the prestigious "Taj Cruise", a luxury 2-bedroom houseboat that redefined backwater elegance.</p>
@@ -187,9 +203,9 @@
       </div>
 
       <!-- 2022 -->
-      <div class="timeline-item">
+      <div class="timeline-item gsap-timeline-item">
         <div class="timeline-badge"></div>
-        <div class="timeline-content">
+        <div class="timeline-content tilt-card">
           <span class="timeline-year">2022</span>
           <h3>Portfolio Expansion</h3>
           <p>Commenced Falcon Cruise and Blue Whale II (a 16m cruise vessel). Completed the retrofit and modernization of Royal Tourism I, showcasing versatility in retrofits.</p>
@@ -197,9 +213,9 @@
       </div>
 
       <!-- 2023 -->
-      <div class="timeline-item">
+      <div class="timeline-item gsap-timeline-item">
         <div class="timeline-badge"></div>
-        <div class="timeline-content">
+        <div class="timeline-content tilt-card">
           <span class="timeline-year">2023</span>
           <h3>Tourism Craftsmanship</h3>
           <p>Built Malabar Palace 2-bedroom houseboat, Vellikkeel Houseboat, and Black Pearl Shikkara, achieving high customer satisfaction in the tourism sector.</p>
@@ -207,9 +223,9 @@
       </div>
 
       <!-- 2025 - 2026 -->
-      <div class="timeline-item">
+      <div class="timeline-item gsap-timeline-item">
         <div class="timeline-badge"></div>
-        <div class="timeline-content">
+        <div class="timeline-content tilt-card">
           <span class="timeline-year">2025 - 2026</span>
           <h3>Leading Inland Cruise Builders</h3>
           <p>Established as a premier brand across India. Built Kochi Pandaw and Wave Rider (Club Mahindra) in 2025. Followed by Kerala Pandaw and the Aqua Castle houseboat in 2026.</p>
@@ -219,14 +235,14 @@
   </section>
 
   <!-- Interactive 3D Hotspot Vessel Blueprint Section -->
-  <section class="blueprint-sec" id="blueprints">
+  <section class="blueprint-sec scroll-reveal-sec" id="blueprints">
     <div class="section-header">
       <span class="section-tag">Interactive Blueprint</span>
       <h2>Explore Vessel Architecture</h2>
       <p>Hover or click on the pulsing hotspots to reveal internal structural specs and custom naval designs.</p>
     </div>
     
-    <div class="blueprint-container">
+    <div class="blueprint-container" id="blueprint-zoom-box">
       <div class="blueprint-img-wrapper">
         <img src="images/vessel_hull_blueprint.png" alt="Interactive Ship Blueprint Structure" id="blueprint-img">
         
@@ -258,7 +274,7 @@
   </section>
 
   <!-- Services Bento Grid Section -->
-  <section class="services-sec" id="services">
+  <section class="services-sec scroll-reveal-sec" id="services">
     <div class="section-header">
       <span class="section-tag">Specialized Portfolios</span>
       <h2>Marine Engineering Capabilities</h2>
@@ -267,7 +283,7 @@
 
     <div class="bento-grid">
       <!-- Card 1 (Design) -->
-      <div class="bento-card span-2-col" id="service-design">
+      <div class="bento-card span-2-col tilt-card" id="service-design">
         <div class="bento-card-img">
           <img src="images/marine_design.png" alt="Marine Design Viraat Marine">
         </div>
@@ -286,7 +302,7 @@
       </div>
 
       <!-- Card 2 (Fabrication) -->
-      <div class="bento-card span-2-row" id="service-fabrication">
+      <div class="bento-card span-2-row tilt-card" id="service-fabrication">
         <div class="bento-card-img" style="height: 380px;">
           <img src="images/marine_fab.png" alt="Marine Fabrication Viraat Marine" style="height: 100%;">
         </div>
@@ -305,7 +321,7 @@
       </div>
 
       <!-- Card 3 (Boat Building) -->
-      <div class="bento-card" id="service-building">
+      <div class="bento-card tilt-card" id="service-building">
         <div class="bento-card-img">
           <img src="images/boat_build.png" alt="Boat Building Viraat Marine">
         </div>
@@ -324,7 +340,7 @@
       </div>
 
       <!-- Card 4 (Project Management) -->
-      <div class="bento-card span-2-col" id="service-mgmt">
+      <div class="bento-card span-2-col tilt-card" id="service-mgmt">
         <div class="bento-card-img">
           <img src="images/project_mgmt.png" alt="Project Management Viraat Marine">
         </div>
@@ -344,49 +360,51 @@
     </div>
   </section>
 
-  <!-- Interactive CAD Blueprint Slider -->
-  <section class="slider-sec">
-    <div class="section-header">
-      <span class="section-tag">Design to Reality</span>
-      <h2>Interactive CAD Slider</h2>
-      <p>Hover or slide across the image to reveal the underlying computational steel blueprint of the vessel hull structure.</p>
-    </div>
+  <!-- Scroll Pinned CAD Blueprint Slider Section -->
+  <div class="slider-sec-pin-wrap" id="slider-sec-pin-wrap">
+    <section class="slider-sec" id="slider-pin-section">
+      <div class="section-header">
+        <span class="section-tag">Design to Reality</span>
+        <h2>Interactive CAD Slider</h2>
+        <p>Scroll down inside this section to slide and wipe the computational steel blueprint of the vessel structure.</p>
+      </div>
 
-    <div class="slider-wrapper">
-      <div class="cad-slider-container" id="cad-slider">
-        <!-- Underlay: Real Boat Image -->
-        <div class="cad-img-panel">
-          <img src="images/boat_build.png" alt="Completed Vessel Fabrication">
-        </div>
-        
-        <!-- Overlay: Blueprint Image (restricted width) -->
-        <div class="cad-blueprint-overlay" id="slider-overlay">
-          <img src="images/vessel_hull_blueprint.png" alt="Vessel Hull CAD Blueprint" id="slider-blueprint-img">
-        </div>
+      <div class="slider-wrapper">
+        <div class="cad-slider-container" id="cad-slider">
+          <!-- Underlay: Real Boat Image -->
+          <div class="cad-img-panel">
+            <img src="images/boat_build.png" alt="Completed Vessel Fabrication">
+          </div>
+          
+          <!-- Overlay: Blueprint Image (restricted width) -->
+          <div class="cad-blueprint-overlay" id="slider-overlay">
+            <img src="images/vessel_hull_blueprint.png" alt="Vessel Hull CAD Blueprint" id="slider-blueprint-img">
+          </div>
 
-        <!-- Slider Bar Indicator -->
-        <div class="slider-handle" id="slider-bar">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path>
-          </svg>
-        </div>
+          <!-- Slider Bar Indicator -->
+          <div class="slider-handle" id="slider-bar">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path>
+            </svg>
+          </div>
 
-        <div class="slider-info-tag">
-          <span></span> Drag or hover to inspect structure
+          <div class="slider-info-tag">
+            <span></span> Scroll to wipe structures
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 
   <!-- Interactive Project Planner / Cost Calculator -->
-  <section class="calc-sec" id="builder">
+  <section class="calc-sec scroll-reveal-sec" id="builder">
     <div class="section-header">
       <span class="section-tag">Vessel Architect</span>
       <h2>Plan Your Build</h2>
       <p>Use our interactive configuration planner to calculate estimated timeline, material mass, and project specifications.</p>
     </div>
 
-    <div class="calc-container">
+    <div class="calc-container tilt-card">
       <div class="calc-inputs">
         <div class="form-group-custom">
           <label for="vessel-type">Vessel Class & Profile</label>
@@ -438,7 +456,7 @@
           </div>
           <div class="result-item">
             <span>Compliance Audit Score</span>
-            <span id="est-compliance" style="color: var(--secondary);">99.4% Pass Rate</span>
+            <span id="est-compliance" style="color: var(--accent-neon);">99.8% Pass Rate</span>
           </div>
         </div>
 
@@ -451,7 +469,7 @@
   </section>
 
   <!-- Careers Section -->
-  <section class="careers-sec" id="careers">
+  <section class="careers-sec scroll-reveal-sec" id="careers">
     <div class="section-header">
       <span class="section-tag">Join Viraat Marine</span>
       <h2>Careers in Marine Architecture</h2>
@@ -460,7 +478,7 @@
 
     <div class="jobs-grid">
       <!-- Job 1 -->
-      <div class="job-card" id="job-architect">
+      <div class="job-card tilt-card" id="job-architect">
         <div class="job-header">
           <div>
             <h3 style="margin-bottom: 5px;">Naval Architect</h3>
@@ -476,7 +494,7 @@
       </div>
 
       <!-- Job 2 -->
-      <div class="job-card" id="job-engineer">
+      <div class="job-card tilt-card" id="job-engineer">
         <div class="job-header">
           <div>
             <h3 style="margin-bottom: 5px;">Structural Engineer</h3>
@@ -494,7 +512,7 @@
   </section>
 
   <!-- Contact Section -->
-  <section class="contact-sec" id="contact">
+  <section class="contact-sec scroll-reveal-sec" id="contact">
     <div class="section-header">
       <span class="section-tag">Start Your Project</span>
       <h2>Get In Touch</h2>
@@ -551,12 +569,11 @@
         </div>
 
         <div class="map-container" style="margin-top: 30px;">
-          <!-- Styled Map Iframe for Kochi Location -->
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.670575344372!2d76.2908331!3d9.9613889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d5bdf8e98bb%3A0xeab4e0988582d92d!2sAlappat%20Cross%20Rd%2C%20Perumanoor%2C%20Kochi%2C%20Kerala%20682016!5e0!3m2!1sen!2sin!4v1718685124016!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
         </div>
       </div>
 
-      <div class="contact-form">
+      <div class="contact-form tilt-card">
         <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 25px; border-bottom: 1px solid var(--border-glass); padding-bottom: 15px;">Send a Message</h3>
         <form id="project-contact-form" action="#" onsubmit="handleFormSubmit(event)">
           <div class="form-row">
@@ -570,8 +587,8 @@
           <textarea placeholder="Tell us about your vessel details (length, certification, class rule rules, layout preferences)..." required id="form-message"></textarea>
           <button type="submit" class="submit-btn" id="form-submit-btn">Submit Request</button>
         </form>
-        <div id="form-response-success" style="display: none; background: rgba(16, 185, 129, 0.1); border: 1px solid var(--secondary); padding: 15px; border-radius: 12px; margin-top: 20px; text-align: center; color: var(--secondary);">
-          Thank you! Amal Binoy or our design engineer will contact you shortly with preliminary estimates.
+        <div id="form-response-success" style="display: none; background: rgba(16, 185, 129, 0.1); border: 1px solid var(--accent-neon); padding: 15px; border-radius: 12px; margin-top: 20px; text-align: center; color: var(--accent-neon);">
+          Thank you! Mr. Amal Binoy or our design engineer will contact you shortly with preliminary estimates.
         </div>
       </div>
     </div>
@@ -583,8 +600,8 @@
       <div class="footer-logo">
         <a href="#" class="logo-wrapper" style="margin-bottom: 10px;">
           <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16 2L30 10L16 18L2 10L16 2Z" fill="#06b6d4" />
-            <path d="M2 12L16 20L30 12" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" />
+            <path d="M16 2L30 10L16 18L2 10L16 2Z" fill="#00f2fe" />
+            <path d="M2 12L16 20L30 12" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" />
             <path d="M2 20L16 28L30 20" stroke="#10b981" stroke-width="2" stroke-linecap="round" />
           </svg>
           <span class="logo-text" style="font-size: 1.35rem;">VIRAAT<span>MARINE</span></span>
@@ -643,9 +660,12 @@
     </div>
   </footer>
 
-  <!-- Vanilla JS Interactive Controls -->
+  <!-- GSAP scroll timeline, parallax and scroll wipe scripts -->
   <script>
-    // Header Scroll class addition
+    // Initialize GSAP ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Header Scroll transition
     window.addEventListener('scroll', () => {
       const header = document.getElementById('main-header');
       if (window.scrollY > 50) {
@@ -655,15 +675,177 @@
       }
     });
 
-    // Mobile Hamburger Menu toggle
+    // Mobile Navigation Drawer Toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const navLinks = document.getElementById('nav-links');
     mobileMenuBtn.addEventListener('click', () => {
-      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-      mobileMenuBtn.classList.toggle('active');
+      if (navLinks.style.display === 'flex') {
+        navLinks.style.display = 'none';
+        mobileMenuBtn.classList.remove('active');
+      } else {
+        navLinks.style.display = 'flex';
+        mobileMenuBtn.classList.add('active');
+      }
     });
 
-    // Blueprint Hotspot hover interaction
+    // GSAP Scroll Parallax on Hero Yacht & perspective grid
+    gsap.to('#yacht-3d-wrapper', {
+      scrollTrigger: {
+        trigger: '#hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 1
+      },
+      y: 120,
+      scale: 1.08,
+      rotation: 2,
+      opacity: 0.95
+    });
+
+    gsap.to('.hero-3d-grid', {
+      scrollTrigger: {
+        trigger: '#hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 1
+      },
+      y: -150,
+      rotationX: 78
+    });
+
+    // GSAP ScrollTrigger timeline connector line animation
+    gsap.to('#timeline-path', {
+      scrollTrigger: {
+        trigger: '.timeline',
+        start: 'top 40%',
+        end: 'bottom 60%',
+        scrub: true
+      },
+      height: '100%',
+      ease: 'none'
+    });
+
+    // GSAP timeline item badges and content cards reveal on scroll
+    const timelineItems = document.querySelectorAll('.gsap-timeline-item');
+    timelineItems.forEach((item, index) => {
+      const badge = item.querySelector('.timeline-badge');
+      const card = item.querySelector('.timeline-content');
+      
+      // Animate Badge
+      gsap.fromTo(badge, 
+        { borderColor: 'rgba(6, 182, 212, 0.12)', backgroundColor: '#020409', scale: 0.8 },
+        {
+          scrollTrigger: {
+            trigger: item,
+            start: 'top 65%',
+            end: 'top 50%',
+            scrub: true,
+            toggleActions: 'play none none reverse'
+          },
+          borderColor: index % 2 === 0 ? '#00f2fe' : '#10b981',
+          backgroundColor: index % 2 === 0 ? '#00f2fe' : '#10b981',
+          scale: 1.2,
+          boxShadow: index % 2 === 0 ? '0 0 15px rgba(0, 242, 254, 0.8)' : '0 0 15px rgba(16, 185, 129, 0.8)'
+        }
+      );
+
+      // Slide/Fade in content cards
+      gsap.fromTo(card,
+        { opacity: 0, x: index % 2 === 0 ? -60 : 60, scale: 0.95 },
+        {
+          scrollTrigger: {
+            trigger: item,
+            start: 'top 80%',
+            end: 'top 55%',
+            scrub: 1,
+            toggleActions: 'play none none reverse'
+          },
+          opacity: 1,
+          x: 0,
+          scale: 1
+        }
+      );
+    });
+
+    // Blueprint blueprint zoom-in on scroll trigger
+    gsap.fromTo('#blueprint-zoom-box', 
+      { scale: 0.9, opacity: 0.75 },
+      {
+        scrollTrigger: {
+          trigger: '#blueprints',
+          start: 'top 80%',
+          end: 'top 30%',
+          scrub: 1
+        },
+        scale: 1,
+        opacity: 1
+      }
+    );
+
+    // Bento grid cards entrance animation
+    gsap.from('.bento-card', {
+      scrollTrigger: {
+        trigger: '.bento-grid',
+        start: 'top 85%',
+        end: 'top 45%',
+        scrub: 1
+      },
+      opacity: 0,
+      y: 60,
+      stagger: 0.2,
+      scale: 0.95
+    });
+
+    // GSAP Scroll Pinned CAD Slider logic
+    // Screen pins at viewport. Scrolling wipes the split width from 0% to 100%
+    if (window.innerWidth > 768) {
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: '#slider-sec-pin-wrap',
+          start: 'top top',
+          end: '+=1200', // Scroll length for the wipe
+          scrub: true,
+          pin: '#slider-pin-section',
+          anticipatePin: 1
+        }
+      })
+      .fromTo('#slider-overlay', { width: '0%' }, { width: '100%', ease: 'none' })
+      .fromTo('#slider-bar', { left: '0%' }, { left: '100%', ease: 'none' }, 0);
+    } else {
+      // Mobile fallback: simple hover/drag fallback logic
+      const cadSlider = document.getElementById('cad-slider');
+      const sliderOverlay = document.getElementById('slider-overlay');
+      const sliderBar = document.getElementById('slider-bar');
+      
+      cadSlider.addEventListener('mousemove', (e) => {
+        const rect = cadSlider.getBoundingClientRect();
+        const posX = e.clientX - rect.left;
+        const percent = (posX / rect.width) * 100;
+        sliderOverlay.style.width = `${percent}%`;
+        sliderBar.style.left = `${percent}%`;
+      });
+      
+      cadSlider.addEventListener('touchmove', (e) => {
+        if (e.touches.length > 0) {
+          const rect = cadSlider.getBoundingClientRect();
+          const posX = e.touches[0].clientX - rect.left;
+          const percent = (posX / rect.width) * 100;
+          sliderOverlay.style.width = `${percent}%`;
+          sliderBar.style.left = `${percent}%`;
+        }
+      });
+    }
+
+    // Set slider blueprint width matching container size on load/resize
+    const sliderBlueprintImg = document.getElementById('slider-blueprint-img');
+    const cadSlider = document.getElementById('cad-slider');
+    function resizeBlueprintImage() {
+      sliderBlueprintImg.style.width = `${cadSlider.offsetWidth}px`;
+    }
+    window.addEventListener('resize', resizeBlueprintImage);
+    resizeBlueprintImage();
+
+    // Blueprint Hotspots interactive card reveals
     const hotspots = document.querySelectorAll('.hotspot');
     hotspots.forEach(hotspot => {
       hotspot.addEventListener('mouseenter', () => {
@@ -678,13 +860,11 @@
         if (card) card.classList.remove('active');
       });
 
-      // Also support clicks on mobile devices
       hotspot.addEventListener('click', (e) => {
         e.stopPropagation();
         const id = hotspot.getAttribute('data-id');
         const card = document.getElementById(`card-${id}`);
         
-        // Hide all other active cards first
         document.querySelectorAll('.hotspot-card').forEach(c => {
           if (c.id !== `card-${id}`) c.classList.remove('active');
         });
@@ -693,51 +873,37 @@
       });
     });
 
-    // Hide hotspots popovers when clicking elsewhere
     document.addEventListener('click', () => {
       document.querySelectorAll('.hotspot-card').forEach(c => c.classList.remove('active'));
     });
 
-    // Interactive CAD Blueprint Slider Logic
-    const cadSlider = document.getElementById('cad-slider');
-    const sliderOverlay = document.getElementById('slider-overlay');
-    const sliderBar = document.getElementById('slider-bar');
-    const sliderBlueprintImg = document.getElementById('slider-blueprint-img');
-
-    // Make slider match container resizing
-    function resizeBlueprintImage() {
-      const containerWidth = cadSlider.offsetWidth;
-      sliderBlueprintImg.style.width = `${containerWidth}px`;
-    }
-    window.addEventListener('resize', resizeBlueprintImage);
-    resizeBlueprintImage();
-
-    function updateSlider(percent) {
-      // Clamp percent between 2% and 98%
-      const clampedPercent = Math.max(2, Math.min(98, percent));
-      sliderOverlay.style.width = `${clampedPercent}%`;
-      sliderBar.style.left = `${clampedPercent}%`;
-    }
-
-    // Interactive Hover/Mouse Move Event
-    cadSlider.addEventListener('mousemove', (e) => {
-      const rect = cadSlider.getBoundingClientRect();
-      const posX = e.clientX - rect.left;
-      const percent = (posX / rect.width) * 100;
-      updateSlider(percent);
+    // 3D Card Hover Tilt Effect (Vanilla JS)
+    const tiltCards = document.querySelectorAll('.tilt-card');
+    tiltCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        // Calculate tilt percentages
+        const xc = rect.width / 2;
+        const yc = rect.height / 2;
+        
+        // Tilt bounds: max 8 degrees
+        const tiltX = (yc - y) / yc * 8;
+        const tiltY = (x - xc) / xc * 8;
+        
+        card.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.02)`;
+        card.style.transition = 'none';
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+        card.style.transition = 'all 0.5s ease';
+      });
     });
 
-    // Mobile touch interaction
-    cadSlider.addEventListener('touchmove', (e) => {
-      if (e.touches.length > 0) {
-        const rect = cadSlider.getBoundingClientRect();
-        const posX = e.touches[0].clientX - rect.left;
-        const percent = (posX / rect.width) * 100;
-        updateSlider(percent);
-      }
-    });
-
-    // Interactive Cost Planner Calculator Logic
+    // Dynamic cost calculator planner logic
     const vesselTypeSelect = document.getElementById('vessel-type');
     const hullMaterialSelect = document.getElementById('hull-material');
     const vesselLengthInput = document.getElementById('vessel-length');
@@ -758,9 +924,8 @@
 
       lengthDisplay.innerText = `${length} meters`;
 
-      // Multipliers based on inputs
-      let baseCostMultiplier = 5; // Lakhs per meter
-      let weightFactor = 1.2; // Tons per meter
+      let baseCostMultiplier = 5; 
+      let weightFactor = 1.2; 
       let complexity = "Medium";
       let compliance = 98.4;
       let durationMonths = 4;
@@ -787,64 +952,54 @@
         durationMonths = 6.5;
       }
 
-      // Material modifiers
       let matWeightMult = 1.0;
       let matCostMult = 1.0;
       if (material === 'composite') {
-        matWeightMult = 0.5; // much lighter
-        matCostMult = 2.2; // much more expensive
+        matWeightMult = 0.5;
+        matCostMult = 2.2;
       } else if (material === 'aluminum') {
         matWeightMult = 0.75;
         matCostMult = 1.5;
       }
 
-      // Class rules adjustments
       let classCostMult = 1.0;
       if (classRules === 'irs') {
-        classCostMult = 1.25; // 25% audit cost
+        classCostMult = 1.25;
         compliance = 99.8;
       }
 
-      // Main Calculations
       const estDuration = Math.round((durationMonths + (length * 0.08)) * 10) / 10;
       const estWeight = Math.round(length * weightFactor * matWeightMult);
       const totalCostLakhs = Math.round(length * baseCostMultiplier * matCostMult * classCostMult);
       const totalCostCrores = (totalCostLakhs / 100).toFixed(2);
 
-      // DOM Updates
       estDurationEl.innerText = `${estDuration} Months`;
       estWeightEl.innerText = `${estWeight} Tons`;
       estComplexityEl.innerText = complexity;
       estComplianceEl.innerText = `${compliance}% Pass Rate`;
       estPriceEl.innerText = `₹${totalCostCrores} Cr`;
 
-      // Color coding complexity
       if (complexity === "Ultra-High") {
         estComplexityEl.style.color = '#ef4444';
       } else if (complexity === "High") {
         estComplexityEl.style.color = '#fbbf24';
       } else {
-        estComplexityEl.style.color = '#06b6d4';
+        estComplexityEl.style.color = '#00f2fe';
       }
     }
 
-    // Attach listeners
     vesselTypeSelect.addEventListener('change', calculateSpecifications);
     hullMaterialSelect.addEventListener('change', calculateSpecifications);
     vesselLengthInput.addEventListener('input', calculateSpecifications);
     classRulesSelect.addEventListener('change', calculateSpecifications);
 
-    // Run initial calculation
     calculateSpecifications();
 
-    // Prefill form subject
     function prefillSubject(subjectText) {
       document.getElementById('form-subject').value = subjectText;
-      // scroll to contact
       document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Handle Form Submit
     function handleFormSubmit(e) {
       e.preventDefault();
       document.getElementById('project-contact-form').style.display = 'none';
