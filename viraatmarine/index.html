@@ -11,6 +11,62 @@
 </head>
 <body>
 
+  <!-- Private Preview & Staging Banner -->
+  <div class="staging-banner">
+    <div class="staging-container">
+      <div class="staging-badge">
+        <span class="lock-icon">🔒</span> STAGING ENVIRONMENT
+      </div>
+      <div class="staging-text">
+        Google Crawling &amp; Indexing Blocked (Noindex). Accessible via direct URL only.
+      </div>
+      <button class="staging-btn" id="open-client-msg-btn">View Client Message</button>
+    </div>
+  </div>
+
+  <!-- Client Message Modal -->
+  <div class="client-modal-overlay" id="client-modal">
+    <div class="client-modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-title-badge">🔒 SECURE PREVIEW</span>
+          <h3>Developer Handoff Notice</h3>
+        </div>
+        <button class="modal-close-x" id="close-client-msg-x">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-intro">This page is temporarily hosted in a private sandbox environment where search engine crawling is completely disabled.</p>
+        
+        <div class="message-quote-box">
+          <div class="quote-header">Message for the Client:</div>
+          <p class="quote-content">
+            "Hi, this is just a prototype demo created and temporarily hosted on my platform (which Google can't crawl). It is not complete yet, and as you know, many sections still need to be added. Please let me know if you are satisfied with this so we can upgrade and move forward with the quotes. The site was made purely as a visual demo and hasn't been coded for any actual features yet. Just share your thoughts on this!"
+          </p>
+        </div>
+        
+        <div class="verification-badges">
+          <div class="badge-item">
+            <span class="badge-icon">✅</span>
+            <div class="badge-info">
+              <strong>Robots Meta Tag Active</strong>
+              <span>noindex, nofollow injected</span>
+            </div>
+          </div>
+          <div class="badge-item">
+            <span class="badge-icon">✅</span>
+            <div class="badge-info">
+              <strong>Robots.txt Rule Active</strong>
+              <span>Disallow: /viraatmarine/ set</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="modal-close-btn" id="close-client-msg-btn">Acknowledge &amp; View Demo</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Header Section -->
   <header id="main-header">
     <div class="nav-container">
@@ -386,6 +442,36 @@
           }
         }
       });
+    });
+
+    // Modal Open/Close Logic
+    const clientModal = document.getElementById('client-modal');
+    const openBtn = document.getElementById('open-client-msg-btn');
+    const closeX = document.getElementById('close-client-msg-x');
+    const closeBtn = document.getElementById('close-client-msg-btn');
+
+    // Show modal automatically on first load in this session
+    if (!sessionStorage.getItem('demo_acknowledged')) {
+      clientModal.classList.add('active');
+    }
+
+    function closeModal() {
+      clientModal.classList.remove('active');
+      sessionStorage.setItem('demo_acknowledged', 'true');
+    }
+
+    openBtn.addEventListener('click', () => {
+      clientModal.classList.add('active');
+    });
+
+    closeX.addEventListener('click', closeModal);
+    closeBtn.addEventListener('click', closeModal);
+
+    // Close modal if clicking outside the card
+    clientModal.addEventListener('click', (e) => {
+      if (e.target === clientModal) {
+        closeModal();
+      }
     });
   </script>
 </body>
