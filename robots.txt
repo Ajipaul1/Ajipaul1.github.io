@@ -1,6 +1,7 @@
 # This tells all search engines (Google, Bing, etc.) they are allowed to scan the site
 User-agent: *
 Allow: /
+Disallow: /viraatmarine/
 
 # This tells them where to find your map
 Sitemap: https://techauditpros.com/sitemap.xml
