@@ -1,0 +1,19 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+*.suo
+*.user
+
+# Node (if any)
+node_modules/
+npm-debug.log
+
+# Antigravity agent scratch
+.agents/
+
+# Large temp files
+*.tmp
