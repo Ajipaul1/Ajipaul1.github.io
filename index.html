@@ -455,171 +455,207 @@
     </div>
 </div>
 <!-- MOBILE_DRAWER_END -->
+
 <style>
-  /* Desktop: show video intro, hide cinematic until video ends */
-  /* Mobile: hide video intro entirely, show cinematic text immediately */
-  @media (max-width: 768px) {
-    #tap-intro-video-section {
-      display: none !important;
-    }
-    #tap-cinematic-section {
-      opacity: 1 !important;
-      visibility: visible !important;
-    }
-    #tap-cinematic-section .tap-cine-line {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
-    }
-    #tap-scroll-hint {
-      opacity: 1 !important;
-    }
+  .tap-hero-loop-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    background: #000;
+    overflow: hidden;
   }
-</style>
-
-<!-- ═══════════════════════════════════════════════════
-     INTRO VIDEO SECTION — plays once before main hero
-     Desktop only — hidden on mobile
-════════════════════════════════════════════════════ -->
-<section id="tap-intro-video-section" style="
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  background: #000;
-">
-  <video
-    id="tap-intro-video"
-    style="
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      min-width: 100%; min-height: 100%;
-      width: auto; height: auto;
-      object-fit: cover;
-      z-index: 1;
-    "
-    muted
-    playsinline
-    preload="auto"
-  >
-    <source src="videos/intro-hero.mp4" type="video/mp4">
-  </video>
-  <!-- Subtle dark overlay so text is readable if needed -->
-  <div style="position:absolute;inset:0;background:rgba(0,0,0,0.18);z-index:2;"></div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════
-     CINEMATIC TEXT SECTION — full-screen black, lines appear one by one
-════════════════════════════════════════════════════ -->
-<section id="tap-cinematic-section" style="
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100vh;
-  background: #000;
-  overflow: hidden;
-  opacity: 0;
-  visibility: hidden;
-  position: relative;
-">
-  <div id="tap-cinematic-lines" style="
-    text-align: center;
-    padding: 0 24px;
-    max-width: 860px;
-  ">
-    <p class="tap-cine-line" style="
-      font-family: 'Inter', 'Outfit', sans-serif;
-      font-size: clamp(0.95rem, 2vw, 1.15rem);
-      font-weight: 400;
-      color: rgba(255,255,255,0.55);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin: 0 0 28px 0;
-      opacity: 0;
-      transform: translateY(18px);
-    ">Even if you want to transfer your work from the Moon —</p>
-
-    <p class="tap-cine-line" style="
-      font-family: 'Outfit', 'Inter', sans-serif;
-      font-size: clamp(2.2rem, 6vw, 4rem);
-      font-weight: 800;
-      color: #ffffff;
-      line-height: 1.15;
-      margin: 0 0 36px 0;
-      opacity: 0;
-      transform: translateY(18px);
-    ">We are here.</p>
-
-    <p class="tap-cine-line" style="
-      font-family: 'Outfit', 'Inter', sans-serif;
-      font-size: clamp(1.5rem, 4vw, 2.5rem);
-      font-weight: 700;
-      color: #818cf8;
-      letter-spacing: 1px;
-      margin: 0 0 36px 0;
-      opacity: 0;
-      transform: translateY(18px);
-    ">TechAuditPros</p>
-
-    <div class="tap-cine-line" style="
-      width: 60px;
-      height: 2px;
-      background: rgba(255,255,255,0.2);
-      margin: 0 auto 36px auto;
-      opacity: 0;
-    "></div>
-
-    <p class="tap-cine-line" style="
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(1rem, 2.5vw, 1.35rem);
-      font-weight: 500;
-      color: rgba(255,255,255,0.85);
-      line-height: 1.6;
-      margin: 0 0 18px 0;
-      opacity: 0;
-      transform: translateY(18px);
-    ">Transfer Your SEO &amp; Web Design Team to India.</p>
-
-    <p class="tap-cine-line" style="
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(0.85rem, 1.8vw, 1rem);
-      font-weight: 400;
-      color: rgba(255,255,255,0.45);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin: 0;
-      opacity: 0;
-      transform: translateY(18px);
-    ">Trusted by International Brands</p>
-  </div>
-
-  <!-- Scroll indicator -->
-  <div id="tap-scroll-hint" style="
+  
+  .tap-loop-slide {
     position: absolute;
-    bottom: 36px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     opacity: 0;
-    animation: tap-bounce 1.8s ease-in-out infinite;
-  ">
-    <span style="font-family:Inter,sans-serif;font-size:0.68rem;color:rgba(255,255,255,0.35);letter-spacing:2px;text-transform:uppercase;">Scroll</span>
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2">
-      <polyline points="6 9 12 15 18 9"></polyline>
-    </svg>
-  </div>
-</section>
+    visibility: hidden;
+    transition: opacity 1s ease, visibility 1s ease;
+    z-index: 1;
+  }
+  
+  .tap-loop-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+  }
 
-<style>
+  #tap-intro-video-section {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+  }
+
   @keyframes tap-bounce {
     0%, 100% { transform: translateX(-50%) translateY(0); }
     50% { transform: translateX(-50%) translateY(8px); }
   }
 </style>
+
+<!-- Hero Loop Container -->
+<div class="tap-hero-loop-wrapper">
+
+  <!-- INTRO VIDEO SECTION — plays once before text -->
+  <section id="tap-intro-video-section" class="tap-loop-slide">
+    <video
+      id="tap-intro-video"
+      autoplay
+      muted
+      playsinline
+      preload="auto"
+      style="
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        min-width: 100%; min-height: 100%;
+        width: auto; height: auto;
+        object-fit: cover;
+        z-index: 1;
+      "
+    >
+      <source src="videos/intro-hero.mp4" type="video/mp4">
+    </video>
+    <!-- Subtle dark overlay so text is readable if needed -->
+    <div style="position:absolute;inset:0;background:rgba(0,0,0,0.18);z-index:2;"></div>
+  </section>
+
+  <!-- CINEMATIC TEXT SECTION — full-screen black, lines appear one by one -->
+  <section id="tap-cinematic-section" class="tap-loop-slide" style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    overflow: hidden;
+    position: relative;
+  ">
+    <div id="tap-cinematic-lines" style="
+      text-align: center;
+      padding: 0 24px;
+      max-width: 860px;
+    ">
+      <p class="tap-cine-line" style="
+        font-family: 'Inter', 'Outfit', sans-serif;
+        font-size: clamp(0.95rem, 2vw, 1.15rem);
+        font-weight: 400;
+        color: rgba(255,255,255,0.55);
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin: 0 0 28px 0;
+        opacity: 0;
+        transform: translateY(18px);
+      ">Even if you want to transfer your work from the Moon —</p>
+
+      <p class="tap-cine-line" style="
+        font-family: 'Outfit', 'Inter', sans-serif;
+        font-size: clamp(2.2rem, 6vw, 4rem);
+        font-weight: 800;
+        color: #ffffff;
+        line-height: 1.15;
+        margin: 0 0 36px 0;
+        opacity: 0;
+        transform: translateY(18px);
+      ">We are here.</p>
+
+      <p class="tap-cine-line" style="
+        font-family: 'Outfit', 'Inter', sans-serif;
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        font-weight: 700;
+        color: #818cf8;
+        letter-spacing: 1px;
+        margin: 0 0 36px 0;
+        opacity: 0;
+        transform: translateY(18px);
+      ">TechAuditPros</p>
+
+      <div class="tap-cine-line" style="
+        width: 60px;
+        height: 2px;
+        background: rgba(255,255,255,0.2);
+        margin: 0 auto 36px auto;
+        opacity: 0;
+      "></div>
+
+      <p class="tap-cine-line" style="
+        font-family: 'Inter', sans-serif;
+        font-size: clamp(1rem, 2.5vw, 1.35rem);
+        font-weight: 500;
+        color: rgba(255,255,255,0.85);
+        line-height: 1.6;
+        margin: 0 0 18px 0;
+        opacity: 0;
+        transform: translateY(18px);
+      ">Transfer Your SEO &amp; Web Design Team to India.</p>
+
+      <p class="tap-cine-line" style="
+        font-family: 'Inter', sans-serif;
+        font-size: clamp(0.85rem, 1.8vw, 1rem);
+        font-weight: 400;
+        color: rgba(255,255,255,0.45);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin: 0;
+        opacity: 0;
+        transform: translateY(18px);
+      ">Trusted by International Brands</p>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div id="tap-scroll-hint" style="
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+    ">
+      <span style="font-family:Inter,sans-serif;font-size:0.68rem;color:rgba(255,255,255,0.35);letter-spacing:2px;text-transform:uppercase;">Scroll</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </div>
+  </section>
+
+  <!-- MAIN HERO SECTION -->
+  <section class="tap-hero-section tap-loop-slide">
+    <!-- Full-screen luxury background video (text-free, trimmed) -->
+    <video class="tap-hero-video" autoplay loop muted playsinline>
+      <source src="videos/tap_hero_luxury.webm" type="video/webm">
+      <source src="hero-video.mp4" type="video/mp4">
+    </video>
+    <!-- Dark gradient overlay for text readability -->
+    <div class="tap-hero-overlay"></div>
+
+    <!-- Main hero content -->
+    <div class="tap-hero-content">
+      <h1>Your Website. Fully Managed.<br><span class="tap-hero-highlight">By Our Technical Team in India.</span></h1>
+      <p class="tap-hero-sub">Growing businesses in the US, Canada, and UK hand over their entire website backend to us. We handle the technical SEO, content, fixes, and reporting every month — so their team never has to think about it again.</p>
+      <div class="tap-hero-btns">
+        <a class="primary-btn-large" href="#services">See How It Works</a>
+        <a class="secondary-btn-large" href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank">Book a Free 15-Minute Call</a>
+      </div>
+      <div class="tap-hero-flags">
+        <span>Serving clients in:</span>
+        <span title="India">🇮🇳</span>
+        <span title="USA">🇺🇸</span>
+        <span title="Canada">🇨🇦</span>
+        <span title="UK">🇬🇧</span>
+        <span title="Australia">🇦🇺</span>
+      </div>
+    </div>
+  </section>
+
+</div>
 
 <script>
 (function() {
@@ -629,118 +665,161 @@
   const lines            = document.querySelectorAll('.tap-cine-line');
   const scrollHint       = document.getElementById('tap-scroll-hint');
   const heroSection      = document.querySelector('.tap-hero-section');
-  const isMobile         = window.matchMedia('(max-width: 768px)').matches;
+  const heroContent      = document.querySelector('.tap-hero-content');
 
-  // ── MOBILE: skip video, animate lines immediately on load ──
-  if (isMobile) {
-    // CSS already makes lines visible, just animate them in nicely
-    lines.forEach(function(line, i) {
-      line.style.opacity = '0';
-      line.style.transform = 'translateY(18px)';
-      setTimeout(function() {
-        line.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
-        line.style.opacity = '1';
-        line.style.transform = 'translateY(0)';
-        if (i === lines.length - 1) {
-          setTimeout(function() {
-            scrollHint.style.transition = 'opacity 0.6s ease';
-            scrollHint.style.opacity = '1';
-          }, 800);
-        }
-      }, 300 + i * 500);
-    });
+  let nextTimeout = null;
+  let isHovering = false;
 
-  } else {
-    // ── DESKTOP: wait for video to end, then show cinematic section ──
-    introVideo.addEventListener('ended', function() {
-      introSection.style.transition = 'opacity 0.8s ease';
-      introSection.style.opacity = '0';
-
-      setTimeout(function() {
-        introSection.style.display = 'none';
-
-        cinematicSection.style.visibility = 'visible';
-        cinematicSection.style.transition = 'opacity 0.6s ease';
-        cinematicSection.style.opacity = '1';
-
-        animateLines();
-      }, 850);
-    });
-
-    // Fallback: auto-advance after 15s if 'ended' never fires
-    setTimeout(function() {
-      if (introSection.style.display !== 'none') {
-        introVideo.dispatchEvent(new Event('ended'));
-      }
-    }, 15000);
+  if (heroContent) {
+    heroContent.addEventListener('mouseenter', function() { isHovering = true; });
+    heroContent.addEventListener('mouseleave', function() { isHovering = false; });
   }
 
-  function animateLines() {
-    lines.forEach(function(line, i) {
-      setTimeout(function() {
-        line.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
-        line.style.opacity = '1';
-        line.style.transform = 'translateY(0)';
-        if (i === lines.length - 1) {
-          setTimeout(function() {
-            scrollHint.style.transition = 'opacity 0.6s ease';
-            scrollHint.style.opacity = '1';
-          }, 800);
-        }
-      }, i * 600);
-    });
-  }
-
-  // ── Scroll down on cinematic section → smooth scroll to hero ──
-  cinematicSection.addEventListener('wheel', function(e) {
-    if (e.deltaY > 0) scrollToHero();
-  }, { passive: true });
-
-  let touchStartY = 0;
-  cinematicSection.addEventListener('touchstart', function(e) {
-    touchStartY = e.touches[0].clientY;
-  }, { passive: true });
-  cinematicSection.addEventListener('touchend', function(e) {
-    if (touchStartY - e.changedTouches[0].clientY > 50) scrollToHero();
-  }, { passive: true });
-
-  function scrollToHero() {
-    if (heroSection) {
-      heroSection.scrollIntoView({ behavior: 'smooth' });
+  function clearPendingTransitions() {
+    if (nextTimeout) {
+      clearTimeout(nextTimeout);
+      nextTimeout = null;
+    }
+    if (introVideo) {
+      introVideo.onended = null;
     }
   }
+
+  function setActiveSlide(activeSlide) {
+    [introSection, cinematicSection, heroSection].forEach(slide => {
+      if (slide) {
+        if (slide === activeSlide) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      }
+    });
+  }
+
+  function playSequence() {
+    clearPendingTransitions();
+    setActiveSlide(introSection);
+    
+    if (introVideo) {
+      introVideo.currentTime = 0;
+      introVideo.onended = function() {
+        transitionToCinematic();
+      };
+      
+      const playPromise = introVideo.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(function(error) {
+          console.log("Video play error/prevented:", error);
+          nextTimeout = setTimeout(transitionToCinematic, 1500);
+        });
+      }
+      
+      // Fallback in case video freezes or ended doesn't fire
+      nextTimeout = setTimeout(function() {
+        transitionToCinematic();
+      }, 12000);
+    } else {
+      transitionToCinematic();
+    }
+  }
+
+  function transitionToCinematic() {
+    clearPendingTransitions();
+    setActiveSlide(cinematicSection);
+    
+    lines.forEach(function(line) {
+      line.style.opacity = '0';
+      line.style.transform = 'translateY(18px)';
+      line.style.transition = 'none';
+    });
+    if (scrollHint) {
+      scrollHint.style.opacity = '0';
+      scrollHint.style.transition = 'none';
+      scrollHint.style.animation = 'none';
+    }
+    
+    lines.forEach(function(line, i) {
+      setTimeout(function() {
+        line.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+        line.style.opacity = '1';
+        line.style.transform = 'translateY(0)';
+      }, i * 600);
+    });
+    
+    setTimeout(function() {
+      if (scrollHint) {
+        scrollHint.style.transition = 'opacity 0.6s ease';
+        scrollHint.style.opacity = '1';
+        scrollHint.style.animation = 'tap-bounce 1.8s ease-in-out infinite';
+      }
+    }, lines.length * 600 + 400);
+
+    nextTimeout = setTimeout(transitionToHeroVideoOnly, lines.length * 600 + 4000);
+  }
+
+  function transitionToHeroVideoOnly() {
+    clearPendingTransitions();
+    setActiveSlide(heroSection);
+    
+    if (heroContent) {
+      heroContent.style.transition = 'none';
+      heroContent.style.opacity = '0';
+      heroContent.style.transform = 'translateY(20px)';
+    }
+    
+    nextTimeout = setTimeout(transitionToHeroWithContent, 3000);
+  }
+
+  function transitionToHeroWithContent() {
+    clearPendingTransitions();
+    if (heroContent) {
+      heroContent.style.transition = 'opacity 1s ease, transform 1s ease';
+      heroContent.style.opacity = '1';
+      heroContent.style.transform = 'translateY(0)';
+    }
+    
+    nextTimeout = setTimeout(checkAndLoop, 12000);
+  }
+
+  function checkAndLoop() {
+    if (isHovering) {
+      nextTimeout = setTimeout(checkAndLoop, 2000);
+    } else {
+      if (heroSection) {
+        heroSection.style.transition = 'opacity 1.2s ease';
+        heroSection.style.opacity = '0';
+      }
+      setTimeout(function() {
+        if (heroSection) {
+          heroSection.style.transition = '';
+        }
+        playSequence();
+      }, 1200);
+    }
+  }
+
+  // Start sequence
+  playSequence();
+
+  // Scroll controls (wheel/touch) for cinematic section
+  if (cinematicSection) {
+    cinematicSection.addEventListener('wheel', function(e) {
+      if (e.deltaY > 0) transitionToHeroVideoOnly();
+    }, { passive: true });
+
+    let touchStartY = 0;
+    cinematicSection.addEventListener('touchstart', function(e) {
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+    cinematicSection.addEventListener('touchend', function(e) {
+      if (touchStartY - e.changedTouches[0].clientY > 50) transitionToHeroVideoOnly();
+    }, { passive: true });
+  }
+
 })();
 </script>
 
-<!-- Hero Section -->
-<section class="tap-hero-section">
-  <!-- Full-screen luxury background video (text-free, trimmed) -->
-  <video class="tap-hero-video" autoplay loop muted playsinline>
-    <source src="videos/tap_hero_luxury.webm" type="video/webm">
-    <source src="hero-video.mp4" type="video/mp4">
-  </video>
-  <!-- Dark gradient overlay for text readability -->
-  <div class="tap-hero-overlay"></div>
-
-  <!-- Cinematic text overlay — corrected from original video -->
-  <div class="tap-cinematic-text">
-    <p class="tap-cinematic-top">Trusted by the world's biggest brands.</p>
-    <div class="tap-cinematic-divider"></div>
-    <p class="tap-cinematic-bottom">Transfer Your Website &amp; SEO Operations To India.</p>
-  </div>
-
-  <!-- Main hero content -->
-  <div class="tap-hero-content">
-    <h1>Your Website. Fully Managed.<br><span class="tap-hero-highlight">By Our Technical Team in India.</span></h1>
-    <p class="tap-hero-sub">Growing businesses in the US, Canada, and UK hand over their entire website backend to us. We handle the technical SEO, content, fixes, and reporting every month — so their team never has to think about it again.</p>
-    <div class="tap-hero-btns">
-      <a class="primary-btn-large" href="#services">See How It Works</a>
-      <a class="secondary-btn-large" href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank">Book a Free 15-Minute Call</a>
-    </div>
-    <div class="tap-hero-flags">
-      <span>Serving clients in:</span>
-      <span title="India">🇮🇳</span>
-      <span title="USA">🇺🇸</span>
       <span title="Canada">🇨🇦</span>
       <span title="UK">🇬🇧</span>
       <span title="Australia">🇦🇺</span>
