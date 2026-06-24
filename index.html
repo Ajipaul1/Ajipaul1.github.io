@@ -501,7 +501,7 @@
 <!-- Hero Loop Container -->
 <div class="tap-hero-loop-wrapper">
 
-  <!-- INTRO VIDEO SECTION — plays once before text -->
+  <!-- SLIDE 1: INTRO VIDEO SECTION — plays once before text -->
   <section id="tap-intro-video-section" class="tap-loop-slide">
     <video
       id="tap-intro-video"
@@ -525,7 +525,7 @@
     <div style="position:absolute;inset:0;background:rgba(0,0,0,0.18);z-index:2;"></div>
   </section>
 
-  <!-- CINEMATIC TEXT SECTION — full-screen black, lines appear one by one -->
+  <!-- SLIDE 2: CINEMATIC TEXT SECTION — full-screen black, lines appear one by one -->
   <section id="tap-cinematic-section" class="tap-loop-slide" style="
     display: flex;
     align-items: center;
@@ -626,31 +626,88 @@
     </div>
   </section>
 
-  <!-- MAIN HERO SECTION -->
-  <section class="tap-hero-section tap-loop-slide">
-    <!-- Full-screen luxury background video (text-free, trimmed) -->
-    <video class="tap-hero-video" autoplay loop muted playsinline>
+  <!-- SLIDE 3: OLDER VIDEO SECTION — plays luxury background video alone -->
+  <section id="tap-older-video-section" class="tap-loop-slide" style="
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #080c18;
+  ">
+    <video class="tap-hero-video" autoplay loop muted playsinline style="
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      pointer-events: none;
+    ">
       <source src="videos/tap_hero_luxury.webm" type="video/webm">
       <source src="hero-video.mp4" type="video/mp4">
     </video>
-    <!-- Dark gradient overlay for text readability -->
-    <div class="tap-hero-overlay"></div>
+    <div class="tap-hero-overlay" style="position:absolute;inset:0;background:rgba(5,10,26,0.40);z-index:2;pointer-events:none;"></div>
+  </section>
 
-    <!-- Main hero content -->
-    <div class="tap-hero-content">
-      <h1>Your Website. Fully Managed.<br><span class="tap-hero-highlight">By Our Technical Team in India.</span></h1>
-      <p class="tap-hero-sub">Growing businesses in the US, Canada, and UK hand over their entire website backend to us. We handle the technical SEO, content, fixes, and reporting every month — so their team never has to think about it again.</p>
-      <div class="tap-hero-btns">
+  <!-- SLIDE 4: OLDER TEXT SECTION — full-screen black, main H1 and buttons centered -->
+  <section id="tap-older-text-section" class="tap-loop-slide" style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    overflow: hidden;
+    position: relative;
+  ">
+    <div class="tap-hero-content-centered" style="
+      text-align: center;
+      max-width: 800px;
+      padding: 0 24px;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    ">
+      <h1 style="
+        font-size: clamp(1.6rem, 3.5vw, 3.8rem);
+        font-weight: 800;
+        color: #ffffff;
+        line-height: 1.15;
+        margin-bottom: 24px;
+      ">Your Website. Fully Managed.<br><span class="tap-hero-highlight">By Our Technical Team in India.</span></h1>
+      <p class="tap-hero-sub" style="
+        font-size: clamp(0.88rem, 1.4vw, 1.2rem);
+        color: rgba(255,255,255,0.82);
+        margin: 0 auto 32px auto;
+        line-height: 1.7;
+        max-width: 600px;
+      ">Growing businesses in the US, Canada, and UK hand over their entire website backend to us. We handle the technical SEO, content, fixes, and reporting every month — so their team never has to think about it again.</p>
+      <div class="tap-hero-btns" style="
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 32px;
+      ">
         <a class="primary-btn-large" href="#services">See How It Works</a>
         <a class="secondary-btn-large" href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank">Book a Free 15-Minute Call</a>
       </div>
-      <div class="tap-hero-flags">
+      <div class="tap-hero-flags" style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        font-size: 0.85rem;
+        color: rgba(255,255,255,0.65);
+      ">
         <span>Serving clients in:</span>
-        <span title="India">🇮🇳</span>
-        <span title="USA">🇺🇸</span>
-        <span title="Canada">🇨🇦</span>
-        <span title="UK">🇬🇧</span>
-        <span title="Australia">🇦🇺</span>
+        <span title="India" style="font-size: 1.4rem;">🇮🇳</span>
+        <span title="USA" style="font-size: 1.4rem;">🇺🇸</span>
+        <span title="Canada" style="font-size: 1.4rem;">🇨🇦</span>
+        <span title="UK" style="font-size: 1.4rem;">🇬🇧</span>
+        <span title="Australia" style="font-size: 1.4rem;">🇦🇺</span>
       </div>
     </div>
   </section>
@@ -661,18 +718,20 @@
 (function() {
   const introSection     = document.getElementById('tap-intro-video-section');
   const cinematicSection = document.getElementById('tap-cinematic-section');
+  const olderVideoSection = document.getElementById('tap-older-video-section');
+  const olderTextSection  = document.getElementById('tap-older-text-section');
+
   const introVideo       = document.getElementById('tap-intro-video');
   const lines            = document.querySelectorAll('.tap-cine-line');
   const scrollHint       = document.getElementById('tap-scroll-hint');
-  const heroSection      = document.querySelector('.tap-hero-section');
-  const heroContent      = document.querySelector('.tap-hero-content');
+  const olderTextContent = document.querySelector('.tap-hero-content-centered');
 
   let nextTimeout = null;
   let isHovering = false;
 
-  if (heroContent) {
-    heroContent.addEventListener('mouseenter', function() { isHovering = true; });
-    heroContent.addEventListener('mouseleave', function() { isHovering = false; });
+  if (olderTextContent) {
+    olderTextContent.addEventListener('mouseenter', function() { isHovering = true; });
+    olderTextContent.addEventListener('mouseleave', function() { isHovering = false; });
   }
 
   function clearPendingTransitions() {
@@ -686,7 +745,7 @@
   }
 
   function setActiveSlide(activeSlide) {
-    [introSection, cinematicSection, heroSection].forEach(slide => {
+    [introSection, cinematicSection, olderVideoSection, olderTextSection].forEach(slide => {
       if (slide) {
         if (slide === activeSlide) {
           slide.classList.add('active');
@@ -715,7 +774,6 @@
         });
       }
       
-      // Fallback in case video freezes or ended doesn't fire
       nextTimeout = setTimeout(function() {
         transitionToCinematic();
       }, 12000);
@@ -755,28 +813,30 @@
       }
     }, lines.length * 600 + 400);
 
-    nextTimeout = setTimeout(transitionToHeroVideoOnly, lines.length * 600 + 4000);
+    nextTimeout = setTimeout(transitionToOlderVideo, lines.length * 600 + 4000);
   }
 
-  function transitionToHeroVideoOnly() {
+  function transitionToOlderVideo() {
     clearPendingTransitions();
-    setActiveSlide(heroSection);
+    setActiveSlide(olderVideoSection);
     
-    if (heroContent) {
-      heroContent.style.transition = 'none';
-      heroContent.style.opacity = '0';
-      heroContent.style.transform = 'translateY(20px)';
-    }
-    
-    nextTimeout = setTimeout(transitionToHeroWithContent, 3000);
+    nextTimeout = setTimeout(transitionToOlderText, 6000);
   }
 
-  function transitionToHeroWithContent() {
+  function transitionToOlderText() {
     clearPendingTransitions();
-    if (heroContent) {
-      heroContent.style.transition = 'opacity 1s ease, transform 1s ease';
-      heroContent.style.opacity = '1';
-      heroContent.style.transform = 'translateY(0)';
+    setActiveSlide(olderTextSection);
+    
+    if (olderTextContent) {
+      olderTextContent.style.transition = 'none';
+      olderTextContent.style.opacity = '0';
+      olderTextContent.style.transform = 'translateY(20px)';
+      
+      requestAnimationFrame(function() {
+        olderTextContent.style.transition = 'opacity 1s ease, transform 1s ease';
+        olderTextContent.style.opacity = '1';
+        olderTextContent.style.transform = 'translateY(0)';
+      });
     }
     
     nextTimeout = setTimeout(checkAndLoop, 12000);
@@ -786,13 +846,13 @@
     if (isHovering) {
       nextTimeout = setTimeout(checkAndLoop, 2000);
     } else {
-      if (heroSection) {
-        heroSection.style.transition = 'opacity 1.2s ease';
-        heroSection.style.opacity = '0';
+      if (olderTextSection) {
+        olderTextSection.style.transition = 'opacity 1.2s ease';
+        olderTextSection.style.opacity = '0';
       }
       setTimeout(function() {
-        if (heroSection) {
-          heroSection.style.transition = '';
+        if (olderTextSection) {
+          olderTextSection.style.transition = '';
         }
         playSequence();
       }, 1200);
@@ -805,7 +865,7 @@
   // Scroll controls (wheel/touch) for cinematic section
   if (cinematicSection) {
     cinematicSection.addEventListener('wheel', function(e) {
-      if (e.deltaY > 0) transitionToHeroVideoOnly();
+      if (e.deltaY > 0) transitionToOlderVideo();
     }, { passive: true });
 
     let touchStartY = 0;
@@ -813,19 +873,13 @@
       touchStartY = e.touches[0].clientY;
     }, { passive: true });
     cinematicSection.addEventListener('touchend', function(e) {
-      if (touchStartY - e.changedTouches[0].clientY > 50) transitionToHeroVideoOnly();
+      if (touchStartY - e.changedTouches[0].clientY > 50) transitionToOlderVideo();
     }, { passive: true });
   }
 
 })();
 </script>
 
-      <span title="Canada">🇨🇦</span>
-      <span title="UK">🇬🇧</span>
-      <span title="Australia">🇦🇺</span>
-    </div>
-  </div>
-</section>
 <!-- Trust Bar -->
 <div class="trust-bar-white">
 <div class="container">
