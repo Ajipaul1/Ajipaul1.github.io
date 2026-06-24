@@ -455,8 +455,30 @@
     </div>
 </div>
 <!-- MOBILE_DRAWER_END -->
+<style>
+  /* Desktop: show video intro, hide cinematic until video ends */
+  /* Mobile: hide video intro entirely, show cinematic text immediately */
+  @media (max-width: 768px) {
+    #tap-intro-video-section {
+      display: none !important;
+    }
+    #tap-cinematic-section {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+    #tap-cinematic-section .tap-cine-line {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+    #tap-scroll-hint {
+      opacity: 1 !important;
+    }
+  }
+</style>
+
 <!-- ═══════════════════════════════════════════════════
      INTRO VIDEO SECTION — plays once before main hero
+     Desktop only — hidden on mobile
 ════════════════════════════════════════════════════ -->
 <section id="tap-intro-video-section" style="
   position: relative;
