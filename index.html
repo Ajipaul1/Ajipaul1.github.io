@@ -461,7 +461,8 @@
     width: 100%;
     height: 100vh;
     min-height: 600px;
-    background: #000;
+    background: #080c1b url('assets/images/hero/space-astronaut-seo-hero.png') no-repeat center center;
+    background-size: cover;
     overflow: hidden;
   }
   
@@ -475,6 +476,7 @@
     visibility: hidden;
     transition: opacity 1s ease, visibility 1s ease;
     z-index: 1;
+    background: transparent;
   }
   
   .tap-loop-slide.active {
@@ -483,12 +485,11 @@
     z-index: 10;
   }
 
-  #tap-intro-video-section {
+  #tap-intro-text-section {
     position: relative;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: #000;
   }
 
   @keyframes tap-bounce {
@@ -500,29 +501,11 @@
 <!-- Hero Loop Container -->
 <div class="tap-hero-loop-wrapper">
 
-  <!-- SLIDE 1: SPACE VIDEO + SEQUENTIAL TEXT OVERLAY -->
-  <section id="tap-intro-video-section" class="tap-loop-slide">
-    <video
-      id="tap-intro-video"
-      autoplay
-      muted
-      playsinline
-      preload="auto"
-      style="
-        position: absolute;
-        top: 50%; left: 50%;
-        transform: translate(-50%, -50%);
-        min-width: 100%; min-height: 100%;
-        width: auto; height: auto;
-        object-fit: cover;
-        z-index: 1;
-      "
-    >
-      <source src="videos/intro-hero.mp4" type="video/mp4">
-    </video>
-    <!-- Dark overlay to ensure text readability -->
-    <div style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.45); z-index: 2;"></div>
-    
+  <!-- Dark overlay globally covering the background image for both slides -->
+  <div style="position: absolute; inset: 0; background: rgba(5, 10, 25, 0.52); z-index: 2;"></div>
+
+  <!-- SLIDE 1: SPACE ARTWORK + SEQUENTIAL TEXT OVERLAY -->
+  <section id="tap-intro-text-section" class="tap-loop-slide">
     <!-- Animating Text Overlay -->
     <div class="tap-video-text-overlay" style="
       position: absolute;
@@ -578,7 +561,6 @@
     justify-content: center;
     width: 100%;
     height: 100%;
-    background: #000;
     overflow: hidden;
     position: relative;
   ">
@@ -650,9 +632,8 @@
 
 <script>
 (function() {
-  const introSection = document.getElementById('tap-intro-video-section');
+  const introSection = document.getElementById('tap-intro-text-section');
   const brandCtaSection = document.getElementById('tap-brand-cta-section');
-  const introVideo = document.getElementById('tap-intro-video');
   const overlayLines = document.querySelectorAll('.tap-overlay-line');
   const brandCtaContent = document.querySelector('.tap-hero-content-centered');
 
@@ -695,16 +676,6 @@
       line.style.transform = index === 1 ? 'translateX(50px)' : 'translateX(-50px)';
     });
 
-    if (introVideo) {
-      introVideo.currentTime = 0;
-      const playPromise = introVideo.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(function(error) {
-          console.log("Video play prevented:", error);
-        });
-      }
-    }
-
     // Line 1: slides in from left at 1.0s
     addTimeout(function() {
       if (overlayLines[0]) {
@@ -741,12 +712,11 @@
       brandCtaContent.style.transition = 'none';
       brandCtaContent.style.opacity = '0';
       brandCtaContent.style.transform = 'translateY(20px)';
+      brandCtaContent.offsetHeight; // Force DOM reflow to guarantee CSS transition triggers
       
-      requestAnimationFrame(function() {
-        brandCtaContent.style.transition = 'opacity 1s ease, transform 1s ease';
-        brandCtaContent.style.opacity = '1';
-        brandCtaContent.style.transform = 'translateY(0)';
-      });
+      brandCtaContent.style.transition = 'opacity 1s ease, transform 1s ease';
+      brandCtaContent.style.opacity = '1';
+      brandCtaContent.style.transform = 'translateY(0)';
     }
     
     addTimeout(checkAndLoop, 12000);
