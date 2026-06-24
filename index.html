@@ -623,31 +623,57 @@
 
 <script>
 (function() {
-  const introSection  = document.getElementById('tap-intro-video-section');
+  const introSection     = document.getElementById('tap-intro-video-section');
   const cinematicSection = document.getElementById('tap-cinematic-section');
-  const introVideo    = document.getElementById('tap-intro-video');
-  const lines         = document.querySelectorAll('.tap-cine-line');
-  const scrollHint    = document.getElementById('tap-scroll-hint');
-  const heroSection   = document.querySelector('.tap-hero-section');
+  const introVideo       = document.getElementById('tap-intro-video');
+  const lines            = document.querySelectorAll('.tap-cine-line');
+  const scrollHint       = document.getElementById('tap-scroll-hint');
+  const heroSection      = document.querySelector('.tap-hero-section');
+  const isMobile         = window.matchMedia('(max-width: 768px)').matches;
 
-  // ── Step 1: When intro video ENDS → show cinematic section ──
-  introVideo.addEventListener('ended', function() {
-    // Fade out intro video section
-    introSection.style.transition = 'opacity 0.8s ease';
-    introSection.style.opacity = '0';
+  // ── MOBILE: skip video, animate lines immediately on load ──
+  if (isMobile) {
+    // CSS already makes lines visible, just animate them in nicely
+    lines.forEach(function(line, i) {
+      line.style.opacity = '0';
+      line.style.transform = 'translateY(18px)';
+      setTimeout(function() {
+        line.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+        line.style.opacity = '1';
+        line.style.transform = 'translateY(0)';
+        if (i === lines.length - 1) {
+          setTimeout(function() {
+            scrollHint.style.transition = 'opacity 0.6s ease';
+            scrollHint.style.opacity = '1';
+          }, 800);
+        }
+      }, 300 + i * 500);
+    });
 
+  } else {
+    // ── DESKTOP: wait for video to end, then show cinematic section ──
+    introVideo.addEventListener('ended', function() {
+      introSection.style.transition = 'opacity 0.8s ease';
+      introSection.style.opacity = '0';
+
+      setTimeout(function() {
+        introSection.style.display = 'none';
+
+        cinematicSection.style.visibility = 'visible';
+        cinematicSection.style.transition = 'opacity 0.6s ease';
+        cinematicSection.style.opacity = '1';
+
+        animateLines();
+      }, 850);
+    });
+
+    // Fallback: auto-advance after 15s if 'ended' never fires
     setTimeout(function() {
-      introSection.style.display = 'none';
-
-      // Show cinematic section
-      cinematicSection.style.visibility = 'visible';
-      cinematicSection.style.transition = 'opacity 0.6s ease';
-      cinematicSection.style.opacity = '1';
-
-      // Animate lines one by one
-      animateLines();
-    }, 850);
-  });
+      if (introSection.style.display !== 'none') {
+        introVideo.dispatchEvent(new Event('ended'));
+      }
+    }, 15000);
+  }
 
   function animateLines() {
     lines.forEach(function(line, i) {
@@ -655,8 +681,6 @@
         line.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
         line.style.opacity = '1';
         line.style.transform = 'translateY(0)';
-
-        // After last line, show scroll hint
         if (i === lines.length - 1) {
           setTimeout(function() {
             scrollHint.style.transition = 'opacity 0.6s ease';
@@ -667,12 +691,11 @@
     });
   }
 
-  // ── Step 2: Scroll on cinematic section scrolls to hero ──
+  // ── Scroll down on cinematic section → smooth scroll to hero ──
   cinematicSection.addEventListener('wheel', function(e) {
     if (e.deltaY > 0) scrollToHero();
   }, { passive: true });
 
-  // Touch swipe up → hero
   let touchStartY = 0;
   cinematicSection.addEventListener('touchstart', function(e) {
     touchStartY = e.touches[0].clientY;
@@ -686,13 +709,6 @@
       heroSection.scrollIntoView({ behavior: 'smooth' });
     }
   }
-
-  // ── Fallback: If video fails to fire 'ended', auto-advance after 15s ──
-  setTimeout(function() {
-    if (introSection.style.display !== 'none') {
-      introVideo.dispatchEvent(new Event('ended'));
-    }
-  }, 15000);
 })();
 </script>
 
