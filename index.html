@@ -1507,7 +1507,7 @@
     }
 
     /* --- RESPONSIVE ADAPTATIONS --- */
-    @media (max-width: 1300px) {
+    @media (max-width: 1024px) {
         .hero-grid {
             grid-template-columns: 1fr;
             gap: 40px;
@@ -2020,12 +2020,12 @@
             <a href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" class="primary-btn-large" style="display: inline-flex; width: fit-content; margin-top: 10px;">Watch Full Video (3:12) &nbsp; ▶</a>
         </div>
         
-        <!-- Middle column: Interactive video player -->
-        <div class="savings-video-wrapper" style="overflow: hidden; border-radius: 20px; border: 1px solid var(--border-light); background: #000; position: relative; display: flex; align-items: center; justify-content: center; height: 100%;">
-            <video controls poster="assets/images/locations/seo_company_mumbai_unique.png" style="width: 100%; height: 100%; object-fit: cover; display: block; min-height: 380px;">
-                <source src="videos/mainvideos/tech-1.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+        <!-- Middle column: Gateway photo with Play overlay -->
+        <div class="savings-video-wrapper" style="overflow: hidden; border-radius: 20px; border: 1px solid var(--border-light); background: #000; position: relative; display: flex; align-items: center; justify-content: center; height: 100%; min-height: 380px;">
+            <img class="gateway-mumbai-img" src="assets/images/locations/seo_company_mumbai_unique.png" alt="Gateway of India Mumbai" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.85; position: absolute; inset: 0;" />
+            <a href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" class="video-overlay-play" style="position: relative; z-index: 2; text-decoration: none;">
+                <div class="play-btn-circle" style="width: 70px; height: 70px; background: rgba(79, 70, 229, 0.9); color: #ffffff; font-size: 1.8rem; display: flex; align-items: center; justify-content: center; border-radius: 50%; padding-left: 5px; box-shadow: 0 0 25px rgba(99, 102, 241, 0.6); transition: transform 0.2s;">▶</div>
+            </a>
         </div>
         
         <!-- Right column Cost Comparison vertical bars (SCREENSHOT 5 ALIGNED) -->
@@ -2969,39 +2969,33 @@ window.initGoogleMap = function() {
     const mapElement = document.getElementById('google-map');
     if (!mapElement) return;
 
-    // Custom light/white map styles
-    const lightMapStyle = [
-        { "elementType": "geometry", "stylers": [{ "color": "#f8fafc" }] },
-        { "elementType": "labels.icon", "stylers": [{ "visibility": "on" }, { "opacity": 50 }] },
-        { "elementType": "labels.text.fill", "stylers": [{ "color": "#475569" }] },
-        { "elementType": "labels.text.stroke", "stylers": [{ "color": "#f8fafc" }] },
-        { "featureType": "administrative", "elementType": "geometry.stroke", "stylers": [{ "color": "#cbd5e1" }] },
-        { "featureType": "administrative.country", "elementType": "geometry.stroke", "stylers": [{ "color": "#94a3b8" }, { "strokeWeight": 1 }] },
-        { "featureType": "landscape.natural", "elementType": "geometry.fill", "stylers": [{ "color": "#f1f5f9" }] },
+    // Custom dark mode theme styled exactly like reference image
+    const darkMapStyle = [
+        { "elementType": "geometry", "stylers": [{ "color": "#060919" }] },
+        { "elementType": "labels.text.stroke", "stylers": [{ "visibility": "off" }] },
+        { "elementType": "labels.text.fill", "stylers": [{ "color": "#818cf8" }] },
+        { "featureType": "administrative.country", "elementType": "geometry.stroke", "stylers": [{ "color": "#1e293b" }] },
+        { "featureType": "administrative.country", "elementType": "labels.text.fill", "stylers": [{ "color": "#ffffff" }, { "font-weight": "bold" }] },
         { "featureType": "poi", "stylers": [{ "visibility": "off" }] },
-        { "featureType": "road", "stylers": [{ "visibility": "on" }] },
-        { "featureType": "road", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }] },
-        { "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#e2e8f0" }] },
-        { "featureType": "water", "elementType": "labels.text.fill", "stylers": [{ "color": "#64748b" }] }
+        { "featureType": "road", "stylers": [{ "visibility": "off" }] },
+        { "featureType": "transit", "stylers": [{ "visibility": "off" }] },
+        { "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#020308" }] },
+        { "featureType": "water", "elementType": "labels.text.fill", "stylers": [{ "color": "#334155" }] }
     ];
 
     const mapOptions = {
-        center: { lat: 20, lng: 10 },
+        center: { lat: 25, lng: 10 },
         zoom: 2,
-        mapTypeControl: true, // Enables Satellite option
-        mapTypeControlOptions: {
-            style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
-            position: google.maps.ControlPosition.TOP_LEFT
-        },
-        styles: lightMapStyle,
-        backgroundColor: '#ffffff',
+        disableDefaultUI: true,
+        styles: darkMapStyle,
+        backgroundColor: '#050814',
         gestureHandling: 'cooperative'
     };
 
     const map = new google.maps.Map(mapElement, mapOptions);
 
     const locations = [
-        { name: "Our Location (HQ Kochi, India 🇮🇳)", label: "Our Location", lat: 9.9312, lng: 76.2673, isHq: true },
+        { name: "Kochi, India HQ 🇮🇳", label: "India HQ", lat: 9.9312, lng: 76.2673, isHq: true },
         { name: "USA 🇺🇸", label: "USA", lat: 40.7128, lng: -74.0060 },
         { name: "Canada 🇨🇦", label: "Canada", lat: 43.6532, lng: -79.3832 },
         { name: "United Kingdom 🇬🇧", label: "UK", lat: 51.5074, lng: -0.1278 },
@@ -3022,17 +3016,17 @@ window.initGoogleMap = function() {
             title: loc.name,
             label: {
                 text: loc.label,
-                color: loc.isHq ? '#ffffff' : '#1e293b',
+                color: '#ffffff',
                 fontSize: '11px',
                 fontWeight: '800'
             },
             icon: {
                 path: google.maps.SymbolPath.CIRCLE,
-                scale: loc.isHq ? 9 : 6,
+                scale: loc.isHq ? 8 : 6,
                 fillColor: loc.isHq ? '#10b981' : '#6366f1',
                 fillOpacity: 1,
                 strokeColor: '#ffffff',
-                strokeWeight: loc.isHq ? 2.5 : 1.5,
+                strokeWeight: 1.5,
                 labelOrigin: new google.maps.Point(0, -14)
             }
         });
@@ -3049,51 +3043,18 @@ window.initGoogleMap = function() {
             infowindow.close();
         });
 
-        // Open Kochi HQ infowindow by default
-        if (loc.isHq) {
-            infowindow.open(map, marker);
-        }
-
         // Geodesic connections from India HQ
         if (!loc.isHq) {
             new google.maps.Polyline({
                 path: [hqLatLng, latLng],
                 geodesic: true,
-                strokeColor: '#6366f1',
-                strokeOpacity: 0.5,
+                strokeColor: '#818cf8',
+                strokeOpacity: 0.6,
                 strokeWeight: 2,
                 map: map
             });
         }
     });
-
-    // Detect user's location via Geolocation API
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-            const userLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-            const userMarker = new google.maps.Marker({
-                position: userLatLng,
-                map: map,
-                title: "Your Location",
-                icon: {
-                    path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
-                    scale: 6,
-                    fillColor: '#ef4444', // Red marker for user location
-                    fillOpacity: 1,
-                    strokeColor: '#ffffff',
-                    strokeWeight: 1.5
-                }
-            });
-            const userInfoWindow = new google.maps.InfoWindow({
-                content: `<div style="color:#0f172a; font-family:'Inter',sans-serif; font-size:12px; font-weight:800; padding:4px;">Your Location</div>`
-            });
-            userMarker.addListener('click', function() {
-                userInfoWindow.open(map, userMarker);
-            });
-        }, function(err) {
-            console.log("Geolocation error:", err);
-        });
-    }
 };
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApNqBu2x4uBoQRiQjkPGyp5pOPnFDgNf8&callback=initGoogleMap" async defer></script>
