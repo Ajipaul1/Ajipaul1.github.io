@@ -168,8 +168,8 @@
         padding: 90px 0;
         border-bottom: 1px solid var(--border-light);
         background: 
-            url('assets/images/hero/space-astronaut-seo-hero.png') no-repeat right 5% center / 45% contain,
-            radial-gradient(circle at 85% 30%, #151d3b 0%, #050814 60%) !important;
+            url('assets/images/hero/space-astronaut-seo-hero.png') no-repeat right -5% center / 46% contain,
+            radial-gradient(circle at 85% 30%, #151d3b 0%, #050814 65%) !important;
         overflow: hidden;
         color: #ffffff;
     }
@@ -259,7 +259,19 @@
     /* Right Main Text Content */
     .hero-main-content {
         text-align: left;
-        padding-right: 42%;
+        padding-right: 32%;
+        position: relative;
+        z-index: 1;
+    }
+    @media (max-width: 1440px) {
+        .hero-main-content {
+            padding-right: 22%;
+        }
+    }
+    @media (max-width: 1200px) {
+        .hero-main-content {
+            padding-right: 12%;
+        }
     }
     .hero-flex-layout {
         display: block;
@@ -1506,7 +1518,7 @@
             order: 2;
         }
         .tap-new-hero {
-            background: radial-gradient(circle at 85% 30%, #151d3b 0%, #050814 60%) !important;
+            background: radial-gradient(circle at 85% 30%, #151d3b 0%, #050814 70%) !important;
         }
         .hero-main-content {
             text-align: center;
