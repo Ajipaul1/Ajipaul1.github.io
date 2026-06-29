@@ -22,7 +22,7 @@
 <!-- Styles -->
 <link href="assets/css/homepage.css" rel="stylesheet"/>
 
-<!-- Scoped White Immersive Redesign Styles (Edge-to-Edge Full Screen) -->
+<!-- Scoped Hybrid Immersive Redesign Styles (Edge-to-Edge Full Screen) -->
 <style>
     :root {
         --primary-indigo: #4f46e5;
@@ -38,7 +38,6 @@
         --light-bg-alt: #f8fafc;
         --card-bg: #ffffff;
         --border-light: #e2e8f0;
-        --border-hover: rgba(79, 70, 229, 0.3);
         --text-primary: #0f172a;
         --text-secondary: #475569;
         --text-muted: #64748b;
@@ -163,23 +162,22 @@
         box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
     }
 
-    /* --- GIGANTIC HERO SECTION --- */
+    /* --- GIGANTIC HERO SECTION (IMMERSED DARK CONTROLS) --- */
     .tap-new-hero {
         position: relative;
-        padding: 80px 0;
-        border-bottom: 1px solid var(--border-light);
-        background: var(--light-bg);
+        padding: 90px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        background: #030712;
         overflow: hidden;
+        color: #ffffff;
     }
-    /* Subtle grid pattern background for white theme */
-    .hero-grid-bg {
+    .hero-video-bg {
         position: absolute;
         inset: 0;
         width: 100%;
         height: 100%;
-        background-image: radial-gradient(#e2e8f0 1.5px, transparent 1.5px);
-        background-size: 24px 24px;
-        opacity: 0.7;
+        object-fit: cover;
+        opacity: 0.25;
         pointer-events: none;
         z-index: 0;
     }
@@ -192,27 +190,28 @@
         align-items: center;
     }
     
-    /* Left Pricing Cards */
+    /* Left Pricing Cards - styled for Dark contrast */
     .hero-pricing-stack {
         display: flex;
         flex-direction: column;
         gap: 14px;
     }
     .hero-pricing-card {
-        background: var(--card-bg);
-        border: 1px solid var(--border-light);
+        background: rgba(11, 15, 25, 0.85);
+        border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 14px;
         padding: 14px 20px;
         display: flex;
         align-items: center;
         justify-content: space-between;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: var(--shadow-sm);
+        backdrop-filter: blur(8px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
     .hero-pricing-card:hover {
         transform: scale(1.02);
         border-color: var(--primary-indigo);
-        box-shadow: 0 10px 25px rgba(79, 70, 229, 0.1);
+        box-shadow: 0 0 25px rgba(99, 102, 241, 0.25);
     }
     .pricing-card-country {
         display: flex;
@@ -226,12 +225,12 @@
         margin: 0;
         font-size: 1.05rem;
         font-weight: 800;
-        color: var(--text-primary);
+        color: #ffffff;
         font-family: 'Plus Jakarta Sans', sans-serif;
     }
     .pricing-card-country-details span {
         font-size: 0.78rem;
-        color: var(--text-muted);
+        color: #94a3b8;
     }
     .pricing-card-prices {
         text-align: right;
@@ -239,28 +238,28 @@
     .price-tap {
         font-size: 1.15rem;
         font-weight: 900;
-        color: var(--primary-indigo);
+        color: var(--accent-teal);
         margin: 0;
     }
     .price-tap span {
         font-size: 0.78rem;
-        color: var(--text-secondary);
+        color: #94a3b8;
         font-weight: 400;
     }
     .price-save-badge {
         display: inline-block;
-        background: var(--accent-green-light);
-        color: var(--accent-green-dark);
+        background: rgba(16, 185, 129, 0.15);
+        color: var(--accent-green);
         font-size: 0.72rem;
         font-weight: 800;
         padding: 4px 10px;
         border-radius: 6px;
         margin-top: 4px;
-        border: 1px solid rgba(16, 185, 129, 0.2);
+        border: 1px solid rgba(16, 185, 129, 0.3);
     }
     .pricing-stack-disclaimer {
         font-size: 0.8rem;
-        color: var(--text-muted);
+        color: #94a3b8;
         margin: 4px 0 0 4px;
         font-style: italic;
     }
@@ -282,7 +281,7 @@
         font-weight: 900;
         margin: 0 0 25px 0;
         letter-spacing: -0.04em;
-        color: var(--text-primary);
+        color: #ffffff;
     }
     .hero-main-content h1 span {
         background: linear-gradient(135deg, var(--primary-indigo) 0%, var(--accent-teal) 100%);
@@ -292,16 +291,16 @@
     }
     .hero-main-content .hero-subtitle {
         font-size: clamp(1.1rem, 2vw, 1.35rem);
-        color: var(--text-secondary);
+        color: #94a3b8;
         line-height: 1.65;
         margin-bottom: 30px;
     }
     .hero-astronaut-image {
         width: 100%;
         border-radius: 24px;
-        border: 1px solid var(--border-light);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         animation: floatAstronaut 6s ease-in-out infinite;
-        box-shadow: var(--shadow-lg);
+        box-shadow: 0 0 35px rgba(99, 102, 241, 0.25);
     }
     .hero-features-list {
         display: flex;
@@ -315,7 +314,7 @@
         gap: 10px;
         font-size: 1rem;
         font-weight: 700;
-        color: var(--text-primary);
+        color: #ffffff;
     }
     .hero-feature-icon {
         font-size: 1.35rem;
@@ -327,45 +326,20 @@
         flex-wrap: wrap;
         margin-bottom: 45px;
     }
-    .primary-btn-large {
-        background: linear-gradient(135deg, var(--primary-indigo) 0%, var(--primary-indigo-dark) 100%);
+    .hero-cta-group .primary-btn-large {
+        box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+    }
+    .hero-cta-group .secondary-btn-large {
+        border: 1.5px solid rgba(255, 255, 255, 0.2);
         color: #ffffff;
-        font-weight: 800;
-        font-size: 1.05rem;
-        padding: 16px 36px;
-        border-radius: 12px;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        box-shadow: 0 8px 24px rgba(79, 70, 229, 0.3);
-        transition: all 0.25s ease;
     }
-    .primary-btn-large:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 12px 30px rgba(79, 70, 229, 0.45);
-    }
-    .secondary-btn-large {
-        background: transparent;
-        border: 1.5px solid var(--border-light);
-        color: var(--text-primary);
-        font-weight: 800;
-        font-size: 1.05rem;
-        padding: 15px 36px;
-        border-radius: 12px;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        transition: all 0.25s ease;
-    }
-    .secondary-btn-large:hover {
-        border-color: var(--text-primary);
-        background: var(--light-bg-alt);
+    .hero-cta-group .secondary-btn-large:hover {
+        border-color: #ffffff;
+        background: rgba(255,255,255,0.05);
     }
 
     .hero-powered-bar {
-        border-top: 1px solid var(--border-light);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
         padding-top: 30px;
     }
     .hero-powered-bar p {
@@ -373,7 +347,7 @@
         font-weight: 800;
         letter-spacing: 0.1em;
         text-transform: uppercase;
-        color: var(--text-muted);
+        color: #94a3b8;
         margin: 0 0 16px 0;
     }
     .hero-powered-logos {
@@ -1546,10 +1520,12 @@
     </div>
 </div>
 
-<!-- Gigantic Hero Section (White Immersive theme) -->
+<!-- Gigantic Hero Section (Dark Immersive Theme Restored) -->
 <section class="tap-new-hero">
-    <!-- Subtle grid backdrop -->
-    <div class="hero-grid-bg"></div>
+    <!-- Immersive space backdrop video -->
+    <video class="hero-video-bg" autoplay loop muted playsinline>
+        <source src="videos/space-chilling-1.mp4" type="video/mp4" />
+    </video>
 
     <div class="container hero-grid">
         <!-- Left side: pricing stack -->
@@ -1675,14 +1651,14 @@
                     <!-- Screaming Frog Colored SVG -->
                     <svg viewBox="0 0 170 35" width="120" height="26" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 5c-3.3 0-6 2.7-6 6v3h12v-3c0-3.3-2.7-6-6-6zm-4 9v4c0 2.2 1.8 4 4 4s4-1.8 4-4v-4H8z" fill="#4B8C2A"/>
-                        <circle cx="9" cy="8" r="1.5" fill="#4B8C2A"/>
-                        <circle cx="15" cy="8" r="1.5" fill="#4B8C2A"/>
+                        <circle cx="9" cy="8" r="1.5" fill="#FFFFFF"/>
+                        <circle cx="15" cy="8" r="1.5" fill="#FFFFFF"/>
                         <text x="26" y="23" fill="#4B8C2A" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="900">ScreamFrog</text>
                     </svg>
                     <!-- Google Search Console Colored SVG -->
                     <svg viewBox="0 0 180 35" width="130" height="26" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 4C7.6 4 4 7.6 4 12s3.6 8 8 8h10c.8 0 1.5-.7 1.5-1.5S22.8 17 22 17h-2c-.8 0-1.5-.7-1.5-1.5S19.2 14 20 14h1c.8 0 1.5-.7 1.5-1.5S21.8 11 21 11H12.5C10 11 8.5 12.5 8.5 14s1.5 3 3 3 3-1.5 3-3-1.5-3-3-3l1-1.5z" fill="#4285F4"/>
-                        <text x="32" y="23" fill="#0f172a" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800">Search Console</text>
+                        <text x="32" y="23" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800">Search Console</text>
                     </svg>
                     <!-- PageSpeed Insights SVG -->
                     <svg viewBox="0 0 160 35" width="110" height="26" xmlns="http://www.w3.org/2000/svg">
@@ -1692,11 +1668,11 @@
                     <!-- Ahrefs Colored SVG -->
                     <svg viewBox="0 0 110 35" width="90" height="26" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8 8h6l6 18h-5.5l-1.5-5H9l-1.5 5H2L8 8zm6 9.5l-2.5-8-2.5 8h5z" fill="#FF8D00"/>
-                        <text x="25" y="23" fill="#0f172a" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="900">ahrefs</text>
+                        <text x="25" y="23" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="900">ahrefs</text>
                     </svg>
                     <!-- Lumar Colored SVG -->
                     <svg viewBox="0 0 90 35" width="80" height="26" xmlns="http://www.w3.org/2000/svg">
-                        <text x="5" y="23" fill="#0d9488" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="900" style="letter-spacing:1px;">Lumar</text>
+                        <text x="5" y="23" fill="#00E676" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="900" style="letter-spacing:1px;">Lumar</text>
                     </svg>
                 </div>
             </div>
@@ -2449,66 +2425,57 @@
     </div>
 </section>
 
-<!-- Footer -->
+<!-- Footer (Structured to match reference image) -->
 <footer class="site-footer" id="contact">
     <div class="container footer-container">
         <div class="footer-content">
             <div class="footer-column">
-                <h3>TechAuditPros</h3>
-                <p>Your dedicated offshore technical web team. We manage your website, SEO &amp; backend — every month, so you don't have to.</p>
-                <p style="margin-top: 12px; margin-bottom: 4px;">📍 Kochi, Kerala, India</p>
-                <p style="margin-bottom: 6px;"><a href="mailto:info@techauditpros.com" class="footer-link">info@techauditpros.com</a></p>
+                <a class="header-logo" href="/" style="color: #ffffff; margin-bottom: 20px;">
+                    <img alt="TechAuditPros Logo" height="32" src="assets/logoonly.svg" width="32"/>
+                    <span class="logo-text">TechAuditPros</span>
+                </a>
+                <p>Your dedicated offshore technical team. We run your website backend and organic growth operations every month so you don't have to.</p>
+                <div class="footer-social-icons" style="display: flex; gap: 14px; margin-top: 20px;">
+                    <a href="https://linkedin.com/in/ajipaul-officia/" target="_blank" style="color: rgba(255,255,255,0.7); font-size: 1.25rem;">LinkedIn</a>
+                    <a href="mailto:info@techauditpros.com" style="color: rgba(255,255,255,0.7); font-size: 1.25rem;">Email</a>
+                    <a href="https://github.com/Ajipaul1" target="_blank" style="color: rgba(255,255,255,0.7); font-size: 1.25rem;">GitHub</a>
+                </div>
             </div>
             <div class="footer-column">
-                <h3>SEO Services</h3>
-                <p><a href="/technical-seo-audit/" class="footer-link">Technical SEO Audit</a></p>
-                <p><a href="/seo-services/enterprise-seo/" class="footer-link">Enterprise SEO</a></p>
-                <p><a href="/seo-services/saas-seo-strategy/" class="footer-link">SaaS SEO Strategy</a></p>
-                <p><a href="/seo-services/ecommerce-seo/" class="footer-link">E-commerce SEO</a></p>
-                <p><a href="/shopify-seo-company/" class="footer-link">Shopify SEO</a></p>
-                <p><a href="/b2b-seo-strategy/" class="footer-link">B2B SEO Strategy</a></p>
-                <p><a href="/local-seo-services/" class="footer-link">Local SEO Services</a></p>
-                <p><a href="/on-page-seo/" class="footer-link">On-Page SEO</a></p>
-                <p><a href="/off-page-seo/" class="footer-link">Off-Page SEO</a></p>
-                <p><a href="/international-seo/" class="footer-link">International SEO</a></p>
-                <p><a href="/white-label-seo-services-for-agencies/" class="footer-link">White-Label SEO</a></p>
-            </div>
-            <div class="footer-column">
-                <h3>SaaS Dev &amp; Web Design</h3>
-                <p><a href="/saas-app-development/custom-crm-portals/" class="footer-link">Custom CRM Portals</a></p>
-                <p><a href="/saas-app-development/erp-integrations/" class="footer-link">ERP Integrations</a></p>
-                <p><a href="/saas-app-development/b2b-dashboards/" class="footer-link">B2B Dashboards</a></p>
-                <p><a href="/saas-app-development/mvp-development/" class="footer-link">MVP Development</a></p>
-                <p><a href="/website-seo-audit/" class="footer-link">Website SEO Audit</a></p>
-                <p><a href="/website-design-development/b2b-corporate-websites/" class="footer-link">B2B Corporate Sites</a></p>
-                <p><a href="/website-design-development/core-web-vitals-optimization/" class="footer-link">Core Web Vitals</a></p>
-                <p><a href="/website-design-development/nextjs-development/" class="footer-link">Next.js Development</a></p>
-                <p><a href="/website-design-development/headless-cms/" class="footer-link">Headless CMS Dev</a></p>
-                <p><a href="/healthcare-seo-services/" class="footer-link">Healthcare SEO Services</a></p>
-            </div>
-            <div class="footer-column">
-                <h3>Digital Marketing</h3>
-                <p><a href="/digital-marketing-services/" class="footer-link">Marketing Services</a></p>
-                <p><a href="/digital-marketing-strategy/" class="footer-link">Marketing Strategy</a></p>
-                <p><a href="/digital-marketing-for-healthcare/" class="footer-link">Healthcare Marketing</a></p>
-                <p><a href="/digital-marketing-for-ecommerce/" class="footer-link">E-commerce Marketing</a></p>
-                <p><a href="/digital-marketing-courses/" class="footer-link">Courses &amp; Guides</a></p>
-                <p><a href="/digital-marketing-faq/" class="footer-link">Marketing FAQ</a></p>
-            </div>
-            <div class="footer-column">
-                <h3>Company &amp; Resources</h3>
+                <h3>Company</h3>
                 <p><a href="/about.html" class="footer-link">About Us</a></p>
                 <p><a href="/case-studies.html" class="footer-link">Case Studies</a></p>
-                <p><a href="/blog/" class="footer-link">Blog Hub</a></p>
-                <p><a href="/seo-consultant-kerala/" class="footer-link">Freelance Consultant</a></p>
-                <p><a href="/seo-training-kerala/" class="footer-link">SEO Training</a></p>
+                <p><a href="#contact" class="footer-link">Contact Us</a></p>
+                <p><a href="/blog/" class="footer-link">Blog &amp; Guides</a></p>
+            </div>
+            <div class="footer-column">
+                <h3>Services</h3>
+                <p><a href="/technical-seo-audit/" class="footer-link">Technical SEO Audit</a></p>
+                <p><a href="/website-design-development/" class="footer-link">Web Development</a></p>
+                <p><a href="/saas-app-development/" class="footer-link">Backend Operations</a></p>
+                <p><a href="/seo-services/enterprise-seo/" class="footer-link">Enterprise SEO</a></p>
+                <p><a href="/seo-services/saas-seo-strategy/" class="footer-link">SaaS SEO Strategy</a></p>
+            </div>
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <p><a href="/website-seo-audit/" class="footer-link">Website Health Check</a></p>
+                <p><a href="/digital-marketing-faq/" class="footer-link">Support &amp; FAQ</a></p>
                 <p><a href="/privacy/" class="footer-link">Privacy Policy</a></p>
-                <p><a href="/terms/" class="footer-link">Terms of Service</a></p>
+                <p><a href="/terms/" class="footer-link">Terms &amp; Conditions</a></p>
+            </div>
+            <div class="footer-column">
+                <h3>Top Countries</h3>
+                <p><a href="/seo-audit-usa/" class="footer-link">🇺🇸 United States</a></p>
+                <p><a href="/seo-audit-canada/" class="footer-link">🇨🇦 Canada</a></p>
+                <p><a href="/seo-audit-australia/" class="footer-link">🇦🇺 Australia</a></p>
+                <p><a href="/seo-company/london-uk/" class="footer-link">🇬🇧 United Kingdom</a></p>
+                <p><a href="/seo-services/" class="footer-link">🇦🇪 Dubai (UAE)</a></p>
+                <p><a href="/seo-audit-kochi/" class="footer-link">🇮🇳 India HQ</a></p>
             </div>
         </div>
         
         <div class="footer-locations" style="border-top: 1px solid rgba(255, 255, 255, 0.08); margin-top: 40px; padding-top: 25px;">
-            <h3 style="color: #ffffff; font-size: 1.125rem; font-weight: 700; margin-bottom: 15px;">Target Markets</h3>
+            <h3 style="color: #ffffff; font-size: 1.125rem; font-weight: 700; margin-bottom: 15px;">Local Hubs</h3>
             <div style="display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 0.875rem; line-height: 1.6;">
                 <a href="/seo-audit-kochi/" class="footer-link">Kochi HQ</a>
                 <span style="color: #475569;">&bull;</span>
@@ -2560,8 +2527,9 @@
             </div>
         </div>
         
-        <div class="footer-bottom" style="margin-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 20px;">
+        <div class="footer-bottom" style="margin-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
             <p>&copy; 2026 TechAuditPros. All rights reserved.</p>
+            <p style="font-weight: 700; color: rgba(255,255,255,0.85);">Built with ❤️ in India for the World</p>
         </div>
     </div>
 </footer>
@@ -2570,8 +2538,7 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     // --- Countdown Timer Code ---
-    // Target date: 11 days, 23 hours, 47 minutes from now
-    var countdownDuration = (11 * 24 * 60 * 60) + (23 * 60 * 60) + (47 * 60) + 9; // in seconds
+    var countdownDuration = (11 * 24 * 60 * 60) + (23 * 60 * 60) + (47 * 60) + 9;
     var targetTime = Date.now() + (countdownDuration * 1000);
 
     function updateTimer() {
@@ -2579,7 +2546,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var diff = targetTime - now;
 
         if (diff <= 0) {
-            targetTime = Date.now() + (countdownDuration * 1000); // loop timer for demo consistency
+            targetTime = Date.now() + (countdownDuration * 1000);
             diff = targetTime - now;
         }
 
