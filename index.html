@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -16,417 +15,1416 @@
 <link href="assets/favicon-64.png" rel="icon" sizes="64x64" type="image/png"/>
 <link href="assets/logoonly.svg" rel="icon" type="image/svg+xml"/>
 <link href="assets/favicon-64.png" rel="apple-touch-icon"/>
-<!-- Open Graph / Social -->
-<meta content="website" property="og:type"/>
-<meta content="https://techauditpros.com/" property="og:url"/>
-<meta content="TechAuditPros | Dedicated Offshore Technical Web Team" property="og:title"/>
-<meta content="We become your company's dedicated technical web team. International businesses hand over their website backend to us — we run it every month so they don't have to." property="og:description"/>
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <!-- Styles -->
 <link href="assets/css/homepage.css" rel="stylesheet"/>
-<!-- Schema -->
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "TechAuditPros",
-    "url": "https://techauditpros.com",
-    "logo": "https://techauditpros.com/assets/logoonly.svg",
-    "sameAs": [
-      "https://www.linkedin.com/in/ajipaul-officia/",
-      "https://github.com/Ajipaul1"
-    ],
-    "description": "Technical SEO audit services for enterprise and local businesses.",
-    "priceRange": "$$"
-  }
-  </script>
 
-    <!-- Scoped Homepage Redesign CSS -->
-    <style>
-        html {
-            scroll-behavior: smooth;
+<!-- Scoped Trust Redesign Styles -->
+<style>
+    :root {
+        --primary-indigo: #4f46e5;
+        --primary-hover: #4338ca;
+        --accent-teal: #0d9488;
+        --accent-green: #10b981;
+        --dark-navy: #0f172a;
+        --slate-text: #475569;
+        --light-bg: #f8fafc;
+        --border-color: #e2e8f0;
+        --shadow-premium: 0 10px 30px -10px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.02);
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #ffffff;
+        color: var(--dark-navy);
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 92%;
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 16px;
+    }
+
+    /* --- TOP TRUST SCORE STRIP --- */
+    .tap-top-trust-bar {
+        background-color: #0f172a;
+        color: #ffffff;
+        padding: 10px 0;
+        font-size: 0.85rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .trust-bar-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .trust-left {
+        font-weight: 500;
+    }
+    .trust-right {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+    .trust-right a {
+        color: rgba(255, 255, 255, 0.85);
+        text-decoration: none;
+        transition: color 0.2s ease;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-weight: 600;
+    }
+    .trust-right a:hover {
+        color: #60a5fa;
+    }
+
+    /* --- HEADER STICKY --- */
+    .main-header-bar {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border-color);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        height: 70px;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        display: flex;
+        align-items: center;
+    }
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+    .header-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: var(--dark-navy);
+        font-weight: 800;
+        font-size: 1.25rem;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .desktop-nav {
+        display: flex;
+        gap: 28px;
+        align-items: center;
+    }
+    .desktop-nav a {
+        color: var(--slate-text);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: color 0.2s ease;
+    }
+    .desktop-nav a:hover {
+        color: var(--primary-indigo);
+    }
+    .book-audit-btn {
+        background: var(--primary-indigo);
+        color: #ffffff !important;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 0.88rem;
+        transition: all 0.2s ease;
+        box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
+    }
+    .book-audit-btn:hover {
+        background: var(--primary-hover);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(79, 70, 229, 0.25);
+    }
+
+    /* --- NEW HERO SECTION --- */
+    .tap-new-hero {
+        background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.04), transparent 45%);
+        padding: 80px 0 60px 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .hero-grid {
+        display: grid;
+        grid-template-columns: 420px 1fr;
+        gap: 60px;
+        align-items: center;
+    }
+    
+    /* Left side pricing cards */
+    .hero-pricing-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .hero-pricing-card {
+        background: #ffffff;
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 12px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: var(--shadow-premium);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+    }
+    .hero-pricing-card:hover {
+        transform: scale(1.02);
+        border-color: #cbd5e1;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+    }
+    .pricing-card-country {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .pricing-card-flag {
+        font-size: 1.75rem;
+    }
+    .pricing-card-country-details h4 {
+        margin: 0;
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--dark-navy);
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .pricing-card-country-details span {
+        font-size: 0.72rem;
+        color: var(--slate-text);
+    }
+    .pricing-card-prices {
+        text-align: right;
+    }
+    .price-tap {
+        font-size: 1rem;
+        font-weight: 800;
+        color: var(--primary-indigo);
+        margin: 0;
+    }
+    .price-tap span {
+        font-size: 0.72rem;
+        color: var(--slate-text);
+        font-weight: 400;
+    }
+    .price-save-badge {
+        display: inline-block;
+        background: rgba(16, 185, 129, 0.1);
+        color: var(--accent-green);
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding: 3px 8px;
+        border-radius: 6px;
+        margin-top: 4px;
+        border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+    .pricing-stack-disclaimer {
+        font-size: 0.75rem;
+        color: var(--slate-text);
+        margin: 4px 0 0 4px;
+        font-style: italic;
+    }
+
+    /* Right side text copy */
+    .hero-main-content {
+        text-align: left;
+    }
+    
+    .hero-flex-layout {
+        display: grid;
+        grid-template-columns: 1fr 280px;
+        gap: 30px;
+        align-items: center;
+    }
+    
+    .hero-main-content h1 {
+        font-size: clamp(2.2rem, 4vw, 3.2rem);
+        line-height: 1.1;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-weight: 900;
+        margin: 0 0 20px 0;
+        letter-spacing: -0.04em;
+        color: var(--dark-navy);
+    }
+    .hero-main-content h1 span {
+        background: linear-gradient(135deg, var(--primary-indigo) 0%, var(--accent-teal) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    .hero-main-content .hero-subtitle {
+        font-size: 1.1rem;
+        color: var(--slate-text);
+        line-height: 1.6;
+        margin-bottom: 25px;
+    }
+    
+    .hero-astronaut-image {
+        width: 100%;
+        border-radius: 20px;
+        box-shadow: var(--shadow-premium);
+        border: 1px solid var(--border-color);
+        animation: floatAstronaut 6s ease-in-out infinite;
+    }
+    
+    @keyframes floatAstronaut {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-12px); }
+        100% { transform: translateY(0px); }
+    }
+    
+    .hero-features-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 24px;
+        margin-bottom: 30px;
+    }
+    .hero-feature-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--dark-navy);
+    }
+    .hero-feature-icon {
+        font-size: 1.15rem;
+    }
+    .hero-cta-group {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-bottom: 35px;
+    }
+    .hero-powered-bar {
+        border-top: 1px solid var(--border-color);
+        padding-top: 20px;
+    }
+    .hero-powered-bar p {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--slate-text);
+        margin: 0 0 12px 0;
+    }
+    .hero-powered-logos {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        flex-wrap: wrap;
+    }
+    .hero-powered-logos img {
+        height: 18px;
+        opacity: 0.4;
+        transition: opacity 0.2s ease;
+        filter: grayscale(1);
+    }
+    .hero-powered-logos img:hover {
+        opacity: 0.8;
+        filter: none;
+    }
+
+    /* --- LIMITED LAUNCH OFFER BANNER --- */
+    .tap-launch-offer {
+        background: linear-gradient(135deg, #4f46e5 0%, #312e81 100%);
+        color: #ffffff;
+        padding: 24px 0;
+        box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.2);
+    }
+    .launch-offer-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+    .offer-details {
+        flex: 1;
+        min-width: 300px;
+    }
+    .offer-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.15);
+        color: #ffffff;
+        font-size: 0.75rem;
+        font-weight: 700;
+        padding: 4px 10px;
+        border-radius: 6px;
+        margin-bottom: 8px;
+        letter-spacing: 0.02em;
+    }
+    .offer-details h3 {
+        margin: 0 0 6px 0;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #ffffff;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .offer-details p {
+        margin: 0;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.8);
+    }
+    .offer-progress-block {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        width: 260px;
+    }
+    .progress-label-row {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+    .progress-bar-bg {
+        background: rgba(255, 255, 255, 0.2);
+        height: 10px;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    .progress-bar-fill {
+        background: var(--accent-green);
+        height: 100%;
+        width: 60%;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+    }
+    .offer-timer-block {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .timer-item {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 8px;
+        padding: 8px 12px;
+        text-align: center;
+        min-width: 50px;
+    }
+    .timer-num {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 1.35rem;
+        font-weight: 800;
+        margin: 0;
+    }
+    .timer-label {
+        font-size: 0.65rem;
+        color: rgba(255,255,255,0.7);
+        text-transform: uppercase;
+        margin-top: 2px;
+        letter-spacing: 0.05em;
+    }
+
+    /* --- BRAND PARTNERS --- */
+    .tap-brands-section {
+        padding: 50px 0;
+        border-bottom: 1px solid var(--border-color);
+        background-color: var(--light-bg);
+        text-align: center;
+    }
+    .brands-section-header {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--slate-text);
+        margin-bottom: 25px;
+    }
+    .brands-carousel-grid {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+    .brands-carousel-grid img {
+        height: 25px;
+        opacity: 0.5;
+        filter: grayscale(1);
+        transition: all 0.25s ease;
+    }
+    .brands-carousel-grid img:hover {
+        opacity: 0.9;
+        filter: none;
+        transform: scale(1.05);
+    }
+    .brands-sub-disclaimer {
+        margin-top: 20px;
+        font-size: 0.8rem;
+        color: var(--slate-text);
+    }
+
+    /* --- GLOBAL PRESENCE SECTION --- */
+    .tap-presence-section {
+        padding: 90px 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .presence-grid {
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 50px;
+        align-items: center;
+    }
+    .presence-map-wrapper {
+        position: relative;
+        background: #f8fafc;
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        box-shadow: var(--shadow-premium);
+    }
+    .presence-map-fallback {
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
+        background-size: 16px 16px;
+        position: relative;
+    }
+    .map-pulse-point {
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        background-color: var(--primary-indigo);
+        border-radius: 50%;
+    }
+    .map-pulse-point::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 3px solid var(--primary-indigo);
+        border-radius: 50%;
+        animation: mapPulse 1.8s infinite ease-out;
+        opacity: 0;
+        left: -3px;
+        top: -3px;
+    }
+    @keyframes mapPulse {
+        0% { transform: scale(0.6); opacity: 0.8; }
+        100% { transform: scale(2.5); opacity: 0; }
+    }
+    .point-usa { top: 35%; left: 22%; }
+    .point-canada { top: 25%; left: 26%; }
+    .point-uk { top: 24%; left: 47%; }
+    .point-germany { top: 28%; left: 51%; }
+    .point-dubai { top: 48%; left: 63%; }
+    .point-india { top: 52%; left: 72%; }
+    .point-singapore { top: 64%; left: 79%; }
+    .point-australia { top: 80%; left: 88%; }
+    
+    .map-location-tag {
+        position: absolute;
+        background: var(--dark-navy);
+        color: #ffffff;
+        font-size: 0.65rem;
+        font-weight: 700;
+        padding: 3px 8px;
+        border-radius: 4px;
+        white-space: nowrap;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transform: translate(-50%, -26px);
+    }
+    
+    .presence-stats-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .presence-stat-card {
+        background: #ffffff;
+        border: 1px solid var(--border-color);
+        border-radius: 14px;
+        padding: 20px 24px;
+        box-shadow: var(--shadow-premium);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+    .stat-card-num {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: var(--primary-indigo);
+        margin: 0;
+        min-width: 90px;
+    }
+    .stat-card-label {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--dark-navy);
+        line-height: 1.3;
+    }
+
+    /* --- WHY INDIA & COST SAVINGS --- */
+    .tap-savings-section {
+        padding: 90px 0;
+        border-bottom: 1px solid var(--border-color);
+        background-color: var(--light-bg);
+    }
+    .savings-grid {
+        display: grid;
+        grid-template-columns: 1fr 480px;
+        gap: 60px;
+        align-items: start;
+    }
+    .savings-features-col h2 {
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 25px;
+        letter-spacing: -0.02em;
+    }
+    .savings-features-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+        margin-bottom: 35px;
+    }
+    .savings-feature-card {
+        background: #ffffff;
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        padding: 14px 18px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+    .savings-feature-card span {
+        color: var(--primary-indigo);
+        font-size: 1.15rem;
+    }
+    .savings-video-wrapper {
+        border-radius: 16px;
+        overflow: hidden;
+        position: relative;
+        background: #0f172a;
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+    .video-overlay-play {
+        position: absolute;
+        z-index: 2;
+        text-align: center;
+        color: #ffffff;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    .play-btn-circle {
+        width: 70px;
+        height: 70px;
+        background: var(--primary-indigo);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        box-shadow: 0 0 20px rgba(79, 70, 229, 0.4);
+        transition: all 0.3s ease;
+    }
+    .video-overlay-play:hover .play-btn-circle {
+        transform: scale(1.1);
+        background-color: var(--primary-hover);
+        box-shadow: 0 0 30px rgba(79, 70, 229, 0.6);
+    }
+    
+    /* Cost comparison bars */
+    .savings-comparison-card {
+        background: #ffffff;
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: var(--shadow-premium);
+    }
+    .savings-comparison-card h3 {
+        margin: 0 0 6px 0;
+        font-size: 1.25rem;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .savings-comparison-card p {
+        margin: 0 0 24px 0;
+        font-size: 0.85rem;
+        color: var(--slate-text);
+    }
+    .comparison-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .comparison-row-item {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+    .comparison-row-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.88rem;
+        font-weight: 700;
+    }
+    .comparison-bars {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+    .comp-bar {
+        height: 20px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+        color: #ffffff;
+        font-size: 0.72rem;
+        font-weight: 700;
+        transition: width 0.5s ease;
+    }
+    .comp-bar.agency {
+        background: #94a3b8;
+    }
+    .comp-bar.tap {
+        background: linear-gradient(90deg, var(--primary-indigo) 0%, var(--accent-teal) 100%);
+    }
+    .comp-saved-badge {
+        font-size: 0.75rem;
+        font-weight: 800;
+        color: var(--accent-green);
+    }
+
+    /* --- CASE STUDIES --- */
+    .tap-cases-section {
+        padding: 90px 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .cases-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-top: 10px;
+    }
+    .case-card {
+        background: #ffffff;
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: var(--shadow-premium);
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .case-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0,0,0,0.05);
+        border-color: #cbd5e1;
+    }
+    .case-card-header {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--primary-indigo);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 15px;
+    }
+    .case-card h3 {
+        margin: 0 0 20px 0;
+        font-size: 1.35rem;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .case-metrics-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 25px;
+        border-top: 1px solid var(--border-color);
+        padding-top: 20px;
+    }
+    .case-metric-row {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.95rem;
+    }
+    .case-metric-row span:first-child {
+        color: var(--slate-text);
+    }
+    .case-metric-row span:last-child {
+        font-weight: 700;
+        color: var(--dark-navy);
+    }
+    .case-card-link {
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--primary-indigo);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        transition: gap 0.2s ease;
+    }
+    .case-card-link:hover {
+        gap: 8px;
+    }
+
+    /* --- CLIENT REVIEWS --- */
+    .tap-reviews-section {
+        padding: 90px 0;
+        border-bottom: 1px solid var(--border-color);
+        background-color: var(--light-bg);
+    }
+    .reviews-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    .review-card-item {
+        background: #ffffff;
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: var(--shadow-premium);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .review-stars-row {
+        color: #f59e0b;
+        font-size: 1.15rem;
+        margin-bottom: 15px;
+    }
+    .review-card-item p {
+        font-size: 1rem;
+        line-height: 1.65;
+        color: var(--dark-navy);
+        margin: 0 0 25px 0;
+        font-style: italic;
+    }
+    .review-author-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid var(--border-color);
+        padding-top: 15px;
+    }
+    .review-author-info h4 {
+        margin: 0;
+        font-size: 0.95rem;
+        font-weight: 700;
+    }
+    .review-author-info span {
+        font-size: 0.75rem;
+        color: var(--slate-text);
+    }
+    .review-country-badge {
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: var(--slate-text);
+        background: var(--light-bg);
+        border: 1px solid var(--border-color);
+        padding: 3px 8px;
+        border-radius: 6px;
+    }
+
+    /* --- WORKFLOW TIMELINE --- */
+    .tap-workflow-section {
+        padding: 90px 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .workflow-timeline-row {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin-top: 40px;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .workflow-timeline-row::before {
+        content: '';
+        position: absolute;
+        height: 2px;
+        background: var(--border-color);
+        top: 25px;
+        left: 30px;
+        right: 30px;
+        z-index: 0;
+    }
+    .workflow-step-node {
+        flex: 1;
+        min-width: 120px;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+    .step-node-icon {
+        width: 50px;
+        height: 50px;
+        background: #ffffff;
+        border: 2px solid var(--primary-indigo);
+        color: var(--primary-indigo);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.15rem;
+        font-weight: 700;
+        margin: 0 auto 15px auto;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        transition: all 0.25s ease;
+    }
+    .workflow-step-node:hover .step-node-icon {
+        background: var(--primary-indigo);
+        color: #ffffff;
+        transform: scale(1.08);
+    }
+    .workflow-step-node h4 {
+        margin: 0 0 4px 0;
+        font-size: 0.95rem;
+        font-weight: 700;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .workflow-step-node p {
+        margin: 0;
+        font-size: 0.72rem;
+        color: var(--slate-text);
+        line-height: 1.3;
+    }
+
+    /* --- SERVICES & LIVE DASHBOARD --- */
+    .tap-services-dashboard-section {
+        padding: 90px 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .services-dashboard-grid {
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: 50px;
+        align-items: start;
+    }
+    .dashboard-services-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    .dashboard-service-item {
+        background: #ffffff;
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 16px 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        box-shadow: var(--shadow-premium);
+        text-decoration: none;
+        color: inherit;
+        font-weight: 700;
+        font-size: 0.95rem;
+        transition: all 0.25s ease;
+    }
+    .dashboard-service-item:hover {
+        transform: translateY(-2px);
+        border-color: var(--primary-indigo);
+        color: var(--primary-indigo);
+    }
+    .dashboard-service-icon {
+        font-size: 1.25rem;
+        background: var(--light-bg);
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+    }
+
+    /* Live widget column */
+    .live-dashboard-widget {
+        background: #ffffff;
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: var(--shadow-premium);
+    }
+    .widget-header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+    .widget-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 700;
+        font-size: 1.05rem;
+    }
+    .widget-live-dot {
+        width: 8px;
+        height: 8px;
+        background-color: var(--accent-green);
+        border-radius: 50%;
+        display: inline-block;
+        animation: liveBlink 1.5s infinite;
+    }
+    @keyframes liveBlink {
+        0% { opacity: 0.3; }
+        50% { opacity: 1; }
+        100% { opacity: 0.3; }
+    }
+    .widget-grid-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+    .widget-stat-box {
+        background: var(--light-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 16px;
+        text-align: center;
+    }
+    .widget-stat-box h4 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--primary-indigo);
+    }
+    .widget-stat-box p {
+        margin: 4px 0 0 0;
+        font-size: 0.75rem;
+        color: var(--slate-text);
+        font-weight: 600;
+    }
+    .widget-tools-row {
+        border-top: 1px solid var(--border-color);
+        padding-top: 20px;
+        margin-bottom: 25px;
+    }
+    .widget-tools-row p {
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: var(--slate-text);
+        text-transform: uppercase;
+        margin: 0 0 10px 0;
+    }
+    .widget-tools-flex {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+    .widget-tools-flex span {
+        font-size: 0.72rem;
+        font-weight: 600;
+        background: var(--light-bg);
+        border: 1px solid var(--border-color);
+        padding: 3px 8px;
+        border-radius: 4px;
+        color: var(--slate-text);
+    }
+    .widget-payments-row {
+        border-top: 1px solid var(--border-color);
+        padding-top: 20px;
+    }
+    .widget-payments-row p {
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: var(--slate-text);
+        text-transform: uppercase;
+        margin: 0 0 10px 0;
+    }
+    .widget-payments-flex {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .widget-payments-flex span {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--slate-text);
+    }
+    .widget-payments-disclaimer {
+        font-size: 0.72rem;
+        color: var(--slate-text);
+        margin-top: 10px;
+        font-style: italic;
+    }
+
+    /* --- SECURITY CHECKS --- */
+    .tap-security-section {
+        padding: 50px 0;
+        border-bottom: 1px solid var(--border-color);
+        background-color: var(--light-bg);
+    }
+    .security-badges-row {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .security-badge-item {
+        flex: 1;
+        min-width: 140px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+    .security-badge-icon {
+        font-size: 1.5rem;
+        color: var(--primary-indigo);
+    }
+    .security-badge-item h4 {
+        margin: 0;
+        font-size: 0.88rem;
+        font-weight: 700;
+    }
+
+    /* --- COUNTRY HUBS --- */
+    .tap-hubs-section {
+        padding: 90px 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .hubs-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 16px;
+    }
+    .hub-card-item {
+        background: #ffffff;
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: var(--shadow-premium);
+        transition: all 0.25s ease;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+    .hub-card-item:hover {
+        transform: translateY(-4px);
+        border-color: var(--primary-indigo);
+        box-shadow: 0 15px 30px -10px rgba(79, 70, 229, 0.15);
+    }
+    .hub-flag {
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+        display: block;
+    }
+    .hub-card-item h3 {
+        margin: 0 0 6px 0;
+        font-size: 1rem;
+        font-weight: 800;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .hub-card-item span {
+        font-size: 0.72rem;
+        color: var(--primary-indigo);
+        font-weight: 700;
+    }
+
+    /* --- BY THE NUMBERS --- */
+    .tap-numbers-section {
+        background-color: var(--dark-navy);
+        color: #ffffff;
+        padding: 60px 0;
+    }
+    .numbers-grid-row {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        gap: 15px;
+        text-align: center;
+    }
+    .number-stat-item h4 {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 1.65rem;
+        font-weight: 800;
+        color: #ffffff;
+        margin: 0 0 6px 0;
+        background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    .number-stat-item p {
+        margin: 0;
+        font-size: 0.72rem;
+        color: rgba(255, 255, 255, 0.6);
+        line-height: 1.3;
+        font-weight: 600;
+    }
+
+    /* --- FOUNDER & FINAL CTA --- */
+    .tap-founder-cta-section {
+        padding: 90px 0;
+        background-color: var(--light-bg);
+    }
+    .founder-cta-grid {
+        display: grid;
+        grid-template-columns: 1fr 480px;
+        gap: 60px;
+        align-items: center;
+    }
+    .founder-content-wrapper {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        gap: 30px;
+        align-items: start;
+    }
+    .founder-photo-box img {
+        width: 100%;
+        border-radius: 16px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        border: 1px solid var(--border-color);
+    }
+    .founder-bio-text h3 {
+        margin: 0 0 4px 0;
+        font-size: 1.25rem;
+        font-weight: 800;
+    }
+    .founder-bio-text span {
+        font-size: 0.8rem;
+        color: var(--slate-text);
+        display: block;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+    .founder-bio-text p {
+        font-size: 0.95rem;
+        line-height: 1.65;
+        color: var(--slate-text);
+        margin: 0 0 20px 0;
+    }
+    .founder-signature {
+        font-family: 'Georgia', serif;
+        font-style: italic;
+        font-size: 1.15rem;
+        color: var(--primary-indigo);
+        font-weight: 700;
+    }
+    
+    .founder-timeline-list {
+        margin-top: 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        font-size: 0.75rem;
+        color: var(--slate-text);
+        border-left: 2px solid var(--border-color);
+        padding-left: 15px;
+    }
+    .timeline-marker-row strong {
+        color: var(--dark-navy);
+    }
+
+    /* CTA Card Column */
+    .cta-card-box {
+        background: #ffffff;
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        padding: 35px;
+        box-shadow: var(--shadow-premium);
+        text-align: center;
+    }
+    .cta-card-box h3 {
+        margin: 0 0 10px 0;
+        font-size: 1.6rem;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        line-height: 1.2;
+    }
+    .cta-card-box p {
+        margin: 0 0 25px 0;
+        font-size: 0.95rem;
+        color: var(--slate-text);
+    }
+    .cta-card-checklist {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-bottom: 25px;
+    }
+    .cta-checklist-item {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--dark-navy);
+    }
+    .cta-card-box .primary-btn-large {
+        width: 100%;
+        box-sizing: border-box;
+        justify-content: center;
+    }
+    .cta-card-subtext {
+        font-size: 0.72rem;
+        color: var(--slate-text);
+        margin-top: 10px;
+    }
+
+    /* --- RESPONSIVE ADAPTATIONS --- */
+    @media (max-width: 1200px) {
+        .hero-grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        .hero-pricing-stack {
+            max-width: 500px;
+            margin: 0 auto;
+            order: 2;
+        }
+        .hero-main-content {
+            text-align: center;
+            order: 1;
+        }
+        .hero-flex-layout {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        .hero-astronaut-image {
+            max-width: 200px;
+            margin: 0 auto;
+        }
+        .hero-features-list {
+            justify-content: center;
+        }
+        .hero-cta-group {
+            justify-content: center;
+        }
+        .hero-powered-logos {
+            justify-content: center;
         }
         
-        /* Dashboard Silo Bento Grid styling */
-        .dashboard-panel {
-            display: none;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 35px;
-            animation: fadeIn 0.4s ease;
+        .presence-grid {
+            grid-template-columns: 1fr;
         }
-        .dashboard-panel.active {
-            display: grid;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .service-card-clean {
-            background: #ffffff !important;
-            border: 1px solid #e2e8f0 !important;
-            border-radius: 16px !important;
-            padding: 30px !important;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01) !important;
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            overflow: hidden;
-            text-align: left;
-        }
-        .service-card-clean::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #4f46e5 0%, #818cf8 100%);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.35s ease;
-        }
-        .service-card-clean:hover::before {
-            transform: scaleX(1);
-        }
-        .service-card-clean:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02) !important;
-            border-color: #cbd5e1 !important;
-        }
-        .service-card-clean h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.25rem !important;
-            font-weight: 700 !important;
-            color: #0f172a !important;
-            margin-bottom: 10px !important;
-            margin-top: 15px !important;
-        }
-        .service-card-clean p {
-            font-size: 0.925rem !important;
-            color: #475569 !important;
-            line-height: 1.6 !important;
-            margin: 0 !important;
-            flex-grow: 1;
-        }
-        .service-card-clean .icon-box {
-            font-size: 2rem !important;
-            background: #f1f5f9;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
+        .presence-stats-panel {
+            flex-direction: row;
+            flex-wrap: wrap;
             justify-content: center;
-            border-radius: 12px;
-            margin-bottom: 5px;
-            transition: all 0.3s ease;
         }
-        .service-card-clean:hover .icon-box {
-            background: #e0e7ff;
-            transform: scale(1.05);
+        
+        .savings-grid {
+            grid-template-columns: 1fr;
         }
-
-        /* Process Timeline flow */
-        .process-grid-clean {
-            display: flex;
-            flex-direction: column;
-            gap: 0px;
-            position: relative;
-            max-width: 900px;
-            margin: 50px auto 0 auto;
+        
+        .cases-grid {
+            grid-template-columns: 1fr;
         }
-        .process-grid-clean::before {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background: #e2e8f0;
-            top: 25px;
-            bottom: 25px;
-            left: 31px;
+        
+        .reviews-grid {
+            grid-template-columns: 1fr;
         }
-        .process-step-card {
-            display: flex;
-            gap: 30px;
-            background: transparent !important;
-            border: none !important;
-            padding: 20px 0 !important;
-            position: relative;
-            text-align: left !important;
-            align-items: flex-start;
+        
+        .services-dashboard-grid {
+            grid-template-columns: 1fr;
         }
-        .step-number {
-            flex: 0 0 66px;
-            width: 66px;
-            height: 66px;
-            background: #ffffff !important;
-            border: 4px solid #4f46e5 !important;
-            color: #4f46e5 !important;
-            font-weight: 800 !important;
-            font-size: 1.35rem !important;
-            border-radius: 50% !important;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-            transition: all 0.3s ease;
+        
+        .hubs-grid {
+            grid-template-columns: repeat(3, 1fr);
         }
-        .process-step-card:hover .step-number {
-            background: #4f46e5 !important;
-            color: #ffffff !important;
-            transform: scale(1.08);
-        }
-        .step-info-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 25px 30px;
-            flex: 1;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01);
-            transition: all 0.3s ease;
-        }
-        .process-step-card:hover .step-info-card {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 20px rgba(0,0,0,0.02);
-            border-color: #818cf8;
-        }
-        .step-info-card h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.25rem !important;
-            font-weight: 700;
-            color: #0f172a;
-            margin-top: 0 !important;
-            margin-bottom: 8px !important;
-        }
-        .step-info-card p {
-            color: #475569 !important;
-            font-size: 0.95rem !important;
-            line-height: 1.6 !important;
-            margin: 0 !important;
-        }
-
-        /* Stats Banner Section */
-        .stats-section-clean {
-            background: #0b111e;
-            padding: 80px 0;
-            color: white;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .stats-grid-clean {
-            display: grid;
+        
+        .numbers-grid-row {
             grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
+            gap: 25px;
+        }
+        
+        .founder-cta-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hubs-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .numbers-grid-row {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .founder-content-wrapper {
+            grid-template-columns: 1fr;
             text-align: center;
         }
-        .stats-item-clean h3 {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #818cf8;
-            font-family: 'Outfit', sans-serif;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #818cf8 0%, #c7d2fe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .founder-photo-box {
+            max-width: 180px;
+            margin: 0 auto;
         }
-        .stats-item-clean p {
-            color: #94a3b8;
-            font-size: 1rem;
-            font-weight: 500;
-            margin: 0;
-        }
-
-        /* Accordion details */
-        .faq-item-clean {
-            background: #ffffff !important;
-            border: 1px solid #e2e8f0 !important;
-            border-radius: 12px !important;
-            margin-bottom: 18px !important;
-            overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            text-align: left;
-        }
-        .faq-item-clean[open] {
-            border-color: #818cf8 !important;
-            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.05);
-        }
-        .faq-item-clean summary {
-            font-weight: 600 !important;
-            font-size: 1.1rem !important;
-            color: #0f172a !important;
-            padding: 22px 28px !important;
-            list-style: none !important;
-            display: flex !important;
-            justify-content: space-between !important;
-            align-items: center !important;
-            cursor: pointer !important;
-            outline: none;
-        }
-        .faq-item-clean summary::-webkit-details-marker {
-            display: none !important;
-        }
-        .faq-item-clean summary::after {
-            content: '+';
-            font-size: 1.5rem;
-            color: #64748b;
-            transition: transform 0.3s ease;
-            font-weight: 400;
-        }
-        .faq-item-clean[open] summary::after {
-            content: '−';
-            transform: rotate(180deg);
-            color: #4f46e5;
-        }
-        .faq-item-clean p {
-            padding: 0 28px 24px 28px !important;
-            color: #475569 !important;
-            line-height: 1.65 !important;
-            font-size: 0.975rem !important;
-            margin: 0 !important;
-        }
-
-        /* Floating WhatsApp Button */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25D366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
+        .founder-timeline-list {
             align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
-            z-index: 999;
-            transition: all 0.3s ease;
-            text-decoration: none;
+            border-left: none;
+            padding-left: 0;
         }
-        .whatsapp-float:hover {
-            transform: scale(1.08) translateY(-3px);
-            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+        .dashboard-services-list {
+            grid-template-columns: 1fr;
         }
-        .whatsapp-icon {
-            width: 32px;
-            height: 32px;
-            fill: white;
-        }
-
-        /* Responsive Overrides */
-        @media (max-width: 992px) {
-            .stats-grid-clean {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 40px;
-            }
-        }
-        @media (max-width: 768px) {
-            .stats-grid-clean {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            .faq-item-clean summary {
-                font-size: 1rem !important;
-                padding: 18px 20px !important;
-            }
-            .faq-item-clean p {
-                padding: 0 20px 20px 20px !important;
-            }
-        }
-    </style>
+    }
+</style>
 
 </head>
 <body class="home-page-redesign">
+
+<!-- TRUST BAR TOP STRIP -->
+<div class="tap-top-trust-bar">
+  <div class="container trust-bar-flex">
+    <div class="trust-left">🏆 Verified International Trust Score: <strong>4.9 / 5</strong></div>
+    <div class="trust-right">
+      <a href="/seo-audit-canada/">🇨🇦 Canada (4.9★)</a>
+      <a href="/seo-audit-usa/">🇺🇸 USA (4.9★)</a>
+      <a href="/seo-services/">🇦🇪 Dubai (4.8★)</a>
+      <a href="/seo-audit-australia/">🇦🇺 Australia (4.9★)</a>
+      <a href="/seo-company/london-uk/">🇬🇧 UK (4.9★)</a>
+    </div>
+  </div>
+</div>
+
 <!-- Header -->
 <header class="main-header-bar">
-<div class="container header-container">
-<a class="header-logo" href="/">
-<img alt="TechAuditPros Logo" height="32" src="assets/logoonly.svg" width="32"/>
-<span class="logo-text">TechAuditPros</span>
-</a>
-                                    <nav class="desktop-nav">
-                <a href="/#services">Services</a>
-                <div class="nav-dropdown">
-                    <a href="#" class="dropdown-trigger" onclick="return false;">Categories <span class="arrow">▼</span></a>
-                    <div class="dropdown-menu">
-                        <div class="dropdown-silo">
-                            <h4><a href="/seo-services/" style="color: inherit; text-decoration: none;">Technical SEO</a></h4>
-                            <a href="/technical-seo-audit/">Technical Audit</a>
-                            <a href="/seo-services/enterprise-seo/">Enterprise SEO</a>
-                            <a href="/seo-services/saas-seo-strategy/">SaaS SEO</a>
-                            <a href="/seo-services/ecommerce-seo/">E-commerce SEO</a>
-                            <a href="/seo-services/geo-aeo-optimisation/">GEO &amp; AEO</a>
-                        </div>
-                        <div class="dropdown-silo">
-                            <h4><a href="/saas-app-development/" style="color: inherit; text-decoration: none;">Custom SaaS</a></h4>
-                            <a href="/saas-app-development/custom-crm-portals/">Custom CRM</a>
-                            <a href="/saas-app-development/erp-integrations/">ERP Integrations</a>
-                            <a href="/saas-app-development/b2b-dashboards/">B2B Dashboards</a>
-                            <a href="/saas-app-development/mvp-development/">MVP Development</a>
-                        </div>
-                        <div class="dropdown-silo">
-                            <h4><a href="/website-design-development/" style="color: inherit; text-decoration: none;">Web Design</a></h4>
-                            <a href="/website-seo-audit/">Website Audit</a>
-                            <a href="/website-design-development/b2b-corporate-websites/">B2B Corporate</a>
-                            <a href="/website-design-development/core-web-vitals-optimization/">Core Web Vitals</a>
-                            <a href="/website-design-development/nextjs-development/">Next.js Dev</a>
-                            <a href="/website-design-development/headless-cms/">Headless CMS</a>
-                        </div>
-                        <div class="dropdown-silo">
-                            <h4>Digital Marketing</h4>
-                            <a href="/digital-marketing-services/">Marketing Services</a>
-                            <a href="/digital-marketing-strategy/">Strategy &amp; Planning</a>
-                            <a href="/digital-marketing-for-healthcare/">Healthcare Marketing</a>
-                            <a href="/digital-marketing-for-ecommerce/">E-commerce Marketing</a>
-                            <a href="/digital-marketing-courses/">Courses &amp; Guides</a>
-                            <a href="/digital-marketing-faq/">Marketing FAQ</a>
-                            <a href="/digital-marketing-resources/">Marketing Resources</a>
-                        </div>
-                        <div class="dropdown-silo">
-                            <h4>Markets</h4>
-                            <a href="/seo-audit-kochi/">Kochi HQ</a>
-                            <a href="/seo-agency-kerala/">Kerala Agency</a>
-                            <a href="/seo-audit-india/">India National</a>
-                            <a href="/seo-company/mumbai/">Mumbai Office</a>
-                            <a href="/seo-company/bangalore/">Bangalore Office</a>
-                            <a href="/seo-company/london-uk/">London UK</a>
-                            <a href="/seo-audit-usa/">USA Market</a>
-                            <a href="/seo-audit-canada/">Canada Market</a>
-                            <a href="/seo-audit-australia/">Australia Market</a>
-                            <a href="/about.html" class="view-all-link" style="font-weight: 700; color: #2563eb; margin-top: 5px; text-decoration: none;">View All Markets &rarr;</a>
-                        </div>
-                        <div class="dropdown-silo">
-                            <h4>Blog &amp; Guides</h4>
-                            <a href="/blog/">Blog Hub</a>
-                            <a href="/blog/what-is-serp-in-seo/">What is SERP?</a>
-                            <a href="/blog/seo-friendly-web-design-guide/">SEO Web Design</a>
-                            <a href="/blog/saas-vs-custom-software/">SaaS vs Custom</a>
-                            <a href="/blog/how-to-fix-crawlability-issues/">Fix Crawlability</a>
-                            <a href="/blog/generative-engine-optimization-geo/">GEO Guide</a>
-                            <a href="/blog/react-vs-nextjs-for-seo/">React vs Next.js</a>
-                            <a href="/blog/" class="view-all-link" style="font-weight: 700; color: #2563eb; margin-top: 5px; text-decoration: none;">View All Guides &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-                <a href="/case-studies.html">Case Studies</a>
-                <a href="/about.html">About</a>
-                <a href="/#contact">Contact</a>
-            </nav>
-            <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-<div class="header-actions">
-<a class="book-audit-btn" href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank">Get Free Audit</a>
+    <div class="container header-container">
+        <a class="header-logo" href="/">
+            <img alt="TechAuditPros Logo" height="32" src="assets/logoonly.svg" width="32"/>
+            <span class="logo-text">TechAuditPros</span>
+        </a>
+        <nav class="desktop-nav">
+            <a href="#services">Services</a>
+            <a href="#workflow">Workflow</a>
+            <a href="/case-studies.html">Case Studies</a>
+            <a href="/about.html">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="header-actions">
+            <a class="book-audit-btn" href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank">Get Free Audit</a>
+        </div>
     </div>
 </header>
-<!-- MOBILE_DRAWER_START -->
+
+<!-- MOBILE DRAWER -->
 <div class="mobile-drawer" id="mobileDrawer">
     <div class="drawer-overlay" id="drawerOverlay"></div>
     <div class="drawer-content">
@@ -435,897 +1433,978 @@
         </div>
         <nav class="drawer-nav">
             <a href="/">Home</a>
-            <a href="/#services">Services</a>
-            <a href="/seo-services/">SEO Services</a>
-            <a href="/saas-app-development/">SaaS Development</a>
-            <a href="/website-design-development/">Website Design</a>
-            <a href="/digital-marketing-services/">Digital Marketing</a>
+            <a href="#services">Services</a>
+            <a href="#workflow">Workflow</a>
             <a href="/case-studies.html">Case Studies</a>
             <a href="/about.html">About</a>
-            <a href="/#contact">Contact</a>
+            <a href="#contact">Contact</a>
             <a href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" class="drawer-cta">Get Free Audit</a>
         </nav>
-        <div class="drawer-footer">
-            <div class="local-office">
-                <h4>TechAuditPros</h4>
-                <p>Enterprise Technical SEO & Software Development</p>
-                <p><a href="mailto:info@techauditpros.com" style="color: inherit; text-decoration: none;">info@techauditpros.com</a></p>
+    </div>
+</div>
+
+<!-- Gigantic Hero Section (White background) -->
+<section class="tap-new-hero">
+    <div class="container hero-grid">
+        <!-- Left side: pricing stack -->
+        <div class="hero-pricing-stack">
+            <!-- Canada -->
+            <div class="hero-pricing-card">
+                <div class="pricing-card-country">
+                    <span class="pricing-card-flag">🇨🇦</span>
+                    <div class="pricing-card-country-details">
+                        <h4>Canada</h4>
+                        <span>Avg Local Agency: CA$3,800/mo</span>
+                    </div>
+                </div>
+                <div class="pricing-card-prices">
+                    <p class="price-tap">CA$1,490<span>/mo</span></p>
+                    <span class="price-save-badge">SAVE 57%</span>
+                </div>
+            </div>
+            <!-- USA -->
+            <div class="hero-pricing-card">
+                <div class="pricing-card-country">
+                    <span class="pricing-card-flag">🇺🇸</span>
+                    <div class="pricing-card-country-details">
+                        <h4>USA</h4>
+                        <span>Avg Local Agency: US$4,500/mo</span>
+                    </div>
+                </div>
+                <div class="pricing-card-prices">
+                    <p class="price-tap">US$1,800<span>/mo</span></p>
+                    <span class="price-save-badge">SAVE 60%</span>
+                </div>
+            </div>
+            <!-- Australia -->
+            <div class="hero-pricing-card">
+                <div class="pricing-card-country">
+                    <span class="pricing-card-flag">🇦🇺</span>
+                    <div class="pricing-card-country-details">
+                        <h4>Australia</h4>
+                        <span>Avg Local Agency: AU$3,900/mo</span>
+                    </div>
+                </div>
+                <div class="pricing-card-prices">
+                    <p class="price-tap">AU$1,600<span>/mo</span></p>
+                    <span class="price-save-badge">SAVE 59%</span>
+                </div>
+            </div>
+            <!-- UK -->
+            <div class="hero-pricing-card">
+                <div class="pricing-card-country">
+                    <span class="pricing-card-flag">🇬🇧</span>
+                    <div class="pricing-card-country-details">
+                        <h4>United Kingdom</h4>
+                        <span>Avg Local Agency: £2,800/mo</span>
+                    </div>
+                </div>
+                <div class="pricing-card-prices">
+                    <p class="price-tap">£1,200<span>/mo</span></p>
+                    <span class="price-save-badge">SAVE 57%</span>
+                </div>
+            </div>
+            <!-- Dubai -->
+            <div class="hero-pricing-card">
+                <div class="pricing-card-country">
+                    <span class="pricing-card-flag">🇦🇪</span>
+                    <div class="pricing-card-country-details">
+                        <h4>Dubai (UAE)</h4>
+                        <span>Avg Local Agency: AED 8,000/mo</span>
+                    </div>
+                </div>
+                <div class="pricing-card-prices">
+                    <p class="price-tap">AED 3,800<span>/mo</span></p>
+                    <span class="price-save-badge">SAVE 52%</span>
+                </div>
+            </div>
+            <p class="pricing-stack-disclaimer">* Prices are average market rates.</p>
+        </div>
+
+        <!-- Right side: main text content with space astronaut visual -->
+        <div class="hero-main-content">
+            <div class="hero-flex-layout">
+                <div>
+                    <h1>Even if you were working in space... <span>we can work with you.</span></h1>
+                    <p class="hero-subtitle">We become your dedicated offshore technical team for SEO, Web Development &amp; Digital Growth. No communication gaps. Just execution.</p>
+                </div>
+                <div>
+                    <img class="hero-astronaut-image" src="assets/images/hero/space-astronaut-seo-hero.png" alt="Offshore Technical Space SEO Team" />
+                </div>
+            </div>
+            
+            <div class="hero-features-list">
+                <div class="hero-feature-item">
+                    <span class="hero-feature-icon">👨‍💻</span>
+                    <span>Dedicated Team</span>
+                </div>
+                <div class="hero-feature-item">
+                    <span class="hero-feature-icon">📅</span>
+                    <span>Monthly Reporting</span>
+                </div>
+                <div class="hero-feature-item">
+                    <span class="hero-feature-icon">🤝</span>
+                    <span>No Contracts</span>
+                </div>
+                <div class="hero-feature-item">
+                    <span class="hero-feature-icon">🔍</span>
+                    <span>100% Transparency</span>
+                </div>
+            </div>
+
+            <div class="hero-cta-group">
+                <a class="primary-btn-large" href="#audit-details">Get My Free Website Audit</a>
+                <a class="secondary-btn-large" href="/case-studies.html">See Case Studies</a>
+            </div>
+
+            <div class="hero-powered-bar">
+                <p>Powered by the same tools used by the world's top agencies</p>
+                <div class="hero-powered-logos">
+                    <img alt="Semrush" src="assets/semrush.svg"/>
+                    <img alt="Screaming Frog" src="assets/screamingfrog.svg"/>
+                    <img alt="Google Search Console" src="assets/searchconsole.svg"/>
+                    <img alt="PageSpeed Insights" src="assets/PageSpeed.svg"/>
+                    <img alt="Ahrefs" src="assets/ashref.svg"/>
+                    <img alt="Lumar" src="assets/Lumar.svg"/>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- MOBILE_DRAWER_END -->
-<style>
-  .tap-hero-loop-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    min-height: 600px;
-    background: #080c1b url('assets/images/hero/space-astronaut-seo-hero.png') no-repeat center center;
-    background-size: cover;
-    overflow: hidden;
-  }
-  
-  .tap-loop-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 1s ease, visibility 1s ease;
-    z-index: 1;
-    background: transparent;
-  }
-  
-  .tap-loop-slide.active {
-    opacity: 1;
-    visibility: visible;
-    z-index: 10;
-  }
-
-  #tap-intro-text-section {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-
-  @keyframes tap-bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(8px); }
-  }
-</style>
-
-<!-- Hero Loop Container -->
-<div class="tap-hero-loop-wrapper">
-
-  <!-- Dark overlay globally covering the background image for both slides -->
-  <div style="position: absolute; inset: 0; background: rgba(5, 10, 25, 0.52); z-index: 2;"></div>
-
-  <!-- SLIDE 1: SPACE ARTWORK + SEQUENTIAL TEXT OVERLAY -->
-  <section id="tap-intro-text-section" class="tap-loop-slide">
-    <!-- Animating Text Overlay -->
-    <div class="tap-video-text-overlay" style="
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      z-index: 5;
-      text-align: center;
-      padding: 0 24px;
-    ">
-      <p class="tap-overlay-line" style="
-        font-family: 'Inter', 'Outfit', sans-serif;
-        font-size: clamp(1.2rem, 3vw, 2.2rem);
-        font-weight: 700;
-        color: rgba(255, 255, 255, 0.9);
-        margin: 0 0 24px 0;
-        opacity: 0;
-        transform: translateX(-50px);
-        transition: opacity 0.8s ease, transform 0.8s ease;
-      ">Even if you were working in space...</p>
-      
-      <p class="tap-overlay-line" style="
-        font-family: 'Inter', 'Outfit', sans-serif;
-        font-size: clamp(1.2rem, 3vw, 2.2rem);
-        font-weight: 700;
-        color: rgba(255, 255, 255, 0.9);
-        margin: 0 0 32px 0;
-        opacity: 0;
-        transform: translateX(50px);
-        transition: opacity 0.8s ease, transform 0.8s ease;
-      ">...we can work with you.</p>
-      
-      <p class="tap-overlay-line" style="
-        font-family: 'Outfit', 'Inter', sans-serif;
-        font-size: clamp(1.5rem, 4.2vw, 3.2rem);
-        font-weight: 900;
-        color: #818cf8;
-        margin: 0;
-        opacity: 0;
-        transform: translateX(-50px);
-        transition: opacity 0.8s ease, transform 0.8s ease;
-        line-height: 1.25;
-      ">Transfer your backend, web dev, and SEO to TechAuditPros.</p>
-    </div>
-  </section>
-
-  <!-- SLIDE 2: BRAND CTA SECTION — premium centered branding and CTAs -->
-  <section id="tap-brand-cta-section" class="tap-loop-slide" style="
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-  ">
-    <div class="tap-hero-content-centered" style="
-      text-align: center;
-      max-width: 800px;
-      padding: 0 24px;
-      z-index: 10;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    ">
-      <h1 style="
-        font-size: clamp(2.2rem, 5vw, 5.5rem);
-        font-weight: 900;
-        color: #ffffff;
-        margin-bottom: 8px;
-        font-family: 'Outfit', 'Inter', sans-serif;
-        letter-spacing: -1px;
-      ">TechAuditPros</h1>
-      
-      <p style="
-        font-family: 'Outfit', 'Inter', sans-serif;
-        font-size: clamp(1.3rem, 2.5vw, 2.2rem);
-        font-weight: 700;
-        color: #818cf8;
-        margin: 0 0 24px 0;
-        line-height: 1.2;
-      ">Your Dedicated Offshore Technical Web Team.</p>
-
-      <p class="tap-hero-sub" style="
-        font-size: clamp(0.9rem, 1.4vw, 1.15rem);
-        color: rgba(255,255,255,0.78);
-        margin: 0 auto 36px auto;
-        line-height: 1.7;
-        max-width: 620px;
-      ">Growing businesses in the US, Canada, and UK hand over their entire website backend to us. We handle technical SEO, custom SaaS portals, Next.js/headless websites, and fixes every month — so your team never has to think about it again.</p>
-      
-      <div class="tap-hero-btns" style="
-        display: flex;
-        gap: 0.75rem;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-bottom: 36px;
-      ">
-        <a class="primary-btn-large" href="#services">See How It Works</a>
-        <a class="secondary-btn-large" href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank">Book a Free 15-Minute Call</a>
-      </div>
-      <div class="tap-hero-flags" style="
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.6rem;
-        font-size: 0.85rem;
-        color: rgba(255,255,255,0.65);
-      ">
-        <span>Serving clients in:</span>
-        <span title="India" style="font-size: 1.4rem;">🇮🇳</span>
-        <span title="USA" style="font-size: 1.4rem;">🇺🇸</span>
-        <span title="Canada" style="font-size: 1.4rem;">🇨🇦</span>
-        <span title="UK" style="font-size: 1.4rem;">🇬🇧</span>
-        <span title="Australia" style="font-size: 1.4rem;">🇦🇺</span>
-      </div>
-    </div>
-  </section>
-
-</div>
-
-<script>
-(function() {
-  const introSection = document.getElementById('tap-intro-text-section');
-  const brandCtaSection = document.getElementById('tap-brand-cta-section');
-  const overlayLines = document.querySelectorAll('.tap-overlay-line');
-  const brandCtaContent = document.querySelector('.tap-hero-content-centered');
-
-  let activeTimeouts = [];
-  let isHovering = false;
-
-  if (brandCtaContent) {
-    brandCtaContent.addEventListener('mouseenter', function() { isHovering = true; });
-    brandCtaContent.addEventListener('mouseleave', function() { isHovering = false; });
-  }
-
-  function clearPendingTransitions() {
-    activeTimeouts.forEach(function(t) { clearTimeout(t); });
-    activeTimeouts = [];
-  }
-
-  function addTimeout(fn, delay) {
-    activeTimeouts.push(setTimeout(fn, delay));
-  }
-
-  function setActiveSlide(activeSlide) {
-    [introSection, brandCtaSection].forEach(function(slide) {
-      if (slide) {
-        if (slide === activeSlide) {
-          slide.classList.add('active');
-        } else {
-          slide.classList.remove('active');
-        }
-      }
-    });
-  }
-
-  function playSequence() {
-    clearPendingTransitions();
-    setActiveSlide(introSection);
-    
-    // Reset overlay lines to hidden/initial translated positions
-    overlayLines.forEach(function(line, index) {
-      line.style.opacity = '0';
-      line.style.transform = index === 1 ? 'translateX(50px)' : 'translateX(-50px)';
-    });
-
-    // Line 1: slides in from left at 1.0s
-    addTimeout(function() {
-      if (overlayLines[0]) {
-        overlayLines[0].style.opacity = '1';
-        overlayLines[0].style.transform = 'translateX(0)';
-      }
-    }, 1000);
-
-    // Line 2: slides in from right at 2.5s
-    addTimeout(function() {
-      if (overlayLines[1]) {
-        overlayLines[1].style.opacity = '1';
-        overlayLines[1].style.transform = 'translateX(0)';
-      }
-    }, 2500);
-
-    // Line 3: slides in from left at 4.0s
-    addTimeout(function() {
-      if (overlayLines[2]) {
-        overlayLines[2].style.opacity = '1';
-        overlayLines[2].style.transform = 'translateX(0)';
-      }
-    }, 4000);
-
-    // Transition to branding slide at 8.0s
-    addTimeout(transitionToBrandCta, 8000);
-  }
-
-  function transitionToBrandCta() {
-    clearPendingTransitions();
-    setActiveSlide(brandCtaSection);
-    
-    if (brandCtaContent) {
-      brandCtaContent.style.transition = 'none';
-      brandCtaContent.style.opacity = '0';
-      brandCtaContent.style.transform = 'translateY(20px)';
-      brandCtaContent.offsetHeight; // Force DOM reflow to guarantee CSS transition triggers
-      
-      brandCtaContent.style.transition = 'opacity 1s ease, transform 1s ease';
-      brandCtaContent.style.opacity = '1';
-      brandCtaContent.style.transform = 'translateY(0)';
-    }
-    
-    addTimeout(checkAndLoop, 12000);
-  }
-
-  function checkAndLoop() {
-    if (isHovering) {
-      addTimeout(checkAndLoop, 2000);
-    } else {
-      if (brandCtaSection) {
-        brandCtaSection.style.transition = 'opacity 1.2s ease';
-        brandCtaSection.style.opacity = '0';
-      }
-      addTimeout(function() {
-        if (brandCtaSection) {
-          brandCtaSection.style.transition = '';
-        }
-        playSequence();
-      }, 1200);
-    }
-  }
-
-  // Start sequence
-  playSequence();
-
-})();
-</script>
-<!-- Trust Bar -->
-<div class="trust-bar-white">
-<div class="container">
-<p>Powered by the same tools used by the world's top agencies</p>
-<div class="logos-grid">
-<img alt="Semrush" src="assets/semrush.svg"/>
-<img alt="Screaming Frog" src="assets/screamingfrog.svg"/>
-<img alt="Google Search Console" src="assets/searchconsole.svg"/>
-<img alt="PageSpeed Insights" src="assets/PageSpeed.svg"/>
-</div>
-</div>
-</div>
-<!-- What We Take Over -->
-<section class="section-white" id="services">
-<div class="container">
-<div class="section-header-center">
-<h2>What We Take Over For Your Business</h2>
-<p>You focus on running your business. We take full ownership of your web presence — every month, without you chasing us.</p>
-</div>
-<div class="service-cards-simple">
-  <div class="service-card-clean">
-    <div class="icon-box">🔧</div>
-    <h3>Website &amp; Technical Management</h3>
-    <p>We fix broken pages, improve page speed, resolve indexing errors, and keep your site technically healthy. Every week. Without you asking.</p>
-  </div>
-  <div class="service-card-clean">
-    <div class="icon-box">📈</div>
-    <h3>Search Growth &amp; Link Building</h3>
-    <p>We research your competitors, optimize your pages for the right keywords, and build the external links that push you above them on Google.</p>
-  </div>
-  <div class="service-card-clean">
-    <div class="icon-box">📋</div>
-    <h3>Monthly Reporting &amp; Communication</h3>
-    <p>Every month you receive a plain-English report showing exactly what was done, what changed in your rankings, and what we are doing next. No guessing. Full transparency.</p>
-  </div>
-</div>
-</div>
-</section>
-<!-- Dashboard Category Selector Tabs -->
-<div class="dashboard-tabs">
-<button class="dashboard-tab-btn active" data-tab="seo-panel">Technical SEO Silo</button>
-<button class="dashboard-tab-btn" data-tab="saas-panel">Custom SaaS Silo</button>
-<button class="dashboard-tab-btn" data-tab="web-design-panel">Web Design Silo</button>
-<button class="dashboard-tab-btn" data-tab="digital-marketing-panel">Digital Marketing Silo</button>
-</div>
-<!-- SEO Panel -->
-<div class="dashboard-panel active" id="seo-panel">
-<div class="service-card-clean">
-<div class="icon-box">⚡</div>
-<h3><a href="/technical-seo-audit/" style="text-decoration:none; color:inherit;">Technical SEO Audit</a></h3>
-<p>Our flagship technical audit surfaces indexability issues, Javascript rendering blocks, and stabilized Core Web Vitals to unlock search organic growth.</p>
-</div>
-<div class="service-card-clean">
-<div class="icon-box">🏢</div>
-<h3><a href="/seo-services/enterprise-seo/" style="text-decoration:none; color:inherit;">Enterprise SEO Optimization</a></h3>
-<p>Resolving massive-scale crawl budget bottlenecks, index bloat, internal linking architectures, and search query cannibalization on complex domains.</p>
-</div>
-<div class="service-card-clean">
-<div class="icon-box">📈</div>
-<h3><a href="/seo-services/saas-seo-strategy/" style="text-decoration:none; color:inherit;">SaaS SEO Strategy</a></h3>
-<p>Product-led search strategy mapping feature benefits to high-intent keywords to convert organic searchers directly into signups and product trials.</p>
-</div>
-<div class="service-card-clean">
-<div class="icon-box">🛒</div>
-<h3><a href="/seo-services/ecommerce-seo/" style="text-decoration:none; color:inherit;">E-commerce SEO</a></h3>
-<p>Optimizing dynamic category layouts, product pages, rich product snippets, schema structure, and crawl traps on large e-commerce catalogs.</p>
-</div>
-<div class="service-card-clean">
-<div class="icon-box">🤖</div>
-<h3><a href="/seo-services/geo-aeo-optimisation/" style="text-decoration:none; color:inherit;">GEO &amp; AEO Optimization</a></h3>
-<p>Generative Engine Optimisation. Formatting structures so LLM models like ChatGPT, Gemini, and Perplexity list and cite your brand as the top solution.</p>
-</div>
-</div>
-<!-- SaaS Panel -->
-<div class="dashboard-panel" id="saas-panel">
-<div class="service-card-clean">
-<div class="icon-box">🔑</div>
-<h3><a href="/saas-app-development/custom-crm-portals/" style="text-decoration:none; color:inherit;">Custom CRM Portals</a></h3>
-<p>Building secure, scalable, multi-tenant portal solutions tailored to match your precise workflows and customer onboarding pipelines.</p>
-</div>
-<div class="service-card-clean">
-<div class="icon-box">🔄</div>
-<h3><a href="/saas-app-development/erp-integrations/" style="text-decoration:none; color:inherit;">ERP Integrations</a></h3>
-<p>Building real-time API integrations linking legacy systems, databases, stock systems, and external vendor data with no latency.</p>
-</div>
-<div class="service-card-clean">
-<div class="icon-box">📊</div>
-<h3><a href="/saas-app-development/b2b-dashboards/" style="text-decoration:none; color:inherit;">B2B Dashboards</a></h3>
-<p>Beautiful, low-latency client-facing analytics, tracking panels, reporting frameworks, and visual metrics platforms powered by Next.js.</p>
-</div>
-<div class="service-card-clean">
-<div class="icon-box">🚀</div>
-<h3><a href="/saas-app-development/mvp-development/" style="text-decoration:none; color:inherit;">MVP Development</a></h3>
-<p>Rapid, robust product prototyping built to scale. Launch your SaaS platform within weeks using optimized relational databases and clean code.</p>
-</div>
-</div>
-<!-- Web Design Panel -->
-<div class="dashboard-panel" id="web-design-panel">
-<div class="service-card-clean">
-<div class="icon-box">📋</div>
-<h3><a href="/website-seo-audit/" style="text-decoration:none; color:inherit;">Website SEO &amp; UX Audit</a></h3>
-<p>A comprehensive assessment analyzing user flows, layout bottlenecks, mobile responsiveness, and visual optimization metrics.</p>
-</div>
-<div class="service-card-clean">
-<div class="icon-box">💼</div>
-<h3><a href="/website-design-development/b2b-corporate-websites/" style="text-decoration:none; color:inherit;">B2B Corporate Websites</a></h3>
-<p>High-conversion marketing sites built specifically to support complex B2B buyer journeys, sales structures, and brand credibility.</p>
-</div>
-<div class="service-card-clean">
-<div class="icon-box">⚡</div>
-<h3><a href="/website-design-development/core-web-vitals-optimization/" style="text-decoration:none; color:inherit;">Core Web Vitals Optimization</a></h3>
-<p>Refactoring layouts, compression algorithms, server caching, and bundle files to achieve perfect 100 PageSpeed scores.</p>
-</div>
-<div class="service-card-clean">
-<div class="icon-box">⚛️</div>
-<h3><a href="/website-design-development/nextjs-development/" style="text-decoration:none; color:inherit;">Next.js Development</a></h3>
-<p>Building blazing-fast, server-side rendered websites that combine rich design experiences with search crawlability.</p>
-</div>
-<div class="service-card-clean">
-<div class="icon-box">🕸️</div>
-<h3><a href="/website-design-development/headless-cms/" style="text-decoration:none; color:inherit;">Headless CMS Integration</a></h3>
-<p>Integrating modern content frameworks (Sanity, Strapi, Contentful) to allow teams to publish pages with zero coding dependencies.</p>
-</div>
-</div>
-<!-- Digital Marketing Panel -->
-<div class="dashboard-panel" id="digital-marketing-panel">
-    <div class="service-card-clean">
-        <div class="icon-box">📢</div>
-        <h3><a href="/digital-marketing-services/" style="text-decoration:none; color:inherit;">Digital Marketing Services</a></h3>
-        <p>A full-funnel digital marketing approach driving growth, customer acquisition, and brand visibility through data-driven campaigns.</p>
-    </div>
-    <div class="service-card-clean">
-        <div class="icon-box">📊</div>
-        <h3><a href="/digital-marketing-strategy/" style="text-decoration:none; color:inherit;">Digital Marketing Strategy</a></h3>
-        <p>Designing comprehensive performance marketing strategies, competitor mapping, channel selection, and funnel optimization.</p>
-    </div>
-    <div class="service-card-clean">
-        <div class="icon-box">🏥</div>
-        <h3><a href="/digital-marketing-for-healthcare/" style="text-decoration:none; color:inherit;">Healthcare Marketing</a></h3>
-        <p>HIPAA-compliant patient acquisition strategies, local medical search dominance, and reputational management for practices.</p>
-    </div>
-    <div class="service-card-clean">
-        <div class="icon-box">🛒</div>
-        <h3><a href="/digital-marketing-for-ecommerce/" style="text-decoration:none; color:inherit;">E-commerce Marketing</a></h3>
-        <p>Shopify scaling, shopping feed ads, cart recovery email sequences, and marketplace listing growth to boost ROI.</p>
-    </div>
-    <div class="service-card-clean">
-        <div class="icon-box">🎓</div>
-        <h3><a href="/digital-marketing-courses/" style="text-decoration:none; color:inherit;">Courses &amp; Guides</a></h3>
-        <p>Complete resource guides detailing certification pathways, industry skill syllabus lists, and free or paid training paths.</p>
-    </div>
-    <div class="service-card-clean">
-        <div class="icon-box">💡</div>
-        <h3><a href="/digital-marketing-faq/" style="text-decoration:none; color:inherit;">Digital Marketing FAQ</a></h3>
-        <p>A comprehensive repository answering over 50 crucial questions about budgets, ROI, strategies, and industry trends.</p>
-    </div>
-</div>
-</div>
 </section>
 
-<!-- Statistics Bar Section -->
-<section class="stats-section-clean">
+<!-- LIMITED LAUNCH OFFER BANNER -->
+<section class="tap-launch-offer">
+    <div class="container launch-offer-container">
+        <div class="offer-details">
+            <span class="offer-badge">🇺🇸 LIMITED LAUNCH OFFER FOR USA CUSTOMERS</span>
+            <h3>Transferring Entire Dedicated Technical Team</h3>
+            <p>We are allocating our top-tier developers and SEO engineers to serve North American businesses.</p>
+        </div>
+        <div class="offer-progress-block">
+            <div class="progress-label-row">
+                <span>Only accepting 25 Companies</span>
+                <span>15/25 Seats Filled</span>
+            </div>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill"></div>
+            </div>
+        </div>
+        <div class="offer-timer-block">
+            <div class="timer-item">
+                <p class="timer-num" id="timer-days">11</p>
+                <span class="timer-label">Days</span>
+            </div>
+            <div class="timer-item">
+                <p class="timer-num" id="timer-hours">23</p>
+                <span class="timer-label">Hours</span>
+            </div>
+            <div class="timer-item">
+                <p class="timer-num" id="timer-mins">47</p>
+                <span class="timer-label">Mins</span>
+            </div>
+            <div class="timer-item">
+                <p class="timer-num" id="timer-secs">09</p>
+                <span class="timer-label">Secs</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TRUSTED BRANDS SECTION -->
+<section class="tap-brands-section">
     <div class="container">
-        <div class="section-header-center" style="margin-bottom:2rem;">
-          <h2 style="color:#fff;">Why International Businesses Choose Us</h2>
+        <div class="brands-section-header">TRUSTED BY BUSINESSES USING WORLD-CLASS PLATFORMS</div>
+        <div class="brands-carousel-grid">
+            <img alt="Google" src="assets/searchconsole.svg" style="height:24px;"/>
+            <img alt="Semrush" src="assets/semrush.svg" style="height:24px;"/>
+            <img alt="Screaming Frog" src="assets/screamingfrog.svg" style="height:24px;"/>
+            <img alt="PageSpeed Insights" src="assets/PageSpeed.svg" style="height:24px;"/>
+            <span style="font-weight: 800; opacity: 0.5; font-size: 1.15rem;">Shopify</span>
+            <span style="font-weight: 800; opacity: 0.5; font-size: 1.15rem;">WordPress</span>
+            <span style="font-weight: 800; opacity: 0.5; font-size: 1.15rem;">Webflow</span>
+            <span style="font-weight: 800; opacity: 0.5; font-size: 1.15rem;">AWS</span>
+            <span style="font-weight: 800; opacity: 0.5; font-size: 1.15rem;">HubSpot</span>
         </div>
-        <div class="stats-grid-clean">
-            <div class="stats-item-clean">
-                <h3>30–70%</h3>
-                <p>Lower cost than hiring a local agency in the US or Canada</p>
-            </div>
-            <div class="stats-item-clean">
-                <h3>🇺🇸 🇨🇦 🇬🇧</h3>
-                <p>Real experience delivering results for North American &amp; UK businesses</p>
-            </div>
-            <div class="stats-item-clean">
-                <h3>Engineering</h3>
-                <p>Built by a mechanical engineer who treats your website like a technical system, not a guessing game</p>
-            </div>
-            <div class="stats-item-clean">
-                <h3>Async</h3>
-                <p>Weekly updates, monthly Loom video reports. No time zone friction.</p>
-            </div>
-        </div>
+        <p class="brands-sub-disclaimer">We work with the websites and platforms you already trust.</p>
     </div>
 </section>
 
-<!-- How It Works -->
-<section class="section-white" style="background: #f8fafc; border-top: 1px solid #f1f5f9; border-bottom: 1px solid #f1f5f9;">
-<div class="container">
-<div class="section-header-center">
-<h2>How It Works</h2>
-<p>Simple, honest, and built around your trust.</p>
-</div>
-<div class="process-grid-clean">
-                <!-- Step 1 -->
-                <div class="process-step-card">
-                    <div class="step-number">01</div>
-                    <div class="step-info-card">
-                        <h3>We Audit Your Website First</h3>
-                        <p>Before we charge you anything on a retainer, we do a full technical check of your site and show you exactly what is broken and what opportunity you are missing.</p>
-                    </div>
+<!-- GLOBAL PRESENCE MAP SECTION -->
+<section class="tap-presence-section">
+    <div class="container">
+        <div class="section-header-center">
+            <h2>Our Global Presence</h2>
+            <p>Delivering results for businesses across the globe with transparent offshore technical operations.</p>
+        </div>
+        <div class="presence-grid">
+            <!-- Left side map graphic -->
+            <div class="presence-map-wrapper">
+                <div class="presence-map-fallback">
+                    <div class="map-pulse-point point-usa"><div class="map-location-tag">USA</div></div>
+                    <div class="map-pulse-point point-canada"><div class="map-location-tag">Canada</div></div>
+                    <div class="map-pulse-point point-uk"><div class="map-location-tag">United Kingdom</div></div>
+                    <div class="map-pulse-point point-germany"><div class="map-location-tag">Germany</div></div>
+                    <div class="map-pulse-point point-dubai"><div class="map-location-tag">Dubai (UAE)</div></div>
+                    <div class="map-pulse-point point-india"><div class="map-location-tag">India HQ</div></div>
+                    <div class="map-pulse-point point-singapore"><div class="map-location-tag">Singapore</div></div>
+                    <div class="map-pulse-point point-australia"><div class="map-location-tag">Australia</div></div>
                 </div>
-                <!-- Step 2 -->
-                <div class="process-step-card">
-                    <div class="step-number">02</div>
-                    <div class="step-info-card">
-                        <h3>You Decide If You Want Us to Fix It</h3>
-                        <p>No pressure. If the audit convinces you, we start as your dedicated monthly team. If not, you keep the audit report and walk away. No contract.</p>
-                    </div>
+            </div>
+            <!-- Right side statistics cards -->
+            <div class="presence-stats-panel">
+                <div class="presence-stat-card">
+                    <h3 class="stat-card-num">16+</h3>
+                    <span class="stat-card-label">Countries<br>Served</span>
                 </div>
-                <!-- Step 3 -->
-                <div class="process-step-card">
-                    <div class="step-number">03</div>
-                    <div class="step-info-card">
-                        <h3>We Run It Every Month</h3>
-                        <p>Technical fixes, SEO, content, link building, reporting. Every month. Like clockwork. You stay focused on your business. We stay focused on your website.</p>
-                    </div>
+                <div class="presence-stat-card">
+                    <h3 class="stat-card-num">128+</h3>
+                    <span class="stat-card-label">Active Clients<br>Globally</span>
                 </div>
-                <!-- Step 4 -->
-                <div class="process-step-card">
-                    <div class="step-number">04</div>
-                    <div class="step-info-card">
-                        <h3>You See Results or We Talk</h3>
-                        <p>We send a full report every month. If results are not moving in the right direction we tell you why and what we are changing. No hiding. No excuses.</p>
-                    </div>
+                <div class="presence-stat-card">
+                    <h3 class="stat-card-num">250K+</h3>
+                    <span class="stat-card-label">Websites<br>Audited</span>
+                </div>
+                <div class="presence-stat-card">
+                    <h3 class="stat-card-num">97%</h3>
+                    <span class="stat-card-label">Client Retention<br>Rate</span>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- Founder Welcome Section -->
-<section class="section-white founder-section-clean" id="founder">
-<div class="container">
-<div class="founder-grid-clean">
-<div class="founder-image-clean">
-<img alt="Aji Paul, Founder of TechAuditPros" src="assets/images/founder/aji-paul.webp" loading="lazy"/>
-</div>
-<div class="founder-content-clean">
-<div class="section-header-left">
-<h2>Why I Started This</h2>
-<p>My name is <strong>Aji Paul</strong>. I am a mechanical engineer from Kochi, India who spent years building and optimizing websites for businesses in India and Canada.</p>
-<p>I noticed one thing repeatedly — small and medium businesses abroad were paying local agencies $3,000 to $5,000 per month for work that a focused technical team in India could do better for half the price.</p>
-<p>TechAuditPros is built on one idea: become the dedicated offshore technical team that international businesses actually trust to run their web operations.</p>
-<p><em>Not a vendor. A partner.</em></p>
-<a class="secondary-btn-large" href="/about.html">More About Us</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- What to Expect -->
-<section class="section-white" style="border-top: 1px solid #f1f5f9; border-bottom: 1px solid #f1f5f9; background: #f8fafc;">
-<div class="container">
-<div class="section-header-center">
-<h2>What to Expect in Month One</h2>
-<p>We are currently accepting new international clients. Here is exactly what happens from day one.</p>
-</div>
-<div class="testimonials-grid-clean">
-<div class="testimonial-card-clean">
-<div class="testimonial-stars">📅 Week 1</div>
-<p>Full technical audit of your website delivered. You see every issue, every opportunity, every competitor gap — in plain English.</p>
-<div class="testimonial-author">No cost. No obligation.</div>
-</div>
-<div class="testimonial-card-clean">
-<div class="testimonial-stars">🔧 Week 2–4</div>
-<p>If you choose to work with us, we begin fixing the highest-priority issues immediately. You receive your first progress update by end of week two.</p>
-<div class="testimonial-author">Your dedicated team. Every month.</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Free Website Health Check -->
-<section class="section-white" id="audit-details">
-<div class="container">
-<div class="section-header-center">
-<h2>Start With a Free Website Health Check</h2>
-<p>Before you commit to anything, let us look at your website and tell you honestly what is holding you back.</p>
-</div>
-<div class="checklist-grid-clean" style="align-items: center;">
-<div style="display: flex; flex-direction: column; gap: 10px;">
-<ul class="checklist-clean">
-<li><span class="checkmark-clean">✓</span> What technical problems are quietly hurting your Google rankings</li>
-<li><span class="checkmark-clean">✓</span> Where your competitors are beating you and why</li>
-<li><span class="checkmark-clean">✓</span> What we would do in month one if you hired us</li>
-</ul>
-<ul class="checklist-clean">
-<li><span class="checkmark-clean">✓</span> It costs you nothing</li>
-<li><span class="checkmark-clean">✓</span> It takes 15 minutes on a call</li>
-<li><span class="checkmark-clean">✓</span> You walk away with clarity either way</li>
-</ul>
-</div>
-<div style="background: #ffffff; padding: 1.5rem; border-radius: 16px; border: 1px solid #e2e8f0; width: 100%; overflow: hidden; box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.05);">
-<iframe aria-label="Contact Us" frameborder="0" src="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" style="height:480px;width:100%;border:none;"></iframe>
-</div>
-</div>
-</div>
-</section>
-<!-- FAQ Section (AEO Optimized Schema Ready) -->
-<section class="section-white" id="faq" style="background: #f8fafc; border-top: 1px solid #f1f5f9; border-bottom: 1px solid #f1f5f9;">
-<div class="container">
-<div class="section-header-center">
-<h2>Frequently Asked Questions</h2>
-<p>Honest answers. No agency speak.</p>
-</div>
-<div class="faq-accordion-clean">
-<details class="faq-item-clean">
-<summary>How is working with an offshore team different from hiring a freelancer?</summary>
-<p>You get a structured, accountable team — not a single person. Dedicated project manager, developers, and SEO strategists assigned to your account permanently. If someone is unavailable, the work does not stop.</p>
-</details>
-<details class="faq-item-clean">
-<summary>Will there be communication problems?</summary>
-<p>No. Our team operates in your timezone overlap and uses Slack, Notion, and weekly video calls. Most clients say communication is better than with their previous local agencies.</p>
-</details>
-<details class="faq-item-clean">
-<summary>What does it cost?</summary>
-<p>Engagements start from $800/month USD for a dedicated technical SEO retainer. Full-stack team packages from $2,000/month. Far below equivalent Western agency rates for the same scope of work.</p>
-</details>
-<details class="faq-item-clean">
-<summary>How quickly can we start?</summary>
-<p>Onboarding takes 5 business days. Your free audit is delivered in week one. Your first active deliverable is in week two.</p>
-</details>
-</div>
-</div>
-</section>
 
-<!-- Latest Insights Blog Section -->
-<section class="section-white" id="insights" style="background: #ffffff; border-top: 1px solid #f1f5f9; padding: 5rem 0;">
-<div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-<div class="section-header-center" style="margin-bottom: 3rem; text-align: center;">
-<h2 style="font-family: 'Outfit', sans-serif; font-size: 2.25rem; font-weight: 800; color: #0f172a; margin-top: 0; margin-bottom: 1rem;">Latest Technical Insights</h2>
-<p style="font-family: 'Inter', sans-serif; font-size: 1.1rem; color: #475569; max-width: 700px; margin: 0 auto; line-height: 1.6;">Actionable search engineering guides and B2B SaaS strategies straight from our development desk.</p>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; margin-bottom: 3rem;">
-    <!-- Card 1 -->
-    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
-        <div style="height: 180px; overflow: hidden; background: #e2e8f0;">
-            <img src="assets/images/locations/outsource_seo_india_unique.png" alt="Indian SEO Agency Advantage" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='assets/images/services/seo_services_hero.png';" loading="lazy">
-        </div>
-        <div style="padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1;">
-            <span style="font-size: 0.75rem; font-weight: 700; color: #4f46e5; text-transform: uppercase; margin-bottom: 0.5rem; display: inline-block;">📊 Growth</span>
-            <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 700; color: #0f172a; margin: 0 0 0.75rem 0; line-height: 1.4;">Why Global Businesses Choose Indian Agencies for Technical SEO</h3>
-            <p style="font-size: 0.925rem; color: #475569; margin: 0 0 1.5rem 0; line-height: 1.6; flex-grow: 1;">An in-depth look at cost reductions (savings up to 70%), timezone coverage, and engineering skills when outsourcing technical SEO.</p>
-            <a href="/blog/why-choose-indian-seo-agency/" style="font-weight: 600; color: #4f46e5; text-decoration: none; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 4px;">Read Article &rarr;</a>
-        </div>
-    </div>
-
-    <!-- Card 2 -->
-    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
-        <div style="height: 180px; overflow: hidden; background: #e2e8f0;">
-            <img src="assets/images/services/python_seo_unique.png" alt="Python for SEO" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='assets/images/services/seo_services_hero.png';" loading="lazy">
-        </div>
-        <div style="padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1;">
-            <span style="font-size: 0.75rem; font-weight: 700; color: #0d9488; text-transform: uppercase; margin-bottom: 0.5rem; display: inline-block;">🐍 Automation</span>
-            <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 700; color: #0f172a; margin: 0 0 0.75rem 0; line-height: 1.4;">Python for SEO: Automating Technical Audits</h3>
-            <p style="font-size: 0.925rem; color: #475569; margin: 0 0 1.5rem 0; line-height: 1.6; flex-grow: 1;">How search engineers write Python scripts to automate canonical link checks, status code audits, and log tracking.</p>
-            <a href="/blog/python-for-seo/" style="font-weight: 600; color: #4f46e5; text-decoration: none; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 4px;">Read Article &rarr;</a>
-        </div>
-    </div>
-
-    <!-- Card 3 -->
-    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
-        <div style="height: 180px; overflow: hidden; background: #e2e8f0;">
-            <img src="assets/images/blog/what-is-digital-marketing.png" alt="What is Digital Marketing Guide" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='assets/images/services/seo_services_hero.png';" loading="lazy">
-        </div>
-        <div style="padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1;">
-            <span style="font-size: 0.75rem; font-weight: 700; color: #ea580c; text-transform: uppercase; margin-bottom: 0.5rem; display: inline-block;">📊 Marketing</span>
-            <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 700; color: #0f172a; margin: 0 0 0.75rem 0; line-height: 1.4;">What is Digital Marketing? Complete Guide to Modern Marketing</h3>
-            <p style="font-size: 0.925rem; color: #475569; margin: 0 0 1.5rem 0; line-height: 1.6; flex-grow: 1;">An in-depth guide covering the core acquisition channels—SEO, PPC, Social Media, Content, and Email—advantages, benefits, and campaigns.</p>
-            <a href="/blog/what-is-digital-marketing/" style="font-weight: 600; color: #4f46e5; text-decoration: none; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 4px;">Read Article &rarr;</a>
-        </div>
-    </div>
-</div>
-<div style="text-align: center;">
-    <a class="primary-btn-large" href="/blog/" style="display: inline-block; padding: 12px 32px; border-radius: 8px; background: #4f46e5; color: #ffffff; text-decoration: none; font-weight: 600; font-family: 'Outfit', sans-serif; transition: all 0.2s ease; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);">Explore Blog Hub</a>
-</div>
-</div>
-</section>
-
-<!-- Final CTA -->
-<section class="final-cta-clean">
-<div class="container">
-<h2>Ready to Stop Paying Western Prices for the Same Quality?</h2>
-<p>Your dedicated offshore technical team is one conversation away. No contracts. No lock-ins. Just results.</p>
-    <a class="primary-btn-large" href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank">Book a Free Strategy Call</a>
-</div>
-</section>
-
-    <!-- Footer only. Keyword directory section removed for professional credibility. -->
-    <section class="section-white" style="border-top: 1px solid #f3f4f6; padding: 40px 0; background: #fafafb; font-size: 0.9rem; line-height: 1.8; color: #4b5563;">
-        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-            <div style="border-bottom: 2px solid #e5e7eb; padding-bottom: 12px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
-                <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 700; color: #111827; text-transform: uppercase; letter-spacing: 0.05em; margin: 0;">Global SEO &amp; Engineering Directory</h2>
-                <span style="font-size: 0.75rem; background: #e2e8f0; color: #475569; padding: 3px 8px; border-radius: 12px; font-weight: 600;">Active Optimization Index</span>
+<!-- WHY INDIA & COST SAVINGS -->
+<section class="tap-savings-section">
+    <div class="container savings-grid">
+        <!-- Left column bullets + video -->
+        <div class="savings-features-col">
+            <h2>Why Smart Companies Move Operations To India</h2>
+            <div class="savings-features-list">
+                <div class="savings-feature-card"><span>✓</span> World-class engineering talent</div>
+                <div class="savings-feature-card"><span>✓</span> Excellent English communication</div>
+                <div class="savings-feature-card"><span>✓</span> Overlap with your business hours</div>
+                <div class="savings-feature-card"><span>✓</span> Lower costs, higher value</div>
+                <div class="savings-feature-card"><span>✓</span> Faster turnaround times</div>
+                <div class="savings-feature-card"><span>✓</span> Same quality, more dedication</div>
             </div>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
-                <!-- Kochi & Cochin Hub -->
+            <div class="savings-video-wrapper">
+                <a href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" class="video-overlay-play">
+                    <div class="play-btn-circle">▶</div>
+                    <span style="font-weight: 700;">Watch Success Stories &amp; Setup (3:12)</span>
+                </a>
+            </div>
+        </div>
+        <!-- Right column graphs -->
+        <div class="savings-comparison-card">
+            <h3>Cost Comparison: Annual Savings</h3>
+            <p>Comparing average local agency pricing vs TechAuditPros offshore dedicated team.</p>
+            <div class="comparison-stack">
+                <!-- Canada -->
+                <div class="comparison-row-item">
+                    <div class="comparison-row-header">
+                        <span>Canada</span>
+                        <span class="comp-saved-badge">SAVE CA$24,120/yr (57%)</span>
+                    </div>
+                    <div class="comparison-bars">
+                        <div class="comp-bar agency" style="width: 100%;">Local Agency: CA$42,000</div>
+                        <div class="comp-bar tap" style="width: 43%;">TechAuditPros: CA$17,880</div>
+                    </div>
+                </div>
+                <!-- USA -->
+                <div class="comparison-row-item">
+                    <div class="comparison-row-header">
+                        <span>USA</span>
+                        <span class="comp-saved-badge">SAVE US$32,400/yr (60%)</span>
+                    </div>
+                    <div class="comparison-bars">
+                        <div class="comp-bar agency" style="width: 100%;">Local Agency: US$54,000</div>
+                        <div class="comp-bar tap" style="width: 40%;">TechAuditPros: US$21,600</div>
+                    </div>
+                </div>
+                <!-- Australia -->
+                <div class="comparison-row-item">
+                    <div class="comparison-row-header">
+                        <span>Australia</span>
+                        <span class="comp-saved-badge">SAVE AU$27,600/yr (59%)</span>
+                    </div>
+                    <div class="comparison-bars">
+                        <div class="comp-bar agency" style="width: 100%;">Local Agency: AU$46,800</div>
+                        <div class="comp-bar tap" style="width: 41%;">TechAuditPros: AU$19,200</div>
+                    </div>
+                </div>
+                <!-- UK -->
+                <div class="comparison-row-item">
+                    <div class="comparison-row-header">
+                        <span>United Kingdom</span>
+                        <span class="comp-saved-badge">SAVE £19,200/yr (57%)</span>
+                    </div>
+                    <div class="comparison-bars">
+                        <div class="comp-bar agency" style="width: 100%;">Local Agency: £33,600</div>
+                        <div class="comp-bar tap" style="width: 43%;">TechAuditPros: £14,400</div>
+                    </div>
+                </div>
+                <!-- Dubai -->
+                <div class="comparison-row-item">
+                    <div class="comparison-row-header">
+                        <span>Dubai (UAE)</span>
+                        <span class="comp-saved-badge">SAVE AED 50,400/yr (52%)</span>
+                    </div>
+                    <div class="comparison-bars">
+                        <div class="comp-bar agency" style="width: 100%;">Local Agency: AED 96,000</div>
+                        <div class="comp-bar tap" style="width: 48%;">TechAuditPros: AED 45,600</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- REAL RESULTS / CASE STUDIES -->
+<section class="tap-cases-section" id="case-studies">
+    <div class="container">
+        <div class="section-header-center">
+            <h2>Real Results. Real Success Stories.</h2>
+            <p>Proven traffic and ranking growth delivered for our international clients.</p>
+        </div>
+        <div class="cases-grid">
+            <!-- Case 1 -->
+            <div class="case-card">
                 <div>
-                    <h3 style="font-size: 0.95rem; font-weight: 700; color: #111827; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.02em;">Kochi &amp; Cochin Hub</h3>
-                    <p>Our Kochi HQ delivers enterprise optimization. Clients search for a top <a href="/seo-audit-kochi/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo company in kochi</a> or hire an expert <a href="/seo-audit-kochi/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo expert in kochi</a> and <a href="/seo-audit-kochi/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo experts in kochi</a> to secure rankings. We provide premium <a href="/seo-audit-kochi/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo services in kochi</a>, including specialized audits. Partner with the <a href="/seo-audit-kochi/" style="color: #2563eb; text-decoration: none; font-weight: 500;">best seo company in kochi</a>, collaborate with a leading <a href="/seo-audit-kochi/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo agency in kochi</a>, or browse other local <a href="/seo-audit-kochi/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo agencies in kochi</a>. If you need consulting, hire a <a href="/seo-consultant-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">freelance seo expert in kochi</a> for custom roadmaps. Our team optimizes local organic signals for <a href="/seo-audit-kochi/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo kochi</a>, serving businesses needing technical <a href="/seo-audit-kochi/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo services in cochin</a> and local search setup for <a href="/seo-audit-kochi/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo cochin</a>, including custom setup for a <a href="/seo-audit-kochi/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo company cochin kerala</a>. We also support freelance consulting through a <a href="/seo-consultant-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">freelance digital marketing kochi</a> framework.</p>
+                    <div class="case-card-header">🇨🇦 Canadian Appliance Company</div>
+                    <h3>Organic Traffic Growth</h3>
+                    <div class="case-metrics-stack">
+                        <div class="case-metric-row">
+                            <span>Traffic Increase</span>
+                            <span>+205%</span>
+                        </div>
+                        <div class="case-metric-row">
+                            <span>Keywords Ranked</span>
+                            <span>+460</span>
+                        </div>
+                        <div class="case-metric-row">
+                            <span>Timeframe</span>
+                            <span>8 Months</span>
+                        </div>
+                    </div>
                 </div>
-                
-                <!-- Kerala SEO & Agency Network -->
-                <div>
-                    <h3 style="font-size: 0.95rem; font-weight: 700; color: #111827; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.02em;">Kerala SEO &amp; Agency Network</h3>
-                    <p>We serve companies seeking a premium <a href="/seo-agency-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo agency in kerala</a> or the <a href="/seo-agency-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">best seo company in kerala</a>. Our agency handles technical <a href="/seo-agency-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo services kerala</a> and general organic optimization as a top <a href="/seo-agency-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo company kerala</a>. Consult with our lead <a href="/seo-agency-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo expert kerala</a> to evaluate crawl budgets. We audit platforms to rank for <a href="/seo-agency-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo kerala</a> and optimize profiles for a <a href="/seo-consultant-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">freelance seo expert kerala</a>. Work with a seasoned <a href="/seo-consultant-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">digital marketing consultant in kerala</a> to review search presence. If you need local support, hire a <a href="/seo-consultant-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">freelance seo expert in kerala</a> or check options for a <a href="/seo-consultant-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo freelancer in kerala</a>, <a href="/seo-consultant-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo freelancer kerala</a>, or <a href="/seo-consultant-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo freelancers in kerala</a>. We also offer custom consulting as a <a href="/seo-consultant-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo consultant kerala</a>, and run a <a href="/seo-consultant-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">freelance seo kerala</a> team for remote projects.</p>
-                </div>
-                
-                <!-- Calicut & India SEO Markets -->
-                <div>
-                    <h3 style="font-size: 0.95rem; font-weight: 700; color: #111827; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.02em;">Calicut &amp; India SEO Markets</h3>
-                    <p>Our Calicut division services northern Kerala. Hire a dedicated <a href="/seo-company-calicut/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo agency in calicut</a> or work with the <a href="/seo-company-calicut/" style="color: #2563eb; text-decoration: none; font-weight: 500;">best seo company in calicut</a>. We represent the top tier of <a href="/seo-company-calicut/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo companies in calicut</a>, delivering tailored <a href="/seo-company-calicut/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo services in calicut</a>. Our work secures placements for <a href="/seo-company-calicut/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo calicut</a>. At a national level, we optimize pipelines for corporate <a href="/seo-agency-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo agency kerala</a> queries. For global scale, hire a <a href="/seo-consultant-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">freelance seo expert india</a> or a <a href="/seo-consultant-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">freelance seo expert</a>. We handle enterprise audits as a global <a href="/seo-services/" style="color: #2563eb; text-decoration: none; font-weight: 500;">web seo company</a>, and support careers with listings for <a href="/seo-training-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo jobs in india</a>.</p>
-                </div>
-                
-                <!-- Training, Courses & Packages -->
-                <div>
-                    <h3 style="font-size: 0.95rem; font-weight: 700; color: #111827; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.02em;">Training, Courses &amp; Packages</h3>
-                    <p>We support educational initiatives. If you are looking for a <a href="/seo-training-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo course in kerala</a> or want to review a <a href="/seo-training-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo course kerala</a> and <a href="/seo-training-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo courses in kerala</a>, we provide references. We host workshops for <a href="/seo-training-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo training in kerala</a>. Our career office lists <a href="/seo-training-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo jobs in kerala</a>. For commercial offerings, review our <a href="/seo-agency-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo packages kerala</a> or compare <a href="/seo-agency-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">affordable seo packages kerala</a> and <a href="/seo-agency-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">seo packages in kerala</a>. We list options under the <a href="/seo-agency-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">best seo company kerala</a> index, and rank as a <a href="/seo-agency-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">top seo company in kerala</a>, <a href="/seo-agency-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">top seo company kerala</a>, and <a href="/seo-agency-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">top seo companies in kerala</a>. We also support <a href="/seo-consultant-kerala/" style="color: #2563eb; text-decoration: none; font-weight: 500;">freelance seo services</a>.</p>
-                </div>
+                <a class="case-card-link" href="/case-studies.html">Read Full Story &rarr;</a>
             </div>
-            
-            <!-- International Markets Row (US, CA, UK, Gulf) -->
-            <div style="border-top: 1px solid #e5e7eb; margin-top: 30px; padding-top: 20px; font-size: 0.85rem;">
-                <h3 style="font-size: 0.95rem; font-weight: 700; color: #111827; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.02em;">International Optimization Network</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
-                    <div>
-                        <strong>United States:</strong>
-                        Our team provides <a href="/seo-audit-usa/" style="color: #2563eb; text-decoration: none;">enterprise seo usa</a>, operates as a leading <a href="/seo-audit-usa/" style="color: #2563eb; text-decoration: none;">technical seo company usa</a>, and deploys local campaigns through our <a href="/charlotte-seo-company/" style="color: #2563eb; text-decoration: none;">charlotte seo agency</a> and <a href="/new-york-city-seo-experts/" style="color: #2563eb; text-decoration: none;">seo consultant nyc</a> services.
-                    </div>
-                    <div>
-                        <strong>Canada:</strong>
-                        We service North American clients through our dedicated <a href="/seo-audit-canada/" style="color: #2563eb; text-decoration: none;">seo agency canada</a> division, manage campaigns via <a href="/seo-company-ontario/" style="color: #2563eb; text-decoration: none;">seo consultant ontario</a>, and build search presence via <a href="/ottawa-seo-company/" style="color: #2563eb; text-decoration: none;">ottawa seo company</a>.
-                    </div>
-                    <div>
-                        <strong>Australia:</strong>
-                        We drive organic rankings as a premium <a href="/seo-audit-australia/" style="color: #2563eb; text-decoration: none;">seo agency australia</a>, offering comprehensive <a href="/seo-audit-australia/" style="color: #2563eb; text-decoration: none;">seo services australia</a> and custom campaigns under the local <a href="/seo-audit-australia/" style="color: #2563eb; text-decoration: none;">seo company australia</a> banner.
-                    </div>
-                    <div>
-                        <strong>United Kingdom:</strong>
-                        We execute campaigns as a leading provider of <a href="/seo-company/london-uk/" style="color: #2563eb; text-decoration: none;">seo services london uk</a>, run <a href="/seo-company-edinburgh/" style="color: #2563eb; text-decoration: none;">seo company edinburgh</a> operations, and manage technical setups for <a href="/seo-company/london-uk/" style="color: #2563eb; text-decoration: none;">technical seo london</a>.
-                    </div>
-                    <div>
-                        <strong>Gulf / Middle East:</strong>
-                        Our team expands digital footprint across the GCC, offering specialized solutions as an experienced <a href="/seo-services/" style="color: #2563eb; text-decoration: none;">seo agency dubai</a>, providing setup for a <a href="/seo-services/" style="color: #2563eb; text-decoration: none;">technical seo consultant uae</a>, managing local <a href="/seo-services/" style="color: #2563eb; text-decoration: none;">seo services gulf</a>, and driving growth as a <a href="/seo-services/" style="color: #2563eb; text-decoration: none;">seo company qatar</a> partner.
+            <!-- Case 2 -->
+            <div class="case-card">
+                <div>
+                    <div class="case-card-header">🇺🇸 USA HVAC Business</div>
+                    <h3>Local Rank Dominance</h3>
+                    <div class="case-metrics-stack">
+                        <div class="case-metric-row">
+                            <span>Traffic Increase</span>
+                            <span>+180%</span>
+                        </div>
+                        <div class="case-metric-row">
+                            <span>Keywords Ranked</span>
+                            <span>+320</span>
+                        </div>
+                        <div class="case-metric-row">
+                            <span>Timeframe</span>
+                            <span>6 Months</span>
+                        </div>
                     </div>
                 </div>
+                <a class="case-card-link" href="/case-studies.html">Read Full Story &rarr;</a>
+            </div>
+            <!-- Case 3 -->
+            <div class="case-card">
+                <div>
+                    <div class="case-card-header">🇦🇺 Australia E-commerce Store</div>
+                    <h3>Revenue Growth Optimization</h3>
+                    <div class="case-metrics-stack">
+                        <div class="case-metric-row">
+                            <span>Traffic Increase</span>
+                            <span>+165%</span>
+                        </div>
+                        <div class="case-metric-row">
+                            <span>Top-3 Keywords</span>
+                            <span>+380%</span>
+                        </div>
+                        <div class="case-metric-row">
+                            <span>Timeframe</span>
+                            <span>7 Months</span>
+                        </div>
+                    </div>
+                </div>
+                <a class="case-card-link" href="/case-studies.html">Read Full Story &rarr;</a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Footer -->
-                <footer class="site-footer" id="contact">
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>TechAuditPros</h3>
-                    <p>Your dedicated offshore technical web team. We manage your website, SEO &amp; backend — every month, so you don't have to.</p>
-                    <p style="margin-top: 12px; margin-bottom: 4px;">📍 Kochi, Kerala, India</p>
-                    <p style="margin-bottom: 6px;"><a href="mailto:info@techauditpros.com" class="footer-link">info@techauditpros.com</a></p>
+<!-- CLIENT REVIEWS -->
+<section class="tap-reviews-section">
+    <div class="container">
+        <div class="section-header-center">
+            <h2>What Our Clients Say</h2>
+            <p>Read transparent feedback from companies who trust us to manage their technical backends.</p>
+        </div>
+        <div class="reviews-grid">
+            <!-- Review 1 -->
+            <div class="review-card-item">
+                <div>
+                    <div class="review-stars-row">★★★★★</div>
+                    <p>"TechAuditPros team is extremely professional and delivers beyond what they promise. Our organic search traffic has doubled in 8 months, and they resolved page speed issues we spent thousands trying to fix before."</p>
                 </div>
-                <div class="footer-column">
-                    <h3>SEO Services</h3>
-                    <p><a href="/technical-seo-audit/" class="footer-link">Technical SEO Audit</a></p>
-                    <p><a href="/seo-services/enterprise-seo/" class="footer-link">Enterprise SEO</a></p>
-                    <p><a href="/seo-services/saas-seo-strategy/" class="footer-link">SaaS SEO Strategy</a></p>
-                    <p><a href="/seo-services/ecommerce-seo/" class="footer-link">E-commerce SEO</a></p>
-                    <p><a href="/shopify-seo-company/" class="footer-link">Shopify SEO</a></p>
-                    <p><a href="/b2b-seo-strategy/" class="footer-link">B2B SEO Strategy</a></p>
-                    <p><a href="/local-seo-services/" class="footer-link">Local SEO Services</a></p>
-                    <p><a href="/on-page-seo/" class="footer-link">On-Page SEO</a></p>
-                    <p><a href="/off-page-seo/" class="footer-link">Off-Page SEO</a></p>
-                    <p><a href="/international-seo/" class="footer-link">International SEO</a></p>
-                    <p><a href="/white-label-seo-services-for-agencies/" class="footer-link">White-Label SEO</a></p>
-                </div>
-                <div class="footer-column">
-                    <h3>SaaS Dev &amp; Web Design</h3>
-                    <p><a href="/saas-app-development/custom-crm-portals/" class="footer-link">Custom CRM Portals</a></p>
-                    <p><a href="/saas-app-development/erp-integrations/" class="footer-link">ERP Integrations</a></p>
-                    <p><a href="/saas-app-development/b2b-dashboards/" class="footer-link">B2B Dashboards</a></p>
-                    <p><a href="/saas-app-development/mvp-development/" class="footer-link">MVP Development</a></p>
-                    <p><a href="/website-seo-audit/" class="footer-link">Website SEO Audit</a></p>
-                    <p><a href="/website-design-development/b2b-corporate-websites/" class="footer-link">B2B Corporate Sites</a></p>
-                    <p><a href="/website-design-development/core-web-vitals-optimization/" class="footer-link">Core Web Vitals</a></p>
-                    <p><a href="/website-design-development/nextjs-development/" class="footer-link">Next.js Development</a></p>
-                    <p><a href="/website-design-development/headless-cms/" class="footer-link">Headless CMS Dev</a></p>
-                    <p><a href="/healthcare-seo-services/" class="footer-link">Healthcare SEO Services</a></p>
-                </div>
-                <div class="footer-column">
-                    <h3>Digital Marketing</h3>
-                    <p><a href="/digital-marketing-services/" class="footer-link">Marketing Services</a></p>
-                    <p><a href="/digital-marketing-strategy/" class="footer-link">Marketing Strategy</a></p>
-                    <p><a href="/digital-marketing-for-healthcare/" class="footer-link">Healthcare Marketing</a></p>
-                    <p><a href="/digital-marketing-for-ecommerce/" class="footer-link">E-commerce Marketing</a></p>
-                    <p><a href="/digital-marketing-courses/" class="footer-link">Courses &amp; Guides</a></p>
-                    <p><a href="/digital-marketing-faq/" class="footer-link">Marketing FAQ</a></p>
-                    <p><a href="/digital-marketing-resources/" class="footer-link">Marketing Resources</a></p>
-                </div>
-                <div class="footer-column">
-                    <h3>Company &amp; Resources</h3>
-                    <p><a href="/about.html" class="footer-link">About Us</a></p>
-                    <p><a href="/case-studies.html" class="footer-link">Case Studies</a></p>
-                    <p><a href="/blog/" class="footer-link">Blog Hub</a></p>
-                    <p><a href="/seo-consultant-kerala/" class="footer-link">Freelance Consultant</a></p>
-                    <p><a href="/seo-training-kerala/" class="footer-link">SEO Training</a></p>
-                    <p><a href="/privacy/" class="footer-link">Privacy Policy</a></p>
-                    <p><a href="/terms/" class="footer-link">Terms of Service</a></p>
+                <div class="review-author-row">
+                    <div class="review-author-info">
+                        <h4>John D.</h4>
+                        <span>Marketing Director, Appliance King</span>
+                    </div>
+                    <span class="review-country-badge">🇨🇦 Canada</span>
                 </div>
             </div>
-            
-            <div class="footer-locations" style="border-top: 1px solid rgba(255, 255, 255, 0.08); margin-top: 40px; padding-top: 25px;">
-                <h3 style="color: #ffffff; font-size: 1.125rem; font-weight: 700; margin-bottom: 15px;">Target Markets</h3>
-                <div style="display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 0.875rem; line-height: 1.6;">
-                    <a href="/seo-audit-kochi/" class="footer-link">Kochi HQ</a>
-                    <span style="color: #475569;">&bull;</span>
-                    <a href="/seo-agency-kerala/" class="footer-link">Kerala Agency</a>
-                    <span style="color: #475569;">&bull;</span>
-                    <a href="/seo-company-calicut/" class="footer-link">Calicut Office</a>
-                    <span style="color: #475569;">&bull;</span>
-                    <a href="/seo-audit-india/" class="footer-link">India National</a>
-                    <span style="color: #475569;">&bull;</span>
-                    <a href="/seo-company-india/" class="footer-link">India Company</a>
-                    <span style="color: #475569;">&bull;</span>
-                    <a href="/seo-expert-india/" class="footer-link">India Experts</a>
-                    <span style="color: #475569;">&bull;</span>
-                    <a href="/seo-agency-india/" class="footer-link">India Agency</a>
-                    <span style="color: #475569;">&bull;</span>
-                    <a href="/outsource-seo-services-to-india/" class="footer-link">Outsource to India</a>
-                    <span style="color: #475569;">&bull;</span>
-                    <a href="/seo-company/mumbai/" class="footer-link">Mumbai Office</a>
-                    <span style="color: #475569;">&bull;</span>
-                    <a href="/seo-company/bangalore/" class="footer-link">Bangalore Office</a>
-                    <span style="color: #475569;">&bull;</span>
-                    <a href="/seo-company-chennai/" class="footer-link">Chennai Office</a>
-                    <span style="color: #475569;">&bull;</span>
-                    <a href="/seo-company-pune/" class="footer-link">Pune Office</a>
-                    <span style="color: #475569;">&bull;</span>
-                    <a href="/seo-company-delhi/" class="footer-link">Delhi Office</a>
-                    <span style="color: #475569;">&bull;</span>
-                    <a href="/seo-agency-vadodara/" class="footer-link">Vadodara Office</a>
-                    <span style="color: #475569;">&bull;</span>
-                    <a href="/seo-company/london-uk/" class="footer-link">London UK</a>
-                    <span style="color: #475569;">&bull;</span>
-                    <a href="/seo-company-edinburgh/" class="footer-link">Edinburgh Office</a>
-                    <span style="color: #475569;">&bull;</span>
-                    <a href="/seo-audit-usa/" class="footer-link">USA Market</a>
-                    <span style="color: #475569;">&bull;</span>
-                    <a href="/charlotte-seo-company/" class="footer-link">Charlotte SEO</a>
-                    <span style="color: #475569;">&bull;</span>
-                    <a href="/new-york-city-seo-experts/" class="footer-link">New York SEO</a>
-                    <span style="color: #475569;">&bull;</span>
-                    <a href="/orlando-seo-agency/" class="footer-link">Orlando SEO</a>
-                    <span style="color: #475569;">&bull;</span>
-                    <a href="/seo-audit-canada/" class="footer-link">Canada Market</a>
-                    <span style="color: #475569;">&bull;</span>
-                    <a href="/seo-company-ontario/" class="footer-link">Ontario SEO</a>
-                    <span style="color: #475569;">&bull;</span>
-                    <a href="/ottawa-seo-company/" class="footer-link">Ottawa SEO</a>
-                    <span style="color: #475569;">&bull;</span>
-                    <a href="/seo-audit-australia/" class="footer-link">Australia Market</a>
+            <!-- Review 2 -->
+            <div class="review-card-item">
+                <div>
+                    <div class="review-stars-row">★★★★★</div>
+                    <p>"Best decision we made for our local marketing. Their communication, transparency, and technical knowledge is outstanding. We get updates on Slack daily and monthly Loom reports."</p>
+                </div>
+                <div class="review-author-row">
+                    <div class="review-author-info">
+                        <h4>Sarah M.</h4>
+                        <span>CEO, ComfortPro HVAC</span>
+                    </div>
+                    <span class="review-country-badge">🇺🇸 USA</span>
                 </div>
             </div>
-            
-            <div class="footer-bottom" style="margin-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 20px;">
-                <p>&copy; 2026 TechAuditPros. All rights reserved.</p>
+            <!-- Review 3 -->
+            <div class="review-card-item">
+                <div>
+                    <div class="review-stars-row">★★★★★</div>
+                    <p>"Finally a team that understands technical SEO and actually delivers results. Our online sales increased significantly within 3 months of transferring optimization to their team in India."</p>
+                </div>
+                <div class="review-author-row">
+                    <div class="review-author-info">
+                        <h4>Mark T.</h4>
+                        <span>Managing Director, GoHome Appliances</span>
+                    </div>
+                    <span class="review-country-badge">🇦🇺 Australia</span>
+                </div>
+            </div>
+            <!-- Review 4 -->
+            <div class="review-card-item">
+                <div>
+                    <div class="review-stars-row">★★★★★</div>
+                    <p>"Amazing team! Very responsive and know exactly what they are doing. Easily the best technical SEO partner we have worked with. They treat our website like their own."</p>
+                </div>
+                <div class="review-author-row">
+                    <div class="review-author-info">
+                        <h4>James L.</h4>
+                        <span>Founder, Repair Hub UK</span>
+                    </div>
+                    <span class="review-country-badge">🇬🇧 UK</span>
+                </div>
             </div>
         </div>
-    </footer>
-<script>
-        document.querySelectorAll('.dashboard-tab-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.dashboard-tab-btn').forEach(b => b.classList.remove('active'));
-                document.querySelectorAll('.dashboard-panel').forEach(p => p.classList.remove('active'));
-                btn.classList.add('active');
-                const targetId = btn.getAttribute('data-tab');
-                document.getElementById(targetId).classList.add('active');
-            });
-        });
-    </script>
-<!-- MOBILE_SCRIPT_START -->
+    </div>
+</section>
+
+<!-- WORKFLOW TIMELINE -->
+<section class="tap-workflow-section" id="workflow">
+    <div class="container">
+        <div class="section-header-center">
+            <h2>We Handle Everything. You Focus on Your Business.</h2>
+            <p>A step-by-step setup built for complete peace of mind, communication, and performance.</p>
+        </div>
+        <div class="workflow-timeline-row">
+            <!-- Step 1 -->
+            <div class="workflow-step-node">
+                <div class="step-node-icon">1</div>
+                <h4>You</h4>
+                <p>Share Access</p>
+            </div>
+            <!-- Step 2 -->
+            <div class="workflow-step-node">
+                <div class="step-node-icon">2</div>
+                <h4>Slack</h4>
+                <p>Daily Communication</p>
+            </div>
+            <!-- Step 3 -->
+            <div class="workflow-step-node">
+                <div class="step-node-icon">3</div>
+                <h4>Project Manager</h4>
+                <p>Single Point of Contact</p>
+            </div>
+            <!-- Step 4 -->
+            <div class="workflow-step-node">
+                <div class="step-node-icon">4</div>
+                <h4>SEO Engineer</h4>
+                <p>On-Page &amp; Technical</p>
+            </div>
+            <!-- Step 5 -->
+            <div class="workflow-step-node">
+                <div class="step-node-icon">5</div>
+                <h4>Developer</h4>
+                <p>Fixes &amp; Implementation</p>
+            </div>
+            <!-- Step 6 -->
+            <div class="workflow-step-node">
+                <div class="step-node-icon">6</div>
+                <h4>Content Writer</h4>
+                <p>Content That Ranks</p>
+            </div>
+            <!-- Step 7 -->
+            <div class="workflow-step-node">
+                <div class="step-node-icon">7</div>
+                <h4>QA &amp; Testing</h4>
+                <p>Quality &amp; Performance Check</p>
+            </div>
+            <!-- Step 8 -->
+            <div class="workflow-step-node">
+                <div class="step-node-icon">8</div>
+                <h4>Monthly Report</h4>
+                <p>Transparent Results</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES & LIVE DASHBOARD -->
+<section class="tap-services-dashboard-section" id="services">
+    <div class="container services-dashboard-grid">
+        <!-- Left Side: Services grid -->
+        <div>
+            <div class="section-header-left">
+                <h2>Our Technical Services</h2>
+                <p>We take care of every technical aspect of your website backend, search presence, and optimization funnel.</p>
+            </div>
+            <div class="dashboard-services-list">
+                <a class="dashboard-service-item" href="/technical-seo-audit/">
+                    <div class="dashboard-service-icon">🔍</div>
+                    <span>Technical SEO &amp; Audits</span>
+                </a>
+                <a class="dashboard-service-item" href="/website-design-development/">
+                    <div class="dashboard-service-icon">💻</div>
+                    <span>Website Development</span>
+                </a>
+                <a class="dashboard-service-item" href="/saas-app-development/">
+                    <div class="dashboard-service-icon">⚙️</div>
+                    <span>Backend Development</span>
+                </a>
+                <a class="dashboard-service-item" href="/seo-services/">
+                    <div class="dashboard-service-icon">📈</div>
+                    <span>Search Engine Optimization</span>
+                </a>
+                <a class="dashboard-service-item" href="/digital-marketing-services/">
+                    <div class="dashboard-service-icon">📢</div>
+                    <span>Digital Marketing</span>
+                </a>
+                <a class="dashboard-service-item" href="/digital-marketing-strategy/">
+                    <div class="dashboard-service-icon">👥</div>
+                    <span>Social Media Marketing</span>
+                </a>
+                <a class="dashboard-service-item" href="/digital-marketing-services/">
+                    <div class="dashboard-service-icon">🎯</div>
+                    <span>Google Ads (PPC)</span>
+                </a>
+                <a class="dashboard-service-item" href="/digital-marketing-services/">
+                    <div class="dashboard-service-icon">📱</div>
+                    <span>Meta Ads</span>
+                </a>
+                <a class="dashboard-service-item" href="/digital-marketing-services/">
+                    <div class="dashboard-service-icon">✍️</div>
+                    <span>Content Marketing</span>
+                </a>
+                <a class="dashboard-service-item" href="/website-design-development/core-web-vitals-optimization/">
+                    <div class="dashboard-service-icon">📊</div>
+                    <span>Analytics &amp; Tracking</span>
+                </a>
+                <a class="dashboard-service-item" href="/website-design-development/core-web-vitals-optimization/">
+                    <div class="dashboard-service-icon">⚙️</div>
+                    <span>Conversion Rate Optimization</span>
+                </a>
+                <a class="dashboard-service-item" href="/seo-services/enterprise-seo/">
+                    <div class="dashboard-service-icon">📍</div>
+                    <span>Local SEO</span>
+                </a>
+                <a class="dashboard-service-item" href="/seo-services/ecommerce-seo/">
+                    <div class="dashboard-service-icon">🛒</div>
+                    <span>E-commerce SEO</span>
+                </a>
+                <a class="dashboard-service-item" href="/saas-app-development/mvp-development/">
+                    <div class="dashboard-service-icon">🤖</div>
+                    <span>AI Automation &amp; Integrations</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Right Side: Live dashboard stats widget -->
+        <div class="live-dashboard-widget">
+            <div class="widget-header-row">
+                <div class="widget-title">
+                    <span class="widget-live-dot"></span>
+                    <span>Live Operations Dashboard</span>
+                </div>
+            </div>
+            <div class="widget-grid-stats">
+                <div class="widget-stat-box">
+                    <h4>34</h4>
+                    <p>Current Active Projects</p>
+                </div>
+                <div class="widget-stat-box">
+                    <h4>126</h4>
+                    <p>Websites Managed</p>
+                </div>
+                <div class="widget-stat-box">
+                    <h4>5,841</h4>
+                    <p>Tickets Closed</p>
+                </div>
+                <div class="widget-stat-box">
+                    <h4>18 min</h4>
+                    <p>Avg Support Reply Time</p>
+                </div>
+                <div class="widget-stat-box">
+                    <h4>96%</h4>
+                    <p>Client Retention</p>
+                </div>
+                <div class="widget-stat-box">
+                    <h4>4.9 / 5</h4>
+                    <p>Client Trust Rating</p>
+                </div>
+            </div>
+            <div class="widget-tools-row">
+                <p>Tools we use daily</p>
+                <div class="widget-tools-flex">
+                    <span>Semrush</span>
+                    <span>Ahrefs</span>
+                    <span>Screaming Frog</span>
+                    <span>Lumar</span>
+                    <span>GSC</span>
+                    <span>Git</span>
+                    <span>Slack</span>
+                    <span>ClickUp</span>
+                    <span>VS Code</span>
+                </div>
+            </div>
+            <div class="widget-payments-row">
+                <p>Easy &amp; Secure Payments</p>
+                <div class="widget-payments-flex">
+                    <span>Wise</span>
+                    <span>Stripe</span>
+                    <span>PayPal</span>
+                    <span>Bank Transfer</span>
+                    <span>Visa</span>
+                    <span>Mastercard</span>
+                    <span>Amex</span>
+                </div>
+                <p class="widget-payments-disclaimer">Invoices • GST Compliant • Full Transparency</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DATA SECURITY Section -->
+<section class="tap-security-section">
+    <div class="container security-badges-row">
+        <div class="security-badge-item">
+            <span class="security-badge-icon">🔒</span>
+            <h4>NDA Protected</h4>
+        </div>
+        <div class="security-badge-item">
+            <span class="security-badge-icon">💻</span>
+            <h4>Source Code Ownership</h4>
+        </div>
+        <div class="security-badge-item">
+            <span class="security-badge-icon">💾</span>
+            <h4>Full Weekly Backups</h4>
+        </div>
+        <div class="security-badge-item">
+            <span class="security-badge-icon">🔑</span>
+            <h4>Secure Access Control</h4>
+        </div>
+        <div class="security-badge-item">
+            <span class="security-badge-icon">🌿</span>
+            <h4>Version Control</h4>
+        </div>
+        <div class="security-badge-item">
+            <span class="security-badge-icon">🛡️</span>
+            <h4>Secure Infrastructure</h4>
+        </div>
+        <div class="security-badge-item">
+            <span class="security-badge-icon">💬</span>
+            <h4>Encrypted Comms</h4>
+        </div>
+        <div class="security-badge-item">
+            <span class="security-badge-icon">📊</span>
+            <h4>Weekly Reporting</h4>
+        </div>
+    </div>
+</section>
+
+<!-- EXPLORE COUNTRY HUBS -->
+<section class="tap-hubs-section">
+    <div class="container">
+        <div class="section-header-center">
+            <h2>Explore Our Country Hubs</h2>
+            <p>Access customized local services, pricing plans, and dedicated technical support teams for your region.</p>
+        </div>
+        <div class="hubs-grid">
+            <a class="hub-card-item" href="/seo-audit-usa/">
+                <span class="hub-flag">🇺🇸</span>
+                <h3>USA</h3>
+                <span>View Services &rarr;</span>
+            </a>
+            <a class="hub-card-item" href="/seo-audit-canada/">
+                <span class="hub-flag">🇨🇦</span>
+                <h3>Canada</h3>
+                <span>View Services &rarr;</span>
+            </a>
+            <a class="hub-card-item" href="/seo-audit-australia/">
+                <span class="hub-flag">🇦🇺</span>
+                <h3>Australia</h3>
+                <span>View Services &rarr;</span>
+            </a>
+            <a class="hub-card-item" href="/seo-company/london-uk/">
+                <span class="hub-flag">🇬🇧</span>
+                <h3>UK</h3>
+                <span>View Services &rarr;</span>
+            </a>
+            <a class="hub-card-item" href="/seo-services/">
+                <span class="hub-flag">🇦🇪</span>
+                <h3>Dubai</h3>
+                <span>View Services &rarr;</span>
+            </a>
+            <a class="hub-card-item" href="/seo-audit-kochi/">
+                <span class="hub-flag">🇮🇳</span>
+                <h3>India</h3>
+                <span>View Services &rarr;</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- GIGANTIC NUMBERS SECTION -->
+<section class="tap-numbers-section">
+    <div class="container numbers-grid-row">
+        <div class="number-stat-item">
+            <h4>$3.2M+</h4>
+            <p>Client Revenue Influenced</p>
+        </div>
+        <div class="number-stat-item">
+            <h4>128+</h4>
+            <p>Websites Managed</p>
+        </div>
+        <div class="number-stat-item">
+            <h4>16+</h4>
+            <p>Countries Served</p>
+        </div>
+        <div class="number-stat-item">
+            <h4>5,000+</h4>
+            <p>Technical Issues Solved</p>
+        </div>
+        <div class="number-stat-item">
+            <h4>1.2M+</h4>
+            <p>Pages Crawled</p>
+        </div>
+        <div class="number-stat-item">
+            <h4>250+</h4>
+            <p>SEO Audits Completed</p>
+        </div>
+        <div class="number-stat-item">
+            <h4>97%</h4>
+            <p>Client Retention</p>
+        </div>
+        <div class="number-stat-item">
+            <h4>100%</h4>
+            <p>Transparent Reporting</p>
+        </div>
+    </div>
+</section>
+
+<!-- FOUNDER STORY & STOP PAYING LOCAL PRICES -->
+<section class="tap-founder-cta-section" id="founder">
+    <div class="container founder-cta-grid">
+        <!-- Left: Founder bio -->
+        <div class="founder-content-wrapper">
+            <div class="founder-photo-box">
+                <img alt="Aji Paul, Founder of TechAuditPros" src="assets/images/founder/aji-paul.webp" loading="lazy"/>
+            </div>
+            <div class="founder-bio-text">
+                <h3>Founder Story</h3>
+                <span>Aji Paul &bull; Founder &amp; CEO, TechAuditPros</span>
+                <p>"Hi, I'm Aji Paul. As a mechanical engineer, I treat website architecture and SEO operations as exact systems. We built TechAuditPros to provide businesses with the dedicated technical support they need, without paying local Western agency premiums. No guessing. Just execution."</p>
+                <div class="founder-signature">Aji Paul</div>
+                <div class="founder-timeline-list">
+                    <div class="timeline-marker-row">🎓 <strong>2014</strong> - Mechanical Engineering Degree</div>
+                    <div class="timeline-marker-row">⚙️ <strong>2016-2018</strong> - Software QA Systems &amp; Databases</div>
+                    <div class="timeline-marker-row">🔍 <strong>2019-2021</strong> - SEO Architecture &amp; Analytics</div>
+                    <div class="timeline-marker-row">🇨🇦 <strong>2021-2022</strong> - First North American Contracts</div>
+                    <div class="timeline-marker-row">🚀 <strong>2023-Present</strong> - Scaling TechAuditPros Operations</div>
+                </div>
+            </div>
+        </div>
+        <!-- Right: CTA Card -->
+        <div class="cta-card-box" id="audit-details">
+            <h3>Stop Paying Local Agency Prices.<br>Keep the Same Quality.<br>Or Better.</h3>
+            <p>Get your free, no-obligation technical health check audit in 60 seconds.</p>
+            <div class="cta-card-checklist">
+                <div class="cta-checklist-item">✓ No Contracts</div>
+                <div class="cta-checklist-item">✓ Cancel Anytime</div>
+                <div class="cta-checklist-item">✓ No Sales Pressure</div>
+                <div class="cta-checklist-item">✓ Just Quality</div>
+            </div>
+            <iframe aria-label="Contact Us" frameborder="0" src="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" style="height:380px;width:100%;border:none;margin-bottom: 15px;"></iframe>
+            <a class="primary-btn-large" href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank">Book Strategy Call</a>
+            <p class="cta-card-subtext">Takes 60 seconds • Get instant insights</p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer" id="contact">
+    <div class="container footer-container">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>TechAuditPros</h3>
+                <p>Your dedicated offshore technical web team. We manage your website, SEO &amp; backend — every month, so you don't have to.</p>
+                <p style="margin-top: 12px; margin-bottom: 4px;">📍 Kochi, Kerala, India</p>
+                <p style="margin-bottom: 6px;"><a href="mailto:info@techauditpros.com" class="footer-link">info@techauditpros.com</a></p>
+            </div>
+            <div class="footer-column">
+                <h3>SEO Services</h3>
+                <p><a href="/technical-seo-audit/" class="footer-link">Technical SEO Audit</a></p>
+                <p><a href="/seo-services/enterprise-seo/" class="footer-link">Enterprise SEO</a></p>
+                <p><a href="/seo-services/saas-seo-strategy/" class="footer-link">SaaS SEO Strategy</a></p>
+                <p><a href="/seo-services/ecommerce-seo/" class="footer-link">E-commerce SEO</a></p>
+                <p><a href="/shopify-seo-company/" class="footer-link">Shopify SEO</a></p>
+                <p><a href="/b2b-seo-strategy/" class="footer-link">B2B SEO Strategy</a></p>
+                <p><a href="/local-seo-services/" class="footer-link">Local SEO Services</a></p>
+                <p><a href="/on-page-seo/" class="footer-link">On-Page SEO</a></p>
+                <p><a href="/off-page-seo/" class="footer-link">Off-Page SEO</a></p>
+                <p><a href="/international-seo/" class="footer-link">International SEO</a></p>
+                <p><a href="/white-label-seo-services-for-agencies/" class="footer-link">White-Label SEO</a></p>
+            </div>
+            <div class="footer-column">
+                <h3>SaaS Dev &amp; Web Design</h3>
+                <p><a href="/saas-app-development/custom-crm-portals/" class="footer-link">Custom CRM Portals</a></p>
+                <p><a href="/saas-app-development/erp-integrations/" class="footer-link">ERP Integrations</a></p>
+                <p><a href="/saas-app-development/b2b-dashboards/" class="footer-link">B2B Dashboards</a></p>
+                <p><a href="/saas-app-development/mvp-development/" class="footer-link">MVP Development</a></p>
+                <p><a href="/website-seo-audit/" class="footer-link">Website SEO Audit</a></p>
+                <p><a href="/website-design-development/b2b-corporate-websites/" class="footer-link">B2B Corporate Sites</a></p>
+                <p><a href="/website-design-development/core-web-vitals-optimization/" class="footer-link">Core Web Vitals</a></p>
+                <p><a href="/website-design-development/nextjs-development/" class="footer-link">Next.js Development</a></p>
+                <p><a href="/website-design-development/headless-cms/" class="footer-link">Headless CMS Dev</a></p>
+                <p><a href="/healthcare-seo-services/" class="footer-link">Healthcare SEO Services</a></p>
+            </div>
+            <div class="footer-column">
+                <h3>Digital Marketing</h3>
+                <p><a href="/digital-marketing-services/" class="footer-link">Marketing Services</a></p>
+                <p><a href="/digital-marketing-strategy/" class="footer-link">Marketing Strategy</a></p>
+                <p><a href="/digital-marketing-for-healthcare/" class="footer-link">Healthcare Marketing</a></p>
+                <p><a href="/digital-marketing-for-ecommerce/" class="footer-link">E-commerce Marketing</a></p>
+                <p><a href="/digital-marketing-courses/" class="footer-link">Courses &amp; Guides</a></p>
+                <p><a href="/digital-marketing-faq/" class="footer-link">Marketing FAQ</a></p>
+            </div>
+            <div class="footer-column">
+                <h3>Company &amp; Resources</h3>
+                <p><a href="/about.html" class="footer-link">About Us</a></p>
+                <p><a href="/case-studies.html" class="footer-link">Case Studies</a></p>
+                <p><a href="/blog/" class="footer-link">Blog Hub</a></p>
+                <p><a href="/seo-consultant-kerala/" class="footer-link">Freelance Consultant</a></p>
+                <p><a href="/seo-training-kerala/" class="footer-link">SEO Training</a></p>
+                <p><a href="/privacy/" class="footer-link">Privacy Policy</a></p>
+                <p><a href="/terms/" class="footer-link">Terms of Service</a></p>
+            </div>
+        </div>
+        
+        <div class="footer-locations" style="border-top: 1px solid rgba(255, 255, 255, 0.08); margin-top: 40px; padding-top: 25px;">
+            <h3 style="color: #ffffff; font-size: 1.125rem; font-weight: 700; margin-bottom: 15px;">Target Markets</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 0.875rem; line-height: 1.6;">
+                <a href="/seo-audit-kochi/" class="footer-link">Kochi HQ</a>
+                <span style="color: #475569;">&bull;</span>
+                <a href="/seo-agency-kerala/" class="footer-link">Kerala Agency</a>
+                <span style="color: #475569;">&bull;</span>
+                <a href="/seo-company-calicut/" class="footer-link">Calicut Office</a>
+                <span style="color: #475569;">&bull;</span>
+                <a href="/seo-audit-india/" class="footer-link">India National</a>
+                <span style="color: #475569;">&bull;</span>
+                <a href="/seo-company-india/" class="footer-link">India Company</a>
+                <span style="color: #475569;">&bull;</span>
+                <a href="/seo-expert-india/" class="footer-link">India Experts</a>
+                <span style="color: #475569;">&bull;</span>
+                <a href="/seo-agency-india/" class="footer-link">India Agency</a>
+                <span style="color: #475569;">&bull;</span>
+                <a href="/outsource-seo-services-to-india/" class="footer-link">Outsource to India</a>
+                <span style="color: #475569;">&bull;</span>
+                <a href="/seo-company/mumbai/" class="footer-link">Mumbai Office</a>
+                <span style="color: #475569;">&bull;</span>
+                <a href="/seo-company/bangalore/" class="footer-link">Bangalore Office</a>
+                <span style="color: #475569;">&bull;</span>
+                <a href="/seo-company-chennai/" class="footer-link">Chennai Office</a>
+                <span style="color: #475569;">&bull;</span>
+                <a href="/seo-company-pune/" class="footer-link">Pune Office</a>
+                <span style="color: #475569;">&bull;</span>
+                <a href="/seo-company-delhi/" class="footer-link">Delhi Office</a>
+                <span style="color: #475569;">&bull;</span>
+                <a href="/seo-agency-vadodara/" class="footer-link">Vadodara Office</a>
+                <span style="color: #475569;">&bull;</span>
+                <a href="/seo-company/london-uk/" class="footer-link">London UK</a>
+                <span style="color: #475569;">&bull;</span>
+                <a href="/seo-company-edinburgh/" class="footer-link">Edinburgh Office</a>
+                <span style="color: #475569;">&bull;</span>
+                <a href="/seo-audit-usa/" class="footer-link">USA Market</a>
+                <span style="color: #475569;">&bull;</span>
+                <a href="/charlotte-seo-company/" class="footer-link">Charlotte SEO</a>
+                <span style="color: #475569;">&bull;</span>
+                <a href="/new-york-city-seo-experts/" class="footer-link">New York SEO</a>
+                <span style="color: #475569;">&bull;</span>
+                <a href="/orlando-seo-agency/" class="footer-link">Orlando SEO</a>
+                <span style="color: #475569;">&bull;</span>
+                <a href="/seo-audit-canada/" class="footer-link">Canada Market</a>
+                <span style="color: #475569;">&bull;</span>
+                <a href="/seo-company-ontario/" class="footer-link">Ontario SEO</a>
+                <span style="color: #475569;">&bull;</span>
+                <a href="/ottawa-seo-company/" class="footer-link">Ottawa SEO</a>
+                <span style="color: #475569;">&bull;</span>
+                <a href="/seo-audit-australia/" class="footer-link">Australia Market</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom" style="margin-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 20px;">
+            <p>&copy; 2026 TechAuditPros. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Countdown and Mobile Navigation JavaScript -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    // --- Countdown Timer Code ---
+    // Target date: 11 days, 23 hours, 47 minutes from now
+    var countdownDuration = (11 * 24 * 60 * 60) + (23 * 60 * 60) + (47 * 60) + 9; // in seconds
+    var targetTime = Date.now() + (countdownDuration * 1000);
+
+    function updateTimer() {
+        var now = Date.now();
+        var diff = targetTime - now;
+
+        if (diff <= 0) {
+            targetTime = Date.now() + (countdownDuration * 1000); // loop timer for demo consistency
+            diff = targetTime - now;
+        }
+
+        var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('timer-days').innerText = days < 10 ? '0' + days : days;
+        document.getElementById('timer-hours').innerText = hours < 10 ? '0' + hours : hours;
+        document.getElementById('timer-mins').innerText = minutes < 10 ? '0' + minutes : minutes;
+        document.getElementById('timer-secs').innerText = seconds < 10 ? '0' + seconds : seconds;
+    }
+
+    updateTimer();
+    setInterval(updateTimer, 1000);
+
+    // --- Mobile Drawer Control ---
     const toggleBtn = document.querySelector('.mobile-menu-toggle');
     const closeBtn = document.querySelector('.close-drawer');
     const drawer = document.getElementById('mobileDrawer');
@@ -1358,14 +2437,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
-<!-- MOBILE_SCRIPT_END -->
 
 <!-- Floating WhatsApp Widget -->
 <a href="https://wa.me/916282520339?text=Hi%20TechAuditPros,%20I%20am%20interested%20in%20a%20Technical%20SEO%20&%20Digital%20Marketing%20Audit." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with TechAuditPros on WhatsApp">
     <svg class="whatsapp-icon" viewBox="0 0 24 24">
-        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.488 1.451 5.42 1.452 5.518 0 10.006-4.486 10.01-10.002.002-2.673-1.037-5.184-2.927-7.076C17.26 1.636 14.755.596 12.01.595 6.492.595 2.006 5.08 2.002 10.596c-.001 1.956.507 3.867 1.47 5.485L2.477 20.91l4.17-1.756zM17.36 14.9c-.29-.146-1.722-.85-1.99-.947-.266-.097-.461-.146-.655.146-.194.29-.753.947-.923 1.14-.17.193-.34.218-.63.073-.29-.146-1.227-.452-2.337-1.443-.864-.771-1.447-1.723-1.617-2.014-.17-.29-.018-.447.128-.592.13-.13.29-.34.436-.509.145-.17.194-.29.29-.485.097-.194.049-.364-.025-.509-.073-.146-.655-1.577-.9-2.16-.24-.574-.48-.495-.655-.504-.17-.008-.364-.01-.557-.01-.194 0-.509.073-.776.364-.266.29-1.02 1.02-1.02 2.477 0 1.457 1.062 2.864 1.208 3.058.146.194 2.094 3.2 5.074 4.49.708.306 1.26.489 1.692.627.712.227 1.36.195 1.871.118.571-.085 1.722-.704 1.965-1.385.243-.68.243-1.263.17-1.385-.073-.122-.267-.194-.558-.34z"/>
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.953-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.488 1.451 5.42 1.452 5.518 0 10.006-4.486 10.01-10.002.002-2.673-1.037-5.184-2.927-7.076C17.26 1.636 14.755.596 12.01.595 6.492.595 2.006 5.08 2.002 10.596c-.001 1.956.507 3.867 1.47 5.485L2.477 20.91l4.17-1.756zM17.36 14.9c-.29-.146-1.722-.85-1.99-.947-.266-.097-.461-.146-.655.146-.194.29-.753.947-.923 1.14-.17.193-.34.218-.63.073-.29-.146-1.227-.452-2.337-1.443-.864-.771-1.447-1.723-1.617-2.014-.17-.29-.018-.447.128-.592.13-.13.29-.34.436-.509.145-.17.194-.29.29-.485.097-.194.049-.364-.025-.509-.073-.146-.655-1.577-.9-2.16-.24-.574-.48-.495-.655-.504-.17-.008-.364-.01-.557-.01-.194 0-.509.073-.776.364-.266.29-1.02 1.02-1.02 2.477 0 1.457 1.062 2.864 1.208 3.058.146.194 2.094 3.2 5.074 4.49.708.306 1.26.489 1.692.627.712.227 1.36.195 1.871.118.571-.085 1.722-.704 1.965-1.385.243-.68.243-1.263.17-1.385-.073-.122-.267-.194-.558-.34z"/>
     </svg>
-</a>
+ </a>
 
-</body>
-</html>
+ </body>
+ </html>
