@@ -167,9 +167,12 @@
         position: relative;
         padding: 90px 0;
         border-bottom: 1px solid var(--border-light);
-        background: 
-            url('assets/images/hero/space-astronaut-seo-hero.png') no-repeat right -5% center / 46% contain,
+        background-image: 
+            url('assets/images/hero/space-astronaut-seo-hero.png'),
             radial-gradient(circle at 85% 30%, #151d3b 0%, #050814 65%) !important;
+        background-repeat: no-repeat, no-repeat !important;
+        background-position: 105% center, center center !important;
+        background-size: 46% contain, cover !important;
         overflow: hidden;
         color: #ffffff;
     }
@@ -1518,7 +1521,9 @@
             order: 2;
         }
         .tap-new-hero {
-            background: radial-gradient(circle at 85% 30%, #151d3b 0%, #050814 70%) !important;
+            background-image: radial-gradient(circle at 85% 30%, #151d3b 0%, #050814 70%) !important;
+            background-size: cover !important;
+            background-position: center center !important;
         }
         .hero-main-content {
             text-align: center;
