@@ -22,7 +22,7 @@
 <!-- Styles -->
 <link href="assets/css/homepage.css" rel="stylesheet"/>
 
-<!-- Scoped Hybrid Immersive Redesign Styles (Edge-to-Edge Full Screen) -->
+<!-- Scoped Hybrid Redesign Styles (Edge-to-Edge Full Screen) -->
 <style>
     :root {
         --primary-indigo: #4f46e5;
@@ -162,24 +162,14 @@
         box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
     }
 
-    /* --- GIGANTIC HERO SECTION (IMMERSED DARK CONTROLS) --- */
+    /* --- GIGANTIC HERO SECTION (STATIC DARK BACKDROP) --- */
     .tap-new-hero {
         position: relative;
         padding: 90px 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        background: #030712;
+        background: radial-gradient(circle at 70% 30%, #1e1b4b 0%, #030712 80%);
         overflow: hidden;
         color: #ffffff;
-    }
-    .hero-video-bg {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0.25;
-        pointer-events: none;
-        z-index: 0;
     }
     .hero-grid {
         position: relative;
@@ -536,12 +526,13 @@
         overflow: hidden;
         box-shadow: var(--shadow-md);
     }
-    .presence-map-fallback {
+    .presence-map-svg {
+        position: absolute;
         width: 100%;
         height: 100%;
-        background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
-        background-size: 18px 18px;
-        position: relative;
+        top: 0;
+        left: 0;
+        z-index: 0;
     }
     .map-pulse-point {
         position: absolute;
@@ -549,6 +540,7 @@
         height: 14px;
         background-color: var(--primary-indigo);
         border-radius: 50%;
+        z-index: 2;
     }
     .map-pulse-point::after {
         content: '';
@@ -562,14 +554,14 @@
         left: -4px;
         top: -4px;
     }
-    .point-usa { top: 38%; left: 24%; }
-    .point-canada { top: 28%; left: 28%; }
-    .point-uk { top: 26%; left: 48%; }
-    .point-germany { top: 30%; left: 52%; }
-    .point-dubai { top: 50%; left: 64%; }
-    .point-india { top: 54%; left: 73%; }
-    .point-singapore { top: 66%; left: 80%; }
-    .point-australia { top: 82%; left: 89%; }
+    .point-usa { top: 31%; left: 20%; }
+    .point-canada { top: 24%; left: 19%; }
+    .point-uk { top: 27%; left: 43%; }
+    .point-germany { top: 28%; left: 45.5%; }
+    .point-dubai { top: 42%; left: 54%; }
+    .point-india { top: 47%; left: 59%; }
+    .point-singapore { top: 56%; left: 66%; }
+    .point-australia { top: 67%; left: 76%; }
     
     .map-location-tag {
         position: absolute;
@@ -588,6 +580,8 @@
         display: flex;
         flex-direction: column;
         gap: 24px;
+        position: relative;
+        z-index: 1;
     }
     .presence-stat-card {
         background: var(--card-bg);
@@ -1188,13 +1182,14 @@
         background: var(--light-bg-alt);
         border: 1px solid var(--border-light);
         border-radius: 16px;
-        padding: 24px;
+        padding: 14px;
         text-align: center;
         box-shadow: var(--shadow-sm);
         transition: all 0.25s ease;
         text-decoration: none;
         color: var(--text-primary);
         display: block;
+        overflow: hidden;
     }
     .hub-card-item:hover {
         transform: translateY(-4px);
@@ -1202,18 +1197,29 @@
         background: var(--card-bg);
         box-shadow: 0 15px 30px rgba(79, 70, 229, 0.1);
     }
-    .hub-flag {
-        font-size: 2.6rem;
+    .hub-image-wrap {
+        width: 100%;
+        height: 120px;
+        overflow: hidden;
+        border-radius: 10px;
         margin-bottom: 12px;
-        display: block;
     }
-    .hub-card-item h3 {
-        margin: 0 0 8px 0;
-        font-size: 1.1rem;
-        font-weight: 900;
+    .hub-image-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+    .hub-card-item:hover .hub-image-wrap img {
+        transform: scale(1.06);
+    }
+    .hub-card-content h3 {
+        margin: 0 0 6px 0;
+        font-size: 1.05rem;
+        font-weight: 800;
         font-family: 'Plus Jakarta Sans', sans-serif;
     }
-    .hub-card-item span {
+    .hub-card-content span {
         font-size: 0.78rem;
         color: var(--primary-indigo);
         font-weight: 800;
@@ -1520,13 +1526,8 @@
     </div>
 </div>
 
-<!-- Gigantic Hero Section (Dark Immersive Theme Restored) -->
+<!-- Gigantic Hero Section (Dark Immersive Theme Restored with Clean Static Space Background) -->
 <section class="tap-new-hero">
-    <!-- Immersive space backdrop video -->
-    <video class="hero-video-bg" autoplay loop muted playsinline>
-        <source src="videos/space-chilling-1.mp4" type="video/mp4" />
-    </video>
-
     <div class="container hero-grid">
         <!-- Left side: pricing stack -->
         <div class="hero-pricing-stack">
@@ -1600,7 +1601,7 @@
                     <span class="price-save-badge">SAVE 52%</span>
                 </div>
             </div>
-            <p class="pricing-stack-disclaimer">* Average local agency market rates.</p>
+            <p class="pricing-stack-disclaimer">* Prices are average market rates.</p>
         </div>
 
         <!-- Right side: main text content with space astronaut visual -->
@@ -1808,16 +1809,33 @@
         <div class="presence-grid">
             <!-- Left side map graphic -->
             <div class="presence-map-wrapper">
-                <div class="presence-map-fallback">
-                    <div class="map-pulse-point point-usa"><div class="map-location-tag">USA</div></div>
-                    <div class="map-pulse-point point-canada"><div class="map-location-tag">Canada</div></div>
-                    <div class="map-pulse-point point-uk"><div class="map-location-tag">United Kingdom</div></div>
-                    <div class="map-pulse-point point-germany"><div class="map-location-tag">Germany</div></div>
-                    <div class="map-pulse-point point-dubai"><div class="map-location-tag">Dubai (UAE)</div></div>
-                    <div class="map-pulse-point point-india"><div class="map-location-tag">India HQ</div></div>
-                    <div class="map-pulse-point point-singapore"><div class="map-location-tag">Singapore</div></div>
-                    <div class="map-pulse-point point-australia"><div class="map-location-tag">Australia</div></div>
-                </div>
+                <!-- SVG World Map silhouette vector paths -->
+                <svg class="presence-map-svg" viewBox="0 0 1000 450" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#cbd5e1" opacity="0.35" stroke="#94a3b8" stroke-width="1">
+                        <!-- North America -->
+                        <path d="M120,60 C150,55 170,45 220,55 C240,65 250,75 270,95 C280,105 270,125 250,145 C230,165 210,185 190,195 C170,205 160,195 150,185 C140,165 130,145 120,115 Z" />
+                        <path d="M220,145 L250,165 L245,185 L210,175 Z" />
+                        <!-- South America -->
+                        <path d="M200,210 C220,200 240,215 250,235 C265,265 285,305 275,345 C265,385 245,415 225,425 C215,425 205,405 195,375 C185,345 190,305 190,265 C190,235 195,220 200,210 Z" />
+                        <!-- Eurasia / Europe / Asia -->
+                        <path d="M380,85 C420,65 480,55 560,55 C640,55 720,45 800,65 C850,75 880,95 890,125 C900,165 890,205 870,225 C840,245 800,255 760,245 C730,235 700,245 660,255 C630,265 590,255 560,235 C530,215 500,215 470,225 C430,235 410,215 390,195 C370,175 360,155 365,125 C370,105 375,95 380,85 Z" />
+                        <!-- Africa -->
+                        <path d="M400,215 C430,205 460,215 480,235 C500,255 520,285 530,315 C540,345 520,385 490,405 C470,415 450,405 440,375 C425,345 420,315 410,285 C400,255 395,230 400,215 Z" />
+                        <!-- Australia -->
+                        <path d="M740,300 C770,290 810,295 830,315 C850,335 855,365 835,385 C815,405 780,405 750,385 C730,365 725,335 740,300 Z" />
+                        <!-- Greenland -->
+                        <path d="M280,35 C310,35 320,45 310,65 C295,85 270,85 260,75 C250,65 265,45 280,35 Z" />
+                    </g>
+                </svg>
+                <!-- Pulse Points -->
+                <div class="map-pulse-point point-usa"><div class="map-location-tag">USA</div></div>
+                <div class="map-pulse-point point-canada"><div class="map-location-tag">Canada</div></div>
+                <div class="map-pulse-point point-uk"><div class="map-location-tag">United Kingdom</div></div>
+                <div class="map-pulse-point point-germany"><div class="map-location-tag">Germany</div></div>
+                <div class="map-pulse-point point-dubai"><div class="map-location-tag">Dubai (UAE)</div></div>
+                <div class="map-pulse-point point-india"><div class="map-location-tag">India HQ</div></div>
+                <div class="map-pulse-point point-singapore"><div class="map-location-tag">Singapore</div></div>
+                <div class="map-pulse-point point-australia"><div class="map-location-tag">Australia</div></div>
             </div>
             <!-- Right side statistics cards -->
             <div class="presence-stats-panel">
@@ -2314,35 +2332,65 @@
             <p>Access customized local services, pricing plans, and dedicated technical support teams for your region.</p>
         </div>
         <div class="hubs-grid">
+            <!-- USA -->
             <a class="hub-card-item" href="/seo-audit-usa/">
-                <span class="hub-flag">🇺🇸</span>
-                <h3>USA</h3>
-                <span>View Services &rarr;</span>
+                <div class="hub-image-wrap">
+                    <img src="assets/images/locations/us_seo_hero.png" alt="USA Technical SEO Hub" loading="lazy" />
+                </div>
+                <div class="hub-card-content">
+                    <h3>🇺🇸 USA</h3>
+                    <span>View Regional Hub &rarr;</span>
+                </div>
             </a>
+            <!-- Canada -->
             <a class="hub-card-item" href="/seo-audit-canada/">
-                <span class="hub-flag">🇨🇦</span>
-                <h3>Canada</h3>
-                <span>View Services &rarr;</span>
+                <div class="hub-image-wrap">
+                    <img src="assets/images/locations/canada_seo_hero.png" alt="Canada Technical SEO Hub" loading="lazy" />
+                </div>
+                <div class="hub-card-content">
+                    <h3>🇨🇦 Canada</h3>
+                    <span>View Regional Hub &rarr;</span>
+                </div>
             </a>
+            <!-- Australia -->
             <a class="hub-card-item" href="/seo-audit-australia/">
-                <span class="hub-flag">🇦🇺</span>
-                <h3>Australia</h3>
-                <span>View Services &rarr;</span>
+                <div class="hub-image-wrap">
+                    <img src="assets/images/locations/canada_seo_hero.png" alt="Australia Technical SEO Hub" loading="lazy" />
+                </div>
+                <div class="hub-card-content">
+                    <h3>🇦🇺 Australia</h3>
+                    <span>View Regional Hub &rarr;</span>
+                </div>
             </a>
+            <!-- UK -->
             <a class="hub-card-item" href="/seo-company/london-uk/">
-                <span class="hub-flag">🇬🇧</span>
-                <h3>UK</h3>
-                <span>View Services &rarr;</span>
+                <div class="hub-image-wrap">
+                    <img src="assets/images/locations/uk_seo_hero.png" alt="UK Technical SEO Hub" loading="lazy" />
+                </div>
+                <div class="hub-card-content">
+                    <h3>🇬🇧 UK</h3>
+                    <span>View Regional Hub &rarr;</span>
+                </div>
             </a>
+            <!-- Dubai -->
             <a class="hub-card-item" href="/seo-services/">
-                <span class="hub-flag">🇦🇪</span>
-                <h3>Dubai</h3>
-                <span>View Services &rarr;</span>
+                <div class="hub-image-wrap">
+                    <img src="assets/images/locations/us_seo_hero.png" alt="Dubai Technical SEO Hub" loading="lazy" />
+                </div>
+                <div class="hub-card-content">
+                    <h3>🇦🇪 Dubai</h3>
+                    <span>View Regional Hub &rarr;</span>
+                </div>
             </a>
+            <!-- India -->
             <a class="hub-card-item" href="/seo-audit-kochi/">
-                <span class="hub-flag">🇮🇳</span>
-                <h3>India</h3>
-                <span>View Services &rarr;</span>
+                <div class="hub-image-wrap">
+                    <img src="assets/images/locations/india_seo_hero.png" alt="India Technical SEO Hub" loading="lazy" />
+                </div>
+                <div class="hub-card-content">
+                    <h3>🇮🇳 India</h3>
+                    <span>View Regional Hub &rarr;</span>
+                </div>
             </a>
         </div>
     </div>
