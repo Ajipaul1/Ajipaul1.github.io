@@ -22,26 +22,35 @@
 <!-- Styles -->
 <link href="assets/css/homepage.css" rel="stylesheet"/>
 
-<!-- Scoped Dark Immersive Redesign Styles (Edge-to-Edge Full Screen) -->
+<!-- Scoped White Immersive Redesign Styles (Edge-to-Edge Full Screen) -->
 <style>
     :root {
-        --primary-indigo: #6366f1;
-        --primary-indigo-dark: #4f46e5;
-        --accent-teal: #2dd4bf;
+        --primary-indigo: #4f46e5;
+        --primary-indigo-dark: #3730a3;
+        --primary-indigo-light: #e0e7ff;
+        --accent-teal: #0d9488;
+        --accent-teal-light: #f0fdfa;
         --accent-green: #10b981;
-        --accent-blue: #3b82f6;
-        --dark-bg: #030712;
-        --dark-card: #0b0f19;
-        --border-glow: rgba(99, 102, 241, 0.15);
-        --border-light: rgba(255, 255, 255, 0.08);
-        --text-white: #ffffff;
-        --text-grey: #94a3b8;
+        --accent-green-dark: #065f46;
+        --accent-green-light: #d1fae5;
+        --accent-blue: #2563eb;
+        --light-bg: #ffffff;
+        --light-bg-alt: #f8fafc;
+        --card-bg: #ffffff;
+        --border-light: #e2e8f0;
+        --border-hover: rgba(79, 70, 229, 0.3);
+        --text-primary: #0f172a;
+        --text-secondary: #475569;
+        --text-muted: #64748b;
+        --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+        --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+        --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.02);
     }
 
     body {
         font-family: 'Inter', sans-serif;
-        background-color: var(--dark-bg);
-        color: var(--text-white);
+        background-color: var(--light-bg);
+        color: var(--text-primary);
         margin: 0;
         padding: 0;
         overflow-x: hidden;
@@ -58,11 +67,11 @@
 
     /* --- TOP TRUST SCORE STRIP --- */
     .tap-top-trust-bar {
-        background-color: #030712;
+        background-color: #0f172a;
         color: #ffffff;
         padding: 12px 0;
         font-size: 0.85rem;
-        border-bottom: 1px solid var(--border-light);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
     .trust-bar-flex {
         display: flex;
@@ -83,7 +92,7 @@
         flex-wrap: wrap;
     }
     .trust-right a {
-        color: rgba(255, 255, 255, 0.8);
+        color: rgba(255, 255, 255, 0.85);
         text-decoration: none;
         transition: all 0.2s ease;
         display: flex;
@@ -92,12 +101,12 @@
         font-weight: 600;
     }
     .trust-right a:hover {
-        color: var(--primary-indigo);
+        color: #60a5fa;
     }
 
     /* --- HEADER STICKY --- */
     .main-header-bar {
-        background: rgba(3, 7, 18, 0.9);
+        background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(12px);
         border-bottom: 1px solid var(--border-light);
         position: sticky;
@@ -118,7 +127,7 @@
         align-items: center;
         gap: 12px;
         text-decoration: none;
-        color: var(--text-white);
+        color: var(--text-primary);
         font-weight: 800;
         font-size: 1.35rem;
         font-family: 'Plus Jakarta Sans', sans-serif;
@@ -129,7 +138,7 @@
         align-items: center;
     }
     .desktop-nav a {
-        color: var(--text-grey);
+        color: var(--text-secondary);
         text-decoration: none;
         font-weight: 600;
         font-size: 0.95rem;
@@ -147,28 +156,30 @@
         text-decoration: none;
         font-size: 0.9rem;
         transition: all 0.2s ease;
-        box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+        box-shadow: 0 4px 14px rgba(79, 70, 229, 0.25);
     }
     .book-audit-btn:hover {
         transform: translateY(-1px);
-        box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+        box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
     }
 
     /* --- GIGANTIC HERO SECTION --- */
     .tap-new-hero {
         position: relative;
-        padding: 90px 0;
+        padding: 80px 0;
         border-bottom: 1px solid var(--border-light);
-        background: #030712;
+        background: var(--light-bg);
         overflow: hidden;
     }
-    .hero-video-bg {
+    /* Subtle grid pattern background for white theme */
+    .hero-grid-bg {
         position: absolute;
         inset: 0;
         width: 100%;
         height: 100%;
-        object-fit: cover;
-        opacity: 0.18;
+        background-image: radial-gradient(#e2e8f0 1.5px, transparent 1.5px);
+        background-size: 24px 24px;
+        opacity: 0.7;
         pointer-events: none;
         z-index: 0;
     }
@@ -188,7 +199,7 @@
         gap: 14px;
     }
     .hero-pricing-card {
-        background: rgba(11, 15, 25, 0.8);
+        background: var(--card-bg);
         border: 1px solid var(--border-light);
         border-radius: 14px;
         padding: 14px 20px;
@@ -196,12 +207,12 @@
         align-items: center;
         justify-content: space-between;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        backdrop-filter: blur(8px);
+        box-shadow: var(--shadow-sm);
     }
     .hero-pricing-card:hover {
         transform: scale(1.02);
         border-color: var(--primary-indigo);
-        box-shadow: 0 0 25px rgba(99, 102, 241, 0.25);
+        box-shadow: 0 10px 25px rgba(79, 70, 229, 0.1);
     }
     .pricing-card-country {
         display: flex;
@@ -215,12 +226,12 @@
         margin: 0;
         font-size: 1.05rem;
         font-weight: 800;
-        color: var(--text-white);
+        color: var(--text-primary);
         font-family: 'Plus Jakarta Sans', sans-serif;
     }
     .pricing-card-country-details span {
         font-size: 0.78rem;
-        color: var(--text-grey);
+        color: var(--text-muted);
     }
     .pricing-card-prices {
         text-align: right;
@@ -228,28 +239,28 @@
     .price-tap {
         font-size: 1.15rem;
         font-weight: 900;
-        color: var(--accent-teal);
+        color: var(--primary-indigo);
         margin: 0;
     }
     .price-tap span {
         font-size: 0.78rem;
-        color: var(--text-grey);
+        color: var(--text-secondary);
         font-weight: 400;
     }
     .price-save-badge {
         display: inline-block;
-        background: rgba(16, 185, 129, 0.15);
-        color: var(--accent-green);
+        background: var(--accent-green-light);
+        color: var(--accent-green-dark);
         font-size: 0.72rem;
         font-weight: 800;
         padding: 4px 10px;
         border-radius: 6px;
         margin-top: 4px;
-        border: 1px solid rgba(16, 185, 129, 0.3);
+        border: 1px solid rgba(16, 185, 129, 0.2);
     }
     .pricing-stack-disclaimer {
         font-size: 0.8rem;
-        color: var(--text-grey);
+        color: var(--text-muted);
         margin: 4px 0 0 4px;
         font-style: italic;
     }
@@ -271,7 +282,7 @@
         font-weight: 900;
         margin: 0 0 25px 0;
         letter-spacing: -0.04em;
-        color: var(--text-white);
+        color: var(--text-primary);
     }
     .hero-main-content h1 span {
         background: linear-gradient(135deg, var(--primary-indigo) 0%, var(--accent-teal) 100%);
@@ -281,7 +292,7 @@
     }
     .hero-main-content .hero-subtitle {
         font-size: clamp(1.1rem, 2vw, 1.35rem);
-        color: var(--text-grey);
+        color: var(--text-secondary);
         line-height: 1.65;
         margin-bottom: 30px;
     }
@@ -290,7 +301,7 @@
         border-radius: 24px;
         border: 1px solid var(--border-light);
         animation: floatAstronaut 6s ease-in-out infinite;
-        box-shadow: 0 0 35px rgba(99, 102, 241, 0.15);
+        box-shadow: var(--shadow-lg);
     }
     .hero-features-list {
         display: flex;
@@ -304,6 +315,7 @@
         gap: 10px;
         font-size: 1rem;
         font-weight: 700;
+        color: var(--text-primary);
     }
     .hero-feature-icon {
         font-size: 1.35rem;
@@ -326,17 +338,17 @@
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+        box-shadow: 0 8px 24px rgba(79, 70, 229, 0.3);
         transition: all 0.25s ease;
     }
     .primary-btn-large:hover {
         transform: translateY(-2px);
-        box-shadow: 0 12px 30px rgba(99, 102, 241, 0.6);
+        box-shadow: 0 12px 30px rgba(79, 70, 229, 0.45);
     }
     .secondary-btn-large {
         background: transparent;
-        border: 1.5px solid rgba(255, 255, 255, 0.2);
-        color: #ffffff;
+        border: 1.5px solid var(--border-light);
+        color: var(--text-primary);
         font-weight: 800;
         font-size: 1.05rem;
         padding: 15px 36px;
@@ -348,8 +360,8 @@
         transition: all 0.25s ease;
     }
     .secondary-btn-large:hover {
-        border-color: #ffffff;
-        background: rgba(255,255,255,0.05);
+        border-color: var(--text-primary);
+        background: var(--light-bg-alt);
     }
 
     .hero-powered-bar {
@@ -361,7 +373,7 @@
         font-weight: 800;
         letter-spacing: 0.1em;
         text-transform: uppercase;
-        color: var(--text-grey);
+        color: var(--text-muted);
         margin: 0 0 16px 0;
     }
     .hero-powered-logos {
@@ -370,21 +382,20 @@
         gap: 35px;
         flex-wrap: wrap;
     }
-    .hero-powered-logos img {
-        height: 22px;
-        opacity: 0.7;
+    .hero-powered-logos svg {
+        opacity: 0.85;
         transition: opacity 0.2s ease;
     }
-    .hero-powered-logos img:hover {
+    .hero-powered-logos svg:hover {
         opacity: 1;
     }
 
     /* --- LIMITED LAUNCH OFFER BANNER --- */
     .tap-launch-offer {
-        background: linear-gradient(135deg, #4f46e5 0%, #1e1b4b 100%);
+        background: linear-gradient(135deg, #4f46e5 0%, #312e81 100%);
         color: #ffffff;
         padding: 30px 0;
-        box-shadow: 0 15px 30px -5px rgba(99, 102, 241, 0.3);
+        box-shadow: 0 15px 30px -5px rgba(79, 70, 229, 0.2);
         border-bottom: 1px solid var(--border-light);
     }
     .launch-offer-container {
@@ -477,7 +488,7 @@
     .tap-brands-section {
         padding: 60px 0;
         border-bottom: 1px solid var(--border-light);
-        background-color: var(--dark-card);
+        background-color: var(--light-bg-alt);
         text-align: center;
     }
     .brands-section-header {
@@ -485,7 +496,7 @@
         font-weight: 800;
         letter-spacing: 0.14em;
         text-transform: uppercase;
-        color: var(--text-grey);
+        color: var(--text-muted);
         margin-bottom: 30px;
     }
     .brands-carousel-grid {
@@ -495,25 +506,25 @@
         gap: 40px;
         flex-wrap: wrap;
     }
-    .brands-carousel-grid img {
-        height: 28px;
-        opacity: 0.8;
+    .brands-carousel-grid svg {
+        opacity: 0.9;
         transition: all 0.25s ease;
     }
-    .brands-carousel-grid img:hover {
+    .brands-carousel-grid svg:hover {
         opacity: 1;
         transform: scale(1.06);
     }
     .brands-sub-disclaimer {
         margin-top: 25px;
         font-size: 0.85rem;
-        color: var(--text-grey);
+        color: var(--text-muted);
     }
 
     /* --- GLOBAL PRESENCE SECTION --- */
     .tap-presence-section {
         padding: 100px 0;
         border-bottom: 1px solid var(--border-light);
+        background: var(--light-bg);
     }
     .section-header-center {
         text-align: center;
@@ -525,10 +536,11 @@
         font-family: 'Plus Jakarta Sans', sans-serif;
         font-weight: 900;
         margin-bottom: 15px;
+        color: var(--text-primary);
     }
     .section-header-center p {
         font-size: 1.1rem;
-        color: var(--text-grey);
+        color: var(--text-secondary);
         line-height: 1.6;
     }
 
@@ -540,7 +552,7 @@
     }
     .presence-map-wrapper {
         position: relative;
-        background: var(--dark-card);
+        background: var(--light-bg-alt);
         border: 1px solid var(--border-light);
         border-radius: 24px;
         height: 480px;
@@ -548,12 +560,12 @@
         align-items: center;
         justify-content: center;
         overflow: hidden;
-        box-shadow: 0 0 30px var(--border-glow);
+        box-shadow: var(--shadow-md);
     }
     .presence-map-fallback {
         width: 100%;
         height: 100%;
-        background-image: radial-gradient(rgba(255,255,255,0.15) 1.5px, transparent 1.5px);
+        background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
         background-size: 18px 18px;
         position: relative;
     }
@@ -561,7 +573,7 @@
         position: absolute;
         width: 14px;
         height: 14px;
-        background-color: var(--accent-blue);
+        background-color: var(--primary-indigo);
         border-radius: 50%;
     }
     .map-pulse-point::after {
@@ -569,7 +581,7 @@
         position: absolute;
         width: 100%;
         height: 100%;
-        border: 4px solid var(--accent-blue);
+        border: 4px solid var(--primary-indigo);
         border-radius: 50%;
         animation: mapPulse 1.8s infinite ease-out;
         opacity: 0;
@@ -587,14 +599,14 @@
     
     .map-location-tag {
         position: absolute;
-        background: #ffffff;
-        color: var(--dark-bg);
+        background: #0f172a;
+        color: #ffffff;
         font-size: 0.72rem;
         font-weight: 800;
         padding: 4px 10px;
         border-radius: 6px;
         white-space: nowrap;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.15);
         transform: translate(-50%, -30px);
     }
     
@@ -604,14 +616,18 @@
         gap: 24px;
     }
     .presence-stat-card {
-        background: var(--dark-card);
+        background: var(--card-bg);
         border: 1px solid var(--border-light);
         border-radius: 18px;
         padding: 24px 30px;
-        box-shadow: 0 0 25px var(--border-glow);
+        box-shadow: var(--shadow-sm);
         display: flex;
         align-items: center;
         gap: 20px;
+        transition: border-color 0.2s;
+    }
+    .presence-stat-card:hover {
+        border-color: var(--primary-indigo);
     }
     .stat-card-num {
         font-family: 'Plus Jakarta Sans', sans-serif;
@@ -624,7 +640,7 @@
     .stat-card-label {
         font-size: 1.05rem;
         font-weight: 700;
-        color: var(--text-white);
+        color: var(--text-primary);
         line-height: 1.35;
     }
 
@@ -632,7 +648,7 @@
     .tap-savings-section {
         padding: 100px 0;
         border-bottom: 1px solid var(--border-light);
-        background-color: var(--dark-card);
+        background-color: var(--light-bg-alt);
     }
     .savings-grid {
         display: grid;
@@ -645,6 +661,7 @@
         font-weight: 900;
         margin-bottom: 30px;
         letter-spacing: -0.02em;
+        color: var(--text-primary);
     }
     .savings-features-list {
         display: grid;
@@ -653,7 +670,7 @@
         margin-bottom: 40px;
     }
     .savings-feature-card {
-        background: var(--dark-bg);
+        background: var(--card-bg);
         border: 1px solid var(--border-light);
         border-radius: 12px;
         padding: 16px 20px;
@@ -662,6 +679,7 @@
         gap: 12px;
         font-weight: 700;
         font-size: 0.95rem;
+        color: var(--text-primary);
     }
     .savings-feature-card span {
         color: var(--primary-indigo);
@@ -676,7 +694,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        box-shadow: var(--shadow-lg);
         border: 1px solid var(--border-light);
     }
     .video-overlay-play {
@@ -699,32 +717,33 @@
         align-items: center;
         justify-content: center;
         font-size: 2rem;
-        box-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
+        box-shadow: 0 0 30px rgba(79, 70, 229, 0.5);
         transition: all 0.3s ease;
     }
     .video-overlay-play:hover .play-btn-circle {
         transform: scale(1.1);
         background-color: var(--primary-indigo-dark);
-        box-shadow: 0 0 40px rgba(99, 102, 241, 0.7);
+        box-shadow: 0 0 40px rgba(79, 70, 229, 0.7);
     }
     
     /* Cost comparison bars */
     .savings-comparison-card {
-        background: var(--dark-bg);
+        background: var(--card-bg);
         border: 1px solid var(--border-light);
         border-radius: 20px;
         padding: 30px;
-        box-shadow: 0 0 25px var(--border-glow);
+        box-shadow: var(--shadow-md);
     }
     .savings-comparison-card h3 {
         margin: 0 0 8px 0;
         font-size: 1.35rem;
         font-family: 'Plus Jakarta Sans', sans-serif;
+        color: var(--text-primary);
     }
     .savings-comparison-card p {
         margin: 0 0 30px 0;
         font-size: 0.9rem;
-        color: var(--text-grey);
+        color: var(--text-muted);
     }
     .comparison-stack {
         display: flex;
@@ -742,6 +761,7 @@
         align-items: center;
         font-size: 0.95rem;
         font-weight: 800;
+        color: var(--text-primary);
     }
     .comparison-bars {
         display: flex;
@@ -749,7 +769,7 @@
         gap: 6px;
     }
     .comp-bar {
-        height: 24px;
+        height: 26px;
         border-radius: 6px;
         display: flex;
         align-items: center;
@@ -759,7 +779,7 @@
         font-weight: 800;
     }
     .comp-bar.agency {
-        background: #475569;
+        background: #94a3b8;
     }
     .comp-bar.tap {
         background: linear-gradient(90deg, var(--primary-indigo) 0%, var(--accent-teal) 100%);
@@ -767,13 +787,14 @@
     .comp-saved-badge {
         font-size: 0.8rem;
         font-weight: 900;
-        color: var(--accent-green);
+        color: var(--accent-green-dark);
     }
 
     /* --- CASE STUDIES --- */
     .tap-cases-section {
         padding: 100px 0;
         border-bottom: 1px solid var(--border-light);
+        background: var(--light-bg);
     }
     .cases-grid {
         display: grid;
@@ -782,11 +803,11 @@
         margin-top: 10px;
     }
     .case-card {
-        background: var(--dark-card);
+        background: var(--card-bg);
         border: 1px solid var(--border-light);
         border-radius: 20px;
         padding: 35px;
-        box-shadow: 0 0 25px var(--border-glow);
+        box-shadow: var(--shadow-md);
         transition: all 0.3s ease;
         display: flex;
         flex-direction: column;
@@ -795,7 +816,7 @@
     .case-card:hover {
         transform: translateY(-5px);
         border-color: var(--primary-indigo);
-        box-shadow: 0 0 35px rgba(99, 102, 241, 0.3);
+        box-shadow: 0 15px 30px rgba(79, 70, 229, 0.1);
     }
     .case-card-header {
         font-size: 0.85rem;
@@ -809,6 +830,7 @@
         margin: 0 0 24px 0;
         font-size: 1.45rem;
         font-family: 'Plus Jakarta Sans', sans-serif;
+        color: var(--text-primary);
     }
     .case-metrics-stack {
         display: flex;
@@ -824,11 +846,11 @@
         font-size: 1rem;
     }
     .case-metric-row span:first-child {
-        color: var(--text-grey);
+        color: var(--text-secondary);
     }
     .case-metric-row span:last-child {
         font-weight: 800;
-        color: #ffffff;
+        color: var(--text-primary);
     }
     .case-card-link {
         font-size: 0.95rem;
@@ -848,7 +870,7 @@
     .tap-reviews-section {
         padding: 100px 0;
         border-bottom: 1px solid var(--border-light);
-        background-color: var(--dark-card);
+        background-color: var(--light-bg-alt);
     }
     .reviews-grid {
         display: grid;
@@ -856,11 +878,11 @@
         gap: 30px;
     }
     .review-card-item {
-        background: var(--dark-bg);
+        background: var(--card-bg);
         border: 1px solid var(--border-light);
         border-radius: 20px;
         padding: 35px;
-        box-shadow: 0 0 25px var(--border-glow);
+        box-shadow: var(--shadow-md);
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -873,7 +895,7 @@
     .review-card-item p {
         font-size: 1.05rem;
         line-height: 1.7;
-        color: rgba(255,255,255,0.9);
+        color: var(--text-secondary);
         margin: 0 0 30px 0;
         font-style: italic;
     }
@@ -888,16 +910,17 @@
         margin: 0;
         font-size: 1rem;
         font-weight: 800;
+        color: var(--text-primary);
     }
     .review-author-info span {
         font-size: 0.8rem;
-        color: var(--text-grey);
+        color: var(--text-muted);
     }
     .review-country-badge {
         font-size: 0.78rem;
         font-weight: 800;
-        color: #ffffff;
-        background: rgba(255,255,255,0.06);
+        color: var(--text-primary);
+        background: var(--light-bg-alt);
         border: 1px solid var(--border-light);
         padding: 4px 10px;
         border-radius: 6px;
@@ -907,6 +930,7 @@
     .tap-workflow-section {
         padding: 100px 0;
         border-bottom: 1px solid var(--border-light);
+        background: var(--light-bg);
     }
     .workflow-timeline-row {
         display: flex;
@@ -921,7 +945,7 @@
         position: absolute;
         height: 2px;
         background: var(--border-light);
-        top: 25px;
+        top: 28px;
         left: 40px;
         right: 40px;
         z-index: 0;
@@ -936,7 +960,7 @@
     .step-node-icon {
         width: 56px;
         height: 56px;
-        background: var(--dark-bg);
+        background: var(--card-bg);
         border: 2.5px solid var(--primary-indigo);
         color: var(--primary-indigo);
         border-radius: 50%;
@@ -946,25 +970,26 @@
         font-size: 1.25rem;
         font-weight: 800;
         margin: 0 auto 18px auto;
-        box-shadow: 0 0 15px var(--border-glow);
+        box-shadow: var(--shadow-sm);
         transition: all 0.25s ease;
     }
     .workflow-step-node:hover .step-node-icon {
         background: var(--primary-indigo);
         color: #ffffff;
         transform: scale(1.1);
-        box-shadow: 0 0 25px rgba(99, 102, 241, 0.5);
+        box-shadow: 0 0 25px rgba(79, 70, 229, 0.35);
     }
     .workflow-step-node h4 {
         margin: 0 0 6px 0;
         font-size: 1.05rem;
         font-weight: 800;
         font-family: 'Plus Jakarta Sans', sans-serif;
+        color: var(--text-primary);
     }
     .workflow-step-node p {
         margin: 0;
         font-size: 0.8rem;
-        color: var(--text-grey);
+        color: var(--text-secondary);
         line-height: 1.35;
     }
 
@@ -972,6 +997,7 @@
     .tap-services-dashboard-section {
         padding: 100px 0;
         border-bottom: 1px solid var(--border-light);
+        background: var(--light-bg);
     }
     .services-dashboard-grid {
         display: grid;
@@ -984,10 +1010,11 @@
         font-weight: 900;
         margin-bottom: 20px;
         letter-spacing: -0.02em;
+        color: var(--text-primary);
     }
     .section-header-left p {
         font-size: 1.1rem;
-        color: var(--text-grey);
+        color: var(--text-secondary);
         margin-bottom: 35px;
     }
     
@@ -997,16 +1024,16 @@
         gap: 20px;
     }
     .dashboard-service-item {
-        background: var(--dark-card);
+        background: var(--light-bg-alt);
         border: 1px solid var(--border-light);
         border-radius: 14px;
         padding: 18px 24px;
         display: flex;
         align-items: center;
         gap: 14px;
-        box-shadow: 0 0 15px var(--border-glow);
+        box-shadow: var(--shadow-sm);
         text-decoration: none;
-        color: inherit;
+        color: var(--text-primary);
         font-weight: 800;
         font-size: 1.05rem;
         transition: all 0.25s ease;
@@ -1014,27 +1041,29 @@
     .dashboard-service-item:hover {
         transform: translateY(-3px);
         border-color: var(--primary-indigo);
-        color: var(--accent-teal);
-        box-shadow: 0 0 25px rgba(99,102,241,0.2);
+        color: var(--primary-indigo);
+        background: var(--card-bg);
+        box-shadow: 0 10px 20px rgba(79, 70, 229, 0.1);
     }
     .dashboard-service-icon {
         font-size: 1.45rem;
-        background: var(--dark-bg);
+        background: var(--card-bg);
         width: 44px;
         height: 44px;
         display: flex;
         align-items: center;
         justify-content: center;
         border-radius: 10px;
+        box-shadow: var(--shadow-sm);
     }
 
     /* Live widget column */
     .live-dashboard-widget {
-        background: var(--dark-card);
+        background: var(--card-bg);
         border: 1px solid var(--border-light);
         border-radius: 24px;
         padding: 35px;
-        box-shadow: 0 0 30px var(--border-glow);
+        box-shadow: var(--shadow-lg);
     }
     .widget-header-row {
         display: flex;
@@ -1048,6 +1077,7 @@
         gap: 10px;
         font-weight: 800;
         font-size: 1.15rem;
+        color: var(--text-primary);
     }
     .widget-live-dot {
         width: 10px;
@@ -1064,7 +1094,7 @@
         margin-bottom: 35px;
     }
     .widget-stat-box {
-        background: var(--dark-bg);
+        background: var(--light-bg-alt);
         border: 1px solid var(--border-light);
         border-radius: 14px;
         padding: 20px;
@@ -1079,7 +1109,7 @@
     .widget-stat-box p {
         margin: 6px 0 0 0;
         font-size: 0.8rem;
-        color: var(--text-grey);
+        color: var(--text-secondary);
         font-weight: 700;
     }
     .widget-tools-row {
@@ -1090,23 +1120,23 @@
     .widget-tools-row p {
         font-size: 0.78rem;
         font-weight: 800;
-        color: var(--text-grey);
+        color: var(--text-muted);
         text-transform: uppercase;
         margin: 0 0 14px 0;
     }
     .widget-tools-flex {
         display: flex;
-        gap: 14px;
+        gap: 10px;
         flex-wrap: wrap;
     }
     .widget-tools-flex span {
         font-size: 0.78rem;
         font-weight: 700;
-        background: var(--dark-bg);
+        background: var(--light-bg-alt);
         border: 1px solid var(--border-light);
         padding: 4px 10px;
         border-radius: 6px;
-        color: var(--text-grey);
+        color: var(--text-secondary);
     }
     .widget-payments-row {
         border-top: 1px solid var(--border-light);
@@ -1115,7 +1145,7 @@
     .widget-payments-row p {
         font-size: 0.78rem;
         font-weight: 800;
-        color: var(--text-grey);
+        color: var(--text-muted);
         text-transform: uppercase;
         margin: 0 0 14px 0;
     }
@@ -1128,11 +1158,11 @@
     .widget-payments-flex span {
         font-size: 0.9rem;
         font-weight: 800;
-        color: var(--text-grey);
+        color: var(--text-secondary);
     }
     .widget-payments-disclaimer {
         font-size: 0.78rem;
-        color: var(--text-grey);
+        color: var(--text-muted);
         margin-top: 12px;
         font-style: italic;
     }
@@ -1141,7 +1171,7 @@
     .tap-security-section {
         padding: 60px 0;
         border-bottom: 1px solid var(--border-light);
-        background-color: var(--dark-card);
+        background-color: var(--light-bg-alt);
     }
     .security-badges-row {
         display: flex;
@@ -1166,12 +1196,14 @@
         margin: 0;
         font-size: 0.95rem;
         font-weight: 800;
+        color: var(--text-primary);
     }
 
     /* --- COUNTRY HUBS --- */
     .tap-hubs-section {
         padding: 100px 0;
         border-bottom: 1px solid var(--border-light);
+        background: var(--light-bg);
     }
     .hubs-grid {
         display: grid;
@@ -1179,21 +1211,22 @@
         gap: 20px;
     }
     .hub-card-item {
-        background: var(--dark-card);
+        background: var(--light-bg-alt);
         border: 1px solid var(--border-light);
         border-radius: 16px;
         padding: 24px;
         text-align: center;
-        box-shadow: 0 0 20px var(--border-glow);
+        box-shadow: var(--shadow-sm);
         transition: all 0.25s ease;
         text-decoration: none;
-        color: inherit;
+        color: var(--text-primary);
         display: block;
     }
     .hub-card-item:hover {
         transform: translateY(-4px);
         border-color: var(--primary-indigo);
-        box-shadow: 0 15px 30px rgba(99, 102, 241, 0.2);
+        background: var(--card-bg);
+        box-shadow: 0 15px 30px rgba(79, 70, 229, 0.1);
     }
     .hub-flag {
         font-size: 2.6rem;
@@ -1208,13 +1241,13 @@
     }
     .hub-card-item span {
         font-size: 0.78rem;
-        color: var(--accent-teal);
+        color: var(--primary-indigo);
         font-weight: 800;
     }
 
     /* --- BY THE NUMBERS --- */
     .tap-numbers-section {
-        background-color: #020617;
+        background-color: #0f172a;
         color: #ffffff;
         padding: 70px 0;
         border-bottom: 1px solid var(--border-light);
@@ -1239,7 +1272,7 @@
     .number-stat-item p {
         margin: 0;
         font-size: 0.78rem;
-        color: rgba(255, 255, 255, 0.65);
+        color: rgba(255, 255, 255, 0.7);
         line-height: 1.35;
         font-weight: 700;
     }
@@ -1247,7 +1280,8 @@
     /* --- FOUNDER & FINAL CTA --- */
     .tap-founder-cta-section {
         padding: 100px 0;
-        background-color: var(--dark-card);
+        background-color: var(--light-bg-alt);
+        border-bottom: 1px solid var(--border-light);
     }
     .founder-cta-grid {
         display: grid;
@@ -1264,17 +1298,18 @@
     .founder-photo-box img {
         width: 100%;
         border-radius: 20px;
-        box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        box-shadow: var(--shadow-lg);
         border: 1px solid var(--border-light);
     }
     .founder-bio-text h3 {
         margin: 0 0 6px 0;
         font-size: 1.45rem;
         font-weight: 900;
+        color: var(--text-primary);
     }
     .founder-bio-text span {
         font-size: 0.85rem;
-        color: var(--text-grey);
+        color: var(--text-muted);
         display: block;
         margin-bottom: 20px;
         font-weight: 700;
@@ -1282,7 +1317,7 @@
     .founder-bio-text p {
         font-size: 1.05rem;
         line-height: 1.7;
-        color: rgba(255, 255, 255, 0.9);
+        color: var(--text-secondary);
         margin: 0 0 24px 0;
     }
     .founder-signature {
@@ -1299,21 +1334,21 @@
         flex-direction: column;
         gap: 10px;
         font-size: 0.8rem;
-        color: var(--text-grey);
+        color: var(--text-secondary);
         border-left: 2px solid var(--border-light);
         padding-left: 20px;
     }
-    .timeline-marker-row strong {
-        color: #ffffff;
+    .founder-timeline-list strong {
+        color: var(--text-primary);
     }
 
     /* CTA Card Column */
     .cta-card-box {
-        background: var(--dark-bg);
+        background: var(--card-bg);
         border: 1px solid var(--border-light);
         border-radius: 24px;
         padding: 40px;
-        box-shadow: 0 0 30px var(--border-glow);
+        box-shadow: var(--shadow-lg);
         text-align: center;
     }
     .cta-card-box h3 {
@@ -1321,11 +1356,12 @@
         font-size: 1.85rem;
         font-family: 'Plus Jakarta Sans', sans-serif;
         line-height: 1.25;
+        color: var(--text-primary);
     }
     .cta-card-box p {
         margin: 0 0 30px 0;
         font-size: 1.05rem;
-        color: var(--text-grey);
+        color: var(--text-secondary);
     }
     .cta-card-checklist {
         display: flex;
@@ -1340,7 +1376,10 @@
         gap: 6px;
         font-size: 0.85rem;
         font-weight: 800;
-        color: #ffffff;
+        color: var(--text-primary);
+    }
+    .cta-checklist-item span {
+        color: var(--accent-green);
     }
     .cta-card-box .primary-btn-large {
         width: 100%;
@@ -1349,7 +1388,7 @@
     }
     .cta-card-subtext {
         font-size: 0.78rem;
-        color: var(--text-grey);
+        color: var(--text-muted);
         margin-top: 12px;
     }
 
@@ -1507,12 +1546,10 @@
     </div>
 </div>
 
-<!-- Gigantic Hero Section (Dark Immersive theme) -->
+<!-- Gigantic Hero Section (White Immersive theme) -->
 <section class="tap-new-hero">
-    <!-- Immersive Background Video -->
-    <video class="hero-video-bg" autoplay loop muted playsinline>
-        <source src="videos/space-chilling-1.mp4" type="video/mp4" />
-    </video>
+    <!-- Subtle grid backdrop -->
+    <div class="hero-grid-bg"></div>
 
     <div class="container hero-grid">
         <!-- Left side: pricing stack -->
@@ -1587,7 +1624,7 @@
                     <span class="price-save-badge">SAVE 52%</span>
                 </div>
             </div>
-            <p class="pricing-stack-disclaimer">* Prices are average market rates.</p>
+            <p class="pricing-stack-disclaimer">* Average local agency market rates.</p>
         </div>
 
         <!-- Right side: main text content with space astronaut visual -->
@@ -1638,14 +1675,14 @@
                     <!-- Screaming Frog Colored SVG -->
                     <svg viewBox="0 0 170 35" width="120" height="26" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 5c-3.3 0-6 2.7-6 6v3h12v-3c0-3.3-2.7-6-6-6zm-4 9v4c0 2.2 1.8 4 4 4s4-1.8 4-4v-4H8z" fill="#4B8C2A"/>
-                        <circle cx="9" cy="8" r="1.5" fill="#FFFFFF"/>
-                        <circle cx="15" cy="8" r="1.5" fill="#FFFFFF"/>
-                        <text x="26" y="23" fill="#4B8C2A" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="900">ScreamingFrog</text>
+                        <circle cx="9" cy="8" r="1.5" fill="#4B8C2A"/>
+                        <circle cx="15" cy="8" r="1.5" fill="#4B8C2A"/>
+                        <text x="26" y="23" fill="#4B8C2A" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="900">ScreamFrog</text>
                     </svg>
                     <!-- Google Search Console Colored SVG -->
                     <svg viewBox="0 0 180 35" width="130" height="26" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 4C7.6 4 4 7.6 4 12s3.6 8 8 8h10c.8 0 1.5-.7 1.5-1.5S22.8 17 22 17h-2c-.8 0-1.5-.7-1.5-1.5S19.2 14 20 14h1c.8 0 1.5-.7 1.5-1.5S21.8 11 21 11H12.5C10 11 8.5 12.5 8.5 14s1.5 3 3 3 3-1.5 3-3-1.5-3-3-3l1-1.5z" fill="#4285F4"/>
-                        <text x="32" y="23" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800">Search Console</text>
+                        <text x="32" y="23" fill="#0f172a" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800">Search Console</text>
                     </svg>
                     <!-- PageSpeed Insights SVG -->
                     <svg viewBox="0 0 160 35" width="110" height="26" xmlns="http://www.w3.org/2000/svg">
@@ -1655,11 +1692,11 @@
                     <!-- Ahrefs Colored SVG -->
                     <svg viewBox="0 0 110 35" width="90" height="26" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8 8h6l6 18h-5.5l-1.5-5H9l-1.5 5H2L8 8zm6 9.5l-2.5-8-2.5 8h5z" fill="#FF8D00"/>
-                        <text x="25" y="23" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="900">ahrefs</text>
+                        <text x="25" y="23" fill="#0f172a" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="900">ahrefs</text>
                     </svg>
                     <!-- Lumar Colored SVG -->
                     <svg viewBox="0 0 90 35" width="80" height="26" xmlns="http://www.w3.org/2000/svg">
-                        <text x="5" y="23" fill="#00E676" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="900" style="letter-spacing:1px;">Lumar</text>
+                        <text x="5" y="23" fill="#0d9488" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="900" style="letter-spacing:1px;">Lumar</text>
                     </svg>
                 </div>
             </div>
@@ -1725,25 +1762,25 @@
                 <rect x="9" y="5" width="8" height="8" fill="#7FBA00"/>
                 <rect x="0" y="14" width="8" height="8" fill="#00A4EF"/>
                 <rect x="9" y="14" width="8" height="8" fill="#FFB900"/>
-                <text x="22" y="17" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">Microsoft</text>
+                <text x="22" y="17" fill="#0f172a" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">Microsoft</text>
             </svg>
             <!-- Shopify Colored SVG -->
             <svg viewBox="0 0 130 35" width="100" height="26" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 8.5C12 6.5 13.5 5 15.5 5s3.5 1.5 3.5 3.5v1h-7v-1zM20 9.5v-1c0-2.5-2-4.5-4.5-4.5S11 6 11 8.5v1H6v19c0 1.7 1.3 3 3 3h13c1.7 0 3-1.3 3-3v-19h-5z" fill="#95BF47"/>
                 <path d="M15.5 13c1.9 0 3.5-1.6 3.5-3.5h-7c0 1.9 1.6 3.5 3.5 3.5z" fill="#5E8E3E"/>
-                <text x="32" y="23" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800">shopify</text>
+                <text x="32" y="23" fill="#0f172a" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800">shopify</text>
             </svg>
             <!-- WordPress Colored SVG -->
             <svg viewBox="0 0 140 35" width="110" height="26" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="15" cy="17" r="12" fill="#21759B"/>
                 <path d="M15 7c-5.5 0-10 4.5-10 10s4.5 10 10 10 10-4.5 10-10-4.5-10-10-10zm-6.7 15.5l2.2-6.2 1.8 5.2-1.3 3.6-2.7-2.6zm6.7 2c-4.4 0-8-3.6-8-8 0-.8.1-1.6.4-2.3l4.6 12.6.2.7.2-.7 2.4-6.6 2.4 6.6.2.7.2-.7 3.5-9.6c.3.7.4 1.5.4 2.3 0 4.4-3.6 8-8 8zm4.7-14.7c.3.3.4.8.4 1.3 0 .4-.1.8-.3 1.1l-2.4 6.8-2.2-6 1.8-5c1 .2 1.9.4 2.7 1.8z" fill="#FFFFFF"/>
-                <text x="34" y="23" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800">WordPress</text>
+                <text x="34" y="23" fill="#0f172a" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800">WordPress</text>
             </svg>
             <!-- Webflow Colored SVG -->
             <svg viewBox="0 0 130 35" width="100" height="26" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 9.5H8.5l-3 10.5-3-10.5H0L4.5 24H8l4-14.5z" fill="#4353FF"/>
                 <path d="M22 9.5h-3.5l-3 10.5-3-10.5H10l4.5 24H18l4-14.5z" fill="#4353FF"/>
-                <text x="28" y="23" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800">webflow</text>
+                <text x="28" y="23" fill="#0f172a" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800">webflow</text>
             </svg>
             <!-- HubSpot Colored SVG -->
             <svg viewBox="0 0 130 35" width="100" height="26" xmlns="http://www.w3.org/2000/svg">
@@ -1751,11 +1788,11 @@
                 <path d="M12 9c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm0 12c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z" fill="#FF7A59"/>
                 <circle cx="22" cy="11" r="2.5" fill="#FF7A59"/>
                 <path d="M12 17l8-5.5" stroke="#FF7A59" stroke-width="1.5"/>
-                <text x="34" y="23" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800">HubSpot</text>
+                <text x="34" y="23" fill="#0f172a" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800">HubSpot</text>
             </svg>
             <!-- AWS Colored SVG -->
             <svg viewBox="0 0 100 35" width="80" height="24" xmlns="http://www.w3.org/2000/svg">
-                <text x="5" y="20" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="900">aws</text>
+                <text x="5" y="20" fill="#0f172a" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="900">aws</text>
                 <path d="M8 25c10 4 25 6 35 1s12-7 12-7c0 0-4 1-12 3s-20 1-28-3c-8-4-7-4-7-4z" fill="#FF9900"/>
                 <path d="M52 20l3 7-7-1z" fill="#FF9900"/>
             </svg>
@@ -1768,14 +1805,14 @@
             <!-- Ahrefs Colored SVG -->
             <svg viewBox="0 0 110 35" width="90" height="26" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8 8h6l6 18h-5.5l-1.5-5H9l-1.5 5H2L8 8zm6 9.5l-2.5-8-2.5 8h5z" fill="#FF8D00"/>
-                <text x="25" y="23" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800">ahrefs</text>
+                <text x="25" y="23" fill="#0f172a" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800">ahrefs</text>
             </svg>
             <!-- Screaming Frog Colored SVG -->
             <svg viewBox="0 0 170 35" width="120" height="26" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 5c-3.3 0-6 2.7-6 6v3h12v-3c0-3.3-2.7-6-6-6zm-4 9v4c0 2.2 1.8 4 4 4s4-1.8 4-4v-4H8z" fill="#4B8C2A"/>
-                <circle cx="9" cy="8" r="1.5" fill="#FFFFFF"/>
-                <circle cx="15" cy="8" r="1.5" fill="#FFFFFF"/>
-                <text x="26" y="23" fill="#4B8C2A" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="900">ScreamingFrog</text>
+                <circle cx="9" cy="8" r="1.5" fill="#4B8C2A"/>
+                <circle cx="15" cy="8" r="1.5" fill="#4B8C2A"/>
+                <text x="26" y="23" fill="#4B8C2A" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="900">ScreamFrog</text>
             </svg>
         </div>
         <p class="brands-sub-disclaimer">We work with the websites and platforms you already trust.</p>
@@ -2397,10 +2434,10 @@
             <h3>Stop Paying Local Agency Prices.<br>Keep the Same Quality.<br>Or Better.</h3>
             <p>Get your free, no-obligation technical health check audit in 60 seconds.</p>
             <div class="cta-card-checklist">
-                <div class="cta-checklist-item">✓ No Contracts</div>
-                <div class="cta-checklist-item">✓ Cancel Anytime</div>
-                <div class="cta-checklist-item">✓ No Sales Pressure</div>
-                <div class="cta-checklist-item">✓ Just Quality</div>
+                <div class="cta-checklist-item"><span>✓</span> No Contracts</div>
+                <div class="cta-checklist-item"><span>✓</span> Cancel Anytime</div>
+                <div class="cta-checklist-item"><span>✓</span> No Sales Pressure</div>
+                <div class="cta-checklist-item"><span>✓</span> Just Quality</div>
             </div>
             <iframe aria-label="Contact Us" frameborder="0" src="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" style="height:380px;width:100%;border:none;margin-bottom: 15px;"></iframe>
             <a class="primary-btn-large" href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank">Book Strategy Call</a>
