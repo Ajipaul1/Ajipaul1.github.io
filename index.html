@@ -1391,7 +1391,7 @@
     /* Floating WhatsApp Widget style - Positioned small on bottom right */
     .whatsapp-float {
         position: fixed;
-        bottom: 30px;
+        bottom: 110px; /* Stacked above the Tidio chat widget to prevent merge */
         right: 30px;
         z-index: 10000;
         background-color: #25d366;
@@ -1404,6 +1404,10 @@
         justify-content: center;
         box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         transition: transform 0.2s ease;
+        cursor: grab;
+    }
+    .whatsapp-float:active {
+        cursor: grabbing;
     }
     .whatsapp-float:hover {
         transform: scale(1.1);
@@ -2646,6 +2650,99 @@
 <!-- Countdown and Mobile Navigation JavaScript -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    // --- Draggable Floating WhatsApp Widget Code ---
+    (function() {
+        const waButton = document.querySelector('.whatsapp-float');
+        if (!waButton) return;
+
+        let isDragging = false;
+        let dragActive = false;
+        let startX, startY;
+        let initialX, initialY;
+
+        // Mouse events
+        waButton.addEventListener('mousedown', function(e) {
+            if (e.button !== 0) return; // Only drag with left click
+            dragActive = true;
+            isDragging = false;
+            startX = e.clientX;
+            startY = e.clientY;
+            const rect = waButton.getBoundingClientRect();
+            initialX = rect.left;
+            initialY = rect.top;
+            waButton.style.transition = 'none';
+            e.preventDefault();
+        });
+
+        document.addEventListener('mousemove', function(e) {
+            if (!dragActive) return;
+            const dx = e.clientX - startX;
+            const dy = e.clientY - startY;
+            
+            if (Math.abs(dx) > 6 || Math.abs(dy) > 6) {
+                isDragging = true;
+            }
+
+            if (isDragging) {
+                waButton.style.left = (initialX + dx) + 'px';
+                waButton.style.top = (initialY + dy) + 'px';
+                waButton.style.bottom = 'auto';
+                waButton.style.right = 'auto';
+            }
+        });
+
+        document.addEventListener('mouseup', function(e) {
+            if (!dragActive) return;
+            dragActive = false;
+            waButton.style.transition = '';
+        });
+
+        // Touch events for mobile
+        waButton.addEventListener('touchstart', function(e) {
+            dragActive = true;
+            isDragging = false;
+            const touch = e.touches[0];
+            startX = touch.clientX;
+            startY = touch.clientY;
+            const rect = waButton.getBoundingClientRect();
+            initialX = rect.left;
+            initialY = rect.top;
+            waButton.style.transition = 'none';
+        });
+
+        document.addEventListener('touchmove', function(e) {
+            if (!dragActive) return;
+            const touch = e.touches[0];
+            const dx = touch.clientX - startX;
+            const dy = touch.clientY - startY;
+
+            if (Math.abs(dx) > 6 || Math.abs(dy) > 6) {
+                isDragging = true;
+            }
+
+            if (isDragging) {
+                waButton.style.left = (initialX + dx) + 'px';
+                waButton.style.top = (initialY + dy) + 'px';
+                waButton.style.bottom = 'auto';
+                waButton.style.right = 'auto';
+            }
+        });
+
+        document.addEventListener('touchend', function(e) {
+            if (!dragActive) return;
+            dragActive = false;
+            waButton.style.transition = '';
+        });
+
+        // Intercept click to prevent navigations during drags
+        waButton.addEventListener('click', function(e) {
+            if (isDragging) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        }, true);
+    })();
+
     // --- Countdown Timer Code ---
     var countdownDuration = (11 * 24 * 60 * 60) + (23 * 60 * 60) + (47 * 60) + 9;
     var targetTime = Date.now() + (countdownDuration * 1000);
@@ -2741,14 +2838,14 @@ window.initGoogleMap = function() {
     const map = new google.maps.Map(mapElement, mapOptions);
 
     const locations = [
-        { name: "Kochi, India HQ 🇮🇳", lat: 9.9312, lng: 76.2673, isHq: true },
-        { name: "USA 🇺🇸", lat: 40.7128, lng: -74.0060 },
-        { name: "Canada 🇨🇦", lat: 43.6532, lng: -79.3832 },
-        { name: "United Kingdom 🇬🇧", lat: 51.5074, lng: -0.1278 },
-        { name: "Germany 🇩🇪", lat: 50.1109, lng: 8.6821 },
-        { name: "Dubai 🇦🇪", lat: 25.2048, lng: 55.2708 },
-        { name: "Singapore 🇸🇬", lat: 1.3521, lng: 103.8198 },
-        { name: "Australia 🇦🇺", lat: -33.8688, lng: 151.2093 }
+        { name: "Kochi, India HQ 🇮🇳", label: "India HQ", lat: 9.9312, lng: 76.2673, isHq: true },
+        { name: "USA 🇺🇸", label: "USA", lat: 40.7128, lng: -74.0060 },
+        { name: "Canada 🇨🇦", label: "Canada", lat: 43.6532, lng: -79.3832 },
+        { name: "United Kingdom 🇬🇧", label: "UK", lat: 51.5074, lng: -0.1278 },
+        { name: "Germany 🇩🇪", label: "Germany", lat: 50.1109, lng: 8.6821 },
+        { name: "Dubai 🇦🇪", label: "Dubai", lat: 25.2048, lng: 55.2708 },
+        { name: "Singapore 🇸🇬", label: "Singapore", lat: 1.3521, lng: 103.8198 },
+        { name: "Australia 🇦🇺", label: "Australia", lat: -33.8688, lng: 151.2093 }
     ];
 
     const hqLatLng = new google.maps.LatLng(locations[0].lat, locations[0].lng);
@@ -2760,13 +2857,20 @@ window.initGoogleMap = function() {
             position: latLng,
             map: map,
             title: loc.name,
+            label: {
+                text: loc.label,
+                color: '#ffffff',
+                fontSize: '11px',
+                fontWeight: '800'
+            },
             icon: {
                 path: google.maps.SymbolPath.CIRCLE,
                 scale: loc.isHq ? 8 : 6,
                 fillColor: loc.isHq ? '#10b981' : '#6366f1',
                 fillOpacity: 1,
                 strokeColor: '#ffffff',
-                strokeWeight: 1.5
+                strokeWeight: 1.5,
+                labelOrigin: new google.maps.Point(0, -14)
             }
         });
 
