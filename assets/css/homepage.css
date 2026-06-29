@@ -2961,7 +2961,7 @@ body.home-page-redesign {
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 2fr repeat(4, 1fr);
     gap: 40px;
 }
 

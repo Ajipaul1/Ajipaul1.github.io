@@ -167,7 +167,9 @@
         position: relative;
         padding: 90px 0;
         border-bottom: 1px solid var(--border-light);
-        background: radial-gradient(circle at 85% 30%, #151d3b 0%, #050814 60%) !important;
+        background: 
+            url('assets/images/hero/space-astronaut-seo-hero.png') no-repeat right 5% center / 45% contain,
+            radial-gradient(circle at 85% 30%, #151d3b 0%, #050814 60%) !important;
         overflow: hidden;
         color: #ffffff;
     }
@@ -175,8 +177,8 @@
         position: relative;
         z-index: 1;
         display: grid;
-        grid-template-columns: 440px 1fr;
-        gap: 60px;
+        grid-template-columns: 340px 1fr;
+        gap: 50px;
         align-items: center;
     }
     
@@ -257,12 +259,11 @@
     /* Right Main Text Content */
     .hero-main-content {
         text-align: left;
+        padding-right: 42%;
     }
     .hero-flex-layout {
-        display: grid;
-        grid-template-columns: 1fr 380px;
-        gap: 40px;
-        align-items: center;
+        display: block;
+        width: 100%;
     }
     .hero-main-content h1 {
         font-size: clamp(2.5rem, 4.5vw, 3.8rem);
@@ -285,12 +286,8 @@
         line-height: 1.65;
         margin-bottom: 30px;
     }
-    .hero-astronaut-image {
-        width: 100%;
-        border-radius: 24px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        animation: floatAstronaut 6s ease-in-out infinite;
-        box-shadow: 0 0 35px rgba(99, 102, 241, 0.25);
+    .mobile-only-hero-astronaut {
+        display: none;
     }
     .hero-features-list {
         display: flex;
@@ -463,6 +460,17 @@
         gap: 40px;
         flex-wrap: wrap;
     }
+    .brands-carousel-grid svg {
+        width: auto !important;
+        height: clamp(24px, 2.5vw, 36px) !important;
+        max-width: 100% !important;
+        opacity: 0.75;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .brands-carousel-grid svg:hover {
+        opacity: 1;
+        transform: scale(1.05);
+    }
     .brands-sub-disclaimer {
         margin-top: 25px;
         font-size: 0.85rem;
@@ -495,8 +503,8 @@
 
     .presence-grid {
         display: grid;
-        grid-template-columns: 1fr 380px;
-        gap: 40px;
+        grid-template-columns: 260px 1fr 320px;
+        gap: 30px;
         align-items: center;
     }
     .presence-map-wrapper {
@@ -556,7 +564,7 @@
     }
     .savings-grid {
         display: grid;
-        grid-template-columns: 1fr 300px 1fr;
+        grid-template-columns: 1.1fr 1.3fr 1.1fr;
         gap: 40px;
         align-items: stretch;
     }
@@ -1194,49 +1202,76 @@
         gap: 20px;
     }
     .hub-card-item {
-        background: var(--dark-card);
-        border: 1px solid var(--border-light);
+        position: relative;
+        height: 240px;
         border-radius: 16px;
-        padding: 14px;
-        text-align: center;
-        box-shadow: var(--shadow-sm);
-        transition: all 0.25s ease;
-        text-decoration: none;
-        color: #ffffff;
-        display: block;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        border: 1px solid var(--border-light);
+        text-decoration: none;
+        box-shadow: var(--shadow-sm);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
     }
     .hub-card-item:hover {
-        transform: translateY(-4px);
-        border-color: var(--primary-indigo);
-        box-shadow: 0 15px 30px rgba(99, 102, 241, 0.15);
+        transform: translateY(-6px);
     }
-    .hub-image-wrap {
+    
+    .card-usa:hover {
+        border-color: hsl(217, 91%, 60%) !important;
+        box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25) !important;
+    }
+    .card-canada:hover {
+        border-color: hsl(0, 84%, 60%) !important;
+        box-shadow: 0 10px 25px rgba(220, 38, 38, 0.25) !important;
+    }
+    .card-australia:hover {
+        border-color: hsl(142, 71%, 45%) !important;
+        box-shadow: 0 10px 25px rgba(16, 185, 129, 0.25) !important;
+    }
+    .card-uk:hover {
+        border-color: hsl(262, 83%, 58%) !important;
+        box-shadow: 0 10px 25px rgba(124, 58, 237, 0.25) !important;
+    }
+    .card-dubai:hover {
+        border-color: hsl(38, 92%, 50%) !important;
+        box-shadow: 0 10px 25px rgba(217, 119, 6, 0.25) !important;
+    }
+    .card-india:hover {
+        border-color: hsl(25, 95%, 55%) !important;
+        box-shadow: 0 10px 25px rgba(249, 115, 22, 0.25) !important;
+    }
+    .hub-card-content {
+        position: relative;
+        z-index: 2;
+        padding: 16px;
+        backdrop-filter: blur(10px);
+        background: rgba(13, 18, 36, 0.55);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        text-align: left;
         width: 100%;
-        height: 120px;
-        overflow: hidden;
-        border-radius: 10px;
-        margin-bottom: 12px;
-    }
-    .hub-image-wrap img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.3s ease;
-    }
-    .hub-card-item:hover .hub-image-wrap img {
-        transform: scale(1.06);
+        box-sizing: border-box;
     }
     .hub-card-content h3 {
-        margin: 0 0 6px 0;
-        font-size: 1.05rem;
+        margin: 0 0 4px 0;
+        font-size: 1.15rem;
         font-weight: 800;
+        color: #ffffff;
         font-family: 'Plus Jakarta Sans', sans-serif;
     }
     .hub-card-content span {
-        font-size: 0.78rem;
+        font-size: 0.75rem;
         color: var(--primary-indigo-light);
         font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        display: flex;
+        align-items: center;
+        gap: 4px;
     }
 
     /* --- BY THE NUMBERS --- */
@@ -1274,14 +1309,24 @@
     /* --- FOUNDER & FINAL CTA --- */
     .tap-founder-cta-section {
         padding: 100px 0;
-        background-color: var(--dark-bg-alt);
+        background: url('assets/images/bg/space_gravity_well.png') no-repeat center center / cover;
         border-bottom: 1px solid var(--border-light);
+        position: relative;
+    }
+    .tap-founder-cta-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(5, 8, 20, 0.88);
+        z-index: 0;
     }
     .founder-cta-grid {
         display: grid;
-        grid-template-columns: 1fr 500px;
+        grid-template-columns: 1fr 1fr;
         gap: 60px;
         align-items: center;
+        position: relative;
+        z-index: 1;
     }
     .founder-content-wrapper {
         display: grid;
@@ -1418,8 +1463,39 @@
         fill: white;
     }
 
+    /* Floating Tidio Widget style - Positioned below WhatsApp float */
+    .tidio-custom-float {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 10000;
+        background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+        color: white;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        transition: transform 0.2s ease;
+        cursor: grab;
+        border: none;
+    }
+    .tidio-custom-float:active {
+        cursor: grabbing;
+    }
+    .tidio-custom-float:hover {
+        transform: scale(1.1);
+    }
+    .tidio-chat-icon {
+        width: 28px;
+        height: 28px;
+        fill: white;
+    }
+
     /* --- RESPONSIVE ADAPTATIONS --- */
-    @media (max-width: 1200px) {
+    @media (max-width: 1300px) {
         .hero-grid {
             grid-template-columns: 1fr;
             gap: 40px;
@@ -1429,17 +1505,29 @@
             margin: 0 auto;
             order: 2;
         }
+        .tap-new-hero {
+            background: radial-gradient(circle at 85% 30%, #151d3b 0%, #050814 60%) !important;
+        }
         .hero-main-content {
             text-align: center;
             order: 1;
+            padding-right: 0;
         }
         .hero-flex-layout {
-            grid-template-columns: 1fr;
-            gap: 24px;
+            display: block;
+            width: 100%;
         }
-        .hero-astronaut-image {
+        .mobile-only-hero-astronaut {
+            display: block;
+            margin: 30px auto 0;
             max-width: 240px;
-            margin: 0 auto;
+        }
+        .mobile-only-hero-astronaut img {
+            width: 100%;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 25px rgba(99, 102, 241, 0.2);
+            animation: floatAstronaut 6s ease-in-out infinite;
         }
         .hero-features-list {
             justify-content: center;
@@ -1658,8 +1746,8 @@
                     <h1>Even if you were working in space... <span>we can work with you.</span></h1>
                     <p class="hero-subtitle">We become your dedicated offshore technical team for SEO, Web Development &amp; Digital Growth. No communication gaps. Just execution.</p>
                 </div>
-                <div>
-                    <img class="hero-astronaut-image" src="assets/images/hero/space-astronaut-seo-hero.png" alt="Offshore Technical Space SEO Team" />
+                <div class="mobile-only-hero-astronaut">
+                    <img src="assets/images/hero/space-astronaut-seo-hero.png" alt="Offshore Technical Space SEO Team" />
                 </div>
             </div>
             
@@ -1739,13 +1827,24 @@
                 <p>We are allocating our top-tier developers and SEO engineers to serve North American businesses.</p>
             </div>
         </div>
-        <div class="offer-progress-block">
-            <div class="progress-label-row">
-                <span>Only accepting 25 Companies</span>
-                <span>15/25 Seats Filled</span>
+        <div class="offer-progress-block" style="display: flex; align-items: center; gap: 16px;">
+            <div class="progress-circle-container" style="position: relative; width: 80px; height: 80px; flex-shrink: 0;">
+                <svg width="80" height="80" viewBox="0 0 80 80" style="transform: rotate(-90deg); display: block;">
+                    <!-- Background circle -->
+                    <circle cx="40" cy="40" r="34" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="6" />
+                    <!-- Fill circle -->
+                    <circle cx="40" cy="40" r="34" fill="none" stroke="var(--accent-teal-light)" stroke-width="6" 
+                            stroke-dasharray="213.628" stroke-dashoffset="85.45" stroke-linecap="round" 
+                            style="transition: stroke-dashoffset 0.5s ease;" />
+                </svg>
+                <div class="progress-circle-text" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'Plus Jakarta Sans', sans-serif;">
+                    <span style="font-size: 1.1rem; font-weight: 800; color: #ffffff; line-height: 1;">15/25</span>
+                    <span style="font-size: 0.55rem; color: var(--text-secondary); text-transform: uppercase; margin-top: 2px; font-weight: 700; letter-spacing: 0.05em;">Seats</span>
+                </div>
             </div>
-            <div class="progress-bar-bg">
-                <div class="progress-bar-fill"></div>
+            <div class="progress-circle-details" style="text-align: left;">
+                <span style="display: block; font-size: 0.85rem; color: var(--text-secondary); font-weight: 700;">Only accepting 25 Companies during this launch.</span>
+                <span style="display: block; font-size: 0.95rem; color: var(--accent-green-light); font-weight: 800; margin-top: 4px;">10 Seats Remaining!</span>
             </div>
         </div>
         <div class="offer-timer-block">
@@ -1849,12 +1948,23 @@
 <!-- GLOBAL PRESENCE MAP SECTION (WITH REAL INTERACTIVE GOOGLE MAP) -->
 <section class="tap-presence-section">
     <div class="container">
-        <div class="section-header-center">
-            <h2>Our Global Presence</h2>
-            <p>Delivering results for businesses across the globe with transparent offshore technical operations.</p>
-        </div>
         <div class="presence-grid">
-            <!-- Left side real Google Map -->
+            <!-- Left side: heading, description, and country list -->
+            <div class="presence-countries-list" style="text-align: left;">
+                <h2 style="font-size: 2.2rem; font-weight: 900; color: #ffffff; margin: 0 0 15px 0; font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: -0.02em;">Our Global Presence</h2>
+                <p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 25px;">Delivering results for businesses across the globe with transparent offshore technical operations.</p>
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; font-size: 0.95rem; font-weight: 700; color: var(--text-secondary);">
+                    <li style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 1.4rem;">🇨🇦</span> Canada</li>
+                    <li style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 1.4rem;">🇺🇸</span> United States</li>
+                    <li style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 1.4rem;">🇬🇧</span> United Kingdom</li>
+                    <li style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 1.4rem;">🇦🇺</span> Australia</li>
+                    <li style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 1.4rem;">🇦🇪</span> Dubai (UAE)</li>
+                    <li style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 1.4rem;">🇩🇪</span> Germany</li>
+                    <li style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 1.4rem;">🇸🇬</span> Singapore</li>
+                    <li style="display: flex; align-items: center; gap: 10px; color: var(--accent-teal-light); font-style: italic;">...and growing!</li>
+                </ul>
+            </div>
+            <!-- Middle side real Google Map -->
             <div class="presence-map-wrapper">
                 <div id="google-map" style="width: 100%; height: 100%; border-radius: 24px;"></div>
             </div>
@@ -1898,12 +2008,12 @@
             <a href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" class="primary-btn-large" style="display: inline-flex; width: fit-content; margin-top: 10px;">Watch Full Video (3:12) &nbsp; ▶</a>
         </div>
         
-        <!-- Middle column: Gateway photo with Play overlay -->
-        <div class="savings-video-wrapper">
-            <img class="gateway-mumbai-img" src="assets/images/locations/seo_company_mumbai_unique.png" alt="Gateway of India Mumbai" />
-            <a href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" class="video-overlay-play">
-                <div class="play-btn-circle">▶</div>
-            </a>
+        <!-- Middle column: Interactive video player -->
+        <div class="savings-video-wrapper" style="overflow: hidden; border-radius: 20px; border: 1px solid var(--border-light); background: #000; position: relative; display: flex; align-items: center; justify-content: center; height: 100%;">
+            <video controls poster="assets/images/locations/seo_company_mumbai_unique.png" style="width: 100%; height: 100%; object-fit: cover; display: block; min-height: 380px;">
+                <source src="videos/mainvideos/tech-1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
         
         <!-- Right column Cost Comparison vertical bars (SCREENSHOT 5 ALIGNED) -->
@@ -2211,13 +2321,13 @@
         <!-- Services Grid, Live Project Dashboard, and Secure Badges all wrapped in one single dark dashboard box -->
         <div class="services-dashboard-grid-container">
             <div class="services-dashboard-grid">
-                <!-- Left Side: Services grid -->
+                <!-- Left Side: Services grid & Security block -->
                 <div>
                     <div class="section-header-left">
                         <h2>Our Services</h2>
                         <p>We take care of every technical aspect of your website backend, search presence, and optimization funnel.</p>
                     </div>
-                    <div class="dashboard-services-list">
+                    <div class="dashboard-services-list" style="margin-bottom: 40px;">
                         <a class="dashboard-service-item" href="/technical-seo-audit/">
                             <div class="dashboard-service-icon">🔍</div>
                             <span>Technical SEO &amp; Audits</span>
@@ -2274,110 +2384,158 @@
                             <div class="dashboard-service-icon">🤖</div>
                             <span>AI Automation &amp; Integrations</span>
                         </a>
+                        <!-- New SaaS Web App Development service -->
+                        <a class="dashboard-service-item" href="/saas-app-development/">
+                            <div class="dashboard-service-icon">🚀</div>
+                            <span>SaaS Web Application Development</span>
+                        </a>
+                    </div>
+
+                    <!-- Data Security Badges inside the Services block on the left -->
+                    <div class="tap-security-section" style="padding-top: 30px; border-top: 1px solid var(--border-light);">
+                        <h3 style="text-align: left; color: #ffffff; margin-bottom: 20px; font-size: 1.2rem; font-family: 'Plus Jakarta Sans', sans-serif;">Your Data. Your Business. 100% Secure.</h3>
+                        <div class="security-badges-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px 12px;">
+                            <div class="security-badge-item" style="min-width: unset; text-align: left; align-items: flex-start;">
+                                <span class="security-badge-icon" style="font-size: 1.45rem;">🔒</span>
+                                <h4 style="font-size: 0.85rem; margin-top: 4px;">NDA Protected</h4>
+                            </div>
+                            <div class="security-badge-item" style="min-width: unset; text-align: left; align-items: flex-start;">
+                                <span class="security-badge-icon" style="font-size: 1.45rem;">💻</span>
+                                <h4 style="font-size: 0.85rem; margin-top: 4px;">Source Code Ownership</h4>
+                            </div>
+                            <div class="security-badge-item" style="min-width: unset; text-align: left; align-items: flex-start;">
+                                <span class="security-badge-icon" style="font-size: 1.45rem;">💾</span>
+                                <h4 style="font-size: 0.85rem; margin-top: 4px;">Full Backups Weekly</h4>
+                            </div>
+                            <div class="security-badge-item" style="min-width: unset; text-align: left; align-items: flex-start;">
+                                <span class="security-badge-icon" style="font-size: 1.45rem;">🔑</span>
+                                <h4 style="font-size: 0.85rem; margin-top: 4px;">Access Control</h4>
+                            </div>
+                            <div class="security-badge-item" style="min-width: unset; text-align: left; align-items: flex-start;">
+                                <span class="security-badge-icon" style="font-size: 1.45rem;">🌿</span>
+                                <h4 style="font-size: 0.85rem; margin-top: 4px;">Version Control</h4>
+                            </div>
+                            <div class="security-badge-item" style="min-width: unset; text-align: left; align-items: flex-start;">
+                                <span class="security-badge-icon" style="font-size: 1.45rem;">🛡️</span>
+                                <h4 style="font-size: 0.85rem; margin-top: 4px;">Secure Infrastructure</h4>
+                            </div>
+                            <div class="security-badge-item" style="min-width: unset; text-align: left; align-items: flex-start;">
+                                <span class="security-badge-icon" style="font-size: 1.45rem;">💬</span>
+                                <h4 style="font-size: 0.85rem; margin-top: 4px;">Encrypted Comm</h4>
+                            </div>
+                            <div class="security-badge-item" style="min-width: unset; text-align: left; align-items: flex-start;">
+                                <span class="security-badge-icon" style="font-size: 1.45rem;">📊</span>
+                                <h4 style="font-size: 0.85rem; margin-top: 4px;">Weekly Reporting</h4>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Right Side: Live dashboard stats widget -->
-                <div class="live-dashboard-widget">
-                    <div class="widget-header-row">
-                        <div class="widget-title">
-                            <span class="widget-live-dot"></span>
-                            <span>Live Project Dashboard</span>
+                <!-- Right Side: Bento stack of stats, tools, and payments widgets -->
+                <div class="dashboard-bento-right" style="display: flex; flex-direction: column; gap: 24px;">
+                    <!-- Bento Widget 1: Live Project Dashboard -->
+                    <div class="live-dashboard-widget" style="margin-bottom: 0; padding: 25px;">
+                        <div class="widget-header-row" style="margin-bottom: 20px;">
+                            <div class="widget-title">
+                                <span class="widget-live-dot"></span>
+                                <span>Live Project Dashboard</span>
+                            </div>
+                        </div>
+                        <div class="widget-grid-stats" style="margin-bottom: 0;">
+                            <div class="widget-stat-box" style="padding: 15px 10px;">
+                                <h4>34</h4>
+                                <p>Active Projects</p>
+                            </div>
+                            <div class="widget-stat-box" style="padding: 15px 10px;">
+                                <h4>126</h4>
+                                <p>Websites Managed</p>
+                            </div>
+                            <div class="widget-stat-box" style="padding: 15px 10px;">
+                                <h4>5,841</h4>
+                                <p>Tickets Closed</p>
+                            </div>
+                            <div class="widget-stat-box" style="padding: 15px 10px;">
+                                <h4>18 min</h4>
+                                <p>Avg Support Reply</p>
+                            </div>
+                            <div class="widget-stat-box" style="padding: 15px 10px;">
+                                <h4>96%</h4>
+                                <p>Client Retention</p>
+                            </div>
+                            <div class="widget-stat-box" style="padding: 15px 10px;">
+                                <h4>4.9/5</h4>
+                                <p>Client Rating</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="widget-grid-stats">
-                        <div class="widget-stat-box">
-                            <h4>34</h4>
-                            <p>Current Active Projects</p>
-                        </div>
-                        <div class="widget-stat-box">
-                            <h4>126</h4>
-                            <p>Websites Managed</p>
-                        </div>
-                        <div class="widget-stat-box">
-                            <h4>5,841</h4>
-                            <p>Tickets Closed</p>
-                        </div>
-                        <div class="widget-stat-box">
-                            <h4>18 min</h4>
-                            <p>Avg Support Reply Time</p>
-                        </div>
-                        <div class="widget-stat-box">
-                            <h4>96%</h4>
-                            <p>Client Retention</p>
-                        </div>
-                        <div class="widget-stat-box">
-                            <h4>4.9 / 5</h4>
-                            <p>Client Trust Rating</p>
-                        </div>
-                    </div>
-                    
-                    <div class="widget-tools-row">
-                        <p>Tools &amp; Technologies We Use</p>
-                        <div class="widget-tools-flex" style="display: flex; gap: 10px 14px; flex-wrap: wrap;">
-                            <span>Semrush</span>
-                            <span>Ahrefs</span>
-                            <span>Screaming Frog</span>
-                            <span>Lumar</span>
-                            <span>GSC</span>
-                            <span>GA4</span>
-                            <span>GTM</span>
-                            <span>GitHub</span>
-                            <span>VS Code</span>
-                        </div>
-                    </div>
-                    
-                    <div class="widget-payments-row">
-                        <p>Easy &amp; Secure Payments</p>
-                        <div class="widget-payments-flex" style="display: flex; gap: 10px 15px; align-items: center; flex-wrap: wrap;">
-                            <span>Wise</span>
-                            <span>Bank Transfer</span>
-                            <span>PayPal</span>
-                            <span>Stripe</span>
-                            <span>Visa</span>
-                            <span>Mastercard</span>
-                            <span>Amex</span>
-                        </div>
-                        <p class="widget-payments-disclaimer">Invoices • GST Compliant • Full Transparency</p>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Data Security Badges inside the same box -->
-            <div class="tap-security-section">
-                <h3 style="text-align: center; color: #ffffff; margin-bottom: 30px; font-size: 1.25rem;">Your Data. Your Business. 100% Secure.</h3>
-                <div class="security-badges-row">
-                    <div class="security-badge-item">
-                        <span class="security-badge-icon">🔒</span>
-                        <h4>NDA Protected</h4>
+                    <!-- Bento Widget 2: Tools We Use -->
+                    <div class="bento-card-tools" style="background: var(--dark-bg-alt); border: 1px solid var(--border-light); border-radius: 20px; padding: 25px; box-shadow: var(--shadow-md);">
+                        <h3 style="font-size: 0.95rem; font-weight: 800; color: #ffffff; text-transform: uppercase; margin: 0 0 20px 0; font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: 0.05em; display: flex; align-items: center; gap: 8px;">
+                            <span>🛠️</span> Tools We Use
+                        </h3>
+                        <div class="bento-tools-grid" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px 12px; align-items: center; justify-items: center;">
+                            <!-- Semrush -->
+                            <svg viewBox="0 0 130 35" width="40" height="15" title="Semrush">
+                                <path d="M15 7C9.5 7 5 11.5 5 17s4.5 10 10 10 10-4.5 10-10c0-1.7-.4-3.3-1.2-4.7L22 14c.4.9.6 1.9.6 3 0 4.2-3.4 7.6-7.6 7.6S7.4 21.2 7.4 17s3.4-7.6 7.6-7.6c1.1 0 2.1.2 3 .6l1.8-1.8C18.3 7.4 16.7 7 15 7z" fill="#FF642D"/>
+                                <path d="M21.5 12.5C21.5 15 19.5 17 17 17s-4.5-2-4.5-4.5S14.5 8 17 8l.5 1.5c-1.5 0-2.5 1-2.5 2.5s1 2.5 2.5 2.5 2.5-1 2.5-2.5l1 .5z" fill="#FF642D"/>
+                            </svg>
+                            <!-- Ahrefs -->
+                            <svg viewBox="0 0 110 35" width="40" height="15" title="Ahrefs">
+                                <path d="M8 8h6l6 18h-5.5l-1.5-5H9l-1.5 5H2L8 8zm6 9.5l-2.5-8-2.5 8h5z" fill="#FF8D00"/>
+                            </svg>
+                            <!-- Screaming Frog -->
+                            <svg viewBox="0 0 170 35" width="45" height="15" title="Screaming Frog">
+                                <path d="M12 5c-3.3 0-6 2.7-6 6v3h12v-3c0-3.3-2.7-6-6-6zm-4 9v4c0 2.2 1.8 4 4 4s4-1.8 4-4v-4H8z" fill="#4B8C2A"/>
+                                <circle cx="9" cy="8" r="1.5" fill="#FFFFFF"/>
+                                <circle cx="15" cy="8" r="1.5" fill="#FFFFFF"/>
+                            </svg>
+                            <!-- Lumar -->
+                            <span style="font-size: 0.8rem; font-weight: 900; color: #00E676; letter-spacing: 0.5px;">Lumar</span>
+                            <!-- GSC -->
+                            <span style="font-size: 0.8rem; font-weight: 800; color: #4285F4; letter-spacing: 0.5px;">GSC</span>
+                            <!-- PageSpeed -->
+                            <span style="font-size: 0.75rem; font-weight: 800; color: #00C4B4;">PageSpeed</span>
+                            <!-- GA4 -->
+                            <span style="font-size: 0.75rem; font-weight: 800; color: #FF8F00;">GA4</span>
+                            <!-- GTM -->
+                            <span style="font-size: 0.75rem; font-weight: 800; color: #2563EB;">GTM</span>
+                            <!-- GitHub SVG -->
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="#ffffff" title="GitHub">
+                                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                            </svg>
+                            <!-- VS Code -->
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="#007ACC" title="VS Code">
+                                <path d="M23.984 6.375c-.015-.094-.063-.172-.125-.234L18.422.375c-.156-.156-.422-.156-.578 0L12.563 5.64 8.78 2.656c-.156-.125-.375-.109-.5.047L.375 12.438c-.156.188-.125.469.078.61l4.03 2.92c.125.094.297.078.406-.03l3.89-3.89 3.78 2.984c.156.125.375.11.5-.047l5.28-5.266 5.437 5.766c.078.078.172.11.266.11a.34.34 0 0 0 .187-.048c.172-.11.25-.312.219-.515L23.984 6.375zM5.313 14.563l-2.92-2.125 5.375-4.203-2.455 6.328zm10.703-2.86l-3.453-2.734 3.453-3.453v6.187z"/>
+                            </svg>
+                        </div>
                     </div>
-                    <div class="security-badge-item">
-                        <span class="security-badge-icon">💻</span>
-                        <h4>Source Code Ownership</h4>
-                    </div>
-                    <div class="security-badge-item">
-                        <span class="security-badge-icon">💾</span>
-                        <h4>Full Backups Weekly</h4>
-                    </div>
-                    <div class="security-badge-item">
-                        <span class="security-badge-icon">🔑</span>
-                        <h4>Access Control</h4>
-                    </div>
-                    <div class="security-badge-item">
-                        <span class="security-badge-icon">🌿</span>
-                        <h4>Version Control</h4>
-                    </div>
-                    <div class="security-badge-item">
-                        <span class="security-badge-icon">🛡️</span>
-                        <h4>Secure Infrastructure</h4>
-                    </div>
-                    <div class="security-badge-item">
-                        <span class="security-badge-icon">💬</span>
-                        <h4>Encrypted Communication</h4>
-                    </div>
-                    <div class="security-badge-item">
-                        <span class="security-badge-icon">📊</span>
-                        <h4>Weekly Reporting</h4>
+
+                    <!-- Bento Widget 3: Easy & Secure Payments -->
+                    <div class="bento-card-payments" style="background: var(--dark-bg-alt); border: 1px solid var(--border-light); border-radius: 20px; padding: 25px; box-shadow: var(--shadow-md);">
+                        <h3 style="font-size: 0.95rem; font-weight: 800; color: #ffffff; text-transform: uppercase; margin: 0 0 20px 0; font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: 0.05em; display: flex; align-items: center; gap: 8px;">
+                            <span>💳</span> Easy &amp; Secure Payments
+                        </h3>
+                        <div class="bento-payments-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px 12px; align-items: center; justify-items: center;">
+                            <!-- Wise -->
+                            <span style="font-size: 0.85rem; font-weight: 900; color: #00B0FF;">Wise</span>
+                            <!-- PayPal -->
+                            <span style="font-size: 0.85rem; font-weight: 900; color: #003087;">PayPal</span>
+                            <!-- Stripe -->
+                            <span style="font-size: 0.85rem; font-weight: 900; color: #635BFF;">stripe</span>
+                            <!-- Bank Transfer -->
+                            <span style="font-size: 0.75rem; font-weight: 800; color: var(--text-secondary);">BANK</span>
+                            <!-- Visa -->
+                            <span style="font-size: 0.85rem; font-weight: 900; color: #1A1F71; font-style: italic;">VISA</span>
+                            <!-- Mastercard -->
+                            <div style="display: flex; gap: 2px; align-items: center;">
+                                <div style="width: 14px; height: 14px; background: #EB001B; border-radius: 50%;"></div>
+                                <div style="width: 14px; height: 14px; background: #F79E1B; border-radius: 50%; margin-left: -6px; opacity: 0.85;"></div>
+                            </div>
+                            <!-- Amex -->
+                            <span style="font-size: 0.75rem; font-weight: 900; color: #0070CD; border: 1px solid #0070CD; padding: 1px 3px; border-radius: 3px;">AMEX</span>
+                        </div>
+                        <p class="widget-payments-disclaimer" style="margin-top: 15px; margin-bottom: 0; font-size: 0.75rem; color: var(--text-muted); font-style: italic;">Invoices • GST Compliant • Full Transparency</p>
                     </div>
                 </div>
             </div>
@@ -2394,63 +2552,51 @@
         </div>
         <div class="hubs-grid">
             <!-- USA -->
-            <a class="hub-card-item" href="/seo-audit-usa/">
-                <div class="hub-image-wrap">
-                    <img src="assets/images/locations/us_seo_hero.png" alt="USA Technical SEO Hub" loading="lazy" />
-                </div>
+            <a class="hub-card-item card-usa" href="/seo-audit-usa/" style="background-image: url('assets/images/locations/us_seo_hero.png');">
+                <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(5, 8, 20, 0.95) 0%, rgba(5, 8, 20, 0.3) 50%, rgba(5, 8, 20, 0) 100%); z-index: 1;"></div>
                 <div class="hub-card-content">
                     <h3>🇺🇸 USA</h3>
-                    <span>View Regional Hub &rarr;</span>
+                    <span>View Regional Hub &nbsp;&rarr;</span>
                 </div>
             </a>
             <!-- Canada -->
-            <a class="hub-card-item" href="/seo-audit-canada/">
-                <div class="hub-image-wrap">
-                    <img src="assets/images/locations/canada_seo_hero.png" alt="Canada Technical SEO Hub" loading="lazy" />
-                </div>
+            <a class="hub-card-item card-canada" href="/seo-audit-canada/" style="background-image: url('assets/images/locations/canada_seo_hero.png');">
+                <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(5, 8, 20, 0.95) 0%, rgba(5, 8, 20, 0.3) 50%, rgba(5, 8, 20, 0) 100%); z-index: 1;"></div>
                 <div class="hub-card-content">
                     <h3>🇨🇦 Canada</h3>
-                    <span>View Regional Hub &rarr;</span>
+                    <span>View Regional Hub &nbsp;&rarr;</span>
                 </div>
             </a>
             <!-- Australia -->
-            <a class="hub-card-item" href="/seo-audit-australia/">
-                <div class="hub-image-wrap">
-                    <img src="assets/images/locations/canada_seo_hero.png" alt="Australia Technical SEO Hub" loading="lazy" />
-                </div>
+            <a class="hub-card-item card-australia" href="/seo-audit-australia/" style="background-image: url('assets/images/locations/australia_seo_hero.png');">
+                <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(5, 8, 20, 0.95) 0%, rgba(5, 8, 20, 0.3) 50%, rgba(5, 8, 20, 0) 100%); z-index: 1;"></div>
                 <div class="hub-card-content">
                     <h3>🇦🇺 Australia</h3>
-                    <span>View Regional Hub &rarr;</span>
+                    <span>View Regional Hub &nbsp;&rarr;</span>
                 </div>
             </a>
             <!-- UK -->
-            <a class="hub-card-item" href="/seo-company/london-uk/">
-                <div class="hub-image-wrap">
-                    <img src="assets/images/locations/uk_seo_hero.png" alt="UK Technical SEO Hub" loading="lazy" />
-                </div>
+            <a class="hub-card-item card-uk" href="/seo-company/london-uk/" style="background-image: url('assets/images/locations/uk_seo_hero.png');">
+                <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(5, 8, 20, 0.95) 0%, rgba(5, 8, 20, 0.3) 50%, rgba(5, 8, 20, 0) 100%); z-index: 1;"></div>
                 <div class="hub-card-content">
                     <h3>🇬🇧 UK</h3>
-                    <span>View Regional Hub &rarr;</span>
+                    <span>View Regional Hub &nbsp;&rarr;</span>
                 </div>
             </a>
             <!-- Dubai -->
-            <a class="hub-card-item" href="/seo-services/">
-                <div class="hub-image-wrap">
-                    <img src="assets/images/locations/us_seo_hero.png" alt="Dubai Technical SEO Hub" loading="lazy" />
-                </div>
+            <a class="hub-card-item card-dubai" href="/seo-services/" style="background-image: url('assets/images/locations/dubai_seo_hero.png');">
+                <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(5, 8, 20, 0.95) 0%, rgba(5, 8, 20, 0.3) 50%, rgba(5, 8, 20, 0) 100%); z-index: 1;"></div>
                 <div class="hub-card-content">
                     <h3>🇦🇪 Dubai</h3>
-                    <span>View Regional Hub &rarr;</span>
+                    <span>View Regional Hub &nbsp;&rarr;</span>
                 </div>
             </a>
             <!-- India -->
-            <a class="hub-card-item" href="/seo-audit-kochi/">
-                <div class="hub-image-wrap">
-                    <img src="assets/images/locations/india_seo_hero.png" alt="India Technical SEO Hub" loading="lazy" />
-                </div>
+            <a class="hub-card-item card-india" href="/seo-audit-kochi/" style="background-image: url('assets/images/locations/india_seo_hero.png');">
+                <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(5, 8, 20, 0.95) 0%, rgba(5, 8, 20, 0.3) 50%, rgba(5, 8, 20, 0) 100%); z-index: 1;"></div>
                 <div class="hub-card-content">
                     <h3>🇮🇳 India</h3>
-                    <span>View Regional Hub &rarr;</span>
+                    <span>View Regional Hub &nbsp;&rarr;</span>
                 </div>
             </a>
         </div>
@@ -2521,15 +2667,14 @@
         <div class="cta-card-box" id="audit-details">
             <h3>Stop Paying Local Agency Prices.<br>Keep the Same Quality.<br>Or Better.</h3>
             <p>Get your free, no-obligation technical health check audit in 60 seconds.</p>
-            <div class="cta-card-checklist">
+            <div class="cta-card-checklist" style="margin-bottom: 30px;">
                 <div class="cta-checklist-item"><span>✓</span> No Contracts</div>
                 <div class="cta-checklist-item"><span>✓</span> Cancel Anytime</div>
                 <div class="cta-checklist-item"><span>✓</span> No Sales Pressure</div>
                 <div class="cta-checklist-item"><span>✓</span> Just Quality</div>
             </div>
-            <iframe aria-label="Contact Us" frameborder="0" src="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" style="height:380px;width:100%;border:none;margin-bottom: 15px;"></iframe>
-            <a class="primary-btn-large" href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank">Book Strategy Call</a>
-            <p class="cta-card-subtext">Takes 60 seconds • Get instant insights</p>
+            <a class="primary-btn-large" href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" style="width: 100%; text-align: center; justify-content: center; box-sizing: border-box;">Book Strategy Call</a>
+            <p class="cta-card-subtext" style="margin-top: 15px;">Takes 60 seconds • Get instant insights</p>
         </div>
     </div>
 </section>
@@ -2812,33 +2957,39 @@ window.initGoogleMap = function() {
     const mapElement = document.getElementById('google-map');
     if (!mapElement) return;
 
-    // Custom dark mode theme styled exactly like input_file_1.png
-    const darkMapStyle = [
-        { "elementType": "geometry", "stylers": [{ "color": "#060919" }] },
-        { "elementType": "labels.text.stroke", "stylers": [{ "visibility": "off" }] },
-        { "elementType": "labels.text.fill", "stylers": [{ "color": "#818cf8" }] },
-        { "featureType": "administrative.country", "elementType": "geometry.stroke", "stylers": [{ "color": "#1e293b" }] },
-        { "featureType": "administrative.country", "elementType": "labels.text.fill", "stylers": [{ "color": "#ffffff" }, { "font-weight": "bold" }] },
+    // Custom light/white map styles
+    const lightMapStyle = [
+        { "elementType": "geometry", "stylers": [{ "color": "#f8fafc" }] },
+        { "elementType": "labels.icon", "stylers": [{ "visibility": "on" }, { "opacity": 50 }] },
+        { "elementType": "labels.text.fill", "stylers": [{ "color": "#475569" }] },
+        { "elementType": "labels.text.stroke", "stylers": [{ "color": "#f8fafc" }] },
+        { "featureType": "administrative", "elementType": "geometry.stroke", "stylers": [{ "color": "#cbd5e1" }] },
+        { "featureType": "administrative.country", "elementType": "geometry.stroke", "stylers": [{ "color": "#94a3b8" }, { "strokeWeight": 1 }] },
+        { "featureType": "landscape.natural", "elementType": "geometry.fill", "stylers": [{ "color": "#f1f5f9" }] },
         { "featureType": "poi", "stylers": [{ "visibility": "off" }] },
-        { "featureType": "road", "stylers": [{ "visibility": "off" }] },
-        { "featureType": "transit", "stylers": [{ "visibility": "off" }] },
-        { "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#020308" }] },
-        { "featureType": "water", "elementType": "labels.text.fill", "stylers": [{ "color": "#334155" }] }
+        { "featureType": "road", "stylers": [{ "visibility": "on" }] },
+        { "featureType": "road", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }] },
+        { "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#e2e8f0" }] },
+        { "featureType": "water", "elementType": "labels.text.fill", "stylers": [{ "color": "#64748b" }] }
     ];
 
     const mapOptions = {
-        center: { lat: 25, lng: 10 },
+        center: { lat: 20, lng: 10 },
         zoom: 2,
-        disableDefaultUI: true,
-        styles: darkMapStyle,
-        backgroundColor: '#050814',
+        mapTypeControl: true, // Enables Satellite option
+        mapTypeControlOptions: {
+            style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+            position: google.maps.ControlPosition.TOP_LEFT
+        },
+        styles: lightMapStyle,
+        backgroundColor: '#ffffff',
         gestureHandling: 'cooperative'
     };
 
     const map = new google.maps.Map(mapElement, mapOptions);
 
     const locations = [
-        { name: "Kochi, India HQ 🇮🇳", label: "India HQ", lat: 9.9312, lng: 76.2673, isHq: true },
+        { name: "Our Location (HQ Kochi, India 🇮🇳)", label: "Our Location", lat: 9.9312, lng: 76.2673, isHq: true },
         { name: "USA 🇺🇸", label: "USA", lat: 40.7128, lng: -74.0060 },
         { name: "Canada 🇨🇦", label: "Canada", lat: 43.6532, lng: -79.3832 },
         { name: "United Kingdom 🇬🇧", label: "UK", lat: 51.5074, lng: -0.1278 },
@@ -2859,17 +3010,17 @@ window.initGoogleMap = function() {
             title: loc.name,
             label: {
                 text: loc.label,
-                color: '#ffffff',
+                color: loc.isHq ? '#ffffff' : '#1e293b',
                 fontSize: '11px',
                 fontWeight: '800'
             },
             icon: {
                 path: google.maps.SymbolPath.CIRCLE,
-                scale: loc.isHq ? 8 : 6,
+                scale: loc.isHq ? 9 : 6,
                 fillColor: loc.isHq ? '#10b981' : '#6366f1',
                 fillOpacity: 1,
                 strokeColor: '#ffffff',
-                strokeWeight: 1.5,
+                strokeWeight: loc.isHq ? 2.5 : 1.5,
                 labelOrigin: new google.maps.Point(0, -14)
             }
         });
@@ -2886,18 +3037,51 @@ window.initGoogleMap = function() {
             infowindow.close();
         });
 
+        // Open Kochi HQ infowindow by default
+        if (loc.isHq) {
+            infowindow.open(map, marker);
+        }
+
         // Geodesic connections from India HQ
         if (!loc.isHq) {
             new google.maps.Polyline({
                 path: [hqLatLng, latLng],
                 geodesic: true,
-                strokeColor: '#818cf8',
-                strokeOpacity: 0.6,
+                strokeColor: '#6366f1',
+                strokeOpacity: 0.5,
                 strokeWeight: 2,
                 map: map
             });
         }
     });
+
+    // Detect user's location via Geolocation API
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            const userLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            const userMarker = new google.maps.Marker({
+                position: userLatLng,
+                map: map,
+                title: "Your Location",
+                icon: {
+                    path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+                    scale: 6,
+                    fillColor: '#ef4444', // Red marker for user location
+                    fillOpacity: 1,
+                    strokeColor: '#ffffff',
+                    strokeWeight: 1.5
+                }
+            });
+            const userInfoWindow = new google.maps.InfoWindow({
+                content: `<div style="color:#0f172a; font-family:'Inter',sans-serif; font-size:12px; font-weight:800; padding:4px;">Your Location</div>`
+            });
+            userMarker.addListener('click', function() {
+                userInfoWindow.open(map, userMarker);
+            });
+        }, function(err) {
+            console.log("Geolocation error:", err);
+        });
+    }
 };
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApNqBu2x4uBoQRiQjkPGyp5pOPnFDgNf8&callback=initGoogleMap" async defer></script>
@@ -2912,5 +3096,195 @@ window.initGoogleMap = function() {
     </svg>
  </a>
 
- </body>
- </html>
+<!-- Custom Floating Tidio Support Widget -->
+<button class="tidio-custom-float" aria-label="Open Chat Support">
+    <svg class="tidio-chat-icon" viewBox="0 0 24 24">
+        <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
+    </svg>
+</button>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // --- Draggable Floating Tidio Custom Badge Code ---
+    (function() {
+        const tidioButton = document.querySelector('.tidio-custom-float');
+        if (!tidioButton) return;
+
+        let isDragging = false;
+        let dragActive = false;
+        let startX, startY;
+        let initialX, initialY;
+
+        // Mouse events
+        tidioButton.addEventListener('mousedown', function(e) {
+            if (e.button !== 0) return;
+            dragActive = true;
+            isDragging = false;
+            startX = e.clientX;
+            startY = e.clientY;
+            const rect = tidioButton.getBoundingClientRect();
+            initialX = rect.left;
+            initialY = rect.top;
+            tidioButton.style.transition = 'none';
+            e.preventDefault();
+        });
+
+        document.addEventListener('mousemove', function(e) {
+            if (!dragActive) return;
+            const dx = e.clientX - startX;
+            const dy = e.clientY - startY;
+            
+            if (Math.abs(dx) > 6 || Math.abs(dy) > 6) {
+                isDragging = true;
+            }
+
+            if (isDragging) {
+                tidioButton.style.left = (initialX + dx) + 'px';
+                tidioButton.style.top = (initialY + dy) + 'px';
+                tidioButton.style.bottom = 'auto';
+                tidioButton.style.right = 'auto';
+            }
+        });
+
+        document.addEventListener('mouseup', function(e) {
+            if (!dragActive) return;
+            dragActive = false;
+            tidioButton.style.transition = '';
+        });
+
+        // Touch events
+        tidioButton.addEventListener('touchstart', function(e) {
+            dragActive = true;
+            isDragging = false;
+            const touch = e.touches[0];
+            startX = touch.clientX;
+            startY = touch.clientY;
+            const rect = tidioButton.getBoundingClientRect();
+            initialX = rect.left;
+            initialY = rect.top;
+            tidioButton.style.transition = 'none';
+        });
+
+        document.addEventListener('touchmove', function(e) {
+            if (!dragActive) return;
+            const touch = e.touches[0];
+            const dx = touch.clientX - startX;
+            const dy = touch.clientY - startY;
+
+            if (Math.abs(dx) > 6 || Math.abs(dy) > 6) {
+                isDragging = true;
+            }
+
+            if (isDragging) {
+                tidioButton.style.left = (initialX + dx) + 'px';
+                tidioButton.style.top = (initialY + dy) + 'px';
+                tidioButton.style.bottom = 'auto';
+                tidioButton.style.right = 'auto';
+            }
+        });
+
+        document.addEventListener('touchend', function(e) {
+            if (!dragActive) return;
+            dragActive = false;
+            tidioButton.style.transition = '';
+        });
+
+        // Click event opens Tidio
+        tidioButton.addEventListener('click', function(e) {
+            if (isDragging) {
+                e.preventDefault();
+                e.stopPropagation();
+                return;
+            }
+            if (window.tidioChatApi) {
+                window.tidioChatApi.open();
+            }
+        });
+    })();
+
+    // Hide Tidio default launcher
+    function onTidioChatApiReady() {
+        window.tidioChatApi.hide();
+        window.tidioChatApi.on("close", function() {
+            const tidioButton = document.querySelector('.tidio-custom-float');
+            if (tidioButton) tidioButton.style.display = 'flex';
+        });
+    }
+
+    if (window.tidioChatApi) {
+        onTidioChatApiReady();
+    } else {
+        document.addEventListener("tidioChat-ready", onTidioChatApiReady);
+    }
+});
+</script>
+
+<!-- Zoho Form Modal Overlay -->
+<div id="zoho-modal" style="display: none; position: fixed; inset: 0; background: rgba(5, 8, 20, 0.85); backdrop-filter: blur(8px); z-index: 99999; align-items: center; justify-content: center;">
+    <div style="background: var(--dark-card); border: 1.5px solid var(--border-light); border-radius: 24px; width: 90%; max-width: 580px; position: relative; overflow: hidden; box-shadow: var(--shadow-lg); animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
+        <!-- Modal Header -->
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; border-bottom: 1px solid var(--border-light);">
+            <h3 style="margin: 0; font-size: 1.25rem; font-weight: 800; color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif;">Get Your Free Audit</h3>
+            <button id="close-zoho-modal" style="background: none; border: none; color: var(--text-secondary); font-size: 1.8rem; cursor: pointer; transition: color 0.2s; display: flex; align-items: center; justify-content: center; padding: 0; line-height: 1;">&times;</button>
+        </div>
+        <!-- Modal Body (Zoho Iframe) -->
+        <div style="padding: 0; height: 500px;">
+            <iframe id="zoho-modal-iframe" aria-label="Contact Us" frameborder="0" style="height:100%; width:100%; border:none;" src="about:blank"></iframe>
+        </div>
+    </div>
+</div>
+
+<style>
+    @keyframes modalFadeIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95) translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+    }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('zoho-modal');
+    const iframe = document.getElementById('zoho-modal-iframe');
+    const closeBtn = document.getElementById('close-zoho-modal');
+    const formUrl = "https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg";
+
+    // Intercept all links pointing to the Zoho Form (except inside the modal iframe itself)
+    document.querySelectorAll('a[href*="dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            iframe.src = formUrl;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent page scroll under modal
+        });
+    });
+
+    function closeModal() {
+        modal.style.display = 'none';
+        iframe.src = 'about:blank';
+        document.body.style.overflow = '';
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // ESC key closes the modal
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.style.display === 'flex') {
+            closeModal();
+        }
+    });
+});
+</script>
+
+</body>
+</html>
