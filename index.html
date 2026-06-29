@@ -18,7 +18,7 @@
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Playball&display=swap" rel="stylesheet"/>
 <!-- Styles -->
 <link href="assets/css/homepage.css" rel="stylesheet"/>
 
@@ -55,13 +55,13 @@
         overflow-x: hidden;
     }
 
-    /* Edge-to-Edge Container styling to prevent empty side space */
+    /* Edge-to-Edge Container styling to prevent empty side space on wide desktops */
     .container {
-        width: 96%;
-        max-width: 1720px;
-        margin: 0 auto;
-        padding: 0 20px;
-        box-sizing: border-box;
+        width: 96% !important;
+        max-width: 1720px !important;
+        margin: 0 auto !important;
+        padding: 0 20px !important;
+        box-sizing: border-box !important;
     }
 
     /* --- TOP TRUST SCORE STRIP --- */
@@ -162,12 +162,12 @@
         box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
     }
 
-    /* --- GIGANTIC HERO SECTION (STATIC DARK BACKDROP) --- */
+    /* --- GIGANTIC HERO SECTION (STATIC FULL SPACE BACKDROP) --- */
     .tap-new-hero {
         position: relative;
         padding: 90px 0;
         border-bottom: 1px solid var(--border-light);
-        background: radial-gradient(circle at 75% 30%, #17153f 0%, #050814 80%);
+        background: radial-gradient(circle at 85% 30%, #151d3b 0%, #050814 60%) !important;
         overflow: hidden;
         color: #ffffff;
     }
@@ -260,7 +260,7 @@
     }
     .hero-flex-layout {
         display: grid;
-        grid-template-columns: 1fr 340px;
+        grid-template-columns: 1fr 380px;
         gap: 40px;
         align-items: center;
     }
@@ -345,13 +345,6 @@
         align-items: center;
         gap: 35px;
         flex-wrap: wrap;
-    }
-    .hero-powered-logos svg {
-        opacity: 0.85;
-        transition: opacity 0.2s ease;
-    }
-    .hero-powered-logos svg:hover {
-        opacity: 1;
     }
 
     /* --- LIMITED LAUNCH OFFER BANNER --- */
@@ -470,21 +463,13 @@
         gap: 40px;
         flex-wrap: wrap;
     }
-    .brands-carousel-grid svg {
-        opacity: 0.9;
-        transition: all 0.25s ease;
-    }
-    .brands-carousel-grid svg:hover {
-        opacity: 1;
-        transform: scale(1.06);
-    }
     .brands-sub-disclaimer {
         margin-top: 25px;
         font-size: 0.85rem;
         color: var(--text-secondary);
     }
 
-    /* --- GLOBAL PRESENCE SECTION --- */
+    /* --- GLOBAL PRESENCE SECTION (WITH REAL INTERACTIVE GOOGLE MAP) --- */
     .tap-presence-section {
         padding: 100px 0;
         border-bottom: 1px solid var(--border-light);
@@ -511,69 +496,20 @@
     .presence-grid {
         display: grid;
         grid-template-columns: 1fr 380px;
-        gap: 60px;
+        gap: 40px;
         align-items: center;
     }
     .presence-map-wrapper {
         position: relative;
-        background: var(--dark-bg-alt);
-        border: 1px solid var(--border-light);
+        background: #080c1a;
+        border: 1.5px solid var(--border-light);
         border-radius: 24px;
         height: 480px;
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
-        box-shadow: var(--shadow-md);
-    }
-    .presence-map-svg {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        z-index: 0;
-    }
-    .map-pulse-point {
-        position: absolute;
-        width: 14px;
-        height: 14px;
-        background-color: var(--primary-indigo-light);
-        border-radius: 50%;
-        z-index: 2;
-    }
-    .map-pulse-point::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border: 4px solid var(--primary-indigo-light);
-        border-radius: 50%;
-        animation: mapPulse 1.8s infinite ease-out;
-        opacity: 0;
-        left: -4px;
-        top: -4px;
-    }
-    .point-usa { top: 31%; left: 20%; }
-    .point-canada { top: 24%; left: 19%; }
-    .point-uk { top: 27%; left: 43%; }
-    .point-germany { top: 28%; left: 45.5%; }
-    .point-dubai { top: 42%; left: 54%; }
-    .point-india { top: 47%; left: 59%; }
-    .point-singapore { top: 56%; left: 66%; }
-    .point-australia { top: 67%; left: 76%; }
-    
-    .map-location-tag {
-        position: absolute;
-        background: #0f172a;
-        color: #ffffff;
-        font-size: 0.72rem;
-        font-weight: 800;
-        padding: 4px 10px;
-        border-radius: 6px;
-        white-space: nowrap;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-        transform: translate(-50%, -30px);
+        box-shadow: var(--shadow-lg);
     }
     
     .presence-stats-panel {
@@ -620,7 +556,7 @@
     }
     .savings-grid {
         display: grid;
-        grid-template-columns: 1fr 280px 1fr;
+        grid-template-columns: 1fr 300px 1fr;
         gap: 40px;
         align-items: stretch;
     }
@@ -675,6 +611,29 @@
         position: absolute;
         inset: 0;
         z-index: 1;
+    }
+    .video-overlay-play {
+        position: relative;
+        z-index: 2;
+        text-decoration: none;
+    }
+    .play-btn-circle {
+        width: 70px;
+        height: 70px;
+        background: rgba(79, 70, 229, 0.9);
+        color: #ffffff;
+        font-size: 1.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: transform 0.2s;
+        box-shadow: 0 0 25px rgba(99, 102, 241, 0.6);
+        padding-left: 5px;
+    }
+    .play-btn-circle:hover {
+        transform: scale(1.1);
+        background: var(--primary-indigo-light);
     }
     
     /* Cost comparison vertical bars */
@@ -1012,16 +971,23 @@
         line-height: 1.35;
     }
 
-    /* --- SERVICES & LIVE DASHBOARD (SCREENSHOT 3 ALIGNED) --- */
+    /* --- SERVICES, LIVE DASHBOARD & SECURE ROW COMBINED IN SINGLE BOX (SCREENSHOT 3 ALIGNED) --- */
     .tap-services-dashboard-section {
         padding: 100px 0;
         border-bottom: 1px solid var(--border-light);
         background: var(--dark-bg);
     }
+    .services-dashboard-grid-container {
+        background: var(--dark-card) !important;
+        border: 1.5px solid var(--border-light) !important;
+        border-radius: 24px !important;
+        padding: 45px !important;
+        box-shadow: var(--shadow-lg) !important;
+    }
     .services-dashboard-grid {
         display: grid;
         grid-template-columns: 1fr 450px;
-        gap: 60px;
+        gap: 50px;
         align-items: start;
     }
     .section-header-left h2 {
@@ -1077,11 +1043,11 @@
 
     /* Live widget column */
     .live-dashboard-widget {
-        background: var(--dark-card);
+        background: var(--dark-bg-alt);
         border: 1px solid var(--border-light);
-        border-radius: 24px;
+        border-radius: 20px;
         padding: 35px;
-        box-shadow: var(--shadow-lg);
+        box-shadow: var(--shadow-md);
     }
     .widget-header-row {
         display: flex;
@@ -1112,7 +1078,7 @@
         margin-bottom: 35px;
     }
     .widget-stat-box {
-        background: var(--dark-bg-alt);
+        background: var(--dark-card);
         border: 1px solid var(--border-light);
         border-radius: 14px;
         padding: 20px;
@@ -1150,7 +1116,7 @@
     .widget-tools-flex span {
         font-size: 0.78rem;
         font-weight: 700;
-        background: var(--dark-bg-alt);
+        background: var(--dark-card);
         border: 1px solid var(--border-light);
         padding: 4px 10px;
         border-radius: 6px;
@@ -1185,11 +1151,10 @@
         font-style: italic;
     }
 
-    /* --- SECURITY CHECKS (SCREENSHOT 3 BOTTOM ROW) --- */
+    /* --- DATA SECURITY badges inside the same box --- */
     .tap-security-section {
-        padding: 60px 0;
-        border-bottom: 1px solid var(--border-light);
-        background-color: var(--dark-bg-alt);
+        padding-top: 40px;
+        border-top: 1px solid var(--border-light);
     }
     .security-badges-row {
         display: flex;
@@ -1349,12 +1314,14 @@
         color: var(--text-secondary);
         margin: 0 0 24px 0;
     }
+    
     .founder-signature {
-        font-family: 'Georgia', serif;
-        font-style: italic;
-        font-size: 1.35rem;
-        color: var(--accent-teal-light);
-        font-weight: 700;
+        font-family: 'Playball', cursive !important;
+        font-size: 2.5rem !important;
+        color: var(--accent-teal-light) !important;
+        margin-top: 15px !important;
+        font-weight: 400 !important;
+        text-shadow: 0 0 10px rgba(45, 212, 191, 0.2) !important;
     }
     
     .founder-timeline-list {
@@ -1421,6 +1388,32 @@
         margin-top: 12px;
     }
 
+    /* Floating WhatsApp Widget style - Positioned small on bottom right */
+    .whatsapp-float {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 10000;
+        background-color: #25d366;
+        color: white;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        transition: transform 0.2s ease;
+    }
+    .whatsapp-float:hover {
+        transform: scale(1.1);
+    }
+    .whatsapp-icon {
+        width: 32px;
+        height: 32px;
+        fill: white;
+    }
+
     /* --- RESPONSIVE ADAPTATIONS --- */
     @media (max-width: 1200px) {
         .hero-grid {
@@ -1448,9 +1441,6 @@
             justify-content: center;
         }
         .hero-cta-group {
-            justify-content: center;
-        }
-        .hero-powered-logos {
             justify-content: center;
         }
         
@@ -1539,9 +1529,13 @@
 <!-- Header -->
 <header class="main-header-bar">
     <div class="container header-container">
-        <a class="header-logo" href="/">
-            <img alt="TechAuditPros Logo" height="32" src="assets/logoonly.svg" width="32"/>
-            <span class="logo-text">TechAuditPros</span>
+        <!-- Logo styled as per referenced image header -->
+        <a class="header-logo" href="/" style="display: flex; flex-direction: column; align-items: flex-start; gap: 0; text-decoration: none;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <img alt="TechAuditPros Logo" height="32" src="assets/logoonly.svg" width="32"/>
+                <span class="logo-text" style="font-size: 1.35rem; font-weight: 800; font-family: 'Plus Jakarta Sans', sans-serif; color: #ffffff; line-height: 1;">TechAuditPros</span>
+            </div>
+            <span style="font-size: 0.65rem; color: var(--text-secondary); font-weight: 600; margin-left: 42px; margin-top: -2px; letter-spacing: 0.02em;">Your Dedicated Offshore Technical Team</span>
         </a>
         <nav class="desktop-nav">
             <a href="#services">Services</a>
@@ -1848,7 +1842,7 @@
     </div>
 </section>
 
-<!-- GLOBAL PRESENCE MAP SECTION -->
+<!-- GLOBAL PRESENCE MAP SECTION (WITH REAL INTERACTIVE GOOGLE MAP) -->
 <section class="tap-presence-section">
     <div class="container">
         <div class="section-header-center">
@@ -1856,35 +1850,9 @@
             <p>Delivering results for businesses across the globe with transparent offshore technical operations.</p>
         </div>
         <div class="presence-grid">
-            <!-- Left side map graphic -->
+            <!-- Left side real Google Map -->
             <div class="presence-map-wrapper">
-                <!-- SVG World Map silhouette vector paths -->
-                <svg class="presence-map-svg" viewBox="0 0 1000 450" xmlns="http://www.w3.org/2000/svg">
-                    <g fill="#cbd5e1" opacity="0.35" stroke="#94a3b8" stroke-width="1">
-                        <!-- North America -->
-                        <path d="M120,60 C150,55 170,45 220,55 C240,65 250,75 270,95 C280,105 270,125 250,145 C230,165 210,185 190,195 C170,205 160,195 150,185 C140,165 130,145 120,115 Z" />
-                        <path d="M220,145 L250,165 L245,185 L210,175 Z" />
-                        <!-- South America -->
-                        <path d="M200,210 C220,200 240,215 250,235 C265,265 285,305 275,345 C265,385 245,415 225,425 C215,425 205,405 195,375 C185,345 190,305 190,265 C190,235 195,220 200,210 Z" />
-                        <!-- Eurasia / Europe / Asia -->
-                        <path d="M380,85 C420,65 480,55 560,55 C640,55 720,45 800,65 C850,75 880,95 890,125 C900,165 890,205 870,225 C840,245 800,255 760,245 C730,235 700,245 660,255 C630,265 590,255 560,235 C530,215 500,215 470,225 C430,235 410,215 390,195 C370,175 360,155 365,125 C370,105 375,95 380,85 Z" />
-                        <!-- Africa -->
-                        <path d="M400,215 C430,205 460,215 480,235 C500,255 520,285 530,315 C540,345 520,385 490,405 C470,415 450,405 440,375 C425,345 420,315 410,285 C400,255 395,230 400,215 Z" />
-                        <!-- Australia -->
-                        <path d="M740,300 C770,290 810,295 830,315 C850,335 855,365 835,385 C815,405 780,405 750,385 C730,365 725,335 740,300 Z" />
-                        <!-- Greenland -->
-                        <path d="M280,35 C310,35 320,45 310,65 C295,85 270,85 260,75 C250,65 265,45 280,35 Z" />
-                    </g>
-                </svg>
-                <!-- Pulse Points -->
-                <div class="map-pulse-point point-usa"><div class="map-location-tag">USA</div></div>
-                <div class="map-pulse-point point-canada"><div class="map-location-tag">Canada</div></div>
-                <div class="map-pulse-point point-uk"><div class="map-location-tag">United Kingdom</div></div>
-                <div class="map-pulse-point point-germany"><div class="map-location-tag">Germany</div></div>
-                <div class="map-pulse-point point-dubai"><div class="map-location-tag">Dubai (UAE)</div></div>
-                <div class="map-pulse-point point-india"><div class="map-location-tag">India HQ</div></div>
-                <div class="map-pulse-point point-singapore"><div class="map-location-tag">Singapore</div></div>
-                <div class="map-pulse-point point-australia"><div class="map-location-tag">Australia</div></div>
+                <div id="google-map" style="width: 100%; height: 100%; border-radius: 24px;"></div>
             </div>
             <!-- Right side statistics cards -->
             <div class="presence-stats-panel">
@@ -2233,184 +2201,187 @@
     </div>
 </section>
 
-<!-- SERVICES & LIVE DASHBOARD (SCREENSHOT 3 ALIGNED) -->
+<!-- SERVICES & LIVE DASHBOARD & SECURITY ROW COMBINED IN SINGLE BOX (SCREENSHOT 3 ALIGNED) -->
 <section class="tap-services-dashboard-section" id="services">
-    <div class="container services-dashboard-grid">
-        <!-- Left Side: Services grid -->
-        <div>
-            <div class="section-header-left">
-                <h2>Our Services</h2>
-                <p>We take care of every technical aspect of your website backend, search presence, and optimization funnel.</p>
-            </div>
-            <div class="dashboard-services-list">
-                <a class="dashboard-service-item" href="/technical-seo-audit/">
-                    <div class="dashboard-service-icon">🔍</div>
-                    <span>Technical SEO &amp; Audits</span>
-                </a>
-                <a class="dashboard-service-item" href="/website-design-development/">
-                    <div class="dashboard-service-icon">💻</div>
-                    <span>Website Development</span>
-                </a>
-                <a class="dashboard-service-item" href="/saas-app-development/">
-                    <div class="dashboard-service-icon">⚙️</div>
-                    <span>Backend Development</span>
-                </a>
-                <a class="dashboard-service-item" href="/seo-services/">
-                    <div class="dashboard-service-icon">📈</div>
-                    <span>Search Engine Optimization</span>
-                </a>
-                <a class="dashboard-service-item" href="/digital-marketing-services/">
-                    <div class="dashboard-service-icon">📢</div>
-                    <span>Digital Marketing</span>
-                </a>
-                <a class="dashboard-service-item" href="/digital-marketing-strategy/">
-                    <div class="dashboard-service-icon">👥</div>
-                    <span>Social Media Marketing</span>
-                </a>
-                <a class="dashboard-service-item" href="/digital-marketing-services/">
-                    <div class="dashboard-service-icon">🎯</div>
-                    <span>Google Ads (PPC)</span>
-                </a>
-                <a class="dashboard-service-item" href="/digital-marketing-services/">
-                    <div class="dashboard-service-icon">📱</div>
-                    <span>Meta Ads</span>
-                </a>
-                <a class="dashboard-service-item" href="/digital-marketing-services/">
-                    <div class="dashboard-service-icon">✍️</div>
-                    <span>Content Marketing</span>
-                </a>
-                <a class="dashboard-service-item" href="/website-design-development/core-web-vitals-optimization/">
-                    <div class="dashboard-service-icon">📊</div>
-                    <span>Analytics &amp; Tracking</span>
-                </a>
-                <a class="dashboard-service-item" href="/website-design-development/core-web-vitals-optimization/">
-                    <div class="dashboard-service-icon">⚙️</div>
-                    <span>Conversion Rate Optimization</span>
-                </a>
-                <a class="dashboard-service-item" href="/seo-services/enterprise-seo/">
-                    <div class="dashboard-service-icon">📍</div>
-                    <span>Local SEO</span>
-                </a>
-                <a class="dashboard-service-item" href="/seo-services/ecommerce-seo/">
-                    <div class="dashboard-service-icon">🛒</div>
-                    <span>E-commerce SEO</span>
-                </a>
-                <a class="dashboard-service-item" href="/saas-app-development/mvp-development/">
-                    <div class="dashboard-service-icon">🤖</div>
-                    <span>AI Automation &amp; Integrations</span>
-                </a>
-            </div>
-        </div>
-
-        <!-- Right Side: Live dashboard stats widget -->
-        <div class="live-dashboard-widget">
-            <div class="widget-header-row">
-                <div class="widget-title">
-                    <span class="widget-live-dot"></span>
-                    <span>Live Project Dashboard</span>
-                </div>
-            </div>
-            <div class="widget-grid-stats">
-                <div class="widget-stat-box">
-                    <h4>34</h4>
-                    <p>Current Active Projects</p>
-                </div>
-                <div class="widget-stat-box">
-                    <h4>126</h4>
-                    <p>Websites Managed</p>
-                </div>
-                <div class="widget-stat-box">
-                    <h4>5,841</h4>
-                    <p>Tickets Closed</p>
-                </div>
-                <div class="widget-stat-box">
-                    <h4>18 min</h4>
-                    <p>Avg Support Reply Time</p>
-                </div>
-                <div class="widget-stat-box">
-                    <h4>96%</h4>
-                    <p>Client Retention</p>
-                </div>
-                <div class="widget-stat-box">
-                    <h4>4.9 / 5</h4>
-                    <p>Client Trust Rating</p>
-                </div>
-            </div>
-            
-            <div class="widget-tools-row">
-                <p>Tools &amp; Technologies We Use</p>
-                <div class="widget-tools-flex" style="display: flex; gap: 10px 14px; flex-wrap: wrap;">
-                    <span>Semrush</span>
-                    <span>Ahrefs</span>
-                    <span>Screaming Frog</span>
-                    <span>Lumar</span>
-                    <span>GSC</span>
-                    <span>GA4</span>
-                    <span>GTM</span>
-                    <span>GitHub</span>
-                    <span>VS Code</span>
-                </div>
-            </div>
-            
-            <div class="widget-payments-row">
-                <p>Easy &amp; Secure Payments</p>
-                <div class="widget-payments-flex" style="display: flex; gap: 10px 15px; align-items: center; flex-wrap: wrap;">
-                    <span>Wise</span>
-                    <span>Bank Transfer</span>
-                    <span>PayPal</span>
-                    <span>Stripe</span>
-                    <span>Visa</span>
-                    <span>Mastercard</span>
-                    <span>Amex</span>
-                </div>
-                <p class="widget-payments-disclaimer">Invoices • GST Compliant • Full Transparency</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- DATA SECURITY Section (SCREENSHOT 3 BOTTOM ROW ALIGNED) -->
-<section class="tap-security-section">
     <div class="container">
-        <h3 style="text-align: center; color: #ffffff; margin-bottom: 30px; font-size: 1.25rem;">Your Data. Your Business. 100% Secure.</h3>
-        <div class="security-badges-row">
-            <div class="security-badge-item">
-                <span class="security-badge-icon">🔒</span>
-                <h4>NDA Protected</h4>
+        <!-- Services Grid, Live Project Dashboard, and Secure Badges all wrapped in one single dark dashboard box -->
+        <div class="services-dashboard-grid-container">
+            <div class="services-dashboard-grid">
+                <!-- Left Side: Services grid -->
+                <div>
+                    <div class="section-header-left">
+                        <h2>Our Services</h2>
+                        <p>We take care of every technical aspect of your website backend, search presence, and optimization funnel.</p>
+                    </div>
+                    <div class="dashboard-services-list">
+                        <a class="dashboard-service-item" href="/technical-seo-audit/">
+                            <div class="dashboard-service-icon">🔍</div>
+                            <span>Technical SEO &amp; Audits</span>
+                        </a>
+                        <a class="dashboard-service-item" href="/website-design-development/">
+                            <div class="dashboard-service-icon">💻</div>
+                            <span>Website Development</span>
+                        </a>
+                        <a class="dashboard-service-item" href="/saas-app-development/">
+                            <div class="dashboard-service-icon">⚙️</div>
+                            <span>Backend Development</span>
+                        </a>
+                        <a class="dashboard-service-item" href="/seo-services/">
+                            <div class="dashboard-service-icon">📈</div>
+                            <span>Search Engine Optimization</span>
+                        </a>
+                        <a class="dashboard-service-item" href="/digital-marketing-services/">
+                            <div class="dashboard-service-icon">📢</div>
+                            <span>Digital Marketing</span>
+                        </a>
+                        <a class="dashboard-service-item" href="/digital-marketing-strategy/">
+                            <div class="dashboard-service-icon">👥</div>
+                            <span>Social Media Marketing</span>
+                        </a>
+                        <a class="dashboard-service-item" href="/digital-marketing-services/">
+                            <div class="dashboard-service-icon">🎯</div>
+                            <span>Google Ads (PPC)</span>
+                        </a>
+                        <a class="dashboard-service-item" href="/digital-marketing-services/">
+                            <div class="dashboard-service-icon">📱</div>
+                            <span>Meta Ads</span>
+                        </a>
+                        <a class="dashboard-service-item" href="/digital-marketing-services/">
+                            <div class="dashboard-service-icon">✍️</div>
+                            <span>Content Marketing</span>
+                        </a>
+                        <a class="dashboard-service-item" href="/website-design-development/core-web-vitals-optimization/">
+                            <div class="dashboard-service-icon">📊</div>
+                            <span>Analytics &amp; Tracking</span>
+                        </a>
+                        <a class="dashboard-service-item" href="/website-design-development/core-web-vitals-optimization/">
+                            <div class="dashboard-service-icon">⚙️</div>
+                            <span>Conversion Rate Optimization</span>
+                        </a>
+                        <a class="dashboard-service-item" href="/seo-services/enterprise-seo/">
+                            <div class="dashboard-service-icon">📍</div>
+                            <span>Local SEO</span>
+                        </a>
+                        <a class="dashboard-service-item" href="/seo-services/ecommerce-seo/">
+                            <div class="dashboard-service-icon">🛒</div>
+                            <span>E-commerce SEO</span>
+                        </a>
+                        <a class="dashboard-service-item" href="/saas-app-development/mvp-development/">
+                            <div class="dashboard-service-icon">🤖</div>
+                            <span>AI Automation &amp; Integrations</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Side: Live dashboard stats widget -->
+                <div class="live-dashboard-widget">
+                    <div class="widget-header-row">
+                        <div class="widget-title">
+                            <span class="widget-live-dot"></span>
+                            <span>Live Project Dashboard</span>
+                        </div>
+                    </div>
+                    <div class="widget-grid-stats">
+                        <div class="widget-stat-box">
+                            <h4>34</h4>
+                            <p>Current Active Projects</p>
+                        </div>
+                        <div class="widget-stat-box">
+                            <h4>126</h4>
+                            <p>Websites Managed</p>
+                        </div>
+                        <div class="widget-stat-box">
+                            <h4>5,841</h4>
+                            <p>Tickets Closed</p>
+                        </div>
+                        <div class="widget-stat-box">
+                            <h4>18 min</h4>
+                            <p>Avg Support Reply Time</p>
+                        </div>
+                        <div class="widget-stat-box">
+                            <h4>96%</h4>
+                            <p>Client Retention</p>
+                        </div>
+                        <div class="widget-stat-box">
+                            <h4>4.9 / 5</h4>
+                            <p>Client Trust Rating</p>
+                        </div>
+                    </div>
+                    
+                    <div class="widget-tools-row">
+                        <p>Tools &amp; Technologies We Use</p>
+                        <div class="widget-tools-flex" style="display: flex; gap: 10px 14px; flex-wrap: wrap;">
+                            <span>Semrush</span>
+                            <span>Ahrefs</span>
+                            <span>Screaming Frog</span>
+                            <span>Lumar</span>
+                            <span>GSC</span>
+                            <span>GA4</span>
+                            <span>GTM</span>
+                            <span>GitHub</span>
+                            <span>VS Code</span>
+                        </div>
+                    </div>
+                    
+                    <div class="widget-payments-row">
+                        <p>Easy &amp; Secure Payments</p>
+                        <div class="widget-payments-flex" style="display: flex; gap: 10px 15px; align-items: center; flex-wrap: wrap;">
+                            <span>Wise</span>
+                            <span>Bank Transfer</span>
+                            <span>PayPal</span>
+                            <span>Stripe</span>
+                            <span>Visa</span>
+                            <span>Mastercard</span>
+                            <span>Amex</span>
+                        </div>
+                        <p class="widget-payments-disclaimer">Invoices • GST Compliant • Full Transparency</p>
+                    </div>
+                </div>
             </div>
-            <div class="security-badge-item">
-                <span class="security-badge-icon">💻</span>
-                <h4>Source Code Ownership</h4>
-            </div>
-            <div class="security-badge-item">
-                <span class="security-badge-icon">💾</span>
-                <h4>Full Backups Weekly</h4>
-            </div>
-            <div class="security-badge-item">
-                <span class="security-badge-icon">🔑</span>
-                <h4>Access Control</h4>
-            </div>
-            <div class="security-badge-item">
-                <span class="security-badge-icon">🌿</span>
-                <h4>Version Control</h4>
-            </div>
-            <div class="security-badge-item">
-                <span class="security-badge-icon">🛡️</span>
-                <h4>Secure Infrastructure</h4>
-            </div>
-            <div class="security-badge-item">
-                <span class="security-badge-icon">💬</span>
-                <h4>Encrypted Communication</h4>
-            </div>
-            <div class="security-badge-item">
-                <span class="security-badge-icon">📊</span>
-                <h4>Weekly Reporting</h4>
+
+            <!-- Data Security Badges inside the same box -->
+            <div class="tap-security-section">
+                <h3 style="text-align: center; color: #ffffff; margin-bottom: 30px; font-size: 1.25rem;">Your Data. Your Business. 100% Secure.</h3>
+                <div class="security-badges-row">
+                    <div class="security-badge-item">
+                        <span class="security-badge-icon">🔒</span>
+                        <h4>NDA Protected</h4>
+                    </div>
+                    <div class="security-badge-item">
+                        <span class="security-badge-icon">💻</span>
+                        <h4>Source Code Ownership</h4>
+                    </div>
+                    <div class="security-badge-item">
+                        <span class="security-badge-icon">💾</span>
+                        <h4>Full Backups Weekly</h4>
+                    </div>
+                    <div class="security-badge-item">
+                        <span class="security-badge-icon">🔑</span>
+                        <h4>Access Control</h4>
+                    </div>
+                    <div class="security-badge-item">
+                        <span class="security-badge-icon">🌿</span>
+                        <h4>Version Control</h4>
+                    </div>
+                    <div class="security-badge-item">
+                        <span class="security-badge-icon">🛡️</span>
+                        <h4>Secure Infrastructure</h4>
+                    </div>
+                    <div class="security-badge-item">
+                        <span class="security-badge-icon">💬</span>
+                        <h4>Encrypted Communication</h4>
+                    </div>
+                    <div class="security-badge-item">
+                        <span class="security-badge-icon">📊</span>
+                        <h4>Weekly Reporting</h4>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- EXPLORE COUNTRY HUBS -->
+<!-- EXPLORE COUNTRY HUBS (WITH PICTURE LANDMARKS) -->
 <section class="tap-hubs-section">
     <div class="container">
         <div class="section-header-center">
@@ -2564,9 +2535,13 @@
     <div class="container footer-container">
         <div class="footer-content">
             <div class="footer-column">
-                <a class="header-logo" href="/" style="color: #ffffff; margin-bottom: 20px;">
-                    <img alt="TechAuditPros Logo" height="32" src="assets/logoonly.svg" width="32"/>
-                    <span class="logo-text">TechAuditPros</span>
+                <!-- Logo styled as per referenced image footer -->
+                <a class="header-logo" href="/" style="color: #ffffff; margin-bottom: 20px; display: flex; flex-direction: column; align-items: flex-start; gap: 0; text-decoration: none;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <img alt="TechAuditPros Logo" height="32" src="assets/logoonly.svg" width="32"/>
+                        <span class="logo-text" style="font-size: 1.35rem; font-weight: 800; font-family: 'Plus Jakarta Sans', sans-serif; color: #ffffff; line-height: 1;">TechAuditPros</span>
+                    </div>
+                    <span style="font-size: 0.65rem; color: var(--text-secondary); font-weight: 600; margin-left: 42px; margin-top: -2px; letter-spacing: 0.02em;">Your Dedicated Offshore Technical Team</span>
                 </a>
                 <p>Your dedicated offshore technical team. We run your website backend and organic growth operations every month so you don't have to.</p>
                 <div class="footer-social-icons" style="display: flex; gap: 14px; margin-top: 20px;">
@@ -2732,7 +2707,99 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<!-- Floating WhatsApp Widget -->
+<!-- Real Google Maps API Integration script -->
+<script>
+window.initGoogleMap = function() {
+    const mapElement = document.getElementById('google-map');
+    if (!mapElement) return;
+
+    // Custom dark mode theme styled exactly like input_file_1.png
+    const darkMapStyle = [
+        { "elementType": "geometry", "stylers": [{ "color": "#060919" }] },
+        { "elementType": "labels.text.stroke", "stylers": [{ "visibility": "off" }] },
+        { "elementType": "labels.text.fill", "stylers": [{ "color": "#818cf8" }] },
+        { "featureType": "administrative.country", "elementType": "geometry.stroke", "stylers": [{ "color": "#1e293b" }] },
+        { "featureType": "administrative.country", "elementType": "labels.text.fill", "stylers": [{ "color": "#ffffff" }, { "font-weight": "bold" }] },
+        { "featureType": "poi", "stylers": [{ "visibility": "off" }] },
+        { "featureType": "road", "stylers": [{ "visibility": "off" }] },
+        { "featureType": "transit", "stylers": [{ "visibility": "off" }] },
+        { "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#020308" }] },
+        { "featureType": "water", "elementType": "labels.text.fill", "stylers": [{ "color": "#334155" }] }
+    ];
+
+    const mapOptions = {
+        center: { lat: 25, lng: 10 },
+        zoom: 2,
+        disableDefaultUI: true,
+        styles: darkMapStyle,
+        backgroundColor: '#050814',
+        gestureHandling: 'cooperative'
+    };
+
+    const map = new google.maps.Map(mapElement, mapOptions);
+
+    const locations = [
+        { name: "Kochi, India HQ 🇮🇳", lat: 9.9312, lng: 76.2673, isHq: true },
+        { name: "USA 🇺🇸", lat: 40.7128, lng: -74.0060 },
+        { name: "Canada 🇨🇦", lat: 43.6532, lng: -79.3832 },
+        { name: "United Kingdom 🇬🇧", lat: 51.5074, lng: -0.1278 },
+        { name: "Germany 🇩🇪", lat: 50.1109, lng: 8.6821 },
+        { name: "Dubai 🇦🇪", lat: 25.2048, lng: 55.2708 },
+        { name: "Singapore 🇸🇬", lat: 1.3521, lng: 103.8198 },
+        { name: "Australia 🇦🇺", lat: -33.8688, lng: 151.2093 }
+    ];
+
+    const hqLatLng = new google.maps.LatLng(locations[0].lat, locations[0].lng);
+
+    locations.forEach(loc => {
+        const latLng = new google.maps.LatLng(loc.lat, loc.lng);
+
+        const marker = new google.maps.Marker({
+            position: latLng,
+            map: map,
+            title: loc.name,
+            icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: loc.isHq ? 8 : 6,
+                fillColor: loc.isHq ? '#10b981' : '#6366f1',
+                fillOpacity: 1,
+                strokeColor: '#ffffff',
+                strokeWeight: 1.5
+            }
+        });
+
+        const infowindow = new google.maps.InfoWindow({
+            content: `<div style="color:#0f172a; font-family:'Inter',sans-serif; font-size:12px; font-weight:800; padding:4px;">${loc.name}</div>`
+        });
+
+        marker.addListener('mouseover', () => {
+            infowindow.open(map, marker);
+        });
+
+        marker.addListener('mouseout', () => {
+            infowindow.close();
+        });
+
+        // Geodesic connections from India HQ
+        if (!loc.isHq) {
+            new google.maps.Polyline({
+                path: [hqLatLng, latLng],
+                geodesic: true,
+                strokeColor: '#818cf8',
+                strokeOpacity: 0.6,
+                strokeWeight: 2,
+                map: map
+            });
+        }
+    });
+};
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApNqBu2x4uBoQRiQjkPGyp5pOPnFDgNf8&callback=initGoogleMap" async defer></script>
+
+<!-- Tidio Live Chat Bot Integration from Kochi Page -->
+<script async src="//code.tidio.co/xfezpk6hohjsnpxmweufbpcwi7audsru.js"></script>
+
+<!-- Floating WhatsApp Widget - Positioned and sized correctly -->
 <a href="https://wa.me/916282520339?text=Hi%20TechAuditPros,%20I%20am%20interested%20in%20a%20Technical%20SEO%20&%20Digital%20Marketing%20Audit." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with TechAuditPros on WhatsApp">
     <svg class="whatsapp-icon" viewBox="0 0 24 24">
         <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.488 1.451 5.42 1.452 5.518 0 10.006-4.486 10.01-10.002.002-2.673-1.037-5.184-2.927-7.076C17.26 1.636 14.755.596 12.01.595 6.492.595 2.006 5.08 2.002 10.596c-.001 1.956.507 3.867 1.47 5.485L2.477 20.91l4.17-1.756zM17.36 14.9c-.29-.146-1.722-.85-1.99-.947-.266-.097-.461-.146-.655.146-.194.29-.753.947-.923 1.14-.17.193-.34.218-.63.073-.29-.146-1.227-.452-2.337-1.443-.864-.771-1.447-1.723-1.617-2.014-.17-.29-.018-.447.128-.592.13-.13.29-.34.436-.509.145-.17.194-.29.29-.485.097-.194.049-.364-.025-.509-.073-.146-.655-1.577-.9-2.16-.24-.574-.48-.495-.655-.504-.17-.008-.364-.01-.557-.01-.194 0-.509.073-.776.364-.266.29-1.02 1.02-1.02 2.477 0 1.457 1.062 2.864 1.208 3.058.146.194 2.094 3.2 5.074 4.49.708.306 1.26.489 1.692.627.712.227 1.36.195 1.871.118.571-.085 1.722-.704 1.965-1.385.243-.68.243-1.263.17-1.385-.073-.122-.267-.194-.558-.34z"/>
