@@ -1851,64 +1851,8 @@
         </div>
         <div class="presence-grid">
             <!-- Left side real Google Map -->
-            <!-- Left side custom vector map illustration -->
             <div class="presence-map-wrapper">
-                <!-- SVG World Map silhouette vector paths -->
-                <svg class="presence-map-svg" viewBox="0 0 1000 450" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <pattern id="dotGrid" width="16" height="16" patternUnits="userSpaceOnUse">
-                            <circle cx="2" cy="2" r="1.2" fill="rgba(99, 102, 241, 0.1)" />
-                        </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#dotGrid)" />
-
-                    <!-- Continent Shapes -->
-                    <g fill="rgba(99, 102, 241, 0.08)" stroke="rgba(99, 102, 241, 0.2)" stroke-width="1.5" stroke-linejoin="round">
-                        <!-- North America -->
-                        <path d="M 80,90 C 90,80 110,60 140,55 C 160,50 200,45 220,50 C 240,55 250,70 265,90 C 275,100 280,115 270,125 C 260,135 240,140 230,150 C 220,160 210,175 195,185 C 180,195 170,185 160,175 C 150,165 140,155 130,145 C 120,135 100,125 90,115 C 80,105 75,95 80,90 Z" />
-                        <path d="M 220,135 L 245,150 L 240,170 L 210,160 Z" />
-                        <!-- South America -->
-                        <path d="M 195,200 C 215,190 230,205 245,225 C 260,250 275,290 265,330 C 255,370 235,400 215,410 C 205,410 195,390 185,360 C 175,330 180,290 180,250 C 180,220 185,205 195,200 Z" />
-                        <!-- Greenland -->
-                        <path d="M 260,35 C 290,30 300,40 290,60 C 275,80 250,80 240,70 C 230,60 245,40 260,35 Z" />
-                        <!-- Africa -->
-                        <path d="M 390,205 C 420,195 450,205 470,225 C 490,245 510,275 520,305 C 530,335 510,375 480,395 C 460,405 440,395 430,365 C 415,335 410,305 400,275 C 390,245 385,220 390,205 Z" />
-                        <!-- Europe / Asia -->
-                        <path d="M 370,80 C 410,60 470,50 550,50 C 630,50 710,40 790,60 C 840,70 870,90 880,120 C 890,160 880,200 860,220 C 830,240 790,250 750,240 C 720,230 690,240 650,250 C 620,260 580,250 550,230 C 520,210 490,210 460,220 C 420,230 400,210 380,190 C 360,170 350,150 355,120 C 360,100 365,90 370,80 Z" />
-                        <!-- Indonesia / SE Asia -->
-                        <path d="M 680,240 C 690,235 700,245 695,255 C 685,270 670,275 660,265 C 655,255 670,245 680,240 Z" />
-                        <!-- Australia -->
-                        <path d="M 730,290 C 760,280 800,285 820,305 C 840,325 845,355 825,375 C 805,395 770,395 740,375 C 720,355 715,325 730,290 Z" />
-                    </g>
-
-                    <!-- Curved digital connection lines from India HQ -->
-                    <g stroke="rgba(129, 140, 248, 0.45)" stroke-width="2" stroke-linecap="round" fill="none">
-                        <!-- India HQ to USA -->
-                        <path d="M 590,175 Q 400,100 200,125" stroke-dasharray="5,4" />
-                        <!-- India HQ to Canada -->
-                        <path d="M 590,175 Q 400,90 190,100" stroke-dasharray="5,4" />
-                        <!-- India HQ to UK -->
-                        <path d="M 590,175 Q 510,130 430,115" stroke-dasharray="5,4" />
-                        <!-- India HQ to Germany -->
-                        <path d="M 590,175 Q 520,135 455,120" stroke-dasharray="5,4" />
-                        <!-- India HQ to Dubai -->
-                        <path d="M 590,175 Q 565,168 540,160" stroke-dasharray="5,4" />
-                        <!-- India HQ to Singapore -->
-                        <path d="M 590,175 Q 630,200 660,210" stroke-dasharray="5,4" />
-                        <!-- India HQ to Australia -->
-                        <path d="M 590,175 Q 680,230 760,270" stroke-dasharray="5,4" />
-                    </g>
-                </svg>
-
-                <!-- Pulse Points -->
-                <div class="map-pulse-point point-usa"><div class="map-location-tag">USA</div></div>
-                <div class="map-pulse-point point-canada"><div class="map-location-tag">Canada</div></div>
-                <div class="map-pulse-point point-uk"><div class="map-location-tag">United Kingdom</div></div>
-                <div class="map-pulse-point point-germany"><div class="map-location-tag">Germany</div></div>
-                <div class="map-pulse-point point-dubai"><div class="map-location-tag">Dubai (UAE)</div></div>
-                <div class="map-pulse-point point-india"><div class="map-location-tag">India HQ</div></div>
-                <div class="map-pulse-point point-singapore"><div class="map-location-tag">Singapore</div></div>
-                <div class="map-pulse-point point-australia"><div class="map-location-tag">Australia</div></div>
+                <div id="google-map" style="width: 100%; height: 100%; border-radius: 24px;"></div>
             </div>
             <!-- Right side statistics cards -->
             <div class="presence-stats-panel">
@@ -2764,6 +2708,95 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
+
+<!-- Real Google Maps API Integration script -->
+<script>
+window.initGoogleMap = function() {
+    const mapElement = document.getElementById('google-map');
+    if (!mapElement) return;
+
+    // Custom dark mode theme styled exactly like input_file_1.png
+    const darkMapStyle = [
+        { "elementType": "geometry", "stylers": [{ "color": "#060919" }] },
+        { "elementType": "labels.text.stroke", "stylers": [{ "visibility": "off" }] },
+        { "elementType": "labels.text.fill", "stylers": [{ "color": "#818cf8" }] },
+        { "featureType": "administrative.country", "elementType": "geometry.stroke", "stylers": [{ "color": "#1e293b" }] },
+        { "featureType": "administrative.country", "elementType": "labels.text.fill", "stylers": [{ "color": "#ffffff" }, { "font-weight": "bold" }] },
+        { "featureType": "poi", "stylers": [{ "visibility": "off" }] },
+        { "featureType": "road", "stylers": [{ "visibility": "off" }] },
+        { "featureType": "transit", "stylers": [{ "visibility": "off" }] },
+        { "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#020308" }] },
+        { "featureType": "water", "elementType": "labels.text.fill", "stylers": [{ "color": "#334155" }] }
+    ];
+
+    const mapOptions = {
+        center: { lat: 25, lng: 10 },
+        zoom: 2,
+        disableDefaultUI: true,
+        styles: darkMapStyle,
+        backgroundColor: '#050814',
+        gestureHandling: 'cooperative'
+    };
+
+    const map = new google.maps.Map(mapElement, mapOptions);
+
+    const locations = [
+        { name: "Kochi, India HQ 🇮🇳", lat: 9.9312, lng: 76.2673, isHq: true },
+        { name: "USA 🇺🇸", lat: 40.7128, lng: -74.0060 },
+        { name: "Canada 🇨🇦", lat: 43.6532, lng: -79.3832 },
+        { name: "United Kingdom 🇬🇧", lat: 51.5074, lng: -0.1278 },
+        { name: "Germany 🇩🇪", lat: 50.1109, lng: 8.6821 },
+        { name: "Dubai 🇦🇪", lat: 25.2048, lng: 55.2708 },
+        { name: "Singapore 🇸🇬", lat: 1.3521, lng: 103.8198 },
+        { name: "Australia 🇦🇺", lat: -33.8688, lng: 151.2093 }
+    ];
+
+    const hqLatLng = new google.maps.LatLng(locations[0].lat, locations[0].lng);
+
+    locations.forEach(loc => {
+        const latLng = new google.maps.LatLng(loc.lat, loc.lng);
+
+        const marker = new google.maps.Marker({
+            position: latLng,
+            map: map,
+            title: loc.name,
+            icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: loc.isHq ? 8 : 6,
+                fillColor: loc.isHq ? '#10b981' : '#6366f1',
+                fillOpacity: 1,
+                strokeColor: '#ffffff',
+                strokeWeight: 1.5
+            }
+        });
+
+        const infowindow = new google.maps.InfoWindow({
+            content: `<div style="color:#0f172a; font-family:'Inter',sans-serif; font-size:12px; font-weight:800; padding:4px;">${loc.name}</div>`
+        });
+
+        marker.addListener('mouseover', () => {
+            infowindow.open(map, marker);
+        });
+
+        marker.addListener('mouseout', () => {
+            infowindow.close();
+        });
+
+        // Geodesic connections from India HQ
+        if (!loc.isHq) {
+            new google.maps.Polyline({
+                path: [hqLatLng, latLng],
+                geodesic: true,
+                strokeColor: '#818cf8',
+                strokeOpacity: 0.6,
+                strokeWeight: 2,
+                map: map
+            });
+        }
+    });
+};
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApNqBu2x4uBoQRiQjkPGyp5pOPnFDgNf8&callback=initGoogleMap" async defer></script>
 
 <!-- Tidio Live Chat Bot Integration from Kochi Page -->
 <script async src="//code.tidio.co/xfezpk6hohjsnpxmweufbpcwi7audsru.js"></script>
