@@ -1788,6 +1788,81 @@
             grid-template-columns: 1fr 1fr;
         }
     }
+    
+    /* Mock Browser Window for Screenshot */
+    .mock-browser-frame {
+        width: 100%;
+        background: #1e1e2e;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+        margin-top: 15px;
+    }
+    .mock-browser-header {
+        display: flex;
+        align-items: center;
+        background: #181825;
+        padding: 12px 18px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        gap: 16px;
+    }
+    .mock-browser-dots {
+        display: flex;
+        gap: 8px;
+    }
+    .mock-browser-dots .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        display: inline-block;
+    }
+    .mock-browser-dots .dot-red { background: #ff5f56; }
+    .mock-browser-dots .dot-yellow { background: #ffbd2e; }
+    .mock-browser-dots .dot-green { background: #27c93f; }
+    
+    .mock-browser-address-bar {
+        flex: 1;
+        background: #11111b;
+        border-radius: 6px;
+        padding: 5px 16px;
+        font-family: 'Outfit', sans-serif;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.45);
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 550px;
+        margin: 0 auto;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .mock-browser-viewport {
+        position: relative;
+        width: 100%;
+        background: #11111b;
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .screenshot-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+    }
+    .screenshot-placeholder {
+        color: rgba(255, 255, 255, 0.35);
+        font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        font-weight: 500;
+    }
+
     .details-card {
         background: rgba(255,255,255,0.01);
         border: 1px solid rgba(255,255,255,0.05);
@@ -2112,6 +2187,30 @@
                             <span class="score-value" id="score-bp-val">0</span>
                         </div>
                         <span class="score-label">Best Practices</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Screenshot Preview Card -->
+                <div class="details-card screenshot-full-card" style="margin-bottom: 25px;">
+                    <h4 style="margin-top: 0; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+                        🖥️ Live Desktop Render
+                    </h4>
+                    <!-- macOS Style Browser Container -->
+                    <div class="mock-browser-frame">
+                        <div class="mock-browser-header">
+                            <div class="mock-browser-dots">
+                                <span class="dot dot-red"></span>
+                                <span class="dot dot-yellow"></span>
+                                <span class="dot dot-green"></span>
+                            </div>
+                            <div class="mock-browser-address-bar" id="res-browser-address">https://www.example.com</div>
+                        </div>
+                        <div class="mock-browser-viewport">
+                            <img id="res-screenshot-img" src="" alt="Website Preview" class="screenshot-img" style="display: none;" />
+                            <div id="res-screenshot-placeholder" class="screenshot-placeholder">
+                                <span id="screenshot-placeholder-text">Generating website preview...</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -3479,6 +3578,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 };
                 setBadgeStatus('res-title-status', data.meta_title_status);
                 setBadgeStatus('res-desc-status', data.meta_desc_status);
+
+                // Update screenshot and browser address bar
+                document.getElementById('res-browser-address').textContent = 'https://' + data.domain;
+                const screenshotImg = document.getElementById('res-screenshot-img');
+                const screenshotPlaceholder = document.getElementById('res-screenshot-placeholder');
+                const placeholderText = document.getElementById('screenshot-placeholder-text');
+
+                if (data.screenshot) {
+                    screenshotImg.src = data.screenshot;
+                    screenshotImg.style.display = 'block';
+                    screenshotPlaceholder.style.display = 'none';
+                } else {
+                    screenshotImg.style.display = 'none';
+                    screenshotPlaceholder.style.display = 'flex';
+                    placeholderText.textContent = 'Preview not available for this site';
+                }
 
                 // Show results
                 loadingState.style.display = 'none';
