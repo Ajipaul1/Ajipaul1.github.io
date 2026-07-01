@@ -198,6 +198,112 @@ export default async function handler(req, res) {
             console.error('Supabase DB Insert Error:', errText);
         }
 
+        // Send email via Resend if API key is configured
+        const resendApiKey = process.env.RESEND_API_KEY;
+        if (resendApiKey) {
+            try {
+                const getScoreColor = (score) => {
+                    if (score === null || score === undefined) return '#9ca3af';
+                    if (score >= 90) return '#22c55e';
+                    if (score >= 50) return '#eab308';
+                    return '#ef4444';
+                };
+
+                const emailHtml = `
+                    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #030712; color: #f3f4f6; padding: 45px 25px; border-radius: 12px; max-width: 600px; margin: 0 auto; border: 1px solid #1f2937; box-sizing: border-box;">
+                        <div style="text-align: center; margin-bottom: 30px;">
+                            <h2 style="color: #38bdf8; margin: 0 0 5px 0; font-size: 26px; letter-spacing: -0.5px;">TechAuditPros</h2>
+                            <p style="color: #9ca3af; margin: 0; font-size: 13px; text-transform: uppercase; letter-spacing: 1px;">Automated Audit Engine</p>
+                        </div>
+                        
+                        <div style="background-color: #111827; border: 1px solid #1f2937; padding: 25px; border-radius: 8px; margin-bottom: 30px;">
+                            <h3 style="color: #ffffff; font-size: 18px; margin: 0 0 10px 0; text-align: center;">Website Analysis Report</h3>
+                            <p style="color: #38bdf8; font-size: 16px; font-weight: bold; margin: 0 0 20px 0; text-align: center; word-break: break-all;">${domain}</p>
+                            
+                            <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 25px;">
+                                <tr>
+                                    <td align="center" style="width: 25%; padding: 5px;">
+                                        <div style="background-color: #030712; border: 1px solid #1f2937; padding: 12px 5px; border-radius: 6px; min-width: 100px;">
+                                            <div style="font-size: 22px; font-weight: 800; color: ${getScoreColor(perfScore)};">${perfScore !== null ? perfScore : '--'}</div>
+                                            <div style="font-size: 10px; color: #9ca3af; margin-top: 4px; text-transform: uppercase;">Performance</div>
+                                        </div>
+                                    </td>
+                                    <td align="center" style="width: 25%; padding: 5px;">
+                                        <div style="background-color: #030712; border: 1px solid #1f2937; padding: 12px 5px; border-radius: 6px; min-width: 100px;">
+                                            <div style="font-size: 22px; font-weight: 800; color: ${getScoreColor(seoScore)};">${seoScore !== null ? seoScore : '--'}</div>
+                                            <div style="font-size: 10px; color: #9ca3af; margin-top: 4px; text-transform: uppercase;">SEO Score</div>
+                                        </div>
+                                    </td>
+                                    <td align="center" style="width: 25%; padding: 5px;">
+                                        <div style="background-color: #030712; border: 1px solid #1f2937; padding: 12px 5px; border-radius: 6px; min-width: 100px;">
+                                            <div style="font-size: 22px; font-weight: 800; color: ${getScoreColor(accessibilityScore)};">${accessibilityScore !== null ? accessibilityScore : '--'}</div>
+                                            <div style="font-size: 10px; color: #9ca3af; margin-top: 4px; text-transform: uppercase;">Accessibility</div>
+                                        </div>
+                                    </td>
+                                    <td align="center" style="width: 25%; padding: 5px;">
+                                        <div style="background-color: #030712; border: 1px solid #1f2937; padding: 12px 5px; border-radius: 6px; min-width: 100px;">
+                                            <div style="font-size: 22px; font-weight: 800; color: ${getScoreColor(bestPracticesScore)};">${bestPracticesScore !== null ? bestPracticesScore : '--'}</div>
+                                            <div style="font-size: 10px; color: #9ca3af; margin-top: 4px; text-transform: uppercase;">Best Practices</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            ${lcpVal ? `
+                                <div style="text-align: center; font-size: 14px; color: #e5e7eb; border-top: 1px solid #1f2937; padding-top: 15px;">
+                                    Mobile Load Time (LCP): 
+                                    <span style="font-weight: bold; color: ${lcpVal <= 2.5 ? '#22c55e' : (lcpVal <= 4.0 ? '#eab308' : '#ef4444')};">${lcpVal}s</span>
+                                    ${lcpVal > 2.5 ? ' <span style="color: #ef4444; font-size: 12px;">(Needs Optimization)</span>' : ' <span style="color: #22c55e; font-size: 12px;">(Good)</span>'}
+                                </div>
+                            ` : ''}
+                        </div>
+
+                        <p style="color: #9ca3af; font-size: 14px; line-height: 1.6; margin: 0 0 30px 0; text-align: center;">
+                            We identified critical optimization areas on your website. View your full interactive dashboard containing desktop screenshots, broken link crawl maps, and developer recommendations.
+                        </p>
+
+                        <div style="text-align: center; margin-bottom: 35px;">
+                            <a href="https://techauditpros.com/?domain=${encodeURIComponent(domain)}" style="background-color: #0ea5e9; color: #ffffff; text-decoration: none; padding: 14px 35px; font-weight: bold; border-radius: 6px; display: inline-block; font-size: 15px; box-shadow: 0 4px 10px rgba(14, 165, 233, 0.3);">
+                                View Full Interactive Report
+                            </a>
+                        </div>
+
+                        <div style="border-top: 1px solid #1f2937; padding-top: 20px; text-align: center;">
+                            <p style="color: #6b7280; font-size: 11px; margin: 0; line-height: 1.5;">
+                                This report was requested for ${email}. If you did not request this audit, please ignore this email.<br/>
+                                &copy; 2026 TechAuditPros. All rights reserved.
+                            </p>
+                        </div>
+                    </div>
+                `;
+
+                await fetch('https://api.resend.com/emails', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${resendApiKey}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        from: 'TechAuditPros <info@techauditpros.com>',
+                        to: email,
+                        subject: `Your Website Audit Report for ${domain}`,
+                        html: emailHtml
+                    })
+                }).then(async (res) => {
+                    if (!res.ok) {
+                        const errText = await res.text();
+                        console.error('Resend API Send Error:', errText);
+                    } else {
+                        console.log('Resend Audit Report Sent to:', email);
+                    }
+                }).catch((err) => {
+                    console.error('Resend fetch exception:', err);
+                });
+            } catch (err) {
+                console.error('Failed to trigger Resend notification:', err);
+            }
+        }
+
         // Return structured payload back to the client
         return res.status(200).json({
             success: true,
