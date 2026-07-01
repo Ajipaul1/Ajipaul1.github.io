@@ -1607,6 +1607,276 @@
             grid-template-columns: 1fr;
         }
     }
+
+    /* Hero Audit Intake Form & Results Styling */
+    .hero-audit-form-container {
+        background: rgba(13, 18, 36, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(12px);
+        border-radius: 16px;
+        padding: 24px;
+        margin: 25px 0;
+        width: 100%;
+        max-width: 720px;
+    }
+    .hero-audit-form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+    @media (min-width: 768px) {
+        .hero-audit-form {
+            flex-direction: row;
+            align-items: stretch;
+        }
+        .hero-audit-form .form-input-wrapper:first-child {
+            flex: 1.5;
+        }
+        .hero-audit-form .form-input-wrapper:nth-child(2) {
+            flex: 1.2;
+        }
+        .hero-audit-form button {
+            flex: 1;
+        }
+    }
+    .form-input-wrapper input {
+        width: 100%;
+        height: 52px;
+        background: rgba(5, 8, 20, 0.8) !important;
+        border: 1px solid rgba(99, 102, 241, 0.3) !important;
+        border-radius: 8px !important;
+        color: #ffffff !important;
+        padding: 0 16px !important;
+        font-family: inherit !important;
+        font-size: 0.95rem !important;
+        transition: all 0.2s ease !important;
+    }
+    .form-input-wrapper input:focus {
+        border-color: #6366f1 !important;
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2) !important;
+        outline: none !important;
+    }
+    .hero-audit-form button.submit-btn {
+        height: 52px;
+        border-radius: 8px;
+        font-weight: 700;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border: none;
+        background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+        color: #ffffff;
+        transition: all 0.2s ease;
+    }
+    .hero-audit-form button.submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+    }
+    
+    /* Loading state */
+    .audit-loading-state {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 0;
+        text-align: center;
+    }
+    .loader-circle {
+        width: 48px;
+        height: 48px;
+        border: 4px solid rgba(99, 102, 241, 0.1);
+        border-top-color: #6366f1;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 20px;
+    }
+    .loader-steps {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .loader-step {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        margin: 0;
+        transition: all 0.3s ease;
+        opacity: 0.5;
+    }
+    .loader-step.active {
+        color: #6366f1;
+        font-weight: 600;
+        opacity: 1;
+    }
+    .loader-step.completed {
+        color: #10b981;
+        opacity: 1;
+        font-weight: 600;
+    }
+
+    /* Results Panel styling */
+    .audit-results-panel {
+        background: #0d1224;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        padding: 30px;
+        margin-top: 30px;
+        width: 100%;
+        max-width: 1200px;
+        text-align: left;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .results-title {
+        font-size: 1.5rem;
+        margin-top: 0;
+        margin-bottom: 24px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        padding-bottom: 15px;
+    }
+    .results-metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+    @media (min-width: 768px) {
+        .results-metrics-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+    .metric-score-card {
+        background: rgba(255,255,255,0.02);
+        border: 1px solid rgba(255,255,255,0.05);
+        border-radius: 12px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+    }
+    .score-radial-progress {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background: radial-gradient(closest-side, #0d1224 79%, transparent 80% 100%),
+                    conic-gradient(#10b981 var(--progress, 0%), rgba(255,255,255,0.1) 0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .score-value {
+        font-size: 1.6rem;
+        font-weight: 800;
+    }
+    .score-label {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .results-details-columns {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 25px;
+        margin-bottom: 30px;
+    }
+    @media (min-width: 992px) {
+        .results-details-columns {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+    .details-card {
+        background: rgba(255,255,255,0.01);
+        border: 1px solid rgba(255,255,255,0.05);
+        border-radius: 12px;
+        padding: 24px;
+    }
+    .details-card h4 {
+        margin-top: 0;
+        margin-bottom: 16px;
+        font-size: 1.1rem;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        padding-bottom: 10px;
+    }
+    .vitals-list, .seo-checks-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .vitals-list li, .seo-checks-list li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.92rem;
+        padding-bottom: 8px;
+        border-bottom: 1px dashed rgba(255,255,255,0.05);
+    }
+    .vital-name, .check-name {
+        color: var(--text-muted);
+    }
+    .vital-val, .check-value {
+        color: #ffffff;
+    }
+    .check-badge {
+        font-size: 0.75rem;
+        font-weight: 700;
+        padding: 3px 8px;
+        border-radius: 4px;
+        text-transform: uppercase;
+    }
+    .check-badge.status-good {
+        background: rgba(16, 185, 129, 0.15);
+        color: #10b981;
+    }
+    .check-badge.status-warning {
+        background: rgba(245, 158, 11, 0.15);
+        color: #f59e0b;
+    }
+    .check-badge.status-danger {
+        background: rgba(239, 68, 68, 0.15);
+        color: #ef4444;
+    }
+    .meta-preview-li {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        background: rgba(0,0,0,0.2);
+        padding: 10px !important;
+        border-radius: 6px;
+        margin-top: -6px;
+    }
+    .meta-label {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-bottom: 4px;
+    }
+    .meta-text {
+        font-size: 0.85rem;
+        font-style: italic;
+        word-break: break-all;
+    }
+    .results-action-strip {
+        background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
+        border: 1px solid rgba(99, 102, 241, 0.2);
+        border-radius: 12px;
+        padding: 24px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+    .results-action-strip p {
+        margin: 0;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        max-width: 800px;
+    }
 </style>
 
 </head>
@@ -1778,9 +2048,134 @@
                 </div>
             </div>
 
-            <div class="hero-cta-group">
-                <a class="primary-btn-large" href="#audit-details">Get My Free Website Audit</a>
-                <a class="secondary-btn-large" href="/case-studies.html">See Case Studies</a>
+            <div class="hero-audit-form-container">
+                <form id="hero-audit-form" class="hero-audit-form">
+                    <div class="form-input-wrapper">
+                        <input type="text" id="audit-url" placeholder="Your Website (e.g. example.com)" required />
+                    </div>
+                    <div class="form-input-wrapper">
+                        <input type="email" id="audit-email" placeholder="Your Email Address" required />
+                    </div>
+                    <button type="submit" class="primary-btn-large submit-btn">
+                        <span>Analyze My Site</span>
+                        <svg class="btn-spinner" viewBox="0 0 50 50" style="display: none; width: 20px; height: 20px; border: 3px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 1s linear infinite;"></svg>
+                    </button>
+                </form>
+                
+                <!-- Loading State Container -->
+                <div id="audit-loading-state" class="audit-loading-state" style="display: none;">
+                    <div class="loader-circle"></div>
+                    <div class="loader-steps">
+                        <p class="loader-step active" id="step-1">🔍 Connecting to website...</p>
+                        <p class="loader-step" id="step-2">⚡ Running Google PageSpeed & Core Web Vitals...</p>
+                        <p class="loader-step" id="step-3">📊 Crawling On-Page SEO meta-tags (DataForSEO)...</p>
+                        <p class="loader-step" id="step-4">💾 Saving report metrics to database...</p>
+                    </div>
+                </div>
+
+                <!-- Error Container -->
+                <div id="audit-error-state" class="audit-error-state" style="display: none; color: #ef4444; margin-top: 15px; font-weight: 600;"></div>
+            </div>
+
+            <!-- Interactive Audit Report Component -->
+            <div id="audit-results-panel" class="audit-results-panel" style="display: none;">
+                <h3 class="results-title">Analysis Completed for <span id="res-domain-name" style="color: #6366f1;">example.com</span></h3>
+                
+                <div class="results-metrics-grid">
+                    <!-- Score Dial: Performance -->
+                    <div class="metric-score-card">
+                        <div class="score-radial-progress" id="score-perf-dial" data-score="0">
+                            <span class="score-value" id="score-perf-val">0</span>
+                        </div>
+                        <span class="score-label">Performance</span>
+                    </div>
+
+                    <!-- Score Dial: SEO -->
+                    <div class="metric-score-card">
+                        <div class="score-radial-progress" id="score-seo-dial" data-score="0">
+                            <span class="score-value" id="score-seo-val">0</span>
+                        </div>
+                        <span class="score-label">SEO Score</span>
+                    </div>
+
+                    <!-- Score Dial: Accessibility -->
+                    <div class="metric-score-card">
+                        <div class="score-radial-progress" id="score-a11y-dial" data-score="0">
+                            <span class="score-value" id="score-a11y-val">0</span>
+                        </div>
+                        <span class="score-label">Accessibility</span>
+                    </div>
+
+                    <!-- Score Dial: Best Practices -->
+                    <div class="metric-score-card">
+                        <div class="score-radial-progress" id="score-bp-dial" data-score="0">
+                            <span class="score-value" id="score-bp-val">0</span>
+                        </div>
+                        <span class="score-label">Best Practices</span>
+                    </div>
+                </div>
+
+                <!-- Web Vitals and SEO Details -->
+                <div class="results-details-columns">
+                    <!-- Left: Core Web Vitals -->
+                    <div class="details-card">
+                        <h4>⚡ Core Web Vitals (Google PSI)</h4>
+                        <ul class="vitals-list">
+                            <li>
+                                <span class="vital-name">Largest Contentful Paint (LCP)</span>
+                                <strong id="res-lcp-val" class="vital-val">N/A</strong>
+                            </li>
+                            <li>
+                                <span class="vital-name">First Contentful Paint (FCP)</span>
+                                <strong id="res-fcp-val" class="vital-val">N/A</strong>
+                            </li>
+                            <li>
+                                <span class="vital-name">Cumulative Layout Shift (CLS)</span>
+                                <strong id="res-cls-val" class="vital-val">N/A</strong>
+                            </li>
+                            <li>
+                                <span class="vital-name">Interaction to Next Paint (INP)</span>
+                                <strong id="res-inp-val" class="vital-val">N/A</strong>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Right: Technical SEO (DataForSEO) -->
+                    <div class="details-card">
+                        <h4>🔍 Technical SEO Audit</h4>
+                        <ul class="seo-checks-list">
+                            <li>
+                                <span class="check-name">Meta Title</span>
+                                <span id="res-title-status" class="check-badge status-good">Good</span>
+                            </li>
+                            <li class="meta-preview-li">
+                                <span class="meta-label">Title Text:</span>
+                                <em id="res-title-text" class="meta-text">N/A</em>
+                            </li>
+                            <li>
+                                <span class="check-name">Meta Description</span>
+                                <span id="res-desc-status" class="check-badge status-warning">Missing</span>
+                            </li>
+                            <li class="meta-preview-li">
+                                <span class="meta-label">Desc Text:</span>
+                                <em id="res-desc-text" class="meta-text">N/A</em>
+                            </li>
+                            <li>
+                                <span class="check-name">Heading Structure (H1 Count)</span>
+                                <strong id="res-h1-count" class="check-value">0</strong>
+                            </li>
+                            <li>
+                                <span class="check-name">Broken Links Found</span>
+                                <strong id="res-broken-count" class="check-value">0</strong>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="results-action-strip">
+                    <p>💡 Want to turn all these metrics green? We provide the dedicated technical team to optimize your website speed, fix SEO code errors, and capture high-converting local organic traffic.</p>
+                    <a href="https://wa.me/916282520339?text=Hi%20TechAuditPros,%20I%20just%20ran%20my%20website%20audit%20and%20want%20to%20discuss%20optimizing%20it." class="primary-btn-large" target="_blank" rel="noopener">Discuss Optimization on WhatsApp</a>
+                </div>
             </div>
 
             <div class="hero-powered-bar">
@@ -2954,6 +3349,156 @@ document.addEventListener('DOMContentLoaded', function() {
     drawerLinks.forEach(link => {
         link.addEventListener('click', closeDrawer);
     });
+    // --- Website Audit intake Form Controller Code ---
+    (function() {
+        const auditForm = document.getElementById('hero-audit-form');
+        if (!auditForm) return;
+
+        auditForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const urlInput = document.getElementById('audit-url');
+            const emailInput = document.getElementById('audit-email');
+            const submitBtn = auditForm.querySelector('.submit-btn');
+            const btnSpinner = submitBtn.querySelector('.btn-spinner');
+            const btnText = submitBtn.querySelector('span');
+            const loadingState = document.getElementById('audit-loading-state');
+            const errorState = document.getElementById('audit-error-state');
+            const resultsPanel = document.getElementById('audit-results-panel');
+
+            // Reset states
+            errorState.style.display = 'none';
+            resultsPanel.style.display = 'none';
+            loadingState.style.display = 'flex';
+            submitBtn.disabled = true;
+            btnSpinner.style.display = 'inline-block';
+            btnText.textContent = 'Processing...';
+
+            const steps = [
+                { id: 'step-1', text: '🔍 Connecting to website...' },
+                { id: 'step-2', text: '⚡ Running Google PageSpeed & Core Web Vitals...' },
+                { id: 'step-3', text: '📊 Crawling On-Page SEO meta-tags (DataForSEO)...' },
+                { id: 'step-4', text: '💾 Saving report metrics to database...' }
+            ];
+
+            // Progress steps updates
+            const activateStep = (idx) => {
+                steps.forEach((s, i) => {
+                    const el = document.getElementById(s.id);
+                    if (el) {
+                        el.className = 'loader-step' + (i === idx ? ' active' : (i < idx ? ' completed' : ''));
+                        if (i < idx) {
+                            el.innerHTML = el.innerHTML.replace('🔍', '✅').replace('⚡', '✅').replace('📊', '✅').replace('💾', '✅');
+                        }
+                    }
+                });
+            };
+
+            let currentStepIdx = 0;
+            activateStep(0);
+
+            // Change steps slowly
+            const stepInterval = setInterval(() => {
+                if (currentStepIdx < steps.length - 1) {
+                    currentStepIdx++;
+                    activateStep(currentStepIdx);
+                }
+            }, 3500);
+
+            try {
+                const response = await fetch('/api/audit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        url: urlInput.value,
+                        email: emailInput.value
+                    })
+                });
+
+                clearInterval(stepInterval);
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.error || 'Failed to complete audit scan.');
+                }
+
+                const result = await response.json();
+                const data = result.data;
+
+                // Mark all steps completed
+                activateStep(steps.length);
+
+                // Populate Results Panel
+                document.getElementById('res-domain-name').textContent = data.domain;
+                
+                // Set radial score
+                const setRadialScore = (elId, valId, score) => {
+                    const el = document.getElementById(elId);
+                    const valEl = document.getElementById(valId);
+                    if (el && valEl) {
+                        const finalScore = score !== null ? score : 0;
+                        el.style.setProperty('--progress', `${finalScore}%`);
+                        valEl.textContent = score !== null ? finalScore : 'N/A';
+                        
+                        // Color color based on score tier
+                        if (finalScore >= 90) {
+                            el.style.background = `radial-gradient(closest-side, #0d1224 79%, transparent 80% 100%), conic-gradient(#10b981 ${finalScore}%, rgba(255,255,255,0.1) 0)`;
+                        } else if (finalScore >= 50) {
+                            el.style.background = `radial-gradient(closest-side, #0d1224 79%, transparent 80% 100%), conic-gradient(#f59e0b ${finalScore}%, rgba(255,255,255,0.1) 0)`;
+                        } else {
+                            el.style.background = `radial-gradient(closest-side, #0d1224 79%, transparent 80% 100%), conic-gradient(#ef4444 ${finalScore}%, rgba(255,255,255,0.1) 0)`;
+                        }
+                    }
+                };
+
+                setRadialScore('score-perf-dial', 'score-perf-val', data.performance_score);
+                setRadialScore('score-seo-dial', 'score-seo-val', data.seo_score);
+                setRadialScore('score-a11y-dial', 'score-a11y-val', data.accessibility_score);
+                setRadialScore('score-bp-dial', 'score-bp-val', data.best_practices_score);
+
+                // Core Web Vitals
+                document.getElementById('res-lcp-val').textContent = data.lcp !== null ? `${data.lcp}s` : 'N/A';
+                document.getElementById('res-fcp-val').textContent = data.fcp !== null ? `${data.fcp}s` : 'N/A';
+                document.getElementById('res-cls-val').textContent = data.cls !== null ? data.cls : 'N/A';
+                document.getElementById('res-inp-val').textContent = data.inp !== null ? `${data.inp}s` : 'N/A';
+
+                // SEO Data
+                document.getElementById('res-title-text').textContent = data.meta_title ? `"${data.meta_title}"` : 'N/A';
+                document.getElementById('res-desc-text').textContent = data.meta_description ? `"${data.meta_description}"` : 'N/A';
+                document.getElementById('res-h1-count').textContent = data.h1_count !== null ? data.h1_count : 0;
+                document.getElementById('res-broken-count').textContent = data.broken_links !== null ? data.broken_links : 0;
+
+                // Badges
+                const setBadgeStatus = (elId, status) => {
+                    const el = document.getElementById(elId);
+                    if (el) {
+                        el.textContent = status;
+                        el.className = 'check-badge ' + (status === 'good' ? 'status-good' : (status === 'missing' ? 'status-danger' : 'status-warning'));
+                    }
+                };
+                setBadgeStatus('res-title-status', data.meta_title_status);
+                setBadgeStatus('res-desc-status', data.meta_desc_status);
+
+                // Show results
+                loadingState.style.display = 'none';
+                resultsPanel.style.display = 'block';
+                
+                // Smooth scroll to results
+                resultsPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            } catch (err) {
+                clearInterval(stepInterval);
+                loadingState.style.display = 'none';
+                errorState.textContent = err.message || 'An unexpected error occurred during website analysis.';
+                errorState.style.display = 'block';
+            } finally {
+                submitBtn.disabled = false;
+                btnSpinner.style.display = 'none';
+                btnText.textContent = 'Analyze My Site';
+            }
+        });
+    })();
 });
 </script>
 
