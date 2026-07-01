@@ -37,16 +37,30 @@ export default async function handler(req, res) {
 
     const domain = parsedUrl.hostname;
 
-    // Helper to sanitize environment variables from accidental Markdown link pasting (e.g. [text](url))
+    // Helper to sanitize environment variables from accidental Markdown link pasting (e.g. [text](url) or text](url))
     const sanitizeEnvVar = (val) => {
         if (!val || typeof val !== 'string') return val;
         let clean = val.trim();
-        // Match Markdown link format: [some text](url)
-        const match = clean.match(/\[.*?\]\((.*?)\)/);
-        if (match && match[1]) {
-            clean = match[1];
+        
+        // 1. If it contains the markdown link separator ](
+        if (clean.includes('](')) {
+            const parts = clean.split('](');
+            if (parts[1]) {
+                clean = parts[1].replace(/\)$/, '');
+            }
         }
-        // Remove trailing slashes
+        
+        // 2. Strip brackets and parentheses
+        clean = clean.replace(/^[\[\(\s]+/, '');
+        clean = clean.replace(/[\]\)\s]+$/, '');
+        
+        // 3. Extract the clean HTTP URL if present
+        const httpMatch = clean.match(/(https?:\/\/[^\s\)\(]+)/);
+        if (httpMatch && httpMatch[1]) {
+            clean = httpMatch[1];
+        }
+
+        // 4. Remove trailing slashes
         return clean.replace(/\/+$/, '');
     };
 
