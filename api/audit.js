@@ -73,7 +73,7 @@ export default async function handler(req, res) {
     try {
         // Run Google PageSpeed Insights & DataForSEO OnPage API concurrently
         const pageSpeedPromise = fetch(
-            `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(targetUrl)}&key=${pagespeedApiKey}&category=performance&category=seo&category=accessibility&category=best-practices`
+            `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(targetUrl)}&key=${pagespeedApiKey}&category=performance&category=seo&category=accessibility&category=best-practices&strategy=desktop`
         ).then(async (r) => {
             if (!r.ok) {
                 const text = await r.text();
@@ -140,6 +140,9 @@ export default async function handler(req, res) {
         const clsVal = audits['cumulative-layout-shift']?.numericValue ? parseFloat(audits['cumulative-layout-shift'].numericValue.toFixed(3)) : null;
         const fcpVal = audits['first-contentful-paint']?.numericValue ? parseFloat((audits['first-contentful-paint'].numericValue / 1000).toFixed(2)) : null;
         const inpVal = audits['interactive']?.numericValue ? parseFloat((audits['interactive'].numericValue / 1000).toFixed(2)) : null;
+
+        // Extract screenshot
+        const screenshot = audits['final-screenshot']?.details?.data || null;
 
         // Parse DataForSEO OnPage crawl analysis metrics
         const dfsTask = dataForSeoRes?.tasks?.[0] || {};
@@ -213,7 +216,8 @@ export default async function handler(req, res) {
                 meta_title_status: metaTitleStatus,
                 meta_desc_status: metaDescStatus,
                 h1_count: h1Count,
-                broken_links: brokenLinksCount
+                broken_links: brokenLinksCount,
+                screenshot: screenshot
             }
         });
 
