@@ -50,9 +50,13 @@ export default async function handler(req, res) {
         ).then(async (r) => {
             if (!r.ok) {
                 const text = await r.text();
-                throw new Error(`Google PageSpeed API Error: ${text}`);
+                console.error(`Google PageSpeed API HTTP Error: ${text}`);
+                return null;
             }
             return r.json();
+        }).catch((err) => {
+            console.error(`Google PageSpeed fetch exception:`, err);
+            return null;
         });
 
         const dataForSeoPromise = fetch('https://api.dataforseo.com/v3/on_page/instant_pages', {
@@ -72,9 +76,13 @@ export default async function handler(req, res) {
         }).then(async (r) => {
             if (!r.ok) {
                 const text = await r.text();
-                throw new Error(`DataForSEO API Error: ${text}`);
+                console.error(`DataForSEO API HTTP Error: ${text}`);
+                return null;
             }
             return r.json();
+        }).catch((err) => {
+            console.error(`DataForSEO fetch exception:`, err);
+            return null;
         });
 
         // Wait for both API payloads
@@ -83,14 +91,21 @@ export default async function handler(req, res) {
             dataForSeoPromise
         ]);
 
+        // Error if BOTH fail
+        if (!pageSpeedRes && !dataForSeoRes) {
+            return res.status(502).json({ 
+                error: 'Failed to retrieve data from both Google PageSpeed and DataForSEO. The target website might be blocking crawler requests (e.g. Cloudflare firewall) or is currently unreachable.' 
+            });
+        }
+
         // Extract and round PageSpeed scores (ranges 0-100)
         const psLighthouse = pageSpeedRes?.lighthouseResult || {};
         const psCategories = psLighthouse.categories || {};
         
-        const perfScore = psCategories.performance?.score ? Math.round(psCategories.performance.score * 100) : 0;
-        const seoScore = psCategories.seo?.score ? Math.round(psCategories.seo.score * 100) : 0;
-        const accessibilityScore = psCategories.accessibility?.score ? Math.round(psCategories.accessibility.score * 100) : 0;
-        const bestPracticesScore = psCategories['best-practices']?.score ? Math.round(psCategories['best-practices'].score * 100) : 0;
+        const perfScore = psCategories.performance?.score ? Math.round(psCategories.performance.score * 100) : null;
+        const seoScore = psCategories.seo?.score ? Math.round(psCategories.seo.score * 100) : null;
+        const accessibilityScore = psCategories.accessibility?.score ? Math.round(psCategories.accessibility.score * 100) : null;
+        const bestPracticesScore = psCategories['best-practices']?.score ? Math.round(psCategories['best-practices'].score * 100) : null;
 
         // Core Web Vitals numeric values
         const audits = psLighthouse.audits || {};
