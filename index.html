@@ -1952,6 +1952,420 @@
         line-height: 1.5;
         max-width: 800px;
     }
+
+    /* Ultra-Optimized Mobile Screen Overrides */
+    @media (max-width: 768px) {
+        /* General layout spacing to reduce vertical page length */
+        section {
+            padding: 35px 0 !important;
+        }
+        h1 {
+            font-size: 1.85rem !important;
+            line-height: 1.25 !important;
+        }
+        h2 {
+            font-size: 1.5rem !important;
+            line-height: 1.3 !important;
+        }
+        p {
+            font-size: 0.9rem !important;
+        }
+        .section-header-center, .section-header-left {
+            margin-bottom: 25px !important;
+        }
+        .section-header-center p, .section-header-left p {
+            font-size: 0.95rem !important;
+            margin-bottom: 0 !important;
+        }
+
+        /* 1. Top Trust Bar - Tighter text, hide flags to save space */
+        .tap-top-trust-bar {
+            padding: 8px 0 !important;
+        }
+        .trust-bar-flex {
+            flex-direction: column !important;
+            gap: 0 !important;
+            text-align: center !important;
+        }
+        .trust-left {
+            font-size: 0.75rem !important;
+            width: 100% !important;
+        }
+        .trust-right {
+            display: none !important;
+        }
+
+        /* Header logo adjustments */
+        .header-logo .logo-text {
+            font-size: 1.15rem !important;
+        }
+        .header-logo span[style*="font-size: 0.65rem"] {
+            font-size: 0.55rem !important;
+            margin-left: 0 !important;
+            margin-top: 2px !important;
+        }
+
+        /* 2. Main Hero Section */
+        .tap-new-hero {
+            padding: 30px 0 !important;
+        }
+        .hero-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 25px !important;
+        }
+        /* Mobile Astronaut visual positioning */
+        .mobile-only-hero-astronaut {
+            margin: 0 auto !important;
+            max-width: 130px !important;
+            order: -1 !important; /* Put visual on top */
+        }
+        /* Make feature items 2-column grid */
+        .hero-features-list {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 10px !important;
+            margin-top: 15px !important;
+        }
+        .hero-feature-item {
+            margin-bottom: 0 !important;
+            gap: 6px !important;
+            padding: 8px 10px !important;
+            background: rgba(255,255,255,0.03) !important;
+            border-radius: 8px !important;
+            border: 1px solid rgba(255,255,255,0.05) !important;
+        }
+        .hero-feature-item span {
+            font-size: 0.75rem !important;
+        }
+        .hero-feature-icon {
+            font-size: 0.95rem !important;
+        }
+
+        /* Hero Country Pricing Cards stack - 2 column grid instead of vertical list */
+        .hero-pricing-stack {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 10px !important;
+            margin-top: 20px !important;
+        }
+        /* Fifth pricing card (Dubai) spans both columns */
+        .hero-pricing-stack .hero-pricing-card:last-child {
+            grid-column: span 2 !important;
+        }
+        .hero-pricing-card {
+            margin-bottom: 0 !important;
+            padding: 10px 12px !important;
+            border-radius: 8px !important;
+        }
+        .pricing-card-country-details h4 {
+            font-size: 0.8rem !important;
+        }
+        .pricing-card-country-details span {
+            font-size: 0.6rem !important;
+        }
+        .price-tap {
+            font-size: 0.9rem !important;
+        }
+        .price-save-badge {
+            font-size: 0.55rem !important;
+            padding: 2px 4px !important;
+        }
+
+        /* 3. Limited Launch Offer Banner */
+        .tap-launch-offer {
+            padding: 25px 15px !important;
+        }
+        .launch-offer-container {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 15px !important;
+            text-align: center !important;
+            align-items: center !important;
+        }
+        .offer-left-flex {
+            flex-direction: column !important;
+            gap: 10px !important;
+        }
+        .offer-left-flex img {
+            width: 60px !important;
+        }
+        .offer-details h3 {
+            font-size: 1.15rem !important;
+        }
+        .offer-details p {
+            font-size: 0.8rem !important;
+        }
+        .offer-progress-block {
+            flex-direction: row !important;
+            justify-content: center !important;
+            gap: 12px !important;
+            width: 100% !important;
+        }
+        .progress-circle-details {
+            text-align: left !important;
+        }
+        .progress-circle-details span {
+            font-size: 0.75rem !important;
+        }
+        .offer-timer-block {
+            display: flex !important;
+            justify-content: center !important;
+            gap: 8px !important;
+            width: 100% !important;
+        }
+        .timer-item {
+            padding: 6px 8px !important;
+            min-width: 50px !important;
+        }
+        .timer-num {
+            font-size: 1rem !important;
+        }
+        .timer-label {
+            font-size: 0.55rem !important;
+        }
+
+        /* 4. Trusted Brands Section */
+        .brands-carousel-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 12px 10px !important;
+            justify-items: center !important;
+        }
+        .brands-carousel-grid svg {
+            width: 75px !important;
+            height: auto !important;
+        }
+
+        /* 5. Global Presence Section */
+        .presence-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 20px !important;
+        }
+        /* Country list links - 2 column grid */
+        .presence-countries-list ul {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 10px !important;
+        }
+        .presence-countries-list li {
+            font-size: 0.85rem !important;
+        }
+        .presence-countries-list li span {
+            font-size: 1.1rem !important;
+        }
+        /* Stats cards - 2 column grid */
+        .presence-stats-panel {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 10px !important;
+        }
+        .presence-stat-card {
+            margin-bottom: 0 !important;
+            padding: 12px !important;
+            border-radius: 8px !important;
+        }
+        .stat-card-num {
+            font-size: 1.35rem !important;
+        }
+        .stat-card-label {
+            font-size: 0.7rem !important;
+        }
+
+        /* 6. Why Smart Companies Move to India */
+        .savings-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 25px !important;
+        }
+        /* Bullet cards - 2 column grid */
+        .savings-features-list {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 10px !important;
+        }
+        .savings-feature-card {
+            margin-bottom: 0 !important;
+            font-size: 0.75rem !important;
+            padding: 8px 10px !important;
+            border-radius: 8px !important;
+        }
+        /* Video height */
+        .savings-video-wrapper {
+            min-height: 240px !important;
+        }
+        /* Cost savings bar chart mobile resizing */
+        .savings-comparison-card {
+            padding: 15px !important;
+            border-radius: 12px !important;
+        }
+        .comparison-vertical-flex {
+            height: 180px !important;
+            gap: 8px !important;
+            margin-bottom: 10px !important;
+        }
+        .comp-bar-container {
+            height: 110px !important;
+            gap: 3px !important;
+        }
+        .comp-v-bar {
+            width: 10px !important;
+        }
+        .comp-country-label {
+            font-size: 0.7rem !important;
+        }
+        .comp-col-stats {
+            font-size: 0.55rem !important;
+            line-height: 1.1 !important;
+        }
+        .comp-save-v-badge {
+            font-size: 0.5rem !important;
+            padding: 1px 3px !important;
+            margin-top: 3px !important;
+        }
+
+        /* 7. Success Stories & Testimonials - HORIZONTAL SWIPER LOOP */
+        .success-stories-grid {
+            display: flex !important;
+            flex-direction: row !important;
+            overflow-x: auto !important;
+            scroll-snap-type: x mandatory !important;
+            gap: 15px !important;
+            padding: 5px 5px 20px 5px !important;
+            -webkit-overflow-scrolling: touch;
+            margin: 0 -15px !important;
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+        }
+        .success-story-card {
+            flex: 0 0 82% !important;
+            width: 82% !important;
+            scroll-snap-align: start !important;
+            margin-bottom: 0 !important;
+            padding: 20px !important;
+        }
+        .success-story-card h3 {
+            font-size: 1.15rem !important;
+        }
+
+        .testimonials-grid {
+            display: flex !important;
+            flex-direction: row !important;
+            overflow-x: auto !important;
+            scroll-snap-type: x mandatory !important;
+            gap: 15px !important;
+            padding: 5px 5px 20px 5px !important;
+            -webkit-overflow-scrolling: touch;
+            margin: 0 -15px !important;
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+        }
+        .testimonial-card {
+            flex: 0 0 82% !important;
+            width: 82% !important;
+            scroll-snap-align: start !important;
+            margin-bottom: 0 !important;
+            padding: 20px !important;
+        }
+
+        /* Hide scrollbars but keep scrolling working */
+        .success-stories-grid::-webkit-scrollbar, 
+        .testimonials-grid::-webkit-scrollbar {
+            display: none !important;
+        }
+
+        /* 8. Services Bento Grid section - 2 Columns mobile layout */
+        .services-dashboard-grid-container {
+            padding: 20px 15px !important;
+        }
+        .services-dashboard-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 25px !important;
+        }
+        .dashboard-services-list {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 10px !important;
+        }
+        .dashboard-service-item {
+            padding: 10px 12px !important;
+            gap: 8px !important;
+            border-radius: 8px !important;
+            font-size: 0.85rem !important;
+        }
+        .dashboard-service-icon {
+            font-size: 1.1rem !important;
+        }
+        
+        /* Stats sidebar under services grid */
+        .dashboard-stats-sidebar {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 12px !important;
+            margin-top: 10px !important;
+        }
+        .sidebar-stat-card {
+            margin-bottom: 0 !important;
+            padding: 12px !important;
+        }
+
+        /* 9. Country Hubs - 2 Columns grid */
+        .hubs-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 10px !important;
+        }
+        .hub-card {
+            padding: 8px !important;
+            border-radius: 8px !important;
+        }
+        .hub-card h4 {
+            font-size: 0.85rem !important;
+        }
+
+        /* 10. Bottom Stats strip - 3 Columns grid */
+        .numbers-grid-row {
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 15px 8px !important;
+        }
+        .number-stat-item {
+            margin-bottom: 0 !important;
+            text-align: center !important;
+        }
+        .number-stat-item h4 {
+            font-size: 1.25rem !important;
+        }
+        .number-stat-item p {
+            font-size: 0.65rem !important;
+        }
+
+        /* 11. Founder Section */
+        .founder-cta-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 25px !important;
+        }
+        .founder-content-wrapper {
+            padding: 20px !important;
+        }
+        .cta-card-box {
+            padding: 20px !important;
+        }
+        .cta-card-box h3 {
+            font-size: 1.25rem !important;
+        }
+
+        /* 12. Footer layout */
+        .footer-content {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 25px 15px !important;
+        }
+        .footer-column:first-child {
+            grid-column: span 2 !important;
+        }
+    }
 </style>
 
 </head>
