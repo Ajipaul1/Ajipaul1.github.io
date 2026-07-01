@@ -37,11 +37,24 @@ export default async function handler(req, res) {
 
     const domain = parsedUrl.hostname;
 
-    // Retrieve API credentials from environment variables (or fall back to user's provided credentials)
-    const supabaseUrl = process.env.SUPABASE_URL || 'https://jgouacaddnkjfftlhjjy.supabase.co';
-    const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impnb3VhY2FkZG5ramZmdGxoamp5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4MjgwNjE2NywiZXhwIjoyMDk4MzgyMTY3fQ.g7K_KybkTDA5dbYS-EX2QHvQ4Ld543CKSIL6TUun-FE';
-    const pagespeedApiKey = process.env.GOOGLE_PAGESPEED_API_KEY || 'AIzaSyClI764wvlZ0NQPr2Q9WcX6lGAnyg20qAg';
-    const dataForSeoAuth = process.env.DATAFORSEO_API_AUTHORIZATION || 'Basic aW5mb0B0ZWNoYXVkaXRwcm9zLmNvbTpiNThhODMyOTA0NjBkZjNk';
+    // Helper to sanitize environment variables from accidental Markdown link pasting (e.g. [text](url))
+    const sanitizeEnvVar = (val) => {
+        if (!val || typeof val !== 'string') return val;
+        let clean = val.trim();
+        // Match Markdown link format: [some text](url)
+        const match = clean.match(/\[.*?\]\((.*?)\)/);
+        if (match && match[1]) {
+            clean = match[1];
+        }
+        // Remove trailing slashes
+        return clean.replace(/\/+$/, '');
+    };
+
+    // Retrieve and sanitize API credentials
+    const supabaseUrl = sanitizeEnvVar(process.env.SUPABASE_URL || 'https://jgouacaddnkjfftlhjjy.supabase.co');
+    const supabaseKey = sanitizeEnvVar(process.env.SUPABASE_SERVICE_ROLE_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impnb3VhY2FkZG5ramZmdGxoamp5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4MjgwNjE2NywiZXhwIjoyMDk4MzgyMTY3fQ.g7K_KybkTDA5dbYS-EX2QHvQ4Ld543CKSIL6TUun-FE');
+    const pagespeedApiKey = sanitizeEnvVar(process.env.GOOGLE_PAGESPEED_API_KEY || 'AIzaSyClI764wvlZ0NQPr2Q9WcX6lGAnyg20qAg');
+    const dataForSeoAuth = sanitizeEnvVar(process.env.DATAFORSEO_API_AUTHORIZATION || 'Basic aW5mb0B0ZWNoYXVkaXRwcm9zLmNvbTpiNThhODMyOTA0NjBkZjNk');
 
     try {
         // Run Google PageSpeed Insights & DataForSEO OnPage API concurrently
