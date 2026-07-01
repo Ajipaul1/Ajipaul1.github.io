@@ -86,20 +86,20 @@ export default async function handler(req, res) {
             return null;
         });
 
+        // POST raw array with enable_browser_rendering: true to bypass Cloudflare blockages
         const dataForSeoPromise = fetch('https://api.dataforseo.com/v3/on_page/instant_pages', {
             method: 'POST',
             headers: {
                 'Authorization': dataForSeoAuth,
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                tasks: [
-                    {
-                        url: targetUrl,
-                        browser_preset: 'desktop'
-                    }
-                ]
-            })
+            body: JSON.stringify([
+                {
+                    url: targetUrl,
+                    enable_browser_rendering: true,
+                    enable_javascript: true
+                }
+            ])
         }).then(async (r) => {
             if (!r.ok) {
                 const text = await r.text();
@@ -150,8 +150,8 @@ export default async function handler(req, res) {
 
         const metaTitle = dfsMeta.title || null;
         const metaDescription = dfsMeta.description || null;
-        const h1Count = Array.isArray(dfsMeta.h1) ? dfsMeta.h1.length : 0;
-        const brokenLinksCount = dfsChecks.is_broken ? 1 : 0;
+        const h1Count = Array.isArray(dfsMeta.htags?.h1) ? dfsMeta.htags.h1.length : 0;
+        const brokenLinksCount = dfsItem.broken_links ? 1 : 0;
 
         const metaTitleStatus = dfsChecks.no_title ? 'missing' : (dfsChecks.title_too_long ? 'too_long' : 'good');
         const metaDescStatus = dfsChecks.no_description ? 'missing' : (dfsChecks.description_too_long ? 'too_long' : 'good');
