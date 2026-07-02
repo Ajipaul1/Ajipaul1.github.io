@@ -286,6 +286,7 @@ export default async function handler(req, res) {
                     body: JSON.stringify({
                         from: 'TechAuditPros <info@techauditpros.com>',
                         to: email,
+                        bcc: 'info@techauditpros.com',
                         subject: `Your Website Audit Report for ${domain}`,
                         html: emailHtml
                     })
