@@ -24,7 +24,7 @@
 
 <!-- Scoped Dark Immersive Redesign Styles (Edge-to-Edge Full Screen) -->
 <style>
-        :root {
+            :root {
         --primary-indigo: #d97706; /* Golden Bronze */
         --primary-indigo-dark: #78350f;
         --primary-indigo-light: #fbbf24;
@@ -34,10 +34,10 @@
         --accent-green-dark: #047857;
         --accent-green-light: #34d399;
         --accent-blue: #b45309;
-        --dark-bg: #050814;
-        --dark-bg-alt: #0b0f19;
-        --dark-card: #0d1224;
-        --border-light: rgba(255, 255, 255, 0.08);
+        --dark-bg: #060502; /* Luxury Dubai Obsidian Gold */
+        --dark-bg-alt: #120e06;
+        --dark-card: #1e170a;
+        --border-light: rgba(217, 119, 6, 0.12);
         --text-primary: #ffffff;
         --text-secondary: #94a3b8;
         --text-muted: #64748b;
@@ -2390,10 +2390,71 @@
             line-height: 1.5 !important;
         }
     }
+
+    /* Premium High-Performance CSS Animations */
+    @keyframes astronautFloat {
+        0% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-16px) rotate(1.5deg); }
+        100% { transform: translateY(0px) rotate(0deg); }
+    }
+
+    @keyframes slowGlowRotate {
+        0% { transform: translate(0px, 0px) scale(1); }
+        50% { transform: translate(40px, -60px) scale(1.15); }
+        100% { transform: translate(-20px, 20px) scale(0.9); }
+    }
+
+    .hero-image-wrapper img {
+        animation: astronautFloat 6s ease-in-out infinite !important;
+        will-change: transform;
+    }
+
+    /* Ambient dynamic backdrop glow blobs */
+    .ambient-glow-1, .ambient-glow-2 {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(100px);
+        z-index: 0;
+        pointer-events: none;
+        opacity: 0.18;
+        mix-blend-mode: screen;
+        will-change: transform;
+    }
+
+    .ambient-glow-1 {
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, var(--primary-indigo-light) 0%, transparent 70%);
+        top: 8%;
+        left: 5%;
+        animation: slowGlowRotate 14s infinite alternate ease-in-out;
+    }
+
+    .ambient-glow-2 {
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, var(--accent-teal-light) 0%, transparent 70%);
+        top: 45%;
+        right: 5%;
+        animation: slowGlowRotate 18s infinite alternate-reverse ease-in-out;
+    }
+    
+    /* Smooth hover transitions for cards */
+    .pricing-card, .case-card, .review-card, .bento-item {
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s ease, box-shadow 0.4s ease !important;
+    }
+    .pricing-card:hover, .case-card:hover, .bento-item:hover {
+        transform: translateY(-8px) scale(1.01) !important;
+        border-color: var(--accent-teal-light) !important;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 255, 255, 0.03) !important;
+    }
 </style>
 
 </head>
 <body class="home-page-redesign">
+<div class="ambient-glow-1"></div>
+<div class="ambient-glow-2"></div>
+
 
 <!-- TRUST BAR TOP STRIP -->
 <!-- BREADCRUMBS -->
