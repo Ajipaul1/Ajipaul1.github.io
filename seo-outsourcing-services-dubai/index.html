@@ -2454,6 +2454,54 @@
         border-color: var(--accent-teal-light) !important;
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 255, 255, 0.03) !important;
     }
+
+    /* Floating Gmail Widget - Stacked above WhatsApp (110px) */
+    .gmail-float {
+        position: fixed;
+        bottom: 190px;
+        right: 30px;
+        z-index: 10000;
+        background-color: #ea4335;
+        color: white;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        transition: transform 0.2s ease, background-color 0.2s ease;
+        cursor: pointer;
+    }
+    .gmail-float:hover {
+        transform: scale(1.1);
+        background-color: #d62d20;
+    }
+    .gmail-icon {
+        width: 28px;
+        height: 28px;
+        fill: white;
+    }
+    .gmail-popover {
+        position: fixed;
+        bottom: 190px;
+        right: 100px;
+        z-index: 10001;
+        background: #0d1224;
+        border: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        border-radius: 12px;
+        padding: 16px;
+        width: 250px;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        display: none;
+        animation: fadeInPopover 0.2s ease;
+        box-sizing: border-box;
+    }
+    @keyframes fadeInPopover {
+        from { opacity: 0; transform: translateX(10px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
 </style>
 
 
@@ -4540,6 +4588,24 @@ window.initGoogleMap = function() {
 <!-- Tidio Live Chat Bot Integration from Kochi Page -->
 <script async src="//code.tidio.co/xfezpk6hohjsnpxmweufbpcwi7audsru.js"></script>
 
+
+<!-- Floating Gmail Widget -->
+<div class="gmail-float" id="gmail-float-trigger" aria-label="Contact TechAuditPros via Email">
+    <svg class="gmail-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+    </svg>
+</div>
+
+<!-- Gmail Popover Card -->
+<div class="gmail-popover" id="gmail-popover-card">
+    <div style="font-weight: 700; font-size: 0.85rem; color: #ffffff; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em; font-family: 'Plus Jakarta Sans', sans-serif;">Email TechAuditPros</div>
+    <div style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 12px; word-break: break-all; font-weight: 600; font-family: 'Plus Jakarta Sans', sans-serif;" id="copy-email-text">info@techauditpros.com</div>
+    <div style="display: flex; gap: 8px; box-sizing: border-box;">
+        <button onclick="copyEmailToClipboard()" id="copy-email-btn" style="flex: 1; padding: 8px 12px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); border-radius: 6px; color: #ffffff; font-size: 0.75rem; font-weight: 700; cursor: pointer; transition: all 0.2s; font-family: 'Plus Jakarta Sans', sans-serif;">Copy Email</button>
+        <a href="mailto:info@techauditpros.com" style="flex: 1; padding: 8px 12px; background: linear-gradient(135deg, var(--primary-indigo) 0%, var(--accent-teal) 100%); border-radius: 6px; color: #ffffff; font-size: 0.75rem; font-weight: 700; text-decoration: none; text-align: center; font-family: 'Plus Jakarta Sans', sans-serif; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);">Send Email</a>
+    </div>
+</div>
+
 <!-- Floating WhatsApp Widget - Positioned and sized correctly -->
 <a href="https://wa.me/916282520339?text=Hi%20TechAuditPros,%20I%20am%20interested%20in%20a%20Technical%20SEO%20&%20Digital%20Marketing%20Audit." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with TechAuditPros on WhatsApp">
     <svg class="whatsapp-icon" viewBox="0 0 24 24">
@@ -4862,6 +4928,47 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     calculateSavings();
 });
+
+
+// Floating Gmail Popover and Copy Code
+const gmailTrigger = document.getElementById('gmail-float-trigger');
+const gmailPopover = document.getElementById('gmail-popover-card');
+
+if (gmailTrigger && gmailPopover) {
+    gmailTrigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isVisible = gmailPopover.style.display === 'block';
+        gmailPopover.style.display = isVisible ? 'none' : 'block';
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!gmailPopover.contains(e.target) && e.target !== gmailTrigger) {
+            gmailPopover.style.display = 'none';
+        }
+    });
+}
+
+function copyEmailToClipboard() {
+    const emailStr = "info@techauditpros.com";
+    navigator.clipboard.writeText(emailStr).then(() => {
+        const copyBtn = document.getElementById('copy-email-btn');
+        if (copyBtn) {
+            copyBtn.innerText = "Copied!";
+            copyBtn.style.color = "var(--accent-green-light)";
+            copyBtn.style.borderColor = "var(--accent-green-light)";
+            setTimeout(() => {
+                copyBtn.innerText = "Copy Email";
+                copyBtn.style.color = "#ffffff";
+                copyBtn.style.borderColor = "var(--border-light)";
+            }, 2000);
+        }
+    }).catch(err => {
+        console.error('Could not copy text: ', err);
+    });
+}
+
+// End of Gmail Popover
 </script>
 
 </body>
