@@ -2456,7 +2456,30 @@
     }
 </style>
 
-</head>
+
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "TechAuditPros Australia White Label SEO Agency",
+      "image": "https://techauditpros.com/assets/favicon-64.png",
+      "@id": "https://techauditpros.com/white-label-seo-agency-australia/",
+      "url": "https://techauditpros.com/white-label-seo-agency-australia/",
+      "telephone": "+61-2-9000-0199",
+      "priceRange": "$$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1 Martin Pl Level 14",
+        "addressLocality": "Sydney",
+        "addressRegion": "NSW",
+        "postalCode": "2000",
+        "addressCountry": "AU"
+      },
+      "areaServed": "AU"
+    }
+    </script>
+    </head>
 <body class="home-page-redesign">
 <div class="ambient-glow-1"></div>
 <div class="ambient-glow-2"></div>
@@ -3118,54 +3141,114 @@
 
             <!-- Tab 2: Calculator -->
             <div id="calc-tab" class="savings-tab-content" style="display: none; box-sizing: border-box;">
-                <h3 style="font-size: 1.35rem; margin: 0 0 8px 0; color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif;">Interactive ROI Calculator</h3>
-                <p style="color: var(--text-secondary); font-size: 0.85rem; margin: 0 0 15px 0; line-height: 1.5; font-family: 'Plus Jakarta Sans', sans-serif;">Calculate your custom offshore savings based on team size.</p>
+                <h3 style="font-size: 1.25rem; margin: 0 0 4px 0; color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif;">Interactive ROI Calculator</h3>
+                <p style="color: var(--text-secondary); font-size: 0.8rem; margin: 0 0 12px 0; line-height: 1.4; font-family: 'Plus Jakarta Sans', sans-serif;">Modify headcount and type in your actual monthly costs below to check custom profit margins.</p>
                 
         <!-- ROI Calculator Content -->
-        <div class="calculator-container" style="display: flex; flex-direction: column; gap: 15px; margin-top: 10px; font-family: 'Plus Jakarta Sans', sans-serif; box-sizing: border-box;">
+        <div class="calculator-container" style="display: flex; flex-direction: column; gap: 12px; margin-top: 10px; font-family: 'Plus Jakarta Sans', sans-serif; box-sizing: border-box;">
             <input type="hidden" id="calc-current-country" value="australia" />
             
             
-            <!-- Slider 1: Developers -->
-            <div class="calc-field" style="margin-bottom: 8px;">
-                <div style="display: flex; justify-content: space-between; font-size: 0.825rem; font-weight: 700; margin-bottom: 6px;">
-                    <span style="color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em;">Dedicated Developers</span>
-                    <span id="calc-devs-val" style="color: var(--accent-teal-light);">1 Developer</span>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+                <!-- 1. Developers -->
+                <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 10px; box-sizing: border-box;">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: 700; margin-bottom: 4px; box-sizing: border-box;">
+                        <span style="color: #ffffff; text-transform: uppercase; letter-spacing: 0.05em;">Full Stack Devs</span>
+                        <span id="calc-devs-val" style="color: var(--accent-teal-light);">1 Developer</span>
+                    </div>
+                    <input type="range" id="calc-devs" min="1" max="10" value="1" oninput="calculateSavings()" style="width: 100%; cursor: pointer; accent-color: var(--primary-indigo); margin-bottom: 6px;">
+                    <div style="display: flex; gap: 8px; align-items: center; box-sizing: border-box;">
+                        <div style="flex: 1;">
+                            <span style="font-size: 0.65rem; color: var(--text-muted); display: block; margin-bottom: 2px; text-transform: uppercase;">Local Cost ($/mo)</span>
+                            <input type="number" id="calc-devs-rate" oninput="calculateSavings()" style="width: 100%; padding: 6px 10px; background: var(--dark-bg); border: 1px solid var(--border-light); border-radius: 6px; color: #ffffff; font-size: 0.8rem; font-weight: 600; outline: none; box-sizing: border-box;">
+                        </div>
+                        <div style="flex: 1; text-align: right;">
+                            <span style="font-size: 0.65rem; color: var(--text-muted); display: block; margin-bottom: 2px; text-transform: uppercase;">TAP Rate</span>
+                            <span id="calc-devs-tap-rate" style="font-size: 0.8rem; font-weight: 700; color: var(--accent-green-light);">$1,800/mo</span>
+                        </div>
+                    </div>
                 </div>
-                <input type="range" id="calc-devs" min="1" max="10" value="1" oninput="calculateSavings()" style="width: 100%; cursor: pointer; accent-color: var(--primary-indigo);">
-            </div>
 
-            <!-- Slider 2: SEO Specialists -->
-            <div class="calc-field" style="margin-bottom: 8px;">
-                <div style="display: flex; justify-content: space-between; font-size: 0.825rem; font-weight: 700; margin-bottom: 6px;">
-                    <span style="color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em;">SEO Specialists</span>
-                    <span id="calc-seos-val" style="color: var(--accent-teal-light);">0 Specialists</span>
+                <!-- 2. SEO Specialists -->
+                <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 10px; box-sizing: border-box;">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: 700; margin-bottom: 4px; box-sizing: border-box;">
+                        <span style="color: #ffffff; text-transform: uppercase; letter-spacing: 0.05em;">SEO Specialists</span>
+                        <span id="calc-seos-val" style="color: var(--accent-teal-light);">0 Specialists</span>
+                    </div>
+                    <input type="range" id="calc-seos" min="0" max="10" value="0" oninput="calculateSavings()" style="width: 100%; cursor: pointer; accent-color: var(--primary-indigo); margin-bottom: 6px;">
+                    <div style="display: flex; gap: 8px; align-items: center; box-sizing: border-box;">
+                        <div style="flex: 1;">
+                            <span style="font-size: 0.65rem; color: var(--text-muted); display: block; margin-bottom: 2px; text-transform: uppercase;">Local Cost ($/mo)</span>
+                            <input type="number" id="calc-seos-rate" oninput="calculateSavings()" style="width: 100%; padding: 6px 10px; background: var(--dark-bg); border: 1px solid var(--border-light); border-radius: 6px; color: #ffffff; font-size: 0.8rem; font-weight: 600; outline: none; box-sizing: border-box;">
+                        </div>
+                        <div style="flex: 1; text-align: right;">
+                            <span style="font-size: 0.65rem; color: var(--text-muted); display: block; margin-bottom: 2px; text-transform: uppercase;">TAP Rate</span>
+                            <span id="calc-seos-tap-rate" style="font-size: 0.8rem; font-weight: 700; color: var(--accent-green-light);">$1,200/mo</span>
+                        </div>
+                    </div>
                 </div>
-                <input type="range" id="calc-seos" min="0" max="10" value="0" oninput="calculateSavings()" style="width: 100%; cursor: pointer; accent-color: var(--primary-indigo);">
+
+                <!-- 3. Content Creators -->
+                <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 10px; box-sizing: border-box;">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: 700; margin-bottom: 4px; box-sizing: border-box;">
+                        <span style="color: #ffffff; text-transform: uppercase; letter-spacing: 0.05em;">Content Creators</span>
+                        <span id="calc-content-val" style="color: var(--accent-teal-light);">0 Writers</span>
+                    </div>
+                    <input type="range" id="calc-content" min="0" max="10" value="0" oninput="calculateSavings()" style="width: 100%; cursor: pointer; accent-color: var(--primary-indigo); margin-bottom: 6px;">
+                    <div style="display: flex; gap: 8px; align-items: center; box-sizing: border-box;">
+                        <div style="flex: 1;">
+                            <span style="font-size: 0.65rem; color: var(--text-muted); display: block; margin-bottom: 2px; text-transform: uppercase;">Local Cost ($/mo)</span>
+                            <input type="number" id="calc-content-rate" oninput="calculateSavings()" style="width: 100%; padding: 6px 10px; background: var(--dark-bg); border: 1px solid var(--border-light); border-radius: 6px; color: #ffffff; font-size: 0.8rem; font-weight: 600; outline: none; box-sizing: border-box;">
+                        </div>
+                        <div style="flex: 1; text-align: right;">
+                            <span style="font-size: 0.65rem; color: var(--text-muted); display: block; margin-bottom: 2px; text-transform: uppercase;">TAP Rate</span>
+                            <span id="calc-content-tap-rate" style="font-size: 0.8rem; font-weight: 700; color: var(--accent-green-light);">$900/mo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Social Media Managers -->
+                <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 10px; box-sizing: border-box;">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: 700; margin-bottom: 4px; box-sizing: border-box;">
+                        <span style="color: #ffffff; text-transform: uppercase; letter-spacing: 0.05em;">Social Media Team</span>
+                        <span id="calc-social-val" style="color: var(--accent-teal-light);">0 Managers</span>
+                    </div>
+                    <input type="range" id="calc-social" min="0" max="10" value="0" oninput="calculateSavings()" style="width: 100%; cursor: pointer; accent-color: var(--primary-indigo); margin-bottom: 6px;">
+                    <div style="display: flex; gap: 8px; align-items: center; box-sizing: border-box;">
+                        <div style="flex: 1;">
+                            <span style="font-size: 0.65rem; color: var(--text-muted); display: block; margin-bottom: 2px; text-transform: uppercase;">Local Cost ($/mo)</span>
+                            <input type="number" id="calc-social-rate" oninput="calculateSavings()" style="width: 100%; padding: 6px 10px; background: var(--dark-bg); border: 1px solid var(--border-light); border-radius: 6px; color: #ffffff; font-size: 0.8rem; font-weight: 600; outline: none; box-sizing: border-box;">
+                        </div>
+                        <div style="flex: 1; text-align: right;">
+                            <span style="font-size: 0.65rem; color: var(--text-muted); display: block; margin-bottom: 2px; text-transform: uppercase;">TAP Rate</span>
+                            <span id="calc-social-tap-rate" style="font-size: 0.8rem; font-weight: 700; color: var(--accent-green-light);">$900/mo</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Output Box -->
-            <div class="calc-output-box" style="background: rgba(255,255,255,0.02); border: 1px dashed var(--border-light); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 8px; box-sizing: border-box;">
-                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-secondary);">
-                    <span>Est. Local Cost:</span>
+            <div class="calc-output-box" style="background: rgba(255,255,255,0.015); border: 1px dashed var(--border-light); border-radius: 12px; padding: 15px; display: flex; flex-direction: column; gap: 6px; box-sizing: border-box; margin-top: 5px;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-secondary); box-sizing: border-box;">
+                    <span>Total Est. Local Cost:</span>
                     <span id="calc-local-cost" style="font-weight: 700; color: #ffffff;">$9,500/mo</span>
                 </div>
-                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-secondary);">
-                    <span>TechAuditPros Cost:</span>
+                <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-secondary); box-sizing: border-box;">
+                    <span>Total TechAuditPros Cost:</span>
                     <span id="calc-tap-cost" style="font-weight: 700; color: var(--accent-green-light);">$1,800/mo</span>
                 </div>
-                <div style="display: flex; justify-content: space-between; font-size: 0.95rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 8px; font-weight: 800; margin-top: 4px;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 6px; font-weight: 800; margin-top: 2px; box-sizing: border-box;">
                     <span style="color: #ffffff;">Monthly Savings:</span>
-                    <span id="calc-monthly-save" style="color: var(--accent-teal-light); font-size: 1.1rem;">$7,700/mo</span>
+                    <span id="calc-monthly-save" style="color: var(--accent-teal-light); font-size: 1rem;">$7,700/mo</span>
                 </div>
-                <div style="display: flex; justify-content: space-between; font-size: 1.1rem; font-weight: 900; background: rgba(16, 185, 129, 0.08); padding: 10px; border-radius: 8px; margin-top: 4px;">
+                <div style="display: flex; justify-content: space-between; font-size: 1.05rem; font-weight: 900; background: rgba(16, 185, 129, 0.08); padding: 10px; border-radius: 8px; margin-top: 2px; box-sizing: border-box;">
                     <span style="color: #ffffff;">Annual Savings:</span>
                     <span id="calc-annual-save" style="color: var(--accent-green-light);">$92,400/yr</span>
                 </div>
             </div>
 
             <!-- CTA Button -->
-            <a href="#audit-form-anchor" class="cta-button primary" style="display: block; text-align: center; padding: 12px 20px; text-decoration: none; border-radius: 30px; font-weight: 700; font-size: 0.875rem; transition: all 0.3s; background: linear-gradient(135deg, var(--primary-indigo) 0%, var(--accent-teal) 100%); color: #ffffff; border: none; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);">Claim Your ROI Savings &rarr;</a>
+            <a href="#audit-form-anchor" class="cta-button primary" style="display: block; text-align: center; padding: 12px 20px; text-decoration: none; border-radius: 30px; font-weight: 700; font-size: 0.85rem; transition: all 0.3s; background: linear-gradient(135deg, var(--primary-indigo) 0%, var(--accent-teal) 100%); color: #ffffff; border: none; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15); margin-top: 4px;">Claim Your ROI Savings &rarr;</a>
         </div>
     
             </div>
@@ -4657,7 +4740,18 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
+
+
+
 <script>
+const rates = {
+    usa: { currency: '$', dev_local: 9500, dev_tap: 1800, seo_local: 6000, seo_tap: 1200, content_local: 4500, content_tap: 900, social_local: 4000, social_tap: 900 },
+    canada: { currency: 'CA$', dev_local: 8200, dev_tap: 1490, seo_local: 5200, seo_tap: 990, content_local: 3800, content_tap: 790, social_local: 3500, social_tap: 790 },
+    australia: { currency: 'AU$', dev_local: 8800, dev_tap: 1600, seo_local: 5800, seo_tap: 1100, content_local: 4100, content_tap: 890, social_local: 3800, social_tap: 890 },
+    uk: { currency: '£', dev_local: 6200, dev_tap: 1200, seo_local: 4200, seo_tap: 790, content_local: 3200, content_tap: 590, social_local: 3000, social_tap: 590 },
+    dubai: { currency: 'AED ', dev_local: 22000, dev_tap: 3800, seo_local: 14000, seo_tap: 2500, content_local: 10000, content_tap: 1900, social_local: 9000, social_tap: 1900 }
+};
+
 function switchSavingsTab(btn, tabId) {
     const card = btn.closest('.savings-comparison-card');
     
@@ -4680,38 +4774,62 @@ function switchSavingsTab(btn, tabId) {
     card.querySelector('#' + tabId).style.display = 'block';
 }
 
-function calculateSavings() {
-    const rates = {
-        usa: { currency: '$', dev_local: 9500, dev_tap: 1800, seo_local: 6000, seo_tap: 1200 },
-        canada: { currency: 'CA$', dev_local: 8200, dev_tap: 1490, seo_local: 5200, seo_tap: 990 },
-        australia: { currency: 'AU$', dev_local: 8800, dev_tap: 1600, seo_local: 5800, seo_tap: 1100 },
-        uk: { currency: '£', dev_local: 6200, dev_tap: 1200, seo_local: 4200, seo_tap: 790 },
-        dubai: { currency: 'AED ', dev_local: 22000, dev_tap: 3800, seo_local: 14000, seo_tap: 2500 }
-    };
+function onCountryChange() {
+    // Reset inputs to default when country is changed
+    const country = document.getElementById('calc-country').value;
+    const r = rates[country];
     
+    document.getElementById('calc-devs-rate').value = r.dev_local;
+    document.getElementById('calc-seos-rate').value = r.seo_local;
+    document.getElementById('calc-content-rate').value = r.content_local;
+    document.getElementById('calc-social-rate').value = r.social_local;
+    
+    // Update TAP static labels
+    document.getElementById('calc-devs-tap-rate').innerText = r.currency + r.dev_tap.toLocaleString() + '/mo';
+    document.getElementById('calc-seos-tap-rate').innerText = r.currency + r.seo_tap.toLocaleString() + '/mo';
+    document.getElementById('calc-content-tap-rate').innerText = r.currency + r.content_tap.toLocaleString() + '/mo';
+    document.getElementById('calc-social-tap-rate').innerText = r.currency + r.social_tap.toLocaleString() + '/mo';
+    
+    calculateSavings();
+}
+
+function calculateSavings() {
     const devSlider = document.getElementById('calc-devs');
     const seoSlider = document.getElementById('calc-seos');
+    const contentSlider = document.getElementById('calc-content');
+    const socialSlider = document.getElementById('calc-social');
+    
     const countrySelect = document.getElementById('calc-country');
     const hiddenCountry = document.getElementById('calc-current-country');
-    
-    if (!devSlider || !seoSlider) return;
-    
-    const devs = parseInt(devSlider.value);
-    const seos = parseInt(seoSlider.value);
-    
-    document.getElementById('calc-devs-val').innerText = devs + (devs === 1 ? ' Developer' : ' Developers');
-    document.getElementById('calc-seos-val').innerText = seos + (seos === 1 ? ' Specialist' : ' Specialists');
-    
     const country = countrySelect ? countrySelect.value : (hiddenCountry ? hiddenCountry.value : 'usa');
     const r = rates[country];
     
-    const localCost = (devs * r.dev_local) + (seos * r.seo_local);
-    const tapCost = (devs * r.dev_tap) + (seos * r.seo_tap);
-    const monthlySave = localCost - tapCost;
+    if (!devSlider) return;
+    
+    const devs = parseInt(devSlider.value);
+    const seos = parseInt(seoSlider.value);
+    const contents = parseInt(contentSlider.value);
+    const socials = parseInt(socialSlider.value);
+    
+    document.getElementById('calc-devs-val').innerText = devs + (devs === 1 ? ' Developer' : ' Developers');
+    document.getElementById('calc-seos-val').innerText = seos + (seos === 1 ? ' Specialist' : ' Specialists');
+    document.getElementById('calc-content-val').innerText = contents + (contents === 1 ? ' Writer' : ' Writers');
+    document.getElementById('calc-social-val').innerText = socials + (socials === 1 ? ' Manager' : ' Managers');
+    
+    // Read custom rates or default
+    const devRate = parseFloat(document.getElementById('calc-devs-rate').value) || r.dev_local;
+    const seoRate = parseFloat(document.getElementById('calc-seos-rate').value) || r.seo_local;
+    const contentRate = parseFloat(document.getElementById('calc-content-rate').value) || r.content_local;
+    const socialRate = parseFloat(document.getElementById('calc-social-rate').value) || r.social_local;
+    
+    const localCost = (devs * devRate) + (seos * seoRate) + (contents * contentRate) + (socials * socialRate);
+    const tapCost = (devs * r.dev_tap) + (seos * r.seo_tap) + (contents * r.content_tap) + (socials * r.social_tap);
+    
+    const monthlySave = Math.max(0, localCost - tapCost);
     const annualSave = monthlySave * 12;
     
     const f = (val) => {
-        return r.currency + val.toLocaleString();
+        return r.currency + Math.round(val).toLocaleString();
     };
     
     document.getElementById('calc-local-cost').innerText = f(localCost) + '/mo';
@@ -4721,7 +4839,24 @@ function calculateSavings() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Style active tab buttons initially
+    // Initialize default inputs
+    const countrySelect = document.getElementById('calc-country');
+    const hiddenCountry = document.getElementById('calc-current-country');
+    const country = countrySelect ? countrySelect.value : (hiddenCountry ? hiddenCountry.value : 'usa');
+    const r = rates[country];
+    
+    if (document.getElementById('calc-devs-rate')) {
+        document.getElementById('calc-devs-rate').value = r.dev_local;
+        document.getElementById('calc-seos-rate').value = r.seo_local;
+        document.getElementById('calc-content-rate').value = r.content_local;
+        document.getElementById('calc-social-rate').value = r.social_local;
+        
+        document.getElementById('calc-devs-tap-rate').innerText = r.currency + r.dev_tap.toLocaleString() + '/mo';
+        document.getElementById('calc-seos-tap-rate').innerText = r.currency + r.seo_tap.toLocaleString() + '/mo';
+        document.getElementById('calc-content-tap-rate').innerText = r.currency + r.content_tap.toLocaleString() + '/mo';
+        document.getElementById('calc-social-tap-rate').innerText = r.currency + r.social_tap.toLocaleString() + '/mo';
+    }
+    
     document.querySelectorAll('.savings-tab-btn.active').forEach(b => {
         b.style.background = 'rgba(255,255,255,0.06)';
         b.style.color = '#ffffff';
