@@ -3035,8 +3035,16 @@
         </div>
         
         <!-- Right column Cost Comparison vertical bars (SCREENSHOT 5 ALIGNED) -->
-        <div class="savings-comparison-card">
-            <h3>Cost Comparison: Australia Developer Savings</h3>
+        <div class="savings-comparison-card" style="box-sizing: border-box;">
+            <!-- Tab Controls -->
+            <div class="savings-tabs" style="display: flex; gap: 8px; margin-bottom: 20px; border-bottom: 1px solid var(--border-light); padding-bottom: 12px; box-sizing: border-box;">
+                <button class="savings-tab-btn active" onclick="switchSavingsTab(this, 'chart-tab')" style="background: none; border: 1px solid transparent; color: #ffffff; font-weight: 700; font-size: 0.85rem; cursor: pointer; padding: 6px 14px; border-radius: 20px; font-family: 'Plus Jakarta Sans', sans-serif; transition: all 0.2s;">Cost Chart</button>
+                <button class="savings-tab-btn" onclick="switchSavingsTab(this, 'calc-tab')" style="background: none; border: 1px solid transparent; color: var(--text-secondary); font-weight: 700; font-size: 0.85rem; cursor: pointer; padding: 6px 14px; border-radius: 20px; font-family: 'Plus Jakarta Sans', sans-serif; transition: all 0.2s;">ROI Calculator</button>
+            </div>
+
+            <!-- Tab 1: Chart -->
+            <div id="chart-tab" class="savings-tab-content" style="display: block; box-sizing: border-box;">
+                <h3>Cost Comparison: Australia Developer Savings</h3>
             <p>Compare local Australian employee payroll costs vs. a TechAuditPros dedicated offshore team.</p>
             <div class="comparison-vertical-flex">
                 <!-- Canada -->
@@ -3106,6 +3114,61 @@
                 </div>
             </div>
             <p style="margin: 0; text-align: center; font-size: 0.72rem; color: var(--text-secondary);">* Average agency prices from industry research.</p>
+            </div>
+
+            <!-- Tab 2: Calculator -->
+            <div id="calc-tab" class="savings-tab-content" style="display: none; box-sizing: border-box;">
+                <h3 style="font-size: 1.35rem; margin: 0 0 8px 0; color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif;">Interactive ROI Calculator</h3>
+                <p style="color: var(--text-secondary); font-size: 0.85rem; margin: 0 0 15px 0; line-height: 1.5; font-family: 'Plus Jakarta Sans', sans-serif;">Calculate your custom offshore savings based on team size.</p>
+                
+        <!-- ROI Calculator Content -->
+        <div class="calculator-container" style="display: flex; flex-direction: column; gap: 15px; margin-top: 10px; font-family: 'Plus Jakarta Sans', sans-serif; box-sizing: border-box;">
+            <input type="hidden" id="calc-current-country" value="australia" />
+            
+            
+            <!-- Slider 1: Developers -->
+            <div class="calc-field" style="margin-bottom: 8px;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.825rem; font-weight: 700; margin-bottom: 6px;">
+                    <span style="color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em;">Dedicated Developers</span>
+                    <span id="calc-devs-val" style="color: var(--accent-teal-light);">1 Developer</span>
+                </div>
+                <input type="range" id="calc-devs" min="1" max="10" value="1" oninput="calculateSavings()" style="width: 100%; cursor: pointer; accent-color: var(--primary-indigo);">
+            </div>
+
+            <!-- Slider 2: SEO Specialists -->
+            <div class="calc-field" style="margin-bottom: 8px;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.825rem; font-weight: 700; margin-bottom: 6px;">
+                    <span style="color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em;">SEO Specialists</span>
+                    <span id="calc-seos-val" style="color: var(--accent-teal-light);">0 Specialists</span>
+                </div>
+                <input type="range" id="calc-seos" min="0" max="10" value="0" oninput="calculateSavings()" style="width: 100%; cursor: pointer; accent-color: var(--primary-indigo);">
+            </div>
+
+            <!-- Output Box -->
+            <div class="calc-output-box" style="background: rgba(255,255,255,0.02); border: 1px dashed var(--border-light); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 8px; box-sizing: border-box;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-secondary);">
+                    <span>Est. Local Cost:</span>
+                    <span id="calc-local-cost" style="font-weight: 700; color: #ffffff;">$9,500/mo</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-secondary);">
+                    <span>TechAuditPros Cost:</span>
+                    <span id="calc-tap-cost" style="font-weight: 700; color: var(--accent-green-light);">$1,800/mo</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.95rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 8px; font-weight: 800; margin-top: 4px;">
+                    <span style="color: #ffffff;">Monthly Savings:</span>
+                    <span id="calc-monthly-save" style="color: var(--accent-teal-light); font-size: 1.1rem;">$7,700/mo</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 1.1rem; font-weight: 900; background: rgba(16, 185, 129, 0.08); padding: 10px; border-radius: 8px; margin-top: 4px;">
+                    <span style="color: #ffffff;">Annual Savings:</span>
+                    <span id="calc-annual-save" style="color: var(--accent-green-light);">$92,400/yr</span>
+                </div>
+            </div>
+
+            <!-- CTA Button -->
+            <a href="#audit-form-anchor" class="cta-button primary" style="display: block; text-align: center; padding: 12px 20px; text-decoration: none; border-radius: 30px; font-weight: 700; font-size: 0.875rem; transition: all 0.3s; background: linear-gradient(135deg, var(--primary-indigo) 0%, var(--accent-teal) 100%); color: #ffffff; border: none; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);">Claim Your ROI Savings &rarr;</a>
+        </div>
+    
+            </div>
         </div>
     </div>
 </section>
@@ -4590,6 +4653,81 @@ document.addEventListener('DOMContentLoaded', function() {
             closeModal();
         }
     });
+});
+</script>
+
+
+<script>
+function switchSavingsTab(btn, tabId) {
+    const card = btn.closest('.savings-comparison-card');
+    
+    // Toggle active buttons
+    card.querySelectorAll('.savings-tab-btn').forEach(b => {
+        b.classList.remove('active');
+        b.style.color = 'var(--text-secondary)';
+        b.style.background = 'none';
+        b.style.borderColor = 'transparent';
+    });
+    btn.classList.add('active');
+    btn.style.color = '#ffffff';
+    btn.style.background = 'rgba(255,255,255,0.06)';
+    btn.style.borderColor = 'rgba(255,255,255,0.1)';
+    
+    // Toggle active contents
+    card.querySelectorAll('.savings-tab-content').forEach(c => {
+        c.style.display = 'none';
+    });
+    card.querySelector('#' + tabId).style.display = 'block';
+}
+
+function calculateSavings() {
+    const rates = {
+        usa: { currency: '$', dev_local: 9500, dev_tap: 1800, seo_local: 6000, seo_tap: 1200 },
+        canada: { currency: 'CA$', dev_local: 8200, dev_tap: 1490, seo_local: 5200, seo_tap: 990 },
+        australia: { currency: 'AU$', dev_local: 8800, dev_tap: 1600, seo_local: 5800, seo_tap: 1100 },
+        uk: { currency: '£', dev_local: 6200, dev_tap: 1200, seo_local: 4200, seo_tap: 790 },
+        dubai: { currency: 'AED ', dev_local: 22000, dev_tap: 3800, seo_local: 14000, seo_tap: 2500 }
+    };
+    
+    const devSlider = document.getElementById('calc-devs');
+    const seoSlider = document.getElementById('calc-seos');
+    const countrySelect = document.getElementById('calc-country');
+    const hiddenCountry = document.getElementById('calc-current-country');
+    
+    if (!devSlider || !seoSlider) return;
+    
+    const devs = parseInt(devSlider.value);
+    const seos = parseInt(seoSlider.value);
+    
+    document.getElementById('calc-devs-val').innerText = devs + (devs === 1 ? ' Developer' : ' Developers');
+    document.getElementById('calc-seos-val').innerText = seos + (seos === 1 ? ' Specialist' : ' Specialists');
+    
+    const country = countrySelect ? countrySelect.value : (hiddenCountry ? hiddenCountry.value : 'usa');
+    const r = rates[country];
+    
+    const localCost = (devs * r.dev_local) + (seos * r.seo_local);
+    const tapCost = (devs * r.dev_tap) + (seos * r.seo_tap);
+    const monthlySave = localCost - tapCost;
+    const annualSave = monthlySave * 12;
+    
+    const f = (val) => {
+        return r.currency + val.toLocaleString();
+    };
+    
+    document.getElementById('calc-local-cost').innerText = f(localCost) + '/mo';
+    document.getElementById('calc-tap-cost').innerText = f(tapCost) + '/mo';
+    document.getElementById('calc-monthly-save').innerText = f(monthlySave) + '/mo';
+    document.getElementById('calc-annual-save').innerText = f(annualSave) + '/yr';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Style active tab buttons initially
+    document.querySelectorAll('.savings-tab-btn.active').forEach(b => {
+        b.style.background = 'rgba(255,255,255,0.06)';
+        b.style.color = '#ffffff';
+        b.style.border = '1px solid rgba(255,255,255,0.1)';
+    });
+    calculateSavings();
 });
 </script>
 
