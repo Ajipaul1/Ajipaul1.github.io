@@ -4601,10 +4601,46 @@ window.initGoogleMap = function() {
     });
 };
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApNqBu2x4uBoQRiQjkPGyp5pOPnFDgNf8&callback=initGoogleMap" async defer></script>
-
-<!-- Tidio Live Chat Bot Integration from Kochi Page -->
-<script async src="//code.tidio.co/xfezpk6hohjsnpxmweufbpcwi7audsru.js"></script>
+<!-- Optimized Lazy-Loading for Third-Party Scripts (Google Maps & Tidio) -->
+<script>
+(function() {
+    let scriptsLoaded = false;
+    function loadThirdPartyScripts() {
+        if (scriptsLoaded) return;
+        scriptsLoaded = true;
+        
+        // Remove event listeners instantly
+        window.removeEventListener('scroll', loadThirdPartyScripts);
+        window.removeEventListener('mousemove', loadThirdPartyScripts);
+        window.removeEventListener('touchstart', loadThirdPartyScripts);
+        window.removeEventListener('keydown', loadThirdPartyScripts);
+        
+        console.log('Lazy-loading Maps & Tidio scripts...');
+        
+        // Load Google Maps API Script
+        const mapsScript = document.createElement('script');
+        mapsScript.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyApNqBu2x4uBoQRiQjkPGyp5pOPnFDgNf8&callback=initGoogleMap";
+        mapsScript.async = true;
+        mapsScript.defer = true;
+        document.body.appendChild(mapsScript);
+        
+        // Load Tidio script
+        const tidioScript = document.createElement('script');
+        tidioScript.src = "//code.tidio.co/xfezpk6hohjsnpxmweufbpcwi7audsru.js";
+        tidioScript.async = true;
+        document.body.appendChild(tidioScript);
+    }
+    
+    // Add event listeners on scroll/click/move/touch
+    window.addEventListener('scroll', loadThirdPartyScripts, { passive: true });
+    window.addEventListener('mousemove', loadThirdPartyScripts, { passive: true });
+    window.addEventListener('touchstart', loadThirdPartyScripts, { passive: true });
+    window.addEventListener('keydown', loadThirdPartyScripts, { passive: true });
+    
+    // Fallback load after 4.5 seconds to ensure bots see them
+    setTimeout(loadThirdPartyScripts, 4500);
+})();
+</script>
 
 
 <!-- Floating Gmail Widget -->
