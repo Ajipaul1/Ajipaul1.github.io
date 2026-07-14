@@ -216,6 +216,30 @@
         overflow: hidden;
         color: #ffffff;
     }
+    /*
+     * GRADIENT OVERLAY — erases background behind text, preserves astronaut image
+     * Left zone (0%–55%): deep dark navy — text zone, fully readable
+     * Mid zone (55%–75%): smooth fade to semi-transparent — blends into image
+     * Right zone (75%–100%): fully transparent — astronaut shows at full brightness
+     * On tablet/mobile: image is already removed via @media — overlay not needed there
+     */
+    .tap-new-hero::before {
+        content: '';
+        position: absolute;
+        inset: 0; /* covers top/right/bottom/left = 100% fill */
+        z-index: 0;
+        pointer-events: none; /* clicks pass through to content below */
+        background: linear-gradient(
+            to right,
+            rgba(5, 8, 20, 0.97)  0%,    /* solid dark — text left column */
+            rgba(5, 8, 20, 0.94)  30%,   /* still dark — covers pricing cards */
+            rgba(5, 8, 20, 0.82)  45%,   /* dark with slight image showing */
+            rgba(5, 8, 20, 0.55)  60%,   /* half and half blend zone */
+            rgba(5, 8, 20, 0.22)  72%,   /* mostly transparent — image emerging */
+            rgba(5, 8, 20, 0.05)  82%,   /* almost fully transparent */
+            rgba(5, 8, 20, 0.00)  100%   /* zero opacity — pure astronaut image */
+        );
+    }
     .hero-grid {
         position: relative;
         z-index: 1;
@@ -305,6 +329,9 @@
         padding-right: 32%;
         position: relative;
         z-index: 1;
+        /* Subtle frosted-glass effect adds a second readability layer behind the headline */
+        /* backdrop-filter blurs the image pixels visible BEHIND this text column only */
+        backdrop-filter: blur(0px) brightness(1); /* intentionally light — gradient does the heavy lifting */
     }
     @media (max-width: 1440px) {
         .hero-main-content {
@@ -1558,6 +1585,10 @@
             background-image: radial-gradient(circle at 85% 30%, #151d3b 0%, #050814 70%) !important;
             background-size: cover !important;
             background-position: center center !important;
+        }
+        /* On tablet/mobile: image removed entirely, so overlay is not needed — hide it */
+        .tap-new-hero::before {
+            display: none;
         }
         .hero-main-content {
             text-align: center;
