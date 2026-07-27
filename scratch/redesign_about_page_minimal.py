@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+import os
+
+about_path = r"C:\Users\marke\OneDrive\Documents\GitHub\Ajipaul1.github.io\about.html"
+
+new_about_html = """<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -266,3 +270,9 @@ As AI matured, we did not treat it as a side tool. We made it the core of how we
 
 </body>
 </html>
+"""
+
+with open(about_path, "w", encoding="utf-8") as f:
+    f.write(new_about_html)
+
+print("Redesigned about.html into a minimal, ultra-professional dark mode executive page!")
