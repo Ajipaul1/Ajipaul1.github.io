@@ -167,6 +167,7 @@
   .desktop-nav a{ font-size:0.92rem; font-weight:600; color:var(--ink-soft); text-decoration:none; }
   .desktop-nav a:hover{ color:var(--ink); }
   .nav-dropdown{ position:relative; }
+  .nav-dropdown::after{ content:""; position:absolute; top:100%; left:50%; transform:translateX(-50%); width:230px; height:14px; }
   .nav-dropdown > a{ display:flex; align-items:center; gap:4px; }
   .nav-dropdown-caret{ font-size:0.6rem; color:var(--ink-faint); transition:transform .2s ease; }
   .nav-dropdown:hover .nav-dropdown-caret{ transform:rotate(180deg); }
