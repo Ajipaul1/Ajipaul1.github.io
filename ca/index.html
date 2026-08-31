@@ -318,6 +318,49 @@
   .hero-grid .eyebrow{ color:var(--orange); }
   .hero-grid .eyebrow::before{ background:var(--orange); }
 
+  /* ---------- WIDE-DESKTOP LAYOUT (header + hero) ----------
+     On wide desktops the standard centered .container (max-width:1180px) left the
+     header and the hero copy floating in the middle of the screen with a large
+     dead gutter on the left. Header bars and the hero break out of that cap and
+     align to a fixed left gutter instead; the hero column and type scale up in
+     steps so the composition stays filled rather than huddled at the left edge.
+     Everything below 1200px is untouched, and the hero column width is capped at
+     each step to keep clearance from the absolutely-positioned .hero-side-text.
+     Sections BELOW the hero deliberately keep the centered 1180px container. */
+  @media (min-width:1200px){
+    .site-header .container{ width:100%; max-width:none; margin:0; padding:0 64px; }
+    .header-container{ gap:28px; }
+    .tap-new-hero > .container{ width:100%; max-width:none; margin:0; padding:0 64px; }
+    .hero-grid{ max-width:min(50%, 800px); }
+    .hero-subtitle{ max-width:56ch; }
+    .hero-features-list{ align-self:stretch; }
+    .hero-grid .trust-strip{ align-self:stretch; }
+  }
+  @media (min-width:1440px){
+    .hero-grid{ max-width:min(55%, 940px); }
+    .hero-main-content h1{ font-size:clamp(3rem, 3.9vw, 4rem); }
+    .hero-subtitle{ font-size:1.12rem; max-width:60ch; }
+    .hero-features-list{ gap:22px 40px; }
+    .hero-grid .trust-strip{ gap:22px 52px; }
+  }
+  @media (min-width:1600px){
+    .site-header .container{ padding:0 72px; }
+    .tap-new-hero > .container{ padding:0 72px; }
+    .hero-grid{ max-width:min(56%, 1060px); }
+    .hero-subtitle{ font-size:1.16rem; max-width:62ch; }
+    .hero-side-text{ right:5%; max-width:480px; font-size:clamp(3rem, 4.2vw, 4.2rem); }
+  }
+  @media (min-width:1900px){
+    .tap-new-hero{ padding:130px 0 136px; }
+    .hero-grid{ max-width:min(54%, 1180px); }
+    .hero-main-content h1{ font-size:clamp(3.4rem, 3.9vw, 4.6rem); }
+    .hero-subtitle{ font-size:1.22rem; max-width:64ch; }
+    .hero-feature-item{ font-size:0.84rem; }
+    .hero-grid .trust-item .num{ font-size:1.32rem; }
+    .hero-grid .trust-item .lbl{ font-size:0.82rem; }
+    .hero-side-text{ max-width:540px; font-size:clamp(3.4rem, 4.2vw, 4.8rem); }
+  }
+
   /* Diagnostic panel (real, functional) */
   .hero-audit-form-container{
     background:var(--navy-deep); border-radius:16px; padding:24px 26px 22px; color:#fff;
