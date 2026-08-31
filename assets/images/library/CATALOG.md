@@ -19,7 +19,7 @@ A running library of stock/source images supplied by the owner for reuse across 
 
 **Best used for:** The `/ca/toronto/` city page -- hero or intro section establishing "we serve this specific city," not a generic stock skyline.
 
-**Used on:** `/ca/toronto/` (planned)
+**Used on:** `/ca/toronto/` -- promise section ("Remote-First, Not Faceless")
 
 ---
 
