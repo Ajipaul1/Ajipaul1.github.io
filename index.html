@@ -190,13 +190,31 @@
 
   /* ---------- HERO ---------- */
   .tap-new-hero{
-    padding:88px 0 96px; border-bottom:1px solid var(--line);
+    position:relative; overflow:hidden;
+    padding:96px 0 104px; border-bottom:1px solid var(--line);
     background:linear-gradient(var(--line) 1px, transparent 1px) 0 0/100% 96px, var(--paper);
   }
-  .hero-grid{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:64px; align-items:center; }
+  .tap-new-hero::after{
+    content:''; position:absolute; inset:-15%; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(circle at 22% 28%, rgba(217,83,30,0.12) 0%, transparent 42%),
+      radial-gradient(circle at 78% 68%, rgba(11,32,54,0.14) 0%, transparent 46%);
+    animation:heroDrift 16s ease-in-out infinite alternate;
+  }
+  @keyframes heroDrift{
+    0%{ transform:translate(0,0) scale(1); }
+    100%{ transform:translate(3%,-4%) scale(1.08); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .tap-new-hero::after{ animation:none; }
+  }
+  .hero-grid{ position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; max-width:760px; margin:0 auto; text-align:center; }
   .hero-main-content h1{ font-size:clamp(2.4rem, 3.6vw, 3.4rem); line-height:1.06; margin:20px 0 22px; }
   .hero-main-content h1 span{ color:var(--orange); font-weight:inherit; }
-  .hero-subtitle{ font-size:1.08rem; color:var(--ink-soft); max-width:46ch; margin:0 0 28px; }
+  .hero-subtitle{ font-size:1.08rem; color:var(--ink-soft); max-width:46ch; margin:0 auto 28px; }
+  .hero-actions{ justify-content:center; }
+  .hero-features-list{ justify-content:center; }
+  .trust-strip{ justify-content:center; }
   .hero-answer-box{ display:none; } /* superseded by lede copy; kept out of new layout */
   .hero-features-list{ display:flex; flex-wrap:wrap; gap:22px 30px; padding-top:26px; border-top:1px solid var(--line); margin-top:6px; }
   .hero-feature-item{ font-family:var(--font-mono); font-size:0.78rem; color:var(--ink-faint); display:flex; align-items:center; gap:8px; }
@@ -482,7 +500,7 @@
             <a href="#contact">Contact</a>
         </nav>
         <div class="header-actions">
-            <a class="book-audit-btn" href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank">Run a Free Diagnostic</a>
+            <a class="book-audit-btn" href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank">Book a Free Strategy Call</a>
             <button class="mobile-menu-toggle" aria-label="Open menu">☰</button>
         </div>
     </div>
@@ -500,7 +518,7 @@
             <a href="#results">Results</a>
             <a href="#compare">Why Us</a>
             <a href="#contact">Contact</a>
-            <a href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" class="drawer-cta">Run a Free Diagnostic</a>
+            <a href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" class="drawer-cta">Book a Free Strategy Call</a>
         </nav>
     </div>
 </div>
@@ -508,11 +526,11 @@
 <section class="tap-new-hero">
     <div class="container hero-grid">
         <div class="hero-main-content">
-            <p class="eyebrow">Offshore Technical Team — Kochi, India</p>
-            <h1>We diagnose first.<br>Then we <span>build</span>.</h1>
-            <p class="hero-subtitle">TechAuditPros is a dedicated technical team running Enterprise ERP builds, website development, and technical SEO for agencies and business owners across the US, UK, Canada, Australia &amp; Dubai — every engagement opens with a real audit of what's actually broken.</p>
+            <p class="eyebrow">AI-Native Engineering Team — Kochi, India</p>
+            <h1>An AI-Native Team for <span>ERP, Web &amp; SEO.</span></h1>
+            <p class="hero-subtitle">TechAuditPros is a dedicated AI-native technical team running Enterprise ERP builds, website development, and technical SEO for agencies and business owners across the US, UK, Canada, Australia &amp; Dubai.</p>
             <div class="hero-actions">
-                <a href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" class="primary-btn-large">Run a Free Diagnostic</a>
+                <a href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" class="primary-btn-large">Book a Free Strategy Call</a>
                 <a href="#services" class="btn-ghost">See the three services</a>
             </div>
             <div class="hero-features-list">
@@ -522,95 +540,10 @@
                 <div class="hero-feature-item">🔍 100% Transparency</div>
             </div>
             <div class="trust-strip">
-                <div class="trust-item"><span class="num">250+</span><span class="lbl">Audits completed</span></div>
+                <div class="trust-item"><span class="num">250+</span><span class="lbl">Projects delivered</span></div>
                 <div class="trust-item"><span class="num">128+</span><span class="lbl">Active clients</span></div>
                 <div class="trust-item"><span class="num">16</span><span class="lbl">Countries served</span></div>
                 <div class="trust-item"><span class="num">4.9/5</span><span class="lbl">Client rating</span></div>
-            </div>
-        </div>
-
-        <div>
-            <div class="hero-audit-form-container">
-                <form id="hero-audit-form" class="hero-audit-form">
-                    <div class="form-input-wrapper"><input type="text" id="audit-url" placeholder="Your Website (e.g. example.com)" required /></div>
-                    <div class="form-input-wrapper"><input type="email" id="audit-email" placeholder="Your Email Address" required /></div>
-                    <button type="submit" class="primary-btn-large submit-btn">
-                        <span>Analyze My Site</span>
-                        <svg class="btn-spinner" viewBox="0 0 50 50" style="display: none; width: 18px; height: 18px; border: 3px solid rgba(255,255,255,0.4); border-top-color: #fff; border-radius: 50%; animation: spin 1s linear infinite;"></svg>
-                    </button>
-                </form>
-
-                <div id="audit-loading-state" class="audit-loading-state" style="display: none;">
-                    <div class="loader-circle"></div>
-                    <div class="loader-steps">
-                        <p class="loader-step active" id="step-1">🔍 Connecting to website...</p>
-                        <p class="loader-step" id="step-2">⚡ Running Google PageSpeed & Core Web Vitals...</p>
-                        <p class="loader-step" id="step-3">📊 Crawling On-Page SEO meta-tags (DataForSEO)...</p>
-                        <p class="loader-step" id="step-4">💾 Saving report metrics to database...</p>
-                    </div>
-                </div>
-                <div id="audit-error-state" class="audit-error-state" style="display: none;"></div>
-
-                <div id="audit-results-panel" class="audit-results-panel" style="display: none;">
-                    <h3 class="results-title">Analysis Completed for <span id="res-domain-name" style="color: var(--orange);">example.com</span></h3>
-                    <div class="results-metrics-grid">
-                        <div class="metric-score-card"><div class="score-radial-progress" id="score-perf-dial" data-score="0"><span class="score-value" id="score-perf-val">0</span></div><span class="score-label">Performance</span></div>
-                        <div class="metric-score-card"><div class="score-radial-progress" id="score-seo-dial" data-score="0"><span class="score-value" id="score-seo-val">0</span></div><span class="score-label">SEO</span></div>
-                        <div class="metric-score-card"><div class="score-radial-progress" id="score-a11y-dial" data-score="0"><span class="score-value" id="score-a11y-val">0</span></div><span class="score-label">Access.</span></div>
-                        <div class="metric-score-card"><div class="score-radial-progress" id="score-bp-dial" data-score="0"><span class="score-value" id="score-bp-val">0</span></div><span class="score-label">Best Prac.</span></div>
-                    </div>
-
-                    <div class="details-card screenshot-full-card" style="margin-bottom: 14px;">
-                        <h4>🖥️ Live Desktop Render</h4>
-                        <div class="mock-browser-frame">
-                            <div class="mock-browser-header">
-                                <div class="mock-browser-dots"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span></div>
-                                <div class="mock-browser-address-bar" id="res-browser-address">https://www.example.com</div>
-                            </div>
-                            <div class="mock-browser-viewport">
-                                <img id="res-screenshot-img" src="" alt="Website Preview" class="screenshot-img" style="display: none;" />
-                                <div id="res-screenshot-placeholder" class="screenshot-placeholder"><span id="screenshot-placeholder-text">Generating website preview...</span></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="results-details-columns">
-                        <div class="details-card">
-                            <h4>⚡ Core Web Vitals</h4>
-                            <ul class="vitals-list">
-                                <li><span>LCP</span><strong id="res-lcp-val" class="vital-val">N/A</strong></li>
-                                <li><span>FCP</span><strong id="res-fcp-val" class="vital-val">N/A</strong></li>
-                                <li><span>CLS</span><strong id="res-cls-val" class="vital-val">N/A</strong></li>
-                                <li><span>INP</span><strong id="res-inp-val" class="vital-val">N/A</strong></li>
-                            </ul>
-                        </div>
-                        <div class="details-card">
-                            <h4>🔍 Technical SEO</h4>
-                            <ul class="seo-checks-list">
-                                <li><span>Meta Title</span><span id="res-title-status" class="check-badge status-good">Good</span></li>
-                                <li class="meta-preview-li"><span class="meta-label">Title:</span><em id="res-title-text" class="meta-text">N/A</em></li>
-                                <li><span>Meta Description</span><span id="res-desc-status" class="check-badge status-warning">Missing</span></li>
-                                <li class="meta-preview-li"><span class="meta-label">Desc:</span><em id="res-desc-text" class="meta-text">N/A</em></li>
-                                <li><span>H1 Count</span><strong id="res-h1-count" class="check-value">0</strong></li>
-                                <li><span>Broken Links</span><strong id="res-broken-count" class="check-value">0</strong></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="results-action-strip">
-                        <p>💡 Want to turn all these metrics green? We provide the dedicated technical team to fix them.</p>
-                        <a href="https://wa.me/916282520339?text=Hi%20TechAuditPros,%20I%20just%20ran%20my%20website%20audit%20and%20want%20to%20discuss%20optimizing%20it." class="primary-btn-large" target="_blank" rel="noopener">Discuss on WhatsApp</a>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-powered-bar">
-                <p>Powered by the same tools used by the world's top agencies</p>
-                <div class="hero-powered-logos">
-                    <svg viewBox="0 0 130 35" width="80" height="22" xmlns="http://www.w3.org/2000/svg"><text x="0" y="23" fill="#FF642D" font-family="'IBM Plex Sans', sans-serif" font-size="13" font-weight="800">SEMRUSH</text></svg>
-                    <svg viewBox="0 0 170 35" width="100" height="22" xmlns="http://www.w3.org/2000/svg"><text x="0" y="23" fill="#4B8C2A" font-family="'IBM Plex Sans', sans-serif" font-size="13" font-weight="800">ScreamFrog</text></svg>
-                    <svg viewBox="0 0 160 35" width="90" height="22" xmlns="http://www.w3.org/2000/svg"><text x="0" y="23" fill="#0F2C4C" font-family="'IBM Plex Sans', sans-serif" font-size="12" font-weight="700">Search Console</text></svg>
-                    <svg viewBox="0 0 110 35" width="70" height="22" xmlns="http://www.w3.org/2000/svg"><text x="0" y="23" fill="#FF8D00" font-family="'IBM Plex Sans', sans-serif" font-size="13" font-weight="800">ahrefs</text></svg>
-                </div>
             </div>
         </div>
     </div>
@@ -651,7 +584,7 @@
                     <div><span>Covers</span><span>Technical · AEO · GEO</span></div>
                     <div><span>Reporting</span><span>Monthly, transparent</span></div>
                 </div>
-                <span class="pillar-link">Run a free audit →</span>
+                <span class="pillar-link">Explore SEO Services →</span>
             </a>
         </div>
     </div>
@@ -678,7 +611,7 @@
                 <ul>
                     <li>A dedicated engineer + PM, not a ticket queue</li>
                     <li>Flat-rate pricing from $1,200/mo — no long contracts</li>
-                    <li>Every engagement opens with a real technical audit</li>
+                    <li>Every engagement starts with real technical scoping</li>
                     <li>Monthly reporting, source code and data fully yours</li>
                 </ul>
             </div>
@@ -698,7 +631,7 @@
 <section class="tap-cases-section">
     <div class="container">
         <div class="section-head">
-            <p class="eyebrow">Recent Diagnostics</p>
+            <p class="eyebrow">Case Studies</p>
             <h2>Real engagements, real numbers.</h2>
         </div>
         <div class="cases-grid">
@@ -733,9 +666,9 @@
 <section class="final-cta-section" id="contact">
     <div class="container">
         <div class="final-cta">
-            <h2>Get a free technical diagnostic before you hire anyone.</h2>
+            <h2>Talk to an AI-native engineering team before you hire anyone.</h2>
             <div class="final-cta-actions">
-                <a href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" class="primary-btn-large">Run My Free Audit</a>
+                <a href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" class="primary-btn-large">Book a Free Strategy Call</a>
                 <span class="final-cta-note">Takes 60 seconds · No contracts</span>
             </div>
         </div>
@@ -1381,7 +1314,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div style="background: var(--dark-card); border: 1.5px solid var(--border-light); border-radius: 24px; width: 90%; max-width: 580px; position: relative; overflow: hidden; box-shadow: var(--shadow-lg); animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
         <!-- Modal Header -->
         <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; border-bottom: 1px solid var(--border-light);">
-            <h3 style="margin: 0; font-size: 1.25rem; font-weight: 800; color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif;">Get Your Free Audit</h3>
+            <h3 style="margin: 0; font-size: 1.25rem; font-weight: 800; color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif;">Book a Free Strategy Call</h3>
             <button id="close-zoho-modal" style="background: none; border: none; color: var(--text-secondary); font-size: 1.8rem; cursor: pointer; transition: color 0.2s; display: flex; align-items: center; justify-content: center; padding: 0; line-height: 1;">&times;</button>
         </div>
         <!-- Modal Body (Zoho Iframe) -->

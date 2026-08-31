@@ -264,3 +264,98 @@
     <a class="dashboard-service-item" href="/saas-app-development/mvp-development/">🤖 AI Automation &amp; Integrations</a>
     <a class="dashboard-service-item" href="/saas-app-development/">🚀 SaaS Web Application Development</a>
 </div>
+
+<!-- ============================================================
+     LIVE WEBSITE SCAN / AUDIT TOOL (hero, right column)
+     Removed from the homepage 2026-08-31 — the owner does not want
+     the homepage positioned around "audit" at all; the company's
+     identity is AI-native ERP/Web/SEO delivery, not auditing.
+     This tool is FULLY FUNCTIONAL (real POST to /api/audit, real
+     PageSpeed/DataForSEO-backed results) — it was not broken, just
+     removed from the homepage. Keep this if the tool needs to live
+     on its own page later (e.g. /website-seo-audit/ already exists
+     as a separate page and may already have its own version of this,
+     worth checking before reusing this copy).
+============================================================ -->
+<div class="hero-audit-form-container">
+    <form id="hero-audit-form" class="hero-audit-form">
+        <div class="form-input-wrapper"><input type="text" id="audit-url" placeholder="Your Website (e.g. example.com)" required /></div>
+        <div class="form-input-wrapper"><input type="email" id="audit-email" placeholder="Your Email Address" required /></div>
+        <button type="submit" class="primary-btn-large submit-btn">
+            <span>Analyze My Site</span>
+            <svg class="btn-spinner" viewBox="0 0 50 50" style="display: none; width: 18px; height: 18px; border: 3px solid rgba(255,255,255,0.4); border-top-color: #fff; border-radius: 50%; animation: spin 1s linear infinite;"></svg>
+        </button>
+    </form>
+
+    <div id="audit-loading-state" class="audit-loading-state" style="display: none;">
+        <div class="loader-circle"></div>
+        <div class="loader-steps">
+            <p class="loader-step active" id="step-1">🔍 Connecting to website...</p>
+            <p class="loader-step" id="step-2">⚡ Running Google PageSpeed & Core Web Vitals...</p>
+            <p class="loader-step" id="step-3">📊 Crawling On-Page SEO meta-tags (DataForSEO)...</p>
+            <p class="loader-step" id="step-4">💾 Saving report metrics to database...</p>
+        </div>
+    </div>
+    <div id="audit-error-state" class="audit-error-state" style="display: none;"></div>
+
+    <div id="audit-results-panel" class="audit-results-panel" style="display: none;">
+        <h3 class="results-title">Analysis Completed for <span id="res-domain-name" style="color: var(--orange);">example.com</span></h3>
+        <div class="results-metrics-grid">
+            <div class="metric-score-card"><div class="score-radial-progress" id="score-perf-dial" data-score="0"><span class="score-value" id="score-perf-val">0</span></div><span class="score-label">Performance</span></div>
+            <div class="metric-score-card"><div class="score-radial-progress" id="score-seo-dial" data-score="0"><span class="score-value" id="score-seo-val">0</span></div><span class="score-label">SEO</span></div>
+            <div class="metric-score-card"><div class="score-radial-progress" id="score-a11y-dial" data-score="0"><span class="score-value" id="score-a11y-val">0</span></div><span class="score-label">Access.</span></div>
+            <div class="metric-score-card"><div class="score-radial-progress" id="score-bp-dial" data-score="0"><span class="score-value" id="score-bp-val">0</span></div><span class="score-label">Best Prac.</span></div>
+        </div>
+
+        <div class="details-card screenshot-full-card" style="margin-bottom: 14px;">
+            <h4>🖥️ Live Desktop Render</h4>
+            <div class="mock-browser-frame">
+                <div class="mock-browser-header">
+                    <div class="mock-browser-dots"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span></div>
+                    <div class="mock-browser-address-bar" id="res-browser-address">https://www.example.com</div>
+                </div>
+                <div class="mock-browser-viewport">
+                    <img id="res-screenshot-img" src="" alt="Website Preview" class="screenshot-img" style="display: none;" />
+                    <div id="res-screenshot-placeholder" class="screenshot-placeholder"><span id="screenshot-placeholder-text">Generating website preview...</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="results-details-columns">
+            <div class="details-card">
+                <h4>⚡ Core Web Vitals</h4>
+                <ul class="vitals-list">
+                    <li><span>LCP</span><strong id="res-lcp-val" class="vital-val">N/A</strong></li>
+                    <li><span>FCP</span><strong id="res-fcp-val" class="vital-val">N/A</strong></li>
+                    <li><span>CLS</span><strong id="res-cls-val" class="vital-val">N/A</strong></li>
+                    <li><span>INP</span><strong id="res-inp-val" class="vital-val">N/A</strong></li>
+                </ul>
+            </div>
+            <div class="details-card">
+                <h4>🔍 Technical SEO</h4>
+                <ul class="seo-checks-list">
+                    <li><span>Meta Title</span><span id="res-title-status" class="check-badge status-good">Good</span></li>
+                    <li class="meta-preview-li"><span class="meta-label">Title:</span><em id="res-title-text" class="meta-text">N/A</em></li>
+                    <li><span>Meta Description</span><span id="res-desc-status" class="check-badge status-warning">Missing</span></li>
+                    <li class="meta-preview-li"><span class="meta-label">Desc:</span><em id="res-desc-text" class="meta-text">N/A</em></li>
+                    <li><span>H1 Count</span><strong id="res-h1-count" class="check-value">0</strong></li>
+                    <li><span>Broken Links</span><strong id="res-broken-count" class="check-value">0</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="results-action-strip">
+            <p>💡 Want to turn all these metrics green? We provide the dedicated technical team to fix them.</p>
+            <a href="https://wa.me/916282520339?text=Hi%20TechAuditPros,%20I%20just%20ran%20my%20website%20audit%20and%20want%20to%20discuss%20optimizing%20it." class="primary-btn-large" target="_blank" rel="noopener">Discuss on WhatsApp</a>
+        </div>
+    </div>
+</div>
+<div class="hero-powered-bar">
+    <p>Powered by the same tools used by the world's top agencies</p>
+    <div class="hero-powered-logos">
+        <svg viewBox="0 0 130 35" width="80" height="22" xmlns="http://www.w3.org/2000/svg"><text x="0" y="23" fill="#FF642D" font-family="'IBM Plex Sans', sans-serif" font-size="13" font-weight="800">SEMRUSH</text></svg>
+        <svg viewBox="0 0 170 35" width="100" height="22" xmlns="http://www.w3.org/2000/svg"><text x="0" y="23" fill="#4B8C2A" font-family="'IBM Plex Sans', sans-serif" font-size="13" font-weight="800">ScreamFrog</text></svg>
+        <svg viewBox="0 0 160 35" width="90" height="22" xmlns="http://www.w3.org/2000/svg"><text x="0" y="23" fill="#0F2C4C" font-family="'IBM Plex Sans', sans-serif" font-size="12" font-weight="700">Search Console</text></svg>
+        <svg viewBox="0 0 110 35" width="70" height="22" xmlns="http://www.w3.org/2000/svg"><text x="0" y="23" fill="#FF8D00" font-family="'IBM Plex Sans', sans-serif" font-size="13" font-weight="800">ahrefs</text></svg>
+    </div>
+</div>
