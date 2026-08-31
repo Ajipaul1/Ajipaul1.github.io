@@ -334,6 +334,23 @@
   .pillar-specs div span:last-child{ color:var(--ink); }
   .pillar-link{ margin-top:4px; font-size:0.85rem; font-weight:600; color:var(--orange-dark); }
 
+  /* ---------- SERVICE AREAS ---------- */
+  .tap-regions-section{ padding:88px 0; background:var(--paper); border-bottom:1px solid var(--line); }
+  .regions-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:16px; }
+  .region-card{
+    background:var(--paper-alt); border:1px solid var(--line); border-radius:12px; padding:22px 18px;
+    text-decoration:none; text-align:center; display:flex; flex-direction:column; align-items:center; gap:6px;
+    transition:all .15s ease;
+  }
+  .region-card:hover{ border-color:var(--orange); background:var(--paper); box-shadow:var(--shadow-sm); }
+  .region-flag{ font-size:1.8rem; }
+  .region-card h3{ font-size:0.95rem; margin-top:2px; }
+  .region-rate{ display:flex; flex-direction:column; align-items:center; gap:6px; margin-top:6px; }
+  .region-rate > span:first-child{ font-family:var(--font-mono); font-size:0.82rem; color:var(--ink); font-weight:600; }
+  .region-rate-period{ color:var(--ink-faint); font-weight:400; }
+  .region-save{ font-family:var(--font-mono); font-size:0.68rem; font-weight:600; color:var(--good); background:var(--good-tint); padding:2px 8px; border-radius:6px; }
+  .regions-footnote{ text-align:center; margin-top:24px; font-size:0.8rem; color:var(--ink-faint); }
+
   /* ---------- BRANDS STRIP ---------- */
   .tap-brands-section{ padding:44px 0; background:var(--paper); border-bottom:1px solid var(--line); }
   .tap-brands-section .section-label{ text-align:center; font-family:var(--font-mono); font-size:0.72rem; font-weight:500; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:22px; }
@@ -444,6 +461,7 @@
   @media (max-width:900px){
     .hero-grid, .compare-grid, .founder-cta-grid{ grid-template-columns:1fr; }
     .pillars-grid, .cases-grid, .reviews-grid{ grid-template-columns:1fr; }
+    .regions-grid{ grid-template-columns:repeat(2,1fr); }
     .numbers-grid{ grid-template-columns:repeat(2,1fr); }
     .footer-content{ grid-template-columns:repeat(2,1fr); }
     .results-details-columns{ grid-template-columns:1fr; }
@@ -495,6 +513,7 @@
         </a>
         <nav class="desktop-nav">
             <a href="#services">Services</a>
+            <a href="#regions">Service Areas</a>
             <a href="#results">Results</a>
             <a href="#compare">Why Us</a>
             <a href="#contact">Contact</a>
@@ -515,6 +534,7 @@
         <nav class="drawer-nav">
             <a href="/">Home</a>
             <a href="#services">Services</a>
+            <a href="#regions">Service Areas</a>
             <a href="#results">Results</a>
             <a href="#compare">Why Us</a>
             <a href="#contact">Contact</a>
@@ -587,6 +607,43 @@
                 <span class="pillar-link">Explore SEO Services →</span>
             </a>
         </div>
+    </div>
+</section>
+
+<section id="regions" class="tap-regions-section">
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow">Where We Work</p>
+            <h2>Local pricing, one technical team behind every market.</h2>
+        </div>
+        <div class="regions-grid">
+            <a href="/ca/" class="region-card">
+                <span class="region-flag">🇨🇦</span>
+                <h3>Canada</h3>
+                <div class="region-rate"><span>From CA$1,490<span class="region-rate-period">/mo</span></span><span class="region-save">Save 57%</span></div>
+            </a>
+            <a href="/us/" class="region-card">
+                <span class="region-flag">🇺🇸</span>
+                <h3>United States</h3>
+                <div class="region-rate"><span>From US$1,800<span class="region-rate-period">/mo</span></span><span class="region-save">Save 60%</span></div>
+            </a>
+            <a href="/au/" class="region-card">
+                <span class="region-flag">🇦🇺</span>
+                <h3>Australia</h3>
+                <div class="region-rate"><span>From AU$1,600<span class="region-rate-period">/mo</span></span><span class="region-save">Save 59%</span></div>
+            </a>
+            <a href="/uk/" class="region-card">
+                <span class="region-flag">🇬🇧</span>
+                <h3>United Kingdom</h3>
+                <div class="region-rate"><span>From £1,200<span class="region-rate-period">/mo</span></span><span class="region-save">Save 57%</span></div>
+            </a>
+            <a href="/ae/" class="region-card">
+                <span class="region-flag">🇦🇪</span>
+                <h3>Dubai, UAE</h3>
+                <div class="region-rate"><span>From AED 3,800<span class="region-rate-period">/mo</span></span><span class="region-save">Save 52%</span></div>
+            </a>
+        </div>
+        <p class="regions-footnote">* Starting rates shown vs. average local agency pricing in each market.</p>
     </div>
 </section>
 
