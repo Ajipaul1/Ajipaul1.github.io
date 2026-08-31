@@ -191,34 +191,27 @@
   /* ---------- HERO ---------- */
   .tap-new-hero{
     position:relative; overflow:hidden;
-    padding:96px 0 104px; border-bottom:1px solid var(--line);
-    background:linear-gradient(var(--line) 1px, transparent 1px) 0 0/100% 96px, var(--paper);
-  }
-  .tap-new-hero::after{
-    content:''; position:absolute; inset:-15%; z-index:0; pointer-events:none;
+    padding:110px 0 116px;
     background:
-      radial-gradient(circle at 22% 28%, rgba(217,83,30,0.12) 0%, transparent 42%),
-      radial-gradient(circle at 78% 68%, rgba(11,32,54,0.14) 0%, transparent 46%);
-    animation:heroDrift 16s ease-in-out infinite alternate;
-  }
-  @keyframes heroDrift{
-    0%{ transform:translate(0,0) scale(1); }
-    100%{ transform:translate(3%,-4%) scale(1.08); }
+      radial-gradient(circle at 88% 20%, rgba(217,83,30,0.35) 0%, transparent 48%),
+      radial-gradient(circle at 12% 92%, rgba(217,83,30,0.16) 0%, transparent 42%),
+      linear-gradient(135deg, #0B2036 0%, #0E2A3E 55%, #14314A 100%);
   }
   .hero-canvas{ position:absolute; inset:0; z-index:0; pointer-events:none; }
-  @media (prefers-reduced-motion: reduce){
-    .tap-new-hero::after{ animation:none; }
-  }
-  .hero-grid{ position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; max-width:760px; margin:0 auto; text-align:center; }
-  .hero-main-content h1{ font-size:clamp(2.4rem, 3.6vw, 3.4rem); line-height:1.06; margin:20px 0 22px; }
+  .hero-grid{ position:relative; z-index:1; display:flex; flex-direction:column; align-items:flex-start; max-width:640px; text-align:left; }
+  .hero-main-content h1{ font-size:clamp(2.4rem, 3.6vw, 3.4rem); line-height:1.06; margin:20px 0 22px; color:#ffffff; }
   .hero-main-content h1 span{ color:var(--orange); font-weight:inherit; }
-  .hero-subtitle{ font-size:1.08rem; color:var(--ink-soft); max-width:46ch; margin:0 auto 28px; }
-  .hero-actions{ justify-content:center; }
-  .hero-features-list{ justify-content:center; }
-  .trust-strip{ justify-content:center; }
+  .hero-subtitle{ font-size:1.08rem; color:rgba(255,255,255,0.72); max-width:46ch; margin:0 0 28px; }
   .hero-answer-box{ display:none; } /* superseded by lede copy; kept out of new layout */
-  .hero-features-list{ display:flex; flex-wrap:wrap; gap:22px 30px; padding-top:26px; border-top:1px solid var(--line); margin-top:6px; }
-  .hero-feature-item{ font-family:var(--font-mono); font-size:0.78rem; color:var(--ink-faint); display:flex; align-items:center; gap:8px; }
+  .hero-features-list{ display:flex; flex-wrap:wrap; gap:22px 30px; padding-top:26px; border-top:1px solid rgba(255,255,255,0.14); margin-top:6px; }
+  .hero-feature-item{ font-family:var(--font-mono); font-size:0.78rem; color:rgba(255,255,255,0.6); display:flex; align-items:center; gap:8px; }
+  .hero-grid .btn-ghost{ background:transparent; color:#ffffff; border-color:rgba(255,255,255,0.35); }
+  .hero-grid .btn-ghost:hover{ border-color:#ffffff; }
+  .hero-grid .trust-item .num{ color:#ffffff; }
+  .hero-grid .trust-item .lbl{ color:rgba(255,255,255,0.55); }
+  .hero-grid .trust-strip{ border-top-color:rgba(255,255,255,0.14); }
+  .hero-grid .eyebrow{ color:var(--orange); }
+  .hero-grid .eyebrow::before{ background:var(--orange); }
 
   /* Diagnostic panel (real, functional) */
   .hero-audit-form-container{
@@ -818,7 +811,7 @@
     var running = false;
     var rafId = null;
 
-    var COLORS = ['rgba(11,32,54,', 'rgba(217,83,30,'];
+    var COLORS = ['rgba(255,255,255,', 'rgba(242,115,78,'];
 
     function resize() {
         dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -862,8 +855,8 @@
                 var dx = na.x - nb.x, dy = na.y - nb.y;
                 var dist = Math.sqrt(dx * dx + dy * dy);
                 if (dist < LINK_DIST) {
-                    var alpha = (1 - dist / LINK_DIST) * 0.14 * Math.min(na.depth, nb.depth);
-                    ctx.strokeStyle = 'rgba(14,42,62,' + alpha + ')';
+                    var alpha = (1 - dist / LINK_DIST) * 0.28 * Math.min(na.depth, nb.depth);
+                    ctx.strokeStyle = 'rgba(255,255,255,' + alpha + ')';
                     ctx.lineWidth = 1;
                     ctx.beginPath();
                     ctx.moveTo(na.x, na.y);
