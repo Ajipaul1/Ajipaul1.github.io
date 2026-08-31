@@ -276,6 +276,8 @@
     content:''; position:absolute; left:-28px; top:0; bottom:0; width:1px;
     background:linear-gradient(180deg, transparent, rgba(255,255,255,0.18), transparent);
   }
+  .hero-side-arc{ position:absolute; left:0; right:0; bottom:100%; width:100%; height:70px; overflow:visible; margin-bottom:4px; }
+  @media (prefers-reduced-motion: reduce){ .hero-side-arc{ display:none; } }
   @media (hover:hover) and (pointer:fine){
     .hero-side-text-inner, .hero-side-text-inner span{
       background-image:linear-gradient(90deg, #ff3b3b, #ff9a3b, #ffe93b, #3bff6e, #3bd4ff, #7a5cff, #ff3bd4, #ff3b3b);
@@ -714,7 +716,17 @@
             <svg viewBox="0 0 24 24"><path d="M18.24 3H21l-6.35 7.26L22.15 21h-6.2l-4.86-6.36L5.5 21H2.72l6.8-7.77L2.15 3h6.35l4.4 5.82L18.24 3zm-1.08 16.17h1.53L7.9 4.75H6.26l10.9 14.42z"/></svg>
         </a>
     </div>
-    <div class="hero-side-text" aria-hidden="true"><span class="hero-side-text-inner">Connecting<br>India<br><span>to the World.</span></span></div>
+    <div class="hero-side-text" aria-hidden="true">
+        <svg class="hero-side-arc" viewBox="0 0 360 90" aria-hidden="true">
+            <path id="heroArcPath" d="M10,80 C 90,-10 270,-10 350,80" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="1.5" stroke-dasharray="3 7" stroke-linecap="round" />
+            <circle r="3.5" fill="var(--orange)">
+                <animateMotion dur="4.5s" repeatCount="indefinite" rotate="auto">
+                    <mpath href="#heroArcPath"></mpath>
+                </animateMotion>
+            </circle>
+        </svg>
+        <span class="hero-side-text-inner">Connecting<br>India<br><span>to the World.</span></span>
+    </div>
     <div class="container">
     <div class="hero-grid">
         <div class="hero-main-content">
@@ -848,6 +860,7 @@
             <div class="compare-card negative">
                 <h4>The usual options</h4>
                 <ul>
+                    <li>DIY platforms &amp; templated builders, self-serve support</li>
                     <li>Generic AI code with no system-level review</li>
                     <li>Local agency retainers at $3,500–4,500/mo</li>
                     <li>3–6 month delivery timelines</li>
@@ -857,6 +870,7 @@
             <div class="compare-card positive">
                 <h4>TechAuditPros</h4>
                 <ul>
+                    <li>Hand-built custom ERP architecture, human-managed end to end</li>
                     <li>A dedicated engineer + PM, not a ticket queue</li>
                     <li>Flat-rate pricing from $1,200/mo — no long contracts</li>
                     <li>Every engagement starts with real technical scoping</li>
