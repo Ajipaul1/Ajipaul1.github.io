@@ -4,6 +4,40 @@ A running library of stock/source images supplied by the owner for reuse across 
 
 ---
 
+## male-developer-dual-monitors-colorful-office.jpg
+*Original filename: images (1).jpg*
+
+**What's in it:** A young male developer with shoulder-length hair, glasses, and a visible forearm tattoo sits at a wooden desk typing on a keyboard, facing dual monitors full of dark-theme code (green/white syntax highlighting). A second colleague (a woman in a mustard sweater, on a laptop, also coding) is blurred in the background. The office has a striking floor-to-ceiling stained-glass-style window wall in blocks of magenta, cyan, yellow, and orange behind them, plus open shelving with hardware/cables to the right.
+
+**Emotion / read:** Focused, in-the-zone individual coding work inside a genuinely creative, high-design office -- reads as a real product/engineering team, not a stock "business meeting" cliché.
+
+**Colors:** Neutral desk/office tones (wood, grey, white) punched through by a bold, saturated stained-glass window backdrop (magenta/cyan/yellow/orange blocks) -- that window is the visual signature of this pair of photos.
+
+**Note on quality:** Small source file (766x400) -- fine for a card, split-section image, or blog accent at moderate size, but will look soft if blown up to a full-width hero.
+
+**Best used for:** "Meet the team" / engineering-culture sections, anywhere you want to show real developers writing real code rather than a generic handshake photo. Pairs naturally with `female-developer-dual-monitors-colorful-office.jpg` (same shoot, reverse angle) for a two-image team spread.
+
+**Used on:** *(none yet)*
+
+---
+
+## female-developer-dual-monitors-colorful-office.jpg
+*Original filename: images (2).jpg*
+
+**What's in it:** A female developer with glasses sits at the same desk/office as the companion photo, chin resting on her hand, studying dual monitors full of dark-theme code. The same male colleague from the paired photo is blurred in the background this time (reverse angle of the same shoot/office). Same signature stained-glass window wall (magenta/cyan/yellow/orange) behind her.
+
+**Emotion / read:** Quiet concentration / problem-solving -- a thoughtful pause mid-debugging rather than a posed smile-at-camera shot.
+
+**Colors:** Same palette as its pair -- neutral wood/grey desk tones against the bold stained-glass-block window backdrop.
+
+**Note on quality:** Small source file (739x415) -- same caveat as its pair: good for cards/split sections, not a full-bleed hero.
+
+**Best used for:** Same use cases as `male-developer-dual-monitors-colorful-office.jpg` -- engineering/culture sections, "who builds this" moments. Use together as a two-photo spread, or individually where a single-person shot fits better.
+
+**Used on:** *(none yet)*
+
+---
+
 ## confident-leader-office-team-background.webp
 *Original filename: iStock-2169869893.webp*
 
