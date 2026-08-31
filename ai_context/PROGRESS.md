@@ -70,3 +70,16 @@ Add new entries below this line, most recent at the bottom (or top — whichever
 
 ### 2026-08-31 — ai_context/ bootstrap created
 Created this `ai_context/` folder (`RULES.md`, `DESIGN_SYSTEM.md`, `PROGRESS.md`, `COMMANDS.md`) plus a root `CLAUDE.md` pointing every future AI session here first, mirroring the pattern already in use on the owner's other project (viraat-marine-erp). Backfilled this file with everything done in the current session (nav fixes, two new Canada service pages, the Toronto city page, and the 12-image library) so nothing gets lost or re-derived from scratch next time.
+
+### 2026-08-31 — Homepage hero aligned to a left gutter on wide desktops
+Owner's complaint: on a wide monitor the hero copy (H1, lede, buttons, feature pills, trust stats) started ~360px in from the left edge and read as "misplaced" — the desktop width wasn't being used. Cause: the hero content sits in the standard `.container` (`width:92%; max-width:1180px; margin:0 auto`) and `.hero-grid` was additionally capped at `max-width:640px`, so past ~1280px viewport the whole column just floated in the middle of the section.
+
+Fix (CSS only, `index.html`, hero-scoped — no markup, no copy, no JS changed): added two `min-width` media queries right after the `.hero-grid .eyebrow` rules.
+- `≥1200px`: `.tap-new-hero > .container` drops the centering and the 1180px cap (`width:100%; max-width:none; margin:0; padding:0 64px`); `.hero-grid` widens to `min(50%, 820px)`; subtitle to `52ch`; feature list + trust strip `align-self:stretch` so they span the column.
+- `≥1600px`: gutter to 72px, wider gaps between the feature pills and the trust stats so they don't huddle.
+
+The `50%`/`820px` cap is deliberate: it keeps clearance from the absolutely-positioned `.hero-side-text` ("Connecting … to the World.", `right:6%`, `max-width:420px`). A wider column collides with it around 1200–1300px. Anything below 1200px is untouched — the original centered container still applies, and the side text still hides at ≤1100px.
+
+Owner chose **hero only** for this change (offered: whole homepage / whole site). Known consequence, flagged to the owner: the header (logo/nav/utility bar) and every section below the hero are still centered at 1180px, so the hero no longer lines up with the logo on wide screens. Extending the same gutter to the header + remaining sections is the obvious follow-up if the mismatch bothers them.
+
+Verification: node/playwright-core are **not installed on this machine** (no `node` on PATH), so the documented Playwright workflow couldn't run. Verified instead with headless Chrome directly (`chrome.exe --headless=new --screenshot`, Chrome lives at `%LOCALAPPDATA%\Google\Chrome\Application\chrome.exe` on this machine, not Program Files) at 1150 / 1440 / 1920 / 2560 px and looked at all four: 1150 unchanged, 1440 gutter 64px with clear separation from the side text, 1920 and 2560 gutter 72px, no collision, no overflow. Change is pure CSS so no console-error surface.

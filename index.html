@@ -318,6 +318,24 @@
   .hero-grid .eyebrow{ color:var(--orange); }
   .hero-grid .eyebrow::before{ background:var(--orange); }
 
+  /* Wide-desktop hero: break out of the 1180px centered container and align the
+     hero content to a fixed left gutter so it uses the real desktop width
+     instead of floating in the middle. Hero-scoped only — every other section
+     keeps the standard centered .container. Below 1200px the normal centered
+     container takes over (and the decorative side text hides at 1100px). */
+  @media (min-width:1200px){
+    .tap-new-hero > .container{ width:100%; max-width:none; margin:0; padding:0 64px; }
+    .hero-grid{ max-width:min(50%, 820px); }
+    .hero-subtitle{ max-width:52ch; }
+    .hero-features-list{ align-self:stretch; }
+    .hero-grid .trust-strip{ align-self:stretch; }
+  }
+  @media (min-width:1600px){
+    .tap-new-hero > .container{ padding:0 72px; }
+    .hero-features-list{ gap:22px 44px; }
+    .hero-grid .trust-strip{ gap:22px 56px; }
+  }
+
   /* Diagnostic panel (real, functional) */
   .hero-audit-form-container{
     background:var(--navy-deep); border-radius:16px; padding:24px 26px 22px; color:#fff;
