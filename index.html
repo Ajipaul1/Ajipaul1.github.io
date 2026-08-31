@@ -319,6 +319,20 @@
   .section-head h2{ font-size:clamp(1.7rem,2.6vw,2.3rem); margin:14px 0 14px; }
   .section-head p{ font-size:1rem; color:var(--ink-soft); }
 
+  /* ---------- ERP PROMISE / TRUST SECTION ---------- */
+  .tap-promise-section{ padding:88px 0; background:var(--paper); }
+  .promise-grid{ display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+  .promise-content h2{ color:var(--orange); font-size:clamp(1.7rem,2.8vw,2.2rem); line-height:1.15; margin-bottom:22px; }
+  .promise-content p{ font-size:1rem; color:var(--ink-soft); line-height:1.7; margin-bottom:28px; }
+  .btn-navy{
+    display:inline-flex; align-items:center; gap:8px; background:var(--navy-deep); color:#fff !important;
+    font-weight:700; font-size:0.92rem; padding:13px 26px; border-radius:8px; text-decoration:none;
+    transition:all .15s ease;
+  }
+  .btn-navy:hover{ background:#14314A; transform:translateY(-1px); box-shadow:0 6px 16px rgba(11,32,54,0.25); }
+  .promise-media{ border-radius:16px; overflow:hidden; box-shadow:var(--shadow-lg); }
+  .promise-media img{ width:100%; height:100%; object-fit:cover; display:block; }
+
   /* ---------- SERVICES (pillars) ---------- */
   .tap-pillars-section{ padding:88px 0; background:var(--paper-alt); border-bottom:1px solid var(--line); }
   .pillars-grid{
@@ -473,7 +487,8 @@
 
   /* ---------- RESPONSIVE ---------- */
   @media (max-width:900px){
-    .hero-grid, .compare-grid, .founder-cta-grid{ grid-template-columns:1fr; }
+    .hero-grid, .compare-grid, .founder-cta-grid, .promise-grid{ grid-template-columns:1fr; }
+    .promise-media{ order:-1; }
     .pillars-grid, .cases-grid, .reviews-grid{ grid-template-columns:1fr; }
     .regions-grid{ grid-template-columns:repeat(2,1fr); }
     .numbers-grid{ grid-template-columns:repeat(2,1fr); }
@@ -603,6 +618,19 @@
             </div>
         </div>
     </div>
+    </div>
+</section>
+
+<section class="tap-promise-section">
+    <div class="container promise-grid">
+        <div class="promise-content">
+            <h2>Enterprise ERP, Engineered Around Your Business</h2>
+            <p>When you outsource ERP development, you want to know the team behind it understands how your business actually operates — not just how to write code. At TechAuditPros, we build custom ERP software, CRM dashboards, and internal portals engineered around your real workflows, backed by the same AI-native team already running your website development and technical SEO. One accountable team behind ERP, web, and search — not three different vendors to manage.</p>
+            <a href="#services" class="btn-navy">Learn More</a>
+        </div>
+        <div class="promise-media">
+            <img src="assets/images/services/erp_hero.webp" alt="TechAuditPros engineering team collaborating on an ERP build" width="1024" height="1024" loading="lazy" />
+        </div>
     </div>
 </section>
 
