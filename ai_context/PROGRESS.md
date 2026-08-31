@@ -83,3 +83,25 @@ The `50%`/`820px` cap is deliberate: it keeps clearance from the absolutely-posi
 Owner chose **hero only** for this change (offered: whole homepage / whole site). Known consequence, flagged to the owner: the header (logo/nav/utility bar) and every section below the hero are still centered at 1180px, so the hero no longer lines up with the logo on wide screens. Extending the same gutter to the header + remaining sections is the obvious follow-up if the mismatch bothers them.
 
 Verification: node/playwright-core are **not installed on this machine** (no `node` on PATH), so the documented Playwright workflow couldn't run. Verified instead with headless Chrome directly (`chrome.exe --headless=new --screenshot`, Chrome lives at `%LOCALAPPDATA%\Google\Chrome\Application\chrome.exe` on this machine, not Program Files) at 1150 / 1440 / 1920 / 2560 px and looked at all four: 1150 unchanged, 1440 gutter 64px with clear separation from the side text, 1920 and 2560 gutter 72px, no collision, no overflow. Change is pure CSS so no console-error surface.
+
+### 2026-08-31 — Wide-desktop layout extended: header + hero, homepage and all 5 Canada pages
+Follow-up to the entry above, after the owner saw it live: extend the same treatment to the **header**, make the hero content "lengthy" (wider column + bigger type) because the centre still read as empty space, and apply the identical hero to the Canada pages so they stop looking "big and larger" than the homepage.
+
+One shared 51-line CSS block (`/* ---------- WIDE-DESKTOP LAYOUT (header + hero) ---------- */`) now sits in the same place — right after the `.hero-grid .eyebrow` rules — in all six pages that share this template: `index.html`, `ca/index.html`, `ca/erp/`, `ca/seo-services/`, `ca/toronto/`, `ca/website-development/`. **Keep it identical across all six**; if you change one, change all six (same rule as header/footer sync).
+
+What the block does, in `min-width` steps (nothing below 1200px is touched):
+- **1200px**: both header bars (`.site-header .container`) and the hero container break the 1180px cap and take a 64px left gutter; `.header-container{ gap:28px }`; hero column `min(50%, 800px)`; subtitle 56ch; feature list + trust strip stretch.
+- **1440px**: hero column `min(55%, 940px)`; h1 `clamp(3rem,3.9vw,4rem)` **plus `text-wrap:normal`** — the global heading rule is `text-wrap:balance`, which keeps line 1 short and left the widened column looking half-empty; nav links + CTA get `white-space:nowrap` (there's room at this width, and it stops the two-line nav/CTA wrap).
+- **1600px**: gutter 72px; column `min(56%, 1060px)`; side text grows to 480px / 4.2rem and moves to `right:5%`.
+- **1900px**: hero padding 130/136; column `min(54%, 1180px)`; h1 up to 4.6rem; subtitle 1.22rem; stats and pills up a step; side text 540px / 4.8rem.
+- **2200px**: column `min(52%, 1320px)`; h1 up to 5.2rem; side text 620px / 5.6rem.
+
+The column cap at every step is set to clear the absolutely-positioned `.hero-side-text` (which grows in the same steps) — the two collide around 1200–1300px if the column goes wider than ~50%, so don't raise these numbers without re-checking that gap at 1200, 1300 and 1600.
+
+**Pages deliberately NOT changed, and why:**
+- `/us/`, `/uk/`, `/au/`, `/ae/`, `/blog/index.html` are the **older dark indigo/teal generation** — different header (`.main-header-bar` with no utility bar), hero-grid is a 2-column grid with pricing cards, and their `.container` is already `width:96%; max-width:1720px !important`. They're not narrow, and this block doesn't fit their markup. Bringing them onto the current template is a separate redesign job.
+- Blog **articles** use this template but cap `.article-hero .container` at 760px and `.article-body .container` at 720px on purpose — that's reading measure, don't widen it.
+
+Verification: headless Chrome (`chrome --headless=new --screenshot`, `%LOCALAPPDATA%\Google\Chrome\Application\chrome.exe`) at 1200 / 1300 / 1440 / 1600 / 1920 / 2560 across homepage, `/ca/`, `/ca/erp/`, `/ca/seo-services/`, `/ca/website-development/`, `/ca/toronto/` — all looked at. **Tip for next session:** add `--force-prefers-reduced-motion` and use a short `--virtual-time-budget` (~900ms). Without it the hero's rotating headline and the side text get caught mid-fade and screenshot as blank, which looks exactly like a layout bug and isn't one. Also: the PowerShell tool hung on every `chrome.exe` call in this session; running the same command through Bash worked fine.
+
+**Process note (cost a rework this session):** the owner's GitHub Desktop auto-committed and pushed the first version mid-session as two `yy` commits. A later `git checkout -- index.html`, intended to revert an uncommitted edit, therefore restored the *committed* first version and left two competing copies of the media-query block in the file — the later one silently overriding the newer values. If you revert a file in this repo, check `git log` first; assume anything you wrote may already be in HEAD.

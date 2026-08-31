@@ -315,12 +315,12 @@
   /* ---------- WIDE-DESKTOP LAYOUT (header + hero) ----------
      On wide desktops the standard centered .container (max-width:1180px) left the
      header and the hero copy floating in the middle of the screen with a large
-     dead gutter on the left. Header bars and the hero break out of that cap and
-     align to a fixed left gutter instead; the hero column and type scale up in
-     steps so the composition stays filled rather than huddled at the left edge.
-     Everything below 1200px is untouched, and the hero column width is capped at
-     each step to keep clearance from the absolutely-positioned .hero-side-text.
-     Sections BELOW the hero deliberately keep the centered 1180px container. */
+     dead gutter on the left. Both header bars and the hero break out of that cap
+     and align to a fixed left gutter instead; the hero column and its type scale
+     up in steps so the composition stays filled rather than huddled at the left.
+     Everything below 1200px is untouched. The hero column is capped at each step
+     to keep clearance from the absolutely-positioned .hero-side-text, which grows
+     in step with it. Sections BELOW the hero keep the centered 1180px container. */
   @media (min-width:1200px){
     .site-header .container{ width:100%; max-width:none; margin:0; padding:0 64px; }
     .header-container{ gap:28px; }
@@ -332,7 +332,12 @@
   }
   @media (min-width:1440px){
     .hero-grid{ max-width:min(55%, 940px); }
-    .hero-main-content h1{ font-size:clamp(3rem, 3.9vw, 4rem); }
+    /* text-wrap:normal is deliberate: the global heading rule is text-wrap:balance,
+       which keeps line 1 short and leaves the widened column looking half-empty. */
+    .hero-main-content h1{ font-size:clamp(3rem, 3.9vw, 4rem); text-wrap:normal; }
+    /* enough room at this width for the nav and CTA to stay on one line */
+    .desktop-nav a{ white-space:nowrap; }
+    .book-audit-btn{ white-space:nowrap; }
     .hero-subtitle{ font-size:1.12rem; max-width:60ch; }
     .hero-features-list{ gap:22px 40px; }
     .hero-grid .trust-strip{ gap:22px 52px; }
@@ -353,6 +358,12 @@
     .hero-grid .trust-item .num{ font-size:1.32rem; }
     .hero-grid .trust-item .lbl{ font-size:0.82rem; }
     .hero-side-text{ max-width:540px; font-size:clamp(3.4rem, 4.2vw, 4.8rem); }
+  }
+  @media (min-width:2200px){
+    .hero-grid{ max-width:min(52%, 1320px); }
+    .hero-main-content h1{ font-size:clamp(4rem, 3.9vw, 5.2rem); }
+    .hero-subtitle{ font-size:1.28rem; max-width:68ch; }
+    .hero-side-text{ max-width:620px; font-size:clamp(4rem, 4.2vw, 5.6rem); }
   }
 
   /* Diagnostic panel (real, functional) */
