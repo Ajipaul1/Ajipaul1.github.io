@@ -641,7 +641,7 @@
     <div class="container">
     <div class="hero-grid">
         <div class="hero-main-content">
-            <p class="eyebrow">AI-Native Engineering Team — Kochi, India</p>
+            <p class="eyebrow" id="heroEyebrowRotate"><span class="hero-rotate-text">AI-Native Engineering Team — Kochi, India</span></p>
             <h1>An AI-Native Team for <span id="heroRotate" class="hero-rotate"><span class="hero-rotate-text">ERP, Web &amp; SEO.</span></span></h1>
             <p class="hero-subtitle">TechAuditPros is a dedicated AI-native technical team running Enterprise ERP builds, website development, and technical SEO for agencies and business owners across the US, UK, Canada, Australia &amp; Dubai.</p>
             <div class="hero-actions">
@@ -993,30 +993,42 @@
 <!-- Hero rotating headline phrase -->
 <script>
 (function() {
-    var el = document.getElementById('heroRotate');
-    if (!el) return;
     var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduceMotion) return;
 
-    var phrases = [
+    function rotateText(elId, phrases, intervalMs, delayMs) {
+        var el = document.getElementById(elId);
+        if (!el) return;
+        var i = 0;
+        setTimeout(function() {
+            setInterval(function() {
+                var inner = el.querySelector('.hero-rotate-text');
+                if (!inner) return;
+                inner.classList.add('swap');
+                setTimeout(function() {
+                    i = (i + 1) % phrases.length;
+                    inner.innerHTML = phrases[i];
+                    inner.classList.remove('swap');
+                }, 350);
+            }, intervalMs);
+        }, delayMs);
+    }
+
+    rotateText('heroRotate', [
         'ERP, Web &amp; SEO.',
         'Best AI Developers.',
         'Best ERP Solutions Provider.',
         'Full-Spectrum SEO Experts.',
         'AI-Native Web Development.'
-    ];
-    var i = 0;
+    ], 2600, 0);
 
-    setInterval(function() {
-        var inner = el.querySelector('.hero-rotate-text');
-        if (!inner) return;
-        inner.classList.add('swap');
-        setTimeout(function() {
-            i = (i + 1) % phrases.length;
-            inner.innerHTML = phrases[i];
-            inner.classList.remove('swap');
-        }, 350);
-    }, 2600);
+    rotateText('heroEyebrowRotate', [
+        'AI-Native Engineering Team — Kochi, India',
+        '250+ Projects Delivered',
+        '128+ Active Clients Worldwide',
+        '4.9/5 Client Rating',
+        '16 Countries Served'
+    ], 3200, 1200);
 })();
 </script>
 
