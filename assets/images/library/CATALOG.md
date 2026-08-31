@@ -2,6 +2,153 @@
 
 A running library of stock/source images supplied by the owner for reuse across the site. Each entry documents what's actually in the image so a future pass (human or AI) can pick the right one without re-opening every file. Add new entries at the top when new images come in.
 
+**⚠️ Two files below are marked DO-NOT-USE.** They're watermarked stock-site preview comps (Alamy / Shutterstock), not licensed images -- publishing them live would show the watermark text and is a licensing risk. Kept in the folder only as content/layout reference, never as a page asset.
+
+---
+
+## toronto-street-scene-golden-hour-pedestrian.jpg
+*Original filename: images (3).jpg*
+
+**What's in it:** A busy downtown Toronto-style commercial street at golden hour -- a young woman crosses mid-street checking her phone, a second pedestrian in a dark hooded coat is blurred in the foreground, traffic and parked cars line both sides, string of shopfronts and streetcar wires overhead, warm low sun backlighting the whole scene.
+
+**Emotion / read:** Real city energy -- alive, urban, unmistakably a busy North American downtown strip at the end of a workday. Reads as authentic street photography, not a staged stock shot.
+
+**Colors:** Warm golden-hour palette -- amber/orange backlight, deep shadow silhouettes, muted storefront colors.
+
+**Note on quality:** Small source file (678x452) -- fine for a card, section background, or accent image; not a full-bleed hero at large viewport widths.
+
+**Best used for:** The `/ca/toronto/` city page -- hero or intro section establishing "we serve this specific city," not a generic stock skyline.
+
+**Used on:** *(none yet)*
+
+---
+
+## small-business-owner-laptop-sidewalk-cafe.jpg
+*Original filename: images (4).jpg*
+
+**What's in it:** An older woman with grey hair and glasses works on a laptop at a small round table on a sunny sidewalk café patio, coffee cup beside her, busy urban street (parked cars, a scooter, autumn trees, storefronts) behind her.
+
+**Emotion / read:** Independent, unhurried focus -- reads as a small-business owner or consultant getting work done outside the office, approachable rather than corporate.
+
+**Colors:** Bright natural daylight, warm autumn tones in the background foliage, neutral café/street greys.
+
+**Note on quality:** Small source file (678x452) -- card or split-section size, not a full hero.
+
+**Best used for:** "Who we serve" / small-business-owner-facing sections, or a Toronto/city-page supporting image alongside the street-scene photo above.
+
+**Used on:** *(none yet)*
+
+---
+
+## empty-modern-tech-office-open-plan.jpg
+*Original filename: images (5).jpg*
+
+**What's in it:** A high-end, empty open-plan tech office -- rows of desks with monitors, circular pendant lighting, built-in planter boxes dividing desk clusters, floor-to-ceiling windows overlooking a highway/city skyline. No people in frame.
+
+**Emotion / read:** Polished, modern, "real engineering company" credibility shot -- no people means it reads as an office/workplace establishing image rather than a culture/team moment.
+
+**Colors:** Cool neutral office tones (charcoal, wood, white) with green plant accents and daylight from the windows.
+
+**Note on quality:** Larger/cleaner source file (still moderate resolution) -- works well as a wide banner or section background since there are no faces to crop awkwardly.
+
+**Best used for:** "About us" / company / careers sections needing an office establishing shot without needing to feature specific people.
+
+**Used on:** *(none yet)*
+
+---
+
+## client-consultation-meeting-clipboard.jpg
+*Original filename: images (6).jpg*
+
+**What's in it:** A professional woman in a navy blazer and blush blouse holds a clipboard, mid-conversation, gesturing while speaking to an out-of-focus older man seated across the table in the foreground. Laptop and water glass on the table, bright window-lit office behind her.
+
+**Emotion / read:** Client consultation / needs-analysis meeting -- she's actively presenting or explaining something to a client, engaged and articulate.
+
+**Colors:** Bright, neutral office daylight; navy blazer and peach blouse are the only strong color notes.
+
+**Note on quality:** Smallest source file in this batch (547x365) -- thumbnail/card use only.
+
+**Best used for:** "Needs analysis" / discovery-call / consultation moments on service pages (ERP needs-analysis step, SEO audit kickoff, etc.).
+
+**Used on:** *(none yet)*
+
+---
+
+## DO-NOT-USE-watermarked-illustration-onboarding.jpg
+*Original filename: images (7).jpg*
+
+**What's in it:** Flat vector illustration (not a photo) of an office onboarding scene -- a man handing a woman a moving box, another woman coding at dual monitors. Carries a visible **Alamy watermark, image ID, and alamy.com text overlay**.
+
+**Why it's flagged:** This is an unlicensed preview comp from Alamy's stock site, not a purchased/cleared image. Publishing it would show the watermark and is a licensing risk.
+
+**Best used for:** Reference only -- if the "new hire onboarding" illustration style is wanted somewhere, source a licensed equivalent rather than using this file directly.
+
+**Used on:** *(do not use)*
+
+---
+
+## DO-NOT-USE-watermarked-illustration-office-team.jpg
+*Original filename: images (8).jpg*
+
+**What's in it:** Flat vector illustration (not a photo) of a wide open-plan office -- multiple cartoon employees at desks, two chatting on a couch, one walking with a briefcase. Carries a visible **Shutterstock watermark, image ID, and shutterstock.com text overlay**.
+
+**Why it's flagged:** Same issue as its pair above -- unlicensed Shutterstock preview comp, not cleared for use. Do not publish as-is.
+
+**Best used for:** Reference only, same caveat as `DO-NOT-USE-watermarked-illustration-onboarding.jpg`.
+
+**Used on:** *(do not use)*
+
+---
+
+## team-flatlay-reviewing-wireframe-sketch.jpg
+*Original filename: images (9).jpg*
+
+**What's in it:** Top-down "flat lay" shot of a wooden desk covered in laptops, phones, notebooks, and coffee cups -- one person's hand holds up a paper UI/wireframe sketch toward another person reaching in from the opposite side, mid handoff/review. Faces are mostly out of frame (arms/hands only).
+
+**Emotion / read:** Collaborative design review / planning session -- reads as a real product or design team working through a layout together, not a posed meeting photo.
+
+**Colors:** Warm wood desk tones, neutral laptop/device greys, a small pop of green from a desk cactus.
+
+**Note on quality:** Decent resolution (720x419) for a wide section image or card.
+
+**Best used for:** Website-development-page "design" step (mirrors the ERP page's "Design" process step), or any "how we plan" section -- and it's face-free, so it's safe to use without needing model diversity/representation consideration.
+
+**Used on:** *(none yet)*
+
+---
+
+## team-flatlay-reviewing-business-report-charts.jpg
+*Original filename: images (10).jpg*
+
+**What's in it:** Top-down flat lay of two people leaning over a tablet and a printed report full of bar/pie charts, plus a calculator, folder, and glasses on a wood desk; two more people are visible at the bottom edge of frame. Faces are mostly cropped out.
+
+**Emotion / read:** Data/reporting review moment -- reads as "walking through the numbers together," a natural fit for an audit or monthly-reporting narrative.
+
+**Colors:** Warm wood desk tone, white/blue report pages, neutral device colors.
+
+**Note on quality:** Good resolution (739x415) for a wide section image or card. Face-free, same advantage as its pair above.
+
+**Best used for:** SEO page's "monthly reporting" section, or ERP's "data before code" section as an alternate to the mentor-and-monitor photo already used there.
+
+**Used on:** *(none yet)*
+
+---
+
+## team-casual-standup-meeting-lounge.webp
+*Original filename: download.webp*
+
+**What's in it:** Five colleagues (mixed gender and ethnicity) gathered in a bright, plant-filled office lounge -- one woman stands mid-sentence holding papers/a tablet, addressing four seated colleagues who are smiling and listening attentively.
+
+**Emotion / read:** Warm, genuine team culture -- candid group energy, not a stiff boardroom photo. Reads as "who we are" more than "what we sell."
+
+**Colors:** Bright, airy daylight; warm wood shelving with green plants; soft neutral clothing tones.
+
+**Note on quality:** Small source file (675x675, square) -- card or square-crop use, not a full-width hero.
+
+**Best used for:** "Meet the team" / culture / about-us sections needing a genuine group moment rather than a single-person portrait.
+
+**Used on:** *(none yet)*
+
 ---
 
 ## male-developer-dual-monitors-colorful-office.jpg
