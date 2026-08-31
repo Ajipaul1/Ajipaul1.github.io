@@ -19,7 +19,7 @@ A running library of stock/source images supplied by the owner for reuse across 
 
 **Best used for:** The `/ca/toronto/` city page -- hero or intro section establishing "we serve this specific city," not a generic stock skyline.
 
-**Used on:** *(none yet)*
+**Used on:** `/ca/toronto/` (planned)
 
 ---
 
@@ -113,7 +113,7 @@ A running library of stock/source images supplied by the owner for reuse across 
 
 **Best used for:** Website-development-page "design" step (mirrors the ERP page's "Design" process step), or any "how we plan" section -- and it's face-free, so it's safe to use without needing model diversity/representation consideration.
 
-**Used on:** *(none yet)*
+**Used on:** `/ca/website-development/` -- promise section ("You See the Design Before a Line of Code Gets Written")
 
 ---
 
@@ -213,7 +213,7 @@ A running library of stock/source images supplied by the owner for reuse across 
 
 **Best used for:** "How we work" / process / collaboration sections, small supporting imagery rather than a hero.
 
-**Used on:** *(none yet)*
+**Used on:** `/ca/seo-services/` -- promise section ("Every Engagement Starts With a Real Audit, Not a Sales Pitch")
 
 ---
 
