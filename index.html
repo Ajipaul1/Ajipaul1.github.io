@@ -337,18 +337,28 @@
 
   /* ---------- SERVICE AREAS ---------- */
   .tap-regions-section{ padding:88px 0; background:var(--paper); border-bottom:1px solid var(--line); }
-  .regions-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:16px; }
+  .regions-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:18px; }
   .region-card{
-    background:var(--paper-alt); border:1px solid var(--line); border-radius:12px; padding:22px 18px;
-    text-decoration:none; text-align:center; display:flex; flex-direction:column; align-items:center; gap:6px;
-    transition:all .15s ease;
+    position:relative; background:var(--paper); border:1px solid var(--line); border-radius:14px;
+    padding:28px 20px 22px; text-decoration:none; text-align:left; display:flex; flex-direction:column;
+    gap:2px; box-shadow:var(--shadow-sm); transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
   }
-  .region-card:hover{ border-color:var(--orange); background:var(--paper); box-shadow:var(--shadow-sm); }
-  .region-flag{ font-size:1.8rem; }
-  .region-card h3{ font-size:0.95rem; margin-top:2px; }
-  .region-rate{ display:flex; flex-direction:column; align-items:center; gap:6px; margin-top:6px; }
-  .region-rate > span:first-child{ font-family:var(--font-mono); font-size:0.82rem; color:var(--ink); font-weight:600; }
-  .region-rate-period{ color:var(--ink-faint); font-weight:400; }
+  .region-card:hover{ transform:translateY(-3px); border-color:var(--orange); box-shadow:var(--shadow-md); }
+  .region-card::after{
+    content:'→'; position:absolute; top:22px; right:20px; color:var(--ink-faint);
+    font-family:var(--font-mono); font-size:0.95rem; transition:color .18s ease, transform .18s ease;
+  }
+  .region-card:hover::after{ color:var(--orange); transform:translateX(2px); }
+  .region-flag{
+    width:44px; height:44px; border-radius:50%; overflow:hidden; display:flex; align-items:center;
+    justify-content:center; margin-bottom:14px; box-shadow:0 0 0 1px var(--line), var(--shadow-sm);
+  }
+  .region-flag img{ width:100%; height:100%; object-fit:cover; }
+  .region-card h3{ font-size:1rem; margin-bottom:14px; padding-right:20px; }
+  .region-rate-amount{ font-family:var(--font-mono); font-size:1.3rem; font-weight:600; color:var(--ink); letter-spacing:-0.01em; }
+  .region-rate-period{ font-size:0.75rem; color:var(--ink-faint); font-weight:400; margin-left:2px; }
+  .region-rate-row{ display:flex; align-items:center; justify-content:space-between; margin-top:10px; padding-top:10px; border-top:1px dashed var(--line-strong); }
+  .region-rate-label{ font-size:0.72rem; color:var(--ink-faint); }
   .region-save{ font-family:var(--font-mono); font-size:0.68rem; font-weight:600; color:var(--good); background:var(--good-tint); padding:2px 8px; border-radius:6px; }
   .regions-footnote{ text-align:center; margin-top:24px; font-size:0.8rem; color:var(--ink-faint); }
 
@@ -620,29 +630,34 @@
         </div>
         <div class="regions-grid">
             <a href="/ca/" class="region-card">
-                <span class="region-flag">🇨🇦</span>
+                <span class="region-flag"><img src="https://flagcdn.com/w80/ca.png" srcset="https://flagcdn.com/w160/ca.png 2x" alt="" width="40" height="40" loading="lazy" /></span>
                 <h3>Canada</h3>
-                <div class="region-rate"><span>From CA$1,490<span class="region-rate-period">/mo</span></span><span class="region-save">Save 57%</span></div>
+                <span class="region-rate-amount">CA$1,490<span class="region-rate-period">/mo</span></span>
+                <div class="region-rate-row"><span class="region-rate-label">Starting rate</span><span class="region-save">Save 57%</span></div>
             </a>
             <a href="/us/" class="region-card">
-                <span class="region-flag">🇺🇸</span>
+                <span class="region-flag"><img src="https://flagcdn.com/w80/us.png" srcset="https://flagcdn.com/w160/us.png 2x" alt="" width="40" height="40" loading="lazy" /></span>
                 <h3>United States</h3>
-                <div class="region-rate"><span>From US$1,800<span class="region-rate-period">/mo</span></span><span class="region-save">Save 60%</span></div>
+                <span class="region-rate-amount">US$1,800<span class="region-rate-period">/mo</span></span>
+                <div class="region-rate-row"><span class="region-rate-label">Starting rate</span><span class="region-save">Save 60%</span></div>
             </a>
             <a href="/au/" class="region-card">
-                <span class="region-flag">🇦🇺</span>
+                <span class="region-flag"><img src="https://flagcdn.com/w80/au.png" srcset="https://flagcdn.com/w160/au.png 2x" alt="" width="40" height="40" loading="lazy" /></span>
                 <h3>Australia</h3>
-                <div class="region-rate"><span>From AU$1,600<span class="region-rate-period">/mo</span></span><span class="region-save">Save 59%</span></div>
+                <span class="region-rate-amount">AU$1,600<span class="region-rate-period">/mo</span></span>
+                <div class="region-rate-row"><span class="region-rate-label">Starting rate</span><span class="region-save">Save 59%</span></div>
             </a>
             <a href="/uk/" class="region-card">
-                <span class="region-flag">🇬🇧</span>
+                <span class="region-flag"><img src="https://flagcdn.com/w80/gb.png" srcset="https://flagcdn.com/w160/gb.png 2x" alt="" width="40" height="40" loading="lazy" /></span>
                 <h3>United Kingdom</h3>
-                <div class="region-rate"><span>From £1,200<span class="region-rate-period">/mo</span></span><span class="region-save">Save 57%</span></div>
+                <span class="region-rate-amount">&pound;1,200<span class="region-rate-period">/mo</span></span>
+                <div class="region-rate-row"><span class="region-rate-label">Starting rate</span><span class="region-save">Save 57%</span></div>
             </a>
             <a href="/ae/" class="region-card">
-                <span class="region-flag">🇦🇪</span>
+                <span class="region-flag"><img src="https://flagcdn.com/w80/ae.png" srcset="https://flagcdn.com/w160/ae.png 2x" alt="" width="40" height="40" loading="lazy" /></span>
                 <h3>Dubai, UAE</h3>
-                <div class="region-rate"><span>From AED 3,800<span class="region-rate-period">/mo</span></span><span class="region-save">Save 52%</span></div>
+                <span class="region-rate-amount">AED 3,800<span class="region-rate-period">/mo</span></span>
+                <div class="region-rate-row"><span class="region-rate-label">Starting rate</span><span class="region-save">Save 52%</span></div>
             </a>
         </div>
         <p class="regions-footnote">* Starting rates shown vs. average local agency pricing in each market.</p>
