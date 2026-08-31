@@ -549,7 +549,8 @@
 
 <section class="tap-new-hero">
     <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
-    <div class="container hero-grid">
+    <div class="container">
+    <div class="hero-grid">
         <div class="hero-main-content">
             <p class="eyebrow">AI-Native Engineering Team — Kochi, India</p>
             <h1>An AI-Native Team for <span>ERP, Web &amp; SEO.</span></h1>
@@ -571,6 +572,7 @@
                 <div class="trust-item"><span class="num">4.9/5</span><span class="lbl">Client rating</span></div>
             </div>
         </div>
+    </div>
     </div>
 </section>
 
@@ -795,7 +797,7 @@
     </div>
 </footer>
 
-<!-- Hero animated node-network background (navy/orange, canvas, no library) -->
+<!-- Hero animated wave background (navy/orange, canvas, no library) -->
 <script>
 (function() {
     var canvas = document.getElementById('heroCanvas');
@@ -805,13 +807,17 @@
     var ctx = canvas.getContext('2d');
     var hero = canvas.closest('.tap-new-hero');
     var width, height, dpr;
-    var nodes = [];
-    var NODE_COUNT = 46;
-    var LINK_DIST = 150;
     var running = false;
     var rafId = null;
+    var t = 0;
 
-    var COLORS = ['rgba(255,255,255,', 'rgba(242,115,78,'];
+    // Each wave: vertical anchor (as % of hero height), amplitude, wavelength, drift speed, fill color, alpha
+    var WAVES = [
+        { anchor: 0.62, amp: 26, wavelength: 620, speed: 0.35, color: '255,255,255', alpha: 0.06 },
+        { anchor: 0.72, amp: 34, wavelength: 480, speed: -0.5,  color: '242,115,78', alpha: 0.10 },
+        { anchor: 0.84, amp: 22, wavelength: 380, speed: 0.65, color: '255,255,255', alpha: 0.05 },
+        { anchor: 0.95, amp: 30, wavelength: 700, speed: -0.28, color: '242,115,78', alpha: 0.07 }
+    ];
 
     function resize() {
         dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -824,54 +830,32 @@
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
-    function makeNodes() {
-        nodes = [];
-        for (var i = 0; i < NODE_COUNT; i++) {
-            var depth = 0.4 + Math.random() * 0.9; // pseudo-3D depth factor
-            nodes.push({
-                x: Math.random() * width,
-                y: Math.random() * height,
-                vx: (Math.random() - 0.5) * 0.18 * depth,
-                vy: (Math.random() - 0.5) * 0.18 * depth,
-                r: 1.1 + depth * 1.8,
-                depth: depth,
-                color: COLORS[i % 4 === 0 ? 1 : 0]
-            });
+    function drawWave(w, phase) {
+        var baseY = height * w.anchor;
+        ctx.beginPath();
+        ctx.moveTo(0, height);
+        ctx.lineTo(0, baseY);
+        var step = 12;
+        for (var x = 0; x <= width; x += step) {
+            var y = baseY + Math.sin((x / w.wavelength) * Math.PI * 2 + phase) * w.amp;
+            ctx.lineTo(x, y);
         }
+        ctx.lineTo(width, height);
+        ctx.closePath();
+        var grad = ctx.createLinearGradient(0, baseY - w.amp, 0, height);
+        grad.addColorStop(0, 'rgba(' + w.color + ',' + w.alpha + ')');
+        grad.addColorStop(1, 'rgba(' + w.color + ',0)');
+        ctx.fillStyle = grad;
+        ctx.fill();
     }
 
     function step() {
         ctx.clearRect(0, 0, width, height);
-        for (var i = 0; i < nodes.length; i++) {
-            var n = nodes[i];
-            n.x += n.vx;
-            n.y += n.vy;
-            if (n.x < -20) n.x = width + 20; else if (n.x > width + 20) n.x = -20;
-            if (n.y < -20) n.y = height + 20; else if (n.y > height + 20) n.y = -20;
+        for (var i = 0; i < WAVES.length; i++) {
+            var w = WAVES[i];
+            drawWave(w, t * w.speed);
         }
-        for (var a = 0; a < nodes.length; a++) {
-            for (var b = a + 1; b < nodes.length; b++) {
-                var na = nodes[a], nb = nodes[b];
-                var dx = na.x - nb.x, dy = na.y - nb.y;
-                var dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < LINK_DIST) {
-                    var alpha = (1 - dist / LINK_DIST) * 0.28 * Math.min(na.depth, nb.depth);
-                    ctx.strokeStyle = 'rgba(255,255,255,' + alpha + ')';
-                    ctx.lineWidth = 1;
-                    ctx.beginPath();
-                    ctx.moveTo(na.x, na.y);
-                    ctx.lineTo(nb.x, nb.y);
-                    ctx.stroke();
-                }
-            }
-        }
-        for (var j = 0; j < nodes.length; j++) {
-            var m = nodes[j];
-            ctx.beginPath();
-            ctx.fillStyle = m.color + (0.25 + m.depth * 0.45) + ')';
-            ctx.arc(m.x, m.y, m.r, 0, Math.PI * 2);
-            ctx.fill();
-        }
+        t += 0.016;
         if (running) rafId = requestAnimationFrame(step);
     }
 
@@ -886,7 +870,6 @@
     }
 
     resize();
-    makeNodes();
 
     if (reduceMotion) {
         step(); // draw one static frame, no animation
@@ -899,7 +882,7 @@
         var resizeTimer;
         window.addEventListener('resize', function() {
             clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(function() { resize(); makeNodes(); }, 200);
+            resizeTimer = setTimeout(resize, 200);
         });
     }
 })();
