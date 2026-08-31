@@ -64,11 +64,10 @@ export default async function handler(req, res) {
         return clean.replace(/\/+$/, '');
     };
 
-    // Retrieve and sanitize API credentials
-    const supabaseUrl = sanitizeEnvVar(process.env.SUPABASE_URL || 'https://jgouacaddnkjfftlhjjy.supabase.co');
-    const supabaseKey = sanitizeEnvVar(process.env.SUPABASE_SERVICE_ROLE_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impnb3VhY2FkZG5ramZmdGxoamp5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4MjgwNjE2NywiZXhwIjoyMDk4MzgyMTY3fQ.g7K_KybkTDA5dbYS-EX2QHvQ4Ld543CKSIL6TUun-FE');
-    const pagespeedApiKey = sanitizeEnvVar(process.env.GOOGLE_PAGESPEED_API_KEY || 'AIzaSyClI764wvlZ0NQPr2Q9WcX6lGAnyg20qAg');
-    const dataForSeoAuth = sanitizeEnvVar(process.env.DATAFORSEO_API_AUTHORIZATION || 'Basic aW5mb0B0ZWNoYXVkaXRwcm9zLmNvbTpiNThhODMyOTA0NjBkZjNk');
+    // Retrieve and sanitize API credentials (must be set in Vercel Project Settings -> Environment Variables;
+    // no hardcoded fallback values here on purpose -- see incident note in CHANGELOG/commit message)
+    const pagespeedApiKey = sanitizeEnvVar(process.env.GOOGLE_PAGESPEED_API_KEY);
+    const dataForSeoAuth = sanitizeEnvVar(process.env.DATAFORSEO_API_AUTHORIZATION);
 
     try {
         // Run Google PageSpeed Insights & DataForSEO OnPage API concurrently
@@ -158,45 +157,6 @@ export default async function handler(req, res) {
 
         const metaTitleStatus = dfsChecks.no_title ? 'missing' : (dfsChecks.title_too_long ? 'too_long' : 'good');
         const metaDescStatus = dfsChecks.no_description ? 'missing' : (dfsChecks.description_too_long ? 'too_long' : 'good');
-
-        // Compile payload structure for PostgreSQL database table
-        const auditPayload = {
-            domain,
-            email,
-            performance_score: perfScore,
-            seo_score: seoScore,
-            accessibility_score: accessibilityScore,
-            best_practices_score: bestPracticesScore,
-            lcp_val: lcpVal,
-            cls_val: clsVal,
-            fcp_val: fcpVal,
-            inp_val: inpVal,
-            meta_title: metaTitle,
-            meta_description: metaDescription,
-            meta_title_status: metaTitleStatus,
-            meta_desc_status: metaDescStatus,
-            h1_count: h1Count,
-            broken_links_count: brokenLinksCount,
-            raw_pagespeed_json: pageSpeedRes,
-            raw_dataforseo_json: dataForSeoRes
-        };
-
-        // Write row record into Supabase website_audits table
-        const supabaseRes = await fetch(`${supabaseUrl}/rest/v1/website_audits`, {
-            method: 'POST',
-            headers: {
-                'apikey': supabaseKey,
-                'Authorization': `Bearer ${supabaseKey}`,
-                'Content-Type': 'application/json',
-                'Prefer': 'return=representation'
-            },
-            body: JSON.stringify(auditPayload)
-        });
-
-        if (!supabaseRes.ok) {
-            const errText = await supabaseRes.text();
-            console.error('Supabase DB Insert Error:', errText);
-        }
 
         // Send email via Resend if API key is configured
         const resendApiKey = process.env.RESEND_API_KEY;
