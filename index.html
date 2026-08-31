@@ -200,14 +200,33 @@
 
   /* ---------- HERO ---------- */
   .tap-new-hero{
-    position:relative; overflow:hidden;
+    position:relative; overflow:hidden; perspective:1400px;
     padding:110px 0 116px;
+    --mx:0; --my:0;
     background:
       radial-gradient(circle at 88% 20%, rgba(217,83,30,0.35) 0%, transparent 48%),
       radial-gradient(circle at 12% 92%, rgba(217,83,30,0.16) 0%, transparent 42%),
       linear-gradient(135deg, #0B2036 0%, #0E2A3E 55%, #14314A 100%);
   }
-  .hero-canvas{ position:absolute; inset:0; z-index:0; pointer-events:none; }
+  .hero-spotlight{
+    position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:radial-gradient(420px circle at calc(50% + var(--mx) * 32%) calc(50% + var(--my) * 32%), rgba(255,255,255,0.10), transparent 65%);
+  }
+  .hero-canvas{
+    position:absolute; inset:0; z-index:0; pointer-events:none;
+    transform:translate3d(calc(var(--mx) * -14px), calc(var(--my) * -10px), 0) scale(1.04);
+    transition:transform .25s ease-out;
+  }
+  @media (hover:hover) and (pointer:fine){
+    .hero-grid{
+      transform:perspective(1400px) rotateY(calc(var(--mx) * 2deg)) rotateX(calc(var(--my) * -2deg));
+      transition:transform .25s ease-out;
+      transform-style:preserve-3d;
+    }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .hero-canvas, .hero-grid{ transition:none !important; transform:none !important; }
+  }
   .hero-social-row{ position:absolute; top:28px; right:32px; z-index:2; display:flex; gap:12px; }
   .hero-social-row a{
     width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center;
@@ -605,6 +624,7 @@
 
 <section class="tap-new-hero">
     <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+    <div class="hero-spotlight" aria-hidden="true"></div>
     <div class="hero-social-row">
         <a href="https://www.facebook.com/techauditpros/" target="_blank" rel="noopener" aria-label="TechAuditPros on Facebook">
             <svg viewBox="0 0 24 24"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.22 10.44 22v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.91h-2.34V22C18.34 21.22 22 17.08 22 12.06z"/></svg>
@@ -998,6 +1018,44 @@
             inner.classList.remove('swap');
         }, 350);
     }, 2600);
+})();
+</script>
+
+<!-- Hero cursor-parallax (lightweight -- CSS custom properties only, no library) -->
+<script>
+(function() {
+    var hero = document.querySelector('.tap-new-hero');
+    if (!hero) return;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) return;
+
+    var ticking = false;
+    var pendingX = 0, pendingY = 0;
+
+    function apply() {
+        hero.style.setProperty('--mx', pendingX.toFixed(3));
+        hero.style.setProperty('--my', pendingY.toFixed(3));
+        ticking = false;
+    }
+
+    function onMove(clientX, clientY) {
+        var rect = hero.getBoundingClientRect();
+        pendingX = ((clientX - rect.left) / rect.width - 0.5) * 2;
+        pendingY = ((clientY - rect.top) / rect.height - 0.5) * 2;
+        if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(apply);
+        }
+    }
+
+    hero.addEventListener('mousemove', function(e) { onMove(e.clientX, e.clientY); }, { passive: true });
+    hero.addEventListener('mouseleave', function() {
+        pendingX = 0; pendingY = 0;
+        requestAnimationFrame(apply);
+    });
+    hero.addEventListener('touchmove', function(e) {
+        if (e.touches && e.touches[0]) onMove(e.touches[0].clientX, e.touches[0].clientY);
+    }, { passive: true });
 })();
 </script>
 
