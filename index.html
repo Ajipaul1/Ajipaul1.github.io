@@ -205,6 +205,7 @@
     0%{ transform:translate(0,0) scale(1); }
     100%{ transform:translate(3%,-4%) scale(1.08); }
   }
+  .hero-canvas{ position:absolute; inset:0; z-index:0; pointer-events:none; }
   @media (prefers-reduced-motion: reduce){
     .tap-new-hero::after{ animation:none; }
   }
@@ -544,6 +545,7 @@
 </div>
 
 <section class="tap-new-hero">
+    <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
     <div class="container hero-grid">
         <div class="hero-main-content">
             <p class="eyebrow">AI-Native Engineering Team — Kochi, India</p>
@@ -784,6 +786,116 @@
         </div>
     </div>
 </footer>
+
+<!-- Hero animated node-network background (navy/orange, canvas, no library) -->
+<script>
+(function() {
+    var canvas = document.getElementById('heroCanvas');
+    if (!canvas) return;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var ctx = canvas.getContext('2d');
+    var hero = canvas.closest('.tap-new-hero');
+    var width, height, dpr;
+    var nodes = [];
+    var NODE_COUNT = 46;
+    var LINK_DIST = 150;
+    var running = false;
+    var rafId = null;
+
+    var COLORS = ['rgba(11,32,54,', 'rgba(217,83,30,'];
+
+    function resize() {
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        width = hero.offsetWidth;
+        height = hero.offsetHeight;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        canvas.style.width = width + 'px';
+        canvas.style.height = height + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function makeNodes() {
+        nodes = [];
+        for (var i = 0; i < NODE_COUNT; i++) {
+            var depth = 0.4 + Math.random() * 0.9; // pseudo-3D depth factor
+            nodes.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                vx: (Math.random() - 0.5) * 0.18 * depth,
+                vy: (Math.random() - 0.5) * 0.18 * depth,
+                r: 1.1 + depth * 1.8,
+                depth: depth,
+                color: COLORS[i % 4 === 0 ? 1 : 0]
+            });
+        }
+    }
+
+    function step() {
+        ctx.clearRect(0, 0, width, height);
+        for (var i = 0; i < nodes.length; i++) {
+            var n = nodes[i];
+            n.x += n.vx;
+            n.y += n.vy;
+            if (n.x < -20) n.x = width + 20; else if (n.x > width + 20) n.x = -20;
+            if (n.y < -20) n.y = height + 20; else if (n.y > height + 20) n.y = -20;
+        }
+        for (var a = 0; a < nodes.length; a++) {
+            for (var b = a + 1; b < nodes.length; b++) {
+                var na = nodes[a], nb = nodes[b];
+                var dx = na.x - nb.x, dy = na.y - nb.y;
+                var dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < LINK_DIST) {
+                    var alpha = (1 - dist / LINK_DIST) * 0.14 * Math.min(na.depth, nb.depth);
+                    ctx.strokeStyle = 'rgba(14,42,62,' + alpha + ')';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(na.x, na.y);
+                    ctx.lineTo(nb.x, nb.y);
+                    ctx.stroke();
+                }
+            }
+        }
+        for (var j = 0; j < nodes.length; j++) {
+            var m = nodes[j];
+            ctx.beginPath();
+            ctx.fillStyle = m.color + (0.25 + m.depth * 0.45) + ')';
+            ctx.arc(m.x, m.y, m.r, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        if (running) rafId = requestAnimationFrame(step);
+    }
+
+    function start() {
+        if (running) return;
+        running = true;
+        rafId = requestAnimationFrame(step);
+    }
+    function stop() {
+        running = false;
+        if (rafId) cancelAnimationFrame(rafId);
+    }
+
+    resize();
+    makeNodes();
+
+    if (reduceMotion) {
+        step(); // draw one static frame, no animation
+    } else {
+        var io = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) { e.isIntersecting ? start() : stop(); });
+        }, { threshold: 0.05 });
+        io.observe(hero);
+
+        var resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() { resize(); makeNodes(); }, 200);
+        });
+    }
+})();
+</script>
 
 <!-- Countdown and Mobile Navigation JavaScript -->
 <script>
