@@ -106,441 +106,338 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Playball&display=swap" rel="stylesheet"/>
-<!-- Styles: this page's design system is now fully self-contained in the <style> block below -->
-
-<!-- Scoped Dark Immersive Redesign Styles (Edge-to-Edge Full Screen) -->
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <style>
-    :root {
-        --brand-orange: #E4572E;
-        --brand-orange-dark: #C64A24;
-        --brand-orange-light: #F2734E;
-        --brand-navy: #0F2C4C;
-        --brand-navy-light: #1B4066;
-        --bg-page: #FFFFFF;
-        --bg-alt: #F6F8FA;
-        --bg-card: #FFFFFF;
-        --text-heading: #10233F;
-        --text-body: #4B5563;
-        --text-muted: #6B7280;
-        --border-color: #E5E7EB;
-        --shadow-sm: 0 1px 3px rgba(16,35,63,0.06), 0 1px 2px rgba(16,35,63,0.08);
-        --shadow-md: 0 8px 20px rgba(16,35,63,0.08);
-        --shadow-lg: 0 20px 45px rgba(16,35,63,0.12);
-    }
+  :root{
+    --paper:#FFFFFF;
+    --paper-alt:#F3F6F5;
+    --ink:#0E2A3E;
+    --ink-soft:#4B5B67;
+    --ink-faint:#8595A0;
+    --line:#DCE3E1;
+    --line-strong:#C3CDCA;
+    --orange:#D9531E;
+    --orange-dark:#B84313;
+    --orange-tint:#FCE8DF;
+    --navy-deep:#0B2036;
+    --good:#1B7A4D;
+    --good-tint:#E3F3EA;
+    --warn:#B8860B;
+    --bad:#C13A2E;
+    --font-sans:'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono:'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --shadow-sm:0 1px 3px rgba(14,42,62,0.06), 0 1px 2px rgba(14,42,62,0.08);
+    --shadow-md:0 8px 20px rgba(14,42,62,0.08);
+    --shadow-lg:0 30px 60px -20px rgba(11,32,54,0.35);
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0; background:var(--paper); color:var(--ink-soft);
+    font-family:var(--font-sans); font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+  a{ color:inherit; }
+  h1,h2,h3,h4{ color:var(--ink); font-family:var(--font-sans); font-weight:650; letter-spacing:-0.02em; margin:0; text-wrap:balance; }
+  .mono{ font-family:var(--font-mono); }
+  .container{ width:92%; max-width:1180px; margin:0 auto; padding:0 20px; box-sizing:border-box; }
+  .eyebrow{
+    font-family:var(--font-mono); font-size:0.72rem; font-weight:500; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--orange-dark); display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{ content:''; width:7px; height:7px; background:var(--orange); border-radius:1px; transform:rotate(45deg); flex-shrink:0; }
 
-    * { box-sizing: border-box; }
+  /* ---------- HEADER ---------- */
+  .main-header-bar{
+    position:sticky; top:0; z-index:1000; height:72px; display:flex; align-items:center;
+    background:rgba(255,255,255,0.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);
+  }
+  .header-container{ display:flex; align-items:center; justify-content:space-between; width:100%; }
+  .header-logo{ display:flex; align-items:center; gap:10px; text-decoration:none; }
+  .header-logo .logo-mark{
+    width:30px; height:30px; border-radius:7px; background:var(--navy-deep);
+    display:flex; align-items:center; justify-content:center; color:var(--orange);
+    font-family:var(--font-mono); font-weight:600; font-size:0.85rem; flex-shrink:0;
+  }
+  .header-logo .logo-text{ font-weight:700; font-size:1.05rem; color:var(--ink); letter-spacing:-0.01em; }
+  .desktop-nav{ display:flex; gap:34px; align-items:center; }
+  .desktop-nav a{ font-size:0.9rem; font-weight:500; color:var(--ink-soft); text-decoration:none; }
+  .desktop-nav a:hover{ color:var(--ink); }
+  .header-actions{ display:flex; align-items:center; gap:14px; }
+  .book-audit-btn{
+    display:inline-flex; align-items:center; gap:8px; background:var(--orange); color:#fff !important;
+    font-weight:600; font-size:0.88rem; padding:11px 20px; border-radius:7px; text-decoration:none;
+    transition:all .15s ease;
+  }
+  .book-audit-btn:hover{ background:var(--orange-dark); transform:translateY(-1px); box-shadow:0 6px 16px rgba(217,83,30,0.28); }
+  .mobile-menu-toggle{ display:none; background:none; border:none; color:var(--ink); font-size:1.5rem; cursor:pointer; padding:4px 8px; }
 
-    body {
-        font-family: 'Inter', sans-serif;
-        background-color: var(--bg-page);
-        color: var(--text-body);
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-    }
+  /* ---------- MOBILE DRAWER ---------- */
+  .mobile-drawer{ position:fixed; inset:0; z-index:2000; visibility:hidden; pointer-events:none; }
+  .mobile-drawer.active{ visibility:visible; pointer-events:auto; }
+  .drawer-overlay{ position:absolute; inset:0; background:rgba(11,32,54,0.5); opacity:0; transition:opacity .25s ease; }
+  .mobile-drawer.active .drawer-overlay{ opacity:1; }
+  .drawer-content{
+    position:absolute; top:0; right:0; height:100%; width:78%; max-width:320px; background:#fff;
+    box-shadow:var(--shadow-lg); transform:translateX(100%); transition:transform .3s ease; padding:20px;
+  }
+  .mobile-drawer.active .drawer-content{ transform:translateX(0); }
+  .drawer-header{ display:flex; justify-content:flex-end; }
+  .close-drawer{ background:none; border:none; font-size:1.8rem; color:var(--ink); cursor:pointer; }
+  .drawer-nav{ display:flex; flex-direction:column; gap:4px; margin-top:10px; }
+  .drawer-nav a{ padding:14px 6px; color:var(--ink); text-decoration:none; font-weight:600; border-bottom:1px solid var(--line); font-size:1rem; }
+  .drawer-nav a.drawer-cta{ margin-top:14px; text-align:center; background:var(--orange); color:#fff !important; border-radius:7px; border-bottom:none; }
 
-    .container {
-        width: 92%;
-        max-width: 1240px;
-        margin: 0 auto;
-        padding: 0 20px;
-        box-sizing: border-box;
-    }
+  /* ---------- HERO ---------- */
+  .tap-new-hero{
+    padding:88px 0 96px; border-bottom:1px solid var(--line);
+    background:linear-gradient(var(--line) 1px, transparent 1px) 0 0/100% 96px, var(--paper);
+  }
+  .hero-grid{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:64px; align-items:center; }
+  .hero-main-content h1{ font-size:clamp(2.4rem, 3.6vw, 3.4rem); line-height:1.06; margin:20px 0 22px; }
+  .hero-main-content h1 span{ color:var(--orange); font-weight:inherit; }
+  .hero-subtitle{ font-size:1.08rem; color:var(--ink-soft); max-width:46ch; margin:0 0 28px; }
+  .hero-answer-box{ display:none; } /* superseded by lede copy; kept out of new layout */
+  .hero-features-list{ display:flex; flex-wrap:wrap; gap:22px 30px; padding-top:26px; border-top:1px solid var(--line); margin-top:6px; }
+  .hero-feature-item{ font-family:var(--font-mono); font-size:0.78rem; color:var(--ink-faint); display:flex; align-items:center; gap:8px; }
 
-    h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--text-heading); margin: 0; }
-    a { color: var(--brand-orange); }
+  /* Diagnostic panel (real, functional) */
+  .hero-audit-form-container{
+    background:var(--navy-deep); border-radius:16px; padding:24px 26px 22px; color:#fff;
+    box-shadow:var(--shadow-lg); position:relative;
+  }
+  .hero-audit-form-container::before{
+    content:'SCAN A WEBSITE'; display:block; font-family:var(--font-mono); font-size:0.72rem;
+    letter-spacing:0.12em; color:rgba(255,255,255,0.5); margin-bottom:16px; padding-bottom:14px;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+  }
+  .hero-audit-form{ display:flex; flex-wrap:wrap; gap:10px; }
+  .form-input-wrapper{ flex:1; min-width:170px; }
+  .form-input-wrapper input{
+    width:100%; padding:12px 14px; border-radius:8px; border:1px solid rgba(255,255,255,0.15);
+    background:rgba(255,255,255,0.06); color:#fff; font-size:0.9rem; font-family:var(--font-sans);
+  }
+  .form-input-wrapper input::placeholder{ color:rgba(255,255,255,0.4); }
+  .form-input-wrapper input:focus{ outline:none; border-color:var(--orange); }
+  .primary-btn-large, .submit-btn{
+    background:var(--orange); color:#fff; border:none; padding:12px 22px; border-radius:8px;
+    font-weight:600; font-size:0.9rem; cursor:pointer; text-decoration:none; display:inline-flex;
+    align-items:center; justify-content:center; gap:8px; transition:all .15s ease; font-family:var(--font-sans);
+  }
+  .primary-btn-large:hover, .submit-btn:hover{ background:var(--orange-dark); }
+  .submit-btn:disabled{ opacity:0.7; cursor:not-allowed; }
 
-    /* --- TOP TRUST BAR --- */
-    .tap-top-trust-bar {
-        background: var(--brand-navy);
-        color: #ffffff;
-        padding: 9px 0;
-        font-size: 0.78rem;
-    }
-    .trust-bar-flex { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
-    .trust-left { font-weight: 700; }
-    .trust-right { display: flex; gap: 18px; flex-wrap: wrap; }
-    .trust-right a { color: rgba(255,255,255,0.85); text-decoration: none; font-weight: 600; }
-    .trust-right a:hover { color: var(--brand-orange-light); }
+  .audit-loading-state{ display:flex; flex-direction:column; gap:8px; margin-top:16px; align-items:center; }
+  .loader-circle{ width:30px; height:30px; border:3px solid rgba(255,255,255,0.15); border-top-color:var(--orange); border-radius:50%; animation:spin 1s linear infinite; }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+  .loader-steps{ width:100%; font-family:var(--font-mono); }
+  .loader-step{ font-size:0.8rem; color:rgba(255,255,255,0.4); padding:4px 0; }
+  .loader-step.active{ color:#fff; font-weight:500; }
+  .loader-step.completed{ color:#5FD68E; }
+  .audit-error-state{ color:#F3A18E; font-weight:500; margin-top:12px; font-size:0.88rem; }
 
-    /* --- HEADER (orange masthead, matches reference) --- */
-    .main-header-bar {
-        background: var(--brand-orange);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        height: 74px;
-        display: flex;
-        align-items: center;
-        box-shadow: var(--shadow-sm);
-    }
-    .header-container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-    .header-logo { display: flex; flex-direction: column; align-items: flex-start; gap: 0; text-decoration: none; }
-    .header-logo .logo-text { font-size: 1.35rem; font-weight: 800; color: #ffffff; line-height: 1; }
-    .header-logo .logo-sub { font-size: 0.65rem; color: rgba(255,255,255,0.85); font-weight: 600; margin-left: 42px; margin-top: -2px; }
-    .desktop-nav { display: flex; gap: 30px; align-items: center; }
-    .desktop-nav a { color: #ffffff; text-decoration: none; font-weight: 700; font-size: 0.92rem; }
-    .desktop-nav a:hover { color: var(--brand-navy); }
-    .header-actions { display: flex; align-items: center; gap: 14px; }
-    .header-phone { color: #ffffff; font-weight: 800; text-decoration: none; font-size: 0.95rem; display: none; }
-    .book-audit-btn {
-        background: var(--brand-navy);
-        color: #ffffff !important;
-        padding: 11px 22px;
-        border-radius: 8px;
-        font-weight: 700;
-        text-decoration: none;
-        font-size: 0.9rem;
-        transition: all 0.2s ease;
-    }
-    .book-audit-btn:hover { background: var(--brand-navy-light); transform: translateY(-1px); }
-    .mobile-menu-toggle {
-        display: none;
-        background: none;
-        border: none;
-        color: #ffffff;
-        font-size: 1.6rem;
-        cursor: pointer;
-        padding: 4px 8px;
-    }
+  .audit-results-panel{ margin-top:20px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1); }
+  .results-title{ font-size:1rem; font-weight:600; color:#fff; margin-bottom:16px; }
+  .results-metrics-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:18px; }
+  .metric-score-card{ display:flex; flex-direction:column; align-items:center; gap:8px; }
+  .score-radial-progress{
+    width:64px; height:64px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    background:radial-gradient(closest-side, var(--navy-deep) 79%, transparent 80% 100%), conic-gradient(rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.15) 0);
+    transition:background .9s cubic-bezier(.2,.7,.2,1);
+  }
+  .score-value{ font-family:var(--font-mono); font-weight:600; font-size:0.95rem; color:#fff; }
+  .score-label{ font-family:var(--font-mono); font-size:0.68rem; color:rgba(255,255,255,0.5); text-align:center; }
+  .details-card{ background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:16px; }
+  .details-card h4{ color:#fff; font-size:0.85rem; margin-bottom:12px; font-weight:600; }
+  .results-details-columns{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:18px; }
+  .mock-browser-frame{ border:1px solid rgba(255,255,255,0.12); border-radius:10px; overflow:hidden; }
+  .mock-browser-header{ background:rgba(255,255,255,0.06); padding:8px 12px; display:flex; align-items:center; gap:10px; }
+  .mock-browser-dots{ display:flex; gap:5px; }
+  .mock-browser-dots .dot{ width:9px; height:9px; border-radius:50%; }
+  .dot-red{ background:#e5534b; } .dot-yellow{ background:#e2b93b; } .dot-green{ background:#5FD68E; }
+  .mock-browser-address-bar{ background:rgba(0,0,0,0.2); border-radius:6px; padding:3px 10px; font-size:0.72rem; color:rgba(255,255,255,0.5); flex:1; font-family:var(--font-mono); }
+  .mock-browser-viewport{ min-height:150px; background:rgba(0,0,0,0.15); display:flex; align-items:center; justify-content:center; }
+  .screenshot-img{ width:100%; display:block; }
+  .screenshot-placeholder{ color:rgba(255,255,255,0.4); font-size:0.82rem; font-family:var(--font-mono); }
+  .vitals-list, .seo-checks-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; font-family:var(--font-mono); }
+  .vitals-list li, .seo-checks-list li{ display:flex; justify-content:space-between; font-size:0.8rem; color:rgba(255,255,255,0.7); }
+  .vital-val, .check-value{ font-weight:600; color:#fff; }
+  .check-badge{ font-size:0.68rem; font-weight:600; padding:2px 8px; border-radius:6px; }
+  .status-good{ background:rgba(95,214,142,0.18); color:#7FE3A8; }
+  .status-warning{ background:rgba(226,185,59,0.18); color:#E2B93B; }
+  .status-danger{ background:rgba(229,83,75,0.18); color:#F08981; }
+  .meta-preview-li{ flex-direction:column !important; align-items:flex-start !important; gap:3px; }
+  .meta-text{ color:rgba(255,255,255,0.45); font-size:0.76rem; }
+  .results-action-strip{
+    background:rgba(255,255,255,0.05); border-radius:12px; padding:16px; display:flex; flex-wrap:wrap;
+    align-items:center; justify-content:space-between; gap:14px;
+  }
+  .results-action-strip p{ margin:0; font-size:0.85rem; max-width:380px; color:rgba(255,255,255,0.75); }
 
-    /* --- MOBILE DRAWER --- */
-    .mobile-drawer {
-        position: fixed; inset: 0; z-index: 2000;
-        visibility: hidden;
-        pointer-events: none;
-    }
-    .mobile-drawer.active { visibility: visible; pointer-events: auto; }
-    .drawer-overlay {
-        position: absolute; inset: 0; background: rgba(15,44,76,0.5);
-        opacity: 0; transition: opacity 0.25s ease;
-    }
-    .mobile-drawer.active .drawer-overlay { opacity: 1; }
-    .drawer-content {
-        position: absolute; top: 0; right: 0; height: 100%; width: 78%; max-width: 320px;
-        background: #ffffff; box-shadow: var(--shadow-lg);
-        transform: translateX(100%); transition: transform 0.3s ease;
-        padding: 20px;
-    }
-    .mobile-drawer.active .drawer-content { transform: translateX(0); }
-    .drawer-header { display: flex; justify-content: flex-end; }
-    .close-drawer { background: none; border: none; font-size: 1.8rem; color: var(--text-heading); cursor: pointer; }
-    .drawer-nav { display: flex; flex-direction: column; gap: 4px; margin-top: 10px; }
-    .drawer-nav a {
-        padding: 14px 6px; color: var(--text-heading); text-decoration: none; font-weight: 700;
-        border-bottom: 1px solid var(--border-color); font-size: 1.02rem;
-    }
-    .drawer-nav a.drawer-cta {
-        margin-top: 14px; text-align: center; background: var(--brand-orange); color: #ffffff !important;
-        border-radius: 8px; border-bottom: none;
-    }
+  .hero-powered-bar{ margin-top:26px; }
+  .hero-powered-bar p{ font-family:var(--font-mono); font-size:0.72rem; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:12px; }
+  .hero-powered-logos{ display:flex; flex-wrap:wrap; gap:22px; align-items:center; opacity:0.8; }
 
-    /* --- HERO --- */
-    .tap-new-hero {
-        position: relative;
-        padding: 70px 0 60px;
-        background: var(--bg-alt);
-        border-bottom: 1px solid var(--border-color);
-        overflow: hidden;
-    }
-    .hero-grid { display: grid; grid-template-columns: 320px 1fr; gap: 46px; align-items: start; }
-    .hero-pricing-stack { display: flex; flex-direction: column; gap: 12px; }
-    .hero-pricing-card {
-        background: #ffffff; border: 1px solid var(--border-color); border-radius: 14px;
-        padding: 14px 18px; display: flex; align-items: center; justify-content: space-between;
-        box-shadow: var(--shadow-sm); transition: all 0.2s ease;
-    }
-    .hero-pricing-card:hover { border-color: var(--brand-orange); box-shadow: var(--shadow-md); }
-    .pricing-card-country { display: flex; align-items: center; gap: 10px; }
-    .pricing-card-flag { font-size: 1.9rem; }
-    .pricing-card-country-details h4 { font-size: 0.98rem; font-weight: 800; }
-    .pricing-card-country-details span { font-size: 0.74rem; color: var(--text-muted); }
-    .pricing-card-prices { text-align: right; }
-    .price-tap { font-size: 1.08rem; font-weight: 900; color: var(--brand-orange-dark); margin: 0; }
-    .price-tap span { font-size: 0.74rem; color: var(--text-muted); font-weight: 400; }
-    .price-save-badge {
-        display: inline-block; background: rgba(22,163,74,0.1); color: #15803d;
-        font-size: 0.68rem; font-weight: 800; padding: 3px 8px; border-radius: 6px; margin-top: 3px;
-    }
-    .pricing-stack-disclaimer { font-size: 0.75rem; color: var(--text-muted); margin: 2px 0 0 4px; font-style: italic; }
+  /* Trust strip (matches concept) */
+  .trust-strip{ display:flex; flex-wrap:wrap; gap:22px 30px; padding-top:26px; border-top:1px solid var(--line); }
+  .trust-item{ display:flex; flex-direction:column; gap:2px; }
+  .trust-item .num{ font-family:var(--font-mono); font-weight:600; font-size:1.15rem; color:var(--ink); }
+  .trust-item .lbl{ font-size:0.76rem; color:var(--ink-faint); }
+  .hero-actions{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin-bottom:6px; }
+  .btn-ghost{
+    display:inline-flex; align-items:center; gap:8px; background:transparent; color:var(--ink);
+    border:1px solid var(--line-strong); font-weight:600; font-size:0.88rem; padding:11px 20px;
+    border-radius:7px; text-decoration:none; transition:all .15s ease;
+  }
+  .btn-ghost:hover{ border-color:var(--ink); }
 
-    .hero-main-content h1 {
-        font-size: clamp(2.1rem, 3.6vw, 3.1rem);
-        line-height: 1.14;
-        font-weight: 900;
-        letter-spacing: -0.03em;
-        margin-bottom: 18px;
-    }
-    .hero-main-content h1 span { color: var(--brand-orange); }
-    .hero-subtitle { font-size: clamp(1rem, 1.5vw, 1.15rem); color: var(--text-body); line-height: 1.65; margin: 0 0 22px 0; }
-    .hero-answer-box {
-        margin: 0 0 22px 0; padding: 18px 22px; background: #ffffff; border: 1px solid var(--border-color);
-        border-left: 4px solid var(--brand-orange); border-radius: 12px; box-shadow: var(--shadow-sm);
-    }
-    .hero-answer-box p { margin: 0; color: var(--text-body); font-size: 0.95rem; line-height: 1.6; }
-    .hero-answer-box strong { color: var(--text-heading); }
+  /* ---------- SECTION SCAFFOLDING ---------- */
+  section{ padding:88px 0; }
+  .section-head{ max-width:640px; margin-bottom:52px; }
+  .section-head h2{ font-size:clamp(1.7rem,2.6vw,2.3rem); margin:14px 0 14px; }
+  .section-head p{ font-size:1rem; color:var(--ink-soft); }
 
-    .hero-features-list { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-bottom: 22px; }
-    .hero-feature-item { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 0.88rem; color: var(--text-heading); }
+  /* ---------- SERVICES (pillars) ---------- */
+  .tap-pillars-section{ padding:88px 0; background:var(--paper-alt); border-bottom:1px solid var(--line); }
+  .pillars-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line);
+    border:1px solid var(--line); border-radius:14px; overflow:hidden;
+  }
+  .pillar-card{ background:var(--paper); padding:36px 32px; display:flex; flex-direction:column; gap:14px; text-decoration:none; transition:background .15s ease; }
+  .pillar-card:hover{ background:#FBFCFC; }
+  .pillar-index{ font-family:var(--font-mono); font-size:0.78rem; color:var(--orange-dark); }
+  .pillar-card h3{ font-size:1.2rem; }
+  .pillar-card p{ margin:0; font-size:0.92rem; color:var(--ink-soft); flex:1; line-height:1.55; }
+  .pillar-specs{ display:flex; flex-direction:column; gap:7px; margin-top:2px; }
+  .pillar-specs div{
+    display:flex; justify-content:space-between; font-size:0.78rem; font-family:var(--font-mono);
+    color:var(--ink-faint); border-top:1px dashed var(--line-strong); padding-top:7px;
+  }
+  .pillar-specs div span:last-child{ color:var(--ink); }
+  .pillar-link{ margin-top:4px; font-size:0.85rem; font-weight:600; color:var(--orange-dark); }
 
-    .hero-audit-form-container {
-        background: #ffffff; border: 1px solid var(--border-color); border-radius: 16px;
-        padding: 20px; box-shadow: var(--shadow-md); max-width: 640px;
-    }
-    .hero-audit-form { display: flex; flex-wrap: wrap; gap: 10px; }
-    .form-input-wrapper { flex: 1; min-width: 180px; }
-    .form-input-wrapper input {
-        width: 100%; padding: 12px 14px; border-radius: 8px; border: 1px solid var(--border-color);
-        background: var(--bg-alt); color: var(--text-heading); font-size: 0.92rem; font-family: 'Inter', sans-serif;
-    }
-    .form-input-wrapper input:focus { outline: none; border-color: var(--brand-orange); }
-    .primary-btn-large, .submit-btn {
-        background: var(--brand-orange); color: #ffffff; border: none; padding: 12px 24px;
-        border-radius: 8px; font-weight: 800; font-size: 0.92rem; cursor: pointer; text-decoration: none;
-        display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s ease;
-    }
-    .primary-btn-large:hover, .submit-btn:hover { background: var(--brand-orange-dark); }
-    .submit-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+  /* ---------- BRANDS STRIP ---------- */
+  .tap-brands-section{ padding:44px 0; background:var(--paper); border-bottom:1px solid var(--line); }
+  .tap-brands-section .section-label{ text-align:center; font-family:var(--font-mono); font-size:0.72rem; font-weight:500; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:22px; }
+  .brands-logo-row{ display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:32px 44px; }
+  .brands-footnote{ text-align:center; margin-top:20px; font-size:0.85rem; color:var(--ink-faint); }
 
-    .audit-loading-state { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; align-items: center; }
-    .loader-circle {
-        width: 34px; height: 34px; border: 3px solid var(--border-color); border-top-color: var(--brand-orange);
-        border-radius: 50%; animation: spin 1s linear infinite;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .loader-steps { width: 100%; }
-    .loader-step { font-size: 0.85rem; color: var(--text-muted); padding: 4px 0; opacity: 0.5; }
-    .loader-step.active { color: var(--text-heading); font-weight: 700; opacity: 1; }
-    .loader-step.completed { color: #15803d; opacity: 1; }
-    .audit-error-state { color: #dc2626; font-weight: 600; margin-top: 12px; }
+  /* ---------- COMPARE ---------- */
+  .compare-grid{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+  .compare-card{ border:1px solid var(--line); border-radius:14px; padding:30px 30px 26px; }
+  .compare-card.negative{ background:var(--paper-alt); }
+  .compare-card.positive{ background:var(--navy-deep); border-color:var(--navy-deep); color:#fff; }
+  .compare-card h4{ font-size:0.78rem; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-faint); margin-bottom:18px; }
+  .compare-card.positive h4{ color:rgba(255,255,255,0.55); }
+  .compare-card ul{ margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:13px; }
+  .compare-card li{ display:flex; gap:11px; font-size:0.93rem; align-items:flex-start; }
+  .compare-card.negative li::before{ content:'—'; color:var(--ink-faint); font-family:var(--font-mono); }
+  .compare-card.positive li::before{ content:'✓'; color:var(--orange); font-weight:700; }
 
-    .audit-results-panel { margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--border-color); }
-    .results-title { font-size: 1.1rem; font-weight: 800; color: var(--text-heading); margin-bottom: 16px; }
-    .results-metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 20px; }
-    .metric-score-card { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-    .score-radial-progress {
-        width: 74px; height: 74px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-        background: radial-gradient(closest-side, #ffffff 79%, transparent 80% 100%), conic-gradient(var(--border-color) 0%, var(--border-color) 0);
-    }
-    .score-value { font-size: 1.15rem; font-weight: 900; color: var(--text-heading); }
-    .score-label { font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-align: center; }
-    .details-card {
-        background: var(--bg-alt); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px;
-    }
-    .details-card h4 { font-size: 0.95rem; margin-bottom: 12px; }
-    .results-details-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
-    .mock-browser-frame { border: 1px solid var(--border-color); border-radius: 10px; overflow: hidden; }
-    .mock-browser-header { background: #eef1f5; padding: 8px 12px; display: flex; align-items: center; gap: 10px; }
-    .mock-browser-dots { display: flex; gap: 5px; }
-    .mock-browser-dots .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
-    .dot-red { background: #ef4444; } .dot-yellow { background: #f59e0b; } .dot-green { background: #22c55e; }
-    .mock-browser-address-bar {
-        background: #ffffff; border-radius: 6px; padding: 3px 10px; font-size: 0.72rem; color: var(--text-muted);
-        flex: 1;
-    }
-    .mock-browser-viewport { min-height: 180px; background: #f4f6f8; display: flex; align-items: center; justify-content: center; }
-    .screenshot-img { width: 100%; display: block; }
-    .screenshot-placeholder { color: var(--text-muted); font-size: 0.85rem; }
-    .vitals-list, .seo-checks-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
-    .vitals-list li, .seo-checks-list li { display: flex; justify-content: space-between; font-size: 0.85rem; }
-    .vital-val, .check-value { font-weight: 800; color: var(--text-heading); }
-    .check-badge { font-size: 0.72rem; font-weight: 800; padding: 2px 8px; border-radius: 6px; }
-    .status-good { background: rgba(22,163,74,0.12); color: #15803d; }
-    .status-warning { background: rgba(245,158,11,0.15); color: #b45309; }
-    .status-danger { background: rgba(220,38,38,0.12); color: #dc2626; }
-    .meta-preview-li { flex-direction: column; align-items: flex-start !important; gap: 3px; }
-    .meta-text { color: var(--text-muted); font-size: 0.8rem; }
-    .results-action-strip {
-        background: var(--bg-alt); border-radius: 12px; padding: 18px; display: flex; flex-wrap: wrap;
-        align-items: center; justify-content: space-between; gap: 14px;
-    }
-    .results-action-strip p { margin: 0; font-size: 0.88rem; max-width: 420px; }
+  /* ---------- STATS BAND ---------- */
+  .tap-numbers-section{ background:var(--navy-deep); color:#fff; padding:56px 0; }
+  .numbers-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+  .number-stat-item{ border-left:1px solid rgba(255,255,255,0.15); padding-left:20px; }
+  .number-stat-item .num{ font-family:var(--font-mono); font-size:2rem; font-weight:600; font-variant-numeric:tabular-nums; }
+  .number-stat-item .label{ font-size:0.82rem; color:rgba(255,255,255,0.55); margin-top:4px; }
 
-    .hero-powered-bar { margin-top: 26px; }
-    .hero-powered-bar p { font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 10px; }
-    .hero-powered-logos { display: flex; flex-wrap: wrap; gap: 22px; align-items: center; opacity: 0.85; }
+  /* ---------- CASE STUDIES ---------- */
+  .cases-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .case-card{ border:1px solid var(--line); border-radius:14px; padding:26px; display:flex; flex-direction:column; gap:12px; }
+  .case-tag{ font-family:var(--font-mono); font-size:0.75rem; color:var(--ink-faint); }
+  .case-card h3{ font-size:1.1rem; }
+  .case-stat-row{ display:flex; justify-content:space-between; padding:8px 0; border-top:1px solid var(--line); font-size:0.86rem; }
+  .case-stat-row strong{ font-family:var(--font-mono); color:var(--good); }
+  .case-card-link{ margin-top:6px; font-weight:600; font-size:0.85rem; text-decoration:none; color:var(--orange-dark); }
 
-    /* --- SERVICES PILLARS --- */
-    .tap-pillars-section { padding: 60px 0; background: var(--bg-page); }
-    .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .pillar-card {
-        display: flex; flex-direction: column; align-items: flex-start; gap: 10px;
-        background: #ffffff; border: 1px solid var(--border-color); border-radius: 16px; padding: 28px 26px;
-        text-decoration: none; transition: all 0.25s ease; box-shadow: var(--shadow-sm);
-    }
-    .pillar-card:hover { transform: translateY(-4px); border-color: var(--brand-orange); box-shadow: var(--shadow-md); }
-    .pillar-icon {
-        font-size: 1.8rem; width: 54px; height: 54px; display: flex; align-items: center; justify-content: center;
-        background: rgba(228,87,46,0.1); border-radius: 12px;
-    }
-    .pillar-card h3 { font-size: 1.18rem; font-weight: 800; margin-top: 4px; }
-    .pillar-card p { margin: 0; font-size: 0.92rem; color: var(--text-body); line-height: 1.55; }
-    .pillar-link { margin-top: 8px; font-size: 0.85rem; font-weight: 700; color: var(--brand-orange-dark); }
+  /* ---------- REVIEWS ---------- */
+  .tap-reviews-section{ background:var(--paper-alt); }
+  .reviews-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  .review-card-item{ background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:24px; }
+  .review-avatar-row{ display:flex; align-items:center; gap:12px; margin-bottom:10px; }
+  .review-avatar-circle{ width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:600; font-size:0.8rem; font-family:var(--font-mono); }
+  .review-avatar-info h4{ font-size:0.92rem; }
+  .review-avatar-info span{ font-size:0.76rem; color:var(--ink-faint); }
+  .review-stars-row{ color:var(--orange); margin-bottom:10px; letter-spacing:2px; }
+  .review-card-item p{ font-size:0.9rem; color:var(--ink-soft); line-height:1.55; }
+  .review-author-bottom-row{ display:flex; justify-content:space-between; margin-top:14px; font-size:0.78rem; color:var(--ink-faint); font-weight:600; }
 
-    /* --- BRANDS STRIP --- */
-    .tap-brands-section { padding: 40px 0; background: var(--bg-alt); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
-    .tap-brands-section .section-label { text-align: center; font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 24px; }
-    .brands-logo-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 36px 48px; opacity: 0.85; }
-    .brands-footnote { text-align: center; margin-top: 22px; font-size: 0.85rem; color: var(--text-muted); }
+  /* ---------- FAQ ---------- */
+  .faq-accordion{ max-width:800px; margin:0 auto; display:flex; flex-direction:column; gap:12px; }
+  .faq-item{ background:var(--paper-alt); border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+  .faq-item.active{ background:var(--paper); border-color:var(--orange); }
+  .faq-trigger{ width:100%; padding:20px 24px; background:none; border:none; text-align:left; color:var(--ink); font-family:var(--font-sans); font-size:1rem; font-weight:600; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:15px; }
+  .faq-icon{ font-family:var(--font-mono); font-size:1.1rem; color:var(--orange); flex-shrink:0; }
+  .faq-content{ max-height:0; overflow:hidden; transition:max-height .3s ease-out; }
+  .faq-content p{ padding:0 24px 22px; margin:0; color:var(--ink-soft); font-size:0.92rem; line-height:1.6; }
 
-    /* --- SECTION HEADERS --- */
-    .section-header-center { text-align: center; max-width: 640px; margin: 0 auto 44px; }
-    .section-header-center h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 900; letter-spacing: -0.02em; margin-bottom: 12px; }
-    .section-header-center p { color: var(--text-muted); font-size: 1rem; margin: 0; }
+  /* ---------- FOUNDER + FINAL CTA ---------- */
+  .tap-founder-cta-section{ }
+  .founder-cta-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:stretch; }
+  .founder-content-wrapper{ background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:28px; }
+  .founder-photo-box img{ width:80px; height:80px; border-radius:50%; object-fit:cover; margin-bottom:14px; }
+  .founder-bio-text h3{ font-size:1.25rem; margin-bottom:4px; }
+  .founder-bio-text > span{ font-family:var(--font-mono); font-size:0.8rem; color:var(--ink-faint); }
+  .founder-bio-text p{ font-size:0.92rem; color:var(--ink-soft); line-height:1.6; margin:14px 0; }
+  .founder-signature{ font-family:var(--font-mono); font-size:0.9rem; color:var(--orange-dark); margin-bottom:14px; }
+  .founder-timeline-list{ display:flex; flex-direction:column; gap:6px; font-size:0.8rem; color:var(--ink-soft); font-family:var(--font-mono); }
+  .cta-card-box{ background:var(--navy-deep); color:#fff; border-radius:14px; padding:30px; display:flex; flex-direction:column; justify-content:center; }
+  .cta-card-box h3{ color:#fff; font-size:1.25rem; line-height:1.35; margin-bottom:10px; }
+  .cta-card-box p{ color:rgba(255,255,255,0.75); font-size:0.9rem; margin:0 0 18px; }
+  .cta-card-checklist{ display:flex; flex-direction:column; gap:8px; font-family:var(--font-mono); }
+  .cta-checklist-item{ font-size:0.85rem; color:rgba(255,255,255,0.85); }
+  .cta-card-box .primary-btn-large{ background:var(--orange); }
+  .cta-card-subtext{ text-align:center; font-size:0.76rem; color:rgba(255,255,255,0.5); }
 
-    /* --- CASE STUDIES --- */
-    .tap-cases-section { padding: 64px 0; background: var(--bg-page); }
-    .cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .case-card {
-        background: #ffffff; border: 1px solid var(--border-color); border-radius: 16px; padding: 26px;
-        box-shadow: var(--shadow-sm);
-    }
-    .case-tag { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: var(--brand-orange-dark); }
-    .case-card h3 { font-size: 1.2rem; font-weight: 800; margin: 8px 0 16px; }
-    .case-stat-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border-color); font-size: 0.88rem; }
-    .case-stat-row strong { color: var(--text-heading); }
-    .case-card-link { display: inline-block; margin-top: 16px; font-weight: 700; font-size: 0.88rem; text-decoration: none; }
+  .final-cta-section{ padding:88px 0; }
+  .final-cta{
+    background:var(--orange-tint); border-radius:20px; padding:60px 56px;
+    display:flex; justify-content:space-between; align-items:center; gap:40px; max-width:1180px; margin:0 auto;
+  }
+  .final-cta h2{ font-size:clamp(1.6rem,2.4vw,2.1rem); max-width:18ch; }
+  .final-cta-actions{ display:flex; flex-direction:column; gap:10px; flex-shrink:0; align-items:flex-start; }
+  .final-cta-note{ font-size:0.85rem; color:var(--ink-faint); }
 
-    /* --- REVIEWS --- */
-    .tap-reviews-section { padding: 64px 0; background: var(--bg-alt); }
-    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-    .review-card-item { background: #ffffff; border: 1px solid var(--border-color); border-radius: 16px; padding: 24px; box-shadow: var(--shadow-sm); }
-    .review-avatar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-    .review-avatar-circle { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 0.85rem; }
-    .review-avatar-info h4 { font-size: 0.95rem; }
-    .review-avatar-info span { font-size: 0.78rem; color: var(--text-muted); }
-    .review-stars-row { color: var(--brand-orange); margin-bottom: 10px; letter-spacing: 2px; }
-    .review-card-item p { font-size: 0.9rem; color: var(--text-body); line-height: 1.55; }
-    .review-author-bottom-row { display: flex; justify-content: space-between; margin-top: 14px; font-size: 0.8rem; color: var(--text-muted); font-weight: 700; }
+  /* ---------- FOOTER ---------- */
+  .site-footer{ padding:56px 0 26px; background:var(--paper-alt); border-top:1px solid var(--line); }
+  .footer-content{ display:grid; grid-template-columns:1.6fr repeat(4,1fr); gap:30px; }
+  .footer-column h3{ font-family:var(--font-mono); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-faint); margin-bottom:14px; font-weight:500; }
+  .footer-column p{ margin:0 0 10px; }
+  .footer-link{ color:var(--ink-soft); text-decoration:none; font-size:0.88rem; }
+  .footer-link:hover{ color:var(--orange-dark); }
+  .footer-column > p:first-of-type{ color:var(--ink-soft); font-size:0.88rem; line-height:1.55; }
+  .footer-social-icons a{ color:var(--ink-faint); font-size:0.82rem; text-decoration:none; font-weight:600; }
+  .footer-bottom{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-top:34px; border-top:1px solid var(--line); padding-top:20px; font-size:0.78rem; color:var(--ink-faint); font-family:var(--font-mono); }
 
-    /* --- WORKFLOW --- */
-    .tap-workflow-section { padding: 64px 0; background: var(--bg-page); }
-    .workflow-timeline-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px 18px; }
-    .workflow-step-node { text-align: center; }
-    .step-node-icon {
-        width: 44px; height: 44px; border-radius: 50%; background: var(--brand-navy); color: #fff;
-        display: flex; align-items: center; justify-content: center; font-weight: 800; margin: 0 auto 10px;
-    }
-    .workflow-step-node h4 { font-size: 0.95rem; margin-bottom: 4px; }
-    .workflow-step-node p { font-size: 0.8rem; color: var(--text-muted); margin: 0; }
+  /* ---------- FLOATING WIDGETS ---------- */
+  .whatsapp-float, .gmail-float, .tidio-custom-float{
+    position:fixed; right:22px; width:52px; height:52px; border-radius:50%; display:flex;
+    align-items:center; justify-content:center; box-shadow:var(--shadow-md); z-index:900; cursor:pointer;
+  }
+  .whatsapp-float{ bottom:22px; background:#25D366; }
+  .gmail-float{ bottom:84px; background:#EA4335; }
+  .tidio-custom-float{ bottom:146px; background:var(--navy-deep); border:none; }
+  .whatsapp-icon, .gmail-icon, .tidio-chat-icon{ width:26px; height:26px; fill:#fff; }
+  .gmail-popover{ display:none; position:fixed; bottom:146px; right:22px; width:230px; background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px; box-shadow:var(--shadow-lg); z-index:901; }
+  .mobile-sticky-cta{ display:none; position:fixed; bottom:0; left:0; right:0; z-index:950; background:var(--orange); color:#fff; text-align:center; padding:14px; font-weight:700; text-decoration:none; align-items:center; justify-content:center; gap:8px; }
+  .back-to-top{ display:none; position:fixed; bottom:74px; right:22px; width:40px; height:40px; background:var(--navy-deep); color:#fff; border-radius:50%; align-items:center; justify-content:center; text-decoration:none; z-index:900; }
 
-    /* --- SERVICES + SECURITY --- */
-    .tap-services-dashboard-section { padding: 64px 0; background: var(--bg-alt); }
-    .section-header-left { max-width: 640px; margin-bottom: 30px; }
-    .section-header-left h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 900; margin-bottom: 10px; }
-    .section-header-left p { color: var(--text-muted); margin: 0; }
-    .dashboard-services-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    .dashboard-service-item {
-        display: flex; align-items: center; gap: 10px; background: #ffffff; border: 1px solid var(--border-color);
-        border-radius: 10px; padding: 12px 14px; text-decoration: none; font-size: 0.85rem; font-weight: 700;
-        color: var(--text-heading); transition: all 0.2s ease;
-    }
-    .dashboard-service-item:hover { border-color: var(--brand-orange); }
-    .dashboard-service-icon { font-size: 1.1rem; }
-    .security-badges-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px 12px; }
-    .security-badge-item { display: flex; flex-direction: column; gap: 4px; }
-    .security-badge-icon { font-size: 1.3rem; }
-    .security-badge-item h4 { font-size: 0.8rem; font-weight: 700; }
-
-    /* --- STATS --- */
-    .tap-numbers-section { padding: 50px 0; background: var(--brand-navy); }
-    .numbers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
-    .number-stat-item .num { font-size: 2.1rem; font-weight: 900; color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif; }
-    .number-stat-item .label { font-size: 0.85rem; color: rgba(255,255,255,0.75); font-weight: 600; }
-
-    /* --- FAQ --- */
-    .tap-faq-section { padding: 64px 0; background: var(--bg-page); }
-    .faq-accordion { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
-    .faq-item { background: var(--bg-alt); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; }
-    .faq-item.active { background: #ffffff; border-color: var(--brand-orange); }
-    .faq-trigger {
-        width: 100%; padding: 20px 24px; background: none; border: none; text-align: left; color: var(--text-heading);
-        font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 800; cursor: pointer;
-        display: flex; justify-content: space-between; align-items: center; gap: 15px;
-    }
-    .faq-icon { font-size: 1.2rem; color: var(--brand-orange); transition: transform 0.3s; flex-shrink: 0; }
-    .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
-    .faq-content p { padding: 0 24px 22px; margin: 0; color: var(--text-body); font-size: 0.92rem; line-height: 1.6; }
-
-    /* --- FOUNDER + CTA --- */
-    .tap-founder-cta-section { padding: 64px 0; background: var(--bg-alt); }
-    .founder-cta-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: stretch; }
-    .founder-content-wrapper { background: #ffffff; border: 1px solid var(--border-color); border-radius: 16px; padding: 28px; box-shadow: var(--shadow-sm); }
-    .founder-photo-box img { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; margin-bottom: 14px; }
-    .founder-bio-text h3 { font-size: 1.3rem; margin-bottom: 4px; }
-    .founder-bio-text > span { font-size: 0.85rem; color: var(--text-muted); font-weight: 700; }
-    .founder-bio-text p { font-size: 0.92rem; color: var(--text-body); line-height: 1.6; margin: 14px 0; }
-    .founder-signature { font-family: 'Playball', cursive; font-size: 1.6rem; color: var(--brand-orange-dark); margin-bottom: 14px; }
-    .founder-timeline-list { display: flex; flex-direction: column; gap: 6px; font-size: 0.82rem; color: var(--text-body); }
-    .cta-card-box {
-        background: var(--brand-navy); color: #ffffff; border-radius: 16px; padding: 30px;
-        display: flex; flex-direction: column; justify-content: center; box-shadow: var(--shadow-md);
-    }
-    .cta-card-box h3 { color: #ffffff; font-size: 1.3rem; line-height: 1.35; margin-bottom: 10px; }
-    .cta-card-box p { color: rgba(255,255,255,0.8); font-size: 0.9rem; margin: 0 0 18px; }
-    .cta-card-checklist { display: flex; flex-direction: column; gap: 8px; }
-    .cta-checklist-item { font-size: 0.88rem; color: rgba(255,255,255,0.9); font-weight: 600; }
-    .cta-card-box .primary-btn-large { background: var(--brand-orange); }
-    .cta-card-box .primary-btn-large:hover { background: var(--brand-orange-dark); }
-    .cta-card-subtext { text-align: center; font-size: 0.78rem; color: rgba(255,255,255,0.65); }
-
-    /* --- FOOTER (light) --- */
-    .site-footer { padding: 56px 0 26px; background: var(--bg-alt); border-top: 1px solid var(--border-color); }
-    .footer-content { display: grid; grid-template-columns: 1.6fr repeat(4, 1fr); gap: 30px; }
-    .footer-column h3 { font-size: 0.95rem; margin-bottom: 14px; }
-    .footer-column p { margin: 0 0 10px; }
-    .footer-link { color: var(--text-muted); text-decoration: none; font-size: 0.88rem; }
-    .footer-link:hover { color: var(--brand-orange-dark); }
-    .footer-column > p:first-of-type { color: var(--text-muted); font-size: 0.88rem; line-height: 1.55; }
-    .footer-social-icons a { color: var(--text-muted); font-size: 0.85rem; text-decoration: none; font-weight: 700; }
-    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 34px; border-top: 1px solid var(--border-color); padding-top: 20px; font-size: 0.82rem; color: var(--text-muted); }
-
-    /* --- FLOATING WIDGETS (unchanged brand colors, small chrome-neutral badges) --- */
-    .whatsapp-float, .gmail-float, .tidio-custom-float {
-        position: fixed; right: 22px; width: 52px; height: 52px; border-radius: 50%;
-        display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-md); z-index: 900; cursor: pointer;
-    }
-    .whatsapp-float { bottom: 22px; background: #25D366; }
-    .gmail-float { bottom: 84px; background: #EA4335; }
-    .tidio-custom-float { bottom: 146px; background: var(--brand-navy); border: none; }
-    .whatsapp-icon, .gmail-icon, .tidio-chat-icon { width: 26px; height: 26px; fill: #ffffff; }
-    .gmail-popover {
-        display: none; position: fixed; bottom: 146px; right: 22px; width: 230px; background: #ffffff;
-        border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; box-shadow: var(--shadow-lg); z-index: 901;
-    }
-    .mobile-sticky-cta {
-        display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 950; background: var(--brand-orange);
-        color: #ffffff; text-align: center; padding: 14px; font-weight: 800; text-decoration: none; align-items: center;
-        justify-content: center; gap: 8px;
-    }
-    .back-to-top {
-        display: none; position: fixed; bottom: 74px; right: 22px; width: 40px; height: 40px; background: var(--brand-navy);
-        color: #fff; border-radius: 50%; align-items: center; justify-content: center; text-decoration: none; z-index: 900;
-    }
-
-    /* --- RESPONSIVE --- */
-    @media (max-width: 900px) {
-        .hero-grid { grid-template-columns: 1fr; }
-        .hero-pricing-stack { flex-direction: row; overflow-x: auto; gap: 10px; padding-bottom: 6px; }
-        .hero-pricing-card { min-width: 220px; }
-        .hero-grid > * { min-width: 0; }
-        .pillars-grid, .cases-grid, .reviews-grid { grid-template-columns: 1fr; }
-        .workflow-timeline-row { grid-template-columns: repeat(2, 1fr); }
-        .dashboard-services-list { grid-template-columns: repeat(2, 1fr); }
-        .security-badges-grid { grid-template-columns: repeat(2, 1fr); }
-        .numbers-grid { grid-template-columns: repeat(2, 1fr); }
-        .founder-cta-grid { grid-template-columns: 1fr; }
-        .footer-content { grid-template-columns: repeat(2, 1fr); }
-        .results-details-columns { grid-template-columns: 1fr; }
-        .results-metrics-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 640px) {
-        .desktop-nav, .header-actions .book-audit-btn { display: none; }
-        .mobile-menu-toggle { display: block; }
-        .trust-right { display: none; }
-        .footer-content { grid-template-columns: 1fr; }
-        .mobile-sticky-cta { display: flex; }
-    }
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:900px){
+    .hero-grid, .compare-grid, .founder-cta-grid{ grid-template-columns:1fr; }
+    .pillars-grid, .cases-grid, .reviews-grid{ grid-template-columns:1fr; }
+    .numbers-grid{ grid-template-columns:repeat(2,1fr); }
+    .footer-content{ grid-template-columns:repeat(2,1fr); }
+    .results-details-columns{ grid-template-columns:1fr; }
+    .results-metrics-grid{ grid-template-columns:repeat(2,1fr); }
+    .final-cta{ flex-direction:column; align-items:flex-start; padding:44px 32px; }
+  }
+  @media (max-width:640px){
+    .desktop-nav, .header-actions .book-audit-btn{ display:none; }
+    .mobile-menu-toggle{ display:block; }
+    .footer-content{ grid-template-columns:1fr; }
+    .mobile-sticky-cta{ display:flex; }
+  }
 </style>
 
 
@@ -572,45 +469,25 @@
         </head>
 <body class="home-page-redesign">
 
-<!-- TRUST BAR TOP STRIP -->
-<div class="tap-top-trust-bar">
-  <div class="container trust-bar-flex">
-    <div class="trust-left">🏆 Verified International Trust Score: <strong>4.9 / 5</strong> (Over 250+ Audits Completed)</div>
-    <div class="trust-right">
-      <a href="/ca/">🇨🇦 Canada</a>
-      <a href="/us/">🇺🇸 USA</a>
-      <a href="/ae/">🇦🇪 Dubai</a>
-      <a href="/au/">🇦🇺 Australia</a>
-      <a href="/uk/">🇬🇧 UK</a>
-    </div>
-  </div>
-</div>
-
-<!-- Header -->
 <header class="main-header-bar">
     <div class="container header-container">
         <a class="header-logo" href="/">
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <img alt="TechAuditPros Logo" height="30" src="assets/logoonly.svg" width="30"/>
-                <span class="logo-text">TechAuditPros</span>
-            </div>
-            <span class="logo-sub">Your Dedicated Offshore Technical Team</span>
+            <span class="logo-mark">TA</span>
+            <span class="logo-text">TechAuditPros</span>
         </a>
         <nav class="desktop-nav">
             <a href="#services">Services</a>
-            <a href="#workflow">Workflow</a>
-            <a href="/case-studies.html">Case Studies</a>
-            <a href="/about.html">About</a>
+            <a href="#results">Results</a>
+            <a href="#compare">Why Us</a>
             <a href="#contact">Contact</a>
         </nav>
         <div class="header-actions">
-            <a class="book-audit-btn" href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank">Get Free Audit</a>
+            <a class="book-audit-btn" href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank">Run a Free Diagnostic</a>
             <button class="mobile-menu-toggle" aria-label="Open menu">☰</button>
         </div>
     </div>
 </header>
 
-<!-- MOBILE DRAWER -->
 <div class="mobile-drawer" id="mobileDrawer">
     <div class="drawer-overlay" id="drawerOverlay"></div>
     <div class="drawer-content">
@@ -620,72 +497,39 @@
         <nav class="drawer-nav">
             <a href="/">Home</a>
             <a href="#services">Services</a>
-            <a href="#workflow">Workflow</a>
-            <a href="/case-studies.html">Case Studies</a>
-            <a href="/about.html">About</a>
+            <a href="#results">Results</a>
+            <a href="#compare">Why Us</a>
             <a href="#contact">Contact</a>
-            <a href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" class="drawer-cta">Get Free Audit</a>
+            <a href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" class="drawer-cta">Run a Free Diagnostic</a>
         </nav>
     </div>
 </div>
 
-<!-- Hero -->
 <section class="tap-new-hero">
     <div class="container hero-grid">
-        <div class="hero-pricing-stack">
-            <div class="hero-pricing-card">
-                <div class="pricing-card-country">
-                    <span class="pricing-card-flag">🇨🇦</span>
-                    <div class="pricing-card-country-details"><h4>Canada</h4><span>Avg Local Agency: CA$3,800/mo</span></div>
-                </div>
-                <div class="pricing-card-prices"><p class="price-tap">CA$1,490<span>/mo</span></p><span class="price-save-badge">SAVE 57%</span></div>
-            </div>
-            <div class="hero-pricing-card">
-                <div class="pricing-card-country">
-                    <span class="pricing-card-flag">🇺🇸</span>
-                    <div class="pricing-card-country-details"><h4>USA</h4><span>Avg Local Agency: US$4,500/mo</span></div>
-                </div>
-                <div class="pricing-card-prices"><p class="price-tap">US$1,800<span>/mo</span></p><span class="price-save-badge">SAVE 60%</span></div>
-            </div>
-            <div class="hero-pricing-card">
-                <div class="pricing-card-country">
-                    <span class="pricing-card-flag">🇦🇺</span>
-                    <div class="pricing-card-country-details"><h4>Australia</h4><span>Avg Local Agency: AU$3,900/mo</span></div>
-                </div>
-                <div class="pricing-card-prices"><p class="price-tap">AU$1,600<span>/mo</span></p><span class="price-save-badge">SAVE 59%</span></div>
-            </div>
-            <div class="hero-pricing-card">
-                <div class="pricing-card-country">
-                    <span class="pricing-card-flag">🇬🇧</span>
-                    <div class="pricing-card-country-details"><h4>United Kingdom</h4><span>Avg Local Agency: £2,800/mo</span></div>
-                </div>
-                <div class="pricing-card-prices"><p class="price-tap">£1,200<span>/mo</span></p><span class="price-save-badge">SAVE 57%</span></div>
-            </div>
-            <div class="hero-pricing-card">
-                <div class="pricing-card-country">
-                    <span class="pricing-card-flag">🇦🇪</span>
-                    <div class="pricing-card-country-details"><h4>Dubai (UAE)</h4><span>Avg Local Agency: AED 8,000/mo</span></div>
-                </div>
-                <div class="pricing-card-prices"><p class="price-tap">AED 3,800<span>/mo</span></p><span class="price-save-badge">SAVE 52%</span></div>
-            </div>
-            <p class="pricing-stack-disclaimer">* Prices are average market rates.</p>
-        </div>
-
         <div class="hero-main-content">
-            <h1>Raw AI Gives You Code. <span>We Give You Master Architecture.</span></h1>
-            <p class="hero-subtitle">Your dedicated offshore technical team for <strong>Enterprise ERP Solutions</strong>, <strong>Website Development</strong>, and <strong>Full-Spectrum SEO (AEO/GEO)</strong> — built for digital agencies, brand managers, and business owners across the USA, UK, Canada, Australia &amp; Dubai.</p>
-
-            <div class="hero-answer-box">
-                <p><strong>TechAuditPros</strong> is an AI-native technical engineering team providing <strong>Full-Spectrum SEO Services</strong> (Technical SEO, AEO &amp; GEO), <strong>High-Performance Website Development</strong> (Next.js, React, Core Web Vitals 90+), and <strong>Custom Enterprise ERP Solutions</strong> (business portals &amp; CRM workflows) for global agencies and enterprise business leaders.</p>
+            <p class="eyebrow">Offshore Technical Team — Kochi, India</p>
+            <h1>We diagnose first.<br>Then we <span>build</span>.</h1>
+            <p class="hero-subtitle">TechAuditPros is a dedicated technical team running Enterprise ERP builds, website development, and technical SEO for agencies and business owners across the US, UK, Canada, Australia &amp; Dubai — every engagement opens with a real audit of what's actually broken.</p>
+            <div class="hero-actions">
+                <a href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" class="primary-btn-large">Run a Free Diagnostic</a>
+                <a href="#services" class="btn-ghost">See the three services</a>
             </div>
-
             <div class="hero-features-list">
                 <div class="hero-feature-item">👨‍💻 Dedicated Team</div>
                 <div class="hero-feature-item">📅 Monthly Reporting</div>
                 <div class="hero-feature-item">🤝 No Contracts</div>
                 <div class="hero-feature-item">🔍 100% Transparency</div>
             </div>
+            <div class="trust-strip">
+                <div class="trust-item"><span class="num">250+</span><span class="lbl">Audits completed</span></div>
+                <div class="trust-item"><span class="num">128+</span><span class="lbl">Active clients</span></div>
+                <div class="trust-item"><span class="num">16</span><span class="lbl">Countries served</span></div>
+                <div class="trust-item"><span class="num">4.9/5</span><span class="lbl">Client rating</span></div>
+            </div>
+        </div>
 
+        <div>
             <div class="hero-audit-form-container">
                 <form id="hero-audit-form" class="hero-audit-form">
                     <div class="form-input-wrapper"><input type="text" id="audit-url" placeholder="Your Website (e.g. example.com)" required /></div>
@@ -708,15 +552,15 @@
                 <div id="audit-error-state" class="audit-error-state" style="display: none;"></div>
 
                 <div id="audit-results-panel" class="audit-results-panel" style="display: none;">
-                    <h3 class="results-title">Analysis Completed for <span id="res-domain-name" style="color: var(--brand-orange-dark);">example.com</span></h3>
+                    <h3 class="results-title">Analysis Completed for <span id="res-domain-name" style="color: var(--orange);">example.com</span></h3>
                     <div class="results-metrics-grid">
                         <div class="metric-score-card"><div class="score-radial-progress" id="score-perf-dial" data-score="0"><span class="score-value" id="score-perf-val">0</span></div><span class="score-label">Performance</span></div>
-                        <div class="metric-score-card"><div class="score-radial-progress" id="score-seo-dial" data-score="0"><span class="score-value" id="score-seo-val">0</span></div><span class="score-label">SEO Score</span></div>
-                        <div class="metric-score-card"><div class="score-radial-progress" id="score-a11y-dial" data-score="0"><span class="score-value" id="score-a11y-val">0</span></div><span class="score-label">Accessibility</span></div>
-                        <div class="metric-score-card"><div class="score-radial-progress" id="score-bp-dial" data-score="0"><span class="score-value" id="score-bp-val">0</span></div><span class="score-label">Best Practices</span></div>
+                        <div class="metric-score-card"><div class="score-radial-progress" id="score-seo-dial" data-score="0"><span class="score-value" id="score-seo-val">0</span></div><span class="score-label">SEO</span></div>
+                        <div class="metric-score-card"><div class="score-radial-progress" id="score-a11y-dial" data-score="0"><span class="score-value" id="score-a11y-val">0</span></div><span class="score-label">Access.</span></div>
+                        <div class="metric-score-card"><div class="score-radial-progress" id="score-bp-dial" data-score="0"><span class="score-value" id="score-bp-val">0</span></div><span class="score-label">Best Prac.</span></div>
                     </div>
 
-                    <div class="details-card screenshot-full-card" style="margin-bottom: 18px;">
+                    <div class="details-card screenshot-full-card" style="margin-bottom: 14px;">
                         <h4>🖥️ Live Desktop Render</h4>
                         <div class="mock-browser-frame">
                             <div class="mock-browser-header">
@@ -732,337 +576,194 @@
 
                     <div class="results-details-columns">
                         <div class="details-card">
-                            <h4>⚡ Core Web Vitals (Google PSI)</h4>
+                            <h4>⚡ Core Web Vitals</h4>
                             <ul class="vitals-list">
-                                <li><span>Largest Contentful Paint (LCP)</span><strong id="res-lcp-val" class="vital-val">N/A</strong></li>
-                                <li><span>First Contentful Paint (FCP)</span><strong id="res-fcp-val" class="vital-val">N/A</strong></li>
-                                <li><span>Cumulative Layout Shift (CLS)</span><strong id="res-cls-val" class="vital-val">N/A</strong></li>
-                                <li><span>Interaction to Next Paint (INP)</span><strong id="res-inp-val" class="vital-val">N/A</strong></li>
+                                <li><span>LCP</span><strong id="res-lcp-val" class="vital-val">N/A</strong></li>
+                                <li><span>FCP</span><strong id="res-fcp-val" class="vital-val">N/A</strong></li>
+                                <li><span>CLS</span><strong id="res-cls-val" class="vital-val">N/A</strong></li>
+                                <li><span>INP</span><strong id="res-inp-val" class="vital-val">N/A</strong></li>
                             </ul>
                         </div>
                         <div class="details-card">
-                            <h4>🔍 Technical SEO Audit</h4>
+                            <h4>🔍 Technical SEO</h4>
                             <ul class="seo-checks-list">
                                 <li><span>Meta Title</span><span id="res-title-status" class="check-badge status-good">Good</span></li>
-                                <li class="meta-preview-li"><span class="meta-label">Title Text:</span><em id="res-title-text" class="meta-text">N/A</em></li>
+                                <li class="meta-preview-li"><span class="meta-label">Title:</span><em id="res-title-text" class="meta-text">N/A</em></li>
                                 <li><span>Meta Description</span><span id="res-desc-status" class="check-badge status-warning">Missing</span></li>
-                                <li class="meta-preview-li"><span class="meta-label">Desc Text:</span><em id="res-desc-text" class="meta-text">N/A</em></li>
-                                <li><span>Heading Structure (H1 Count)</span><strong id="res-h1-count" class="check-value">0</strong></li>
-                                <li><span>Broken Links Found</span><strong id="res-broken-count" class="check-value">0</strong></li>
+                                <li class="meta-preview-li"><span class="meta-label">Desc:</span><em id="res-desc-text" class="meta-text">N/A</em></li>
+                                <li><span>H1 Count</span><strong id="res-h1-count" class="check-value">0</strong></li>
+                                <li><span>Broken Links</span><strong id="res-broken-count" class="check-value">0</strong></li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="results-action-strip">
-                        <p>💡 Want to turn all these metrics green? We provide the dedicated technical team to optimize your website speed, fix SEO code errors, and capture high-converting local organic traffic.</p>
+                        <p>💡 Want to turn all these metrics green? We provide the dedicated technical team to fix them.</p>
                         <a href="https://wa.me/916282520339?text=Hi%20TechAuditPros,%20I%20just%20ran%20my%20website%20audit%20and%20want%20to%20discuss%20optimizing%20it." class="primary-btn-large" target="_blank" rel="noopener">Discuss on WhatsApp</a>
                     </div>
                 </div>
             </div>
-
             <div class="hero-powered-bar">
                 <p>Powered by the same tools used by the world's top agencies</p>
                 <div class="hero-powered-logos">
-                    <svg viewBox="0 0 130 35" width="90" height="24" xmlns="http://www.w3.org/2000/svg"><text x="0" y="23" fill="#FF642D" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="900">SEMRUSH</text></svg>
-                    <svg viewBox="0 0 170 35" width="110" height="24" xmlns="http://www.w3.org/2000/svg"><text x="0" y="23" fill="#4B8C2A" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="900">ScreamFrog</text></svg>
-                    <svg viewBox="0 0 160 35" width="100" height="24" xmlns="http://www.w3.org/2000/svg"><text x="0" y="23" fill="#0F2C4C" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800">Search Console</text></svg>
-                    <svg viewBox="0 0 160 35" width="100" height="24" xmlns="http://www.w3.org/2000/svg"><text x="0" y="23" fill="#00A99D" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800">PageSpeed</text></svg>
-                    <svg viewBox="0 0 110 35" width="80" height="24" xmlns="http://www.w3.org/2000/svg"><text x="0" y="23" fill="#FF8D00" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="900">ahrefs</text></svg>
+                    <svg viewBox="0 0 130 35" width="80" height="22" xmlns="http://www.w3.org/2000/svg"><text x="0" y="23" fill="#FF642D" font-family="'IBM Plex Sans', sans-serif" font-size="13" font-weight="800">SEMRUSH</text></svg>
+                    <svg viewBox="0 0 170 35" width="100" height="22" xmlns="http://www.w3.org/2000/svg"><text x="0" y="23" fill="#4B8C2A" font-family="'IBM Plex Sans', sans-serif" font-size="13" font-weight="800">ScreamFrog</text></svg>
+                    <svg viewBox="0 0 160 35" width="90" height="22" xmlns="http://www.w3.org/2000/svg"><text x="0" y="23" fill="#0F2C4C" font-family="'IBM Plex Sans', sans-serif" font-size="12" font-weight="700">Search Console</text></svg>
+                    <svg viewBox="0 0 110 35" width="70" height="22" xmlns="http://www.w3.org/2000/svg"><text x="0" y="23" fill="#FF8D00" font-family="'IBM Plex Sans', sans-serif" font-size="13" font-weight="800">ahrefs</text></svg>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- CORE SERVICES PILLARS -->
-<section class="tap-pillars-section">
+<section class="tap-pillars-section" id="services">
     <div class="container">
+        <div class="section-head">
+            <p class="eyebrow">Three Disciplines, One Team</p>
+            <h2>Everything a growing business outsources to three different vendors, run by one accountable team.</h2>
+        </div>
         <div class="pillars-grid">
-            <a href="#services" class="pillar-card">
-                <span class="pillar-icon">⚙️</span>
+            <a href="#contact" class="pillar-card">
+                <span class="pillar-index">01 / ERP</span>
                 <h3>Enterprise ERP Solutions</h3>
-                <p>Custom-built ERP software, CRM dashboards &amp; business portals engineered around how your operations actually run.</p>
-                <span class="pillar-link">Explore ERP Development →</span>
+                <p>Custom business ERP software, CRM dashboards, and internal portals engineered around how your operations actually run.</p>
+                <div class="pillar-specs">
+                    <div><span>Stack</span><span>Node · Postgres · React</span></div>
+                    <div><span>Delivery</span><span>Dedicated engineer</span></div>
+                </div>
+                <span class="pillar-link">Scope an ERP build →</span>
             </a>
             <a href="website-design-development/" class="pillar-card">
-                <span class="pillar-icon">💻</span>
+                <span class="pillar-index">02 / WEB</span>
                 <h3>Website Development</h3>
-                <p>High-performance Next.js &amp; React builds with 90+ Core Web Vitals — engineered to convert, not just to look good.</p>
-                <span class="pillar-link">Explore Web Development →</span>
+                <p>Next.js and React builds engineered for 90+ Core Web Vitals from day one — fast enough to rank, built to convert.</p>
+                <div class="pillar-specs">
+                    <div><span>Stack</span><span>Next.js · React</span></div>
+                    <div><span>Target</span><span>90+ Core Web Vitals</span></div>
+                </div>
+                <span class="pillar-link">Scope a build →</span>
             </a>
             <a href="seo-services/" class="pillar-card">
-                <span class="pillar-icon">📈</span>
+                <span class="pillar-index">03 / SEO</span>
                 <h3>SEO, AEO &amp; GEO</h3>
-                <p>Full-spectrum technical SEO plus Answer &amp; Generative Engine Optimization — built to rank in Google and get cited by AI.</p>
-                <span class="pillar-link">Explore SEO Services →</span>
+                <p>Technical SEO, schema architecture, and Answer &amp; Generative Engine Optimization — built to get cited by AI, not just ranked.</p>
+                <div class="pillar-specs">
+                    <div><span>Covers</span><span>Technical · AEO · GEO</span></div>
+                    <div><span>Reporting</span><span>Monthly, transparent</span></div>
+                </div>
+                <span class="pillar-link">Run a free audit →</span>
             </a>
         </div>
     </div>
 </section>
 
-<!-- TRUSTED BRANDS -->
-<section class="tap-brands-section">
+<section id="compare">
     <div class="container">
-        <p class="section-label">Trusted by businesses using world-class platforms</p>
-        <div class="brands-logo-row">
-            <span style="font-weight:800;color:var(--text-heading);">Google</span>
-            <span style="font-weight:800;color:var(--text-heading);">Microsoft</span>
-            <span style="font-weight:800;color:var(--text-heading);">Shopify</span>
-            <span style="font-weight:800;color:var(--text-heading);">WordPress</span>
-            <span style="font-weight:800;color:var(--text-heading);">Webflow</span>
-            <span style="font-weight:800;color:var(--text-heading);">HubSpot</span>
+        <div class="section-head">
+            <p class="eyebrow">Why This, Not That</p>
+            <h2>Raw AI tools skip the judgment. Local agencies mark up the overhead.</h2>
         </div>
-        <p class="brands-footnote">We work with the websites and platforms you already trust.</p>
+        <div class="compare-grid">
+            <div class="compare-card negative">
+                <h4>The usual options</h4>
+                <ul>
+                    <li>Generic AI code with no system-level review</li>
+                    <li>Local agency retainers at $3,500–4,500/mo</li>
+                    <li>3–6 month delivery timelines</li>
+                    <li>No dedicated point of contact</li>
+                </ul>
+            </div>
+            <div class="compare-card positive">
+                <h4>TechAuditPros</h4>
+                <ul>
+                    <li>A dedicated engineer + PM, not a ticket queue</li>
+                    <li>Flat-rate pricing from $1,200/mo — no long contracts</li>
+                    <li>Every engagement opens with a real technical audit</li>
+                    <li>Monthly reporting, source code and data fully yours</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- CASE STUDIES -->
-<section class="tap-cases-section" id="case-studies">
+<section class="tap-numbers-section" id="results">
+    <div class="container numbers-grid">
+        <div class="number-stat-item"><div class="num">205%</div><div class="label">Traffic growth — Canadian appliance client, 8 months</div></div>
+        <div class="number-stat-item"><div class="num">180%</div><div class="label">Traffic growth — USA HVAC client, 6 months</div></div>
+        <div class="number-stat-item"><div class="num">97%</div><div class="label">Client retention rate</div></div>
+        <div class="number-stat-item"><div class="num">$1.2K</div><div class="label">Starting monthly rate, flat</div></div>
+    </div>
+</section>
+
+<section class="tap-cases-section">
     <div class="container">
-        <div class="section-header-center">
-            <h2>Real Results. Real Success Stories.</h2>
-            <p>Proven traffic and ranking growth delivered for our international clients.</p>
+        <div class="section-head">
+            <p class="eyebrow">Recent Diagnostics</p>
+            <h2>Real engagements, real numbers.</h2>
         </div>
         <div class="cases-grid">
             <div class="case-card">
-                <span class="case-tag">🇨🇦 Canadian Appliance Company</span>
-                <h3>Organic Traffic Growth</h3>
-                <div class="case-stat-row"><span>Traffic Increase</span><strong>+205%</strong></div>
-                <div class="case-stat-row"><span>Keywords Ranked</span><strong>+460</strong></div>
-                <div class="case-stat-row"><span>Timeframe</span><strong>8 Months</strong></div>
+                <span class="case-tag">🇨🇦 Canada · Appliance retailer</span>
+                <h3>Organic traffic growth</h3>
+                <div class="case-stat-row"><span>Traffic increase</span><strong>+205%</strong></div>
+                <div class="case-stat-row"><span>Keywords ranked</span><strong>+460</strong></div>
+                <div class="case-stat-row"><span>Timeframe</span><strong>8 months</strong></div>
                 <a class="case-card-link" href="/case-studies.html">Read Full Story →</a>
             </div>
             <div class="case-card">
-                <span class="case-tag">🇺🇸 USA HVAC Business</span>
-                <h3>Local Rank Dominance</h3>
-                <div class="case-stat-row"><span>Traffic Increase</span><strong>+180%</strong></div>
-                <div class="case-stat-row"><span>Keywords Ranked</span><strong>+320</strong></div>
-                <div class="case-stat-row"><span>Timeframe</span><strong>6 Months</strong></div>
+                <span class="case-tag">🇺🇸 USA · HVAC business</span>
+                <h3>Local rank dominance</h3>
+                <div class="case-stat-row"><span>Traffic increase</span><strong>+180%</strong></div>
+                <div class="case-stat-row"><span>Keywords ranked</span><strong>+320</strong></div>
+                <div class="case-stat-row"><span>Timeframe</span><strong>6 months</strong></div>
                 <a class="case-card-link" href="/case-studies.html">Read Full Story →</a>
             </div>
             <div class="case-card">
-                <span class="case-tag">🇦🇺 Australia E-commerce Store</span>
-                <h3>Revenue Growth Optimization</h3>
-                <div class="case-stat-row"><span>Traffic Increase</span><strong>+165%</strong></div>
-                <div class="case-stat-row"><span>Top-3 Keywords</span><strong>+380</strong></div>
-                <div class="case-stat-row"><span>Timeframe</span><strong>7 Months</strong></div>
+                <span class="case-tag">🇦🇺 Australia · E-commerce</span>
+                <h3>Revenue growth optimization</h3>
+                <div class="case-stat-row"><span>Traffic increase</span><strong>+165%</strong></div>
+                <div class="case-stat-row"><span>Top-3 keywords</span><strong>+380</strong></div>
+                <div class="case-stat-row"><span>Timeframe</span><strong>7 months</strong></div>
                 <a class="case-card-link" href="/case-studies.html">Read Full Story →</a>
             </div>
         </div>
     </div>
 </section>
 
-<!-- CLIENT REVIEWS -->
-<section class="tap-reviews-section">
+<section class="final-cta-section" id="contact">
     <div class="container">
-        <div class="section-header-center">
-            <h2>What Our Clients Say</h2>
-            <p>Read transparent feedback from companies who trust us to manage their technical backends.</p>
-        </div>
-        <div class="reviews-grid">
-            <div class="review-card-item">
-                <div class="review-avatar-row">
-                    <div class="review-avatar-circle" style="background-color: #E4572E;">AK</div>
-                    <div class="review-avatar-info"><h4>Appliance King</h4><span>Canada</span></div>
-                </div>
-                <div class="review-stars-row">★★★★★</div>
-                <p>"TechAuditPros team is extremely professional and delivers beyond what they promise. Our traffic has doubled in 8 months."</p>
-                <div class="review-author-bottom-row"><span>John D.</span><span>Marketing Director</span></div>
-            </div>
-            <div class="review-card-item">
-                <div class="review-avatar-row">
-                    <div class="review-avatar-circle" style="background-color: #0F2C4C;">CP</div>
-                    <div class="review-avatar-info"><h4>ComfortPro HVAC</h4><span>USA</span></div>
-                </div>
-                <div class="review-stars-row">★★★★★</div>
-                <p>"Best decision we made. Their communication, transparency, and technical knowledge is outstanding. Highly recommend."</p>
-                <div class="review-author-bottom-row"><span>Sarah M.</span><span>CEO</span></div>
-            </div>
-            <div class="review-card-item">
-                <div class="review-avatar-row">
-                    <div class="review-avatar-circle" style="background-color: #15803d;">GA</div>
-                    <div class="review-avatar-info"><h4>GoHome Appliances</h4><span>Australia</span></div>
-                </div>
-                <div class="review-stars-row">★★★★★</div>
-                <p>"Finally a team that understands SEO and actually delivers results. Our online sales increased significantly."</p>
-                <div class="review-author-bottom-row"><span>Mark T.</span><span>Managing Director</span></div>
+        <div class="final-cta">
+            <h2>Get a free technical diagnostic before you hire anyone.</h2>
+            <div class="final-cta-actions">
+                <a href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" class="primary-btn-large">Run My Free Audit</a>
+                <span class="final-cta-note">Takes 60 seconds · No contracts</span>
             </div>
         </div>
     </div>
 </section>
 
-<!-- WORKFLOW -->
-<section class="tap-workflow-section" id="workflow">
-    <div class="container">
-        <div class="section-header-center">
-            <h2>We Handle Everything. You Focus on Your Business.</h2>
-            <p>A step-by-step setup built for complete peace of mind, communication, and performance.</p>
-        </div>
-        <div class="workflow-timeline-row">
-            <div class="workflow-step-node"><div class="step-node-icon">1</div><h4>You</h4><p>Share Access</p></div>
-            <div class="workflow-step-node"><div class="step-node-icon">2</div><h4>Slack</h4><p>Daily Communication</p></div>
-            <div class="workflow-step-node"><div class="step-node-icon">3</div><h4>Project Manager</h4><p>Single Point of Contact</p></div>
-            <div class="workflow-step-node"><div class="step-node-icon">4</div><h4>SEO Engineer</h4><p>On-Page &amp; Technical</p></div>
-            <div class="workflow-step-node"><div class="step-node-icon">5</div><h4>Developer</h4><p>Fixes &amp; Implementation</p></div>
-            <div class="workflow-step-node"><div class="step-node-icon">6</div><h4>Content Writer</h4><p>Content That Ranks</p></div>
-            <div class="workflow-step-node"><div class="step-node-icon">7</div><h4>QA &amp; Testing</h4><p>Quality Check</p></div>
-            <div class="workflow-step-node"><div class="step-node-icon">8</div><h4>Monthly Report</h4><p>Transparent Results</p></div>
-        </div>
-    </div>
-</section>
-
-<!-- SERVICES + SECURITY -->
-<section class="tap-services-dashboard-section" id="services">
-    <div class="container">
-        <div class="section-header-left">
-            <h2>Our Services</h2>
-            <p>We take care of every technical aspect of your website backend, search presence, and optimization funnel.</p>
-        </div>
-        <div class="dashboard-services-list">
-            <a class="dashboard-service-item" href="/technical-seo-audit/"><span class="dashboard-service-icon">🔍</span> Technical SEO</a>
-            <a class="dashboard-service-item" href="/website-design-development/"><span class="dashboard-service-icon">💻</span> Web Development</a>
-            <a class="dashboard-service-item" href="/saas-app-development/"><span class="dashboard-service-icon">⚙️</span> Dedicated Backend Dev</a>
-            <a class="dashboard-service-item" href="/seo-services/"><span class="dashboard-service-icon">🚀</span> Offshore SEO Team</a>
-            <a class="dashboard-service-item" href="/digital-marketing-services/"><span class="dashboard-service-icon">📣</span> Digital Marketing</a>
-            <a class="dashboard-service-item" href="/digital-marketing-services/"><span class="dashboard-service-icon">💳</span> Google Ads (PPC)</a>
-            <a class="dashboard-service-item" href="/website-design-development/core-web-vitals-optimization/"><span class="dashboard-service-icon">📊</span> Analytics &amp; Tracking</a>
-            <a class="dashboard-service-item" href="/seo-services/enterprise-seo/"><span class="dashboard-service-icon">🏢</span> White Label SEO Agency</a>
-            <a class="dashboard-service-item" href="/seo-services/ecommerce-seo/"><span class="dashboard-service-icon">🛒</span> E-commerce SEO</a>
-            <a class="dashboard-service-item" href="/saas-app-development/mvp-development/"><span class="dashboard-service-icon">🤖</span> AI Automation</a>
-        </div>
-        <div class="tap-security-section" style="margin-top: 34px; padding-top: 26px; border-top: 1px solid var(--border-color);">
-            <h3 style="font-size: 1.1rem; margin-bottom: 16px;">Your Data. Your Business. 100% Secure.</h3>
-            <div class="security-badges-grid">
-                <div class="security-badge-item"><span class="security-badge-icon">🔒</span><h4>NDA Protected</h4></div>
-                <div class="security-badge-item"><span class="security-badge-icon">💻</span><h4>Source Code Ownership</h4></div>
-                <div class="security-badge-item"><span class="security-badge-icon">💾</span><h4>Full Backups Weekly</h4></div>
-                <div class="security-badge-item"><span class="security-badge-icon">🔑</span><h4>Access Control</h4></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- STATS -->
-<section class="tap-numbers-section">
-    <div class="container">
-        <div class="numbers-grid">
-            <div class="number-stat-item"><div class="num">16+</div><div class="label">Countries Served</div></div>
-            <div class="number-stat-item"><div class="num">128+</div><div class="label">Active Clients Globally</div></div>
-            <div class="number-stat-item"><div class="num">250K+</div><div class="label">Websites Audited</div></div>
-            <div class="number-stat-item"><div class="num">97%</div><div class="label">Client Retention Rate</div></div>
-        </div>
-    </div>
-</section>
-
-<!-- FAQ -->
-<section class="tap-faq-section" id="homepage-faq">
-    <div class="container">
-        <div class="section-header-center">
-            <h2>Outsourcing Technical SEO &amp; Dev Teams: FAQ</h2>
-            <p>Everything you need to know about hiring our offshore technical team.</p>
-        </div>
-        <div class="faq-accordion">
-            <div class="faq-item">
-                <button class="faq-trigger"><span>Is outsourcing SEO safe for my business website?</span><span class="faq-icon">+</span></button>
-                <div class="faq-content"><p>Yes, outsourcing SEO operations is 100% safe with us. We work strictly on staging or duplicate environments, perform automated code audits before going live, and use certified search specialists. We never perform high-risk, black-hat techniques that could harm your search engine standing.</p></div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-trigger"><span>Can I hire a dedicated offshore developer through TechAuditPros?</span><span class="faq-icon">+</span></button>
-                <div class="faq-content"><p>Absolutely. You can hire a dedicated offshore developer specialized in Next.js, React, Node.js, Python, or WordPress. Our engineers operate as an extension of your local team, attending your standups and delivering clean, version-controlled code on your preferred git pipeline.</p></div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-trigger"><span>What operations does an offshore SEO team handle?</span><span class="faq-icon">+</span></button>
-                <div class="faq-content"><p>Our offshore SEO team handles all on-page, off-page, and technical SEO tasks. This includes Core Web Vitals optimization, schema markup injection, site speed code minification, broken link fixing, keyword mapping, content creation, and custom data audits.</p></div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-trigger"><span>How much does it cost to outsource website management?</span><span class="faq-icon">+</span></button>
-                <div class="faq-content"><p>When you outsource website management to our technical team, pricing starts at just $1,200/month. This is flat-rate pricing with no long-term contracts. Compared to a local Western agency charging $3,500/month, you save over 60% while maintaining equivalent or superior quality.</p></div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-trigger"><span>How do I manage my dedicated SEO team?</span><span class="faq-icon">+</span></button>
-                <div class="faq-content"><p>We assign a dedicated Project Manager to your account who acts as your single point of contact. You can communicate with your dedicated SEO team daily via Slack, receive scheduled monthly performance reports, and track tasks via our centralized dashboard.</p></div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-trigger"><span>Do you offer white label SEO agency services?</span><span class="faq-icon">+</span></button>
-                <div class="faq-content"><p>Yes. We operate as a premier white label SEO agency backend for marketing firms in the USA, Canada, and the UK. All reports, deliverables, and communications are fully branded under your agency's name, allowing you to scale operations without increasing local payroll.</p></div>
-            </div>
-        </div>
-    </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.faq-trigger').forEach(function(trigger) {
-                trigger.addEventListener('click', function() {
-                    const item = this.parentElement;
-                    const content = this.nextElementSibling;
-                    const isActive = item.classList.contains('active');
-                    document.querySelectorAll('.faq-item').forEach(function(el) {
-                        el.classList.remove('active');
-                        el.querySelector('.faq-content').style.maxHeight = '0';
-                        el.querySelector('.faq-icon').textContent = '+';
-                    });
-                    if (!isActive) {
-                        item.classList.add('active');
-                        content.style.maxHeight = content.scrollHeight + 'px';
-                        this.querySelector('.faq-icon').textContent = '−';
-                    }
-                });
-            });
-        });
-    </script>
-</section>
-
-<!-- FOUNDER STORY & CTA -->
-<section class="tap-founder-cta-section" id="founder">
-    <div class="container founder-cta-grid">
-        <div class="founder-content-wrapper">
-            <div class="founder-photo-box"><img alt="Aji Paul, Founder of TechAuditPros" src="assets/images/founder/aji-paul.webp" width="1536" height="1024" loading="lazy" /></div>
-            <div class="founder-bio-text">
-                <h3>Founder Story</h3>
-                <span>Aji Paul &bull; Founder &amp; CEO, TechAuditPros</span>
-                <p>"Hi, I'm Aji Paul. As a mechanical engineer, I treat website architecture and SEO operations as exact systems. We built TechAuditPros to provide businesses with the dedicated technical support they need, without paying local Western agency premiums. No guessing. Just execution."</p>
-                <div class="founder-signature">Aji Paul</div>
-                <div class="founder-timeline-list">
-                    <div>🎓 <strong>2014</strong> — Mechanical Engineering Degree</div>
-                    <div>⚙️ <strong>2016-2018</strong> — Software QA Systems &amp; Databases</div>
-                    <div>🔍 <strong>2019-2021</strong> — SEO Architecture &amp; Analytics</div>
-                    <div>🇨🇦 <strong>2021-2022</strong> — First North American Contracts</div>
-                    <div>🚀 <strong>2023-Present</strong> — Scaling TechAuditPros Operations</div>
-                </div>
-            </div>
-        </div>
-        <div class="cta-card-box" id="audit-details">
-            <h3>Stop Paying Local Agency Prices.<br>Keep the Same Quality. Or Better.</h3>
-            <p>Get your free, no-obligation technical health check audit in 60 seconds.</p>
-            <div class="cta-card-checklist" style="margin-bottom: 24px;">
-                <div class="cta-checklist-item">✓ No Contracts</div>
-                <div class="cta-checklist-item">✓ Cancel Anytime</div>
-                <div class="cta-checklist-item">✓ No Sales Pressure</div>
-                <div class="cta-checklist-item">✓ Just Quality</div>
-            </div>
-            <a class="primary-btn-large" href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" style="width: 100%; text-align: center;">Book Strategy Call</a>
-            <p class="cta-card-subtext" style="margin-top: 14px;">Takes 60 seconds • Get instant insights</p>
-        </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer class="site-footer" id="contact">
+<footer class="site-footer">
     <div class="container footer-container">
         <div class="footer-content">
             <div class="footer-column">
                 <a class="header-logo" href="/" style="margin-bottom: 16px;">
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <img alt="TechAuditPros Logo" height="28" src="assets/logoonly.svg" width="28"/>
-                        <span class="logo-text" style="color: var(--text-heading); font-size: 1.15rem;">TechAuditPros</span>
-                    </div>
+                    <span class="logo-mark">TA</span>
+                    <span class="logo-text">TechAuditPros</span>
                 </a>
-                <p>Your dedicated offshore technical team. We run your website backend and organic growth operations every month so you don't have to.</p>
+                <p>Your dedicated offshore technical team. We run your ERP, web development and SEO operations every month so you don't have to.</p>
                 <div class="footer-social-icons" style="display: flex; gap: 14px; margin-top: 16px; flex-wrap: wrap;">
                     <a href="https://www.facebook.com/techauditpros/" target="_blank" rel="noopener">Facebook</a>
                     <a href="https://www.instagram.com/techauditpros/" target="_blank" rel="noopener">Instagram</a>
                     <a href="https://linkedin.com/in/ajipaul-officia/" target="_blank" rel="noopener">LinkedIn</a>
                     <a href="mailto:info@techauditpros.com">Email</a>
                 </div>
+            </div>
+            <div class="footer-column">
+                <h3>Services</h3>
+                <p><a href="#services" class="footer-link">Enterprise ERP</a></p>
+                <p><a href="/website-design-development/" class="footer-link">Website Development</a></p>
+                <p><a href="/seo-services/" class="footer-link">SEO, AEO &amp; GEO</a></p>
+                <p><a href="/technical-seo-audit/" class="footer-link">Technical SEO Audit</a></p>
             </div>
             <div class="footer-column">
                 <h3>Company</h3>
@@ -1072,13 +773,6 @@
                 <p><a href="/blog/" class="footer-link">Blog &amp; Guides</a></p>
             </div>
             <div class="footer-column">
-                <h3>Services</h3>
-                <p><a href="/technical-seo-audit/" class="footer-link">Technical SEO Audit</a></p>
-                <p><a href="/website-design-development/" class="footer-link">Web Development</a></p>
-                <p><a href="/saas-app-development/" class="footer-link">Backend Operations</a></p>
-                <p><a href="/seo-services/enterprise-seo/" class="footer-link">Enterprise SEO</a></p>
-            </div>
-            <div class="footer-column">
                 <h3>Resources</h3>
                 <p><a href="/website-seo-audit/" class="footer-link">Website Health Check</a></p>
                 <p><a href="/digital-marketing-faq/" class="footer-link">Support &amp; FAQ</a></p>
@@ -1086,7 +780,7 @@
                 <p><a href="/terms/" class="footer-link">Terms &amp; Conditions</a></p>
             </div>
             <div class="footer-column">
-                <h3>Top Countries</h3>
+                <h3>Markets</h3>
                 <p><a href="/us/" class="footer-link">🇺🇸 United States</a></p>
                 <p><a href="/ca/" class="footer-link">🇨🇦 Canada</a></p>
                 <p><a href="/au/" class="footer-link">🇦🇺 Australia</a></p>
@@ -1095,8 +789,8 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 TechAuditPros. All rights reserved. | Infopark Phase 1, Kochi, Kerala, 682030, India</p>
-            <p style="font-weight: 700;">Built with ❤️ in India for the World</p>
+            <p>© 2026 TechAuditPros. All rights reserved. | Infopark Phase 1, Kochi, Kerala, 682030, India</p>
+            <p>Built with care in India for the world</p>
         </div>
     </div>
 </footer>
