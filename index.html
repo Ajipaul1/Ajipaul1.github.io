@@ -172,6 +172,24 @@
   .desktop-nav{ display:flex; gap:36px; align-items:center; }
   .desktop-nav a{ font-size:0.92rem; font-weight:600; color:var(--ink-soft); text-decoration:none; }
   .desktop-nav a:hover{ color:var(--ink); }
+  .nav-dropdown{ position:relative; }
+  .nav-dropdown > a{ display:flex; align-items:center; gap:4px; }
+  .nav-dropdown-caret{ font-size:0.6rem; color:var(--ink-faint); transition:transform .2s ease; }
+  .nav-dropdown:hover .nav-dropdown-caret{ transform:rotate(180deg); }
+  .nav-dropdown-panel{
+    position:absolute; top:100%; left:50%; margin-top:14px; transform:translateX(-50%) translateY(6px);
+    background:#fff; border:1px solid var(--line); border-radius:12px; box-shadow:var(--shadow-lg);
+    padding:8px; min-width:230px; opacity:0; visibility:hidden; pointer-events:none;
+    transition:opacity .18s ease, transform .18s ease, visibility .18s;
+  }
+  .nav-dropdown:hover .nav-dropdown-panel{ opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0); }
+  .nav-dropdown-item{
+    display:flex; align-items:center; gap:10px; padding:9px 12px; border-radius:8px; text-decoration:none;
+    color:var(--ink); font-size:0.88rem; font-weight:600; white-space:nowrap;
+  }
+  .nav-dropdown-item:hover{ background:var(--paper-alt); color:var(--orange-dark); }
+  .nav-dropdown-item img{ width:20px; height:20px; border-radius:50%; object-fit:cover; flex-shrink:0; }
+  .nav-dropdown-icon{ width:20px; text-align:center; flex-shrink:0; }
   .header-actions{ display:flex; align-items:center; gap:16px; }
   .book-audit-btn{
     display:inline-flex; align-items:center; gap:8px; background:var(--orange); color:#fff !important;
@@ -631,8 +649,24 @@
                 </span>
             </a>
             <nav class="desktop-nav">
-                <a href="#services">Services</a>
-                <a href="#regions">Service Areas</a>
+                <div class="nav-dropdown">
+                    <a href="#services">Services <span class="nav-dropdown-caret">&#9662;</span></a>
+                    <div class="nav-dropdown-panel">
+                        <a href="#services" class="nav-dropdown-item"><span class="nav-dropdown-icon">&#9881;&#65039;</span> Enterprise ERP Solutions</a>
+                        <a href="/website-design-development/" class="nav-dropdown-item"><span class="nav-dropdown-icon">&#128187;</span> Website Development</a>
+                        <a href="/seo-services/" class="nav-dropdown-item"><span class="nav-dropdown-icon">&#128200;</span> SEO, AEO &amp; GEO</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="#regions">Service Areas <span class="nav-dropdown-caret">&#9662;</span></a>
+                    <div class="nav-dropdown-panel">
+                        <a href="/ca/" class="nav-dropdown-item"><img src="https://flagcdn.com/w40/ca.png" alt="" /> Canada</a>
+                        <a href="/us/" class="nav-dropdown-item"><img src="https://flagcdn.com/w40/us.png" alt="" /> United States</a>
+                        <a href="/au/" class="nav-dropdown-item"><img src="https://flagcdn.com/w40/au.png" alt="" /> Australia</a>
+                        <a href="/uk/" class="nav-dropdown-item"><img src="https://flagcdn.com/w40/gb.png" alt="" /> United Kingdom</a>
+                        <a href="/ae/" class="nav-dropdown-item"><img src="https://flagcdn.com/w40/ae.png" alt="" /> Dubai (UAE)</a>
+                    </div>
+                </div>
                 <a href="#results">Results</a>
                 <a href="#compare">Why Us</a>
                 <a href="#contact">Contact</a>
