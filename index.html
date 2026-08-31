@@ -112,11 +112,11 @@
 <!-- Scoped Dark Immersive Redesign Styles (Edge-to-Edge Full Screen) -->
 <style>
     :root {
-        --primary-indigo: #4f46e5;
-        --primary-indigo-dark: #3730a3;
-        --primary-indigo-light: #818cf8;
-        --accent-teal: #0d9488;
-        --accent-teal-light: #2dd4bf;
+        --brand-blue: #1d4ed8;
+        --brand-blue-dark: #1e3a8a;
+        --brand-blue-light: #60a5fa;
+        --brand-amber: #f59e0b;
+        --brand-amber-light: #fbbf24;
         --accent-green: #10b981;
         --accent-green-dark: #047857;
         --accent-green-light: #34d399;
@@ -231,10 +231,10 @@
         transition: color 0.2s ease;
     }
     .desktop-nav a:hover {
-        color: var(--primary-indigo-light);
+        color: var(--brand-blue-light);
     }
     .book-audit-btn {
-        background: linear-gradient(135deg, var(--primary-indigo) 0%, var(--primary-indigo-dark) 100%);
+        background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-blue-dark) 100%);
         color: #ffffff !important;
         padding: 10px 22px;
         border-radius: 8px;
@@ -242,11 +242,11 @@
         text-decoration: none;
         font-size: 0.9rem;
         transition: all 0.2s ease;
-        box-shadow: 0 4px 14px rgba(79, 70, 229, 0.25);
+        box-shadow: 0 4px 14px rgba(29, 78, 216, 0.25);
     }
     .book-audit-btn:hover {
         transform: translateY(-1px);
-        box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+        box-shadow: 0 6px 20px rgba(29, 78, 216, 0.4);
     }
 
     /* --- GIGANTIC HERO SECTION (STATIC FULL SPACE BACKDROP) --- */
@@ -254,12 +254,27 @@
         position: relative;
         padding: 90px 0;
         border-bottom: 1px solid var(--border-light);
-        background-image: url('assets/images/hero/space-astronaut-seo-hero.webp') !important;
+        background-color: var(--dark-bg);
+        background-image:
+            radial-gradient(circle at 88% 15%, rgba(59, 130, 246, 0.32) 0%, transparent 42%),
+            radial-gradient(circle at 8% 90%, rgba(245, 158, 11, 0.16) 0%, transparent 38%),
+            linear-gradient(180deg, #050814 0%, #0b0f19 100%) !important;
         background-repeat: no-repeat !important;
-        background-position: 82% center !important;
+        background-position: center center !important;
         background-size: cover !important;
         overflow: hidden;
         color: #ffffff;
+    }
+    /* Subtle grid texture for depth, replacing the old stock photo backdrop */
+    .tap-new-hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+        background-size: 48px 48px;
+        mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+        z-index: 0;
+        pointer-events: none;
     }
     .hero-grid {
         position: relative;
@@ -290,8 +305,8 @@
     }
     .hero-pricing-card:hover {
         transform: scale(1.02);
-        border-color: var(--primary-indigo);
-        box-shadow: 0 0 25px rgba(99, 102, 241, 0.25);
+        border-color: var(--brand-blue);
+        box-shadow: 0 0 25px rgba(59, 130, 246, 0.25);
     }
     .pricing-card-country {
         display: flex;
@@ -318,7 +333,7 @@
     .price-tap {
         font-size: 1.15rem;
         font-weight: 900;
-        color: var(--accent-teal-light);
+        color: var(--brand-amber-light);
         margin: 0;
     }
     .price-tap span {
@@ -380,12 +395,11 @@
             0 8px 40px rgba(0, 0, 0, 0.7);   /* wide soft glow */
     }
     .hero-main-content h1 span {
-        background: linear-gradient(135deg, var(--primary-indigo-light) 0%, var(--accent-teal-light) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        /* Note: text-shadow doesn’t apply to gradient text — filter: drop-shadow used instead */
-        filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.9)) drop-shadow(0 4px 20px rgba(0, 0, 0, 0.7));
+        color: var(--brand-amber-light);
+        text-shadow:
+            0 2px 4px  rgba(0, 0, 0, 0.9),
+            0 4px 16px rgba(0, 0, 0, 0.85),
+            0 8px 40px rgba(0, 0, 0, 0.7);
     }
     .hero-main-content .hero-subtitle {
         font-size: clamp(1.1rem, 2vw, 1.35rem);
@@ -425,7 +439,7 @@
         margin-bottom: 45px;
     }
     .hero-cta-group .primary-btn-large {
-        box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+        box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
     }
     .hero-cta-group .secondary-btn-large {
         border: 1.5px solid rgba(255, 255, 255, 0.2);
@@ -455,98 +469,68 @@
         flex-wrap: wrap;
     }
 
-    /* --- LIMITED LAUNCH OFFER BANNER --- */
-    .tap-launch-offer {
-        background: linear-gradient(135deg, #4f46e5 0%, #312e81 100%);
-        color: #ffffff;
-        padding: 30px 0;
-        box-shadow: 0 15px 30px -5px rgba(79, 70, 229, 0.2);
+    /* --- CORE SERVICES PILLARS --- */
+    .tap-pillars-section {
+        padding: 55px 0;
+        background: var(--dark-bg-alt);
         border-bottom: 1px solid var(--border-light);
     }
-    .launch-offer-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 40px;
-        flex-wrap: wrap;
+    .pillars-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
     }
-    .offer-details {
-        flex: 1;
-        min-width: 320px;
-    }
-    .offer-badge {
-        display: inline-block;
-        background: rgba(255, 255, 255, 0.15);
-        color: #ffffff;
-        font-size: 0.8rem;
-        font-weight: 800;
-        padding: 5px 12px;
-        border-radius: 6px;
-        margin-bottom: 10px;
-        letter-spacing: 0.03em;
-    }
-    .offer-details h3 {
-        margin: 0 0 8px 0;
-        font-size: 1.35rem;
-        font-weight: 800;
-        color: #ffffff;
-        font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-    .offer-details p {
-        margin: 0;
-        font-size: 0.95rem;
-        color: rgba(255, 255, 255, 0.85);
-    }
-    .offer-progress-block {
+    .pillar-card {
         display: flex;
         flex-direction: column;
-        gap: 8px;
-        width: 300px;
+        align-items: flex-start;
+        gap: 10px;
+        background: var(--dark-card);
+        border: 1px solid var(--border-light);
+        border-radius: 16px;
+        padding: 28px 26px;
+        text-decoration: none;
+        transition: all 0.25s ease;
+        box-shadow: var(--shadow-sm);
     }
-    .progress-label-row {
-        display: flex;
-        justify-content: space-between;
-        font-size: 0.85rem;
-        font-weight: 700;
+    .pillar-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--brand-blue);
+        box-shadow: 0 12px 30px rgba(59, 130, 246, 0.18);
     }
-    .progress-bar-bg {
-        background: rgba(255, 255, 255, 0.25);
-        height: 12px;
-        border-radius: 6px;
-        overflow: hidden;
-    }
-    .progress-bar-fill {
-        background: var(--accent-green);
-        height: 100%;
-        width: 60%;
-        border-radius: 6px;
-        box-shadow: 0 0 15px rgba(16, 185, 129, 0.7);
-    }
-    .offer-timer-block {
+    .pillar-icon {
+        font-size: 1.8rem;
+        width: 56px;
+        height: 56px;
         display: flex;
         align-items: center;
-        gap: 16px;
+        justify-content: center;
+        background: rgba(59, 130, 246, 0.12);
+        border-radius: 12px;
     }
-    .timer-item {
-        background: rgba(255, 255, 255, 0.12);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 10px;
-        padding: 10px 16px;
-        text-align: center;
-        min-width: 60px;
-    }
-    .timer-num {
+    .pillar-card h3 {
+        margin: 4px 0 0 0;
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: #ffffff;
         font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 1.65rem;
-        font-weight: 900;
-        margin: 0;
     }
-    .timer-label {
-        font-size: 0.72rem;
-        color: rgba(255,255,255,0.75);
-        text-transform: uppercase;
-        margin-top: 3px;
-        letter-spacing: 0.05em;
+    .pillar-card p {
+        margin: 0;
+        font-size: 0.92rem;
+        color: var(--text-secondary);
+        line-height: 1.55;
+    }
+    .pillar-link {
+        margin-top: 8px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--brand-amber-light);
+    }
+    @media (max-width: 900px) {
+        .pillars-grid {
+            grid-template-columns: 1fr;
+        }
     }
 
     /* --- BRAND PARTNERS --- */
@@ -650,13 +634,13 @@
         transition: border-color 0.2s;
     }
     .presence-stat-card:hover {
-        border-color: var(--primary-indigo);
+        border-color: var(--brand-blue);
     }
     .stat-card-num {
         font-family: 'Plus Jakarta Sans', sans-serif;
         font-size: 2.5rem;
         font-weight: 900;
-        color: var(--primary-indigo-light);
+        color: var(--brand-blue-light);
         margin: 0;
         min-width: 100px;
     }
@@ -739,7 +723,7 @@
     .play-btn-circle {
         width: 70px;
         height: 70px;
-        background: rgba(79, 70, 229, 0.9);
+        background: rgba(29, 78, 216, 0.9);
         color: #ffffff;
         font-size: 1.8rem;
         display: flex;
@@ -747,12 +731,12 @@
         justify-content: center;
         border-radius: 50%;
         transition: transform 0.2s;
-        box-shadow: 0 0 25px rgba(99, 102, 241, 0.6);
+        box-shadow: 0 0 25px rgba(59, 130, 246, 0.6);
         padding-left: 5px;
     }
     .play-btn-circle:hover {
         transform: scale(1.1);
-        background: var(--primary-indigo-light);
+        background: var(--brand-blue-light);
     }
     
     /* Cost comparison vertical bars */
@@ -814,7 +798,7 @@
         height: 100%;
     }
     .comp-v-bar.tap {
-        background: linear-gradient(to top, var(--primary-indigo) 0%, var(--accent-teal) 100%);
+        background: linear-gradient(to top, var(--brand-blue) 0%, var(--brand-amber) 100%);
     }
     .comp-col-item.canada .comp-v-bar.tap { height: 43%; }
     .comp-col-item.usa .comp-v-bar.tap { height: 40%; }
@@ -905,7 +889,7 @@
     .case-card-header {
         font-size: 0.85rem;
         font-weight: 800;
-        color: var(--primary-indigo-light);
+        color: var(--brand-blue-light);
         text-transform: uppercase;
         letter-spacing: 0.05em;
         margin-bottom: 18px;
@@ -939,7 +923,7 @@
     .case-card-link {
         font-size: 0.95rem;
         font-weight: 800;
-        color: var(--primary-indigo-light);
+        color: var(--brand-blue-light);
         text-decoration: none;
         display: inline-flex;
         align-items: center;
@@ -1058,8 +1042,8 @@
         width: 56px;
         height: 56px;
         background: var(--dark-card);
-        border: 2.5px solid var(--primary-indigo-light);
-        color: var(--primary-indigo-light);
+        border: 2.5px solid var(--brand-blue-light);
+        color: var(--brand-blue-light);
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -1071,10 +1055,10 @@
         transition: all 0.25s ease;
     }
     .workflow-step-node:hover .step-node-icon {
-        background: var(--primary-indigo-light);
+        background: var(--brand-blue-light);
         color: #ffffff;
         transform: scale(1.1);
-        box-shadow: 0 0 25px rgba(99, 102, 241, 0.35);
+        box-shadow: 0 0 25px rgba(59, 130, 246, 0.35);
     }
     .workflow-step-node h4 {
         margin: 0 0 6px 0;
@@ -1128,8 +1112,8 @@
         gap: 20px;
     }
     .dashboard-service-item {
-        background: linear-gradient(135deg, rgba(79, 70, 229, 0.08) 0%, rgba(13, 18, 36, 0.8) 100%);
-        border: 1.5px solid rgba(99, 102, 241, 0.15);
+        background: linear-gradient(135deg, rgba(29, 78, 216, 0.08) 0%, rgba(13, 18, 36, 0.8) 100%);
+        border: 1.5px solid rgba(59, 130, 246, 0.15);
         border-radius: 14px;
         padding: 18px 24px;
         display: flex;
@@ -1144,8 +1128,8 @@
     }
     .dashboard-service-item:hover {
         transform: translateY(-3px);
-        border-color: var(--primary-indigo-light);
-        box-shadow: 0 10px 25px rgba(99, 102, 241, 0.25);
+        border-color: var(--brand-blue-light);
+        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.25);
     }
     .dashboard-service-icon {
         font-size: 1.45rem;
@@ -1207,7 +1191,7 @@
         margin: 0;
         font-size: 1.85rem;
         font-weight: 900;
-        color: var(--primary-indigo-light);
+        color: var(--brand-blue-light);
     }
     .widget-stat-box p {
         margin: 6px 0 0 0;
@@ -1292,7 +1276,7 @@
     }
     .security-badge-icon {
         font-size: 1.75rem;
-        color: var(--primary-indigo-light);
+        color: var(--brand-blue-light);
     }
     .security-badge-item h4 {
         margin: 0;
@@ -1376,7 +1360,7 @@
     }
     .hub-card-content span {
         font-size: 0.75rem;
-        color: var(--primary-indigo-light);
+        color: var(--brand-blue-light);
         font-weight: 800;
         text-transform: uppercase;
         letter-spacing: 0.05em;
@@ -1404,7 +1388,7 @@
         font-weight: 900;
         color: #ffffff;
         margin: 0 0 8px 0;
-        background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+        background: linear-gradient(135deg, #ffffff 0%, #93c5fd 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -1468,10 +1452,10 @@
     .founder-signature {
         font-family: 'Playball', cursive !important;
         font-size: 2.5rem !important;
-        color: var(--accent-teal-light) !important;
+        color: var(--brand-amber-light) !important;
         margin-top: 15px !important;
         font-weight: 400 !important;
-        text-shadow: 0 0 10px rgba(45, 212, 191, 0.2) !important;
+        text-shadow: 0 0 10px rgba(251, 191, 36, 0.2) !important;
     }
     
     .founder-timeline-list {
@@ -1574,7 +1558,7 @@
         bottom: 30px;
         right: 30px;
         z-index: 10000;
-        background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+        background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%);
         color: white;
         border-radius: 50%;
         width: 60px;
@@ -1633,7 +1617,7 @@
             width: 100%;
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 25px rgba(99, 102, 241, 0.2);
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.2);
             animation: floatAstronaut 6s ease-in-out infinite;
         }
         .hero-features-list {
@@ -1742,7 +1726,7 @@
         width: 100%;
         height: 52px;
         background: rgba(5, 8, 20, 0.8) !important;
-        border: 1px solid rgba(99, 102, 241, 0.3) !important;
+        border: 1px solid rgba(59, 130, 246, 0.3) !important;
         border-radius: 8px !important;
         color: #ffffff !important;
         padding: 0 16px !important;
@@ -1751,8 +1735,8 @@
         transition: all 0.2s ease !important;
     }
     .form-input-wrapper input:focus {
-        border-color: #6366f1 !important;
-        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2) !important;
+        border-color: #3b82f6 !important;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2) !important;
         outline: none !important;
     }
     .hero-audit-form button.submit-btn {
@@ -1765,13 +1749,13 @@
         justify-content: center;
         gap: 8px;
         border: none;
-        background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+        background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%);
         color: #ffffff;
         transition: all 0.2s ease;
     }
     .hero-audit-form button.submit-btn:hover {
         transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
     }
     
     /* Loading state */
@@ -1786,8 +1770,8 @@
     .loader-circle {
         width: 48px;
         height: 48px;
-        border: 4px solid rgba(99, 102, 241, 0.1);
-        border-top-color: #6366f1;
+        border: 4px solid rgba(59, 130, 246, 0.1);
+        border-top-color: #3b82f6;
         border-radius: 50%;
         animation: spin 1s linear infinite;
         margin-bottom: 20px;
@@ -1805,7 +1789,7 @@
         opacity: 0.5;
     }
     .loader-step.active {
-        color: #6366f1;
+        color: #3b82f6;
         font-weight: 600;
         opacity: 1;
     }
@@ -2035,8 +2019,8 @@
         word-break: break-all;
     }
     .results-action-strip {
-        background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
-        border: 1px solid rgba(99, 102, 241, 0.2);
+        background: linear-gradient(135deg, rgba(29, 78, 216, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+        border: 1px solid rgba(59, 130, 246, 0.2);
         border-radius: 12px;
         padding: 24px;
         text-align: center;
@@ -3161,7 +3145,7 @@
             left: 0 !important;
             right: 0 !important;
             z-index: 9998 !important;
-            background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%) !important;
+            background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%) !important;
             color: #fff !important;
             text-align: center !important;
             padding: 14px 20px !important;
@@ -3171,7 +3155,7 @@
             justify-content: center !important;
             align-items: center !important;
             gap: 8px !important;
-            box-shadow: 0 -4px 20px rgba(79, 70, 229, 0.4) !important;
+            box-shadow: 0 -4px 20px rgba(29, 78, 216, 0.4) !important;
             border-top: 1px solid rgba(255,255,255,0.15) !important;
             letter-spacing: 0.01em !important;
         }
@@ -3462,8 +3446,8 @@
                     <p class="hero-subtitle">Everybody knows AI exists. But raw AI lacks human vision, creative strategy, and enterprise security. We combine <strong>110% Elite Human System Architecture</strong> with <strong>AI-Speed Fulfillment</strong> to engineer <strong>Full-Spectrum SEO (AEO/GEO)</strong>, <strong>Custom Web Development</strong>, and <strong>Enterprise ERP Solutions</strong>—built for digital agencies, brand managers, and business owners worldwide across the USA, UK, Canada, Australia & Dubai.</p>
                     
 <!-- GOOGLE AI OVERVIEW ANSWER-FIRST DEFINITION BOX -->
-<div class="ai-overview-definition-box" style="margin: 25px 0 30px 0; padding: 22px 28px; background: rgba(99, 102, 241, 0.07); border: 1px solid rgba(99, 102, 241, 0.25); border-left: 5px solid #6366f1; border-radius: 14px; backdrop-filter: blur(10px);">
-    <p style="margin: 0 0 10px 0; color: #818cf8; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;">
+<div class="ai-overview-definition-box" style="margin: 25px 0 30px 0; padding: 22px 28px; background: rgba(59, 130, 246, 0.07); border: 1px solid rgba(59, 130, 246, 0.25); border-left: 5px solid #3b82f6; border-radius: 14px; backdrop-filter: blur(10px);">
+    <p style="margin: 0 0 10px 0; color: #60a5fa; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;">
         🤖 Google AI Overview Summary: Who is TechAuditPros?
     </p>
     <p style="margin: 0; color: #f1f5f9; font-size: 1.05rem; font-weight: 500; line-height: 1.7; font-family: 'Inter', sans-serif;">
@@ -3474,7 +3458,7 @@
     </p>
 </div>
 
-<div class="direct-owner-message-box" style="margin: 20px 0 25px 0; padding: 16px 20px; background: rgba(99, 102, 241, 0.08); border-left: 4px solid #10b981; border-radius: 12px; backdrop-filter: blur(10px);">
+<div class="direct-owner-message-box" style="margin: 20px 0 25px 0; padding: 16px 20px; background: rgba(59, 130, 246, 0.08); border-left: 4px solid #10b981; border-radius: 12px; backdrop-filter: blur(10px);">
                         <p style="margin: 0; color: #e2e8f0; font-size: 0.98rem; font-weight: 500; line-height: 1.6;">
                             💬 <strong style="color: #10b981;">Message to Business Owners & Agencies:</strong> 
                             <em>"You already know AI can replace most digital work. We give you the system that actually does it—and we stand behind 100% performance execution."</em>
@@ -3536,7 +3520,7 @@
 
             <!-- Interactive Audit Report Component -->
             <div id="audit-results-panel" class="audit-results-panel" style="display: none;">
-                <h3 class="results-title">Analysis Completed for <span id="res-domain-name" style="color: #6366f1;">example.com</span></h3>
+                <h3 class="results-title">Analysis Completed for <span id="res-domain-name" style="color: #3b82f6;">example.com</span></h3>
                 
                 <div class="results-metrics-grid">
                     <!-- Score Dial: Performance -->
@@ -3700,54 +3684,28 @@
     </div>
 </section>
 
-<!-- LIMITED LAUNCH OFFER BANNER -->
-<section class="tap-launch-offer">
-    <div class="container launch-offer-container">
-        <div class="offer-left-flex" style="display: flex; align-items: center; gap: 24px; flex: 1; min-width: 320px;">
-            <img src="assets/images/hero/usa_flag_waving.webp" alt="USA Flag Waving" width="1024" height="1024" style="width: 90px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);" />
-            <div class="offer-details">
-                <span class="offer-badge">🇺🇸 LIMITED LAUNCH OFFER FOR USA CUSTOMERS</span>
-                <h3>Transferring Entire Dedicated Technical Team</h3>
-                <p>We are allocating our top-tier developers and SEO engineers to serve North American businesses.</p>
-            </div>
-        </div>
-        <div class="offer-progress-block" style="display: flex; align-items: center; gap: 16px;">
-            <div class="progress-circle-container" style="position: relative; width: 80px; height: 80px; flex-shrink: 0;">
-                <svg width="80" height="80" viewBox="0 0 80 80" style="transform: rotate(-90deg); display: block;">
-                    <!-- Background circle -->
-                    <circle cx="40" cy="40" r="34" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="6" />
-                    <!-- Fill circle -->
-                    <circle cx="40" cy="40" r="34" fill="none" stroke="var(--accent-teal-light)" stroke-width="6" 
-                            stroke-dasharray="213.628" stroke-dashoffset="85.45" stroke-linecap="round" 
-                            style="transition: stroke-dashoffset 0.5s ease;" />
-                </svg>
-                <div class="progress-circle-text" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'Plus Jakarta Sans', sans-serif;">
-                    <span style="font-size: 1.1rem; font-weight: 800; color: #ffffff; line-height: 1;">15/25</span>
-                    <span style="font-size: 0.45rem; color: var(--accent-green-light); text-transform: uppercase; margin-top: 2px; font-weight: 800; letter-spacing: 0.05em; text-align: center;">Seats Filled</span>
-                </div>
-            </div>
-            <div class="progress-circle-details" style="text-align: left;">
-                <span style="display: block; font-size: 0.85rem; color: var(--text-secondary); font-weight: 700;">Only accepting 25 Companies during this launch.</span>
-                <span style="display: block; font-size: 0.95rem; color: var(--accent-green-light); font-weight: 800; margin-top: 4px;">10 Seats Remaining!</span>
-            </div>
-        </div>
-        <div class="offer-timer-block">
-            <div class="timer-item">
-                <p class="timer-num" id="timer-days">11</p>
-                <span class="timer-label">Days</span>
-            </div>
-            <div class="timer-item">
-                <p class="timer-num" id="timer-hours">23</p>
-                <span class="timer-label">Hours</span>
-            </div>
-            <div class="timer-item">
-                <p class="timer-num" id="timer-mins">47</p>
-                <span class="timer-label">Mins</span>
-            </div>
-            <div class="timer-item">
-                <p class="timer-num" id="timer-secs">09</p>
-                <span class="timer-label">Secs</span>
-            </div>
+<!-- CORE SERVICES PILLARS -->
+<section class="tap-pillars-section">
+    <div class="container">
+        <div class="pillars-grid">
+            <a href="#services" class="pillar-card">
+                <span class="pillar-icon">⚙️</span>
+                <h3>Enterprise ERP Solutions</h3>
+                <p>Custom-built ERP software, CRM dashboards & business portals engineered around how your operations actually run.</p>
+                <span class="pillar-link">Explore ERP Development →</span>
+            </a>
+            <a href="website-design-development/" class="pillar-card">
+                <span class="pillar-icon">💻</span>
+                <h3>Website Development</h3>
+                <p>High-performance Next.js & React builds with 90+ Core Web Vitals — engineered to convert, not just to look good.</p>
+                <span class="pillar-link">Explore Web Development →</span>
+            </a>
+            <a href="seo-services/" class="pillar-card">
+                <span class="pillar-icon">📈</span>
+                <h3>SEO, AEO &amp; GEO</h3>
+                <p>Full-spectrum technical SEO plus Answer &amp; Generative Engine Optimization — built to rank in Google and get cited by AI.</p>
+                <span class="pillar-link">Explore SEO Services →</span>
+            </a>
         </div>
     </div>
 </section>
@@ -3845,7 +3803,7 @@
                     <li style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 1.4rem;">🇦🇪</span> Dubai (UAE)</li>
                     <li style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 1.4rem;">🇩🇪</span> Germany</li>
                     <li style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 1.4rem;">🇸🇬</span> Singapore</li>
-                    <li style="display: flex; align-items: center; gap: 10px; color: var(--accent-teal-light); font-style: italic;">...and growing!</li>
+                    <li style="display: flex; align-items: center; gap: 10px; color: var(--brand-amber-light); font-style: italic;">...and growing!</li>
                 </ul>
             </div>
             <!-- Middle side real Google Map -->
@@ -3880,7 +3838,7 @@
 <section class="ai-era-choice-section" style="padding: 50px 0; background: #070a13; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08);">
     <div class="container">
         <h2 style="text-align: center; color: #ffffff; font-size: 2rem; margin-bottom: 35px; font-family: 'Plus Jakarta Sans', sans-serif;">
-            Why Global Brands Choose the <span style="color: #6366f1; text-shadow: 0 0 20px rgba(99,102,241,0.4);">TechAuditPros Hybrid Model</span>
+            Why Global Brands Choose the <span style="color: #3b82f6; text-shadow: 0 0 20px rgba(59, 130, 246,0.4);">TechAuditPros Hybrid Model</span>
         </h2>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
             
@@ -3904,7 +3862,7 @@
                 </ul>
             </div>
 
-            <div style="background: linear-gradient(135deg, rgba(99,102,241,0.12), rgba(16,185,129,0.12)); border: 2px solid #6366f1; padding: 25px; border-radius: 16px; box-shadow: 0 10px 30px rgba(99,102,241,0.2);">
+            <div style="background: linear-gradient(135deg, rgba(59, 130, 246,0.12), rgba(16,185,129,0.12)); border: 2px solid #3b82f6; padding: 25px; border-radius: 16px; box-shadow: 0 10px 30px rgba(59, 130, 246,0.2);">
                 <h3 style="color: #10b981; font-size: 1.2rem; margin-bottom: 15px;">⚡ TechAuditPros (110% Hybrid)</h3>
                 <ul style="color: #ffffff; font-size: 0.9rem; line-height: 1.8; margin: 0; padding-left: 18px;">
                     <li><strong>110% Human Creative System Design</strong></li>
@@ -3938,7 +3896,7 @@
         </div>
         
         <!-- Middle column: 16:9 Clean Uncropped Video Card -->
-        <div class="savings-video-wrapper" style="width: 100%; aspect-ratio: 16 / 9; position: relative; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.12); background: #070b19; overflow: hidden; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(99, 102, 241, 0.15); display: flex; align-items: center; justify-content: center; align-self: center;">
+        <div class="savings-video-wrapper" style="width: 100%; aspect-ratio: 16 / 9; position: relative; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.12); background: #070b19; overflow: hidden; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(59, 130, 246, 0.15); display: flex; align-items: center; justify-content: center; align-self: center;">
             <video autoplay loop muted playsinline preload="metadata" style="width: 100%; height: 100%; object-fit: contain; border-radius: 15px; display: block;">
                 <source src="assets/videos/india-team-ad.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
@@ -4053,9 +4011,9 @@
                 <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 10px; box-sizing: border-box;">
                     <div style="display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: 700; margin-bottom: 4px; box-sizing: border-box;">
                         <span style="color: #ffffff; text-transform: uppercase; letter-spacing: 0.05em;">Full Stack Devs</span>
-                        <span id="calc-devs-val" style="color: var(--accent-teal-light);">1 Developer</span>
+                        <span id="calc-devs-val" style="color: var(--brand-amber-light);">1 Developer</span>
                     </div>
-                    <input type="range" id="calc-devs" min="1" max="10" value="1" oninput="calculateSavings()" style="width: 100%; cursor: pointer; accent-color: var(--primary-indigo); margin-bottom: 6px;">
+                    <input type="range" id="calc-devs" min="1" max="10" value="1" oninput="calculateSavings()" style="width: 100%; cursor: pointer; accent-color: var(--brand-blue); margin-bottom: 6px;">
                     <div style="display: flex; gap: 8px; align-items: center; box-sizing: border-box;">
                         <div style="flex: 1;">
                             <span style="font-size: 0.65rem; color: var(--text-muted); display: block; margin-bottom: 2px; text-transform: uppercase;">Local Cost ($/mo)</span>
@@ -4072,9 +4030,9 @@
                 <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 10px; box-sizing: border-box;">
                     <div style="display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: 700; margin-bottom: 4px; box-sizing: border-box;">
                         <span style="color: #ffffff; text-transform: uppercase; letter-spacing: 0.05em;">SEO Specialists</span>
-                        <span id="calc-seos-val" style="color: var(--accent-teal-light);">0 Specialists</span>
+                        <span id="calc-seos-val" style="color: var(--brand-amber-light);">0 Specialists</span>
                     </div>
-                    <input type="range" id="calc-seos" min="0" max="10" value="0" oninput="calculateSavings()" style="width: 100%; cursor: pointer; accent-color: var(--primary-indigo); margin-bottom: 6px;">
+                    <input type="range" id="calc-seos" min="0" max="10" value="0" oninput="calculateSavings()" style="width: 100%; cursor: pointer; accent-color: var(--brand-blue); margin-bottom: 6px;">
                     <div style="display: flex; gap: 8px; align-items: center; box-sizing: border-box;">
                         <div style="flex: 1;">
                             <span style="font-size: 0.65rem; color: var(--text-muted); display: block; margin-bottom: 2px; text-transform: uppercase;">Local Cost ($/mo)</span>
@@ -4091,9 +4049,9 @@
                 <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 10px; box-sizing: border-box;">
                     <div style="display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: 700; margin-bottom: 4px; box-sizing: border-box;">
                         <span style="color: #ffffff; text-transform: uppercase; letter-spacing: 0.05em;">Content Creators</span>
-                        <span id="calc-content-val" style="color: var(--accent-teal-light);">0 Writers</span>
+                        <span id="calc-content-val" style="color: var(--brand-amber-light);">0 Writers</span>
                     </div>
-                    <input type="range" id="calc-content" min="0" max="10" value="0" oninput="calculateSavings()" style="width: 100%; cursor: pointer; accent-color: var(--primary-indigo); margin-bottom: 6px;">
+                    <input type="range" id="calc-content" min="0" max="10" value="0" oninput="calculateSavings()" style="width: 100%; cursor: pointer; accent-color: var(--brand-blue); margin-bottom: 6px;">
                     <div style="display: flex; gap: 8px; align-items: center; box-sizing: border-box;">
                         <div style="flex: 1;">
                             <span style="font-size: 0.65rem; color: var(--text-muted); display: block; margin-bottom: 2px; text-transform: uppercase;">Local Cost ($/mo)</span>
@@ -4110,9 +4068,9 @@
                 <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 10px; box-sizing: border-box;">
                     <div style="display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: 700; margin-bottom: 4px; box-sizing: border-box;">
                         <span style="color: #ffffff; text-transform: uppercase; letter-spacing: 0.05em;">Social Media Team</span>
-                        <span id="calc-social-val" style="color: var(--accent-teal-light);">0 Managers</span>
+                        <span id="calc-social-val" style="color: var(--brand-amber-light);">0 Managers</span>
                     </div>
-                    <input type="range" id="calc-social" min="0" max="10" value="0" oninput="calculateSavings()" style="width: 100%; cursor: pointer; accent-color: var(--primary-indigo); margin-bottom: 6px;">
+                    <input type="range" id="calc-social" min="0" max="10" value="0" oninput="calculateSavings()" style="width: 100%; cursor: pointer; accent-color: var(--brand-blue); margin-bottom: 6px;">
                     <div style="display: flex; gap: 8px; align-items: center; box-sizing: border-box;">
                         <div style="flex: 1;">
                             <span style="font-size: 0.65rem; color: var(--text-muted); display: block; margin-bottom: 2px; text-transform: uppercase;">Local Cost ($/mo)</span>
@@ -4139,7 +4097,7 @@
                 </div>
                 <div style="display: flex; justify-content: space-between; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 6px; font-weight: 800; margin-top: 2px; box-sizing: border-box;">
                     <span style="color: #ffffff;">Monthly Savings:</span>
-                    <span id="calc-monthly-save" style="color: var(--accent-teal-light); font-size: 1rem;">$7,700/mo</span>
+                    <span id="calc-monthly-save" style="color: var(--brand-amber-light); font-size: 1rem;">$7,700/mo</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; font-size: 1.05rem; font-weight: 900; background: rgba(16, 185, 129, 0.08); padding: 10px; border-radius: 8px; margin-top: 2px; box-sizing: border-box;">
                     <span style="color: #ffffff;">Annual Savings:</span>
@@ -4148,7 +4106,7 @@
             </div>
 
             <!-- CTA Button -->
-            <a href="#audit-form-anchor" class="cta-button primary" style="display: block; text-align: center; padding: 12px 20px; text-decoration: none; border-radius: 30px; font-weight: 700; font-size: 0.85rem; transition: all 0.3s; background: linear-gradient(135deg, var(--primary-indigo) 0%, var(--accent-teal) 100%); color: #ffffff; border: none; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15); margin-top: 4px;">Claim Your ROI Savings &rarr;</a>
+            <a href="#audit-form-anchor" class="cta-button primary" style="display: block; text-align: center; padding: 12px 20px; text-decoration: none; border-radius: 30px; font-weight: 700; font-size: 0.85rem; transition: all 0.3s; background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-amber) 100%); color: #ffffff; border: none; box-shadow: 0 4px 12px rgba(29, 78, 216, 0.15); margin-top: 4px;">Claim Your ROI Savings &rarr;</a>
         </div>
     
             </div>
@@ -4367,17 +4325,17 @@
         
         <div class="insights-grid" style="margin-top: 50px;">
             <!-- Blog Card 1: Enterprise AI Playbook -->
-            <div class="review-card-item" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; min-height: 440px; border: 1.5px solid rgba(79, 70, 229, 0.4);">
+            <div class="review-card-item" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; min-height: 440px; border: 1.5px solid rgba(29, 78, 216, 0.4);">
                 <div style="height: 180px; width: 100%; background: url('/assets/images/blog/realistic_dev_desk.webp') no-repeat center center; background-size: cover; border-bottom: 1px solid var(--border-light);"></div>
                 <div style="padding: 24px; display: flex; flex-direction: column; justify-content: space-between; flex: 1;">
                     <div>
-                        <span style="color: var(--accent-teal-light); font-weight: 800; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 10px;">Artificial Intelligence</span>
+                        <span style="color: var(--brand-amber-light); font-weight: 800; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 10px;">Artificial Intelligence</span>
                         <h3 style="font-size: 1.25rem; font-weight: 800; margin: 0 0 12px 0; color: #ffffff; line-height: 1.4; font-family: 'Plus Jakarta Sans', sans-serif;">The Enterprise AI Transformation Playbook: Adoption, Literacy, &amp; Integration</h3>
                         <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; margin: 0 0 20px 0;">A massive, data-driven B2B playbook analyzing global enterprise AI adoption rates, the 2026 AI skills matrix, operational use cases, and how TechAuditPros helps scale engineering teams.</p>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-light); padding-top: 15px; font-size: 0.8rem; color: var(--text-secondary);">
                         <span>July 10, 2026</span>
-                        <a href="/blog/enterprise-ai-adoption-literacy-integration-guide.html" style="color: var(--primary-indigo-light); text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 4px;">Read &rarr;</a>
+                        <a href="/blog/enterprise-ai-adoption-literacy-integration-guide.html" style="color: var(--brand-blue-light); text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 4px;">Read &rarr;</a>
                     </div>
                 </div>
             </div>
@@ -4386,13 +4344,13 @@
                 <div style="height: 180px; width: 100%; background: url('/assets/images/blog/offshore_workflow.webp') no-repeat center center; background-size: cover; border-bottom: 1px solid var(--border-light);"></div>
                 <div style="padding: 24px; display: flex; flex-direction: column; justify-content: space-between; flex: 1;">
                     <div>
-                        <span style="color: var(--accent-teal-light); font-weight: 800; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 10px;">Software Engineering</span>
+                        <span style="color: var(--brand-amber-light); font-weight: 800; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 10px;">Software Engineering</span>
                         <h3 style="font-size: 1.25rem; font-weight: 800; margin: 0 0 12px 0; color: #ffffff; line-height: 1.4; font-family: 'Plus Jakarta Sans', sans-serif;">The Ultimate Guide to Offshore Software Development in 2026</h3>
                         <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; margin: 0 0 20px 0;">Discover the scope, cost structures, and operational frameworks for offshore software development. A data-backed B2B playbook.</p>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-light); padding-top: 15px; font-size: 0.8rem; color: var(--text-secondary);">
                         <span>July 10, 2026</span>
-                        <a href="/blog/offshore-software-development-guide.html" style="color: var(--primary-indigo-light); text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 4px;">Read &rarr;</a>
+                        <a href="/blog/offshore-software-development-guide.html" style="color: var(--brand-blue-light); text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 4px;">Read &rarr;</a>
                     </div>
                 </div>
             </div>
@@ -4401,13 +4359,13 @@
                 <div style="height: 180px; width: 100%; background: url('/assets/images/blog/technical_seo_visual.webp') no-repeat center center; background-size: cover; border-bottom: 1px solid var(--border-light);"></div>
                 <div style="padding: 24px; display: flex; flex-direction: column; justify-content: space-between; flex: 1;">
                     <div>
-                        <span style="color: var(--accent-teal-light); font-weight: 800; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 10px;">Technical SEO</span>
+                        <span style="color: var(--brand-amber-light); font-weight: 800; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 10px;">Technical SEO</span>
                         <h3 style="font-size: 1.25rem; font-weight: 800; margin: 0 0 12px 0; color: #ffffff; line-height: 1.4; font-family: 'Plus Jakarta Sans', sans-serif;">How to Outsource Technical SEO: The Agency Playbook</h3>
                         <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; margin: 0 0 20px 0;">Learn how digital marketing agencies scale margins by outsourcing technical SEO execution: page speed, schema, hreflang, sitemaps.</p>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-light); padding-top: 15px; font-size: 0.8rem; color: var(--text-secondary);">
                         <span>July 9, 2026</span>
-                        <a href="/blog/outsourcing-technical-seo-agency-guide.html" style="color: var(--primary-indigo-light); text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 4px;">Read &rarr;</a>
+                        <a href="/blog/outsourcing-technical-seo-agency-guide.html" style="color: var(--brand-blue-light); text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 4px;">Read &rarr;</a>
                     </div>
                 </div>
             </div>
@@ -5179,33 +5137,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, true);
     })();
 
-    // --- Countdown Timer Code ---
-    var countdownDuration = (11 * 24 * 60 * 60) + (23 * 60 * 60) + (47 * 60) + 9;
-    var targetTime = Date.now() + (countdownDuration * 1000);
-
-    function updateTimer() {
-        var now = Date.now();
-        var diff = targetTime - now;
-
-        if (diff <= 0) {
-            targetTime = Date.now() + (countdownDuration * 1000);
-            diff = targetTime - now;
-        }
-
-        var days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-        document.getElementById('timer-days').innerText = days < 10 ? '0' + days : days;
-        document.getElementById('timer-hours').innerText = hours < 10 ? '0' + hours : hours;
-        document.getElementById('timer-mins').innerText = minutes < 10 ? '0' + minutes : minutes;
-        document.getElementById('timer-secs').innerText = seconds < 10 ? '0' + seconds : seconds;
-    }
-
-    updateTimer();
-    setInterval(updateTimer, 1000);
-
     // --- Mobile Drawer Control ---
     const toggleBtn = document.querySelector('.mobile-menu-toggle');
     const closeBtn = document.querySelector('.close-drawer');
@@ -5418,7 +5349,7 @@ window.initGoogleMap = function() {
     const darkMapStyle = [
         { "elementType": "geometry", "stylers": [{ "color": "#060919" }] },
         { "elementType": "labels.text.stroke", "stylers": [{ "visibility": "off" }] },
-        { "elementType": "labels.text.fill", "stylers": [{ "color": "#818cf8" }] },
+        { "elementType": "labels.text.fill", "stylers": [{ "color": "#60a5fa" }] },
         { "featureType": "administrative.country", "elementType": "geometry.stroke", "stylers": [{ "color": "#1e293b" }] },
         { "featureType": "administrative.country", "elementType": "labels.text.fill", "stylers": [{ "color": "#ffffff" }, { "font-weight": "bold" }] },
         { "featureType": "poi", "stylers": [{ "visibility": "off" }] },
@@ -5468,7 +5399,7 @@ window.initGoogleMap = function() {
             icon: {
                 path: google.maps.SymbolPath.CIRCLE,
                 scale: loc.isHq ? 8 : 6,
-                fillColor: loc.isHq ? '#10b981' : '#6366f1',
+                fillColor: loc.isHq ? '#10b981' : '#3b82f6',
                 fillOpacity: 1,
                 strokeColor: '#ffffff',
                 strokeWeight: 1.5,
@@ -5493,7 +5424,7 @@ window.initGoogleMap = function() {
             new google.maps.Polyline({
                 path: [hqLatLng, latLng],
                 geodesic: true,
-                strokeColor: '#818cf8',
+                strokeColor: '#60a5fa',
                 strokeOpacity: 0.6,
                 strokeWeight: 2,
                 map: map
@@ -5557,7 +5488,7 @@ window.initGoogleMap = function() {
     <div style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 12px; word-break: break-all; font-weight: 600; font-family: 'Plus Jakarta Sans', sans-serif;" id="copy-email-text">info@techauditpros.com</div>
     <div style="display: flex; gap: 8px; box-sizing: border-box;">
         <button onclick="copyEmailToClipboard()" id="copy-email-btn" style="flex: 1; padding: 8px 12px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); border-radius: 6px; color: #ffffff; font-size: 0.75rem; font-weight: 700; cursor: pointer; transition: all 0.2s; font-family: 'Plus Jakarta Sans', sans-serif;">Copy Email</button>
-        <a href="mailto:info@techauditpros.com" style="flex: 1; padding: 8px 12px; background: linear-gradient(135deg, var(--primary-indigo) 0%, var(--accent-teal) 100%); border-radius: 6px; color: #ffffff; font-size: 0.75rem; font-weight: 700; text-decoration: none; text-align: center; font-family: 'Plus Jakarta Sans', sans-serif; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);">Send Email</a>
+        <a href="mailto:info@techauditpros.com" style="flex: 1; padding: 8px 12px; background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-amber) 100%); border-radius: 6px; color: #ffffff; font-size: 0.75rem; font-weight: 700; text-decoration: none; text-align: center; font-family: 'Plus Jakarta Sans', sans-serif; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(29, 78, 216, 0.2);">Send Email</a>
     </div>
 </div>
 
