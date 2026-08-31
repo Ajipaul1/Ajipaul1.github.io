@@ -148,25 +148,35 @@
   .eyebrow::before{ content:''; width:7px; height:7px; background:var(--orange); border-radius:1px; transform:rotate(45deg); flex-shrink:0; }
 
   /* ---------- HEADER ---------- */
+  .site-header{ position:sticky; top:0; z-index:1000; }
+  .header-utility-bar{ background:var(--navy-deep); }
+  .header-utility-row{ display:flex; align-items:center; justify-content:space-between; height:38px; gap:20px; }
+  .header-utility-trust{ font-family:var(--font-mono); font-size:0.72rem; color:rgba(255,255,255,0.7); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .header-utility-links{ display:flex; gap:20px; flex-shrink:0; }
+  .header-utility-links a{ font-size:0.78rem; font-weight:600; color:rgba(255,255,255,0.85); text-decoration:none; }
+  .header-utility-links a:hover{ color:var(--orange); }
   .main-header-bar{
-    position:sticky; top:0; z-index:1000; height:72px; display:flex; align-items:center;
-    background:rgba(255,255,255,0.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);
+    height:96px; display:flex; align-items:center;
+    background:rgba(255,255,255,0.96); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);
+    box-shadow:var(--shadow-sm);
   }
   .header-container{ display:flex; align-items:center; justify-content:space-between; width:100%; }
-  .header-logo{ display:flex; align-items:center; gap:10px; text-decoration:none; }
+  .header-logo{ display:flex; align-items:center; gap:14px; text-decoration:none; }
   .header-logo .logo-mark{
-    width:30px; height:30px; border-radius:7px; background:var(--navy-deep);
+    width:44px; height:44px; border-radius:10px; background:var(--navy-deep);
     display:flex; align-items:center; justify-content:center; color:var(--orange);
-    font-family:var(--font-mono); font-weight:600; font-size:0.85rem; flex-shrink:0;
+    font-family:var(--font-mono); font-weight:700; font-size:1.1rem; flex-shrink:0;
   }
-  .header-logo .logo-text{ font-weight:700; font-size:1.05rem; color:var(--ink); letter-spacing:-0.01em; }
-  .desktop-nav{ display:flex; gap:34px; align-items:center; }
-  .desktop-nav a{ font-size:0.9rem; font-weight:500; color:var(--ink-soft); text-decoration:none; }
+  .header-logo-text-wrap{ display:flex; flex-direction:column; gap:2px; }
+  .header-logo .logo-text{ font-weight:700; font-size:1.3rem; color:var(--ink); letter-spacing:-0.01em; line-height:1; }
+  .header-logo .logo-tagline{ font-family:var(--font-mono); font-size:0.7rem; color:var(--ink-faint); letter-spacing:0.01em; }
+  .desktop-nav{ display:flex; gap:36px; align-items:center; }
+  .desktop-nav a{ font-size:0.92rem; font-weight:600; color:var(--ink-soft); text-decoration:none; }
   .desktop-nav a:hover{ color:var(--ink); }
-  .header-actions{ display:flex; align-items:center; gap:14px; }
+  .header-actions{ display:flex; align-items:center; gap:16px; }
   .book-audit-btn{
     display:inline-flex; align-items:center; gap:8px; background:var(--orange); color:#fff !important;
-    font-weight:600; font-size:0.88rem; padding:11px 20px; border-radius:7px; text-decoration:none;
+    font-weight:700; font-size:0.92rem; padding:13px 24px; border-radius:8px; text-decoration:none;
     transition:all .15s ease;
   }
   .book-audit-btn:hover{ background:var(--orange-dark); transform:translateY(-1px); box-shadow:0 6px 16px rgba(217,83,30,0.28); }
@@ -477,6 +487,12 @@
     .mobile-menu-toggle{ display:block; }
     .footer-content{ grid-template-columns:1fr; }
     .mobile-sticky-cta{ display:flex; }
+    .header-utility-trust{ display:none; }
+    .header-utility-row{ justify-content:flex-end; }
+    .main-header-bar{ height:76px; }
+    .header-logo .logo-mark{ width:36px; height:36px; font-size:0.95rem; }
+    .header-logo .logo-text{ font-size:1.1rem; }
+    .header-logo .logo-tagline{ display:none; }
   }
 </style>
 
@@ -509,22 +525,36 @@
         </head>
 <body class="home-page-redesign">
 
-<header class="main-header-bar">
-    <div class="container header-container">
-        <a class="header-logo" href="/">
-            <span class="logo-mark">TA</span>
-            <span class="logo-text">TechAuditPros</span>
-        </a>
-        <nav class="desktop-nav">
-            <a href="#services">Services</a>
-            <a href="#regions">Service Areas</a>
-            <a href="#results">Results</a>
-            <a href="#compare">Why Us</a>
-            <a href="#contact">Contact</a>
-        </nav>
-        <div class="header-actions">
-            <a class="book-audit-btn" href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank">Book a Free Strategy Call</a>
-            <button class="mobile-menu-toggle" aria-label="Open menu">☰</button>
+<header class="site-header">
+    <div class="header-utility-bar">
+        <div class="container header-utility-row">
+            <span class="header-utility-trust">🏆 4.9/5 Rating &bull; 250+ Projects Delivered &bull; 16 Countries Served</span>
+            <div class="header-utility-links">
+                <a href="mailto:info@techauditpros.com">Email Us</a>
+                <a href="https://wa.me/916282520339?text=Hi%20TechAuditPros%2C%20I%27d%20like%20to%20talk%20about%20a%20project." target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+        </div>
+    </div>
+    <div class="main-header-bar">
+        <div class="container header-container">
+            <a class="header-logo" href="/">
+                <span class="logo-mark">TA</span>
+                <span class="header-logo-text-wrap">
+                    <span class="logo-text">TechAuditPros</span>
+                    <span class="logo-tagline">Your Dedicated Offshore Technical Team</span>
+                </span>
+            </a>
+            <nav class="desktop-nav">
+                <a href="#services">Services</a>
+                <a href="#regions">Service Areas</a>
+                <a href="#results">Results</a>
+                <a href="#compare">Why Us</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <a class="book-audit-btn" href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank">Book a Free Strategy Call</a>
+                <button class="mobile-menu-toggle" aria-label="Open menu">☰</button>
+            </div>
         </div>
     </div>
 </header>
