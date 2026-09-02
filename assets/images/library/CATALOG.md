@@ -113,7 +113,7 @@ A running library of stock/source images supplied by the owner for reuse across 
 
 **Best used for:** ERP needs-analysis / discovery-process sections, "how we scope your build" content, or a hero behind headline text. Strongest process-story image in the library.
 
-**Used on:** *(none yet)*
+**Used on:** homepage (/) promise section; blog/what-is-erp-software-plain-english.html lead image
 
 ---
 
@@ -130,7 +130,7 @@ A running library of stock/source images supplied by the owner for reuse across 
 
 **Best used for:** Website-development / engineering-capability sections; pairs naturally with the smaller male/female-developer duo already in the library, but this one is high-res enough for big placements.
 
-**Used on:** *(none yet)*
+**Used on:** /ca/website-development/ — "Real Engineers, Really Building" section
 
 ---
 
@@ -164,7 +164,7 @@ A running library of stock/source images supplied by the owner for reuse across 
 
 **Best used for:** "How we work with you" / review-and-approval process sections, proposal/planning content, team-collaboration blocks.
 
-**Used on:** *(none yet)*
+**Used on:** /ca/seo-services/ — audit promise section (upgraded from the low-res team-huddle shot)
 
 ---
 
@@ -228,7 +228,7 @@ A running library of stock/source images supplied by the owner for reuse across 
 
 **Best used for:** "Who we serve" / small-business-owner-facing sections, or a Toronto/city-page supporting image alongside the street-scene photo above.
 
-**Used on:** *(none yet)*
+**Used on:** /ca/toronto/ — "From Solo Owners to Growing GTA Teams" section
 
 ---
 
@@ -305,7 +305,7 @@ A running library of stock/source images supplied by the owner for reuse across 
 
 **Best used for:** Website-development-page "design" step (mirrors the ERP page's "Design" process step), or any "how we plan" section -- and it's face-free, so it's safe to use without needing model diversity/representation consideration.
 
-**Used on:** `/ca/website-development/` -- promise section ("You See the Design Before a Line of Code Gets Written")
+**Used on:** `/ca/website-development/` -- promise section ("You See the Design Before a Line of Code Gets Written"); blog/website-design-vs-development.html lead image
 
 ---
 
@@ -322,7 +322,7 @@ A running library of stock/source images supplied by the owner for reuse across 
 
 **Best used for:** SEO page's "monthly reporting" section, or ERP's "data before code" section as an alternate to the mentor-and-monitor photo already used there.
 
-**Used on:** *(none yet)*
+**Used on:** /ca/seo-services/ — "Reporting You Can Actually Read" section; blog/what-is-a-content-audit.html lead image
 
 ---
 
@@ -339,7 +339,7 @@ A running library of stock/source images supplied by the owner for reuse across 
 
 **Best used for:** "Meet the team" / culture / about-us sections needing a genuine group moment rather than a single-person portrait.
 
-**Used on:** *(none yet)*
+**Used on:** /ca/ — "One Team You Can Actually Talk To" section
 
 ---
 
@@ -405,7 +405,7 @@ A running library of stock/source images supplied by the owner for reuse across 
 
 **Best used for:** "How we work" / process / collaboration sections, small supporting imagery rather than a hero.
 
-**Used on:** `/ca/seo-services/` -- promise section ("Every Engagement Starts With a Real Audit, Not a Sales Pitch")
+**Used on:** *(none currently — replaced on /ca/seo-services/ by the higher-res team-standing-document-review shot, 2026-09-02)*
 
 ---
 
