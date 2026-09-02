@@ -2,7 +2,105 @@
 
 A running library of stock/source images supplied by the owner for reuse across the site. Each entry documents what's actually in the image so a future pass (human or AI) can pick the right one without re-opening every file. Add new entries at the top when new images come in.
 
-**⚠️ Two files below are marked DO-NOT-USE.** They're watermarked stock-site preview comps (Alamy / Shutterstock), not licensed images -- publishing them live would show the watermark text and is a licensing risk. Kept in the folder only as content/layout reference, never as a page asset.
+**⚠️ Files prefixed DO-NOT-USE are not publishable.** Two are watermarked stock-site preview comps (Alamy / Shutterstock); one is another company's branded marketing graphic with their logo baked in. Kept only as content/layout reference, never as a page asset.
+
+---
+
+## whiteboard-process-mapping-two-colleagues.jpg
+*Original: thisisengineering-uOhBxB23Wao-unsplash.jpg (Unsplash — free license, safe to publish)*
+
+**What's in it:** A woman in a grey blouse stands at a large whiteboard explaining something to a man in a blue shirt (seen from behind) — a printed process-flow diagram is taped to the board with teal marker annotations under it (PR1–PR7 labels, a hand-drawn pyramid marked "Level 3 / Level 4"). Clean white room, lots of negative space at the top.
+
+**Emotion / read:** Process mapping / needs-analysis workshop — literally "walking through how your business works, step by step, on a whiteboard." Calm, competent, collaborative.
+
+**Colors:** Very light and airy — white/grey walls and board, teal marker accents, soft blue shirt.
+
+**Quality:** 2400×1601 (downsized from a 7807px original, still crisp) — **hero-capable**, and the top negative space takes overlaid text well.
+
+**Best used for:** ERP needs-analysis / discovery-process sections, "how we scope your build" content, or a hero behind headline text. Strongest process-story image in the library.
+
+**Used on:** *(none yet)*
+
+---
+
+## female-developer-red-hair-dual-monitors-code.jpg
+*Original: thisisengineering-64YrPKiguAE-unsplash.jpg (Unsplash — free license, safe to publish)*
+
+**What's in it:** A red-haired woman developer in profile, deeply focused, working at a desk with a laptop and two monitors full of real code (editor + terminal visible). Bright modern office, small penguin plush by the monitor for a human touch.
+
+**Emotion / read:** Deep-work concentration — an actual engineer actually coding, not a posed "person points at screen" stock shot.
+
+**Colors:** Bright white office, dark code screens, her red hair is the strong warm accent.
+
+**Quality:** 2400×1601, crisp — hero-capable or large split-section.
+
+**Best used for:** Website-development / engineering-capability sections; pairs naturally with the smaller male/female-developer duo already in the library, but this one is high-res enough for big placements.
+
+**Used on:** *(none yet)*
+
+---
+
+## executive-woman-tablet-grand-hall.jpg
+*Original: thisisengineering-AlzwNY1AIrw-unsplash.jpg (Unsplash — free license, safe to publish)*
+
+**What's in it:** Low-angle shot of a professional woman in a dark-red dress using a tablet, framed against an ornate white coffered ceiling with glowing round lights — an elegant, almost architectural composition.
+
+**Emotion / read:** Aspirational, confident, upward-looking — "executive making decisions." The low angle gives it presence; more editorial than office-candid.
+
+**Colors:** Bright whites and warm ceiling light; her deep-red dress is the single strong color anchor.
+
+**Quality:** 2400×1601 — hero-capable.
+
+**Best used for:** Leadership/decision-maker facing sections, "for business owners" framings, or an about/vision block. Distinct mood from everything else in the library — use where a premium editorial feel is wanted.
+
+**Used on:** *(none yet)*
+
+---
+
+## team-standing-document-review-bright-room.jpg
+*Original: thisisengineering-XAAGdkSueLo-unsplash.jpg (Unsplash — free license, safe to publish)*
+
+**What's in it:** Four colleagues standing around a white table reviewing printed documents — a man with locs and a blonde woman in navy in sharp focus at center, two teammates blurred in the near foreground framing the shot; a laptop at the right edge.
+
+**Emotion / read:** Active working session — reviewing a plan or proposal together, engaged and unposed. The foreground framing gives it a documentary feel.
+
+**Colors:** Bright white room and table, dark navy clothing as contrast.
+
+**Quality:** 2400×1601 — hero-capable or large split-section.
+
+**Best used for:** "How we work with you" / review-and-approval process sections, proposal/planning content, team-collaboration blocks.
+
+**Used on:** *(none yet)*
+
+---
+
+## casual-outdoor-study-picnic-phones.jpg
+*Original: microsoft-copilot-SQVABUT4DoM-unsplash.jpg (Unsplash — free license, safe to publish)*
+
+**What's in it:** Overhead shot of two young people sitting on blankets on bright green grass — one holds a phone showing a chat app, notebooks, a water bottle, a film camera, and snacks scattered around. Student/campus picnic energy.
+
+**Emotion / read:** Casual, youthful, consumer-lifestyle. Honest note: this reads student/consumer, **not** B2B — a weak fit for ERP/SEO/enterprise content. Kept because it's high-quality and licensed, but expect limited use.
+
+**Colors:** Saturated green grass dominating, soft neutrals in clothing/blankets, warm film-like tones.
+
+**Quality:** 1336×2000 portrait — large placements fine.
+
+**Best used for:** Possibly a blog post about mobile-first behavior/communication, or any rare casual-audience framing. Check the rest of the library first.
+
+**Used on:** *(none yet)*
+
+---
+
+## DO-NOT-USE-branded-cloud-erp-graphic.webp
+*Original filename: cloud-based-erp-software.webp*
+
+**What's in it:** Marketing composite: hands holding a tablet projecting a blue "ERP" cloud graphic with gear/database/network icons — and **another company's logo (red "mi" mark) baked into the bottom-right corner.**
+
+**Why it's flagged:** It's a branded graphic lifted from some company's marketing/blog — publishing it would display their logo on our site and the license is unknown. Same rule as the watermarked comps: reference only.
+
+**Best used for:** Reference for the "cloud ERP concept graphic" style only. If this style is wanted, we should design an original version in our own brand colors instead.
+
+**Used on:** *(do not use)*
 
 ---
 
