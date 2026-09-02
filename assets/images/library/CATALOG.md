@@ -2,7 +2,101 @@
 
 A running library of stock/source images supplied by the owner for reuse across the site. Each entry documents what's actually in the image so a future pass (human or AI) can pick the right one without re-opening every file. Add new entries at the top when new images come in.
 
-**⚠️ Files prefixed DO-NOT-USE are not publishable.** Two are watermarked stock-site preview comps (Alamy / Shutterstock); one is another company's branded marketing graphic with their logo baked in. Kept only as content/layout reference, never as a page asset.
+**⚠️ Files prefixed DO-NOT-USE are not publishable** (watermarked comps, another company's branded graphic, or paid stock we hold no license for). Kept only as reference.
+
+**⚠️ License policy for this library:** visible watermark/logo or a paid-stock filename (AdobeStock/Getty/etc.) = DO-NOT-USE. Images identifiably saved from another company's website with no visible branding = cataloged with a **"license unverified"** caution — usable as a last resort, but always prefer the Unsplash-sourced files (marked "free license, safe to publish") for anything public.
+
+---
+
+## analyst-pointing-pen-bi-dashboard-monitor.png
+*Original: "6805dd...Impact of AI on ERP Systems...png" — saved from a company blog (Webflow asset). **License unverified — prefer licensed alternatives for public pages.***
+
+**What's in it:** A young woman with a blonde ponytail in a light-blue blouse points a pen at a large monitor filled with genuine-looking BI dashboards (bar charts, tables, donut charts, purple accents), tablet in her other hand, bright glass-walled office behind.
+
+**Emotion / read:** Data analysis / "walking through the numbers" — polished and on-topic for ERP/reporting content.
+
+**Colors:** Bright airy office, dark dashboard screen with colorful chart accents, soft blue blouse.
+
+**Quality:** 1600×900 — good for wide sections.
+
+**Best used for:** Reporting/dashboard/BI-flavored sections IF license gets verified; otherwise reference for commissioning a similar original shot/graphic.
+
+**Used on:** *(none yet — license unverified)*
+
+---
+
+## woman-glasses-laptop-dark-office-plants.webp
+*Original: cash-management-solution-header-image-us-en.webp — saved from a corporate product site. **License unverified.***
+
+**What's in it:** A blonde woman with dark-rimmed glasses and hoop earrings smiles at a laptop, seated in a dark-teal-walled office corner with a big fiddle-leaf plant and window light from the left. Wide banner crop.
+
+**Emotion / read:** Warm, competent, relaxed professionalism — classic SaaS-header energy.
+
+**Colors:** Moody dark teal walls against warm cream blouse and green plant — richer/darker than most of the library.
+
+**Quality:** 1200×510 banner crop — wide-strip use only (too short for tall layouts).
+
+**Best used for:** Wide banner strips, IF license verified; otherwise reference.
+
+**Used on:** *(none yet — license unverified)*
+
+---
+
+## businesswoman-laptop-coffee-bright-office.avif
+*Original: hero-31.avif — saved from another site's hero. **License unverified.** AVIF format (fine in all modern browsers).*
+
+**What's in it:** A businesswoman in a dark blouse and necklace types on a laptop at a white desk, takeaway coffee cup beside her, bright overexposed window behind. Generic corporate hero shot, ~760×510.
+
+**Emotion / read:** Neutral corporate "getting work done." Honest note: visually interchangeable with several better-licensed laptop shots already in this library — low priority even if cleared.
+
+**Best used for:** Reference only, realistically — the Unsplash files cover this niche better.
+
+**Used on:** *(none yet — license unverified)*
+
+---
+
+## two-women-reviewing-document-bright-office.png
+*Original filename: safsaff.png — source unknown (no watermark, no branding).*
+
+**What's in it:** A standing woman in a brown blazer points at a printed document while a seated blonde woman in a teal blouse works at a laptop — reviewing paperwork together in a bright plant-filled office with charts pinned on the wall behind.
+
+**Emotion / read:** Mentor/manager review moment — friendly, collaborative correction/approval.
+
+**Colors:** Bright whites and greens, warm brown blazer + teal blouse accents.
+
+**Quality:** Small (411×489) — card/thumbnail use only.
+
+**Best used for:** Small supporting imagery in approval/review contexts. Source unknown, so keep usage modest.
+
+**Used on:** *(none yet)*
+
+---
+
+## support-agent-headset-smiling-laptop.jpg
+*Original filename: images (11).jpg*
+
+**What's in it:** A smiling woman wearing a headset sits at a laptop in a warm brick-walled loft office, notebooks open beside her — mid-call, engaged and friendly.
+
+**Emotion / read:** Support / customer-care warmth — "a real person picks up." Natural fit for contact/support-related content.
+
+**Colors:** Warm ambers and browns (brick, lamp glow) with cool grey blazer.
+
+**Quality:** Small (767×400) — card or narrow-strip use only.
+
+**Best used for:** Contact/support sections, "talk to us" blocks, FAQ page accents.
+
+**Used on:** *(none yet)*
+
+---
+
+## DO-NOT-USE-adobestock-cafe-team-laptop.jpeg
+*Original filename: AdobeStock_87805567-1024x683.jpeg*
+
+**What's in it:** Three young professionals around a laptop at a café table with espresso cups — a woman standing and pointing at the screen, two men engaged, glass skyline behind.
+
+**Why it's flagged:** The filename is a literal **Adobe Stock asset ID** — this is paid-license stock and we hold no license for it. Publishing unlicensed Adobe Stock is a real infringement risk (they enforce). If this exact image is wanted, it can be licensed properly on Adobe Stock (asset 87805567).
+
+**Used on:** *(do not use)*
 
 ---
 
