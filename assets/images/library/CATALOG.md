@@ -6,6 +6,8 @@ A running library of stock/source images supplied by the owner for reuse across 
 
 **⚠️ License policy for this library:** visible watermark/logo or a paid-stock filename (AdobeStock/Getty/etc.) = DO-NOT-USE. Images identifiably saved from another company's website with no visible branding = cataloged with a **"license unverified"** caution — usable as a last resort, but always prefer the Unsplash-sourced files (marked "free license, safe to publish") for anything public.
 
+**Note (2026-09-02):** the blog hub (blog/index.html) rotates card thumbnails through per-category image pools (seo/erp/web/outsourcing), and the four modern posts carry 2-3 inline figures each — too many placements to list per-image; treat every non-DO-NOT-USE photo as potentially in service on the blog.
+
 ---
 
 ## analyst-pointing-pen-bi-dashboard-monitor.png

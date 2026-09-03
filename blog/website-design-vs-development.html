@@ -713,6 +713,12 @@
   .article-author-row img{ width:44px; height:44px; border-radius:50%; object-fit:cover; }
   .article-author-name{ font-weight:700; color:var(--ink); font-size:0.92rem; }
   .article-author-role{ font-size:0.8rem; color:var(--ink-faint); }
+  .article-figure figcaption{ font-family:var(--font-mono); font-size:0.75rem; color:var(--ink-faint); padding:10px 6px 0; text-align:center; }
+  .article-takeaways{ background:var(--navy-deep); border-radius:14px; padding:26px 30px; margin:0 0 36px; }
+  .article-takeaways h3{ color:#fff; font-size:0.85rem; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.12em; margin:0 0 14px; }
+  .article-takeaways ul{ margin:0; padding-left:20px; }
+  .article-takeaways li{ color:rgba(255,255,255,0.85); font-size:0.95rem; line-height:1.6; margin-bottom:8px; }
+  .article-takeaways li:last-child{ margin-bottom:0; }
   .article-figure{ margin:0 0 36px; border-radius:14px; overflow:hidden; box-shadow:var(--shadow-md); }
   .article-figure img{ width:100%; display:block; }
 </style>
@@ -735,11 +741,22 @@
 <section class="article-body">
     <div class="container">
         <figure class="article-figure"><img src="/assets/images/library/team-flatlay-reviewing-wireframe-sketch.jpg" alt="A design team reviewing a website wireframe sketch together" width="720" height="419" loading="lazy" /></figure>
+        <div class="article-takeaways">
+            <h3>Key Takeaways</h3>
+            <ul>
+                <li><strong>Design</strong> is how the site looks and guides visitors; <strong>development</strong> is the engineering that makes it fast, secure, and functional.</li>
+                <li>Most project failures happen in the handoff between separate design and development vendors &mdash; fewer handoffs, better results.</li>
+                <li>Template builders are fine for simple sites; they break down the moment you need something the template didn&rsquo;t plan for.</li>
+            </ul>
+        </div>
+
         <p><strong>Website design</strong> is how your site looks and how visitors move through it &mdash; layout, colours, typography, and the path from "just looking" to "contacting you." <strong>Website development</strong> is the engineering underneath: the code that makes the design real, load fast, work on every device, and connect to the tools your business runs on. A good-looking site with weak engineering is slow and fragile; a well-engineered site with weak design doesn't convert. You need both, and they need to talk to each other.</p>
 
         <h2>What a Designer Actually Does</h2>
         <p>Design work starts before anything visual: understanding who visits your site and what they came to do. From there, a designer produces wireframes (the skeleton of each page), then the visual layer &mdash; brand colours, type, imagery &mdash; and the user-experience decisions people never consciously notice: what's above the fold, where the call-to-action sits, how a form feels on a phone. When people say a site "just feels professional," they're describing hundreds of these decisions done well.</p>
 
+        
+        <figure class="article-figure"><img src="/assets/images/library/female-developer-red-hair-dual-monitors-code.jpg" alt="Developer writing website code across two monitors" width="2400" height="1601" loading="lazy" /><figcaption>Development quality is measurable: Core Web Vitals score exactly this work.</figcaption></figure>
         <h2>What a Developer Actually Does</h2>
         <p>Development turns those designs into a working product. That covers the visible layer (the code your browser renders), the invisible layer (forms that actually send, pages that load in under two seconds, security), and increasingly the plumbing between your website and everything else &mdash; booking systems, payment processors, CRMs, inventory. Development quality is exactly what search engines measure with Core Web Vitals: loading speed, responsiveness, visual stability. You can't design your way to a fast site.</p>
 
@@ -753,6 +770,8 @@
         <h2>Template Builders: Where They Fit Honestly</h2>
         <p>Site builders bundle design and development into a template &mdash; and for a simple brochure site with standard needs, that's genuinely fine and much cheaper. The trade-offs show up later: template sites carry code for every feature the template offers (whether you use it or not), which is why they're rarely fast; and the moment you need something the template doesn't do &mdash; a custom quote calculator, a client portal, an unusual booking flow &mdash; you're paying a developer to fight the template instead of build the feature.</p>
 
+        
+        <figure class="article-figure"><img src="/assets/images/library/male-developer-dual-monitors-colorful-office.jpg" alt="Developer building a website in a modern studio office" width="766" height="400" loading="lazy" /><figcaption>One team, both disciplines: the designer and engineer sit at the same table.</figcaption></figure>
         <h2>What to Ask Before Hiring Either</h2>
         <div class="article-checklist">
             <h3>The five-minute vetting list</h3>

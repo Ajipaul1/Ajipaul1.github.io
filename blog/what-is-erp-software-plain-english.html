@@ -713,6 +713,12 @@
   .article-author-row img{ width:44px; height:44px; border-radius:50%; object-fit:cover; }
   .article-author-name{ font-weight:700; color:var(--ink); font-size:0.92rem; }
   .article-author-role{ font-size:0.8rem; color:var(--ink-faint); }
+  .article-figure figcaption{ font-family:var(--font-mono); font-size:0.75rem; color:var(--ink-faint); padding:10px 6px 0; text-align:center; }
+  .article-takeaways{ background:var(--navy-deep); border-radius:14px; padding:26px 30px; margin:0 0 36px; }
+  .article-takeaways h3{ color:#fff; font-size:0.85rem; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.12em; margin:0 0 14px; }
+  .article-takeaways ul{ margin:0; padding-left:20px; }
+  .article-takeaways li{ color:rgba(255,255,255,0.85); font-size:0.95rem; line-height:1.6; margin-bottom:8px; }
+  .article-takeaways li:last-child{ margin-bottom:0; }
   .article-figure{ margin:0 0 36px; border-radius:14px; overflow:hidden; box-shadow:var(--shadow-md); }
   .article-figure img{ width:100%; display:block; }
 </style>
@@ -735,6 +741,15 @@
 <section class="article-body">
     <div class="container">
         <figure class="article-figure"><img src="/assets/images/library/whiteboard-process-mapping-two-colleagues.jpg" alt="Mapping a business process on a whiteboard before an ERP build" width="2400" height="1601" loading="lazy" /></figure>
+        <div class="article-takeaways">
+            <h3>Key Takeaways</h3>
+            <ul>
+                <li>ERP software connects inventory, orders, finance, and people into <strong>one system</strong> &mdash; a single source of truth replacing scattered spreadsheets.</li>
+                <li>The readiness test isn&rsquo;t company size, it&rsquo;s friction: hours spent re-typing data between systems is an ERP-shaped problem.</li>
+                <li>Custom ERP flips the usual trade-off: the software adapts to your workflows instead of your business adapting to a template.</li>
+            </ul>
+        </div>
+
         <p><strong>ERP software</strong> (Enterprise Resource Planning) is one system that connects the information your business runs on &mdash; inventory, orders, projects, finances, people &mdash; so it lives in one place instead of scattered across spreadsheets, WhatsApp threads, and tools that don't talk to each other. That's the whole idea. Everything else about ERP &mdash; the modules, the dashboards, the automation &mdash; is built on that one move: <em>a single source of truth for how the business is actually doing.</em></p>
 
         <h2>What ERP Actually Replaces</h2>
@@ -747,6 +762,8 @@
             <li><strong>ERP</strong> is the whole house: operations, inventory, projects, and usually the data that feeds both of the above. Many ERPs include CRM features; the reverse is rarely true.</li>
         </ul>
 
+        
+        <figure class="article-figure"><img src="/assets/images/library/mentor-explaining-data-on-monitor-warm-office.jpg" alt="Engineer walking a client through operational data on screen" width="1344" height="1335" loading="lazy" /><figcaption>A custom build starts with your real data and workflows, not a demo environment.</figcaption></figure>
         <h2>Off-the-Shelf vs. Custom ERP</h2>
         <p>Big-name ERP suites are powerful and proven &mdash; and priced and structured for enterprises: per-seat licences, formal implementations, and workflows your business is expected to adapt <em>to</em>. That last part is the quiet cost. Every business has a few processes that make it what it is &mdash; an approval chain, a way of quoting, an inventory rule &mdash; and forcing those through someone else's template means either changing how you work or paying consultants to customise around it. A <strong>custom ERP</strong> flips the direction: the software is built around your actual workflows from the start. It's not the right call for everyone &mdash; but for operations-heavy businesses that have outgrown spreadsheets and don't want per-seat licensing forever, it's frequently the cheaper path over a five-year horizon.</p>
 
@@ -757,6 +774,8 @@
         <h2>Honest Signs You're NOT Ready for an ERP</h2>
         <p>Fairness cuts both ways. An ERP is premature if your processes still change weekly (stabilise first &mdash; software freezes process, good or bad), if a single spreadsheet genuinely covers your operations without pain, or if nobody in the business will own the system after launch. Buying an ERP to <em>impose</em> discipline on a team that hasn't agreed to it is how expensive shelfware gets made.</p>
 
+        
+        <figure class="article-figure"><img src="/assets/images/library/confident-leader-office-team-background.webp" alt="Project lead reviewing an ERP build with the team working behind her" width="2000" height="1333" loading="lazy" /><figcaption>One dedicated engineer owns the build end to end &mdash; with a team behind them.</figcaption></figure>
         <h2>What a Custom ERP Build Actually Looks Like</h2>
         <p>A serious build starts with analysis, not code: mapping how orders, stock, approvals, and money actually move through your business today &mdash; including the exceptions everyone handles "manually for now." Then design (you see and approve the structure), development and testing against your real data, deployment with training, and ongoing support from the people who built it. Done in phases, you should see a working first module in weeks, not a big-bang launch after a year. We've documented our whole approach on our <a href="/ca/erp/">custom ERP development service for Canadian businesses</a> page, including the 5-step process and the security commitments (NDA, source-code ownership, backups).</p>
 

@@ -690,11 +690,18 @@
 
 <style>
   /* ---------- BLOG HUB ---------- */
-  .bloghub-hero{ background:var(--navy-deep); padding:72px 0 56px; }
-  .bloghub-hero .eyebrow{ color:var(--orange); }
-  .bloghub-hero h1{ color:#fff; font-size:clamp(2rem,4vw,3rem); font-weight:800; max-width:22ch; margin:14px 0 16px; }
-  .bloghub-hero p{ color:rgba(255,255,255,0.72); max-width:62ch; font-size:1.05rem; line-height:1.7; margin:0; }
-  .bloghub-pills{ display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
+  .tap-new-hero.blog-hero{ min-height:min(88vh, 820px); display:flex; align-items:center; padding:120px 0 150px; }
+  .blog-hero .hero-inner{ position:relative; z-index:3; }
+  .blog-hero .eyebrow{ color:var(--orange); }
+  .blog-hero h1{ color:#fff; font-size:clamp(2.4rem,5.4vw,4.2rem); font-weight:800; max-width:17ch; margin:18px 0 22px; letter-spacing:-0.03em; line-height:1.08; }
+  .blog-hero .lede{ color:rgba(255,255,255,0.75); max-width:58ch; font-size:1.12rem; line-height:1.75; margin:0; }
+  .blog-hero .hero-stats-row{ display:flex; gap:34px; margin-top:34px; flex-wrap:wrap; }
+  .blog-hero .hero-stat .num{ display:block; font-family:var(--font-mono); font-weight:700; font-size:1.5rem; color:#fff; }
+  .blog-hero .hero-stat .lbl{ font-size:0.8rem; color:rgba(255,255,255,0.55); }
+  .blog-scroll-cue{ position:absolute; left:50%; bottom:26px; transform:translateX(-50%); z-index:3; color:rgba(255,255,255,0.5); font-size:1.4rem; animation:cueBob 2.2s ease-in-out infinite; }
+  @keyframes cueBob{ 0%,100%{ transform:translateX(-50%) translateY(0); } 50%{ transform:translateX(-50%) translateY(8px); } }
+  @media (prefers-reduced-motion: reduce){ .blog-scroll-cue{ animation:none; } }
+  .bloghub-pills{ display:flex; flex-wrap:wrap; gap:10px; margin-top:32px; }
   .bloghub-pill{
     font-family:var(--font-mono); font-size:0.78rem; letter-spacing:0.04em; cursor:pointer;
     padding:9px 16px; border-radius:999px; border:1px solid rgba(255,255,255,0.25);
@@ -703,7 +710,7 @@
   .bloghub-pill:hover{ border-color:var(--orange); color:#fff; }
   .bloghub-pill.active{ background:var(--orange); border-color:var(--orange); color:#fff; font-weight:600; }
 
-  .bloghub-featured{ padding:64px 0 8px; }
+  .bloghub-featured{ padding:0 0 8px; margin-top:-90px; position:relative; z-index:5; }
   .featured-card{
     display:grid; grid-template-columns:1.1fr 1fr; gap:0; background:var(--paper); border:1px solid var(--line);
     border-radius:18px; overflow:hidden; box-shadow:var(--shadow-md); text-decoration:none; transition:box-shadow .2s ease;
@@ -741,7 +748,13 @@
   .post-card[data-cat="erp"]::before{ background:var(--navy-deep); }
   .post-card[data-cat="web"]::before{ background:var(--orange); }
   .post-card[data-cat="out"]::before{ background:var(--warn); }
-  .post-card:hover{ transform:translateY(-3px); box-shadow:var(--shadow-md); border-color:var(--line-strong); }
+  .post-media{ aspect-ratio:16/10; overflow:hidden; background:var(--paper-alt); }
+  .post-media img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s ease; }
+  .post-card:hover .post-media img{ transform:scale(1.06); }
+  .post-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow-lg); border-color:var(--line-strong); }
+  .reveal{ opacity:0; transform:translateY(20px); transition:opacity .55s ease, transform .55s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } }
   .post-card-body{ padding:24px 24px 20px; display:flex; flex-direction:column; gap:10px; flex:1; }
   .post-card .post-tag{ font-family:var(--font-mono); font-size:0.68rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-faint); }
   .post-card h3{ font-size:1.02rem; line-height:1.4; }
@@ -826,11 +839,13 @@
 </div>
 
 
-<section class="bloghub-hero">
-    <div class="container">
+<section class="tap-new-hero blog-hero">
+    <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+    <div class="hero-spotlight" aria-hidden="true"></div>
+    <div class="container hero-inner">
         <p class="eyebrow">The TechAuditPros Blog</p>
         <h1>Plain-English Guides to ERP, Web &amp; AI-Era Search</h1>
-        <p>Practical playbooks on custom ERP software, high-performance websites, and getting found on Google and cited by AI &mdash; written by the engineers who do the work, not a content mill. No jargon, no fluff, honest trade-offs included.</p>
+        <p class="lede">Practical playbooks on custom ERP software, high-performance websites, and getting found on Google and cited by AI &mdash; written by the engineers who do the work, not a content mill. No jargon, no fluff, honest trade-offs included.</p>
         <div class="bloghub-pills" id="catPills">
             <button class="bloghub-pill active" data-filter="all">All Topics</button>
             <button class="bloghub-pill" data-filter="seo">SEO &amp; AI Search</button>
@@ -838,7 +853,13 @@
             <button class="bloghub-pill" data-filter="web">Web Development</button>
             <button class="bloghub-pill" data-filter="out">Outsourcing &amp; Agencies</button>
         </div>
+        <div class="hero-stats-row">
+            <div class="hero-stat"><span class="num">30</span><span class="lbl">In-depth guides</span></div>
+            <div class="hero-stat"><span class="num">4</span><span class="lbl">Topic clusters</span></div>
+            <div class="hero-stat"><span class="num">0</span><span class="lbl">Fluff articles</span></div>
+        </div>
     </div>
+    <div class="blog-scroll-cue" aria-hidden="true">&darr;</div>
 </section>
 
 <section class="bloghub-featured">
@@ -852,7 +873,7 @@
                 <div class="featured-cta">Read the guide &rarr;</div>
             </div>
             <div class="featured-media">
-                <img src="/assets/images/library/team-flatlay-reviewing-business-report-charts.jpg" alt="Reviewing website performance charts during a content audit" width="739" height="415" loading="eager" />
+                <img src="/assets/images/library/team-standing-document-review-bright-room.jpg" alt="Team reviewing audit findings together around a table" width="2400" height="1601" loading="eager" />
             </div>
         </a>
     </div>
@@ -896,6 +917,7 @@
         </div>
         <div class="bloghub-grid" id="postGrid">
             <a class="post-card" data-cat="web" href="/blog/website-design-vs-development.html">
+                <div class="post-media"><img src="/assets/images/library/female-developer-red-hair-dual-monitors-code.jpg" alt="Website Design vs. Website Development: The Difference" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Web Development</span>
                     <h3>Website Design vs. Website Development: The Difference</h3>
@@ -904,6 +926,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="erp" href="/blog/what-is-erp-software-plain-english.html">
+                <div class="post-media"><img src="/assets/images/library/whiteboard-process-mapping-two-colleagues.jpg" alt="What Is ERP Software? A Plain-English Guide" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">ERP & Software</span>
                     <h3>What Is ERP Software? A Plain-English Guide</h3>
@@ -912,6 +935,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="erp" href="/blog/full-service-vs-diy-erp-agency-canada.html">
+                <div class="post-media"><img src="/assets/images/library/mentor-explaining-data-on-monitor-warm-office.jpg" alt="Full-Service vs. DIY: ERP, Web &amp; SEO Partner in Canada" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">ERP & Software</span>
                     <h3>Full-Service vs. DIY: ERP, Web &amp; SEO Partner in Canada</h3>
@@ -920,6 +944,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="erp" href="/blog/enterprise-ai-adoption-literacy-integration-guide.html">
+                <div class="post-media"><img src="/assets/images/library/confident-leader-office-team-background.webp" alt="The Enterprise AI Transformation Playbook: Adoption, Literacy, &amp; Integration" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">ERP & Software</span>
                     <h3>The Enterprise AI Transformation Playbook: Adoption, Literacy, &amp; Integration</h3>
@@ -928,6 +953,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="out" href="/blog/offshore-software-development-guide.html">
+                <div class="post-media"><img src="/assets/images/library/team-casual-standup-meeting-lounge.webp" alt="The Ultimate Guide to Offshore Software Development in 2026" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Outsourcing & Agencies</span>
                     <h3>The Ultimate Guide to Offshore Software Development in 2026</h3>
@@ -936,6 +962,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" href="/blog/outsourcing-technical-seo-agency-guide.html">
+                <div class="post-media"><img src="/assets/images/library/team-standing-document-review-bright-room.jpg" alt="How to Outsource Technical SEO: The Agency Playbook" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO & AI Search</span>
                     <h3>How to Outsource Technical SEO: The Agency Playbook</h3>
@@ -944,6 +971,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="out" href="/blog/staff-augmentation-vs-local-hiring-cost.html">
+                <div class="post-media"><img src="/assets/images/library/executive-woman-tablet-grand-hall.jpg" alt="Staff Augmentation vs. Local Hiring: 2026 Cost Analysis" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Outsourcing & Agencies</span>
                     <h3>Staff Augmentation vs. Local Hiring: 2026 Cost Analysis</h3>
@@ -952,6 +980,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="out" href="/blog/advantages-partnering-ai-white-label-seo.html">
+                <div class="post-media"><img src="/assets/images/library/support-agent-headset-smiling-laptop.jpg" alt="Advantages of Partnering with an AI SEO Agency for White-Label" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Outsourcing & Agencies</span>
                     <h3>Advantages of Partnering with an AI SEO Agency for White-Label</h3>
@@ -960,6 +989,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="out" href="/blog/white-label-seo-agency-uk-growth.html">
+                <div class="post-media"><img src="/assets/images/library/small-business-owner-laptop-sidewalk-cafe.jpg" alt="How UK Agencies Leverage White-Label SEO Backends for Rapid Scale" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Outsourcing & Agencies</span>
                     <h3>How UK Agencies Leverage White-Label SEO Backends for Rapid Scale</h3>
@@ -968,6 +998,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="out" href="/blog/outsource-seo-services-au-tips.html">
+                <div class="post-media"><img src="/assets/images/library/team-casual-standup-meeting-lounge.webp" alt="Navigating Timezone-Aligned SEO Outsourcing for Australian Agencies" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Outsourcing & Agencies</span>
                     <h3>Navigating Timezone-Aligned SEO Outsourcing for Australian Agencies</h3>
@@ -976,6 +1007,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="web" href="/blog/how-to-outsource-web-development-to-india.html">
+                <div class="post-media"><img src="/assets/images/library/male-developer-dual-monitors-colorful-office.jpg" alt="How to Outsource Web Development to India Without Quality Loss" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Web Development</span>
                     <h3>How to Outsource Web Development to India Without Quality Loss</h3>
@@ -984,6 +1016,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="out" href="/blog/offshore-developer-center-dubai.html">
+                <div class="post-media"><img src="/assets/images/library/executive-woman-tablet-grand-hall.jpg" alt="Why Dubai Startups Build Dedicated Offshore Development Centers in India" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Outsourcing & Agencies</span>
                     <h3>Why Dubai Startups Build Dedicated Offshore Development Centers in India</h3>
@@ -992,6 +1025,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="web" href="/blog/outsource-website-management-canada.html">
+                <div class="post-media"><img src="/assets/images/library/team-flatlay-reviewing-wireframe-sketch.jpg" alt="Why Outsource Website Management? A Canadian Business Perspective" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Web Development</span>
                     <h3>Why Outsource Website Management? A Canadian Business Perspective</h3>
@@ -1000,6 +1034,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="web" href="/blog/what-to-look-for-outsourcing-website-management.html">
+                <div class="post-media"><img src="/assets/images/library/female-developer-dual-monitors-colorful-office.jpg" alt="What to Look for When Outsourcing Website Management" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Web Development</span>
                     <h3>What to Look for When Outsourcing Website Management</h3>
@@ -1008,6 +1043,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="out" href="/blog/why-agencies-outsource-seo-to-india.html">
+                <div class="post-media"><img src="/assets/images/library/support-agent-headset-smiling-laptop.jpg" alt="Why Modern Agencies Outsource SEO to India: Global Report" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Outsourcing & Agencies</span>
                     <h3>Why Modern Agencies Outsource SEO to India: Global Report</h3>
@@ -1016,6 +1052,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" href="/blog/ai-in-digital-marketing/">
+                <div class="post-media"><img src="/assets/images/library/team-flatlay-reviewing-business-report-charts.jpg" alt="AI in Digital Marketing" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO & AI Search</span>
                     <h3>AI in Digital Marketing</h3>
@@ -1024,6 +1061,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" href="/blog/what-is-digital-marketing/">
+                <div class="post-media"><img src="/assets/images/library/team-huddle-reviewing-screen-daylight.jpg" alt="What is Digital Marketing?" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO & AI Search</span>
                     <h3>What is Digital Marketing?</h3>
@@ -1032,6 +1070,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" href="/blog/ecommerce-seo-strategy/">
+                <div class="post-media"><img src="/assets/images/library/two-women-reviewing-document-bright-office.png" alt="Ecommerce SEO Strategy: Optimizing Products and Category Pages" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO & AI Search</span>
                     <h3>Ecommerce SEO Strategy: Optimizing Products and Category Pages</h3>
@@ -1040,6 +1079,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" href="/blog/how-much-does-seo-cost-small-business/">
+                <div class="post-media"><img src="/assets/images/library/team-standing-document-review-bright-room.jpg" alt="How Much Does SEO Cost for a Small Business: Pricing and ROI Guide" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO & AI Search</span>
                     <h3>How Much Does SEO Cost for a Small Business: Pricing and ROI Guide</h3>
@@ -1048,6 +1088,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" href="/blog/how-to-do-local-seo/">
+                <div class="post-media"><img src="/assets/images/library/team-flatlay-reviewing-business-report-charts.jpg" alt="How Do You Perform Local SEO: Step-by-Step Optimization Blueprint" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO & AI Search</span>
                     <h3>How Do You Perform Local SEO: Step-by-Step Optimization Blueprint</h3>
@@ -1056,6 +1097,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" href="/blog/how-to-qualify-leads-for-seo-agency/">
+                <div class="post-media"><img src="/assets/images/library/team-huddle-reviewing-screen-daylight.jpg" alt="How to Qualify Leads for an SEO Agency and Maximize ROI" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO & AI Search</span>
                     <h3>How to Qualify Leads for an SEO Agency and Maximize ROI</h3>
@@ -1064,6 +1106,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" href="/blog/python-for-seo/">
+                <div class="post-media"><img src="/assets/images/library/two-women-reviewing-document-bright-office.png" alt="Python for SEO: Automating Technical Audits and Crawl Log Analysis" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO & AI Search</span>
                     <h3>Python for SEO: Automating Technical Audits and Crawl Log Analysis</h3>
@@ -1072,6 +1115,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="out" href="/blog/why-choose-indian-seo-agency/">
+                <div class="post-media"><img src="/assets/images/library/small-business-owner-laptop-sidewalk-cafe.jpg" alt="Why Global Businesses Choose Indian Agencies for Technical SEO" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Outsourcing & Agencies</span>
                     <h3>Why Global Businesses Choose Indian Agencies for Technical SEO</h3>
@@ -1080,6 +1124,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" href="/blog/generative-engine-optimization-geo/">
+                <div class="post-media"><img src="/assets/images/library/team-standing-document-review-bright-room.jpg" alt="Generative Engine Optimization (GEO) Guide" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO & AI Search</span>
                     <h3>Generative Engine Optimization (GEO) Guide</h3>
@@ -1088,6 +1133,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="web" href="/blog/seo-friendly-web-design-guide/">
+                <div class="post-media"><img src="/assets/images/library/empty-modern-tech-office-open-plan.jpg" alt="SEO Friendly Web Design Guide" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Web Development</span>
                     <h3>SEO Friendly Web Design Guide</h3>
@@ -1096,6 +1142,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="web" href="/blog/react-vs-nextjs-for-seo/">
+                <div class="post-media"><img src="/assets/images/library/female-developer-red-hair-dual-monitors-code.jpg" alt="React vs Next.js for SEO | Search Crawlability Guide" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Web Development</span>
                     <h3>React vs Next.js for SEO | Search Crawlability Guide</h3>
@@ -1104,6 +1151,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" href="/blog/how-to-fix-crawlability-issues/">
+                <div class="post-media"><img src="/assets/images/library/team-flatlay-reviewing-business-report-charts.jpg" alt="How to Fix Crawlability Issues: Technical Guide" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO & AI Search</span>
                     <h3>How to Fix Crawlability Issues: Technical Guide</h3>
@@ -1112,6 +1160,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="erp" href="/blog/saas-vs-custom-software/">
+                <div class="post-media"><img src="/assets/images/library/client-consultation-meeting-clipboard.jpg" alt="SaaS vs Custom Software Development | Technical Strategy" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">ERP & Software</span>
                     <h3>SaaS vs Custom Software Development | Technical Strategy</h3>
@@ -1120,6 +1169,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" href="/blog/what-is-serp-in-seo/">
+                <div class="post-media"><img src="/assets/images/library/team-huddle-reviewing-screen-daylight.jpg" alt="What is SERP in SEO? Technical Guide to Search Results" loading="lazy" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO & AI Search</span>
                     <h3>What is SERP in SEO? Technical Guide to Search Results</h3>
@@ -1481,6 +1531,95 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <script>
+(function() {
+    var canvas = document.getElementById('heroCanvas');
+    if (!canvas) return;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var ctx = canvas.getContext('2d');
+    var hero = canvas.closest('.tap-new-hero');
+    var width, height, dpr;
+    var running = false;
+    var rafId = null;
+    var t = 0;
+
+    // Each wave: vertical anchor (as % of hero height), amplitude, wavelength, drift speed, fill color, alpha
+    var WAVES = [
+        { anchor: 0.62, amp: 26, wavelength: 620, speed: 0.35, color: '255,255,255', alpha: 0.06 },
+        { anchor: 0.72, amp: 34, wavelength: 480, speed: -0.5,  color: '242,115,78', alpha: 0.10 },
+        { anchor: 0.84, amp: 22, wavelength: 380, speed: 0.65, color: '255,255,255', alpha: 0.05 },
+        { anchor: 0.95, amp: 30, wavelength: 700, speed: -0.28, color: '242,115,78', alpha: 0.07 }
+    ];
+
+    function resize() {
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        width = hero.offsetWidth;
+        height = hero.offsetHeight;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        canvas.style.width = width + 'px';
+        canvas.style.height = height + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function drawWave(w, phase) {
+        var baseY = height * w.anchor;
+        ctx.beginPath();
+        ctx.moveTo(0, height);
+        ctx.lineTo(0, baseY);
+        var step = 12;
+        for (var x = 0; x <= width; x += step) {
+            var y = baseY + Math.sin((x / w.wavelength) * Math.PI * 2 + phase) * w.amp;
+            ctx.lineTo(x, y);
+        }
+        ctx.lineTo(width, height);
+        ctx.closePath();
+        var grad = ctx.createLinearGradient(0, baseY - w.amp, 0, height);
+        grad.addColorStop(0, 'rgba(' + w.color + ',' + w.alpha + ')');
+        grad.addColorStop(1, 'rgba(' + w.color + ',0)');
+        ctx.fillStyle = grad;
+        ctx.fill();
+    }
+
+    function step() {
+        ctx.clearRect(0, 0, width, height);
+        for (var i = 0; i < WAVES.length; i++) {
+            var w = WAVES[i];
+            drawWave(w, t * w.speed);
+        }
+        t += 0.016;
+        if (running) rafId = requestAnimationFrame(step);
+    }
+
+    function start() {
+        if (running) return;
+        running = true;
+        rafId = requestAnimationFrame(step);
+    }
+    function stop() {
+        running = false;
+        if (rafId) cancelAnimationFrame(rafId);
+    }
+
+    resize();
+
+    if (reduceMotion) {
+        step(); // draw one static frame, no animation
+    } else {
+        var io = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) { e.isIntersecting ? start() : stop(); });
+        }, { threshold: 0.05 });
+        io.observe(hero);
+
+        var resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(resize, 200);
+        });
+    }
+})();
+</script>
+<script>
 (function(){
     var pills = document.querySelectorAll('.bloghub-pill');
     var cards = document.querySelectorAll('.post-card');
@@ -1499,6 +1638,19 @@ document.addEventListener('DOMContentLoaded', function() {
             if (count) count.textContent = (f === 'all' ? (visible + 1) : visible) + ' guide' + (visible === 1 ? '' : 's');
         });
     });
+
+    // scroll-reveal: classes applied by JS only, so no-JS visitors see everything
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce && 'IntersectionObserver' in window) {
+        var targets = document.querySelectorAll('.post-card, .start-card, .featured-card');
+        targets.forEach(function(t){ t.classList.add('reveal'); });
+        var io = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+                if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+            });
+        }, { rootMargin: '0px 0px -8% 0px' });
+        targets.forEach(function(t){ io.observe(t); });
+    }
 })();
 </script>
 </body>
