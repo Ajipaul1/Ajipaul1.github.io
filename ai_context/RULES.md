@@ -91,3 +91,17 @@ The page is not done until it credibly out-answers the current #1.
 ## 13. iStock / paid-stock license gate (2026-09-02)
 
 29 iStock images entered the library — owner CONFIRMED the iStock license on 2026-09-02, so they are cleared for live use (see CATALOG.md banner). Same gate applies to any future paid-stock batch. Unsplash/Pexels/Pixabay files remain the preferred, always-safe pool.
+
+
+## 14. Verification economy — screenshots and dumps cost tokens (owner rule, 2026-09-03)
+
+The owner watched a session burn most of its budget on verification output. From now on:
+- **Verify structurally first, visually last.** `node scripts/verify/shot.js` already prints the checks that matter as TEXT: console errors, page errors, 4xx responses, `docW == winW` (no horizontal overflow), broken-image list. Read that line; it replaces most screenshots.
+- **Maximum 2 screenshots per page change, viewport-only (1440×900), never full-page unless the layout itself is the question.** A full-page capture of a 10,000px page costs the same tokens as a viewport shot but shows nothing legible. Use the `scrollY` argument (`node scripts/verify/shot.js us/erp/ name 1440 0 3200`) to look at one specific section.
+- **Never dump large files or exports into the conversation.** Parse keyword exports and long HTML with a script that prints a summary (counts, top-N, the one failing line with context). `grep -c`, `grep -o | sort | uniq -c`, `sed -n a,bp` — not `cat`.
+- **Don't re-read files you just wrote.** The Write/Edit tools fail loudly; trust them.
+- **Look at a screenshot once, decide, move on.** Don't re-shoot after every tweak; batch the fixes, then shoot once.
+
+## 15. Cinematic layer = the full-screen standard for country pages (owner rule, 2026-09-03)
+
+The owner's verdict on the first US pages: "nice design but lacking the modern — it is full screen so it needs animations, background beauty, an IMAX experience." Country/service pages therefore ship with the **cinematic layer** (`scripts/country-pages/cinematic.js`, documented in DESIGN_SYSTEM.md): full-viewport hero with drifting aurora + grid + vignette + staggered entrance, scroll-progress bar, ambient dot-grid sections, full-bleed dark chapter bands with a photo, a drawing process timeline, count-up numbers, cursor spotlight on cards. Rules inside the rule: brand palette only (alphas of orange/navy/white — no new hex), every motion off under `prefers-reduced-motion`, nothing ever blocks or delays reading (entrances ≤ 1s, ambient motion 25–35s and near-invisible), and the layer is additive (a script you re-run) so the underlying page stays a plain, honest document.

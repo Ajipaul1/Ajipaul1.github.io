@@ -129,3 +129,24 @@ Lead figure (no caption) → navy **Key Takeaways** box (3 bullets, `strong/em` 
 - `vh`-sized sections balloon in tall screenshot windows — that's the screenshot, not the page (and why the hero height is capped with `min()`).
 - After the 2026-09-02 Docker/WSL installs on the owner's machine, Playwright page.goto against localhost hangs (plain `chrome --headless --screenshot` still works; try 127.0.0.1, or reboot).
 - Multi-line string `.replace()` edits on big HTML files fail silently on indentation mismatches — use regex literals with `(\s*)` captures and grep-verify counts after every bulk insert.
+
+
+## Cinematic layer (country pages, since 2026-09-03)
+
+Applied to `/us/*` by `scripts/country-pages/cinematic.js` (re-runnable; strips and re-applies its own markers). It is a separate `<style>` + `<script>` block appended to the page, plus three tiny markup changes: `hero-cinema` class on the hero, three empty ambient divs after `.hero-spotlight`, a `.hero-scroll-cue`, and `band-cinema` + `style="--band-img:url(...)"` on the sections that become dark bands. Everything else is CSS selectors on existing classes.
+
+| Piece | What it does | Where it lives |
+|---|---|---|
+| `.hero-cinema` | `min-height:min(94vh,980px)`, flex-centered content; three `.hero-aurora span` orbs (orange/white radial gradients, `mix-blend-mode:screen`, blur 64px, 28–34s drift), `.hero-gridlines` (72px grid, radial mask), `.hero-vignette`; `.hero-main-content > *` staggered `heroIn` entrance (0.1s → 0.74s); bouncing `.hero-scroll-cue` | z-index 0 layers sit above the wave canvas (z0, earlier in DOM) and below `.hero-spotlight`/`.hero-grid` (z1) |
+| `.scroll-progress` | 3px orange bar fixed at the top, `scaleX` = scroll fraction (rAF-throttled) | created by JS |
+| Ambient sections | `.us-section`, `.tap-erp-what-section`, `.tap-erp-process-section`, `.tap-pillars-section`, `.tap-regions-section`, `.tap-cases-section` get a masked dot grid (`::before`); `-alt`/process/regions add one drifting glow (`::after`, 36s) | CSS only; `> .container` lifted to z2 |
+| `.band-cinema` | Full-bleed navy band: `::before` = the page's `--band-img` photo at 16% opacity, desaturated; `::after` = navy→orange gradient; headings white, eyebrow orange; `.us-stat-card`/`.security-badge-item` become glass (`rgba(255,255,255,.07)` + `backdrop-filter:blur(8px)`) | why-us section on the 3 service pages; `#seo-proof`; `#how-it-works` on the hub |
+| Process timeline | `.erp-process-row::before` draws left→right (1.6s) when the row enters view; step `border-top` lights up and `.erp-process-num` pops in sequence (`--i` × 0.22s) | needs `.in` on the row (JS observer) |
+| Count-up | `.us-stat-card .num`, `.trust-item .num`, `.number-stat-item .num`, `.us-cost-num` animate from 0 (1.4s, cubic ease-out) preserving prefix/suffix/commas/decimals; skips ranges containing a dash | JS |
+| Stagger + settle | `.reveal` gets `transition-delay: var(--i) × 70ms` (JS sets `--i` on grid children, capped at 8); `.promise-media img` settles from scale 1.08 → 1 on reveal | CSS + JS |
+| `.card-spot` | JS appends `<i class="spot">` to cards; `--mx/--my` follow the cursor; orange radial highlight on hover (white on dark bands). Hover-capable devices only | excluded on touch |
+| Final CTA | `.final-cta-section::before` aurora orb, same keyframes as the hero — the page opens and closes on the same light | CSS |
+
+**Reduced motion:** every animation off, hero content visible immediately, progress bar hidden, timeline fully drawn, spotlights removed.
+**Roll-out:** the same script pattern can apply the layer to `/ca/*` and the homepage — add the pages + band images to `PAGES` in `cinematic.js`. Not done yet (owner asked for US first).
+**Do not:** add colors outside the palette, add motion that blocks reading, put the aurora on white sections (it is designed for navy), or hand-edit the generated block (re-run the script).

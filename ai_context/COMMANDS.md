@@ -127,3 +127,25 @@ node scripts/country-pages/update_catalog.js         # CATALOG.md Used-on lines 
 **Keyword research:** `node scripts/keyword-research/parse.js` (edit the Downloads glob) → per-country/topic head terms, questions, geo sums; `termgrep.js us|uk` for thematic clusters (cost, industry, AI, vs, examples…). Output goes to files, not the repo.
 
 **Commit trailer:** `Co-Authored-By:` names the Claude model that did the work (Sonnet 5 on 2026-09-02, Fable 5.1 on 2026-09-03).
+
+
+## Sitemap (owner asked 2026-09-03 — every new page must land in the sitemap)
+
+The live sitemap is **https://techauditpros.com/sitemap.xml** (submit `sitemap.xml` in Search Console for the techauditpros.com property; the GitHub Pages mirror serves the same file). It is generated, never hand-edited:
+```
+node scripts/country-pages/gen_sitemap.js
+```
+It walks the repo (homepage, /blog/ + every post, /ca/*, /us/*, privacy, terms, seo-audit-kochi) and sets `lastmod` to today for anything changed since the `BASE` commit in the script — update `BASE` to the last pushed commit at the start of a session. Run it after adding any page or post, before the commit. When a new country folder appears (e.g. `/uk/`), add it to the `['ca', 'us']` list in the script.
+
+## Screenshot economy (owner rule 2026-09-03 — see RULES §14)
+
+`shot.js` prints the real checks as text (console/page errors, 4xx, overflow, broken images). Use at most two viewport screenshots per change:
+```
+node scripts/verify/shot.js us/erp/ erp-hero 1440 0              # hero, viewport only
+node scripts/verify/shot.js us/erp/ erp-band 1440 0 .band-cinema  # scroll one section into view (selector or pixel offset)
+```
+Never full-page unless the question is the page's overall rhythm. Never `cat` a page or an export into the conversation.
+
+## Cinematic layer
+
+`node scripts/country-pages/cinematic.js` applies (or re-applies) the full-screen layer to the pages listed in its `PAGES` map — add a page + its band image there to extend it (see DESIGN_SYSTEM.md "Cinematic layer").

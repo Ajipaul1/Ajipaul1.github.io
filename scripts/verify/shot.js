@@ -3,7 +3,7 @@ const { chromium } = require('playwright-core') /* npm install playwright-core i
 const OUT = require('path').join(__dirname, 'shots') + '/';
 require('fs').mkdirSync(OUT, { recursive: true });
 (async () => {
-  let [, , p, name, w = '1440', full = '1'] = process.argv;
+  let [, , p, name, w = '1440', full = '1', scrollY = '0'] = process.argv;
   p = '/' + p.replace(/^.*?:\/.*?\/Git\//, '').replace(/^\/+/, ''); // undo Git Bash path mangling; accept "us/erp/"
   const browser = await chromium.launch({ executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe', args: ['--no-sandbox', '--force-prefers-reduced-motion'] });
   const page = await browser.newPage({ viewport: { width: +w, height: 900 }, reducedMotion: 'reduce' });
@@ -26,6 +26,12 @@ require('fs').mkdirSync(OUT, { recursive: true });
   const broken = imgs.filter(i => !i.ok);
   console.log('images:', imgs.length, 'broken:', broken.length ? broken.map(b => b.src) : 'none');
   await page.waitForTimeout(400);
+  // 6th arg: a pixel offset, or a CSS selector to scroll into view (viewport shots of one section)
+  if (scrollY && scrollY !== '0') {
+    if (/^\d+$/.test(scrollY)) await page.evaluate(y => window.scrollTo({ top: y, behavior: 'instant' }), +scrollY);
+    else await page.evaluate(sel => { const el = document.querySelector(sel); if (el) { window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 40, behavior: 'instant' }); } }, scrollY);
+    await page.waitForTimeout(1800);
+  }
   const path = OUT + name + '.png';
   await page.screenshot({ path, fullPage: full === '1' });
   const h = await page.evaluate(() => ({ docW: document.documentElement.scrollWidth, winW: window.innerWidth, h: document.documentElement.scrollHeight }));
