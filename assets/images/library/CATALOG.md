@@ -10,6 +10,503 @@ A running library of stock/source images supplied by the owner for reuse across 
 
 ---
 
+## ⚠️ iStock batch (2026-09-02) — LICENSE PENDING OWNER CONFIRMATION
+
+The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in each filename). No watermarks, but iStock is paid stock and Getty enforces. **Owner: confirm these were downloaded under your iStock account/subscription.** Until confirmed, do NOT place them on live pages — cataloged for planning only. All are 612px — fine for cards/split sections, not full-bleed heroes; do not artificially upscale (blurs the image, zero SEO benefit — Google cares about relevance, alt text and file weight, not megapixels).
+
+## istock-2228764569-developer-night-debugging-monitors.jpg
+*iStock asset 2228764569 — 612px, license pending owner confirmation.*
+
+**What’s in it:** A young woman in a teal shirt and clear glasses leans over a keyboard at night, lit only by multiple monitors full of colorful code (editor panes visible left and right). Dark office, second colleague blurred behind.
+
+**Story / emotion:** Late-night deep focus — the story is real engineering effort: a developer chasing a bug or shipping a deadline after hours. Intense but calm.
+
+**Colors:** Dark navy office, cyan/teal screen glow on her face, syntax-highlight colors as the only accents.
+
+**Region:** Universal / studio (no region markers).
+
+**Best used for:** Dev-culture sections, engineering blog posts (debugging, code quality, deadlines), night-shift/timezone-advantage storytelling.
+
+**Used on:** *(none — license pending)*
+
+---
+
+## istock-1442543641-india-shop-upi-qr-payment.jpg
+*iStock asset 1442543641 — 612px, license pending owner confirmation.*
+
+**What’s in it:** An INDIAN kirana (grocery) shop: smiling shopkeeper with a moustache in an orange kurta holds up a QR-code stand; an elderly customer in the blurred foreground scans it with a smartphone. Packed product shelves behind, card machine and hand sanitizer on the counter.
+
+**Story / emotion:** Digital India in one frame — small traditional business meets modern UPI payments. Warm, friendly, human commerce story.
+
+**Colors:** Warm oranges (kurta, shelf packs), bright shop lighting, blue QR screens.
+
+**Region:** INDIA — explicitly (kirana store, UPI-style QR flow). Strongest India-region image in the library.
+
+**Best used for:** Digital-payment/ERP-for-retail content, India-team storytelling, small-business digitization blogs, any "we understand real businesses" narrative.
+
+**Used on:** *(none — license pending)*
+
+---
+
+## istock-2148073937-ai-wireframe-head-particles.jpg
+*iStock asset 2148073937 — 612px, license pending owner confirmation.*
+
+**What’s in it:** A 3D wireframe human head in profile, glowing blue, dissolving from the back of the skull into thousands of scattered pixel particles. Deep blue-black background, side gradient.
+
+**Story / emotion:** "AI thinking" made visual — intelligence assembling or dissolving into data. Clean, premium, conceptual.
+
+**Colors:** Monochrome blue spectrum: electric blue wireframe on near-black.
+
+**Region:** Abstract / no region.
+
+**Best used for:** AI/GEO/AEO blog headers, AI-native positioning sections; pairs well with dark hero bands.
+
+**Used on:** *(none — license pending)*
+
+---
+
+## istock-1332827275-businessman-ai-robot-double-exposure.jpg
+*iStock asset 1332827275 — 612px, license pending owner confirmation.*
+
+**What’s in it:** Double exposure: an Asian businessman in glasses and suit gazes upward, overlaid with a white humanoid robot whose transparent skull shows a glowing orange brain; light streaks connect them. Deep blue background.
+
+**Story / emotion:** Human + machine partnership — the businessman thinking, the AI amplifying. Optimistic futurism, not dystopian.
+
+**Colors:** Royal blue field, white robot, orange brain glow as focal point.
+
+**Region:** East-Asian model / no location markers.
+
+**Best used for:** "Humans with AI" content (matches the honest AI positioning), enterprise-AI adoption blog, about-our-AI-workflow sections.
+
+**Used on:** *(none — license pending)*
+
+---
+
+## istock-1404269031-digital-handshake-lowpoly-neon.jpg
+*iStock asset 1404269031 — 612px, license pending owner confirmation.*
+
+**What’s in it:** Two low-polygon wireframe hands mid-handshake, rendered in glowing neon blue/violet triangles with light flares at the grip, on near-black.
+
+**Story / emotion:** Digital-first partnership — deals, trust and collaboration happening "in the wire." Sleek and corporate-futuristic.
+
+**Colors:** Neon blue, violet and magenta glows on black.
+
+**Region:** Abstract / no region.
+
+**Best used for:** Partnership/onboarding sections, proposal/contract-signing steps in process diagrams, B2B trust content.
+
+**Used on:** *(none — license pending)*
+
+---
+
+## istock-1277718299-woman-hologram-globe-city-palm.jpg
+*iStock asset 1277718299 — 612px, license pending owner confirmation.*
+
+**What’s in it:** Stylized sci-fi scene: a woman's profile at left gazes at a holographic Earth hovering above an open palm that also carries a glowing city skyline; circuit traces rain data from above. Purple/blue palette with bokeh dots.
+
+**Story / emotion:** "Holding the connected world" — global reach, digital infrastructure, big-picture vision. Highly conceptual, almost illustration-like.
+
+**Colors:** Indigo-to-cyan gradients, magenta accents, white circuit lines.
+
+**Region:** Abstract / global (Earth).
+
+**Best used for:** Global-services storytelling ("Connecting India to the World"), international SEO/GEO content, region-hub pages.
+
+**Used on:** *(none — license pending)*
+
+---
+
+## istock-1313265074-boardroom-team-through-glass-dark.jpg
+*iStock asset 1313265074 — 612px, license pending owner confirmation.*
+
+**What’s in it:** Shot through glass reflections: five professionals in a dark-blue modern office confer around a long table — an older man, and four colleagues with tablets and documents; a wall screen shows dashboard charts. Moody enterprise atmosphere, visible ceiling grid.
+
+**Story / emotion:** Serious enterprise decision-making in progress — a leadership/ops review late in the day. The glass reflections add scale and sophistication.
+
+**Colors:** Steel blues and charcoals, warm skin tones, cyan dashboard glow.
+
+**Region:** Universal corporate.
+
+**Best used for:** Enterprise/board-level content, ERP decision-maker sections, case-study or governance storytelling.
+
+**Used on:** *(none — license pending)*
+
+---
+
+## istock-2186676700-cube-dissolving-particle-streams.jpg
+*iStock asset 2186676700 — 612px, license pending owner confirmation.*
+
+**What’s in it:** A dark 3D cube at left dissolving into horizontal streams of purple, violet and orange particles flowing to the right across a deep navy field.
+
+**Story / emotion:** "Structured data set free" — migration, transformation, movement of information. Energetic but abstract.
+
+**Colors:** Deep navy ground; purple/magenta/orange particle gradients.
+
+**Region:** Abstract / no region.
+
+**Best used for:** Data-migration content (very apt for ERP data-migration posts), section dividers on dark bands, backgrounds behind stat rows.
+
+**Used on:** *(none — license pending)*
+
+---
+
+## istock-1094918638-manager-tablet-evening-office-smile.jpg
+*iStock asset 1094918638 — 612px, license pending owner confirmation.*
+
+**What’s in it:** A businesswoman in a grey blazer and white shirt stands in an evening office, smiling down at the tablet she is using; warm bokeh lights and dark monitors behind.
+
+**Story / emotion:** Confident, warm competence — a manager comfortably in control after hours. Approachable executive energy.
+
+**Colors:** Warm amber backlight vs cool grey blazer; soft focus office.
+
+**Region:** Universal corporate.
+
+**Best used for:** Testimonial/leadership sections, "who you'll work with" content, service-page trust blocks.
+
+**Used on:** *(none — license pending)*
+
+---
+
+## istock-1128252197-analyst-data-wall-pencil-thinking.jpg
+*iStock asset 1128252197 — 612px, license pending owner confirmation.*
+
+**What’s in it:** Seen through a transparent data screen: a woman with a bob haircut and glasses, pencil to her lips, studies walls of glowing text/numbers; a small Earth graphic and necklace catch light. Dark room, screens on every side.
+
+**Story / emotion:** Deep analysis — reading the data wall, forming the insight. Investigative, intelligent mood.
+
+**Colors:** Cold blues and teals, black field, white/cyan data text.
+
+**Region:** Universal / studio.
+
+**Best used for:** SEO-audit and analytics content, research-methodology sections, data-driven-decisions blog posts.
+
+**Used on:** *(none — license pending)*
+
+---
+
+## istock-1954420507-stylus-tablet-charts-city-dusk.jpg
+*iStock asset 1954420507 — 612px, license pending owner confirmation.*
+
+**What’s in it:** Close-up of hands holding a stylus over a tablet displaying blue charts/code; behind, a city skyline at dusk dissolves into golden bokeh circles.
+
+**Story / emotion:** On-the-go decision-making — reviewing numbers between meetings as the city lights come on. Polished business-mobile mood.
+
+**Colors:** Warm sunset golds against cool blue screen light.
+
+**Region:** Universal urban.
+
+**Best used for:** Mobile-analytics/reporting content, executive-summary sections, KPI storytelling.
+
+**Used on:** *(none — license pending)*
+
+---
+
+## istock-1064033650-abstract-blue-halftone-baked-text.jpg
+*iStock asset 1064033650 — 612px, license pending owner confirmation.*
+
+**What’s in it:** Designer background asset: deep blue gradient with halftone dot clusters left and right — and the words "ABSTRACT BACKGROUND" literally baked into the center of the image.
+
+**Story / emotion:** N/A — it's a template background with placeholder text that cannot be removed by cropping.
+
+**Colors:** Deep blues, cyan dot textures.
+
+**Region:** Abstract.
+
+**Best used for:** REFERENCE ONLY — the baked text makes it unusable as-is. If this style is wanted, we recreate the halftone-dots-on-navy look in CSS/SVG in brand colors instead.
+
+**Used on:** *(none — license pending)*
+
+---
+
+## istock-1164885329-developer-afro-night-code-overlays.jpg
+*iStock asset 1164885329 — 612px, license pending owner confirmation.*
+
+**What’s in it:** A young woman with an afro and glasses works on a laptop in a warm dark office; translucent code lines and chart overlays are composited across the whole frame, a desk lamp glows behind.
+
+**Story / emotion:** Composite "in the flow" portrait — the data literally surrounds her. Editorial tech-magazine feel.
+
+**Colors:** Warm amber room tones under cool blue/white data overlays.
+
+**Region:** Universal / studio.
+
+**Best used for:** Engineering-culture posts, technical-SEO/automation content (the overlay motif reads "scripts running").
+
+**Used on:** *(none — license pending)*
+
+---
+
+## istock-1408255024-indian-dev-team-code-review.jpg
+*iStock asset 1408255024 — 612px, license pending owner confirmation.*
+
+**What’s in it:** Four INDIAN developers in a bright casual office: in front, a man in an orange tee listens as a colleague in a green jacket points at a dual-monitor screen full of code; two more teammates work behind. Shelving with binders, big windows.
+
+**Story / emotion:** A real dev-team code review — explaining, pointing, deciding together. Energetic, collaborative, authentic (not posed at camera).
+
+**Colors:** Bright daylight office, orange tee + green jacket color pops, dark code screens.
+
+**Region:** INDIA — team appearance and office style; the best "our engineering team" proxy in the library.
+
+**Best used for:** Team/about sections, "who builds this" content, India-advantage storytelling, dev-process blog posts.
+
+**Used on:** *(none — license pending)*
+
+---
+
+## istock-2186780970-pair-review-workstation-atrium.jpg
+*iStock asset 2186780970 — 612px, license pending owner confirmation.*
+
+**What’s in it:** Two colleagues at a workstation seen past dark monitors: a Black man with headphones around his neck and an Asian woman in a striped green top, both studying the same screen in a glass-atrium office with a staircase behind.
+
+**Story / emotion:** Quiet pair-review moment — two specialists checking work together. Modern, credible office texture.
+
+**Colors:** Neutral greys and glass; green striped top as accent; warm atrium light.
+
+**Region:** Universal corporate.
+
+**Best used for:** Code-review/QA content, pair-working storytelling, collaboration sections.
+
+**Used on:** *(none — license pending)*
+
+---
+
+## istock-2231952003-presenting-dashboard-wood-meeting-room.jpg
+*iStock asset 2231952003 — 612px, license pending owner confirmation.*
+
+**What’s in it:** In a wood-slat-panelled meeting room, a Black man with glasses and beard presents from printed notes beside a large wall TV showing a purple analytics dashboard (area chart, donut, world map); two women watch from the foreground, blurred, one in orange.
+
+**Story / emotion:** The monthly results meeting — walking clients through the dashboard. Professional storytelling of transparent reporting.
+
+**Colors:** Warm wood tones + plant greens vs dark dashboard with purple data accents.
+
+**Region:** Universal corporate (upscale).
+
+**Best used for:** Monthly-reporting sections (SEO service page), analytics/case-study content, agency-transparency storytelling.
+
+**Used on:** *(none — license pending)*
+
+---
+
+## istock-2150307337-creative-studio-neon-review.jpg
+*iStock asset 2150307337 — 612px, license pending owner confirmation.*
+
+**What’s in it:** In a neon-lit creative/game studio, a seated man gestures at a monitor with pink/magenta content while a Black woman with curly hair leans over the desk beside him; screens behind show a spaceship scene and concept art wall.
+
+**Story / emotion:** Creative production review — design in progress, feedback flowing. Younger, energetic studio vibe.
+
+**Colors:** Cyan + magenta neon against dark studio.
+
+**Region:** Universal / creative-industry.
+
+**Best used for:** Web-design/creative content, portfolio-process storytelling, "design is engineering too" posts.
+
+**Used on:** *(none — license pending)*
+
+---
+
+## istock-1489414046-woman-engineer-laptop-ops-room.jpg
+*iStock asset 1489414046 — 612px, license pending owner confirmation.*
+
+**What’s in it:** A smiling young woman engineer with a bun and glasses, lanyard around neck, holds an open laptop in a dark high-tech operations room; monitors with code and dashboards behind her.
+
+**Story / emotion:** Confident, friendly expertise — the engineer you can actually talk to, standing in the middle of serious infrastructure.
+
+**Colors:** Cool blue-grey ops room, warm skin tones, white laptop.
+
+**Region:** Universal / tech facility.
+
+**Best used for:** "Dedicated engineer" trust sections (matches the core promise), team pages, support/contact blocks.
+
+**Used on:** *(none — license pending)*
+
+---
+
+## istock-2215674808-senior-guiding-junior-code-night.jpg
+*iStock asset 2215674808 — 612px, license pending owner confirmation.*
+
+**What’s in it:** Night office: a standing man in glasses points at one of two portrait monitors full of code while a young woman in a white turtleneck types; pinned diagrams on the glass wall behind, laptop screen glowing in foreground.
+
+**Story / emotion:** Mentorship in action — senior engineer guiding a junior through a problem, late and focused. Very "real dev shop" energy.
+
+**Colors:** Cool blue night tones, warm desk highlights, code-editor colors.
+
+**Region:** East-Asian models / universal office.
+
+**Best used for:** Code-quality/mentorship content, how-we-work sections, engineering-culture storytelling.
+
+**Used on:** *(none — license pending)*
+
+---
+
+## istock-2072805054-woman-tablet-neon-corridor.jpg
+*iStock asset 2072805054 — 612px, license pending owner confirmation.*
+
+**What’s in it:** A woman with a sleek bob, dark red turtleneck and wristwatch operates a tablet in a corridor washed in blue-violet neon, motion-blur light streaks on the left wall.
+
+**Story / emotion:** Future-facing operations — checking systems inside "the machine." Editorial, cinematic tech mood.
+
+**Colors:** Saturated blue/violet neon, warm face light from the tablet.
+
+**Region:** East-Asian model / abstract facility.
+
+**Best used for:** Infrastructure/cloud/self-hosting content, futuristic section accents, AI-era operations posts.
+
+**Used on:** *(none — license pending)*
+
+---
+
+## istock-2155877725-factory-engineers-hardhats-tablet.jpg
+*iStock asset 2155877725 — 612px, license pending owner confirmation.*
+
+**What’s in it:** Two engineers in white hard hats, safety glasses and hi-vis yellow jackets consult a tablet on a factory floor — a woman and a man beside industrial machinery under a high steel-truss roof with lamps.
+
+**Story / emotion:** Manufacturing operations digitized — the shop floor meeting the tablet. Grounded, industrial, safety-conscious.
+
+**Colors:** Industrial blue-grey hall, hi-vis yellow as the strong accent.
+
+**Region:** Universal industrial.
+
+**Best used for:** MANUFACTURING ERP content (the planned vertical blog post), factory case studies, operations-automation sections.
+
+**Used on:** *(none — license pending)*
+
+---
+
+## istock-1674601384-woman-world-map-teal-global.jpg
+*iStock asset 1674601384 — 612px, license pending owner confirmation.*
+
+**What’s in it:** A blonde woman in a sage-green blouse stands beside a wall-projected dotted world map, teal light washing the scene, gazing thoughtfully to the right; a glass doorway glows warm behind.
+
+**Story / emotion:** Global perspective — planning across markets and timezones. Calm, editorial, aspirational.
+
+**Colors:** Teal/cyan dominance with warm amber doorway contrast.
+
+**Region:** Universal / global (map).
+
+**Best used for:** International/GEO content, region pages, "serving five markets" storytelling.
+
+**Used on:** *(none — license pending)*
+
+---
+
+## istock-1818616410-young-team-tablet-night-huddle.jpg
+*iStock asset 1818616410 — 612px, license pending owner confirmation.*
+
+**What’s in it:** Two young colleagues — a woman with long dark hair and a man with curly hair and glasses in a dark shirt — study a tablet together in a night office with purple-orange bokeh; an older man works at a screen in the background.
+
+**Story / emotion:** Startup-hours huddle — checking results together after dark. Warm, collaborative urgency.
+
+**Colors:** Purple-blue dusk office, orange bokeh, warm faces lit by the tablet.
+
+**Region:** Universal / studio.
+
+**Best used for:** Team/collaboration content, launch-night storytelling, agile-process posts.
+
+**Used on:** *(none — license pending)*
+
+---
+
+## istock-1416029563-ar-glasses-future-portrait-dark.jpg
+*iStock asset 1416029563 — 612px, license pending owner confirmation.*
+
+**What’s in it:** Dramatic black-background portrait: a young woman looks up wearing transparent AR glasses whose lenses reflect an orange HUD; blue projection speckles stripe her face and white tee.
+
+**Story / emotion:** Looking into the future — literal augmented vision. High-contrast, editorial, very "AI-era".
+
+**Colors:** Black field, electric blue speckle light, orange HUD reflections.
+
+**Region:** East-Asian model / studio.
+
+**Best used for:** AEO/GEO and future-of-search content, AI-vision blog headers, dark hero accents.
+
+**Used on:** *(none — license pending)*
+
+---
+
+## istock-1496103633-healthcare-nurse-tablet-hologram.jpg
+*iStock asset 1496103633 — 612px, license pending owner confirmation.*
+
+**What’s in it:** A nurse in blue scrubs uses a tablet from which a holographic medical interface fans out (cell, DNA helix, body scan, vitals); three clinicians in lab coats confer in the blurred background of a bright glass corridor.
+
+**Story / emotion:** Healthcare meets software — clinical work augmented by digital tools. Clean, trustworthy, futuristic-lite.
+
+**Colors:** Bright clinical whites/blues with cyan hologram accents.
+
+**Region:** South-Asian model / universal hospital.
+
+**Best used for:** HEALTHCARE vertical content (if we target healthcare ERP/software), industry-solutions sections.
+
+**Used on:** *(none — license pending)*
+
+---
+
+## istock-2170561826-glass-office-building-dusk-floors.jpg
+*iStock asset 2170561826 — 612px, license pending owner confirmation.*
+
+**What’s in it:** Cinematic dusk view into a multi-storey glass office building: warm-lit floors reveal people meeting, walking, working across four levels; plants and desks visible, cool evening light outside.
+
+**Story / emotion:** "The company at work" establishing shot — many teams, one organism. Architectural and premium.
+
+**Colors:** Cool dusk blues against warm interior ambers.
+
+**Region:** Universal urban.
+
+**Best used for:** About/company establishing imagery, enterprise-scale storytelling, footer/CTA backgrounds (darkened).
+
+**Used on:** *(none — license pending)*
+
+---
+
+## istock-2189585598-electronics-factory-engineers-laptop.jpg
+*iStock asset 2189585598 — 612px, license pending owner confirmation.*
+
+**What’s in it:** On an electronics-factory floor, a man in a white lab coat and safety glasses discusses something on a laptop held by a woman in a blue shirt with a lanyard; machine monitors and a second worker behind.
+
+**Story / emotion:** Production-line problem-solving — engineering and operations talking to each other with the data in hand.
+
+**Colors:** Bright industrial whites/greys, blue shirt accent, screen glows.
+
+**Region:** Universal industrial / South-Asian models.
+
+**Best used for:** Manufacturing/electronics ERP content, factory-automation posts, industry pages.
+
+**Used on:** *(none — license pending)*
+
+---
+
+## istock-2196870531-consultants-walking-tablet-corridor.jpg
+*iStock asset 2196870531 — 612px, license pending owner confirmation.*
+
+**What’s in it:** A red-haired woman in a polka-dot blouse and a bearded man in a crisp white shirt walk a bright office corridor together, discussing something on the tablet she holds; he carries a folder.
+
+**Story / emotion:** Walking consultation — advisors aligned mid-corridor between meetings. Crisp, professional, in-motion.
+
+**Colors:** Bright whites and glass, warm hair/skin tones, muted office palette.
+
+**Region:** Universal corporate / European models.
+
+**Best used for:** Consulting/discovery-call content, onboarding-process sections, B2B services storytelling.
+
+**Used on:** *(none — license pending)*
+
+---
+
+## istock-1321462048-woman-holographic-ui-network.jpg
+*iStock asset 1321462048 — 612px, license pending owner confirmation.*
+
+**What’s in it:** A Black woman in a mustard ruffled top reaches out to touch floating holographic UI cards connected by a network diagram — charts, QR, dashboards — with a tablet glowing in her other hand; soft blue field with warm flares.
+
+**Story / emotion:** Orchestrating systems — one person conducting an entire connected stack. Empowered, future-positive.
+
+**Colors:** Soft steel blue with warm orange flares; mustard top as the anchor accent.
+
+**Region:** Universal / studio composite.
+
+**Best used for:** Systems-integration/ERP content, automation storytelling, hero accents on AI posts.
+
+**Used on:** *(none — license pending)*
+
+---
+
 ## analyst-pointing-pen-bi-dashboard-monitor.png
 *Original: "6805dd...Impact of AI on ERP Systems...png" — saved from a company blog (Webflow asset). **License unverified — prefer licensed alternatives for public pages.***
 
