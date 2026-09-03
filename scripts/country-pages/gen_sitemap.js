@@ -5,7 +5,7 @@ const L = require('./lib.js');
 const fs = require('fs'); const path = require('path'); const { execSync } = require('child_process');
 const TODAY = '2026-09-03';
 const old = {}; for (const m of L.read('sitemap.xml').matchAll(/<loc>https:\/\/techauditpros\.com([^<]*)<\/loc><lastmod>([^<]*)<\/lastmod>/g)) old[m[1]] = m[2];
-const BASE = '1b354d4'; // pre-session commit; the owner's GitHub Desktop auto-commits mid-session
+const BASE = '1b4dbc3'; // pre-session commit; the owner's GitHub Desktop auto-commits mid-session
 const changed = new Set([
   ...execSync(`git diff --name-only ${BASE}`, { cwd: L.REPO }).toString().split('\n'),
   ...execSync('git ls-files --others --exclude-standard', { cwd: L.REPO }).toString().split('\n'),

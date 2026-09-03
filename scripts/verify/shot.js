@@ -1,12 +1,12 @@
-// usage: node shot.js <path> <outname> [width] [fullpage=1]
+// usage: node shot.js <path> <outname> [width] [fullpage=1] [scrollY|selector]   (MOTION=1 env = real animations instead of reduced-motion)
 const { chromium } = require('playwright-core') /* npm install playwright-core in a scratch dir and run from there, or set NODE_PATH */;
 const OUT = require('path').join(__dirname, 'shots') + '/';
 require('fs').mkdirSync(OUT, { recursive: true });
 (async () => {
   let [, , p, name, w = '1440', full = '1', scrollY = '0'] = process.argv;
   p = '/' + p.replace(/^.*?:\/.*?\/Git\//, '').replace(/^\/+/, ''); // undo Git Bash path mangling; accept "us/erp/"
-  const browser = await chromium.launch({ executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe', args: ['--no-sandbox', '--force-prefers-reduced-motion'] });
-  const page = await browser.newPage({ viewport: { width: +w, height: 900 }, reducedMotion: 'reduce' });
+  const browser = await chromium.launch({ executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe', args: process.env.MOTION === '1' ? ['--no-sandbox'] : ['--no-sandbox', '--force-prefers-reduced-motion'] });
+  const page = await browser.newPage({ viewport: { width: +w, height: 900 }, reducedMotion: process.env.MOTION === '1' ? 'no-preference' : 'reduce' });
   const errors = [];
   page.on('pageerror', e => errors.push('PAGE: ' + e.message));
   page.on('console', m => { if (m.type() === 'error') errors.push('CONSOLE: ' + m.text()); });
