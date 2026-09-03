@@ -236,7 +236,9 @@ const JS = `<!-- flow-layer-js:start -->
             if (p.hit && trapC){                                             // does this glyph touch the trapped text?
                 var ca = Math.cos(p.ang), sa = Math.sin(p.ang), ox = o.x - D / 2, oy = o.y - D / 2;
                 var gx = W / 2 + ox * ca - oy * sa, gy = H / 2 + ox * sa + oy * ca;
-                if (Math.abs(gx - trapC.x) < trapC.w && Math.abs(gy - trapC.y) < trapC.h){
+                // distance from the glyph to the text box itself, so it fires when they really overlap
+                var qx = Math.max(Math.abs(gx - trapC.x) - trapC.w, 0), qy = Math.max(Math.abs(gy - trapC.y) - trapC.h, 0), reach = o.r * .5;
+                if (qx * qx + qy * qy < reach * reach){
                     hitAt = t; if (!hitOn){ hitOn = true; trap.classList.add('trap-hit'); }
                 }
             }
@@ -292,7 +294,7 @@ const JS = `<!-- flow-layer-js:start -->
             var ride = Math.sin(t * .55) * 22 + Math.min(130, sy * .12), pp = Math.sin(t * .37 + 1.1) * 9;
             trap.style.translate = (bx * ride - by * pp).toFixed(2) + 'px ' + (by * ride + bx * pp).toFixed(2) + 'px';
             trap.style.rotate = (Math.sin(t * .45) * 2.2).toFixed(2) + 'deg';
-            if (t - trapT > .25){ trapT = t; var r = trap.getBoundingClientRect(); trapC = { x: r.left + r.width / 2, y: r.top + r.height / 2, w: r.width * .34, h: r.height * .3 }; }
+            if (t - trapT > .25){ trapT = t; var r = trap.getBoundingClientRect(); trapC = { x: r.left + r.width / 2, y: r.top + r.height / 2, w: r.width / 2, h: r.height / 2 }; }
             if (hitOn && t - hitAt > .9){ hitOn = false; trap.classList.remove('trap-hit'); }
         } else if (trapC){ trapC = null; if (hitOn){ hitOn = false; trap.classList.remove('trap-hit'); } }
         vel *= Math.pow(.945, f * 60);
