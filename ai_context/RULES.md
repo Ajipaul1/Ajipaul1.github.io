@@ -56,3 +56,38 @@ TechAuditPros is positioned as an **AI-native team**, so content should practice
 
 - The **purchase island** equivalent here is the established page template first built for `/ca/erp/` — full two-tier header, wave-canvas hero, dropdown nav, promise section, process steps, why-section, FAQ accordion, full-bleed final CTA, footer. Every new Canada page should be built by **copying that template and editing content**, not rebuilt from scratch — this is what keeps 2000+ line pages consistent and avoids reintroducing bugs that were already fixed once (dropdown hover-gap, missing CSS on cloned pages, nested `background-clip` overlap, etc.). See `DESIGN_SYSTEM.md` for the full breakdown.
 - All internal links must be **root-absolute paths** (`/ca/erp/`, not `erp/` or `../erp/`) — relative paths break the moment a page is nested or cloned. This has caused real bugs before.
+
+---
+
+## 9. Full-page design standard (owner rule, 2026-09-02)
+
+Every page — existing and new, including all future country pages (US next) — ships with **two explicit design tiers**:
+- **Mobile-first base** (what already exists): single column, drawer nav, no sidebar clutter.
+- **Wide-desktop tier**: `@media (min-width:1440px){ .container{ max-width:1480px; } }` and `@media (min-width:1850px){ ... 1720px }` (or page-appropriate equivalents). Desktop must USE the screen — a narrow centered column on a 1920px monitor is a defect, not a style. Grids widen (blog grid goes 4-col), long articles gain a sticky "On this page" TOC in the free space (see DESIGN_SYSTEM.md).
+Never bolt the wide tier on later; it ships with the page.
+
+## 10. Content pages are image-rich and animated (owner rule, 2026-09-02)
+
+- Pages tell their story WITH images: section splits, card thumbnails, 2–3 captioned figures per blog post, a "Key Takeaways" navy box at the top of every new post (AEO-quotable).
+- Reuse library images freely when the content fits ("use it many more times if content demands it" — owner). Check `assets/images/library/CATALOG.md` first; track placements in its Used-on lines (blog hub pool usage is noted at the top instead).
+- Article figures are capped (`max-height:420px; object-fit:cover`) — never let near-square images render as full-column towers.
+- Motion: scroll-reveal on cards/sections (IntersectionObserver, classes applied BY JS so no-JS users see everything, `prefers-reduced-motion` respected) + the brand wave-canvas hero where a page deserves a "wow" opening. Never animation that blocks reading.
+- No artificial image upscaling — it blurs and has zero SEO value. 612px sources are fine at card/split sizes.
+
+## 11. Competitor-crawl rule for new keyword-targeted pages (owner rule, 2026-09-02)
+
+Before building any page that targets a keyword (country pages, service pages, major blog posts):
+1. Search the main keyword and identify the CURRENT #1–3 ranking pages.
+2. Crawl/fetch the top page (WebFetch; screenshot if it blocks crawlers — both approaches used successfully for Numerique.ca/Witify.io during the /ca/erp/ build).
+3. Build ours to be MORE complete and better structured than that page: answer-first opening, deeper sections, FAQ schema, honest specifics the competitor lacks.
+The page is not done until it credibly out-answers the current #1.
+
+## 12. Blog program rules (owner rule, 2026-09-02)
+
+- Blogs must be genuinely useful and rank-worthy for SEO + AEO + GEO: answer-first intro, Key Takeaways box, real substance, no competitor-naming, no fluff — and ZERO duplicate content between posts (each post owns ONE topic/keyword cluster).
+- **Cover every keyword cluster from the research — don't skip any.** The owner is not coming back to re-plan: when keyword files arrive for a market, extract ALL clusters (head terms → service pages; questions → blog posts) and maintain the full topic list in PROGRESS.md until every item ships.
+- Every new post: add to `scripts/build_bloghub.js` posts array + regenerate the hub, so it's never orphaned.
+
+## 13. iStock / paid-stock license gate (2026-09-02)
+
+29 iStock images entered the library cataloged but LICENSE-GATED (see CATALOG.md banner): none may appear on a live page until the owner confirms they were downloaded under an iStock account. Same gate applies to any future paid-stock batch. Unsplash/Pexels/Pixabay files remain the preferred, always-safe pool.

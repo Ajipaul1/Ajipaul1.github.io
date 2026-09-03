@@ -85,3 +85,23 @@ The owner periodically supplies SEMrush "Keyword Magic Tool → export all" `.xl
 3. Filter for real signal: sort by Volume, filter by `Relevance` to cut noise, split "question-phrased" rows (regex on `^(what|how|why|when|where|which|who|can|does|do|is|are|will|should)\b`) into an AEO/blog-content bucket versus a commercial/head-term bucket for page targeting.
 4. If checking city-level demand, scan for city names within keyword strings and sum volume per city — don't build a page on a hunch, build it on an actual number (see `RULES.md` §1 and `PROGRESS.md`'s keyword findings for the threshold this project has already used: sub-100/mo combined did not get a standalone page).
 5. Summarize findings back to the owner (or into `PROGRESS.md`) rather than leaving 30k-row dumps anywhere in the repo.
+
+---
+
+## How to create a new page (standard flow, locked 2026-09-02)
+
+1. **Research first**: keyword files from the owner (SEMrush exports — parsing recipe above) + the competitor-crawl rule (RULES §11): search the main keyword, fetch the #1 page, list what it covers; ours must out-answer it.
+2. **Copy the closest template** — never start blank: service page → `ca/erp/index.html`; city/hub page → `ca/toronto/index.html`; blog post → `blog/what-is-a-content-audit.html` (carries takeaways/TOC/figure anatomy).
+3. Edit head (title/meta/OG/canonical — page's own URL!), Service|ProfessionalService + FAQPage JSON-LD (visible FAQ text must match schema), hero, sections, FAQ (unique section id + scoped toggle JS).
+4. Images from `assets/images/library/` per CATALOG (respect license gates); update Used-on lines.
+5. Wide-desktop tier + reveal animations ship WITH the page (RULES §9–10).
+6. Wire links: header dropdowns + footers across all full pages (no shared template — grep to find every copy), sitemap.xml, blog hub generator if it's a post.
+7. Verify (server + screenshots at 1440/1920 and ≥560 narrow), PROGRESS.md entry, commit, push.
+
+## Country-page workflow (US is next, files awaited)
+
+Owner supplies per-country SEMrush exports → analyze (volumes, question split, city demand) → propose page set (country hub + service deep-dives + city pages ONLY where volume justifies; anything thin folds into copy/schema) → competitor-crawl each target keyword → build content-rich with images/animations from day one → hreflang: add the new region to every page's alternate set + sitemap. The Canada set (/ca/*) is the reference implementation.
+
+## Blog hub maintenance
+
+New post published? Add one line to the `posts` array in `scripts/build_bloghub.js`, run `node scripts/build_bloghub.js`, verify, commit. Never hand-edit blog/index.html (generated file).
