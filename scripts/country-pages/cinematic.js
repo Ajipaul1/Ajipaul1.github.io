@@ -13,6 +13,10 @@
 //   - aurora glow behind the final CTA band
 const L = require('./lib.js');
 const fs = require('fs'); const path = require('path');
+// --strip removes the layer (the apply path already knows how to undo itself);
+// --only=<rel path> limits the run to one page, so the other US pages keep theirs
+const STRIP = process.argv.includes('--strip');
+const ONLY = (process.argv.find(a => a.indexOf('--only=') === 0) || '').slice(7);
 
 const PAGES = {
   'us/index.html': { bands: [['<section id="how-it-works" class="us-section us-section-alt">', '<section id="how-it-works" class="us-section us-section-alt band-cinema" style="--band-img:url(\'/assets/images/library/istock-1674601384-woman-world-map-teal-global.jpg\')">']] },
@@ -173,6 +177,7 @@ const HERO_LAYERS = `    <div class="hero-aurora" aria-hidden="true"><span></spa
 `;
 
 for (const [rel, cfg] of Object.entries(PAGES)) {
+  if (ONLY && rel !== ONLY) continue;
   let s = L.read(rel).replace(/\r\n/g, '\n');
   // strip a previous run
   s = s.replace(/<!-- cinematic-layer:start -->[\s\S]*?<!-- cinematic-layer:end -->\n/, '').replace(/<!-- cinematic-layer-js:start -->[\s\S]*?<!-- cinematic-layer-js:end -->\n/, '');
@@ -180,6 +185,7 @@ for (const [rel, cfg] of Object.entries(PAGES)) {
   s = s.replace(/    <div class="hero-scroll-cue" aria-hidden="true">&darr;<\/div>\n/, '');
   s = s.replace('<section class="tap-new-hero hero-cinema">', '<section class="tap-new-hero">');
   for (const [, to] of cfg.bands) { const from = to.replace(/ band-cinema" style="--band-img:url\('[^']*'\)"/, '"'); s = s.split(to).join(from); }
+  if (!STRIP) {
   // hero
   s = L.replaceAll(s, '<section class="tap-new-hero">', '<section class="tap-new-hero hero-cinema">', 1);
   s = L.replaceAll(s, '    <div class="hero-spotlight" aria-hidden="true"></div>\n', '    <div class="hero-spotlight" aria-hidden="true"></div>\n' + HERO_LAYERS, 1);
@@ -190,7 +196,8 @@ for (const [rel, cfg] of Object.entries(PAGES)) {
   s = L.replaceAll(s, '</head>', CSS + '</head>', 1);
   s = s.replace(/<\/body>\s*<\/html>\s*$/, JS + '</body>\n</html>\n');
   L.must(s, '<section class="tap-new-hero hero-cinema">', 1); L.must(s, 'band-cinema" style=', cfg.bands.length);
+  }
   s = s.replace(/\r?\n/g, '\r\n');
   fs.writeFileSync(path.join(L.REPO, rel), s);
-  console.log('cinematic layer applied:', rel, '(bands:', cfg.bands.length + ')');
+  console.log((STRIP ? 'cinematic layer stripped:' : 'cinematic layer applied:'), rel);
 }
