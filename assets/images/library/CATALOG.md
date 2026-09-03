@@ -27,7 +27,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Dev-culture sections, engineering blog posts (debugging, code quality, deadlines), night-shift/timezone-advantage storytelling.
 
-**Used on:** *(none yet)*
+**Used on:** /blog/what-is-technical-seo.html; /us/website-development/ (added 2026-09-03)
 
 ---
 
@@ -44,7 +44,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Digital-payment/ERP-for-retail content, India-team storytelling, small-business digitization blogs, any "we understand real businesses" narrative.
 
-**Used on:** *(none yet)*
+**Used on:** /us/seo-services/; /us/website-development/ (added 2026-09-03)
 
 ---
 
@@ -61,7 +61,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** AI/GEO/AEO blog headers, AI-native positioning sections; pairs well with dark hero bands.
 
-**Used on:** *(none yet)*
+**Used on:** /blog/how-to-build-an-seo-strategy.html; /blog/is-seo-dead.html; /blog/keyword-research-guide.html; /blog/what-is-seo.html (added 2026-09-03)
 
 ---
 
@@ -78,7 +78,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** "Humans with AI" content (matches the honest AI positioning), enterprise-AI adoption blog, about-our-AI-workflow sections.
 
-**Used on:** *(none yet)*
+**Used on:** /blog/is-seo-dead.html; /blog/seo-content-writing.html (added 2026-09-03)
 
 ---
 
@@ -95,7 +95,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Partnership/onboarding sections, proposal/contract-signing steps in process diagrams, B2B trust content.
 
-**Used on:** *(none yet)*
+**Used on:** /blog/erp-vs-crm.html; /blog/on-page-vs-off-page-seo.html; /blog/what-are-backlinks.html (added 2026-09-03)
 
 ---
 
@@ -112,7 +112,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Global-services storytelling ("Connecting India to the World"), international SEO/GEO content, region-hub pages.
 
-**Used on:** *(none yet)*
+**Used on:** /blog/international-seo-guide.html (added 2026-09-03)
 
 ---
 
@@ -129,7 +129,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Enterprise/board-level content, ERP decision-maker sections, case-study or governance storytelling.
 
-**Used on:** *(none yet)*
+**Used on:** /blog/erp-implementation-guide.html; /blog/how-to-choose-a-web-development-company.html; /blog/how-to-choose-erp-software.html (added 2026-09-03)
 
 ---
 
@@ -146,7 +146,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Data-migration content (very apt for ERP data-migration posts), section dividers on dark bands, backgrounds behind stat rows.
 
-**Used on:** *(none yet)*
+**Used on:** /blog/what-is-cloud-erp.html (added 2026-09-03)
 
 ---
 
@@ -163,7 +163,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Testimonial/leadership sections, "who you'll work with" content, service-page trust blocks.
 
-**Used on:** *(none yet)*
+**Used on:** /blog/what-is-crm-software.html; /blog/erp-vs-crm.html; /blog/seo-vs-sem.html; /us/seo-services/ (added 2026-09-03)
 
 ---
 
@@ -180,7 +180,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** SEO-audit and analytics content, research-methodology sections, data-driven-decisions blog posts.
 
-**Used on:** *(none yet)*
+**Used on:** /blog/what-are-backlinks.html; /blog/what-is-an-seo-audit.html; /blog/what-is-seo.html; /us/seo-services/ (added 2026-09-03)
 
 ---
 
@@ -197,7 +197,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Mobile-analytics/reporting content, executive-summary sections, KPI storytelling.
 
-**Used on:** *(none yet)*
+**Used on:** /blog/how-much-does-a-website-cost.html; /blog/keyword-research-guide.html; /blog/seo-vs-sem.html; /blog/title-tags-and-meta-descriptions.html; /blog/web-application-vs-website.html; /blog/what-is-a-landing-page-conversion.html; /blog/what-should-an-seo-report-include.html; /us/seo-services/; /us/website-development/ (added 2026-09-03)
 
 ---
 
@@ -231,7 +231,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Engineering-culture posts, technical-SEO/automation content (the overlay motif reads "scripts running").
 
-**Used on:** *(none yet)*
+**Used on:** /blog/what-are-backlinks.html; /blog/what-is-technical-seo.html (added 2026-09-03)
 
 ---
 
@@ -248,7 +248,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Team/about sections, "who builds this" content, India-advantage storytelling, dev-process blog posts.
 
-**Used on:** *(none yet)*
+**Used on:** /us/erp/ (added 2026-09-03)
 
 ---
 
@@ -265,7 +265,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Code-review/QA content, pair-working storytelling, collaboration sections.
 
-**Used on:** *(none yet)*
+**Used on:** /blog/erp-implementation-guide.html; /blog/what-is-web-development.html (added 2026-09-03)
 
 ---
 
@@ -282,7 +282,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Monthly-reporting sections (SEO service page), analytics/case-study content, agency-transparency storytelling.
 
-**Used on:** *(none yet)*
+**Used on:** /blog/erp-system-examples.html; /blog/seo-vs-sem.html; /blog/what-is-a-landing-page-conversion.html; /blog/what-is-an-seo-audit.html; /blog/what-is-hr-software.html; /blog/what-should-an-seo-report-include.html (added 2026-09-03)
 
 ---
 
@@ -299,7 +299,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Web-design/creative content, portfolio-process storytelling, "design is engineering too" posts.
 
-**Used on:** *(none yet)*
+**Used on:** /blog/custom-website-vs-template.html; /blog/how-to-design-a-website.html; /us/website-development/ (added 2026-09-03)
 
 ---
 
@@ -316,7 +316,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** "Dedicated engineer" trust sections (matches the core promise), team pages, support/contact blocks.
 
-**Used on:** *(none yet)*
+**Used on:** /blog/how-to-make-a-website-mobile-friendly.html; /blog/web-application-vs-website.html; /blog/what-is-cloud-erp.html; /us/ (added 2026-09-03)
 
 ---
 
@@ -333,7 +333,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Code-quality/mentorship content, how-we-work sections, engineering-culture storytelling.
 
-**Used on:** *(none yet)*
+**Used on:** /blog/what-is-technical-seo.html; /blog/what-is-web-development.html (added 2026-09-03)
 
 ---
 
@@ -350,7 +350,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Infrastructure/cloud/self-hosting content, futuristic section accents, AI-era operations posts.
 
-**Used on:** *(none yet)*
+**Used on:** /blog/what-is-cloud-erp.html (added 2026-09-03)
 
 ---
 
@@ -367,7 +367,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** MANUFACTURING ERP content (the planned vertical blog post), factory case studies, operations-automation sections.
 
-**Used on:** *(none yet)*
+**Used on:** /blog/erp-system-examples.html; /blog/manufacturing-erp-small-manufacturers.html; /us/erp/ (added 2026-09-03)
 
 ---
 
@@ -384,7 +384,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** International/GEO content, region pages, "serving five markets" storytelling.
 
-**Used on:** *(none yet)*
+**Used on:** /blog/international-seo-guide.html (added 2026-09-03)
 
 ---
 
@@ -401,7 +401,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Team/collaboration content, launch-night storytelling, agile-process posts.
 
-**Used on:** *(none yet)*
+**Used on:** /us/ (added 2026-09-03)
 
 ---
 
@@ -418,7 +418,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** AEO/GEO and future-of-search content, AI-vision blog headers, dark hero accents.
 
-**Used on:** *(none yet)*
+**Used on:** /blog/is-seo-dead.html; /blog/what-is-a-content-strategy.html (added 2026-09-03)
 
 ---
 
@@ -435,7 +435,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** HEALTHCARE vertical content (if we target healthcare ERP/software), industry-solutions sections.
 
-**Used on:** *(none yet)*
+**Used on:** /blog/erp-system-examples.html; /us/erp/; /us/seo-services/ (added 2026-09-03)
 
 ---
 
@@ -452,7 +452,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** About/company establishing imagery, enterprise-scale storytelling, footer/CTA backgrounds (darkened).
 
-**Used on:** *(none yet)*
+**Used on:** /blog/international-seo-guide.html (added 2026-09-03)
 
 ---
 
@@ -469,7 +469,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Manufacturing/electronics ERP content, factory-automation posts, industry pages.
 
-**Used on:** *(none yet)*
+**Used on:** /blog/manufacturing-erp-small-manufacturers.html; /us/erp/ (added 2026-09-03)
 
 ---
 
@@ -486,7 +486,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Consulting/discovery-call content, onboarding-process sections, B2B services storytelling.
 
-**Used on:** *(none yet)*
+**Used on:** /blog/what-is-crm-software.html; /blog/erp-vs-crm.html; /blog/how-to-choose-a-web-development-company.html; /us/erp/ (added 2026-09-03)
 
 ---
 
@@ -503,7 +503,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Systems-integration/ERP content, automation storytelling, hero accents on AI posts.
 
-**Used on:** *(none yet)*
+**Used on:** /blog/web-application-vs-website.html; /us/website-development/ (added 2026-09-03)
 
 ---
 
@@ -567,7 +567,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Small supporting imagery in approval/review contexts. Source unknown, so keep usage modest.
 
-**Used on:** *(none yet)*
+**Used on:** /blog/title-tags-and-meta-descriptions.html; /blog/what-is-a-content-strategy.html (added 2026-09-03)
 
 ---
 
@@ -584,7 +584,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Contact/support sections, "talk to us" blocks, FAQ page accents.
 
-**Used on:** *(none yet)*
+**Used on:** /blog/what-is-crm-software.html; /blog/how-to-get-a-business-website.html; /us/seo-services/ (added 2026-09-03)
 
 ---
 
@@ -612,7 +612,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** ERP needs-analysis / discovery-process sections, "how we scope your build" content, or a hero behind headline text. Strongest process-story image in the library.
 
-**Used on:** homepage (/) promise section; blog/what-is-erp-software-plain-english.html lead image
+**Used on:** homepage (/) promise section; blog/what-is-erp-software-plain-english.html lead image; /blog/erp-implementation-guide.html; /blog/how-to-build-an-seo-strategy.html; /blog/how-to-choose-erp-software.html; /blog/how-to-design-a-website.html; /blog/what-is-erp-software-plain-english.html; /us/erp/ (added 2026-09-03)
 
 ---
 
@@ -629,7 +629,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Website-development / engineering-capability sections; pairs naturally with the smaller male/female-developer duo already in the library, but this one is high-res enough for big placements.
 
-**Used on:** /ca/website-development/ — "Real Engineers, Really Building" section
+**Used on:** /ca/website-development/ — "Real Engineers, Really Building" section; /blog/custom-website-vs-template.html; /blog/how-to-make-a-website-mobile-friendly.html; /blog/seo-content-writing.html (added 2026-09-03)
 
 ---
 
@@ -646,7 +646,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Leadership/decision-maker facing sections, "for business owners" framings, or an about/vision block. Distinct mood from everything else in the library — use where a premium editorial feel is wanted.
 
-**Used on:** *(none yet)*
+**Used on:** /blog/how-much-does-a-website-cost.html; /us/website-development/ (added 2026-09-03)
 
 ---
 
@@ -663,7 +663,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** "How we work with you" / review-and-approval process sections, proposal/planning content, team-collaboration blocks.
 
-**Used on:** /ca/seo-services/ — audit promise section (upgraded from the low-res team-huddle shot)
+**Used on:** /ca/seo-services/ — audit promise section (upgraded from the low-res team-huddle shot); /blog/what-is-an-seo-audit.html; /blog/what-is-hr-software.html (added 2026-09-03)
 
 ---
 
@@ -680,7 +680,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Possibly a blog post about mobile-first behavior/communication, or any rare casual-audience framing. Check the rest of the library first.
 
-**Used on:** *(none yet)*
+**Used on:** /blog/how-to-make-a-website-mobile-friendly.html (added 2026-09-03)
 
 ---
 
@@ -727,7 +727,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** "Who we serve" / small-business-owner-facing sections, or a Toronto/city-page supporting image alongside the street-scene photo above.
 
-**Used on:** /ca/toronto/ — "From Solo Owners to Growing GTA Teams" section
+**Used on:** /ca/toronto/ — "From Solo Owners to Growing GTA Teams" section; /blog/how-to-get-a-business-website.html (added 2026-09-03)
 
 ---
 
@@ -761,7 +761,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** "Needs analysis" / discovery-call / consultation moments on service pages (ERP needs-analysis step, SEO audit kickoff, etc.).
 
-**Used on:** *(none yet)*
+**Used on:** /blog/how-to-choose-a-web-development-company.html; /blog/how-to-choose-erp-software.html (added 2026-09-03)
 
 ---
 
@@ -804,7 +804,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Website-development-page "design" step (mirrors the ERP page's "Design" process step), or any "how we plan" section -- and it's face-free, so it's safe to use without needing model diversity/representation consideration.
 
-**Used on:** `/ca/website-development/` -- promise section ("You See the Design Before a Line of Code Gets Written"); blog/website-design-vs-development.html lead image
+**Used on:** `/ca/website-development/` -- promise section ("You See the Design Before a Line of Code Gets Written"); blog/website-design-vs-development.html lead image; /blog/custom-website-vs-template.html; /blog/how-much-does-a-website-cost.html; /blog/how-to-design-a-website.html; /blog/how-to-get-a-business-website.html; /blog/seo-content-writing.html; /blog/what-is-a-content-strategy.html (added 2026-09-03)
 
 ---
 
@@ -821,7 +821,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** SEO page's "monthly reporting" section, or ERP's "data before code" section as an alternate to the mentor-and-monitor photo already used there.
 
-**Used on:** /ca/seo-services/ — "Reporting You Can Actually Read" section; blog/what-is-a-content-audit.html lead image
+**Used on:** /ca/seo-services/ — "Reporting You Can Actually Read" section; blog/what-is-a-content-audit.html lead image; /blog/how-to-build-an-seo-strategy.html; /blog/keyword-research-guide.html; /blog/on-page-vs-off-page-seo.html; /blog/title-tags-and-meta-descriptions.html; /blog/what-is-a-landing-page-conversion.html; /blog/what-is-seo.html; /blog/what-should-an-seo-report-include.html (added 2026-09-03)
 
 ---
 
@@ -855,7 +855,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** "Meet the team" / engineering-culture sections, anywhere you want to show real developers writing real code rather than a generic handshake photo. Pairs naturally with `female-developer-dual-monitors-colorful-office.jpg` (same shoot, reverse angle) for a two-image team spread.
 
-**Used on:** *(none yet)*
+**Used on:** /blog/what-is-web-development.html (added 2026-09-03)
 
 ---
 
@@ -887,7 +887,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Leadership/founder-style sections, "about us," team/culture pages, anywhere the story is "one person leading, a team behind them." High resolution, portrait-oriented -- works well as a large hero-side or split-section image.
 
-**Used on:** `/ca/` &mdash; promise section ("Enterprise ERP, Engineered Around Your Business"), replacing the generic `erp_hero.webp` stock image.
+**Used on:** `/ca/` &mdash; promise section ("Enterprise ERP, Engineered Around Your Business"), replacing the generic `erp_hero.webp` stock image.; /blog/what-is-erp-software-plain-english.html (added 2026-09-03)
 
 ---
 
@@ -904,7 +904,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** "How we work" / process / collaboration sections, small supporting imagery rather than a hero.
 
-**Used on:** *(none currently — replaced on /ca/seo-services/ by the higher-res team-standing-document-review shot, 2026-09-02)*
+**Used on:** /blog/on-page-vs-off-page-seo.html (added 2026-09-03)
 
 ---
 
@@ -919,4 +919,4 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Exactly the "walking a client through their audit/data findings" moment -- strong fit for ERP/technical-review/results-focused sections given TechAuditPros' actual work. High resolution, works large.
 
-**Used on:** `/ca/erp/` &mdash; new promise section ("We Sit Down With Your Data Before We Write a Line of Code"), bridging the advantages grid into the 5-step process.
+**Used on:** `/ca/erp/` &mdash; new promise section ("We Sit Down With Your Data Before We Write a Line of Code"), bridging the advantages grid into the 5-step process.; /blog/manufacturing-erp-small-manufacturers.html; /blog/what-is-erp-software-plain-english.html (added 2026-09-03)

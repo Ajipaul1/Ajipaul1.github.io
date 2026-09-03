@@ -30,9 +30,9 @@ if (!waveJs) throw new Error('wave script not found');
 
 // ---------- post inventory ----------
 const IMG = {
-    seo: ['team-standing-document-review-bright-room.jpg','team-flatlay-reviewing-business-report-charts.jpg','team-huddle-reviewing-screen-daylight.jpg','two-women-reviewing-document-bright-office.png'],
-    erp: ['whiteboard-process-mapping-two-colleagues.jpg','mentor-explaining-data-on-monitor-warm-office.jpg','confident-leader-office-team-background.webp','client-consultation-meeting-clipboard.jpg'],
-    web: ['female-developer-red-hair-dual-monitors-code.jpg','male-developer-dual-monitors-colorful-office.jpg','team-flatlay-reviewing-wireframe-sketch.jpg','female-developer-dual-monitors-colorful-office.jpg','empty-modern-tech-office-open-plan.jpg'],
+    seo: ['team-standing-document-review-bright-room.jpg','istock-1128252197-analyst-data-wall-pencil-thinking.jpg','team-flatlay-reviewing-business-report-charts.jpg','istock-2148073937-ai-wireframe-head-particles.jpg','team-huddle-reviewing-screen-daylight.jpg','istock-1954420507-stylus-tablet-charts-city-dusk.jpg','two-women-reviewing-document-bright-office.png','istock-2231952003-presenting-dashboard-wood-meeting-room.jpg'],
+    erp: ['whiteboard-process-mapping-two-colleagues.jpg','istock-2155877725-factory-engineers-hardhats-tablet.jpg','mentor-explaining-data-on-monitor-warm-office.jpg','istock-1313265074-boardroom-team-through-glass-dark.jpg','confident-leader-office-team-background.webp','istock-2072805054-woman-tablet-neon-corridor.jpg','client-consultation-meeting-clipboard.jpg','istock-2189585598-electronics-factory-engineers-laptop.jpg'],
+    web: ['female-developer-red-hair-dual-monitors-code.jpg','istock-2150307337-creative-studio-neon-review.jpg','male-developer-dual-monitors-colorful-office.jpg','istock-2228764569-developer-night-debugging-monitors.jpg','team-flatlay-reviewing-wireframe-sketch.jpg','istock-2215674808-senior-guiding-junior-code-night.jpg','female-developer-dual-monitors-colorful-office.jpg','istock-1321462048-woman-holographic-ui-network.jpg','empty-modern-tech-office-open-plan.jpg'],
     out: ['team-casual-standup-meeting-lounge.webp','executive-woman-tablet-grand-hall.jpg','support-agent-headset-smiling-laptop.jpg','small-business-owner-laptop-sidewalk-cafe.jpg'],
 };
 const imgCounters = { seo: 0, erp: 0, web: 0, out: 0 };
@@ -40,6 +40,37 @@ function nextImg(cat) { const pool = IMG[cat]; const f = pool[imgCounters[cat] %
 const CAT = { seo: 'SEO & AI Search', erp: 'ERP & Software', web: 'Web Development', out: 'Outsourcing & Agencies' };
 const posts = [
     // url, cat, dateISO, title-override(optional)
+    ['/blog/what-is-seo.html', 'seo', '2026-09-03'],
+    ['/blog/how-much-does-a-website-cost.html', 'web', '2026-09-03'],
+    ['/blog/what-is-cloud-erp.html', 'erp', '2026-09-03'],
+    ['/blog/what-is-a-content-strategy.html', 'seo', '2026-09-03'],
+    ['/blog/how-to-make-a-website-mobile-friendly.html', 'web', '2026-09-03'],
+    ['/blog/erp-implementation-guide.html', 'erp', '2026-09-03'],
+    ['/blog/what-is-technical-seo.html', 'seo', '2026-09-03'],
+    ['/blog/custom-website-vs-template.html', 'web', '2026-09-03'],
+    ['/blog/manufacturing-erp-small-manufacturers.html', 'erp', '2026-09-03'],
+    ['/blog/what-is-an-seo-audit.html', 'seo', '2026-09-03'],
+    ['/blog/what-is-web-development.html', 'web', '2026-09-03'],
+    ['/blog/erp-system-examples.html', 'erp', '2026-09-03'],
+    ['/blog/on-page-vs-off-page-seo.html', 'seo', '2026-09-03'],
+    ['/blog/how-to-choose-a-web-development-company.html', 'web', '2026-09-03'],
+    ['/blog/erp-vs-crm.html', 'erp', '2026-09-03'],
+    ['/blog/what-are-backlinks.html', 'seo', '2026-09-03'],
+    ['/blog/web-application-vs-website.html', 'web', '2026-09-03'],
+    ['/blog/what-is-crm-software.html', 'erp', '2026-09-03'],
+    ['/blog/keyword-research-guide.html', 'seo', '2026-09-03'],
+    ['/blog/how-to-get-a-business-website.html', 'web', '2026-09-03'],
+    ['/blog/how-to-choose-erp-software.html', 'erp', '2026-09-03'],
+    ['/blog/seo-content-writing.html', 'seo', '2026-09-03'],
+    ['/blog/what-is-a-landing-page-conversion.html', 'web', '2026-09-03'],
+    ['/blog/what-is-hr-software.html', 'erp', '2026-09-03'],
+    ['/blog/title-tags-and-meta-descriptions.html', 'seo', '2026-09-03'],
+    ['/blog/how-to-design-a-website.html', 'web', '2026-09-03'],
+    ['/blog/international-seo-guide.html', 'seo', '2026-09-03'],
+    ['/blog/seo-vs-sem.html', 'seo', '2026-09-03'],
+    ['/blog/is-seo-dead.html', 'seo', '2026-09-03'],
+    ['/blog/how-to-build-an-seo-strategy.html', 'seo', '2026-09-03'],
+    ['/blog/what-should-an-seo-report-include.html', 'seo', '2026-09-03'],
     ['/blog/what-is-a-content-audit.html', 'seo', '2026-09-02'],
     ['/blog/website-design-vs-development.html', 'web', '2026-09-02'],
     ['/blog/what-is-erp-software-plain-english.html', 'erp', '2026-09-02'],
@@ -94,8 +125,15 @@ const enriched = posts.map(([url, cat, date]) => {
     if (desc.length > 165) desc = desc.slice(0, desc.lastIndexOf(' ', 162)) + '…';
     const words = (s.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<style[\s\S]*?<\/style>/g, '').replace(/<[^>]+>/g, ' ').match(/\S+/g) || []).length;
     const mins = Math.max(2, Math.round(words / 230));
-    return { url, cat, date, title, desc, mins };
+    // sub-topic = the post's eyebrow label (modern posts); falls back to the category name
+    const heroBlock = (s.match(/<section class="article-hero">[\s\S]*?<\/section>/) || [''])[0];
+    const sub = ((heroBlock.match(/<p class="eyebrow">([^<]*)<\/p>/) || [])[1] || CAT[cat]).replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
+    // lead image = the post's first article figure (modern posts); falls back to the category pool
+    const lead = (s.match(/<figure class="article-figure"><img src="\/assets\/images\/library\/([^"]+)"/) || [])[1] || null;
+    return { url, cat, date, title, desc, mins, sub, lead };
 });
+enriched.sort((a, b) => b.date.localeCompare(a.date)); // newest first; stable for same-day posts
+const subCounts = {}; for (const p of enriched) subCounts[p.sub] = (subCounts[p.sub] || 0) + 1;
 
 // ---------- blog-specific CSS ----------
 const blogCss = `
@@ -181,6 +219,17 @@ const blogCss = `
   .post-card .post-meta{ font-family:var(--font-mono); font-size:0.74rem; color:var(--ink-faint); display:flex; gap:10px; padding-top:12px; border-top:1px solid var(--line); }
   .post-card.hidden{ display:none; }
   .bloghub-count{ font-family:var(--font-mono); font-size:0.78rem; color:var(--ink-faint); margin-top:8px; }
+  .bloghub-toolbar{ display:flex; flex-wrap:wrap; gap:14px 18px; align-items:center; margin-top:8px; }
+  .bloghub-search{ display:flex; align-items:center; gap:8px; background:var(--paper); border:1px solid var(--line); border-radius:10px; padding:9px 14px; min-width:260px; flex:0 1 320px; }
+  .bloghub-search:focus-within{ border-color:var(--orange); box-shadow:0 0 0 3px var(--orange-tint); }
+  .bloghub-search input{ border:none; outline:none; background:transparent; font-family:var(--font-sans); font-size:0.92rem; color:var(--ink); width:100%; }
+  .bloghub-subchips{ display:flex; flex-wrap:wrap; gap:8px; flex:1 1 420px; }
+  .sub-chip{ font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.03em; cursor:pointer; padding:7px 12px; border-radius:999px; border:1px solid var(--line); background:var(--paper); color:var(--ink-soft); transition:all .15s ease; }
+  .sub-chip .n{ color:var(--ink-faint); margin-left:6px; }
+  .sub-chip:hover{ border-color:var(--orange); color:var(--orange-dark); }
+  .sub-chip.active{ background:var(--navy-deep); border-color:var(--navy-deep); color:#fff; }
+  .sub-chip.active .n{ color:rgba(255,255,255,0.6); }
+  .bloghub-empty{ font-size:0.95rem; color:var(--ink-soft); padding:32px 0; }
 
   @media (min-width:1440px){
     .blog-hero .container, .bloghub-featured .container, .bloghub-start .container, .bloghub-grid-section .container{ max-width:1480px; }
@@ -220,6 +269,7 @@ const schema = `<script type="application/ld+json">
   },
   "mainEntity": {
     "@type": "ItemList",
+    "numberOfItems": ${enriched.length},
     "itemListElement": [
 ${itemList}
     ]
@@ -232,8 +282,10 @@ const orgSchema = slice(idx, '<script type="application/ld+json">', '</script>',
 const favicons = slice(idx, '<!-- Favicons -->', '<style>', false);
 
 // ---------- content sections ----------
-const featured = enriched[0]; // content audit
-const rest = enriched.slice(1);
+const FEATURED_URL = '/blog/what-is-seo.html'; // highest-demand cluster in the US research (40,500/mo)
+const featured = enriched.find(p => p.url === FEATURED_URL) || enriched[0];
+const rest = enriched.filter(p => p !== featured);
+const featuredImg = featured.lead ? '/assets/images/library/' + featured.lead : '/assets/images/library/team-standing-document-review-bright-room.jpg';
 const featuredHtml = `
 <section class="bloghub-featured">
     <div class="container">
@@ -246,7 +298,7 @@ const featuredHtml = `
                 <div class="featured-cta">Read the guide &rarr;</div>
             </div>
             <div class="featured-media">
-                <img src="/assets/images/library/team-standing-document-review-bright-room.jpg" alt="Team reviewing audit findings together around a table" width="2400" height="1601" loading="eager" />
+                <img src="${featuredImg}" alt="${esc(featured.title).replace(/"/g, '&quot;')}" loading="eager" />
             </div>
         </a>
     </div>
@@ -272,20 +324,20 @@ const startHtml = `
                 <p>Two disciplines, priced differently &mdash; and how to buy both without a three-vendor headache.</p>
                 <span class="start-link">Read &rarr; &nbsp;or see our <u>web service</u></span>
             </a>
-            <a class="start-card" href="/blog/generative-engine-optimization-geo/">
+            <a class="start-card" href="/blog/what-is-seo.html">
                 <span class="start-tag">SEO &amp; AI Search</span>
-                <h3>Generative Engine Optimization (GEO), Explained</h3>
-                <p>How content gets cited by ChatGPT, Perplexity and AI Overviews &mdash; the search channel growing fastest.</p>
+                <h3>What Is SEO and How Does It Work?</h3>
+                <p>How Google and AI engines find, understand and recommend a site &mdash; the three types of SEO, what it costs, how long it takes.</p>
                 <span class="start-link">Read &rarr; &nbsp;or see our <u>SEO service</u></span>
             </a>
         </div>
     </div>
 </section>`;
 
-const cards = rest.map(p => `            <a class="post-card" data-cat="${p.cat}" href="${p.url}">
-                <div class="post-media"><img src="${nextImg(p.cat)}" alt="${esc(p.title).replace(/"/g, '&quot;')}" loading="lazy" /></div>
+const cards = rest.map(p => `            <a class="post-card" data-cat="${p.cat}" data-sub="${esc(p.sub).replace(/"/g, '&quot;')}" data-date="${p.date}" href="${p.url}">
+                <div class="post-media"><img src="${p.lead ? '/assets/images/library/' + p.lead : nextImg(p.cat)}" alt="${esc(p.title).replace(/"/g, '&quot;')}" loading="lazy" /></div>
                 <div class="post-card-body">
-                    <span class="post-tag">${CAT[p.cat]}</span>
+                    <span class="post-tag">${esc(p.sub)}</span>
                     <h3>${esc(p.title)}</h3>
                     <p>${esc(p.desc)}</p>
                     <span class="post-meta"><span>${pretty(p.date)}</span><span>&bull;</span><span>${p.mins} min read</span></span>
@@ -299,6 +351,10 @@ const gridHtml = `
             <p class="eyebrow">All Guides</p>
             <h2>Every playbook, newest first.</h2>
             <p class="bloghub-count" id="postCount">${rest.length + 1} guides</p>
+        </div>
+        <div class="bloghub-toolbar">
+            <label class="bloghub-search" for="postSearch"><span aria-hidden="true">&#x1F50D;</span><input type="search" id="postSearch" placeholder="Search ${rest.length + 1} guides&hellip;" autocomplete="off" /></label>
+            <div class="bloghub-subchips" id="subChips" aria-label="Filter by topic"></div>
         </div>
         <div class="bloghub-grid" id="postGrid">
 ${cards}
@@ -324,7 +380,7 @@ const heroHtml = `
         </div>
         <div class="hero-stats-row">
             <div class="hero-stat"><span class="num">${enriched.length}</span><span class="lbl">In-depth guides</span></div>
-            <div class="hero-stat"><span class="num">4</span><span class="lbl">Topic clusters</span></div>
+            <div class="hero-stat"><span class="num">${Object.keys(subCounts).length}</span><span class="lbl">Topics</span></div>
             <div class="hero-stat"><span class="num">0</span><span class="lbl">Fluff articles</span></div>
         </div>
     </div>
@@ -350,12 +406,42 @@ const filterJs = `<script>
     var count = document.getElementById('postCount');
     var pager = document.getElementById('pager');
     var gridTop = document.getElementById('all-posts');
-    var state = { cat: 'all', page: 1 };
+    var state = { cat: 'all', sub: 'all', q: '', page: 1 };
+    var search = document.getElementById('postSearch');
+    var chips = document.getElementById('subChips');
+    var textOf = {};
+    cards.forEach(function(c){ textOf[c.href] = (c.textContent || '').toLowerCase(); });
+
+    function renderChips(){
+        if (!chips) return;
+        var inCat = cards.filter(function(c){ return state.cat === 'all' || c.getAttribute('data-cat') === state.cat; });
+        var counts = {}; inCat.forEach(function(c){ var k = c.getAttribute('data-sub'); counts[k] = (counts[k] || 0) + 1; });
+        var subs = Object.keys(counts).sort(function(a, b){ return counts[b] - counts[a] || a.localeCompare(b); });
+        chips.innerHTML = '';
+        if (subs.length < 2) return;
+        var mk = function(label, key, n){
+            var b = document.createElement('button');
+            b.className = 'sub-chip' + (state.sub === key ? ' active' : '');
+            b.innerHTML = label + (n ? '<span class="n">' + n + '</span>' : '');
+            b.addEventListener('click', function(){ state.sub = key; state.page = 1; apply(false); });
+            chips.appendChild(b);
+        };
+        mk('All topics', 'all', inCat.length);
+        subs.forEach(function(k){ mk(k, k, counts[k]); });
+    }
 
     function apply(scroll){
+        var q = state.q.trim().toLowerCase();
         var filtered = cards.filter(function(c){
-            return state.cat === 'all' || c.getAttribute('data-cat') === state.cat;
+            if (state.cat !== 'all' && c.getAttribute('data-cat') !== state.cat) return false;
+            if (state.sub !== 'all' && c.getAttribute('data-sub') !== state.sub) return false;
+            if (q && textOf[c.href].indexOf(q) === -1) return false;
+            return true;
         });
+        renderChips();
+        var empty = document.getElementById('postEmpty');
+        if (!empty && gridTop) { empty = document.createElement('p'); empty.id = 'postEmpty'; empty.className = 'bloghub-empty'; empty.hidden = true; empty.textContent = 'No guides match that search yet. Try a broader term, or ask us on a strategy call.'; pager.parentNode.insertBefore(empty, pager); }
+        if (empty) empty.hidden = filtered.length !== 0;
         var pages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
         if (state.page > pages) state.page = pages;
         var from = (state.page - 1) * PAGE_SIZE, to = from + PAGE_SIZE;
@@ -387,10 +473,15 @@ const filterJs = `<script>
             pills.forEach(function(p){ p.classList.remove('active'); });
             pill.classList.add('active');
             state.cat = pill.getAttribute('data-filter');
+            state.sub = 'all';
             state.page = 1;
-            apply(false);
+            apply(true);
         });
     });
+    if (search) {
+        var t;
+        search.addEventListener('input', function(){ clearTimeout(t); t = setTimeout(function(){ state.q = search.value; state.page = 1; apply(false); }, 120); });
+    }
 
     // scroll-reveal: classes applied by JS only, so no-JS visitors see everything
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;

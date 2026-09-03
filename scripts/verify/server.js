@@ -1,0 +1,4 @@
+const http=require('http'),fs=require('fs'),path=require('path');
+const ROOT='C:/Users/marke/OneDrive/Documents/GitHub/Ajipaul1.github.io';
+const mime={'.html':'text/html; charset=utf-8','.css':'text/css','.js':'application/javascript','.webp':'image/webp','.jpg':'image/jpeg','.jpeg':'image/jpeg','.png':'image/png','.svg':'image/svg+xml','.json':'application/json','.ico':'image/x-icon','.avif':'image/avif','.mp4':'video/mp4','.xml':'application/xml','.txt':'text/plain'};
+http.createServer((req,res)=>{ let p=decodeURIComponent(req.url.split('?')[0]); if(p.endsWith('/')) p+='index.html'; const full=path.join(ROOT,p); fs.readFile(full,(err,data)=>{ if(err){res.writeHead(404);res.end('404');return;} res.writeHead(200,{'Content-Type':mime[path.extname(full).toLowerCase()]||'application/octet-stream'}); res.end(data); }); }).listen(8934,'127.0.0.1',()=>console.log('serving on 8934'));

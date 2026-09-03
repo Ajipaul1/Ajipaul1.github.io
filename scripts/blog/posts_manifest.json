@@ -1,0 +1,250 @@
+{
+  "/blog/what-is-cloud-erp.html": {
+    "url": "/blog/what-is-cloud-erp.html",
+    "cat": "erp",
+    "date": "2026-09-03",
+    "words": 1684,
+    "mins": 7,
+    "title": "What Is Cloud ERP? Cloud vs. On-Premise vs. Hybrid, Explained | TechAuditPros"
+  },
+  "/blog/erp-implementation-guide.html": {
+    "url": "/blog/erp-implementation-guide.html",
+    "cat": "erp",
+    "date": "2026-09-03",
+    "words": 1433,
+    "mins": 6,
+    "title": "ERP Implementation: Steps, Timeline, Cost and Why Projects Fail | TechAuditPros"
+  },
+  "/blog/manufacturing-erp-small-manufacturers.html": {
+    "url": "/blog/manufacturing-erp-small-manufacturers.html",
+    "cat": "erp",
+    "date": "2026-09-03",
+    "words": 1442,
+    "mins": 6,
+    "title": "Manufacturing ERP: What Small Manufacturers Actually Need (and What They Don’t) | TechAuditPros"
+  },
+  "/blog/erp-system-examples.html": {
+    "url": "/blog/erp-system-examples.html",
+    "cat": "erp",
+    "date": "2026-09-03",
+    "words": 1639,
+    "mins": 7,
+    "title": "ERP System Examples: What ERP Looks Like in 8 Types of Business | TechAuditPros"
+  },
+  "/blog/erp-vs-crm.html": {
+    "url": "/blog/erp-vs-crm.html",
+    "cat": "erp",
+    "date": "2026-09-03",
+    "words": 1474,
+    "mins": 6,
+    "title": "ERP vs. CRM: What’s the Difference, and Do You Need Both? | TechAuditPros"
+  },
+  "/blog/what-is-hr-software.html": {
+    "url": "/blog/what-is-hr-software.html",
+    "cat": "erp",
+    "date": "2026-09-03",
+    "words": 1233,
+    "mins": 5,
+    "title": "What Is HR Software? HRIS vs. HRMS vs. the HR Module in Your ERP | TechAuditPros"
+  },
+  "/blog/how-to-choose-erp-software.html": {
+    "url": "/blog/how-to-choose-erp-software.html",
+    "cat": "erp",
+    "date": "2026-09-03",
+    "words": 1525,
+    "mins": 7,
+    "title": "How to Choose ERP Software: A Buyer’s Guide for Small and Mid-Size Businesses | TechAuditPros"
+  },
+  "/blog/what-is-seo.html": {
+    "url": "/blog/what-is-seo.html",
+    "cat": "seo",
+    "date": "2026-09-03",
+    "words": 1685,
+    "mins": 7,
+    "title": "What Is SEO and How Does It Work? A Plain-English Guide for Business Owners | TechAuditPros"
+  },
+  "/blog/what-is-a-content-strategy.html": {
+    "url": "/blog/what-is-a-content-strategy.html",
+    "cat": "seo",
+    "date": "2026-09-03",
+    "words": 1350,
+    "mins": 6,
+    "title": "What Is a Content Strategy? Definition, Framework and a One-Page Template | TechAuditPros"
+  },
+  "/blog/what-is-technical-seo.html": {
+    "url": "/blog/what-is-technical-seo.html",
+    "cat": "seo",
+    "date": "2026-09-03",
+    "words": 1517,
+    "mins": 7,
+    "title": "What Is Technical SEO? The Checklist That Actually Moves Rankings | TechAuditPros"
+  },
+  "/blog/what-is-an-seo-audit.html": {
+    "url": "/blog/what-is-an-seo-audit.html",
+    "cat": "seo",
+    "date": "2026-09-03",
+    "words": 1376,
+    "mins": 6,
+    "title": "What Is an SEO Audit? What It Covers, What It Costs and What to Do With It | TechAuditPros"
+  },
+  "/blog/on-page-vs-off-page-seo.html": {
+    "url": "/blog/on-page-vs-off-page-seo.html",
+    "cat": "seo",
+    "date": "2026-09-03",
+    "words": 1307,
+    "mins": 6,
+    "title": "On-Page SEO vs. Off-Page SEO: What Each Covers and Which Matters More | TechAuditPros"
+  },
+  "/blog/what-are-backlinks.html": {
+    "url": "/blog/what-are-backlinks.html",
+    "cat": "seo",
+    "date": "2026-09-03",
+    "words": 1184,
+    "mins": 5,
+    "title": "What Are Backlinks? How They Work and How to Earn Them Without Getting Penalized | TechAuditPros"
+  },
+  "/blog/keyword-research-guide.html": {
+    "url": "/blog/keyword-research-guide.html",
+    "cat": "seo",
+    "date": "2026-09-03",
+    "words": 1390,
+    "mins": 6,
+    "title": "How to Do Keyword Research: Choosing SEO Keywords That Bring Customers | TechAuditPros"
+  },
+  "/blog/seo-content-writing.html": {
+    "url": "/blog/seo-content-writing.html",
+    "cat": "seo",
+    "date": "2026-09-03",
+    "words": 1400,
+    "mins": 6,
+    "title": "SEO Content Writing: How to Write Content That Ranks and Gets Cited by AI | TechAuditPros"
+  },
+  "/blog/title-tags-and-meta-descriptions.html": {
+    "url": "/blog/title-tags-and-meta-descriptions.html",
+    "cat": "seo",
+    "date": "2026-09-03",
+    "words": 1569,
+    "mins": 7,
+    "title": "Title Tags and Meta Descriptions: What They Are and How to Write Them | TechAuditPros"
+  },
+  "/blog/international-seo-guide.html": {
+    "url": "/blog/international-seo-guide.html",
+    "cat": "seo",
+    "date": "2026-09-03",
+    "words": 1528,
+    "mins": 7,
+    "title": "International SEO: How to Rank in Multiple Countries Without Duplicate Content | TechAuditPros"
+  },
+  "/blog/seo-vs-sem.html": {
+    "url": "/blog/seo-vs-sem.html",
+    "cat": "seo",
+    "date": "2026-09-03",
+    "words": 1245,
+    "mins": 5,
+    "title": "SEO vs. SEM: What’s the Difference, and Which Should You Pay For? | TechAuditPros"
+  },
+  "/blog/is-seo-dead.html": {
+    "url": "/blog/is-seo-dead.html",
+    "cat": "seo",
+    "date": "2026-09-03",
+    "words": 1292,
+    "mins": 6,
+    "title": "Is SEO Dead? What AI Search Actually Changed (and What Still Works) | TechAuditPros"
+  },
+  "/blog/how-to-build-an-seo-strategy.html": {
+    "url": "/blog/how-to-build-an-seo-strategy.html",
+    "cat": "seo",
+    "date": "2026-09-03",
+    "words": 1437,
+    "mins": 6,
+    "title": "How to Build an SEO Strategy: A Step-by-Step Plan for 2026 | TechAuditPros"
+  },
+  "/blog/what-should-an-seo-report-include.html": {
+    "url": "/blog/what-should-an-seo-report-include.html",
+    "cat": "seo",
+    "date": "2026-09-03",
+    "words": 1302,
+    "mins": 6,
+    "title": "What Should an SEO Report Include? A Plain-English Guide to Reading Yours | TechAuditPros"
+  },
+  "/blog/how-to-make-a-website-mobile-friendly.html": {
+    "url": "/blog/how-to-make-a-website-mobile-friendly.html",
+    "cat": "web",
+    "date": "2026-09-03",
+    "words": 1575,
+    "mins": 7,
+    "title": "How to Make a Website Mobile-Friendly: 14 Fixes That Actually Matter | TechAuditPros"
+  },
+  "/blog/how-much-does-a-website-cost.html": {
+    "url": "/blog/how-much-does-a-website-cost.html",
+    "cat": "web",
+    "date": "2026-09-03",
+    "words": 1437,
+    "mins": 6,
+    "title": "How Much Does a Website Cost in 2026? Real Numbers for US Businesses | TechAuditPros"
+  },
+  "/blog/what-is-web-development.html": {
+    "url": "/blog/what-is-web-development.html",
+    "cat": "web",
+    "date": "2026-09-03",
+    "words": 1412,
+    "mins": 6,
+    "title": "What Is Web Development? Front-End, Back-End and Full-Stack Explained for Business Owners | TechAuditPros"
+  },
+  "/blog/custom-website-vs-template.html": {
+    "url": "/blog/custom-website-vs-template.html",
+    "cat": "web",
+    "date": "2026-09-03",
+    "words": 1341,
+    "mins": 6,
+    "title": "Custom Website vs. Template vs. Website Builder: Which Should Your Business Use? | TechAuditPros"
+  },
+  "/blog/web-application-vs-website.html": {
+    "url": "/blog/web-application-vs-website.html",
+    "cat": "web",
+    "date": "2026-09-03",
+    "words": 1366,
+    "mins": 6,
+    "title": "Web Application vs. Website: What’s the Difference, and Which Do You Need? | TechAuditPros"
+  },
+  "/blog/how-to-get-a-business-website.html": {
+    "url": "/blog/how-to-get-a-business-website.html",
+    "cat": "web",
+    "date": "2026-09-03",
+    "words": 1472,
+    "mins": 6,
+    "title": "How to Get a Website for Your Business: DIY, Freelancer or Agency? | TechAuditPros"
+  },
+  "/blog/how-to-choose-a-web-development-company.html": {
+    "url": "/blog/how-to-choose-a-web-development-company.html",
+    "cat": "web",
+    "date": "2026-09-03",
+    "words": 1476,
+    "mins": 6,
+    "title": "How to Choose a Web Development Company: 15 Questions to Ask Before You Sign | TechAuditPros"
+  },
+  "/blog/what-is-a-landing-page-conversion.html": {
+    "url": "/blog/what-is-a-landing-page-conversion.html",
+    "cat": "web",
+    "date": "2026-09-03",
+    "words": 1393,
+    "mins": 6,
+    "title": "What Is a Landing Page Conversion? Rates, Benchmarks and How to Improve Yours | TechAuditPros"
+  },
+  "/blog/how-to-design-a-website.html": {
+    "url": "/blog/how-to-design-a-website.html",
+    "cat": "web",
+    "date": "2026-09-03",
+    "words": 1481,
+    "mins": 6,
+    "title": "How to Design a Website: The Process Professionals Actually Follow | TechAuditPros"
+  },
+  "/blog/what-is-crm-software.html": {
+    "url": "/blog/what-is-crm-software.html",
+    "cat": "erp",
+    "date": "2026-09-03",
+    "words": 1344,
+    "mins": 6,
+    "title": "What Is CRM Software? A Plain-English Guide for Small Businesses | TechAuditPros"
+  }
+}

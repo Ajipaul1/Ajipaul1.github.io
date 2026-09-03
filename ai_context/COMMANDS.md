@@ -105,3 +105,25 @@ Owner supplies per-country SEMrush exports → analyze (volumes, question split,
 ## Blog hub maintenance
 
 New post published? Add one line to the `posts` array in `scripts/build_bloghub.js`, run `node scripts/build_bloghub.js`, verify, commit. Never hand-edit blog/index.html (generated file).
+
+
+## Generators (standard since 2026-09-03)
+
+Everything new is produced by scripts under `scripts/` so pages stay consistent and nothing is hand-cloned. Run from the repo root with Node 24 (installed on this machine).
+
+**New blog post:** write a content definition (see any `scripts/blog/posts_*.js` — slug, title, desc, eyebrow = sub-topic shown on the hub, cat seo|erp|web|out, lead image, 3 takeaways, answer-first intro, sections with h2 + HTML + optional captioned figure, faqs, cta), then:
+```
+node scripts/blog/run_posts.js posts_<batch>.js      # writes blog/<slug>.html, updates posts_manifest.json
+node scripts/build_bloghub.js                        # hub regenerates: newest-first, own lead image, sub-topic chips, search
+node scripts/country-pages/gen_sitemap.js            # sitemap.xml
+node scripts/country-pages/update_catalog.js         # CATALOG.md Used-on lines (diffs against the pre-session base commit — update BASE)
+```
+`make_post.js` pulls the LIVE header/drawer/footer/CSS from index.html (homepage anchors rewritten to `/#…`), so posts never carry stale nav. Article + BreadcrumbList + FAQPage schema, TOC, reveal and table CSS are built in. Add the post to the `posts` array in `build_bloghub.js` (run_posts prints the line) — `patch_bloghub.js` shows the batch way.
+
+**New country page set:** copy `scripts/country-pages/us_hub.js` / `us_erp.js` / `us_seo.js` / `us_web.js` → `uk_*.js`, change the template source only if needed (they clone the CA pages), rewrite ALL content (RULES §1 — a different market needs different questions, prices, proof, depth), set hreflang pairs, then run `nav_patch.js`-style wiring (dropdown + footer item on every current-header page, hreflang on the pairs, vercel.json). Verify with `scripts/verify/`.
+
+**Verify:** `node scripts/verify/server.js` (port 8934) then `node scripts/verify/shot.js us/erp/ name 1440 1` → screenshot + console/pageerror/4xx + broken-image report (`npm install playwright-core` in the scratchpad first; Chrome at Program Files is used). Pass paths WITHOUT a leading slash (Git Bash mangles `/us/…`). Repo HTML files are CRLF — use `\r?\n` in regexes.
+
+**Keyword research:** `node scripts/keyword-research/parse.js` (edit the Downloads glob) → per-country/topic head terms, questions, geo sums; `termgrep.js us|uk` for thematic clusters (cost, industry, AI, vs, examples…). Output goes to files, not the repo.
+
+**Commit trailer:** `Co-Authored-By:` names the Claude model that did the work (Sonnet 5 on 2026-09-02, Fable 5.1 on 2026-09-03).
