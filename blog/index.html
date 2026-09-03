@@ -771,6 +771,15 @@
   .post-card.hidden{ display:none; }
   .bloghub-count{ font-family:var(--font-mono); font-size:0.78rem; color:var(--ink-faint); margin-top:8px; }
 
+  @media (min-width:1440px){
+    .blog-hero .container, .bloghub-featured .container, .bloghub-start .container, .bloghub-grid-section .container{ max-width:1480px; }
+    .bloghub-grid{ grid-template-columns:repeat(4,1fr); }
+    .blog-hero h1{ max-width:20ch; }
+    .featured-body{ padding:52px 56px; }
+  }
+  @media (min-width:1850px){
+    .blog-hero .container, .bloghub-featured .container, .bloghub-start .container, .bloghub-grid-section .container{ max-width:1720px; }
+  }
   @media (max-width:900px){
     .featured-card{ grid-template-columns:1fr; }
     .featured-media{ min-height:220px; order:-1; }
@@ -1630,7 +1639,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <script>
 (function(){
-    var PAGE_SIZE = 9;
+    var PAGE_SIZE = 12;
     var pills = document.querySelectorAll('.bloghub-pill');
     var cards = Array.prototype.slice.call(document.querySelectorAll('.post-card'));
     var count = document.getElementById('postCount');
