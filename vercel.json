@@ -6,18 +6,14 @@
     { "source": "/seo-growth-suite.html", "destination": "/", "permanent": true },
     { "source": "/viraatmarine/:path*", "destination": "/", "permanent": true },
     { "source": "/autopilot-engine/:path*", "destination": "/", "permanent": true },
-
-    { "source": "/us/:path*", "destination": "/", "permanent": true },
     { "source": "/au/:path*", "destination": "/", "permanent": true },
     { "source": "/uk/:path*", "destination": "/", "permanent": true },
     { "source": "/ae/:path*", "destination": "/", "permanent": true },
-
     { "source": "/seo-services/:path*", "destination": "/ca/seo-services/", "permanent": true },
     { "source": "/website-design-development/:path*", "destination": "/ca/website-development/", "permanent": true },
     { "source": "/saas-app-development/:path*", "destination": "/ca/erp/", "permanent": true },
     { "source": "/technical-seo-audit/:path*", "destination": "/ca/seo-services/", "permanent": true },
     { "source": "/website-seo-audit/:path*", "destination": "/ca/seo-services/", "permanent": true },
-
     { "source": "/seo-agency-india/:path*", "destination": "/seo-audit-kochi/", "permanent": true },
     { "source": "/seo-agency-kerala/:path*", "destination": "/seo-audit-kochi/", "permanent": true },
     { "source": "/seo-agency-vadodara/:path*", "destination": "/seo-audit-kochi/", "permanent": true },
@@ -32,14 +28,12 @@
     { "source": "/seo-expert-india/:path*", "destination": "/seo-audit-kochi/", "permanent": true },
     { "source": "/seo-training-kerala/:path*", "destination": "/seo-audit-kochi/", "permanent": true },
     { "source": "/outsource-seo-services-to-india/:path*", "destination": "/seo-audit-kochi/", "permanent": true },
-
     { "source": "/ottawa-seo-company/:path*", "destination": "/ca/seo-services/", "permanent": true },
     { "source": "/seo-company-ontario/:path*", "destination": "/ca/seo-services/", "permanent": true },
-    { "source": "/charlotte-seo-company/:path*", "destination": "/", "permanent": true },
-    { "source": "/orlando-seo-agency/:path*", "destination": "/", "permanent": true },
-    { "source": "/new-york-city-seo-experts/:path*", "destination": "/", "permanent": true },
+    { "source": "/charlotte-seo-company/:path*", "destination": "/us/seo-services/", "permanent": true },
+    { "source": "/orlando-seo-agency/:path*", "destination": "/us/seo-services/", "permanent": true },
+    { "source": "/new-york-city-seo-experts/:path*", "destination": "/us/seo-services/", "permanent": true },
     { "source": "/seo-company-edinburgh/:path*", "destination": "/", "permanent": true },
-
     { "source": "/on-page-seo/:path*", "destination": "/ca/seo-services/", "permanent": true },
     { "source": "/off-page-seo/:path*", "destination": "/ca/seo-services/", "permanent": true },
     { "source": "/local-seo-services/:path*", "destination": "/ca/seo-services/", "permanent": true },
@@ -48,7 +42,6 @@
     { "source": "/healthcare-seo-services/:path*", "destination": "/ca/seo-services/", "permanent": true },
     { "source": "/shopify-seo-company/:path*", "destination": "/ca/seo-services/", "permanent": true },
     { "source": "/white-label-seo-services-for-agencies/:path*", "destination": "/ca/seo-services/", "permanent": true },
-
     { "source": "/digital-marketing-courses/:path*", "destination": "/", "permanent": true },
     { "source": "/digital-marketing-faq/:path*", "destination": "/", "permanent": true },
     { "source": "/digital-marketing-for-ecommerce/:path*", "destination": "/", "permanent": true },
@@ -56,11 +49,13 @@
     { "source": "/digital-marketing-resources/:path*", "destination": "/", "permanent": true },
     { "source": "/digital-marketing-services/:path*", "destination": "/", "permanent": true },
     { "source": "/digital-marketing-strategy/:path*", "destination": "/", "permanent": true },
-
     { "source": "/white-label-seo-agency-uk/:path*", "destination": "/", "permanent": true },
-    { "source": "/white-label-seo-agency-usa/:path*", "destination": "/", "permanent": true },
+    { "source": "/white-label-seo-agency-usa/:path*", "destination": "/us/seo-services/", "permanent": true },
     { "source": "/white-label-seo-agency-australia/:path*", "destination": "/", "permanent": true },
     { "source": "/dedicated-offshore-developers-canada/:path*", "destination": "/", "permanent": true },
-    { "source": "/seo-outsourcing-services-dubai/:path*", "destination": "/", "permanent": true }
+    { "source": "/seo-outsourcing-services-dubai/:path*", "destination": "/", "permanent": true },
+    { "source": "/us/white-label-seo/:path*", "destination": "/us/seo-services/", "permanent": true },
+    { "source": "/us/white-label-seo", "destination": "/us/seo-services/", "permanent": true },
+    { "source": "/us/index.html", "destination": "/us/", "permanent": true }
   ]
 }
