@@ -44,8 +44,8 @@ const CSS = `<!-- flow-layer:start -->
 <style>
   /* ================= FLOW LAYER (2026-09-03) — 5-plane water current, floating content ================= */
   .flow-plane{ position:fixed; inset:0; z-index:5; width:100%; height:100%; pointer-events:none; }
-  .flow-far{ filter:blur(4px); opacity:.9; }
-  .flow-near{ filter:blur(7px); opacity:.8; }
+  .flow-far{ filter:blur(3px); opacity:.9; }
+  .flow-near{ filter:blur(5px); opacity:.8; }
   .flow-deck{ perspective:1100px; }
   .flow-float{ will-change:translate, rotate; }
   /* the ghost hero text, trapped on the water */
@@ -86,7 +86,7 @@ const JS = `<!-- flow-layer-js:start -->
         body.appendChild(c);
         return { el: c, ctx: x, res: res, every: every, W: 0, H: 0, D: 0 };
     }
-    var far = surface('flow-far', .5, 3), mid = surface('flow-mid', 0, 1), near = surface('flow-near', .45, 2);
+    var far = surface('flow-far', .5, 4), mid = surface('flow-mid', 0, 1), near = surface('flow-near', .45, 3);
     if (!far || !mid || !near) return;
     var SURF = [far, mid, near];
 
@@ -94,9 +94,9 @@ const JS = `<!-- flow-layer-js:start -->
     //            surface  speed  scale  alpha  turn   objects        bubbles   water
     var PLANES = [
         { s: far,  sp: .28, sz: .55, al: .50, tn: .9,  n: small ? 5 : 9,  b: small ? 4 : 8, w: 'deep' },
-        { s: far,  sp: .55, sz: .80, al: .78, tn: 1.4, n: small ? 5 : 9,  b: small ? 3 : 6, w: 0 },
-        { s: mid,  sp: 1,   sz: 1,   al: 1,   tn: 2.2, n: small ? 9 : 18, b: small ? 6 : 12, w: 'lines', hit: 1 },
-        { s: near, sp: 1.7, sz: 1.6, al: .60, tn: 3,   n: small ? 3 : 6,  b: small ? 2 : 4, w: 0 },
+        { s: far,  sp: .55, sz: .80, al: .78, tn: 1.4, n: small ? 5 : 9,  b: small ? 3 : 6, w: 0, hit: 1 },
+        { s: mid,  sp: 1,   sz: 1,   al: 1,   tn: 2.2, n: small ? 11 : 22, b: small ? 6 : 12, w: 'lines', hit: 1 },
+        { s: near, sp: 1.7, sz: 1.6, al: .60, tn: 3,   n: small ? 3 : 6,  b: small ? 2 : 4, w: 0, hit: 1 },
         { s: near, sp: 2.5, sz: 2.3, al: .38, tn: 3.6, n: small ? 2 : 3,  b: small ? 1 : 2, w: 'foam' }
     ];
     var GLYPHS = 12;
@@ -104,7 +104,7 @@ const JS = `<!-- flow-layer-js:start -->
         var D = p.s.D || 1200;
         return { x: Math.random() * D, y: spread ? Math.random() * D : -70,
                  r: (11 + Math.random() * 12) * p.sz, k: Math.floor(Math.random() * GLYPHS),
-                 c: Math.random() < .44 ? 0 : 1, a: (.10 + Math.random() * .13) * p.al,
+                 c: Math.random() < .44 ? 0 : 1, a: (.13 + Math.random() * .15) * p.al,
                  rot: (Math.random() - .5) * .5, vr: (Math.random() - .5) * .5,
                  ph: Math.random() * 6.283, sw: (6 + Math.random() * 18) * p.sz, v: 14 + Math.random() * 26 };
     }
@@ -112,15 +112,15 @@ const JS = `<!-- flow-layer-js:start -->
         var D = p.s.D || 1200;
         return { x: Math.random() * D, y: spread ? Math.random() * D : -40,
                  r: (1.4 + Math.random() * 4.5) * p.sz, c: Math.random() < .3 ? 0 : 1,
-                 a: (.10 + Math.random() * .16) * p.al, ph: Math.random() * 6.283,
+                 a: (.12 + Math.random() * .18) * p.al, ph: Math.random() * 6.283,
                  sw: (5 + Math.random() * 14) * p.sz, v: 12 + Math.random() * 22 };
     }
     PLANES.forEach(function(p){
         p.ang = 0; p.O = []; p.B = [];
         // one wavy band / line set per water plane, defined once and warped per frame
         p.lines = [];
-        var nl = p.w === 'deep' ? 5 : p.w === 'lines' ? 4 : p.w === 'foam' ? 3 : 0;
-        for (var i = 0; i < nl; i++) p.lines.push({ o: Math.random(), t: 40 + Math.random() * 150, ph: Math.random() * 6.283, sp: .4 + Math.random() * .7, a: .03 + Math.random() * .05, c: Math.random() < .35 ? 0 : 1 });
+        var nl = p.w === 'deep' ? 6 : p.w === 'lines' ? 6 : p.w === 'foam' ? 4 : 0;
+        for (var i = 0; i < nl; i++) p.lines.push({ o: Math.random(), t: 40 + Math.random() * 150, ph: Math.random() * 6.283, sp: .4 + Math.random() * .7, a: .045 + Math.random() * .075, c: Math.random() < .35 ? 0 : 1 });
     });
 
     /* ---------- the glyph set: SEO / growth / ERP / web, stroked in a unit box ---------- */
@@ -186,7 +186,7 @@ const JS = `<!-- flow-layer-js:start -->
 
     /* ---------- water: wavy bands, current lines, foam ---------- */
     function water(p, t){
-        var x = p.s.ctx, D = p.s.D, i, j, n = 16;
+        var x = p.s.ctx, D = p.s.D, i, j, n = 12;
         for (i = 0; i < p.lines.length; i++){
             var l = p.lines[i], base = ((l.o + t * l.sp * .012 * p.sp) % 1.4 - .2) * D, col = COL[l.c];
             x.beginPath();
@@ -205,7 +205,7 @@ const JS = `<!-- flow-layer-js:start -->
                 g.addColorStop(1, 'rgba(' + col + ',0)');
                 x.fillStyle = g; x.fill();
             } else {                                                    // current line / foam streak
-                x.lineWidth = p.w === 'foam' ? 3.5 : 1.4; x.lineCap = 'round';
+                x.lineWidth = p.w === 'foam' ? 4 : 1.8; x.lineCap = 'round';
                 x.strokeStyle = 'rgba(' + col + ',' + (l.a * p.al * (p.w === 'foam' ? 1.5 : 1.1)).toFixed(3) + ')';
                 x.stroke();
             }
@@ -236,7 +236,7 @@ const JS = `<!-- flow-layer-js:start -->
             if (p.hit && trapC){                                             // does this glyph touch the trapped text?
                 var ca = Math.cos(p.ang), sa = Math.sin(p.ang), ox = o.x - D / 2, oy = o.y - D / 2;
                 var gx = W / 2 + ox * ca - oy * sa, gy = H / 2 + ox * sa + oy * ca;
-                if (Math.abs(gx - trapC.x) < trapC.d && Math.abs(gy - trapC.y) < trapC.d){
+                if (Math.abs(gx - trapC.x) < trapC.w && Math.abs(gy - trapC.y) < trapC.h){
                     hitAt = t; if (!hitOn){ hitOn = true; trap.classList.add('trap-hit'); }
                 }
             }
@@ -292,8 +292,8 @@ const JS = `<!-- flow-layer-js:start -->
             var ride = Math.sin(t * .55) * 22 + Math.min(130, sy * .12), pp = Math.sin(t * .37 + 1.1) * 9;
             trap.style.translate = (bx * ride - by * pp).toFixed(2) + 'px ' + (by * ride + bx * pp).toFixed(2) + 'px';
             trap.style.rotate = (Math.sin(t * .45) * 2.2).toFixed(2) + 'deg';
-            if (t - trapT > .25){ trapT = t; var r = trap.getBoundingClientRect(); trapC = { x: r.left + r.width / 2, y: r.top + r.height / 2, d: Math.max(90, Math.min(r.width, r.height) * .5 + 60) }; }
-            if (hitOn && t - hitAt > .9){ hitOn = false; trap.classList.remove('trap-hit'); }
+            if (t - trapT > .25){ trapT = t; var r = trap.getBoundingClientRect(); trapC = { x: r.left + r.width / 2, y: r.top + r.height / 2, w: r.width / 2 + 40, h: r.height / 2 + 40 }; }
+            if (hitOn && t - hitAt > 1.4){ hitOn = false; trap.classList.remove('trap-hit'); }
         } else if (trapC){ trapC = null; if (hitOn){ hitOn = false; trap.classList.remove('trap-hit'); } }
         vel *= Math.pow(.945, f * 60);
     }
