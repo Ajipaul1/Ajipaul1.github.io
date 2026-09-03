@@ -94,9 +94,9 @@ const JS = `<!-- flow-layer-js:start -->
     //            surface  speed  scale  alpha  turn   objects        bubbles   water
     var PLANES = [
         { s: far,  sp: .28, sz: .55, al: .50, tn: .9,  n: small ? 5 : 9,  b: small ? 4 : 8, w: 'deep' },
-        { s: far,  sp: .55, sz: .80, al: .78, tn: 1.4, n: small ? 5 : 9,  b: small ? 3 : 6, w: 0, hit: 1 },
+        { s: far,  sp: .55, sz: .80, al: .78, tn: 1.4, n: small ? 5 : 9,  b: small ? 3 : 6, w: 0 },
         { s: mid,  sp: 1,   sz: 1,   al: 1,   tn: 2.2, n: small ? 11 : 22, b: small ? 6 : 12, w: 'lines', hit: 1 },
-        { s: near, sp: 1.7, sz: 1.6, al: .60, tn: 3,   n: small ? 3 : 6,  b: small ? 2 : 4, w: 0, hit: 1 },
+        { s: near, sp: 1.7, sz: 1.6, al: .60, tn: 3,   n: small ? 3 : 6,  b: small ? 2 : 4, w: 0 },
         { s: near, sp: 2.5, sz: 2.3, al: .38, tn: 3.6, n: small ? 2 : 3,  b: small ? 1 : 2, w: 'foam' }
     ];
     var GLYPHS = 12;
@@ -292,8 +292,8 @@ const JS = `<!-- flow-layer-js:start -->
             var ride = Math.sin(t * .55) * 22 + Math.min(130, sy * .12), pp = Math.sin(t * .37 + 1.1) * 9;
             trap.style.translate = (bx * ride - by * pp).toFixed(2) + 'px ' + (by * ride + bx * pp).toFixed(2) + 'px';
             trap.style.rotate = (Math.sin(t * .45) * 2.2).toFixed(2) + 'deg';
-            if (t - trapT > .25){ trapT = t; var r = trap.getBoundingClientRect(); trapC = { x: r.left + r.width / 2, y: r.top + r.height / 2, w: r.width / 2 + 40, h: r.height / 2 + 40 }; }
-            if (hitOn && t - hitAt > 1.4){ hitOn = false; trap.classList.remove('trap-hit'); }
+            if (t - trapT > .25){ trapT = t; var r = trap.getBoundingClientRect(); trapC = { x: r.left + r.width / 2, y: r.top + r.height / 2, w: r.width * .34, h: r.height * .3 }; }
+            if (hitOn && t - hitAt > .9){ hitOn = false; trap.classList.remove('trap-hit'); }
         } else if (trapC){ trapC = null; if (hitOn){ hitOn = false; trap.classList.remove('trap-hit'); } }
         vel *= Math.pow(.945, f * 60);
     }
