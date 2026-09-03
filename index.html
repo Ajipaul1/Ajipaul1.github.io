@@ -606,6 +606,20 @@
   .final-cta-actions{ display:flex; flex-direction:column; gap:10px; flex-shrink:0; align-items:flex-start; }
   .final-cta-note{ font-size:0.85rem; color:var(--ink-faint); }
 
+  /* pillar card imagery */
+  .pillar-media{ aspect-ratio:16/9; margin:-36px -32px 20px; overflow:hidden; border-bottom:1px solid var(--line); }
+  .pillar-media img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s ease; }
+  .pillar-card:hover .pillar-media img{ transform:scale(1.05); }
+
+  /* scroll-reveal (classes applied by JS only) */
+  .reveal{ opacity:0; transform:translateY(20px); transition:opacity .55s ease, transform .55s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } }
+
+  /* wide-desktop tier: use the whole screen */
+  @media (min-width:1440px){ .container{ max-width:1480px; } }
+  @media (min-width:1850px){ .container{ max-width:1720px; } }
+
   /* ---------- FOOTER ---------- */
   .site-footer{ padding:56px 0 26px; background:var(--paper-alt); border-top:1px solid var(--line); }
   .footer-content{ display:grid; grid-template-columns:1.6fr repeat(4,1fr); gap:30px; }
@@ -826,7 +840,8 @@
             <h2>Everything a growing business outsources to three different vendors, run by one accountable team.</h2>
         </div>
         <div class="pillars-grid">
-            <a href="#contact" class="pillar-card">
+            <a href="/ca/erp/" class="pillar-card">
+                <div class="pillar-media"><img src="/assets/images/library/mentor-explaining-data-on-monitor-warm-office.jpg" alt="Engineer walking a client through ERP data on screen" loading="lazy" /></div>
                 <span class="pillar-index">01 / ERP</span>
                 <h3>Enterprise ERP Solutions</h3>
                 <p>Custom business ERP software, CRM dashboards, and internal portals engineered around how your operations actually run.</p>
@@ -837,6 +852,7 @@
                 <span class="pillar-link">Scope an ERP build →</span>
             </a>
             <a href="/ca/website-development/" class="pillar-card">
+                <div class="pillar-media"><img src="/assets/images/library/female-developer-red-hair-dual-monitors-code.jpg" alt="Developer writing website code across two monitors" loading="lazy" /></div>
                 <span class="pillar-index">02 / WEB</span>
                 <h3>Website Development</h3>
                 <p>Next.js and React builds engineered for 90+ Core Web Vitals from day one — fast enough to rank, built to convert.</p>
@@ -847,6 +863,7 @@
                 <span class="pillar-link">Scope a build →</span>
             </a>
             <a href="/ca/seo-services/" class="pillar-card">
+                <div class="pillar-media"><img src="/assets/images/library/team-standing-document-review-bright-room.jpg" alt="Team reviewing search findings around a table" loading="lazy" /></div>
                 <span class="pillar-index">03 / SEO</span>
                 <h3>SEO, AEO &amp; GEO</h3>
                 <p>Technical SEO, schema architecture, and Answer &amp; Generative Engine Optimization — built to get cited by AI, not just ranked.</p>
@@ -973,6 +990,19 @@
                 <div class="case-stat-row"><span>Timeframe</span><strong>7 months</strong></div>
                 <a class="case-card-link" href="#contact">Ask About This Project →</a>
             </div>
+        </div>
+    </div>
+</section>
+
+<section class="tap-promise-section">
+    <div class="container promise-grid">
+        <div class="promise-content">
+            <h2>Real People. One Accountable Team.</h2>
+            <p>Every engagement &mdash; ERP, website, or search &mdash; is run by a named engineer you can talk to directly, backed by a senior team in Kochi that has shipped 250+ projects across 16 countries. No rotating account managers, no ticket queues, no black boxes: you always know who is doing the work and what shipped this month.</p>
+            <a href="#contact" class="btn-navy">Meet Us on a Call</a>
+        </div>
+        <div class="promise-media">
+            <img src="/assets/images/library/executive-woman-tablet-grand-hall.jpg" alt="Decision-maker reviewing progress on a tablet" width="2400" height="1601" loading="lazy" />
         </div>
     </div>
 </section>
@@ -2068,5 +2098,19 @@ function copyEmailToClipboard() {
 })();
 </script>
 
+<script>
+(function(){
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) return;
+    var targets = document.querySelectorAll('.pillar-card, .case-card, .region-card, .promise-content, .promise-media');
+    targets.forEach(function(t){ t.classList.add('reveal'); });
+    var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+            if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    targets.forEach(function(t){ io.observe(t); });
+})();
+</script>
 </body>
 </html>
