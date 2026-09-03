@@ -1035,7 +1035,11 @@
   .flow-deck{ perspective:1100px; }
   .flow-float{ will-change:translate, rotate; }
   /* the ghost hero text, trapped on the water */
-  .flow-trap{ will-change:translate, rotate; transition:filter .9s ease; }
+  /* z-index 3 lifts it over the hero container, which was swallowing the pointer; the social icons go above it */
+  .flow-trap{ will-change:translate, rotate; transition:filter .9s ease; cursor:grab; touch-action:none; z-index:3; }
+  .hero-social-row{ z-index:4; }
+  .flow-trap.grabbing{ cursor:grabbing; transition:none; }
+  .flow-trap.grabbing .hero-side-text-line, .flow-trap.grabbing .hero-side-text-inner span{ animation-duration:1.6s; opacity:.85; }
   .flow-trap .hero-side-text-line, .flow-trap .hero-side-text-inner span{ background-image:linear-gradient(90deg,#ff3b3b,#ff9a3b,#ffe93b,#3bff6e,#3bd4ff,#7a5cff,#ff3bd4,#ff3b3b); background-size:400% 100%; -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent; opacity:.5; animation:flowSheen 9s linear infinite; transition:opacity .9s ease; }
   .flow-trap.trap-hit{ filter:drop-shadow(0 0 16px rgba(217,83,30,.38)); }
   .flow-trap.trap-hit .hero-side-text-line, .flow-trap.trap-hit .hero-side-text-inner span{ animation-duration:2.4s; opacity:.72; }
@@ -1078,6 +1082,23 @@
   }
 </style>
 <!-- engine-layer:end -->
+<!-- vib-layer:start -->
+<style>
+  /* ================= VIB LAYER (2026-09-03) — VIBGYOR on every line of copy ================= */
+  .vib{ background-image:linear-gradient(90deg, #7A2F86,#3B3AA8,#0B5F77,#0F6B3C,#6B5E00,#8A4B00,#B3261E,#7A2F86); background-size:300% 100%; background-position:0% 50%; background-repeat:no-repeat; -webkit-background-clip:text; background-clip:text; color:transparent !important; -webkit-text-fill-color:transparent; }
+  .vib.vib-l{ background-image:linear-gradient(90deg, #D9A6FF,#B9A6FF,#7FE3FF,#86FFAE,#FFF06B,#FFC46B,#FF8A8A,#D9A6FF); }
+  .vib.vib-on{ animation:vibFlow 12s steps(90, end) infinite; animation-delay:var(--vd, 0s); }
+  @keyframes vibFlow{ to{ background-position:100% 50%; } }
+  /* a link inside rainbow copy must still look like a link, so it keeps its own colour and an underline */
+  .vib a{ -webkit-text-fill-color:currentColor !important; color:var(--orange-dark) !important; text-decoration:underline; }
+  .vib.vib-l a{ color:#FFC46B !important; }
+  /* headings carry the wave a little harder than body copy */
+  h1.vib, h2.vib, h3.vib, .num.vib, .us-cost-num.vib, .region-rate-amount.vib{ background-size:200% 100%; }
+  @media (prefers-reduced-motion: reduce){
+    .vib{ background-image:none !important; color:inherit !important; -webkit-text-fill-color:currentColor !important; animation:none !important; }
+  }
+</style>
+<!-- vib-layer:end -->
 </head>
 <body class="home-page-redesign">
 
@@ -2948,6 +2969,32 @@ function copyEmailToClipboard() {
     var trap = document.querySelector('.hero-side-text'), trapC = null, trapT = 0, hitOn = false, hitAt = 0;
     if (trap) trap.classList.add('flow-trap');
     function trapLive(){ return trap && trap.offsetParent !== null; }
+    // the trapped text can be picked up and dropped anywhere in the hero; it keeps drifting from where it lands
+    var dgx = 0, dgy = 0, drag = false, dragId = -1, dsx = 0, dsy = 0, dox = 0, doy = 0, lrx = 0, lry = 0, lim = null;
+    function bounds(){
+        var host = trap.closest('section') || trap.parentElement, r = trap.getBoundingClientRect(), h = host.getBoundingClientRect();
+        var l = r.left - dgx - lrx, tp = r.top - dgy - lry;                 // where it sits with no drag and no drift
+        lim = { x0: h.left + 10 - l, x1: h.right - 10 - (l + r.width), y0: h.top + 10 - tp, y1: h.bottom - 10 - (tp + r.height) };
+    }
+    if (trap){
+        trap.addEventListener('pointerdown', function(e){
+            if (!trapLive()) return;
+            drag = true; dragId = e.pointerId; dsx = e.clientX; dsy = e.clientY; dox = dgx; doy = dgy;
+            bounds(); trap.classList.add('grabbing');
+            if (trap.setPointerCapture) try { trap.setPointerCapture(e.pointerId); } catch (err) {}
+            e.preventDefault();
+        });
+        trap.addEventListener('pointermove', function(e){
+            if (!drag || e.pointerId !== dragId) return;
+            dgx = dox + (e.clientX - dsx); dgy = doy + (e.clientY - dsy);
+            if (lim){ dgx = Math.max(lim.x0, Math.min(lim.x1, dgx)); dgy = Math.max(lim.y0, Math.min(lim.y1, dgy)); }
+            vel = Math.min(1.6, vel + .06);                                  // dragging it stirs the water
+        });
+        var drop = function(){ if (!drag) return; drag = false; dragId = -1; trap.classList.remove('grabbing'); };
+        trap.addEventListener('pointerup', drop); trap.addEventListener('pointercancel', drop);
+        window.addEventListener('blur', drop);
+        window.addEventListener('resize', function(){ dgx = dgy = 0; lim = null; });
+    }
     function measure(){
         var sy = window.scrollY || 0;
         F.forEach(function(o){ var r = o.el.getBoundingClientRect(); o.y = r.top + sy + r.height / 2; o.cx = r.left + r.width / 2; });
@@ -2984,9 +3031,11 @@ function copyEmailToClipboard() {
         }
         if (trapLive()){
             var bx = Math.sin(ta), by = Math.cos(ta);                       // the trap follows the full current
-            var ride = Math.sin(t * .55) * 22 + Math.min(130, sy * .12), pp = Math.sin(t * .37 + 1.1) * 9;
-            trap.style.translate = (bx * ride - by * pp).toFixed(2) + 'px ' + (by * ride + bx * pp).toFixed(2) + 'px';
-            trap.style.rotate = (Math.sin(t * .45) * 2.2).toFixed(2) + 'deg';
+            var hold = drag ? .22 : 1;                                       // held in the hand, it barely bobs
+            var ride = (Math.sin(t * .55) * 22 + Math.min(130, sy * .12)) * hold, pp = Math.sin(t * .37 + 1.1) * 9 * hold;
+            lrx = bx * ride - by * pp; lry = by * ride + bx * pp;
+            trap.style.translate = (lrx + dgx).toFixed(2) + 'px ' + (lry + dgy).toFixed(2) + 'px';
+            trap.style.rotate = (Math.sin(t * .45) * 2.2 * hold).toFixed(2) + 'deg';
             if (t - trapT > .25){ trapT = t; var r = trap.getBoundingClientRect(); trapC = { x: r.left + r.width / 2, y: r.top + r.height / 2, w: r.width / 2, h: r.height / 2 }; }
             if (hitOn && t - hitAt > .9){ hitOn = false; trap.classList.remove('trap-hit'); }
         } else if (trapC){ trapC = null; if (hitOn){ hitOn = false; trap.classList.remove('trap-hit'); } }
@@ -3015,7 +3064,7 @@ function copyEmailToClipboard() {
     document.addEventListener('pointerup', function(e){
         if (Math.abs(e.clientX - dx) > 12 || Math.abs(e.clientY - dy) > 12) return;
         var t = e.target;
-        if (!t || !t.closest || t.closest('a, button, input, select, textarea, label, summary, iframe, [role="button"], .site-header, .mobile-drawer, .imx-rail, #zoho-modal')) return;
+        if (!t || !t.closest || t.closest('a, button, input, select, textarea, label, summary, iframe, [role="button"], .site-header, .mobile-drawer, .imx-rail, .hero-side-text, #zoho-modal')) return;
         var sel = window.getSelection && window.getSelection(); if (sel && String(sel).length) return;
         step();
     }, { passive: true });
@@ -3027,6 +3076,8 @@ function copyEmailToClipboard() {
         if (!run) return;
         var f = Math.min(.05, (now - (last || now)) / 1000); last = now; tick++;
         var t = now / 1000;
+        // another layer can take the viewport (the engine layer owns the hero): stop painting, keep floating
+        if (document.documentElement.getAttribute('data-flow-hold') === '1'){ floatContent(t, f); requestAnimationFrame(frame); return; }
         SURF.forEach(function(s){ if (tick % s.every === 0) s.ctx.clearRect(0, 0, s.el.width, s.el.height); });
         for (var i = 0; i < PLANES.length; i++){ var p = PLANES[i]; if (tick % p.s.every === 0) drawPlane(p, t, f * p.s.every); }
         floatContent(t, f);
@@ -3082,6 +3133,7 @@ function copyEmailToClipboard() {
         var BUILD = ['FOUNDATION', 'STRUCTURE', 'PERFORMANCE', 'UX', 'CONVERSION'];
         var PIPE = ['ORDER', 'INVENTORY', 'PURCHASE', 'PRODUCTION', 'INVOICE', 'FINANCE'];
         var hov = -1, autoAt = 0, auto = 0, small = false, panel = null, spine = 0;
+        var side = hero.querySelector('.hero-side-text'), tb = null, tbT = 0;   // the draggable ghost text
 
         function layout(){
             W = hero.offsetWidth; H = hero.offsetHeight; x = fit(cv, W, H);
@@ -3216,6 +3268,14 @@ function copyEmailToClipboard() {
             if (!small && (hov < 0 || !fine) && tNow - autoAt > 4.6){ auto = (auto + 1) % HUBS.length; autoAt = tNow; resetSub(); }
             var act = small ? -1 : (hov >= 0 ? hov : auto);
             var i, j, p, q, d, dx, dy;
+            // the trapped text is a solid body in the data: the network parts around it, and dragging it surges the field
+            if (side && side.offsetParent && tNow - tbT > .2){
+                tbT = tNow;
+                var sr = side.getBoundingClientRect(), hr2 = hero.getBoundingClientRect();
+                var nx = sr.left - hr2.left + sr.width / 2, ny = sr.top - hr2.top + sr.height / 2;
+                if (tb && (Math.abs(nx - tb.x) > 2 || Math.abs(ny - tb.y) > 2)) energy = Math.min(1, energy + .22);
+                tb = { x: nx, y: ny, w: sr.width / 2 + 14, h: sr.height / 2 + 14 };
+            } else if (side && !side.offsetParent) tb = null;
             x.clearRect(0, 0, W, H);
 
             // particles
@@ -3230,6 +3290,14 @@ function copyEmailToClipboard() {
                 if (act >= 0 && p.g === act){                            // its own hub pulls it in when lit
                     var h = HUBS[act]; dx = h.x - p.x; dy = h.y - p.y; d = Math.sqrt(dx * dx + dy * dy) || 1;
                     p.vx += dx / d * .012; p.vy += dy / d * .012;
+                }
+                if (tb){                                                 // shouldered aside by the text
+                    var ax = p.x - tb.x, ay = p.y - tb.y;
+                    if (ax > -tb.w && ax < tb.w && ay > -tb.h && ay < tb.h){
+                        var px2 = (ax < 0 ? -tb.w : tb.w) - ax, py2 = (ay < 0 ? -tb.h : tb.h) - ay;
+                        if (Math.abs(px2) < Math.abs(py2)){ p.x += px2 * .14; p.vx += px2 * .005; }
+                        else { p.y += py2 * .14; p.vy += py2 * .005; }
+                    }
                 }
                 p.vx *= .985; p.vy *= .985;
                 if (Math.abs(p.vx) < .04) p.vx += (Math.random() - .5) * .04;
@@ -3307,6 +3375,7 @@ function copyEmailToClipboard() {
             new IntersectionObserver(function(es){
                 var vis = es[0].isIntersecting;
                 body.classList.toggle('eng-in-hero', vis);               // hand the hero to the network
+                document.documentElement.setAttribute('data-flow-hold', vis ? '1' : '0');
                 setRun(vis && !document.hidden);
             }, { rootMargin: '0px' }).observe(hero);
         } else { body.classList.add('eng-in-hero'); setRun(true); }
@@ -3401,5 +3470,65 @@ function copyEmailToClipboard() {
 })();
 </script>
 <!-- engine-layer-js:end -->
+<!-- vib-layer-js:start -->
+<script>
+(function(){
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    // interactive elements keep their own colour; these regions and icon spans are left alone entirely
+    var SKIP_SELF = 'a, button, input, select, textarea, label, summary, [role="button"]';
+    var SKIP_IN = '.site-header, .mobile-drawer, .nav-dropdown-panel, .imx-rail, .flow-turn, .flow-hint,' +
+                  ' .eng-packet, .hero-side-text, #zoho-modal, .mobile-sticky-cta, .whatsapp-float, .gmail-popover, .back-to-top';
+    var SKIP_CLS = '.faq-icon, .us-module-icon, .erp-benefit-icon, .security-badge-icon, .us-industry-icon,' +
+                   ' .nav-dropdown-icon, .logo-mark, .logo-text, .imx-clock-dot, .hero-feature-item';
+    // clipping an ancestor would erase these children's own backgrounds, so their ancestors are skipped
+    var BG_INSIDE = '.region-save, .case-tag, .erp-stack-item, .us-compare-hi, button, .primary-btn-large,' +
+                    ' .btn-navy, .btn-ghost, .imx-clock-dot, [class*="badge"], [class*="tag"], [class*="chip"]';
+    // real emoji / dingbat / flag blocks only — arrows, dashes and quotes must not disqualify a line
+    var EMOJI = /[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE0F}\u{20E3}]/u;
+    var CAND = 'h1, h2, h3, h4, h5, h6, p, li, td, th, dt, dd, blockquote, figcaption, caption, span, b, strong, em, small';
+
+    function ground(el){                                     // luminance of the nearest painted background
+        for (var n = el; n && n !== document.documentElement; n = n.parentElement){
+            var cs = getComputedStyle(n), bc = cs.backgroundColor, m = bc && bc.match(/[\d.]+/g);
+            // every gradient ground on this page (hero, chapter bands, final CTA) is navy-dark
+            if (cs.backgroundImage !== 'none' && /gradient/.test(cs.backgroundImage)) return .1;
+            if (m && m.length >= 3 && (m.length < 4 || parseFloat(m[3]) > .5)){
+                return (0.2126 * m[0] + 0.7152 * m[1] + 0.0722 * m[2]) / 255;
+            }
+        }
+        return 1;                                            // page default is white paper
+    }
+    var list = [], i, el, cs, t;
+    var nodes = document.querySelectorAll(CAND);             // document order: outermost text block wins
+    for (i = 0; i < nodes.length; i++){
+        el = nodes[i];
+        if (el.matches(SKIP_SELF) || el.matches(SKIP_CLS) || el.closest(SKIP_IN)) continue;
+        // textContent, not just direct text: the IMAX layer splits headings into per-word spans, and
+        // background-clip:text on the heading still clips to every glyph inside it
+        t = (el.textContent || '').replace(/\s+/g, ' ').trim();
+        if (!t || EMOJI.test(t)) continue;
+        if (el.querySelector(BG_INSIDE)) continue;
+        cs = getComputedStyle(el);
+        if (cs.backgroundImage !== 'none') continue;         // it paints its own background: clipping would erase it
+        var bg = cs.backgroundColor && cs.backgroundColor.match(/[\d.]+/g);
+        if (bg && bg.length >= 3 && (bg.length < 4 || parseFloat(bg[3]) > .05)) continue;
+        if (el.parentElement && el.parentElement.closest('.vib')) continue;   // one gradient per block, not per span
+        var lum = ground(el.parentElement || el);            // measure first: .vib adds a gradient of its own
+        el.classList.add('vib');
+        if (lum < .45) el.classList.add('vib-l');            // dark ground: light VIBGYOR, else the dark set
+        el.style.setProperty('--vd', (-(i % 40) * .3).toFixed(1) + 's');   // stagger, so the wave travels
+        list.push(el);
+    }
+    // only shimmer what is on screen
+    if ('IntersectionObserver' in window){
+        var io = new IntersectionObserver(function(es){
+            for (var k = 0; k < es.length; k++) es[k].target.classList.toggle('vib-on', es[k].isIntersecting);
+        }, { rootMargin: '10% 0px' });
+        for (i = 0; i < list.length; i++) io.observe(list[i]);
+    } else for (i = 0; i < list.length; i++) list[i].classList.add('vib-on');
+    window.__vib = list.length;
+})();
+</script>
+<!-- vib-layer-js:end -->
 </body>
 </html>

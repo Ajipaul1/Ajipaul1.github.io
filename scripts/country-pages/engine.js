@@ -93,6 +93,7 @@ const JS = `<!-- engine-layer-js:start -->
         var BUILD = ['FOUNDATION', 'STRUCTURE', 'PERFORMANCE', 'UX', 'CONVERSION'];
         var PIPE = ['ORDER', 'INVENTORY', 'PURCHASE', 'PRODUCTION', 'INVOICE', 'FINANCE'];
         var hov = -1, autoAt = 0, auto = 0, small = false, panel = null, spine = 0;
+        var side = hero.querySelector('.hero-side-text'), tb = null, tbT = 0;   // the draggable ghost text
 
         function layout(){
             W = hero.offsetWidth; H = hero.offsetHeight; x = fit(cv, W, H);
@@ -227,6 +228,14 @@ const JS = `<!-- engine-layer-js:start -->
             if (!small && (hov < 0 || !fine) && tNow - autoAt > 4.6){ auto = (auto + 1) % HUBS.length; autoAt = tNow; resetSub(); }
             var act = small ? -1 : (hov >= 0 ? hov : auto);
             var i, j, p, q, d, dx, dy;
+            // the trapped text is a solid body in the data: the network parts around it, and dragging it surges the field
+            if (side && side.offsetParent && tNow - tbT > .2){
+                tbT = tNow;
+                var sr = side.getBoundingClientRect(), hr2 = hero.getBoundingClientRect();
+                var nx = sr.left - hr2.left + sr.width / 2, ny = sr.top - hr2.top + sr.height / 2;
+                if (tb && (Math.abs(nx - tb.x) > 2 || Math.abs(ny - tb.y) > 2)) energy = Math.min(1, energy + .22);
+                tb = { x: nx, y: ny, w: sr.width / 2 + 14, h: sr.height / 2 + 14 };
+            } else if (side && !side.offsetParent) tb = null;
             x.clearRect(0, 0, W, H);
 
             // particles
@@ -241,6 +250,14 @@ const JS = `<!-- engine-layer-js:start -->
                 if (act >= 0 && p.g === act){                            // its own hub pulls it in when lit
                     var h = HUBS[act]; dx = h.x - p.x; dy = h.y - p.y; d = Math.sqrt(dx * dx + dy * dy) || 1;
                     p.vx += dx / d * .012; p.vy += dy / d * .012;
+                }
+                if (tb){                                                 // shouldered aside by the text
+                    var ax = p.x - tb.x, ay = p.y - tb.y;
+                    if (ax > -tb.w && ax < tb.w && ay > -tb.h && ay < tb.h){
+                        var px2 = (ax < 0 ? -tb.w : tb.w) - ax, py2 = (ay < 0 ? -tb.h : tb.h) - ay;
+                        if (Math.abs(px2) < Math.abs(py2)){ p.x += px2 * .14; p.vx += px2 * .005; }
+                        else { p.y += py2 * .14; p.vy += py2 * .005; }
+                    }
                 }
                 p.vx *= .985; p.vy *= .985;
                 if (Math.abs(p.vx) < .04) p.vx += (Math.random() - .5) * .04;
@@ -318,6 +335,7 @@ const JS = `<!-- engine-layer-js:start -->
             new IntersectionObserver(function(es){
                 var vis = es[0].isIntersecting;
                 body.classList.toggle('eng-in-hero', vis);               // hand the hero to the network
+                document.documentElement.setAttribute('data-flow-hold', vis ? '1' : '0');
                 setRun(vis && !document.hidden);
             }, { rootMargin: '0px' }).observe(hero);
         } else { body.classList.add('eng-in-hero'); setRun(true); }

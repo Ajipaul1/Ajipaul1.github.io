@@ -49,7 +49,11 @@ const CSS = `<!-- flow-layer:start -->
   .flow-deck{ perspective:1100px; }
   .flow-float{ will-change:translate, rotate; }
   /* the ghost hero text, trapped on the water */
-  .flow-trap{ will-change:translate, rotate; transition:filter .9s ease; }
+  /* z-index 3 lifts it over the hero container, which was swallowing the pointer; the social icons go above it */
+  .flow-trap{ will-change:translate, rotate; transition:filter .9s ease; cursor:grab; touch-action:none; z-index:3; }
+  .hero-social-row{ z-index:4; }
+  .flow-trap.grabbing{ cursor:grabbing; transition:none; }
+  .flow-trap.grabbing .hero-side-text-line, .flow-trap.grabbing .hero-side-text-inner span{ animation-duration:1.6s; opacity:.85; }
   .flow-trap .hero-side-text-line, .flow-trap .hero-side-text-inner span{ background-image:linear-gradient(90deg,#ff3b3b,#ff9a3b,#ffe93b,#3bff6e,#3bd4ff,#7a5cff,#ff3bd4,#ff3b3b); background-size:400% 100%; -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent; opacity:.5; animation:flowSheen 9s linear infinite; transition:opacity .9s ease; }
   .flow-trap.trap-hit{ filter:drop-shadow(0 0 16px rgba(217,83,30,.38)); }
   .flow-trap.trap-hit .hero-side-text-line, .flow-trap.trap-hit .hero-side-text-inner span{ animation-duration:2.4s; opacity:.72; }
@@ -255,6 +259,32 @@ const JS = `<!-- flow-layer-js:start -->
     var trap = document.querySelector('.hero-side-text'), trapC = null, trapT = 0, hitOn = false, hitAt = 0;
     if (trap) trap.classList.add('flow-trap');
     function trapLive(){ return trap && trap.offsetParent !== null; }
+    // the trapped text can be picked up and dropped anywhere in the hero; it keeps drifting from where it lands
+    var dgx = 0, dgy = 0, drag = false, dragId = -1, dsx = 0, dsy = 0, dox = 0, doy = 0, lrx = 0, lry = 0, lim = null;
+    function bounds(){
+        var host = trap.closest('section') || trap.parentElement, r = trap.getBoundingClientRect(), h = host.getBoundingClientRect();
+        var l = r.left - dgx - lrx, tp = r.top - dgy - lry;                 // where it sits with no drag and no drift
+        lim = { x0: h.left + 10 - l, x1: h.right - 10 - (l + r.width), y0: h.top + 10 - tp, y1: h.bottom - 10 - (tp + r.height) };
+    }
+    if (trap){
+        trap.addEventListener('pointerdown', function(e){
+            if (!trapLive()) return;
+            drag = true; dragId = e.pointerId; dsx = e.clientX; dsy = e.clientY; dox = dgx; doy = dgy;
+            bounds(); trap.classList.add('grabbing');
+            if (trap.setPointerCapture) try { trap.setPointerCapture(e.pointerId); } catch (err) {}
+            e.preventDefault();
+        });
+        trap.addEventListener('pointermove', function(e){
+            if (!drag || e.pointerId !== dragId) return;
+            dgx = dox + (e.clientX - dsx); dgy = doy + (e.clientY - dsy);
+            if (lim){ dgx = Math.max(lim.x0, Math.min(lim.x1, dgx)); dgy = Math.max(lim.y0, Math.min(lim.y1, dgy)); }
+            vel = Math.min(1.6, vel + .06);                                  // dragging it stirs the water
+        });
+        var drop = function(){ if (!drag) return; drag = false; dragId = -1; trap.classList.remove('grabbing'); };
+        trap.addEventListener('pointerup', drop); trap.addEventListener('pointercancel', drop);
+        window.addEventListener('blur', drop);
+        window.addEventListener('resize', function(){ dgx = dgy = 0; lim = null; });
+    }
     function measure(){
         var sy = window.scrollY || 0;
         F.forEach(function(o){ var r = o.el.getBoundingClientRect(); o.y = r.top + sy + r.height / 2; o.cx = r.left + r.width / 2; });
@@ -291,9 +321,11 @@ const JS = `<!-- flow-layer-js:start -->
         }
         if (trapLive()){
             var bx = Math.sin(ta), by = Math.cos(ta);                       // the trap follows the full current
-            var ride = Math.sin(t * .55) * 22 + Math.min(130, sy * .12), pp = Math.sin(t * .37 + 1.1) * 9;
-            trap.style.translate = (bx * ride - by * pp).toFixed(2) + 'px ' + (by * ride + bx * pp).toFixed(2) + 'px';
-            trap.style.rotate = (Math.sin(t * .45) * 2.2).toFixed(2) + 'deg';
+            var hold = drag ? .22 : 1;                                       // held in the hand, it barely bobs
+            var ride = (Math.sin(t * .55) * 22 + Math.min(130, sy * .12)) * hold, pp = Math.sin(t * .37 + 1.1) * 9 * hold;
+            lrx = bx * ride - by * pp; lry = by * ride + bx * pp;
+            trap.style.translate = (lrx + dgx).toFixed(2) + 'px ' + (lry + dgy).toFixed(2) + 'px';
+            trap.style.rotate = (Math.sin(t * .45) * 2.2 * hold).toFixed(2) + 'deg';
             if (t - trapT > .25){ trapT = t; var r = trap.getBoundingClientRect(); trapC = { x: r.left + r.width / 2, y: r.top + r.height / 2, w: r.width / 2, h: r.height / 2 }; }
             if (hitOn && t - hitAt > .9){ hitOn = false; trap.classList.remove('trap-hit'); }
         } else if (trapC){ trapC = null; if (hitOn){ hitOn = false; trap.classList.remove('trap-hit'); } }
@@ -322,7 +354,7 @@ const JS = `<!-- flow-layer-js:start -->
     document.addEventListener('pointerup', function(e){
         if (Math.abs(e.clientX - dx) > 12 || Math.abs(e.clientY - dy) > 12) return;
         var t = e.target;
-        if (!t || !t.closest || t.closest('a, button, input, select, textarea, label, summary, iframe, [role="button"], .site-header, .mobile-drawer, .imx-rail, #zoho-modal')) return;
+        if (!t || !t.closest || t.closest('a, button, input, select, textarea, label, summary, iframe, [role="button"], .site-header, .mobile-drawer, .imx-rail, .hero-side-text, #zoho-modal')) return;
         var sel = window.getSelection && window.getSelection(); if (sel && String(sel).length) return;
         step();
     }, { passive: true });
@@ -334,6 +366,8 @@ const JS = `<!-- flow-layer-js:start -->
         if (!run) return;
         var f = Math.min(.05, (now - (last || now)) / 1000); last = now; tick++;
         var t = now / 1000;
+        // another layer can take the viewport (the engine layer owns the hero): stop painting, keep floating
+        if (document.documentElement.getAttribute('data-flow-hold') === '1'){ floatContent(t, f); requestAnimationFrame(frame); return; }
         SURF.forEach(function(s){ if (tick % s.every === 0) s.ctx.clearRect(0, 0, s.el.width, s.el.height); });
         for (var i = 0; i < PLANES.length; i++){ var p = PLANES[i]; if (tick % p.s.every === 0) drawPlane(p, t, f * p.s.every); }
         floatContent(t, f);
@@ -378,7 +412,8 @@ for (const rel of PAGES) {
     s = L.replaceAll(s, '</head>', CSS + '</head>', 1);
     s = s.replace(/<\/body>\s*<\/html>\s*$/, JS + '</body>\n</html>\n');
     L.must(s, 'flow-layer:start', 1); L.must(s, 'flow-layer-js:start', 1);
-    L.must(s, 'flow-plane', 3); L.must(s, 'fall-layer', 0);
+    // assert on strings only this layer owns (other layers now reference .flow-plane too)
+    L.must(s, "surface('flow-far'", 1); L.must(s, "surface('flow-mid'", 1); L.must(s, "surface('flow-near'", 1); L.must(s, 'fall-layer', 0);
   }
   s = s.replace(/\r?\n/g, '\r\n');
   fs.writeFileSync(path.join(L.REPO, rel), s);
