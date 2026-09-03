@@ -90,4 +90,4 @@ The page is not done until it credibly out-answers the current #1.
 
 ## 13. iStock / paid-stock license gate (2026-09-02)
 
-29 iStock images entered the library cataloged but LICENSE-GATED (see CATALOG.md banner): none may appear on a live page until the owner confirms they were downloaded under an iStock account. Same gate applies to any future paid-stock batch. Unsplash/Pexels/Pixabay files remain the preferred, always-safe pool.
+29 iStock images entered the library — owner CONFIRMED the iStock license on 2026-09-02, so they are cleared for live use (see CATALOG.md banner). Same gate applies to any future paid-stock batch. Unsplash/Pexels/Pixabay files remain the preferred, always-safe pool.

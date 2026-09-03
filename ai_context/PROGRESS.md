@@ -136,7 +136,7 @@ Wide tier now GLOBAL on the homepage (@media 1440px container 1480px; 1850px →
 **OPEN QUEUE for the next session (owner: just read ai_context and continue):**
 1. US pages — owner will supply SEMrush files; full Canada-style treatment + competitor-crawl per keyword (RULES §11).
 2. Remaining 6 planned blog posts (list under Keyword research findings) — cover EVERY cluster, no skips (RULES §12); add each to the hub generator.
-3. Owner to confirm iStock license → then the 29 images unlock for pages.
+3. ~~Owner to confirm iStock license~~ — CONFIRMED 2026-09-02, the 29 iStock images are cleared for live use.
 4. 26 older blog posts still on old layouts — retrofit the modern anatomy in batches (use scripts/*_reference.js as the pattern).
 5. 5 old posts still share one meta description IN THEIR OWN heads (cards fixed; the post files not yet).
 6. Suggested additional sections beyond country pages (owner asked to be told): rebuilt About page (deleted in the prune — natural storytelling home for the team/Kochi images), rebuilt Case Studies page (case cards currently link to #contact), a Pricing page (real flat-rate table per market), and an Industries hub (Manufacturing/Healthcare verticals — we now have the imagery and keyword angles). Owner to pick.
