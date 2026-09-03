@@ -2833,8 +2833,13 @@ function copyEmailToClipboard() {
 
     // one-time hint, so the tap is discoverable without adding permanent furniture
     var seen = false; try { seen = localStorage.getItem('tapFallHint') === '1'; } catch (err) {}
-    if (!seen){
-        setTimeout(function(){ hint.classList.add('on'); try { localStorage.setItem('tapFallHint', '1'); } catch (err) {} hintTimer = setTimeout(hideHint, 6500); }, 1600);
+    if (!seen && window.scrollY < 40){
+        setTimeout(function(){
+            if (window.scrollY > 200) return;                       // only ever over the hero, never over body copy
+            hint.classList.add('on'); try { localStorage.setItem('tapFallHint', '1'); } catch (err) {}
+            hintTimer = setTimeout(hideHint, 6500);
+            window.addEventListener('scroll', hideHint, { passive: true, once: true });
+        }, 1600);
     }
 })();
 </script>
