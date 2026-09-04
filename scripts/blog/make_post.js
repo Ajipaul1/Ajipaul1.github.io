@@ -25,13 +25,54 @@ const tocJs = slice(tpl, '<script>\n(function(){\n    var content = document.que
 const CAT = { seo: 'SEO, AEO & GEO', erp: 'ERP & Software', web: 'Web Development', out: 'Outsourcing & Agencies' };
 const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 function pretty(d) { const [y, m, day] = d.split('-').map(Number); return months[m - 1] + ' ' + day + ', ' + y; }
-function fig(f, eager) { return `        <figure class="article-figure"><img src="/assets/images/library/${f.img}" alt="${L.esc(f.alt)}" width="${f.w || 612}" height="${f.h || 408}" loading="${eager ? 'eager' : 'lazy'}" />${f.cap ? `<figcaption>${f.cap}</figcaption>` : ''}</figure>\n`; }
+// Real dimensions and a three-tier srcset come from the download index, so nothing shifts on load
+// and a phone never pulls a 2400px file. Falls back to the declared w/h for the older library
+// images that predate the index.
+const SIZES = (function () {
+  try { return JSON.parse(fs.readFileSync(require('path').join(L.REPO, 'assets', 'images', 'library', '_sizes.json'), 'utf8')); }
+  catch (e) { return {}; }
+})();
+function srcOf(name) {
+  const base = name.replace(/\.jpg$/, '');
+  const master = SIZES[name];
+  const cand = [['-700.jpg', SIZES[base + '-700.jpg']], ['-1400.jpg', SIZES[base + '-1400.jpg']], ['.jpg', master]]
+    .filter(([, m]) => m).map(([suf, m]) => '/assets/images/library/' + base + suf + ' ' + m.w + 'w');
+  return { srcset: cand.length > 1 ? ' srcset="' + cand.join(', ') + '"' : '', master };
+}
+function imgTag(f, eager, sizesAttr, cls) {
+  const { srcset, master } = srcOf(f.img);
+  const w = master ? master.w : (f.w || 612);
+  const h = master ? master.h : (f.h || 408);
+  return '<img' + (cls ? ' class="' + cls + '"' : '') + ' src="/assets/images/library/' + f.img + '"' + srcset
+    + ' sizes="' + (sizesAttr || '(max-width:900px) 100vw, 760px') + '"'
+    + ' alt="' + L.esc(f.alt) + '" width="' + w + '" height="' + h + '"'
+    + (eager ? ' loading="eager" fetchpriority="high"' : ' loading="lazy"') + ' decoding="async" />';
+}
+// one image, sized to the column
+function fig(f, eager) {
+  return '        <figure class="article-figure' + (eager ? ' is-lead' : '') + '">' + imgTag(f, eager)
+    + (f.cap ? '<figcaption>' + f.cap + '</figcaption>' : '') + '</figure>\n';
+}
+// a two-up pair, for before/after or this-not-that
+function figDuo(pair) {
+  return '        <div class="article-duo">\n'
+    + pair.map(f => '            <figure class="article-figure">' + imgTag(f, false, '(max-width:700px) 100vw, 380px')
+        + (f.cap ? '<figcaption>' + f.cap + '</figcaption>' : '') + '</figure>').join('\n')
+    + '\n        </div>\n';
+}
+// a full-bleed chapter break with the words over the picture
+function figBand(f) {
+  return '        <figure class="article-band">' + imgTag(f, false, '(max-width:900px) 100vw, 760px')
+    + '<figcaption><span>' + f.cap + '</span></figcaption></figure>\n';
+}
 
 function buildPost(d) {
   const url = 'https://techauditpros.com/blog/' + d.slug + '.html';
   const sectionsHtml = d.sections.map(sec => {
     let h = `\n        <h2>${sec.h2}</h2>\n${sec.html.trim().split('\n').map(l => '        ' + l.trim()).join('\n')}\n`;
     if (sec.figure) h += fig(sec.figure);
+    if (sec.figures) h += figDuo(sec.figures);
+    if (sec.band) h += figBand(sec.band);
     return h;
   }).join('');
   const faqHtml = d.faqs && d.faqs.length ? `\n        <h2>Frequently Asked Questions</h2>\n${d.faqs.map(f => `        <h3>${f.q}</h3>\n        <p>${f.a}</p>`).join('\n')}\n` : '';
@@ -70,7 +111,7 @@ ${sectionsHtml}${faqHtml}
         </div>
 
         <div class="article-author-row">
-            <img src="/assets/images/founder/aji-paul.webp" alt="Aji Paul" />
+            <img src="/assets/images/founder/aji-paul.webp" alt="Aji Paul" width="1536" height="1024" loading="lazy" decoding="async" />
             <div>
                 <div class="article-author-name">Aji Paul</div>
                 <div class="article-author-role">Founder &amp; CEO, TechAuditPros</div>
@@ -139,7 +180,7 @@ ${sectionsHtml}${faqHtml}
 <link href="${url}" rel="canonical"/>
 ${orgSchema}
 ${favicons}${css}
-${articleCss.replace('<style>\n', '<style>\n  .reveal{ opacity:0; transform:translateY(20px); transition:opacity .55s ease, transform .55s ease; }\n  .reveal.in{ opacity:1; transform:none; }\n  @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } }\n  .article-body .container > .article-content{ min-width:0; }\n  .article-body table{ width:100%; border-collapse:collapse; font-size:0.95rem; margin:0 0 28px; }\n  .article-body th, .article-body td{ text-align:left; padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top; line-height:1.5; color:var(--ink-soft); }\n  .article-body th{ color:var(--ink); font-weight:600; background:var(--paper-alt); }\n  .article-table-wrap{ overflow-x:auto; margin:0 0 28px; }\n  .article-table-wrap table{ margin:0; min-width:560px; }\n')}
+${articleCss.replace('<style>\n', '<style>\n  .reveal{ opacity:0; transform:translateY(20px); transition:opacity .55s ease, transform .55s ease; }\n  .reveal.in{ opacity:1; transform:none; }\n  @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } }\n  .article-body .container > .article-content{ min-width:0; }\n  .article-body table{ width:100%; border-collapse:collapse; font-size:0.95rem; margin:0 0 28px; }\n  .article-body th, .article-body td{ text-align:left; padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top; line-height:1.5; color:var(--ink-soft); }\n  .article-body th{ color:var(--ink); font-weight:600; background:var(--paper-alt); }\n  .article-table-wrap{ overflow-x:auto; margin:0 0 28px; }\n  .article-table-wrap table{ margin:0; min-width:560px; }\n  /* Pictures carry the argument on these pages, so they are allowed to be big. The old shared\n     rule capped every figure at 420px tall, which made a 2400px photograph pointless. */\n  .article-figure img{ max-height:none; }\n  .article-figure.is-lead img{ max-height:620px; }\n  .article-content > .article-figure img, .article-content .article-figure img{ max-height:560px; }\n  .article-duo{ display:grid; gap:14px; grid-template-columns:1fr; margin:0 0 32px; }\n  .article-duo .article-figure{ margin:0; }\n  .article-duo .article-figure img{ max-height:360px; }\n  @media (min-width:700px){ .article-duo{ grid-template-columns:1fr 1fr; } }\n  /* Chapter break. Deliberately NOT full-bleed: the article column is offset by the sticky TOC, so calc(50% - 50vw) measures from the column centre and clipped the caption. */\n  .article-band{ position:relative; margin:0 0 36px; border-radius:14px; overflow:hidden;\n    width:100%; box-shadow:var(--shadow-md); }\n  .article-band img{ width:100%; display:block; height:clamp(300px, 46vh, 520px); object-fit:cover; }\n  .article-band figcaption{ position:absolute; inset:auto 0 0 0; padding:clamp(18px,4vw,46px) clamp(18px,6vw,80px);\n    background:linear-gradient(0deg, rgba(6,12,26,.9), rgba(6,12,26,.05)); text-align:left; }\n  .article-band figcaption span{ display:block; max-width:24ch; color:#fff; font-family:var(--font-sans);\n    font-weight:700; font-size:clamp(1.15rem,2.6vw,2rem); line-height:1.16; }\n  .article-body{ overflow-x:hidden; overflow-x:clip; }\n')}
 ${schema.join('\n')}
 </head>
 <body class="home-page-redesign">
