@@ -670,6 +670,236 @@
     .header-logo .logo-text{ font-size:1.1rem; }
     .header-logo .logo-tagline{ display:none; }
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* uk-story-css:start */
+  /* ============ uk_story.js : the picture layer ============ */
+  .uks{ position:relative; }
+  .uks-img{ display:block; width:100%; height:100%; object-fit:cover; }
+  /* full-bleed without the classic 100vw bug: 100vw counts the scrollbar, so on a page with a
+     vertical scrollbar a 100vw child is ~15px wider than the viewport and the whole document gains
+     a horizontal scrollbar. overflow-x:clip on the section absorbs it without creating a scroll
+     container (hidden is the fallback for older Safari). */
+  .uks-section{ overflow-x:hidden; overflow-x:clip; }
+  .uks-bleed{ width:100vw; max-width:100vw; margin-left:calc(50% - 50vw); }
+  .uks-eyebrow{ font-family:var(--font-mono); font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 10px; }
+  .uks-cap{ font-family:var(--font-sans); font-weight:700; color:var(--ink); line-height:1.18; margin:0; }
+  .uks-sub{ font-size:.88rem; color:var(--ink-soft); margin:6px 0 0; max-width:46ch; }
+  .uks-n{ font-family:var(--font-mono); font-size:.72rem; letter-spacing:.12em; color:var(--orange); display:block; margin-bottom:7px; }
+
+  /* --- variant A : CASCADE (/uk/) -- alternating full-width plates, text riding the edge --- */
+  .uksA{ margin:0 0 8px; }
+  .uksA .plate{ position:relative; margin:0 0 clamp(18px,3vw,34px); }
+  .uksA .shot{ position:relative; overflow:hidden; border-radius:14px; aspect-ratio:21/9; background:var(--paper-alt); }
+  .uksA .plate:nth-child(even) .shot{ border-radius:14px; }
+  .uksA .words{ margin:16px 0 0; max-width:52ch; }
+  .uksA .words .uks-cap{ font-size:clamp(1.3rem,2.5vw,2rem); }
+  @media (min-width:900px){
+    .uksA .plate{ display:grid; grid-template-columns:1.55fr .95fr; gap:clamp(26px,3.4vw,52px); align-items:center; }
+    .uksA .plate:nth-child(even){ grid-template-columns:.95fr 1.55fr; }
+    .uksA .plate:nth-child(even) .shot{ order:2; }
+    .uksA .plate:nth-child(even) .words{ order:1; }
+    .uksA .words{ margin:0; }
+    .uksA .shot{ aspect-ratio:16/10; }
+  }
+
+  /* --- variant B : FILMSTRIP (/uk/erp/) -- the build as six numbered frames, scrolls sideways --- */
+  .uksB{ margin:4px 0 6px; }
+  .uksB .rail{ display:flex; gap:clamp(14px,1.8vw,24px); overflow-x:auto; scroll-snap-type:x mandatory; padding:2px 2px 18px; scrollbar-width:thin; }
+  .uksB .frame{ flex:0 0 min(78vw, 460px); scroll-snap-align:start; }
+  .uksB .shot{ position:relative; overflow:hidden; border-radius:12px; aspect-ratio:4/3; background:var(--paper-alt); }
+  .uksB .words{ padding:13px 2px 0; }
+  .uksB .words .uks-cap{ font-size:1.06rem; }
+  .uksB .hint{ font-family:var(--font-mono); font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); margin:2px 0 0; }
+  @media (min-width:1250px){ .uksB .frame{ flex:0 0 calc((100% - 5 * 24px) / 5.4); } }
+
+  /* --- variant C : STACKED BLEED (/uk/website-development/) -- edge to edge, caption inset --- */
+  .uksC .band{ position:relative; overflow:hidden; margin:0 0 clamp(14px,2vw,26px); }
+  .uksC .shot{ position:relative; overflow:hidden; aspect-ratio:2/1; background:var(--navy-deep); }
+  .uksC .shot::after{ content:''; position:absolute; inset:0; background:linear-gradient(90deg, rgba(6,12,26,.88) 0%, rgba(6,12,26,.55) 44%, rgba(6,12,26,.06) 76%); }
+  .uksC .words{ position:absolute; z-index:2; left:0; right:0; bottom:0; padding:clamp(20px,4vw,48px) clamp(18px,5vw,72px); }
+  .uksC .uks-cap{ color:#fff; font-size:clamp(1.25rem,2.7vw,2.15rem); max-width:22ch; }
+  .uksC .uks-sub{ color:rgba(255,255,255,.72); }
+  .uksC .uks-eyebrow{ color:var(--orange); }
+  @media (max-width:700px){ .uksC .shot{ aspect-ratio:4/5; } .uksC .shot::after{ background:linear-gradient(0deg, rgba(6,12,26,.92) 0%, rgba(6,12,26,.4) 52%, rgba(6,12,26,.05) 100%); } }
+
+  /* --- variant D : EVIDENCE WALL (/uk/seo-services/) -- screens, uneven grid, one big --- */
+  .uksD{ display:grid; gap:clamp(12px,1.6vw,20px); grid-template-columns:1fr; }
+  .uksD .cell{ position:relative; overflow:hidden; border-radius:12px; background:var(--paper-alt); }
+  .uksD .shot{ position:relative; overflow:hidden; aspect-ratio:16/10; }
+  .uksD .words{ padding:14px 16px 16px; }
+  .uksD .words .uks-cap{ font-size:1.02rem; }
+  .uksD .cell{ border:1px solid var(--line); }
+  @media (min-width:820px){
+    .uksD{ grid-template-columns:repeat(6,1fr); }
+    .uksD .cell:nth-child(1){ grid-column:span 4; }
+    .uksD .cell:nth-child(1) .shot{ aspect-ratio:2/1; }
+    .uksD .cell:nth-child(1) .words .uks-cap{ font-size:clamp(1.2rem,2vw,1.6rem); }
+    .uksD .cell:nth-child(2){ grid-column:span 2; }
+    .uksD .cell:nth-child(3), .uksD .cell:nth-child(4), .uksD .cell:nth-child(5){ grid-column:span 2; }
+  }
+
+  /* --- variant E : POSTCARDS (/uk/manchester/, /uk/london/) -- place first, then its sectors --- */
+  .uksE .lead{ position:relative; overflow:hidden; border-radius:0; margin:0 0 clamp(14px,2vw,24px); }
+  .uksE .lead .shot{ position:relative; overflow:hidden; aspect-ratio:24/9; background:var(--navy-deep); }
+  .uksE .lead .shot::after{ content:''; position:absolute; inset:0; background:linear-gradient(0deg, rgba(6,12,26,.8), rgba(6,12,26,.12) 62%); }
+  .uksE .lead .words{ position:absolute; z-index:2; left:0; bottom:0; padding:clamp(18px,3.4vw,44px) clamp(18px,5vw,72px); }
+  .uksE .lead .uks-cap{ color:#fff; font-size:clamp(1.4rem,3vw,2.4rem); }
+  .uksE .lead .uks-eyebrow{ color:var(--orange); }
+  .uksE .cards{ display:grid; gap:clamp(12px,1.6vw,20px); grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
+  .uksE .card{ position:relative; overflow:hidden; border-radius:12px; border:1px solid var(--line); }
+  .uksE .card .shot{ position:relative; overflow:hidden; aspect-ratio:4/3; background:var(--paper-alt); }
+  .uksE .card .words{ padding:13px 15px 15px; }
+  .uksE .card .uks-cap{ font-size:1rem; }
+  @media (max-width:700px){ .uksE .lead .shot{ aspect-ratio:3/2; } }
+
+  /* --- variant F : TWO COLUMNS (/uk/scotland/, /uk/reading/) -- two worlds, side by side --- */
+  .uksF{ display:grid; gap:clamp(22px,3vw,46px); grid-template-columns:1fr; }
+  .uksF .col > h4{ font-family:var(--font-mono); font-size:.74rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); margin:0 0 14px; }
+  .uksF .stackrow{ display:grid; gap:clamp(10px,1.4vw,16px); }
+  .uksF .tile{ position:relative; overflow:hidden; border-radius:11px; border:1px solid var(--line); }
+  .uksF .tile .shot{ position:relative; overflow:hidden; aspect-ratio:16/9; background:var(--paper-alt); }
+  .uksF .tile .words{ padding:12px 14px 14px; }
+  .uksF .tile .uks-cap{ font-size:.98rem; }
+  @media (min-width:880px){ .uksF{ grid-template-columns:1fr 1fr; } }
+
+  /* ---- the reveal : one shot, in view, then done. Nothing is left animating. ---- */
+  html.ukst .uks .shot > .uks-img{ transform:scale(1.07); transition:transform 1.15s cubic-bezier(.2,.7,.2,1); }
+  html.ukst .uks .shot{ clip-path:inset(0 0 100% 0); }
+  html.ukst .uks .words{ opacity:0; transform:translateY(14px); }
+  html.ukst .uks .in .shot{ animation:uksWipe .78s cubic-bezier(.3,0,.2,1) forwards; animation-delay:calc(var(--d,0) * .09s); }
+  html.ukst .uks .in .shot > .uks-img{ transform:scale(1); transition-delay:calc(var(--d,0) * .09s); }
+  html.ukst .uks .in .words{ animation:uksRise .6s cubic-bezier(.2,.7,.2,1) forwards; animation-delay:calc(var(--d,0) * .09s + .16s); }
+  @keyframes uksWipe{ from{ clip-path:inset(0 0 100% 0); } to{ clip-path:inset(0 0 0 0); } }
+  @keyframes uksRise{ to{ opacity:1; transform:none; } }
+  @media (prefers-reduced-motion: reduce){
+    html.ukst .uks .shot, html.ukst .uks .words, html.ukst .uks .shot > .uks-img{ clip-path:none !important; opacity:1 !important; transform:none !important; animation:none !important; transition:none !important; }
+  }
+/* uk-story-css:end */
+
+/* uk-cinema-css:start */
+  /* ================= uk_cinema.js : /uk/ told as six acts of pictures ================= */
+  .ukc{ position:relative; }
+  .ukc-img{ display:block; width:100%; height:100%; object-fit:cover; }
+  /* full-bleed without the 100vw scrollbar bug -- see .ukc-act overflow below */
+  .ukc-act{ position:relative; overflow-x:hidden; overflow-x:clip; padding:clamp(52px,7vw,104px) 0; }
+  .ukc-act.tone-dark{ background:var(--navy-deep); color:#fff; }
+  .ukc-act.tone-light{ background:var(--paper); }
+  .ukc-act + .ukc-act{ border-top:1px solid rgba(255,255,255,.06); }
+  .ukc-act.tone-light + .ukc-act.tone-light{ border-top:1px solid var(--line); }
+  .ukc-head{ max-width:1180px; width:92%; margin:0 auto clamp(26px,3.6vw,52px); }
+  .ukc-slate{ display:flex; align-items:baseline; gap:14px; margin:0 0 14px; }
+  .ukc-slate b{ font-family:var(--font-mono); font-size:clamp(2.2rem,5vw,4.4rem); line-height:.85; font-weight:700; color:var(--orange); letter-spacing:-.02em; }
+  .ukc-slate span{ font-family:var(--font-mono); font-size:.7rem; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-faint); }
+  .tone-dark .ukc-slate span{ color:rgba(255,255,255,.5); }
+  .ukc-title{ font-size:clamp(1.6rem,3.6vw,3rem); line-height:1.08; font-weight:800; margin:0 0 14px; max-width:26ch; color:var(--ink); }
+  .tone-dark .ukc-title{ color:#fff; }
+  .ukc-lede{ font-size:clamp(.95rem,1.15vw,1.06rem); line-height:1.66; color:var(--ink-soft); margin:0; max-width:62ch; }
+  .tone-dark .ukc-lede{ color:rgba(255,255,255,.72); }
+  .ukc-cap{ font-weight:700; line-height:1.2; margin:0; color:var(--ink); }
+  .tone-dark .ukc-cap{ color:#fff; }
+  .ukc-sub{ font-size:.86rem; line-height:1.55; color:var(--ink-soft); margin:6px 0 0; }
+  .tone-dark .ukc-sub{ color:rgba(255,255,255,.62); }
+  .ukc-shot{ position:relative; overflow:hidden; background:rgba(120,130,150,.14); }
+
+  /* ---- kind: STRIP -- four frames edge to edge, the opening montage ---- */
+  .ukcStrip{ display:grid; grid-template-columns:1fr; gap:3px; width:100vw; max-width:100vw; margin-left:calc(50% - 50vw); }
+  .ukcStrip .f{ position:relative; }
+  .ukcStrip .ukc-shot{ aspect-ratio:4/3; }
+  .ukcStrip .w{ position:absolute; z-index:2; left:0; right:0; bottom:0; padding:clamp(14px,2vw,26px); background:linear-gradient(0deg, rgba(6,12,26,.9), rgba(6,12,26,0)); }
+  .ukcStrip .ukc-cap{ color:#fff; font-size:clamp(.95rem,1.5vw,1.2rem); }
+  @media (min-width:760px){ .ukcStrip{ grid-template-columns:repeat(4,1fr); } .ukcStrip .ukc-shot{ aspect-ratio:3/4; } }
+
+  /* ---- kind: WIDE -- one cinematic plate, then three smaller beats ---- */
+  .ukcWide .plate{ position:relative; overflow:hidden; width:100vw; max-width:100vw; margin-left:calc(50% - 50vw); margin-bottom:clamp(16px,2.2vw,30px); }
+  .ukcWide .plate .ukc-shot{ aspect-ratio:21/9; }
+  .ukcWide .plate .w{ position:absolute; z-index:2; left:0; right:0; bottom:0; padding:clamp(20px,4vw,54px) max(4vw, calc(50% - 590px + 4vw)); background:linear-gradient(0deg, rgba(6,12,26,.86), rgba(6,12,26,.06) 78%); }
+  .ukcWide .plate .ukc-cap{ color:#fff; font-size:clamp(1.15rem,2.6vw,2.1rem); max-width:24ch; }
+  .ukcWide .beats{ max-width:1180px; width:92%; margin:0 auto; display:grid; gap:clamp(12px,1.6vw,22px); grid-template-columns:repeat(auto-fit,minmax(215px,1fr)); }
+  .ukcWide .beat .ukc-shot{ aspect-ratio:16/10; border-radius:11px; }
+  .ukcWide .beat .w{ padding:12px 2px 0; }
+  .ukcWide .beat .ukc-cap{ font-size:.98rem; }
+  @media (max-width:700px){ .ukcWide .plate .ukc-shot{ aspect-ratio:3/2; } }
+
+  /* ---- kind: SPLIT -- a 2x2 of tall frames, the build in four moves ---- */
+  .ukcSplit{ max-width:1180px; width:92%; margin:0 auto; display:grid; gap:clamp(14px,2vw,26px); grid-template-columns:1fr; }
+  .ukcSplit .q .ukc-shot{ aspect-ratio:16/10; border-radius:12px; }
+  .ukcSplit .q .w{ padding:14px 2px 0; }
+  .ukcSplit .q .ukc-cap{ font-size:1.06rem; }
+  @media (min-width:820px){
+    .ukcSplit{ grid-template-columns:1fr 1fr; }
+    .ukcSplit .q:nth-child(1) .ukc-shot, .ukcSplit .q:nth-child(4) .ukc-shot{ aspect-ratio:4/3; }
+  }
+
+  /* ---- kind: RAIL -- eight frames of the working day, scrolls sideways ---- */
+  .ukcRail{ width:100vw; max-width:100vw; margin-left:calc(50% - 50vw); }
+  .ukcRail .track{ display:flex; gap:8px; overflow-x:auto; scroll-snap-type:x mandatory; padding:0 max(4vw, calc(50% - 590px)) 20px; scrollbar-width:thin; }
+  .ukcRail .f{ flex:0 0 min(70vw,340px); scroll-snap-align:center; }
+  .ukcRail .ukc-shot{ aspect-ratio:3/4; border-radius:10px; }
+  .ukcRail .w{ padding:11px 2px 0; }
+  .ukcRail .ukc-cap{ font-size:.92rem; }
+  .ukcRail .rail-note{ max-width:1180px; width:92%; margin:6px auto 0; font-family:var(--font-mono); font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); }
+
+  /* ---- kind: MAP -- the four markets, each a door ---- */
+  .ukcMap{ max-width:1180px; width:92%; margin:0 auto; display:grid; gap:clamp(14px,2vw,24px); grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); }
+  .ukcMap a.door{ display:block; text-decoration:none; border:1px solid var(--line); border-radius:13px; overflow:hidden; background:var(--paper); transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+  .ukcMap a.door:hover{ transform:translateY(-3px); border-color:var(--orange); box-shadow:0 14px 34px rgba(15,23,42,.11); }
+  .ukcMap .ukc-shot{ aspect-ratio:5/4; }
+  .ukcMap .w{ padding:15px 17px 18px; }
+  .ukcMap .ukc-cap{ font-size:1.1rem; }
+  .ukcMap .go{ display:inline-flex; align-items:center; gap:6px; margin-top:11px; font-family:var(--font-mono); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--orange); }
+
+  /* ================= the reveal : one shot, in view, then finished ================= */
+  html.ukc-on .ukc .ukc-shot{ clip-path:inset(0 0 100% 0); }
+  html.ukc-on .ukc .ukc-shot > .ukc-img{ transform:scale(1.08); transition:transform 1.3s cubic-bezier(.18,.72,.2,1); }
+  html.ukc-on .ukc .w{ opacity:0; transform:translateY(15px); }
+  html.ukc-on .ukc .lit .ukc-shot{ animation:ukcCurtain .82s cubic-bezier(.32,0,.18,1) forwards; animation-delay:calc(var(--d,0) * .085s); }
+  html.ukc-on .ukc .lit .ukc-shot > .ukc-img{ transform:scale(1); transition-delay:calc(var(--d,0) * .085s); }
+  html.ukc-on .ukc .lit .w{ animation:ukcLift .58s cubic-bezier(.2,.7,.2,1) forwards; animation-delay:calc(var(--d,0) * .085s + .2s); }
+  html.ukc-on .ukc-head{ opacity:0; transform:translateY(16px); }
+  html.ukc-on .ukc-head.lit{ animation:ukcLift .62s cubic-bezier(.2,.7,.2,1) forwards; }
+  @keyframes ukcCurtain{ from{ clip-path:inset(0 0 100% 0); } to{ clip-path:inset(0 0 0 0); } }
+  @keyframes ukcLift{ to{ opacity:1; transform:none; } }
+
+  /* ================= the movie part : scroll-driven, compositor only, no JS =================
+     animation-timeline: view() ties the animation to the element's own progress through the
+     viewport. It runs off the main thread, so it costs nothing in INP, and browsers without it
+     simply never apply the block -- the page stays a clean static photo essay. */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) and (min-width:760px) {
+      .ukcStrip .f, .ukcWide .plate, .ukcRail .f, .ukcSplit .q{ view-timeline-name:--f; }
+      .ukcStrip .f .ukc-img, .ukcWide .plate .ukc-img, .ukcSplit .q .ukc-img{
+        animation:ukcDrift linear both; animation-timeline:view(); animation-range:entry 0% exit 100%;
+      }
+      /* the opening montage grows taller as it passes -- the "camera pushing in" beat */
+      .ukcStrip .f .ukc-shot{ animation:ukcTall linear both; animation-timeline:view(); animation-range:entry 10% cover 55%; }
+      /* act titles ease up and settle */
+      .ukc-act .ukc-head{ animation:ukcSettle linear both; animation-timeline:view(); animation-range:entry 5% entry 90%; }
+    }
+  }
+  @keyframes ukcDrift{ from{ transform:scale(1.13) translateY(-2.4%); } to{ transform:scale(1.13) translateY(2.4%); } }
+  @keyframes ukcTall{ from{ aspect-ratio:4/3; } to{ aspect-ratio:3/4; } }
+  /* movement only -- never opacity. This runs without JS (scroll-driven CSS needs none), so any
+     fade here would leave every below-the-fold heading faded until the visitor scrolled to it. */
+  @keyframes ukcSettle{ from{ transform:translateY(26px); } to{ transform:none; } }
+
+  @media (prefers-reduced-motion: reduce){
+    html.ukc-on .ukc .ukc-shot, html.ukc-on .ukc .w, html.ukc-on .ukc .ukc-shot > .ukc-img, html.ukc-on .ukc-head{
+      clip-path:none !important; opacity:1 !important; transform:none !important; animation:none !important; transition:none !important;
+    }
+  }
+/* uk-cinema-css:end */
 </style>
 
 
@@ -978,10 +1208,10 @@
                 <div class="nav-dropdown">
                     <a href="#regions">Service Areas <span class="nav-dropdown-caret">&#9662;</span></a>
                     <div class="nav-dropdown-panel">
-                        <a href="/ca/" class="nav-dropdown-item"><img src="https://flagcdn.com/w40/ca.png" alt="" /> Canada</a>
+                        <a href="/ca/" class="nav-dropdown-item"><img src="https://flagcdn.com/w40/ca.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Canada</a>
                         <a href="/ca/toronto/" class="nav-dropdown-item"><svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Toronto</a>
-                        <a href="/us/" class="nav-dropdown-item"><img src="https://flagcdn.com/w40/us.png" alt="" /> United States</a>
-                        <a href="/uk/" class="nav-dropdown-item"><img src="https://flagcdn.com/w40/gb.png" alt="" /> United Kingdom</a>
+                        <a href="/us/" class="nav-dropdown-item"><img src="https://flagcdn.com/w40/us.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United States</a>
+                        <a href="/uk/" class="nav-dropdown-item"><img src="https://flagcdn.com/w40/gb.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United Kingdom</a>
                         <a href="/uk/manchester/" class="nav-dropdown-item"><svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Manchester</a>
                         <a href="/uk/reading/" class="nav-dropdown-item"><svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Reading</a>
                         <a href="/uk/london/" class="nav-dropdown-item"><svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> London</a>
@@ -1211,6 +1441,261 @@
         <p class="regions-footnote">* Starting rates shown vs. average local agency pricing in each market.</p>
     </div>
 </section>
+<!-- uk-cinema:start -->
+<section class="ukc-act tone-dark" aria-label="Act one: This is what it looks like before we start.">
+    <div class="ukc-head">
+        <p class="ukc-slate"><b>01</b> <span>Act one</span></p>
+        <h2 class="ukc-title">This is what it looks like before we start.</h2>
+        <p class="ukc-lede">Not a criticism. Almost every business that calls us is running on some version of this, and it worked right up until it did not.</p>
+    </div>
+    <div class="ukc ukcStrip">
+        <div class="f">
+            <div class="ukc-shot"><img class="ukc-img" src="/assets/images/library/uk-stacks-of-paper-and-folders.jpg" srcset="/assets/images/library/uk-stacks-of-paper-and-folders-700.jpg 700w, /assets/images/library/uk-stacks-of-paper-and-folders-1400.jpg 1400w, /assets/images/library/uk-stacks-of-paper-and-folders.jpg 2400w" sizes="(max-width:760px) 100vw, 25vw" alt="Stacks of paper documents and file folders" width="2400" height="1600" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ukc-cap">The job travels on paper.</p>
+            </div>
+        </div>
+        <div class="f">
+            <div class="ukc-shot"><img class="ukc-img" src="/assets/images/library/uk-rows-of-filing-cabinets.jpg" srcset="/assets/images/library/uk-rows-of-filing-cabinets-700.jpg 700w, /assets/images/library/uk-rows-of-filing-cabinets-1400.jpg 1400w, /assets/images/library/uk-rows-of-filing-cabinets.jpg 2400w" sizes="(max-width:760px) 100vw, 25vw" alt="Rows of old filing cabinets with handwritten labels" width="2400" height="1597" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ukc-cap">Last year lives in a drawer.</p>
+            </div>
+        </div>
+        <div class="f">
+            <div class="ukc-shot"><img class="ukc-img" src="/assets/images/library/uk-printed-numbers-closeup.jpg" srcset="/assets/images/library/uk-printed-numbers-closeup-700.jpg 700w, /assets/images/library/uk-printed-numbers-closeup-1400.jpg 1400w, /assets/images/library/uk-printed-numbers-closeup.jpg 2400w" sizes="(max-width:760px) 100vw, 25vw" alt="Printed rows of figures, the spreadsheet the business actually runs on" width="2400" height="1600" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ukc-cap">And the real system is a spreadsheet.</p>
+            </div>
+        </div>
+        <div class="f">
+            <div class="ukc-shot"><img class="ukc-img" src="/assets/images/library/uk-desk-papers-calculator-tray.jpg" srcset="/assets/images/library/uk-desk-papers-calculator-tray-700.jpg 700w, /assets/images/library/uk-desk-papers-calculator-tray-1400.jpg 1400w, /assets/images/library/uk-desk-papers-calculator-tray.jpg 2400w" sizes="(max-width:760px) 100vw, 25vw" alt="A desk covered with papers, a calculator and an in-tray" width="2400" height="1607" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ukc-cap">Checked by hand, every month.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ukc-act tone-light" aria-label="Act two: We follow one real order. That is the whole first step.">
+    <div class="ukc-head">
+        <p class="ukc-slate"><b>02</b> <span>Act two</span></p>
+        <h2 class="ukc-title">We follow one real order. That is the whole first step.</h2>
+        <p class="ukc-lede">Enquiry to invoice, on a wall, with the people who actually do it &mdash; not a questionnaire, and not a demo of our software. Every workaround gets written down in their words, and the map that comes out is yours whether or not you carry on.</p>
+    </div>
+    <div class="ukc ukcWide">
+        <div class="plate">
+            <div class="ukc-shot"><img class="ukc-img" src="/assets/images/library/uk-planning-on-glass-panel.jpg" srcset="/assets/images/library/uk-planning-on-glass-panel-700.jpg 700w, /assets/images/library/uk-planning-on-glass-panel-1400.jpg 1400w, /assets/images/library/uk-planning-on-glass-panel.jpg 2400w" sizes="100vw" alt="Colleagues mapping a process on a glass panel" width="2400" height="1602" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ukc-cap">One order, one wall, the people who do the work.</p>
+            </div>
+        </div>
+        <div class="beats">
+            <div class="beat">
+            <div class="ukc-shot"><img class="ukc-img" src="/assets/images/library/uk-whiteboard-session-two-people.jpg" srcset="/assets/images/library/uk-whiteboard-session-two-people-700.jpg 700w, /assets/images/library/uk-whiteboard-session-two-people-1400.jpg 1400w, /assets/images/library/uk-whiteboard-session-two-people.jpg 2400w" sizes="(max-width:700px) 100vw, 30vw" alt="Two people working through a process diagram at a whiteboard" width="2400" height="1590" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ukc-cap">Every step, in their words.</p>
+            </div>
+            </div>
+            <div class="beat">
+            <div class="ukc-shot"><img class="ukc-img" src="/assets/images/library/uk-two-professionals-in-discussion.jpg" srcset="/assets/images/library/uk-two-professionals-in-discussion-700.jpg 700w, /assets/images/library/uk-two-professionals-in-discussion-1400.jpg 1400w, /assets/images/library/uk-two-professionals-in-discussion.jpg 2400w" sizes="(max-width:700px) 100vw, 30vw" alt="Two professionals talking through a step in the process" width="2400" height="1601" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ukc-cap">Including the parts nobody documents.</p>
+            </div>
+            </div>
+            <div class="beat">
+            <div class="ukc-shot"><img class="ukc-img" src="/assets/images/library/uk-colleagues-checking-paper-file.jpg" srcset="/assets/images/library/uk-colleagues-checking-paper-file-700.jpg 700w, /assets/images/library/uk-colleagues-checking-paper-file-1400.jpg 1400w, /assets/images/library/uk-colleagues-checking-paper-file.jpg 2400w" sizes="(max-width:700px) 100vw, 30vw" alt="Two colleagues checking figures in a paper file" width="2400" height="1597" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ukc-cap">And the workaround everyone forgot was a workaround.</p>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ukc-act tone-dark" aria-label="Act three: Then it gets built, in two-week pieces you can click.">
+    <div class="ukc-head">
+        <p class="ukc-slate"><b>03</b> <span>Act three</span></p>
+        <h2 class="ukc-title">Then it gets built, in two-week pieces you can click.</h2>
+        <p class="ukc-lede">Modelled and clickable before any production code. Each fortnight you get a staging URL and a written note of what changed. Progress you verify, not progress you are told about.</p>
+    </div>
+    <div class="ukc ukcSplit">
+        <div class="q">
+            <div class="ukc-shot"><img class="ukc-img" src="/assets/images/library/uk-team-collaborating-modern-office.jpg" srcset="/assets/images/library/uk-team-collaborating-modern-office-700.jpg 700w, /assets/images/library/uk-team-collaborating-modern-office-1400.jpg 1400w, /assets/images/library/uk-team-collaborating-modern-office.jpg 2400w" sizes="(max-width:820px) 100vw, 46vw" alt="A delivery team working through a data model together" width="2400" height="1350" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ukc-cap">Modelled first.</p>
+                <p class="ukc-sub">Data model and screens you approve before anything is coded.</p>
+            </div>
+        </div>
+        <div class="q">
+            <div class="ukc-shot"><img class="ukc-img" src="/assets/images/library/uk-desk-laptop-focused-work.jpg" srcset="/assets/images/library/uk-desk-laptop-focused-work-700.jpg 700w, /assets/images/library/uk-desk-laptop-focused-work-1400.jpg 1400w, /assets/images/library/uk-desk-laptop-focused-work.jpg 2400w" sizes="(max-width:820px) 100vw, 46vw" alt="Focused development work at a laptop" width="2400" height="1600" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ukc-cap">Built in increments.</p>
+                <p class="ukc-sub">Two weeks at a time, on a staging system, on your own data.</p>
+            </div>
+        </div>
+        <div class="q">
+            <div class="ukc-shot"><img class="ukc-img" src="/assets/images/library/uk-presenting-to-team-laptops-table.jpg" srcset="/assets/images/library/uk-presenting-to-team-laptops-table-700.jpg 700w, /assets/images/library/uk-presenting-to-team-laptops-table-1400.jpg 1400w, /assets/images/library/uk-presenting-to-team-laptops-table.jpg 2400w" sizes="(max-width:820px) 100vw, 46vw" alt="Presenting a working module to the client team" width="2400" height="1600" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ukc-cap">Reviewed with your team.</p>
+                <p class="ukc-sub">The people who will use it break it before your customers can.</p>
+            </div>
+        </div>
+        <div class="q">
+            <div class="ukc-shot"><img class="ukc-img" src="/assets/images/library/uk-four-colleagues-laptops-board-meeting.jpg" srcset="/assets/images/library/uk-four-colleagues-laptops-board-meeting-700.jpg 700w, /assets/images/library/uk-four-colleagues-laptops-board-meeting-1400.jpg 1400w, /assets/images/library/uk-four-colleagues-laptops-board-meeting.jpg 2400w" sizes="(max-width:820px) 100vw, 46vw" alt="A review meeting signing off a delivered module" width="2400" height="1600" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ukc-cap">Signed off, then the next piece.</p>
+                <p class="ukc-sub">Nothing moves on until the last piece is in genuine daily use.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ukc-act tone-light" aria-label="Act four: And then it has to survive a real working day.">
+    <div class="ukc-head">
+        <p class="ukc-slate"><b>04</b> <span>Act four</span></p>
+        <h2 class="ukc-title">And then it has to survive a real working day.</h2>
+        <p class="ukc-lede">This is the part a demo never shows you. Scanned in a cold warehouse with gloves on, booked at a machine, run on a batch line, sent out to a subcontractor and brought back. If it does not work here, it does not work.</p>
+    </div>
+    <div class="ukc ukcRail">
+        <div class="track">
+            <div class="f">
+            <div class="ukc-shot"><img class="ukc-img" src="/assets/images/library/uk-production-floor-people-working.jpg" srcset="/assets/images/library/uk-production-floor-people-working-700.jpg 700w, /assets/images/library/uk-production-floor-people-working-1400.jpg 1400w, /assets/images/library/uk-production-floor-people-working.jpg 2400w" sizes="(max-width:760px) 70vw, 340px" alt="Production staff working along a busy manufacturing floor" width="2400" height="1350" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ukc-cap">On the production floor</p>
+            </div>
+            </div>
+            <div class="f">
+            <div class="ukc-shot"><img class="ukc-img" src="/assets/images/library/uk-two-colleagues-warehouse-aisle.jpg" srcset="/assets/images/library/uk-two-colleagues-warehouse-aisle-700.jpg 700w, /assets/images/library/uk-two-colleagues-warehouse-aisle-1400.jpg 1400w, /assets/images/library/uk-two-colleagues-warehouse-aisle.jpg 2400w" sizes="(max-width:760px) 70vw, 340px" alt="Two colleagues walking a warehouse aisle lined with racking" width="2400" height="1597" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ukc-cap">In the racking, with gloves on</p>
+            </div>
+            </div>
+            <div class="f">
+            <div class="ukc-shot"><img class="ukc-img" src="/assets/images/library/uk-forklift-yellow-warehouse.jpg" srcset="/assets/images/library/uk-forklift-yellow-warehouse-700.jpg 700w, /assets/images/library/uk-forklift-yellow-warehouse-1400.jpg 1400w, /assets/images/library/uk-forklift-yellow-warehouse.jpg 2400w" sizes="(max-width:760px) 70vw, 340px" alt="Forklift moving stock inside a warehouse" width="2400" height="1600" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ukc-cap">On a forklift, one-handed</p>
+            </div>
+            </div>
+            <div class="f">
+            <div class="ukc-shot"><img class="ukc-img" src="/assets/images/library/uk-operator-running-machine-closeup.jpg" srcset="/assets/images/library/uk-operator-running-machine-closeup-700.jpg 700w, /assets/images/library/uk-operator-running-machine-closeup-1400.jpg 1400w, /assets/images/library/uk-operator-running-machine-closeup.jpg 2400w" sizes="(max-width:760px) 70vw, 340px" alt="Operative working the controls of a powered pallet truck" width="2400" height="1723" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ukc-cap">On the pallet truck, scanning</p>
+            </div>
+            </div>
+            <div class="f">
+            <div class="ukc-shot"><img class="ukc-img" src="/assets/images/library/uk-welder-at-work-factory.jpg" srcset="/assets/images/library/uk-welder-at-work-factory-700.jpg 700w, /assets/images/library/uk-welder-at-work-factory-1400.jpg 1400w, /assets/images/library/uk-welder-at-work-factory.jpg 2400w" sizes="(max-width:760px) 70vw, 340px" alt="Welder working steel inside a fabrication shop" width="2400" height="1600" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ukc-cap">Out at the subcontractor</p>
+            </div>
+            </div>
+            <div class="f">
+            <div class="ukc-shot"><img class="ukc-img" src="/assets/images/library/uk-bottles-filling-automated-line.jpg" srcset="/assets/images/library/uk-bottles-filling-automated-line-700.jpg 700w, /assets/images/library/uk-bottles-filling-automated-line-1400.jpg 1400w, /assets/images/library/uk-bottles-filling-automated-line.jpg 2400w" sizes="(max-width:760px) 70vw, 340px" alt="Bottles being filled on an automated production line" width="2400" height="1600" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ukc-cap">On a batch line, by recipe</p>
+            </div>
+            </div>
+            <div class="f">
+            <div class="ukc-shot"><img class="ukc-img" src="/assets/images/library/uk-food-plant-staff-lab-coats-masks.jpg" srcset="/assets/images/library/uk-food-plant-staff-lab-coats-masks-700.jpg 700w, /assets/images/library/uk-food-plant-staff-lab-coats-masks-1400.jpg 1400w, /assets/images/library/uk-food-plant-staff-lab-coats-masks.jpg 2400w" sizes="(max-width:760px) 70vw, 340px" alt="Production staff in lab coats and masks on a food manufacturing floor" width="2400" height="1602" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ukc-cap">Under traceability rules</p>
+            </div>
+            </div>
+            <div class="f">
+            <div class="ukc-shot"><img class="ukc-img" src="/assets/images/library/uk-colourful-stacking-crates.jpg" srcset="/assets/images/library/uk-colourful-stacking-crates-700.jpg 700w, /assets/images/library/uk-colourful-stacking-crates-1400.jpg 1400w, /assets/images/library/uk-colourful-stacking-crates.jpg 2400w" sizes="(max-width:760px) 70vw, 340px" alt="Stacking crates ready for despatch" width="2400" height="1600" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ukc-cap">And out of the door</p>
+            </div>
+            </div>
+        </div>
+        <p class="rail-note">Scroll the strip &mdash; eight places the same system has to work</p>
+    </div>
+</section>
+
+<section class="ukc-act tone-dark" aria-label="Act five: Until everyone is arguing from the same number.">
+    <div class="ukc-head">
+        <p class="ukc-slate"><b>05</b> <span>Act five</span></p>
+        <h2 class="ukc-title">Until everyone is arguing from the same number.</h2>
+        <p class="ukc-lede">Which is the entire point of the exercise. Stock the floor believes, a cost per job that is real, VAT records ready for Making Tax Digital, and a month end that comes out of the system instead of out of three spreadsheets and somebody&rsquo;s memory.</p>
+    </div>
+    <div class="ukc ukcWide">
+        <div class="plate">
+            <div class="ukc-shot"><img class="ukc-img" src="/assets/images/library/uk-analytics-screengrab-monitor.jpg" srcset="/assets/images/library/uk-analytics-screengrab-monitor-700.jpg 700w, /assets/images/library/uk-analytics-screengrab-monitor-1400.jpg 1400w, /assets/images/library/uk-analytics-screengrab-monitor.jpg 2400w" sizes="100vw" alt="An operational report open on a monitor" width="2400" height="1464" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ukc-cap">One figure. Floor, office and board.</p>
+            </div>
+        </div>
+        <div class="beats">
+            <div class="beat">
+            <div class="ukc-shot"><img class="ukc-img" src="/assets/images/library/uk-team-round-table-laptops.jpg" srcset="/assets/images/library/uk-team-round-table-laptops-700.jpg 700w, /assets/images/library/uk-team-round-table-laptops-1400.jpg 1400w, /assets/images/library/uk-team-round-table-laptops.jpg 2400w" sizes="(max-width:700px) 100vw, 30vw" alt="A team reviewing the monthly report together" width="2400" height="1600" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ukc-cap">The same report every month.</p>
+            </div>
+            </div>
+            <div class="beat">
+            <div class="ukc-shot"><img class="ukc-img" src="/assets/images/library/uk-two-colleagues-at-table-working.jpg" srcset="/assets/images/library/uk-two-colleagues-at-table-working-700.jpg 700w, /assets/images/library/uk-two-colleagues-at-table-working-1400.jpg 1400w, /assets/images/library/uk-two-colleagues-at-table-working.jpg 2400w" sizes="(max-width:700px) 100vw, 30vw" alt="Two colleagues working through the month&rsquo;s figures" width="2400" height="1601" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ukc-cap">Including the parts that went the wrong way.</p>
+            </div>
+            </div>
+            <div class="beat">
+            <div class="ukc-shot"><img class="ukc-img" src="/assets/images/library/uk-office-desk-laptop-working.jpg" srcset="/assets/images/library/uk-office-desk-laptop-working-700.jpg 700w, /assets/images/library/uk-office-desk-laptop-working-1400.jpg 1400w, /assets/images/library/uk-office-desk-laptop-working.jpg 2400w" sizes="(max-width:700px) 100vw, 30vw" alt="Preparing year-end figures at a desk" width="2400" height="1600" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ukc-cap">And a year end your accountant can use.</p>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ukc-act tone-light" aria-label="Act six: Four UK markets, four different problems.">
+    <div class="ukc-head">
+        <p class="ukc-slate"><b>06</b> <span>Act six</span></p>
+        <h2 class="ukc-title">Four UK markets, four different problems.</h2>
+        <p class="ukc-lede">We work remotely from Kochi for clients across the United Kingdom. Each of these pages is written for what that place actually asks us for &mdash; not the same page with the city name swapped.</p>
+    </div>
+    <div class="ukc ukcMap">
+        <a class="door" href="/uk/london/">
+            <div class="ukc-shot"><img class="ukc-img" src="/assets/images/library/uk-london-river-and-bridge.jpg" srcset="/assets/images/library/uk-london-river-and-bridge-700.jpg 700w, /assets/images/library/uk-london-river-and-bridge-1400.jpg 1400w, /assets/images/library/uk-london-river-and-bridge.jpg 2400w" sizes="(max-width:760px) 100vw, 26vw" alt="The Thames and a London bridge with the city behind" width="2400" height="1600" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ukc-cap">London</p>
+                <p class="ukc-sub">The City, the Wharf, and the industrial belt &mdash; and they need different software.</p>
+                <span class="go">Read the London page <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+        </a>
+        <a class="door" href="/uk/manchester/">
+            <div class="ukc-shot"><img class="ukc-img" src="/assets/images/library/uk-manchester-red-brick-street.jpg" srcset="/assets/images/library/uk-manchester-red-brick-street-700.jpg 700w, /assets/images/library/uk-manchester-red-brick-street-1400.jpg 1400w, /assets/images/library/uk-manchester-red-brick-street.jpg 2400w" sizes="(max-width:760px) 100vw, 26vw" alt="Manchester street lined with tall red-brick buildings" width="2400" height="1877" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ukc-cap">Manchester</p>
+                <p class="ukc-sub">A broad production base: textiles, food, plastics, fabrication, distribution round the M60.</p>
+                <span class="go">Read the Manchester page <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+        </a>
+        <a class="door" href="/uk/reading/">
+            <div class="ukc-shot"><img class="ukc-img" src="/assets/images/library/uk-two-passengers-on-train.jpg" srcset="/assets/images/library/uk-two-passengers-on-train-700.jpg 700w, /assets/images/library/uk-two-passengers-on-train-1400.jpg 1400w, /assets/images/library/uk-two-passengers-on-train.jpg 2400w" sizes="(max-width:760px) 100vw, 26vw" alt="Two passengers on a Thames Valley commuter train" width="2400" height="1440" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ukc-cap">Reading &amp; the Thames Valley</p>
+                <p class="ukc-sub">Technical buyers who read your source before the first call, on a train, on 4G.</p>
+                <span class="go">Read the Reading page <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+        </a>
+        <a class="door" href="/uk/scotland/">
+            <div class="ukc-shot"><img class="ukc-img" src="/assets/images/library/uk-edinburgh-balmoral-clock-tower.jpg" srcset="/assets/images/library/uk-edinburgh-balmoral-clock-tower-700.jpg 700w, /assets/images/library/uk-edinburgh-balmoral-clock-tower-1400.jpg 1400w, /assets/images/library/uk-edinburgh-balmoral-clock-tower.jpg 2400w" sizes="(max-width:760px) 100vw, 26vw" alt="The Balmoral clock tower and Scott Monument in Edinburgh" width="2400" height="1600" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ukc-cap">Scotland</p>
+                <p class="ukc-sub">Aberdeen works in the field, Edinburgh works in the office. One page, two jobs.</p>
+                <span class="go">Read the Scotland page <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+        </a>
+    </div>
+</section>
+<!-- uk-cinema:end -->
+
+
+
+
+
+
+
 
 <section id="compare">
     <div class="container">
@@ -2476,5 +2961,73 @@ document.addEventListener('DOMContentLoaded', function() {
 })();
 </script>
 <!-- trust-strip-js:end -->
+<script>
+
+</script>
+<script>
+
+</script>
+<script>
+
+</script>
+<script>
+
+</script>
+<script>
+
+</script>
+<script>
+
+</script>
+<script>
+/* uk-story-js:start */
+/* uk_story.js : reveal the picture layer once, in view, then stop observing. The html.ukst class is
+   added only here, so with JS off or reduced motion on, every photo and caption is simply visible. */
+(function () {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var groups = document.querySelectorAll('.uks');
+    if (!groups.length || !('IntersectionObserver' in window)) return;
+    document.documentElement.classList.add('ukst');
+    var units = [];
+    for (var g = 0; g < groups.length; g++) {
+        var kids = groups[g].querySelectorAll('.plate, .frame, .band, .cell, .tile, .lead, .card');
+        for (var k = 0; k < kids.length; k++) { kids[k].style.setProperty('--d', k % 6); units.push(kids[k]); }
+    }
+    var io = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (!entries[i].isIntersecting) continue;
+            entries[i].target.classList.add('in');
+            io.unobserve(entries[i].target);
+        }
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
+    for (var u = 0; u < units.length; u++) io.observe(units[u]);
+})();
+/* uk-story-js:end */
+</script>
+<script>
+/* uk-cinema-js:start */
+/* uk_cinema.js : light each frame once as it arrives, then stop watching it. html.ukc-on is added
+   only here, so with JS off or reduced motion on the whole photo essay is simply visible. */
+(function () {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var frames = document.querySelectorAll('.ukc .f, .ukc .plate, .ukc .beat, .ukc .q, .ukc a.door, .ukc-head');
+    if (!frames.length || !('IntersectionObserver' in window)) return;
+    document.documentElement.classList.add('ukc-on');
+    var acts = document.querySelectorAll('.ukc-act');
+    for (var a = 0; a < acts.length; a++) {
+        var kids = acts[a].querySelectorAll('.f, .plate, .beat, .q, a.door');
+        for (var k = 0; k < kids.length; k++) kids[k].style.setProperty('--d', k % 8);
+    }
+    var io = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (!entries[i].isIntersecting) continue;
+            entries[i].target.classList.add('lit');
+            io.unobserve(entries[i].target);
+        }
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+    for (var f = 0; f < frames.length; f++) io.observe(frames[f]);
+})();
+/* uk-cinema-js:end */
+</script>
 </body>
 </html>

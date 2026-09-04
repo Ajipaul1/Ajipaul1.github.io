@@ -25,6 +25,7 @@ const SIZES = path.join(LIB, '_sizes.json');
 const CREDITS = path.join(LIB, 'CREDITS.md');
 const WIDE = 2400;          // hero / full-bleed master
 const MID = 1400;           // in-article figure
+const SMALL = 700;          // small cards, rail frames, phones
 const MAGICK = 'C:/Program Files/ImageMagick-7.1.2-Q16-HDRI/magick.exe';
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36';
 
@@ -58,10 +59,11 @@ function identify(file) {
 }
 
 // strip EXIF (privacy + bytes), cap the long edge, re-encode progressive at a quality that survives
-// a hero crop. Two files per photo: the 2400 master and a 1400 for in-article figures.
+// a hero crop. Three files per photo: the 2400 master, a 1400 for in-article figures, and a 700 for
+// small cards and phones -- without that tier a 350px slot pulls a 1400px file.
 function optimise(src, slug) {
   const outs = [];
-  for (const [w, name] of [[WIDE, slug + '.jpg'], [MID, slug + '-1400.jpg']]) {
+  for (const [w, name] of [[WIDE, slug + '.jpg'], [MID, slug + '-1400.jpg'], [SMALL, slug + '-700.jpg']]) {
     const dest = path.join(LIB, name);
     execFileSync(MAGICK, [src, '-auto-orient', '-strip', '-resize', w + 'x>', '-quality', '82',
       '-interlace', 'Plane', '-sampling-factor', '4:2:0', '-colorspace', 'sRGB', dest]);

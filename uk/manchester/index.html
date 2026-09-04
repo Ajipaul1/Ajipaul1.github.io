@@ -703,6 +703,119 @@
     .erp-benefit-row, .erp-advantages-grid, .erp-process-row{ grid-template-columns:1fr; }
   }
 
+
+
+
+
+
+
+
+
+
+/* uk-story-css:start */
+  /* ============ uk_story.js : the picture layer ============ */
+  .uks{ position:relative; }
+  .uks-img{ display:block; width:100%; height:100%; object-fit:cover; }
+  /* full-bleed without the classic 100vw bug: 100vw counts the scrollbar, so on a page with a
+     vertical scrollbar a 100vw child is ~15px wider than the viewport and the whole document gains
+     a horizontal scrollbar. overflow-x:clip on the section absorbs it without creating a scroll
+     container (hidden is the fallback for older Safari). */
+  .uks-section{ overflow-x:hidden; overflow-x:clip; }
+  .uks-bleed{ width:100vw; max-width:100vw; margin-left:calc(50% - 50vw); }
+  .uks-eyebrow{ font-family:var(--font-mono); font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 10px; }
+  .uks-cap{ font-family:var(--font-sans); font-weight:700; color:var(--ink); line-height:1.18; margin:0; }
+  .uks-sub{ font-size:.88rem; color:var(--ink-soft); margin:6px 0 0; max-width:46ch; }
+  .uks-n{ font-family:var(--font-mono); font-size:.72rem; letter-spacing:.12em; color:var(--orange); display:block; margin-bottom:7px; }
+
+  /* --- variant A : CASCADE (/uk/) -- alternating full-width plates, text riding the edge --- */
+  .uksA{ margin:0 0 8px; }
+  .uksA .plate{ position:relative; margin:0 0 clamp(18px,3vw,34px); }
+  .uksA .shot{ position:relative; overflow:hidden; border-radius:14px; aspect-ratio:21/9; background:var(--paper-alt); }
+  .uksA .plate:nth-child(even) .shot{ border-radius:14px; }
+  .uksA .words{ margin:16px 0 0; max-width:52ch; }
+  .uksA .words .uks-cap{ font-size:clamp(1.3rem,2.5vw,2rem); }
+  @media (min-width:900px){
+    .uksA .plate{ display:grid; grid-template-columns:1.55fr .95fr; gap:clamp(26px,3.4vw,52px); align-items:center; }
+    .uksA .plate:nth-child(even){ grid-template-columns:.95fr 1.55fr; }
+    .uksA .plate:nth-child(even) .shot{ order:2; }
+    .uksA .plate:nth-child(even) .words{ order:1; }
+    .uksA .words{ margin:0; }
+    .uksA .shot{ aspect-ratio:16/10; }
+  }
+
+  /* --- variant B : FILMSTRIP (/uk/erp/) -- the build as six numbered frames, scrolls sideways --- */
+  .uksB{ margin:4px 0 6px; }
+  .uksB .rail{ display:flex; gap:clamp(14px,1.8vw,24px); overflow-x:auto; scroll-snap-type:x mandatory; padding:2px 2px 18px; scrollbar-width:thin; }
+  .uksB .frame{ flex:0 0 min(78vw, 460px); scroll-snap-align:start; }
+  .uksB .shot{ position:relative; overflow:hidden; border-radius:12px; aspect-ratio:4/3; background:var(--paper-alt); }
+  .uksB .words{ padding:13px 2px 0; }
+  .uksB .words .uks-cap{ font-size:1.06rem; }
+  .uksB .hint{ font-family:var(--font-mono); font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); margin:2px 0 0; }
+  @media (min-width:1250px){ .uksB .frame{ flex:0 0 calc((100% - 5 * 24px) / 5.4); } }
+
+  /* --- variant C : STACKED BLEED (/uk/website-development/) -- edge to edge, caption inset --- */
+  .uksC .band{ position:relative; overflow:hidden; margin:0 0 clamp(14px,2vw,26px); }
+  .uksC .shot{ position:relative; overflow:hidden; aspect-ratio:2/1; background:var(--navy-deep); }
+  .uksC .shot::after{ content:''; position:absolute; inset:0; background:linear-gradient(90deg, rgba(6,12,26,.88) 0%, rgba(6,12,26,.55) 44%, rgba(6,12,26,.06) 76%); }
+  .uksC .words{ position:absolute; z-index:2; left:0; right:0; bottom:0; padding:clamp(20px,4vw,48px) clamp(18px,5vw,72px); }
+  .uksC .uks-cap{ color:#fff; font-size:clamp(1.25rem,2.7vw,2.15rem); max-width:22ch; }
+  .uksC .uks-sub{ color:rgba(255,255,255,.72); }
+  .uksC .uks-eyebrow{ color:var(--orange); }
+  @media (max-width:700px){ .uksC .shot{ aspect-ratio:4/5; } .uksC .shot::after{ background:linear-gradient(0deg, rgba(6,12,26,.92) 0%, rgba(6,12,26,.4) 52%, rgba(6,12,26,.05) 100%); } }
+
+  /* --- variant D : EVIDENCE WALL (/uk/seo-services/) -- screens, uneven grid, one big --- */
+  .uksD{ display:grid; gap:clamp(12px,1.6vw,20px); grid-template-columns:1fr; }
+  .uksD .cell{ position:relative; overflow:hidden; border-radius:12px; background:var(--paper-alt); }
+  .uksD .shot{ position:relative; overflow:hidden; aspect-ratio:16/10; }
+  .uksD .words{ padding:14px 16px 16px; }
+  .uksD .words .uks-cap{ font-size:1.02rem; }
+  .uksD .cell{ border:1px solid var(--line); }
+  @media (min-width:820px){
+    .uksD{ grid-template-columns:repeat(6,1fr); }
+    .uksD .cell:nth-child(1){ grid-column:span 4; }
+    .uksD .cell:nth-child(1) .shot{ aspect-ratio:2/1; }
+    .uksD .cell:nth-child(1) .words .uks-cap{ font-size:clamp(1.2rem,2vw,1.6rem); }
+    .uksD .cell:nth-child(2){ grid-column:span 2; }
+    .uksD .cell:nth-child(3), .uksD .cell:nth-child(4), .uksD .cell:nth-child(5){ grid-column:span 2; }
+  }
+
+  /* --- variant E : POSTCARDS (/uk/manchester/, /uk/london/) -- place first, then its sectors --- */
+  .uksE .lead{ position:relative; overflow:hidden; border-radius:0; margin:0 0 clamp(14px,2vw,24px); }
+  .uksE .lead .shot{ position:relative; overflow:hidden; aspect-ratio:24/9; background:var(--navy-deep); }
+  .uksE .lead .shot::after{ content:''; position:absolute; inset:0; background:linear-gradient(0deg, rgba(6,12,26,.8), rgba(6,12,26,.12) 62%); }
+  .uksE .lead .words{ position:absolute; z-index:2; left:0; bottom:0; padding:clamp(18px,3.4vw,44px) clamp(18px,5vw,72px); }
+  .uksE .lead .uks-cap{ color:#fff; font-size:clamp(1.4rem,3vw,2.4rem); }
+  .uksE .lead .uks-eyebrow{ color:var(--orange); }
+  .uksE .cards{ display:grid; gap:clamp(12px,1.6vw,20px); grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
+  .uksE .card{ position:relative; overflow:hidden; border-radius:12px; border:1px solid var(--line); }
+  .uksE .card .shot{ position:relative; overflow:hidden; aspect-ratio:4/3; background:var(--paper-alt); }
+  .uksE .card .words{ padding:13px 15px 15px; }
+  .uksE .card .uks-cap{ font-size:1rem; }
+  @media (max-width:700px){ .uksE .lead .shot{ aspect-ratio:3/2; } }
+
+  /* --- variant F : TWO COLUMNS (/uk/scotland/, /uk/reading/) -- two worlds, side by side --- */
+  .uksF{ display:grid; gap:clamp(22px,3vw,46px); grid-template-columns:1fr; }
+  .uksF .col > h4{ font-family:var(--font-mono); font-size:.74rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); margin:0 0 14px; }
+  .uksF .stackrow{ display:grid; gap:clamp(10px,1.4vw,16px); }
+  .uksF .tile{ position:relative; overflow:hidden; border-radius:11px; border:1px solid var(--line); }
+  .uksF .tile .shot{ position:relative; overflow:hidden; aspect-ratio:16/9; background:var(--paper-alt); }
+  .uksF .tile .words{ padding:12px 14px 14px; }
+  .uksF .tile .uks-cap{ font-size:.98rem; }
+  @media (min-width:880px){ .uksF{ grid-template-columns:1fr 1fr; } }
+
+  /* ---- the reveal : one shot, in view, then done. Nothing is left animating. ---- */
+  html.ukst .uks .shot > .uks-img{ transform:scale(1.07); transition:transform 1.15s cubic-bezier(.2,.7,.2,1); }
+  html.ukst .uks .shot{ clip-path:inset(0 0 100% 0); }
+  html.ukst .uks .words{ opacity:0; transform:translateY(14px); }
+  html.ukst .uks .in .shot{ animation:uksWipe .78s cubic-bezier(.3,0,.2,1) forwards; animation-delay:calc(var(--d,0) * .09s); }
+  html.ukst .uks .in .shot > .uks-img{ transform:scale(1); transition-delay:calc(var(--d,0) * .09s); }
+  html.ukst .uks .in .words{ animation:uksRise .6s cubic-bezier(.2,.7,.2,1) forwards; animation-delay:calc(var(--d,0) * .09s + .16s); }
+  @keyframes uksWipe{ from{ clip-path:inset(0 0 100% 0); } to{ clip-path:inset(0 0 0 0); } }
+  @keyframes uksRise{ to{ opacity:1; transform:none; } }
+  @media (prefers-reduced-motion: reduce){
+    html.ukst .uks .shot, html.ukst .uks .words, html.ukst .uks .shot > .uks-img{ clip-path:none !important; opacity:1 !important; transform:none !important; animation:none !important; transition:none !important; }
+  }
+/* uk-story-css:end */
 </style>
 
 
@@ -1041,13 +1154,13 @@
                 <div class="nav-dropdown">
                     <a href="#regions">Service Areas <span class="nav-dropdown-caret">&#9662;</span></a>
                     <div class="nav-dropdown-panel">
-                        <a href="/ca/" class="nav-dropdown-item"><img src="https://flagcdn.com/w40/ca.png" alt="" /> Canada</a>
+                        <a href="/ca/" class="nav-dropdown-item"><img src="https://flagcdn.com/w40/ca.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Canada</a>
                         <a href="/uk/manchester/" class="nav-dropdown-item"><svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Manchester</a>
                         <a href="/uk/reading/" class="nav-dropdown-item"><svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Reading</a>
                         <a href="/uk/london/" class="nav-dropdown-item"><svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> London</a>
                         <a href="/uk/scotland/" class="nav-dropdown-item"><svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Scotland</a>
-                        <a href="/us/" class="nav-dropdown-item"><img src="https://flagcdn.com/w40/us.png" alt="" /> United States</a>
-                        <a href="/uk/" class="nav-dropdown-item"><img src="https://flagcdn.com/w40/gb.png" alt="" /> United Kingdom</a>
+                        <a href="/us/" class="nav-dropdown-item"><img src="https://flagcdn.com/w40/us.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United States</a>
+                        <a href="/uk/" class="nav-dropdown-item"><img src="https://flagcdn.com/w40/gb.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United Kingdom</a>
                     </div>
                 </div>
                 <a href="#results">Results</a>
@@ -1310,6 +1423,64 @@
         </div>
     </div>
 </section>
+<!-- uk-story:start -->
+<section class="tap-section uks-section">
+    <div class="container">
+        <p class="section-label">Greater Manchester</p>
+        <h2 class="section-title">The work we are actually asked for here.</h2>
+        <div class="uks uksE">
+            <div class="lead uks-bleed">
+                    <div class="shot"><img class="uks-img" src="/assets/images/library/uk-manchester-towers-behind-brick-warehouses.jpg" srcset="/assets/images/library/uk-manchester-towers-behind-brick-warehouses-700.jpg 700w, /assets/images/library/uk-manchester-towers-behind-brick-warehouses-1400.jpg 1400w, /assets/images/library/uk-manchester-towers-behind-brick-warehouses.jpg 2400w" sizes="(max-width:900px) 100vw, 92vw" alt="Modern towers rising behind historic red-brick warehouses in Manchester" width="2400" height="1590" loading="lazy" decoding="async" /></div>
+                    <div class="words">
+                        <p class="uks-eyebrow">Greater Manchester</p>
+                        <p class="uks-cap">New towers, old mills, and a lot of production in between.</p>
+                    </div>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <div class="shot"><img class="uks-img" src="/assets/images/library/uk-textile-factory-machinery-pipes.jpg" srcset="/assets/images/library/uk-textile-factory-machinery-pipes-700.jpg 700w, /assets/images/library/uk-textile-factory-machinery-pipes-1400.jpg 1400w, /assets/images/library/uk-textile-factory-machinery-pipes.jpg 2400w" sizes="(max-width:900px) 100vw, 92vw" alt="Industrial textile factory floor with machinery and overhead pipework" width="2400" height="1133" loading="lazy" decoding="async" /></div>
+                    <div class="words">
+                        <p class="uks-cap">Textiles &amp; technical fabrics</p>
+                        <p class="uks-sub">Batch and roll goods, where a metre is not a unit and yield matters.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="shot"><img class="uks-img" src="/assets/images/library/uk-grinding-steel-beam-sparks.jpg" srcset="/assets/images/library/uk-grinding-steel-beam-sparks-700.jpg 700w, /assets/images/library/uk-grinding-steel-beam-sparks-1400.jpg 1400w, /assets/images/library/uk-grinding-steel-beam-sparks.jpg 2400w" sizes="(max-width:900px) 100vw, 92vw" alt="Fabricator grinding a steel beam, sparks flying" width="2400" height="1600" loading="lazy" decoding="async" /></div>
+                    <div class="words">
+                        <p class="uks-cap">Engineering &amp; fabrication</p>
+                        <p class="uks-sub">Job shops with routing, subcontract operations and a real cost per job.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="shot"><img class="uks-img" src="/assets/images/library/uk-worker-filling-food-trays-conveyor.jpg" srcset="/assets/images/library/uk-worker-filling-food-trays-conveyor-700.jpg 700w, /assets/images/library/uk-worker-filling-food-trays-conveyor-1400.jpg 1400w, /assets/images/library/uk-worker-filling-food-trays-conveyor.jpg 2400w" sizes="(max-width:900px) 100vw, 92vw" alt="Worker filling food trays on a conveyor belt" width="2400" height="1350" loading="lazy" decoding="async" /></div>
+                    <div class="words">
+                        <p class="uks-cap">Food &amp; drink</p>
+                        <p class="uks-sub">Recipes rather than parts lists: yields, allergens and traceability that answers a recall.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="shot"><img class="uks-img" src="/assets/images/library/uk-forklift-driver-loading.jpg" srcset="/assets/images/library/uk-forklift-driver-loading-700.jpg 700w, /assets/images/library/uk-forklift-driver-loading-1400.jpg 1400w, /assets/images/library/uk-forklift-driver-loading.jpg 2400w" sizes="(max-width:900px) 100vw, 92vw" alt="Forklift driver moving a load in a warehouse" width="2400" height="1600" loading="lazy" decoding="async" /></div>
+                    <div class="words">
+                        <p class="uks-cap">Distribution round the M60</p>
+                        <p class="uks-sub">Pick, pack, courier and returns, with stock that matches the shelf.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="shot"><img class="uks-img" src="/assets/images/library/uk-manchester-yellow-tram.jpg" srcset="/assets/images/library/uk-manchester-yellow-tram-700.jpg 700w, /assets/images/library/uk-manchester-yellow-tram-1400.jpg 1400w, /assets/images/library/uk-manchester-yellow-tram.jpg 2400w" sizes="(max-width:900px) 100vw, 92vw" alt="A yellow Metrolink tram on a Manchester street" width="2400" height="1600" loading="lazy" decoding="async" /></div>
+                    <div class="words">
+                        <p class="uks-cap">And offices in town</p>
+                        <p class="uks-sub">Professional services with project costing, approvals and a month end that closes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- uk-story:end -->
+
+
+
+
 
 <section id="mcr-remote" class="tap-erp-what-section">
     <div class="container">
@@ -2507,5 +2678,42 @@ document.addEventListener('DOMContentLoaded', function() {
 })();
 </script>
 <!-- uk-motion-js:end -->
+<script>
+
+</script>
+<script>
+
+</script>
+<script>
+
+</script>
+<script>
+
+</script>
+<script>
+/* uk-story-js:start */
+/* uk_story.js : reveal the picture layer once, in view, then stop observing. The html.ukst class is
+   added only here, so with JS off or reduced motion on, every photo and caption is simply visible. */
+(function () {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var groups = document.querySelectorAll('.uks');
+    if (!groups.length || !('IntersectionObserver' in window)) return;
+    document.documentElement.classList.add('ukst');
+    var units = [];
+    for (var g = 0; g < groups.length; g++) {
+        var kids = groups[g].querySelectorAll('.plate, .frame, .band, .cell, .tile, .lead, .card');
+        for (var k = 0; k < kids.length; k++) { kids[k].style.setProperty('--d', k % 6); units.push(kids[k]); }
+    }
+    var io = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (!entries[i].isIntersecting) continue;
+            entries[i].target.classList.add('in');
+            io.unobserve(entries[i].target);
+        }
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
+    for (var u = 0; u < units.length; u++) io.observe(units[u]);
+})();
+/* uk-story-js:end */
+</script>
 </body>
 </html>
