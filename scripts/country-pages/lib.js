@@ -107,6 +107,30 @@ function addUsToNavAndFooter(s) {
   }
   return s;
 }
+const UK_NAV_ITEM = `                        <a href="/uk/" class="nav-dropdown-item"><img src="https://flagcdn.com/w40/gb.png" alt="" /> United Kingdom</a>`;
+const UK_FOOTER_ITEM = `                <p><a href="/uk/" class="footer-link">\u{1F1EC}\u{1F1E7} United Kingdom</a></p>`;
+function addUkToNavAndFooter(s) {
+  if (!s.includes('href="/uk/" class="nav-dropdown-item"')) {
+    const us = s.match(/^( *)<a href="\/us\/" class="nav-dropdown-item">.*<\/a>$/m);
+    if (!us) throw new Error('no US nav item to anchor the UK item to (run nav_patch.js first)');
+    s = s.replace(us[0], us[0] + '\n' + UK_NAV_ITEM);
+  }
+  if (!s.includes('href="/uk/" class="footer-link"')) {
+    const usf = s.match(/^( *)<p><a href="\/us\/" class="footer-link">\u{1F1FA}\u{1F1F8} United States<\/a><\/p>$/mu);
+    if (!usf) throw new Error('no US footer item to anchor the UK item to');
+    s = s.replace(usf[0], usf[0] + '\n' + UK_FOOTER_ITEM);
+  }
+  return s;
+}
+function ukFooterCities(s) {
+  const start = '<div class="footer-cities">', end = '<div class="footer-bottom">';
+  const block = `
+            <h3>Serving Businesses Across the United Kingdom</h3>
+            <p class="footer-cities-list">London &bull; Manchester &bull; Birmingham &bull; Leeds &bull; Glasgow &bull; Edinburgh &bull; Bristol &bull; Liverpool &bull; Sheffield &bull; Reading &amp; the Thames Valley &bull; Cardiff &bull; Belfast &bull; Aberdeen &bull; and every UK region, remotely</p>
+        </div>
+        `;
+  return replaceBetween(s, start, end, block, { keepStart: true, keepEnd: true });
+}
 function usFooterCities(s) {
   const start = '<div class="footer-cities">', end = '<div class="footer-bottom">';
   const block = `
@@ -411,4 +435,4 @@ ${items.map((it, i) => `        { "@type": "ListItem", "position": ${i + 1}, "na
       ]
     }
     </script>`; }
-module.exports = { REPO, FORM, read, write, count, must, replaceAll, replaceBetween, esc, plain, jsonStr, setHead, faqSchema, faqHtml, addUsToNavAndFooter, usFooterCities, injectExtras, setHero, setSideText, setRotatePhrases, setBody, setFinalCta, setPageSchemas, promise, sectionHead, answer, benefitRow, modulesGrid, compareTable, processRow, costGrid, industriesGrid, whySection, statRow, serviceSchema, breadcrumbSchema };
+module.exports = { REPO, FORM, read, write, count, must, replaceAll, replaceBetween, esc, plain, jsonStr, setHead, faqSchema, faqHtml, addUsToNavAndFooter, usFooterCities, addUkToNavAndFooter, ukFooterCities, injectExtras, setHero, setSideText, setRotatePhrases, setBody, setFinalCta, setPageSchemas, promise, sectionHead, answer, benefitRow, modulesGrid, compareTable, processRow, costGrid, industriesGrid, whySection, statRow, serviceSchema, breadcrumbSchema };

@@ -1,0 +1,250 @@
+'use strict';
+// UK MOTION — the signature design for the UK set (owner, 2026-09-03: "every page different different
+// design but our branding colours all are same, only change with every page the styles, animation, all
+// that ... also the hero section make it even shorter for the new pages ... without hurting page speed
+// or SEO"). Same discipline as home_motion.js: one-shot, in-view, transform/opacity/clip-path/dashoffset
+// only, one IntersectionObserver that unobserves after firing, so once a visitor has scrolled past a
+// section it costs nothing. Start states are scoped under html.ukm, a class only JS adds after the
+// reduced-motion check, so with JS off (and for a crawler) the page renders complete and static.
+//
+//   /uk/       "TUBE MAP" — an Underground-style diagram drawn into the services section: one origin
+//              roundel (Kochi), three service lines that dogleg out to ERP / WEB / SEO stations, then
+//              converge into one terminus, "Your business". The lines draw themselves once via
+//              pathLength=1 + stroke-dashoffset; the roundels pop in behind each line as it arrives.
+//              It ships as real inline SVG markup, so with JS off it is simply a finished diagram.
+//   /uk/erp/   "ASSEMBLY LINE" — a belt draws across the top of the eight module cards and each card
+//              rides up onto it in sequence, like parts arriving on a line.
+//   both       an even shorter hero than /us/ (~500px at 1440 vs 622), and the closing navy band with
+//              the converging-lines canvas and the VIBGYOR sheen on the heading — the one signature
+//              that repeats across the site. That canvas is the only continuous animation, it runs only
+//              while the band is on screen, and it stops on a hidden tab.
+//   node scripts/country-pages/uk_motion.js           apply / re-apply
+//   node scripts/country-pages/uk_motion.js --strip   remove it
+const L = require('./lib.js');
+const fs = require('fs'); const path = require('path');
+const STRIP = process.argv.includes('--strip');
+
+const PAGES = { 'uk/index.html': 'hub', 'uk/erp/index.html': 'erp' };
+
+const CSS = `<!-- uk-motion:start -->
+<style>
+  /* ================= UK MOTION (2026-09-03) — one signature per page, one-shot ================= */
+  /* hero: shorter again than /us/ (owner: even shorter for the new pages) */
+  .tap-new-hero{ padding:56px 0 48px; }
+  .tap-new-hero .eyebrow{ margin:2px 0 6px; }
+  .hero-main-content h1{ line-height:1.02; margin:8px 0 10px; }
+  .hero-subtitle{ margin:0 0 16px; }
+  .hero-features-list{ gap:10px 30px; padding-top:14px; margin-top:0; }
+  .hero-grid .trust-strip{ gap:10px 30px; padding-top:14px; }
+  @media (min-width:1250px){ .hero-features-list{ gap:10px 40px; } .hero-grid .trust-strip{ gap:10px 52px; } }
+  @media (min-width:1900px){ .tap-new-hero{ padding:68px 0 60px; } }
+  @media (max-width:760px){ .tap-new-hero{ padding:48px 0 44px; } .hero-subtitle{ margin:0 0 14px; } }
+
+  /* quiet fade for section heads, so the signature move is the loud part */
+  html.ukm .ukm-a{ opacity:0; }
+  html.ukm .ukm-a.in{ animation:ukmFade .7s ease forwards; }
+  @keyframes ukmFade{ to{ opacity:1; } }
+
+  /* ---- /uk/ : the tube map ---- */
+  .uk-tube{ margin:30px 0 6px; }
+  .uk-tube svg{ display:block; width:100%; height:auto; max-height:230px; overflow:visible; }
+  .uk-tube .ln{ fill:none; stroke-width:7; stroke-linecap:round; stroke-linejoin:round; }
+  .uk-tube .l1{ stroke:var(--orange); } .uk-tube .l2{ stroke:var(--navy-deep); } .uk-tube .l3{ stroke:var(--ink-faint); }
+  .uk-tube .stn{ fill:var(--paper); stroke:var(--ink); stroke-width:4; }
+  .uk-tube .stn.o{ stroke:var(--orange); } .uk-tube .term{ fill:var(--orange); stroke:none; }
+  .uk-tube text{ font-family:var(--font-mono); font-size:13px; letter-spacing:.09em; fill:var(--ink); text-transform:uppercase; }
+  .uk-tube text.sub{ font-size:11px; fill:var(--ink-faint); letter-spacing:.06em; }
+  html.ukm .uk-tube .ln{ stroke-dasharray:1; stroke-dashoffset:1; }
+  html.ukm .uk-tube.in .ln{ animation:ukmDraw 1.5s cubic-bezier(.4,0,.3,1) forwards; animation-delay:calc(var(--d,0) * 1s); }
+  @keyframes ukmDraw{ to{ stroke-dashoffset:0; } }
+  html.ukm .uk-tube .stn, html.ukm .uk-tube .term, html.ukm .uk-tube text{ opacity:0; }
+  html.ukm .uk-tube.in .stn, html.ukm .uk-tube.in .term, html.ukm .uk-tube.in text{ animation:ukmPop .5s cubic-bezier(.2,.9,.3,1) forwards; animation-delay:calc(.55s + var(--d,0) * 1s); }
+  @keyframes ukmPop{ from{ opacity:0; transform:scale(.4); } to{ opacity:1; transform:none; } }
+  .uk-tube .stn, .uk-tube .term{ transform-box:fill-box; transform-origin:50% 50%; }
+  @media (max-width:760px){ .uk-tube{ display:none; } }   /* the copy below carries the same information */
+
+  /* ---- /uk/erp/ : the assembly line ---- */
+  .us-modules-grid{ position:relative; }
+  .uk-belt{ position:absolute; left:0; right:0; top:-16px; height:2px; background:linear-gradient(90deg, var(--orange), var(--orange-dark)); transform:scaleX(0); transform-origin:0 50%; }
+  html.ukm .uk-belt.in{ animation:ukmBelt 1.1s cubic-bezier(.3,0,.2,1) forwards; }
+  @keyframes ukmBelt{ to{ transform:scaleX(1); } }
+  html.ukm .uk-part{ opacity:0; transform:translate3d(0,30px,0) rotate(-1.5deg); }
+  html.ukm .uk-part.in{ animation:ukmPart .75s cubic-bezier(.2,.85,.25,1) forwards; animation-delay:calc(.25s + var(--i,0) * .08s); }
+  @keyframes ukmPart{ to{ opacity:1; transform:none; } }
+
+  /* ---- both : the closing band ---- */
+  .final-cta-section{ position:relative; overflow:hidden; }
+  .final-cta-section > *{ position:relative; z-index:2; }
+  .final-cta-section::before{ content:''; position:absolute; z-index:0; pointer-events:none; width:46%; height:320%; left:-8%; top:-110%; border-radius:50%; background:radial-gradient(circle, rgba(217,83,30,.32), transparent 62%); filter:blur(46px); }
+  html.ukm .final-cta-section.ukm-live::before{ animation:ukmAurora 30s ease-in-out infinite alternate; }
+  @keyframes ukmAurora{ from{ transform:translate3d(0,0,0) scale(1); } to{ transform:translate3d(10%,6%,0) scale(1.15); } }
+  .ukm-spark{ position:absolute; inset:0; z-index:1; width:100%; height:100%; pointer-events:none; }
+  .ukm-vib{ background-image:linear-gradient(90deg,#86FFAE,#FFF06B,#FFC46B,#FF8A8A,#D9A6FF,#7FE3FF,#86FFAE); background-size:220% 100%; background-position:0% 50%; background-repeat:no-repeat; -webkit-background-clip:text; background-clip:text; color:transparent !important; -webkit-text-fill-color:transparent; }
+  html.ukm .final-cta-section.ukm-live .ukm-vib{ animation:ukmSheen 14s linear infinite; }
+  @keyframes ukmSheen{ to{ background-position:100% 50%; } }
+  .final-cta .final-cta-note{ color:rgba(255,255,255,.62); }
+
+  @media (prefers-reduced-motion: reduce){
+    .ukm-spark{ display:none !important; }
+    .final-cta-section::before, .ukm-vib{ animation:none !important; }
+  }
+</style>
+<!-- uk-motion:end -->
+`;
+
+// The tube map ships as real markup: with JS off it is a finished diagram, not an empty box.
+const TUBE = `        <!-- uk-tube:start -->
+        <div class="uk-tube" aria-hidden="true">
+            <svg viewBox="0 0 1200 210" role="presentation" focusable="false">
+                <path class="ln l1" style="--d:0" pathLength="1" d="M70 105 H250 L330 45 H700" />
+                <path class="ln l2" style="--d:.18" pathLength="1" d="M70 105 H700" />
+                <path class="ln l3" style="--d:.36" pathLength="1" d="M70 105 H250 L330 165 H700" />
+                <path class="ln l1" style="--d:1.05" pathLength="1" d="M700 45 L790 105 H1030" />
+                <path class="ln l2" style="--d:1.05" pathLength="1" d="M700 105 H1030" />
+                <path class="ln l3" style="--d:1.05" pathLength="1" d="M700 165 L790 105 H1030" />
+                <circle class="stn o" style="--d:0" cx="70" cy="105" r="11" />
+                <text style="--d:0" x="70" y="140" text-anchor="middle">Kochi</text>
+                <text class="sub" style="--d:0" x="70" y="157" text-anchor="middle">one team</text>
+                <circle class="stn o" style="--d:.62" cx="700" cy="45" r="11" />
+                <text style="--d:.62" x="700" y="28" text-anchor="middle">ERP</text>
+                <circle class="stn" style="--d:.8" cx="700" cy="105" r="11" />
+                <text style="--d:.8" x="716" y="98" text-anchor="start">Web</text>
+                <circle class="stn" style="--d:.98" cx="700" cy="165" r="11" />
+                <text style="--d:.98" x="700" y="192" text-anchor="middle">SEO / AEO / GEO</text>
+                <circle class="term" style="--d:1.5" cx="1030" cy="105" r="14" />
+                <text style="--d:1.5" x="1030" y="78" text-anchor="middle">Your business</text>
+                <text class="sub" style="--d:1.5" x="1030" y="140" text-anchor="middle">one invoice &middot; one engineer</text>
+            </svg>
+        </div>
+        <!-- uk-tube:end -->
+`;
+
+const BELT = `            <!-- uk-belt:start --><i class="uk-belt" aria-hidden="true"></i><!-- uk-belt:end -->
+`;
+
+const JS = `<!-- uk-motion-js:start -->
+<script>
+(function(){
+    var doc = document.documentElement;
+    var band = document.querySelector('.final-cta-section'), cta = band && band.querySelector('.final-cta');
+    var h2 = cta && cta.querySelector('h2'), note = cta && cta.querySelector('.final-cta-note');
+    if (h2) h2.classList.add('ukm-vib');
+    if (note) note.classList.add('ukm-vib');
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    doc.classList.add('ukm');
+    function $(s, r){ return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+
+    var io = new IntersectionObserver(function(es){
+        es.forEach(function(e){ if (!e.isIntersecting) return; e.target.classList.add('in'); io.unobserve(e.target); });
+    }, { rootMargin: '0px 0px -12% 0px' });
+    function arm(els){ els.forEach(function(e){ e.classList.remove('reveal'); io.observe(e); }); }
+
+    /* the tube map draws itself once */
+    arm($('.uk-tube'));
+
+    /* the assembly line: a belt across the module grid, parts riding up onto it */
+    var grid = document.querySelector('.us-modules-grid');
+    if (grid && !grid.querySelector('.uk-belt')){
+        var belt = document.createElement('i'); belt.className = 'uk-belt'; belt.setAttribute('aria-hidden', 'true');
+        grid.appendChild(belt);
+    }
+    if (grid){
+        arm($('.uk-belt', grid));
+        var parts = Array.prototype.slice.call(grid.children).filter(function(c){ return !c.classList.contains('uk-belt'); });
+        parts.forEach(function(c, i){ c.classList.add('uk-part'); c.style.setProperty('--i', Math.min(i, 8)); });
+        arm(parts);
+    }
+
+    /* everything else gets the quiet fade */
+    arm($('.section-head'));
+
+    /* the closing band: converging lines into the heading */
+    if (band && cta && document.createElement('canvas').getContext){
+        var cv = document.createElement('canvas');
+        cv.className = 'ukm-spark'; cv.setAttribute('aria-hidden', 'true');
+        band.insertBefore(cv, band.firstChild);
+        var x = cv.getContext('2d'), W = 0, H = 0, P = [], run = false, last = 0, glow = 0, fx = 0, fy = 0;
+        function seed(){
+            var e = Math.random(), px, py;
+            if (e < .5){ px = Math.random() * W; py = Math.random() < .5 ? -20 : H + 20; }
+            else { px = Math.random() < .5 ? -20 : W + 20; py = Math.random() * H; }
+            return { ox: px, oy: py, t: Math.random(), v: .1 + Math.random() * .22, c: Math.random() < .45, r: .9 + Math.random() * 1.6 };
+        }
+        function layout(){
+            W = band.offsetWidth; H = band.offsetHeight;
+            var r = Math.min(window.devicePixelRatio || 1, 1.75);
+            cv.width = Math.max(1, Math.round(W * r)); cv.height = Math.max(1, Math.round(H * r));
+            x.setTransform(r, 0, 0, r, 0, 0);
+            var br = band.getBoundingClientRect();
+            if (h2){ var hr = h2.getBoundingClientRect(); fx = hr.left - br.left + hr.width * .5; fy = hr.top - br.top + hr.height * .5; }
+            else { fx = W * .3; fy = H * .5; }
+            var want = W < 760 ? 30 : 64;
+            while (P.length > want) P.pop();
+            while (P.length < want) P.push(seed());
+        }
+        function frame(now){
+            if (!run) return;
+            var dt = Math.min(.05, (now - (last || now)) / 1000); last = now;
+            var arrived = 0, i;
+            x.clearRect(0, 0, W, H);
+            for (i = 0; i < P.length; i++){
+                var p = P[i];
+                p.t += dt * p.v; if (p.t >= 1){ P[i] = seed(); continue; }
+                var e = 1 - Math.pow(1 - p.t, 3), px = p.ox + (fx - p.ox) * e, py = p.oy + (fy - p.oy) * e, tail = Math.max(0, e - .12);
+                if (p.t > .82) arrived++;
+                x.beginPath(); x.moveTo(p.ox + (fx - p.ox) * tail, p.oy + (fy - p.oy) * tail); x.lineTo(px, py);
+                x.strokeStyle = 'rgba(' + (p.c ? '217,83,30' : '255,255,255') + ',' + (.05 + e * .22) + ')'; x.lineWidth = 1; x.stroke();
+                x.beginPath(); x.arc(px, py, p.r, 0, 6.283);
+                x.fillStyle = 'rgba(' + (p.c ? '217,83,30' : '255,255,255') + ',' + (.2 + e * .6) + ')'; x.fill();
+            }
+            glow += (Math.min(1, arrived / 8) - glow) * .08;
+            if (glow > .01){
+                var g = x.createRadialGradient(fx, fy, 0, fx, fy, 110 + glow * 80);
+                g.addColorStop(0, 'rgba(217,83,30,' + (.2 * glow) + ')'); g.addColorStop(1, 'rgba(217,83,30,0)');
+                x.fillStyle = g; x.beginPath(); x.arc(fx, fy, 110 + glow * 80, 0, 6.283); x.fill();
+            }
+            requestAnimationFrame(frame);
+        }
+        function setRun(v){ if (v && !run){ run = true; last = 0; requestAnimationFrame(frame); } else if (!v) run = false; }
+        layout();
+        var rt = 0; window.addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(layout, 180); });
+        window.addEventListener('load', layout);
+        document.addEventListener('visibilitychange', function(){ if (document.hidden) setRun(false); });
+        new IntersectionObserver(function(es){
+            var vis = es[0].isIntersecting;
+            band.classList.toggle('ukm-live', vis);      // the two loops only exist while the band is on screen
+            setRun(vis && !document.hidden);
+        }, { rootMargin: '10% 0px' }).observe(band);
+    }
+})();
+</script>
+<!-- uk-motion-js:end -->
+`;
+
+function strip(s) {
+  return s.replace(/<!-- uk-motion:start -->[\s\S]*?<!-- uk-motion:end -->\n/, '')
+          .replace(/<!-- uk-motion-js:start -->[\s\S]*?<!-- uk-motion-js:end -->\n/, '')
+          .replace(/ *<!-- uk-tube:start -->[\s\S]*?<!-- uk-tube:end -->\n/, '')
+          .replace(/ *<!-- uk-belt:start -->.*?<!-- uk-belt:end -->\n/, '');
+}
+
+for (const [rel, kind] of Object.entries(PAGES)) {
+  let s = L.read(rel).replace(/\r\n/g, '\n');
+  s = strip(s);
+  if (!STRIP) {
+    L.must(s, '<section class="final-cta-section" id="contact">', 1);
+    if (kind === 'hub') {
+      // the diagram goes between the services section head and the three cards
+      const anchor = '        <div class="pillars-grid">';
+      L.must(s, anchor, 1);
+      s = L.replaceAll(s, anchor, TUBE + anchor, 1);
+      L.must(s, 'uk-tube:start', 1);
+    }
+    s = L.replaceAll(s, '</head>', CSS + '</head>', 1);
+    s = s.replace(/<\/body>\s*<\/html>\s*$/, JS + '</body>\n</html>\n');
+    L.must(s, 'uk-motion:start', 1); L.must(s, 'uk-motion-js:start', 1);
+  }
+  s = s.replace(/\r?\n/g, '\r\n');
+  fs.writeFileSync(path.join(L.REPO, rel), s);
+  console.log((STRIP ? 'uk motion stripped:' : 'uk motion applied:'), rel, '(' + kind + ')');
+}
