@@ -24,7 +24,7 @@ const L = require('./lib.js');
 const fs = require('fs'); const path = require('path');
 const STRIP = process.argv.includes('--strip');
 
-const PAGES = { 'uk/index.html': 'hub', 'uk/erp/index.html': 'erp', 'uk/website-development/index.html': 'web', 'uk/seo-services/index.html': 'seo', 'uk/manchester/index.html': 'city', 'uk/reading/index.html': 'reading' };
+const PAGES = { 'uk/index.html': 'hub', 'uk/erp/index.html': 'erp', 'uk/website-development/index.html': 'web', 'uk/seo-services/index.html': 'seo', 'uk/manchester/index.html': 'city', 'uk/reading/index.html': 'reading', 'uk/london/index.html': 'london', 'uk/scotland/index.html': 'scotland' };
 
 const CSS = `<!-- uk-motion:start -->
 <style>
@@ -120,6 +120,27 @@ const CSS = `<!-- uk-motion:start -->
   html.ukm .uk-dial .val{ stroke-dasharray:1; stroke-dashoffset:1; }
   html.ukm .uk-dials.in .val{ animation:ukmSweep 1.3s cubic-bezier(.3,0,.2,1) forwards; animation-delay:calc(var(--d,0) * .18s); }
   @keyframes ukmSweep{ to{ stroke-dashoffset:.1; } }   /* 0.1 of the arc left = a 90+ score */
+
+  /* ---- /uk/london/ : the working-day overlap bar ---- */
+  .uk-overlap{ margin:28px 0 4px; max-width:820px; }
+  .uk-overlap .row{ display:flex; align-items:center; gap:14px; margin-bottom:10px; }
+  .uk-overlap .who{ flex:0 0 108px; font-family:var(--font-mono); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); text-align:right; }
+  .uk-overlap .bar{ position:relative; flex:1; height:26px; border-radius:7px; background:var(--paper-alt); border:1px solid var(--line); overflow:hidden; }
+  .uk-overlap .bar i{ position:absolute; top:0; bottom:0; background:var(--ink-faint); opacity:.32; transform:scaleX(0); transform-origin:0 50%; }
+  .uk-overlap .bar i.lap{ background:var(--orange); opacity:.9; }
+  .uk-overlap .hours{ display:flex; gap:14px; margin-left:122px; font-family:var(--font-mono); font-size:.62rem; color:var(--ink-faint); justify-content:space-between; }
+  html.ukm .uk-overlap.in .bar i{ animation:ukmBar .9s cubic-bezier(.3,0,.2,1) forwards; animation-delay:calc(var(--d,0) * .22s); }
+  @keyframes ukmBar{ to{ transform:scaleX(1); } }
+
+  /* ---- /uk/scotland/ : the two-city sector bars ---- */
+  .uk-cities{ display:flex; flex-wrap:wrap; gap:clamp(24px, 5vw, 64px); margin:28px 0 4px; }
+  .uk-city{ flex:1 1 260px; min-width:240px; }
+  .uk-city h4{ font-family:var(--font-mono); font-size:.76rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); margin:0 0 14px; }
+  .uk-city .b{ display:flex; align-items:center; gap:12px; margin-bottom:9px; font-size:.86rem; color:var(--ink-soft); }
+  .uk-city .b em{ font-style:normal; flex:0 0 118px; }
+  .uk-city .b s{ text-decoration:none; flex:1; height:9px; border-radius:5px; background:var(--paper-alt); overflow:hidden; }
+  .uk-city .b s u{ display:block; height:100%; text-decoration:none; background:var(--orange); transform:scaleX(0); transform-origin:0 50%; }
+  html.ukm .uk-cities.in .b s u{ animation:ukmBar 1s cubic-bezier(.3,0,.2,1) forwards; animation-delay:calc(var(--d,0) * .12s); }
 
   /* ---- both : the closing band ---- */
   .final-cta-section{ position:relative; overflow:hidden; }
@@ -219,6 +240,45 @@ const DIALS = `        <!-- uk-dials:start -->
         <p class="us-cost-note" style="margin:6px 0 0">The build standard we hold, measured on a mid-range Android over 4G &mdash; verifiable in PageSpeed Insights on launch day.</p>
         <!-- uk-dials:end -->
 `;
+// The London page's signature: the two working days side by side, with the live window highlighted.
+// Hours are BST (Kochi is UTC+5:30, London UTC+1 in summer), so the overlap shown is real.
+const OVERLAP = `        <!-- uk-overlap:start -->
+        <div class="uk-overlap" aria-hidden="true">
+            <div class="row">
+                <span class="who">London 9&ndash;6</span>
+                <span class="bar"><i style="--d:0;left:0%;width:100%"></i><i class="lap" style="--d:1;left:22%;width:33%"></i></span>
+            </div>
+            <div class="row">
+                <span class="who">Kochi 9&ndash;6</span>
+                <span class="bar"><i style="--d:0;left:19%;width:81%"></i><i class="lap" style="--d:1;left:22%;width:33%"></i></span>
+            </div>
+            <div class="hours"><span>09:00</span><span>12:00</span><span>15:00</span><span>18:00</span></div>
+        </div>
+        <p class="us-cost-note" style="margin:8px 0 0">The orange band is the live window: roughly 09:00&ndash;13:30 London time in summer, when calls, Slack and Teams all work without anyone staying late.</p>
+        <!-- uk-overlap:end -->
+`;
+// The Scotland page's signature: the two economies as sector weightings, rising once. These are
+// shape-of-demand indications from the keyword and SERP research, labelled as such - not statistics.
+const CITIES = `        <!-- uk-cities:start -->
+        <div class="uk-cities" aria-hidden="true">
+            <div class="uk-city">
+                <h4>Aberdeen &mdash; field first</h4>
+                <div class="b"><em>Energy services</em><s><u style="--d:0;width:92%"></u></s></div>
+                <div class="b"><em>Inspection</em><s><u style="--d:1;width:74%"></u></s></div>
+                <div class="b"><em>Fabrication</em><s><u style="--d:2;width:61%"></u></s></div>
+                <div class="b"><em>Construction</em><s><u style="--d:3;width:55%"></u></s></div>
+            </div>
+            <div class="uk-city">
+                <h4>Edinburgh &mdash; office first</h4>
+                <div class="b"><em>Financial services</em><s><u style="--d:2;width:88%"></u></s></div>
+                <div class="b"><em>Professional</em><s><u style="--d:3;width:76%"></u></s></div>
+                <div class="b"><em>Software &amp; fintech</em><s><u style="--d:4;width:68%"></u></s></div>
+                <div class="b"><em>Food &amp; drink</em><s><u style="--d:5;width:58%"></u></s></div>
+            </div>
+        </div>
+        <p class="us-cost-note" style="margin:8px 0 0">Indicative weighting of the work these two cities ask us about, from the keyword and SERP research behind this page &mdash; not published statistics.</p>
+        <!-- uk-cities:end -->
+`;
 const BELT = `            <!-- uk-belt:start --><i class="uk-belt" aria-hidden="true"></i><!-- uk-belt:end -->
 `;
 
@@ -291,6 +351,9 @@ const JS = `<!-- uk-motion-js:start -->
 
     /* the dials sweep once to the 90+ mark */
     if (KIND === 'reading') arm($('.uk-dials'));
+
+    if (KIND === 'london') arm($('.uk-overlap'));
+    if (KIND === 'scotland') arm($('.uk-cities'));
 
     /* everything else gets the quiet fade */
     arm($('.section-head'));
@@ -365,7 +428,9 @@ function strip(s) {
           .replace(/ *<!-- uk-belt:start -->.*?<!-- uk-belt:end -->\n/, '')
           .replace(/ *<!-- uk-serp:start -->[\s\S]*?<!-- uk-serp:end -->\n/, '')
           .replace(/ *<!-- uk-stamp:start -->[\s\S]*?<!-- uk-stamp:end -->\n/, '')
-          .replace(/ *<!-- uk-dials:start -->[\s\S]*?<!-- uk-dials:end -->\n/, '');
+          .replace(/ *<!-- uk-dials:start -->[\s\S]*?<!-- uk-dials:end -->\n/, '')
+          .replace(/ *<!-- uk-overlap:start -->[\s\S]*?<!-- uk-overlap:end -->\n/, '')
+          .replace(/ *<!-- uk-cities:start -->[\s\S]*?<!-- uk-cities:end -->\n/, '');
 }
 
 for (const [rel, kind] of Object.entries(PAGES)) {
@@ -379,6 +444,22 @@ for (const [rel, kind] of Object.entries(PAGES)) {
       L.must(s, anchor, 1);
       s = L.replaceAll(s, anchor, TUBE + anchor, 1);
       L.must(s, 'uk-tube:start', 1);
+    }
+    if (kind === 'london') {
+      const at = s.indexOf('id="ldn-overlap"');
+      if (at < 0) throw new Error('ldn-overlap section not found');
+      const row = s.indexOf('        <div class="erp-benefit-row">', at);
+      if (row < 0) throw new Error('ldn-overlap benefit row not found');
+      s = s.slice(0, row) + OVERLAP + s.slice(row);
+      L.must(s, 'uk-overlap:start', 1);
+    }
+    if (kind === 'scotland') {
+      const at = s.indexOf('id="sco-two"');
+      if (at < 0) throw new Error('sco-two section not found');
+      const row = s.indexOf('        <div class="erp-benefit-row">', at);
+      if (row < 0) throw new Error('sco-two benefit row not found');
+      s = s.slice(0, row) + CITIES + s.slice(row);
+      L.must(s, 'uk-cities:start', 1);
     }
     if (kind === 'reading') {
       const at = s.indexOf('id="rdg-speed"');
