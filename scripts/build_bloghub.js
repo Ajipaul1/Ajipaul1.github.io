@@ -40,7 +40,7 @@ const imgCounters = { seo: 0, erp: 0, web: 0, out: 0 };
 const LIB_SIZES = (function () {
   try { return JSON.parse(fs.readFileSync(REPO + '/assets/images/library/_sizes.json', 'utf8')); } catch (e) { return {}; }
 })();
-function cardImg(p) {
+function cardImg(p, featured) {
   const file = p.lead || nextImg(p.cat).split('/').pop();
   const base = file.replace(/\.(jpg|png|webp)$/, '');
   const ext = (file.match(/\.(jpg|png|webp)$/) || ['.jpg'])[0];
@@ -49,11 +49,14 @@ function cardImg(p) {
   if (small) cand.push('/assets/images/library/' + base + '-700.jpg ' + small.w + 'w');
   if (mid) cand.push('/assets/images/library/' + base + '-1400.jpg ' + mid.w + 'w');
   if (master) cand.push('/assets/images/library/' + file + ' ' + master.w + 'w');
-  const src = small ? '/assets/images/library/' + base + '-700.jpg' : '/assets/images/library/' + file;
-  const dims = small ? ' width="' + small.w + '" height="' + small.h + '"' : (master ? ' width="' + master.w + '" height="' + master.h + '"' : '');
+  const src = (featured && mid) ? '/assets/images/library/' + base + '-1400.jpg'
+    : (small ? '/assets/images/library/' + base + '-700.jpg' : '/assets/images/library/' + file);
+  const pick = (featured && mid) ? mid : (small || master);
+  const dims = pick ? ' width="' + pick.w + '" height="' + pick.h + '"' : '';
   return '<img src="' + src + '"'
-    + (cand.length > 1 ? ' srcset="' + cand.join(', ') + '" sizes="(max-width:700px) 100vw, 380px"' : '')
-    + ' alt="' + esc(p.title).replace(/"/g, '&quot;') + '"' + dims + ' loading="lazy" decoding="async" />';
+    + (cand.length > 1 ? ' srcset="' + cand.join(', ') + '" sizes="' + (featured ? '(max-width:900px) 100vw, 560px' : '(max-width:700px) 100vw, 380px') + '"' : '')
+    + ' alt="' + esc(p.title).replace(/"/g, '&quot;') + '"' + dims
+    + (featured ? ' loading="eager" fetchpriority="high"' : ' loading="lazy"') + ' decoding="async" />';
 }
 function nextImg(cat) { const pool = IMG[cat]; const f = pool[imgCounters[cat] % pool.length]; imgCounters[cat]++; return '/assets/images/library/' + f; }
 const CAT = { seo: 'SEO & AI Search', erp: 'ERP & Software', web: 'Web Development', out: 'Outsourcing & Agencies' };
@@ -345,7 +348,7 @@ const featuredHtml = `
                 <div class="featured-cta">Read the guide &rarr;</div>
             </div>
             <div class="featured-media">
-                <img src="${featuredImg}" alt="${esc(featured.title).replace(/"/g, '&quot;')}" loading="eager" />
+                ${cardImg(featured, true)}
             </div>
         </a>
     </div>

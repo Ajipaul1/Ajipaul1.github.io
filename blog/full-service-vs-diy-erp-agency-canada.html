@@ -718,7 +718,10 @@
   .article-author-name{ font-weight:700; color:var(--ink); font-size:0.92rem; }
   .article-author-role{ font-size:0.8rem; color:var(--ink-faint); }
   .article-figure{ margin:0 0 36px; border-radius:14px; overflow:hidden; box-shadow:var(--shadow-md); }
-  .article-figure img{ width:100%; display:block; max-height:420px; object-fit:cover; }
+  .article-figure img{ display:block; width:auto; max-width:100%; height:auto; margin-left:auto; margin-right:auto; }
+    /* A wide master fills the column; a narrow one (the 612px batch) displays at its own size,
+       centred and sharp, instead of being stretched to 780px and going soft. */
+    .article-figure.is-lead img{ width:100%; max-height:620px; object-fit:cover; }
   .article-figure figcaption{ font-family:var(--font-mono); font-size:0.75rem; color:var(--ink-faint); padding:10px 6px 0; text-align:center; }
   .article-takeaways{ background:var(--navy-deep); border-radius:14px; padding:26px 30px; margin:0 0 36px; }
   .article-takeaways h3{ color:#fff; font-size:0.85rem; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.12em; margin:0 0 14px; }
@@ -820,7 +823,7 @@
         </div>
 
         <div class="article-author-row">
-            <img src="/assets/images/founder/aji-paul.webp" alt="Aji Paul" />
+            <img src="/assets/images/founder/aji-paul.webp" alt="Aji Paul" width="1536" height="1024" loading="lazy" decoding="async" />
             <div>
                 <div class="article-author-name">Aji Paul</div>
                 <div class="article-author-role">Founder &amp; CEO, TechAuditPros</div>
