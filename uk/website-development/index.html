@@ -714,6 +714,8 @@
 
 
 
+
+
 /* uk-story-css:start */
   /* ============ uk_story.js : the picture layer ============ */
   .uks{ position:relative; }
@@ -814,6 +816,44 @@
   html.ukst .uks .in .words{ animation:uksRise .6s cubic-bezier(.2,.7,.2,1) forwards; animation-delay:calc(var(--d,0) * .09s + .16s); }
   @keyframes uksWipe{ from{ clip-path:inset(0 0 100% 0); } to{ clip-path:inset(0 0 0 0); } }
   @keyframes uksRise{ to{ opacity:1; transform:none; } }
+
+  /* ================= the phone cut =================
+     Same idea as the film on /uk/: rails give one frame the screen, stacked variants keep their
+     pictures big rather than shrinking to thumbnails, and captions over pictures get a heavier
+     scrim at 390px. */
+  @media (max-width:700px){
+    .uks-section{ padding-bottom:8px; }
+    .uksA .plate{ margin-bottom:24px; }
+    .uksA .shot{ aspect-ratio:4/3; border-radius:12px; }
+    .uksA .words{ margin-top:14px; }
+    .uksA .words .uks-cap{ font-size:1.28rem; }
+
+    .uksB .rail{ gap:6px; padding:2px 0 16px; }
+    .uksB .frame{ flex:0 0 82vw; }
+    .uksB .shot{ aspect-ratio:4/5; }
+    .uksB .words .uks-cap{ font-size:1.04rem; }
+
+    .uksC .band{ margin-bottom:18px; }
+    .uksC .words{ padding:20px 20px 22px; }
+    .uksC .uks-cap{ font-size:1.3rem; max-width:none; }
+
+    .uksD{ gap:14px; }
+    .uksD .shot{ aspect-ratio:4/3; }
+    .uksD .words{ padding:15px 17px 18px; }
+    .uksD .words .uks-cap{ font-size:1.08rem; }
+
+    .uksE .lead .shot{ aspect-ratio:5/4; }
+    .uksE .lead .words{ padding:20px 20px 22px; }
+    .uksE .lead .uks-cap{ font-size:1.4rem; }
+    .uksE .cards{ gap:14px; }
+    .uksE .card .shot{ aspect-ratio:16/10; }
+
+    .uksF{ gap:28px; }
+    .uksF .col > h4{ margin-bottom:12px; }
+    .uksF .tile .shot{ aspect-ratio:16/10; }
+    .uksF .tile .words{ padding:14px 16px 16px; }
+  }
+
   @media (prefers-reduced-motion: reduce){
     html.ukst .uks .shot, html.ukst .uks .words, html.ukst .uks .shot > .uks-img{ clip-path:none !important; opacity:1 !important; transform:none !important; animation:none !important; transition:none !important; }
   }
@@ -1461,6 +1501,7 @@
     </div>
 </section>
 <!-- uk-story:end -->
+
 
 
 
@@ -2820,6 +2861,9 @@ document.addEventListener('DOMContentLoaded', function() {
 })();
 </script>
 <!-- trust-strip-js:end -->
+<script>
+
+</script>
 <script>
 
 </script>

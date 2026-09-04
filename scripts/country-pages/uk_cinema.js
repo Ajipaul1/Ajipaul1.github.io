@@ -236,6 +236,49 @@ const CSS = `
      fade here would leave every below-the-fold heading faded until the visitor scrolled to it. */
   @keyframes ukcSettle{ from{ transform:translateY(26px); } to{ transform:none; } }
 
+
+  /* ================= the phone cut =================
+     Not a narrowed desktop: the rail gives one frame almost the whole screen so a swipe lands on
+     a single picture, the opening montage becomes a 5:4 filmstrip, and the scrims are heavier
+     because at 390px the image detail is much denser per pixel behind the white text. */
+  @media (max-width:700px){
+    .ukc-act{ padding:38px 0 42px; }
+    .ukc-head{ width:88%; margin-bottom:22px; }
+    .ukc-slate{ gap:10px; margin-bottom:10px; }
+    .ukc-slate b{ font-size:2.6rem; }
+    .ukc-title{ font-size:1.55rem; line-height:1.14; max-width:none; }
+    .ukc-lede{ font-size:.96rem; line-height:1.6; }
+
+    /* opening montage: a filmstrip, hairline gaps, taller frames */
+    .ukcStrip{ gap:2px; }
+    .ukcStrip .ukc-shot{ aspect-ratio:5/4; }
+    .ukcStrip .w{ padding:14px 18px 16px; background:linear-gradient(0deg, rgba(6,12,26,.94), rgba(6,12,26,.05) 82%); }
+    .ukcStrip .ukc-cap{ font-size:1.08rem; }
+
+    /* the wide plate: taller crop so faces survive, heavier scrim */
+    .ukcWide .plate .ukc-shot{ aspect-ratio:5/4; }
+    .ukcWide .plate .w{ padding:20px 20px 22px; background:linear-gradient(0deg, rgba(6,12,26,.93), rgba(6,12,26,.04) 76%); }
+    .ukcWide .plate .ukc-cap{ font-size:1.32rem; max-width:none; }
+    .ukcWide .beats{ width:88%; gap:16px; }
+
+    /* the build 2x2 stacks, but keep the pictures generous */
+    .ukcSplit{ width:88%; gap:18px; }
+    .ukcSplit .q .ukc-shot{ aspect-ratio:4/3; }
+
+    /* the working-day rail: one frame per swipe */
+    .ukcRail .track{ gap:6px; padding:0 6vw 16px; }
+    .ukcRail .f{ flex:0 0 82vw; }
+    .ukcRail .ukc-shot{ aspect-ratio:4/5; }
+    .ukcRail .ukc-cap{ font-size:1rem; }
+    .ukcRail .rail-note{ width:88%; }
+
+    /* the four markets: full-width doors, bigger tap area */
+    .ukcMap{ width:88%; gap:16px; }
+    .ukcMap .ukc-shot{ aspect-ratio:16/10; }
+    .ukcMap .w{ padding:16px 18px 20px; }
+    .ukcMap .go{ margin-top:13px; padding:4px 0; }
+  }
+
   @media (prefers-reduced-motion: reduce){
     html.ukc-on .ukc .ukc-shot, html.ukc-on .ukc .w, html.ukc-on .ukc .ukc-shot > .ukc-img, html.ukc-on .ukc-head{
       clip-path:none !important; opacity:1 !important; transform:none !important; animation:none !important; transition:none !important;

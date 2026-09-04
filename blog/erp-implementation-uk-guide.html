@@ -673,6 +673,21 @@
   .article-band{ position:relative; margin:0 0 36px; border-radius:14px; overflow:hidden;
     width:100%; box-shadow:var(--shadow-md); }
   .article-band img{ width:100%; display:block; height:clamp(300px, 46vh, 520px); object-fit:cover; }
+  /* the phone cut: pictures stay generous, the band caption gets a heavier scrim, and the first
+     table column stops wrapping to three lines on a 390px screen */
+  @media (max-width:700px){
+    .article-figure.is-lead img{ max-height:none; height:clamp(240px, 42vh, 380px); object-fit:cover; }
+    .article-content .article-figure img{ max-height:none; height:clamp(220px, 38vh, 340px); object-fit:cover; }
+    .article-duo{ gap:12px; }
+    .article-duo .article-figure img{ height:clamp(200px, 34vh, 300px); }
+    .article-band img{ height:clamp(280px, 44vh, 400px); }
+    .article-band figcaption{ padding:18px 20px 20px; background:linear-gradient(0deg, rgba(6,12,26,.94), rgba(6,12,26,.05) 78%); }
+    .article-band figcaption span{ font-size:1.22rem; max-width:none; }
+    .article-figure figcaption{ text-align:left; padding:10px 2px 0; }
+    .article-body th:first-child, .article-body td:first-child{ min-width:110px; }
+    .article-table-wrap table{ min-width:520px; }
+  }
+
   .article-band figcaption{ position:absolute; inset:auto 0 0 0; padding:clamp(18px,4vw,46px) clamp(18px,6vw,80px);
     background:linear-gradient(0deg, rgba(6,12,26,.9), rgba(6,12,26,.05)); text-align:left; }
   .article-band figcaption span{ display:block; max-width:24ch; color:#fff; font-family:var(--font-sans);

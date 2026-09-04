@@ -683,6 +683,10 @@
 
 
 
+
+
+
+
 /* uk-story-css:start */
   /* ============ uk_story.js : the picture layer ============ */
   .uks{ position:relative; }
@@ -783,6 +787,44 @@
   html.ukst .uks .in .words{ animation:uksRise .6s cubic-bezier(.2,.7,.2,1) forwards; animation-delay:calc(var(--d,0) * .09s + .16s); }
   @keyframes uksWipe{ from{ clip-path:inset(0 0 100% 0); } to{ clip-path:inset(0 0 0 0); } }
   @keyframes uksRise{ to{ opacity:1; transform:none; } }
+
+  /* ================= the phone cut =================
+     Same idea as the film on /uk/: rails give one frame the screen, stacked variants keep their
+     pictures big rather than shrinking to thumbnails, and captions over pictures get a heavier
+     scrim at 390px. */
+  @media (max-width:700px){
+    .uks-section{ padding-bottom:8px; }
+    .uksA .plate{ margin-bottom:24px; }
+    .uksA .shot{ aspect-ratio:4/3; border-radius:12px; }
+    .uksA .words{ margin-top:14px; }
+    .uksA .words .uks-cap{ font-size:1.28rem; }
+
+    .uksB .rail{ gap:6px; padding:2px 0 16px; }
+    .uksB .frame{ flex:0 0 82vw; }
+    .uksB .shot{ aspect-ratio:4/5; }
+    .uksB .words .uks-cap{ font-size:1.04rem; }
+
+    .uksC .band{ margin-bottom:18px; }
+    .uksC .words{ padding:20px 20px 22px; }
+    .uksC .uks-cap{ font-size:1.3rem; max-width:none; }
+
+    .uksD{ gap:14px; }
+    .uksD .shot{ aspect-ratio:4/3; }
+    .uksD .words{ padding:15px 17px 18px; }
+    .uksD .words .uks-cap{ font-size:1.08rem; }
+
+    .uksE .lead .shot{ aspect-ratio:5/4; }
+    .uksE .lead .words{ padding:20px 20px 22px; }
+    .uksE .lead .uks-cap{ font-size:1.4rem; }
+    .uksE .cards{ gap:14px; }
+    .uksE .card .shot{ aspect-ratio:16/10; }
+
+    .uksF{ gap:28px; }
+    .uksF .col > h4{ margin-bottom:12px; }
+    .uksF .tile .shot{ aspect-ratio:16/10; }
+    .uksF .tile .words{ padding:14px 16px 16px; }
+  }
+
   @media (prefers-reduced-motion: reduce){
     html.ukst .uks .shot, html.ukst .uks .words, html.ukst .uks .shot > .uks-img{ clip-path:none !important; opacity:1 !important; transform:none !important; animation:none !important; transition:none !important; }
   }
@@ -893,6 +935,49 @@
   /* movement only -- never opacity. This runs without JS (scroll-driven CSS needs none), so any
      fade here would leave every below-the-fold heading faded until the visitor scrolled to it. */
   @keyframes ukcSettle{ from{ transform:translateY(26px); } to{ transform:none; } }
+
+
+  /* ================= the phone cut =================
+     Not a narrowed desktop: the rail gives one frame almost the whole screen so a swipe lands on
+     a single picture, the opening montage becomes a 5:4 filmstrip, and the scrims are heavier
+     because at 390px the image detail is much denser per pixel behind the white text. */
+  @media (max-width:700px){
+    .ukc-act{ padding:38px 0 42px; }
+    .ukc-head{ width:88%; margin-bottom:22px; }
+    .ukc-slate{ gap:10px; margin-bottom:10px; }
+    .ukc-slate b{ font-size:2.6rem; }
+    .ukc-title{ font-size:1.55rem; line-height:1.14; max-width:none; }
+    .ukc-lede{ font-size:.96rem; line-height:1.6; }
+
+    /* opening montage: a filmstrip, hairline gaps, taller frames */
+    .ukcStrip{ gap:2px; }
+    .ukcStrip .ukc-shot{ aspect-ratio:5/4; }
+    .ukcStrip .w{ padding:14px 18px 16px; background:linear-gradient(0deg, rgba(6,12,26,.94), rgba(6,12,26,.05) 82%); }
+    .ukcStrip .ukc-cap{ font-size:1.08rem; }
+
+    /* the wide plate: taller crop so faces survive, heavier scrim */
+    .ukcWide .plate .ukc-shot{ aspect-ratio:5/4; }
+    .ukcWide .plate .w{ padding:20px 20px 22px; background:linear-gradient(0deg, rgba(6,12,26,.93), rgba(6,12,26,.04) 76%); }
+    .ukcWide .plate .ukc-cap{ font-size:1.32rem; max-width:none; }
+    .ukcWide .beats{ width:88%; gap:16px; }
+
+    /* the build 2x2 stacks, but keep the pictures generous */
+    .ukcSplit{ width:88%; gap:18px; }
+    .ukcSplit .q .ukc-shot{ aspect-ratio:4/3; }
+
+    /* the working-day rail: one frame per swipe */
+    .ukcRail .track{ gap:6px; padding:0 6vw 16px; }
+    .ukcRail .f{ flex:0 0 82vw; }
+    .ukcRail .ukc-shot{ aspect-ratio:4/5; }
+    .ukcRail .ukc-cap{ font-size:1rem; }
+    .ukcRail .rail-note{ width:88%; }
+
+    /* the four markets: full-width doors, bigger tap area */
+    .ukcMap{ width:88%; gap:16px; }
+    .ukcMap .ukc-shot{ aspect-ratio:16/10; }
+    .ukcMap .w{ padding:16px 18px 20px; }
+    .ukcMap .go{ margin-top:13px; padding:4px 0; }
+  }
 
   @media (prefers-reduced-motion: reduce){
     html.ukc-on .ukc .ukc-shot, html.ukc-on .ukc .w, html.ukc-on .ukc .ukc-shot > .ukc-img, html.ukc-on .ukc-head{
@@ -1689,6 +1774,8 @@
     </div>
 </section>
 <!-- uk-cinema:end -->
+
+
 
 
 
@@ -2961,6 +3048,12 @@ document.addEventListener('DOMContentLoaded', function() {
 })();
 </script>
 <!-- trust-strip-js:end -->
+<script>
+
+</script>
+<script>
+
+</script>
 <script>
 
 </script>

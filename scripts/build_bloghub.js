@@ -36,6 +36,25 @@ const IMG = {
     out: ['team-casual-standup-meeting-lounge.webp','executive-woman-tablet-grand-hall.jpg','support-agent-headset-smiling-laptop.jpg','small-business-owner-laptop-sidewalk-cafe.jpg'],
 };
 const imgCounters = { seo: 0, erp: 0, web: 0, out: 0 };
+// Card images are small, so serve the 700px variant where one exists rather than a 2400px master.
+const LIB_SIZES = (function () {
+  try { return JSON.parse(fs.readFileSync(REPO + '/assets/images/library/_sizes.json', 'utf8')); } catch (e) { return {}; }
+})();
+function cardImg(p) {
+  const file = p.lead || nextImg(p.cat).split('/').pop();
+  const base = file.replace(/\.(jpg|png|webp)$/, '');
+  const ext = (file.match(/\.(jpg|png|webp)$/) || ['.jpg'])[0];
+  const small = LIB_SIZES[base + '-700.jpg'], mid = LIB_SIZES[base + '-1400.jpg'], master = LIB_SIZES[file];
+  const cand = [];
+  if (small) cand.push('/assets/images/library/' + base + '-700.jpg ' + small.w + 'w');
+  if (mid) cand.push('/assets/images/library/' + base + '-1400.jpg ' + mid.w + 'w');
+  if (master) cand.push('/assets/images/library/' + file + ' ' + master.w + 'w');
+  const src = small ? '/assets/images/library/' + base + '-700.jpg' : '/assets/images/library/' + file;
+  const dims = small ? ' width="' + small.w + '" height="' + small.h + '"' : (master ? ' width="' + master.w + '" height="' + master.h + '"' : '');
+  return '<img src="' + src + '"'
+    + (cand.length > 1 ? ' srcset="' + cand.join(', ') + '" sizes="(max-width:700px) 100vw, 380px"' : '')
+    + ' alt="' + esc(p.title).replace(/"/g, '&quot;') + '"' + dims + ' loading="lazy" decoding="async" />';
+}
 function nextImg(cat) { const pool = IMG[cat]; const f = pool[imgCounters[cat] % pool.length]; imgCounters[cat]++; return '/assets/images/library/' + f; }
 const CAT = { seo: 'SEO & AI Search', erp: 'ERP & Software', web: 'Web Development', out: 'Outsourcing & Agencies' };
 const posts = [
@@ -103,10 +122,30 @@ const posts = [
     ['/blog/what-is-serp-in-seo/', 'seo', '2026-06-04'],
 ];
 
-function esc(t) { return t.replace(/&(?!amp;|mdash;|rsquo;|lsquo;|ldquo;|rdquo;|bull;|middot;|rarr;|#)/g, '&amp;'); }
-function fileFor(url) {
-    return REPO + url + (url.endsWith('/') ? 'index.html' : '');
+// Anything built through scripts/blog/run_posts.js registers itself in posts_manifest.json, so the
+// hub picks it up without this file being edited. The hardcoded list above is the legacy set that
+// predates the manifest; the manifest wins on cat and date where both know a post.
+try {
+  const parsed = JSON.parse(fs.readFileSync(REPO + '/scripts/blog/posts_manifest.json', 'utf8'));
+  // run_posts.js has written the manifest as both an array and a url-keyed object over time
+  const manifest = Array.isArray(parsed) ? parsed : Object.keys(parsed).map(k => Object.assign({ url: k }, parsed[k]));
+  const known = new Set(posts.map(p => p[0]));
+  let added = 0;
+  for (const m of manifest) {
+    if (!m || !m.url) continue;
+    if (!fs.existsSync(fileFor(m.url))) { console.log('  manifest lists a missing file, skipped: ' + m.url); continue; }
+    const at = posts.findIndex(p => p[0] === m.url);
+    if (at >= 0) { posts[at][1] = m.cat || posts[at][1]; posts[at][2] = m.date || posts[at][2]; continue; }
+    posts.push([m.url, m.cat || 'erp', m.date]);
+    known.add(m.url); added++;
+  }
+  if (added) console.log('  ' + added + ' post(s) picked up from posts_manifest.json');
+} catch (e) {
+  console.log('  posts_manifest.json not readable (' + e.message + ') -- hub built from the hardcoded list only');
 }
+
+function esc(t) { return t.replace(/&(?!amp;|mdash;|rsquo;|lsquo;|ldquo;|rdquo;|bull;|middot;|rarr;|#)/g, '&amp;'); }
+
 const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 function pretty(d) { const [y, m, day] = d.split('-').map(Number); return months[m - 1] + ' ' + day + ', ' + y; }
 
@@ -118,6 +157,9 @@ const DESC_OVERRIDES = {
     '/blog/outsourcing-technical-seo-agency-guide.html': 'When an agency should outsource technical SEO, what a good backend partner handles, and the handoff structure that keeps clients happy.',
     '/blog/staff-augmentation-vs-local-hiring-cost.html': 'The loaded cost of a local hire vs. offshore staff augmentation, in real numbers — salaries, overhead, ramp time, and the break-even point.',
 };
+function fileFor(url) {
+    return REPO + url + (url.endsWith('/') ? 'index.html' : '');
+}
 const enriched = posts.map(([url, cat, date]) => {
     const s = fs.readFileSync(fileFor(url), 'utf8');
     let title = ((s.match(/<title>([\s\S]*?)<\/title>/) || [])[1] || '').replace(/\s*\|[^|]*$/, '').replace(/\s+/g, ' ').trim();
@@ -129,7 +171,8 @@ const enriched = posts.map(([url, cat, date]) => {
     const heroBlock = (s.match(/<section class="article-hero">[\s\S]*?<\/section>/) || [''])[0];
     const sub = ((heroBlock.match(/<p class="eyebrow">([^<]*)<\/p>/) || [])[1] || CAT[cat]).replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
     // lead image = the post's first article figure (modern posts); falls back to the category pool
-    const lead = (s.match(/<figure class="article-figure"><img src="\/assets\/images\/library\/([^"]+)"/) || [])[1] || null;
+    // tolerant: the figure may carry extra classes (is-lead) and the img may carry a class of its own
+    const lead = (s.match(/<figure class="article-figure[^"]*">\s*<img[^>]*?src="\/assets\/images\/library\/([^"]+)"/) || [])[1] || null;
     return { url, cat, date, title, desc, mins, sub, lead };
 });
 enriched.sort((a, b) => b.date.localeCompare(a.date)); // newest first; stable for same-day posts
@@ -284,7 +327,11 @@ const favicons = slice(idx, '<!-- Favicons -->', '<style>', false);
 // ---------- content sections ----------
 const FEATURED_URL = '/blog/what-is-seo.html'; // highest-demand cluster in the US research (40,500/mo)
 const featured = enriched.find(p => p.url === FEATURED_URL) || enriched[0];
-const rest = enriched.filter(p => p !== featured);
+// The featured post is also kept in the grid. It used to be filtered out, which meant the newest
+// guide could not be found by the hub search or any topic filter -- and it caused the visible
+// mismatch between "68 guides" (what the JS counted in the grid) and "Search 69 guides" (the
+// static label, which was counting the featured one too).
+const rest = enriched;
 const featuredImg = featured.lead ? '/assets/images/library/' + featured.lead : '/assets/images/library/team-standing-document-review-bright-room.jpg';
 const featuredHtml = `
 <section class="bloghub-featured">
@@ -335,7 +382,7 @@ const startHtml = `
 </section>`;
 
 const cards = rest.map(p => `            <a class="post-card" data-cat="${p.cat}" data-sub="${esc(p.sub).replace(/"/g, '&quot;')}" data-date="${p.date}" href="${p.url}">
-                <div class="post-media"><img src="${p.lead ? '/assets/images/library/' + p.lead : nextImg(p.cat)}" alt="${esc(p.title).replace(/"/g, '&quot;')}" loading="lazy" /></div>
+                <div class="post-media">${cardImg(p)}</div>
                 <div class="post-card-body">
                     <span class="post-tag">${esc(p.sub)}</span>
                     <h3>${esc(p.title)}</h3>
@@ -350,10 +397,10 @@ const gridHtml = `
         <div class="section-head">
             <p class="eyebrow">All Guides</p>
             <h2>Every playbook, newest first.</h2>
-            <p class="bloghub-count" id="postCount">${rest.length + 1} guides</p>
+            <p class="bloghub-count" id="postCount">${rest.length} guides</p>
         </div>
         <div class="bloghub-toolbar">
-            <label class="bloghub-search" for="postSearch"><span aria-hidden="true">&#x1F50D;</span><input type="search" id="postSearch" placeholder="Search ${rest.length + 1} guides&hellip;" autocomplete="off" /></label>
+            <label class="bloghub-search" for="postSearch"><span aria-hidden="true">&#x1F50D;</span><input type="search" id="postSearch" placeholder="Search ${rest.length} guides&hellip;" autocomplete="off" /></label>
             <div class="bloghub-subchips" id="subChips" aria-label="Filter by topic"></div>
         </div>
         <div class="bloghub-grid" id="postGrid">
