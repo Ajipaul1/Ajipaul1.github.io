@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<!--
+  The source for assets/images/og-share-cover.jpg, rendered at exactly 1200x630 by
+  scripts/images/make_share_card.js.
+
+  Built as HTML rather than drawn in ImageMagick so it uses the real brand typeface and the real
+  brand palette, and so it can be corrected by editing text rather than by re-exporting a graphic.
+
+  Rules this card follows, because it is the first thing anyone sees when the link is shared:
+    * no invented numbers. The card it replaces claimed "+450% CLIENT ROI", "+450.2% YOY GROWTH",
+      "2.1M VISITS" and "24 Active Partners" -- none of which came from anywhere.
+    * it says what the company is, in one line, because that is the question a shared link raises.
+    * 1200x630 exactly, matching the og:image:width/height tags, and compressed under 200KB so
+      WhatsApp's preview fetcher will actually take it.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{ --navy:#0B2036; --orange:#D9531E; }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html,body{ width:1200px; height:630px; overflow:hidden; }
+  body{ font-family:'Inter',system-ui,sans-serif; background:var(--navy); position:relative; }
+
+  /* the photograph, used as texture rather than as the subject */
+  .bg{ position:absolute; inset:0; }
+  .bg img{ width:100%; height:100%; object-fit:cover; filter:saturate(.72); }
+  .bg::after{
+    content:''; position:absolute; inset:0;
+    background:
+      linear-gradient(105deg, rgba(11,32,54,.97) 0%, rgba(11,32,54,.93) 46%, rgba(11,32,54,.72) 100%),
+      radial-gradient(120% 90% at 88% 12%, rgba(217,83,30,.30), transparent 62%);
+  }
+
+  .card{ position:relative; z-index:2; height:100%; padding:64px 72px; display:flex; flex-direction:column; }
+
+  .brandline{ display:flex; align-items:center; gap:16px; }
+  .mark{
+    width:56px; height:56px; border-radius:13px; background:var(--orange);
+    display:flex; align-items:center; justify-content:center;
+    font-weight:800; font-size:1.5rem; color:#fff; letter-spacing:-.02em;
+  }
+  .brandname{ font-size:2rem; font-weight:800; color:#fff; letter-spacing:-.02em; }
+  .brandname b{ color:var(--orange); font-weight:800; }
+
+  .mid{ flex:1; display:flex; flex-direction:column; justify-content:center; }
+  h1{
+    font-size:3.35rem; line-height:1.08; font-weight:800; color:#fff;
+    letter-spacing:-.03em; max-width:19ch;
+  }
+  h1 em{ font-style:normal; color:var(--orange); }
+  .sub{
+    margin-top:22px; font-size:1.32rem; line-height:1.45; font-weight:400;
+    color:rgba(255,255,255,.80); max-width:33ch;
+  }
+
+  .foot{ display:flex; align-items:flex-end; justify-content:space-between; gap:32px; }
+  .disciplines{ display:flex; gap:12px; flex-wrap:wrap; }
+  .chip{
+    font-family:'JetBrains Mono',ui-monospace,monospace; font-size:.82rem; letter-spacing:.06em;
+    text-transform:uppercase; color:rgba(255,255,255,.9);
+    border:1px solid rgba(255,255,255,.28); border-radius:999px; padding:9px 17px;
+  }
+  .where{
+    font-family:'JetBrains Mono',ui-monospace,monospace; font-size:.86rem; letter-spacing:.04em;
+    color:rgba(255,255,255,.62); text-align:right; line-height:1.6; white-space:nowrap;
+  }
+  .where s{ text-decoration:none; color:var(--orange); }
+
+  .rule{ position:absolute; left:0; top:0; width:7px; height:100%; background:var(--orange); z-index:3; }
+</style>
+</head>
+<body>
+<div class="rule"></div>
+<div class="bg"><img src="../../assets/images/library/home-developer-three-monitors.jpg" alt="" /></div>
+
+<div class="card">
+  <div class="brandline">
+    <div class="mark">TA</div>
+    <div class="brandname">Tech<b>Audit</b>Pros</div>
+  </div>
+
+  <div class="mid">
+    <h1>Technical SEO, websites and <em>custom ERP</em>.</h1>
+    <p class="sub">One team for the three things that decide whether your software, your site and your search actually work together.</p>
+  </div>
+
+  <div class="foot">
+    <div class="disciplines">
+      <span class="chip">Technical SEO &middot; AEO &middot; GEO</span>
+      <span class="chip">Web development</span>
+      <span class="chip">Custom ERP</span>
+    </div>
+    <div class="where">Built in Kochi, Kerala<br><s>United Kingdom &middot; United States &middot; Canada</s></div>
+  </div>
+</div>
+</body>
+</html>
