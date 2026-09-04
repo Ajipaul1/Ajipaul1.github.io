@@ -451,4 +451,38 @@ ${items.map((it, i) => `        { "@type": "ListItem", "position": ${i + 1}, "na
       ]
     }
     </script>`; }
-module.exports = { REPO, FORM, read, write, count, must, replaceAll, replaceBetween, esc, plain, jsonStr, setHead, faqSchema, faqHtml, addUsToNavAndFooter, usFooterCities, addUkToNavAndFooter, ukFooterCities, injectExtras, setHero, setSideText, setRotatePhrases, setBody, setFinalCta, setPageSchemas, promise, sectionHead, answer, benefitRow, modulesGrid, compareTable, processRow, costGrid, industriesGrid, statRow, serviceSchema, breadcrumbSchema };
+
+// US -> UK spelling, PROSE ONLY.
+// A blanket s.split(us).join(uk) over a whole page is what broke the four UK city pages first time
+// round: it rewrote align-items:center, text-align:center, justify-content:center, scroll-behavior,
+// scrollIntoView({behavior}) and the Google Maps `center` option, so every centred element on those
+// pages silently fell back to stretch or left. This masks every <style> block, <script> block and
+// tag (so no attribute value is touched) before rewriting, and throws if a CSS or JS keyword still
+// ends up rewritten -- a loud failure beats four pages of quietly broken layout.
+const UK_SPELLING = [
+  [/\boptimization\b/g, 'optimisation'], [/\bOptimization\b/g, 'Optimisation'],
+  [/\boptimize\b/g, 'optimise'], [/\boptimized\b/g, 'optimised'], [/\boptimizing\b/g, 'optimising'],
+  [/\borganization\b/g, 'organisation'], [/\borganizations\b/g, 'organisations'],
+  [/\banalyze\b/g, 'analyse'], [/\banalyzed\b/g, 'analysed'], [/\banalyzing\b/g, 'analysing'],
+  [/\bbehavior\b/g, 'behaviour'], [/\bbehaviors\b/g, 'behaviours'],
+  [/\blicense\b/g, 'licence'], [/\bLicense\b/g, 'Licence'],
+  [/\bcenter\b/g, 'centre'], [/\bCenter\b/g, 'Centre'], [/\bcenters\b/g, 'centres'],
+];
+const CODE_LEAKS = ['align-items:centre', 'align-items: centre', 'text-align:centre', 'text-align: centre',
+  'justify-content:centre', 'justify-content: centre', 'align-self:centre', 'align-self: centre',
+  'scroll-behaviour', "behaviour: 'smooth'", 'behaviour:', 'centre: { lat', 'optimiseLegibility',
+  'optimise-contrast', 'at centre,'];
+function ukSpelling(s) {
+  const kept = [];
+  const hide = m => { kept.push(m); return '\u0000' + (kept.length - 1) + '\u0000'; };
+  let masked = s
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/g, hide)
+    .replace(/<script[^>]*>[\s\S]*?<\/script>/g, hide)
+    .replace(/<[^>]+>/g, hide);
+  for (const [re, to] of UK_SPELLING) masked = masked.replace(re, to);
+  const out = masked.replace(/\u0000(\d+)\u0000/g, (m, i) => kept[+i]);
+  for (const bad of CODE_LEAKS) if (out.includes(bad)) throw new Error('ukSpelling leaked into code: ' + bad);
+  return out;
+}
+
+module.exports = { REPO, FORM, read, write, count, must, replaceAll, replaceBetween, esc, plain, jsonStr, setHead, faqSchema, faqHtml, addUsToNavAndFooter, usFooterCities, addUkToNavAndFooter, ukFooterCities, injectExtras, setHero, setSideText, setRotatePhrases, setBody, setFinalCta, setPageSchemas, promise, sectionHead, answer, benefitRow, modulesGrid, compareTable, processRow, costGrid, industriesGrid, statRow, serviceSchema, breadcrumbSchema, ukSpelling };

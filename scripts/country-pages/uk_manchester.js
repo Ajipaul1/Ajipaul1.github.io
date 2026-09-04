@@ -28,9 +28,7 @@ s = L.replaceAll(s, 'href="/ca/toronto/"', 'href="/uk/manchester/"');
 // (drawer labels, nav copy, stray sentences) would be a bug. Runs after the href repointing above.
 s = s.split('Toronto').join('Manchester').split('Ontario').join('Greater Manchester').split('the GTA').join('Greater Manchester');
 if (s.includes('ca/manchester')) throw new Error('a /ca/toronto/ path survived the href repointing');
-['optimization|optimisation', 'Optimization|Optimisation', 'optimize|optimise', 'optimized|optimised',
- 'organization|organisation', 'analyze|analyse', 'behavior|behaviour', 'license|licence',
- 'center|centre', 'Center|Centre'].forEach(pair => { const [us_, uk_] = pair.split('|'); s = s.split(us_).join(uk_); });
+s = L.ukSpelling(s);   // prose only -- see lib.js; a blanket pass here broke every centred element
 s = L.addUsToNavAndFooter(s);
 s = L.addUkToNavAndFooter(s);
 s = L.ukFooterCities(s);

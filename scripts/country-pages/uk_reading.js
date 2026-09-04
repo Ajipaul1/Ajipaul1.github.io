@@ -23,9 +23,7 @@ s = L.replaceAll(s, 'href="/ca/toronto/"', 'href="/uk/reading/"');
 // blanket localisation, as for Manchester: any surviving Toronto string would be a bug
 s = s.split('Toronto').join('Reading').split('Ontario').join('Berkshire').split('the GTA').join('the Thames Valley');
 if (s.includes('ca/reading')) throw new Error('a /ca/toronto/ path survived the href repointing');
-['optimization|optimisation', 'Optimization|Optimisation', 'optimize|optimise', 'optimized|optimised',
- 'organization|organisation', 'analyze|analyse', 'behavior|behaviour', 'license|licence',
- 'center|centre', 'Center|Centre'].forEach(pair => { const [us_, uk_] = pair.split('|'); s = s.split(us_).join(uk_); });
+s = L.ukSpelling(s);   // prose only -- see lib.js; a blanket pass here broke every centred element
 s = L.addUsToNavAndFooter(s);
 s = L.addUkToNavAndFooter(s);
 s = L.ukFooterCities(s);

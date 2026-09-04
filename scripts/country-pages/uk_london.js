@@ -22,9 +22,7 @@ s = L.replaceAll(s, 'href="/ca/seo-services/"', 'href="/uk/seo-services/"');
 s = L.replaceAll(s, 'href="/ca/toronto/"', 'href="/uk/london/"');
 s = s.split('Toronto').join('London').split('Ontario').join('Greater London').split('the GTA').join('Greater London');
 if (s.includes('ca/london')) throw new Error('a /ca/toronto/ path survived the href repointing');
-['optimization|optimisation', 'Optimization|Optimisation', 'optimize|optimise', 'optimized|optimised',
- 'organization|organisation', 'analyze|analyse', 'behavior|behaviour', 'license|licence',
- 'center|centre', 'Center|Centre'].forEach(pair => { const [us_, uk_] = pair.split('|'); s = s.split(us_).join(uk_); });
+s = L.ukSpelling(s);   // prose only -- see lib.js; a blanket pass here broke every centred element
 s = L.addUsToNavAndFooter(s);
 s = L.addUkToNavAndFooter(s);
 s = L.ukFooterCities(s);
