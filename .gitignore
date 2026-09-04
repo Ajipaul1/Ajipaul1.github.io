@@ -15,3 +15,7 @@ autopilot-engine/screenshots/
 !assets/images/**
 !assets/videos/**
 scripts/keyword-research/uk_keywords.json
+
+# Search Console / Analytics exports (business data, never committed)
+ai_context/data/*
+!ai_context/data/README.md
