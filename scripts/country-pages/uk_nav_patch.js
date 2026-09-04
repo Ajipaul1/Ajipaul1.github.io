@@ -43,7 +43,9 @@ setHreflang('ca/index.html', G + 'ca/', [{ lang: 'en-ca', href: G + 'ca/' }, { l
 setHreflang('us/index.html', G + 'us/', [{ lang: 'en-us', href: G + 'us/' }, { lang: 'en-ca', href: G + 'ca/' }, { lang: 'en-gb', href: G + 'uk/' }, { lang: 'x-default', href: G }]);
 setHreflang('ca/erp/index.html', G + 'ca/erp/', [{ lang: 'en-ca', href: G + 'ca/erp/' }, { lang: 'en-us', href: G + 'us/erp/' }, { lang: 'en-gb', href: G + 'uk/erp/' }]);
 setHreflang('us/erp/index.html', G + 'us/erp/', [{ lang: 'en-us', href: G + 'us/erp/' }, { lang: 'en-ca', href: G + 'ca/erp/' }, { lang: 'en-gb', href: G + 'uk/erp/' }]);
-// the UK web + seo pages land in session B; their CA/US counterparts keep their existing pairs until then
+setHreflang('ca/website-development/index.html', G + 'ca/website-development/', [{ lang: 'en-ca', href: G + 'ca/website-development/' }, { lang: 'en-us', href: G + 'us/website-development/' }, { lang: 'en-gb', href: G + 'uk/website-development/' }]);
+setHreflang('us/website-development/index.html', G + 'us/website-development/', [{ lang: 'en-us', href: G + 'us/website-development/' }, { lang: 'en-ca', href: G + 'ca/website-development/' }, { lang: 'en-gb', href: G + 'uk/website-development/' }]);
+// the UK seo page lands later in session B; its CA/US counterparts keep their existing pairs until then
 
 // 3. region cards: the UK card had no destination
 {

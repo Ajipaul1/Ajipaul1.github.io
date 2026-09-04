@@ -24,7 +24,7 @@ const L = require('./lib.js');
 const fs = require('fs'); const path = require('path');
 const STRIP = process.argv.includes('--strip');
 
-const PAGES = { 'uk/index.html': 'hub', 'uk/erp/index.html': 'erp' };
+const PAGES = { 'uk/index.html': 'hub', 'uk/erp/index.html': 'erp', 'uk/website-development/index.html': 'web' };
 
 const CSS = `<!-- uk-motion:start -->
 <style>
@@ -71,6 +71,18 @@ const CSS = `<!-- uk-motion:start -->
   html.ukm .uk-part{ opacity:0; transform:translate3d(0,30px,0) rotate(-1.5deg); }
   html.ukm .uk-part.in{ animation:ukmPart .75s cubic-bezier(.2,.85,.25,1) forwards; animation-delay:calc(.25s + var(--i,0) * .08s); }
   @keyframes ukmPart{ to{ opacity:1; transform:none; } }
+
+  /* ---- /uk/website-development/ : wireframe becomes the real thing ---- */
+  html.ukm .uk-wire{ opacity:0; }
+  html.ukm .uk-wire.in{ animation:ukmWire 1.15s cubic-bezier(.2,.8,.2,1) forwards; animation-delay:calc(var(--i,0) * .07s); }
+  @keyframes ukmWire{
+    0%{ opacity:0; transform:translate3d(0,14px,0) scale(.985); border-style:dashed; border-color:var(--ink-faint); background:transparent; }
+    45%{ opacity:1; transform:none; border-style:dashed; border-color:var(--ink-faint); background:transparent; }
+    100%{ opacity:1; transform:none; border-style:solid; }
+  }
+  .uk-blueprint{ position:absolute; inset:0; z-index:0; pointer-events:none; opacity:0; background-image:linear-gradient(rgba(14,42,62,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(14,42,62,.07) 1px, transparent 1px); background-size:34px 34px; }
+  html.ukm .uk-blueprint.in{ animation:ukmBlueprint 2.4s ease forwards; }
+  @keyframes ukmBlueprint{ 0%{ opacity:0; } 22%{ opacity:1; } 100%{ opacity:0; } }
 
   /* ---- both : the closing band ---- */
   .final-cta-section{ position:relative; overflow:hidden; }
@@ -125,6 +137,7 @@ const BELT = `            <!-- uk-belt:start --><i class="uk-belt" aria-hidden="
 const JS = `<!-- uk-motion-js:start -->
 <script>
 (function(){
+    var KIND = '__UKM_KIND__';                  // hub | erp | web - substituted per page by the generator
     var doc = document.documentElement;
     var band = document.querySelector('.final-cta-section'), cta = band && band.querySelector('.final-cta');
     var h2 = cta && cta.querySelector('h2'), note = cta && cta.querySelector('.final-cta-note');
@@ -142,8 +155,8 @@ const JS = `<!-- uk-motion-js:start -->
     /* the tube map draws itself once */
     arm($('.uk-tube'));
 
-    /* the assembly line: a belt across the module grid, parts riding up onto it */
-    var grid = document.querySelector('.us-modules-grid');
+    /* the assembly line: the ERP page only */
+    var grid = KIND === 'erp' ? document.querySelector('.us-modules-grid') : null;
     if (grid && !grid.querySelector('.uk-belt')){
         var belt = document.createElement('i'); belt.className = 'uk-belt'; belt.setAttribute('aria-hidden', 'true');
         grid.appendChild(belt);
@@ -153,6 +166,18 @@ const JS = `<!-- uk-motion-js:start -->
         var parts = Array.prototype.slice.call(grid.children).filter(function(c){ return !c.classList.contains('uk-belt'); });
         parts.forEach(function(c, i){ c.classList.add('uk-part'); c.style.setProperty('--i', Math.min(i, 8)); });
         arm(parts);
+    }
+
+    /* the wireframe pass: the website page only - cards resolve from dashed outlines into real cards */
+    if (KIND === 'web'){
+        $('.us-modules-grid').forEach(function(g){
+            if (getComputedStyle(g).position === 'static') g.style.position = 'relative';
+            var bp = document.createElement('i'); bp.className = 'uk-blueprint'; bp.setAttribute('aria-hidden', 'true');
+            g.appendChild(bp); arm([bp]);
+            var cards = Array.prototype.slice.call(g.children).filter(function(c){ return !c.classList.contains('uk-blueprint'); });
+            cards.forEach(function(c, i){ c.classList.add('uk-wire'); c.style.setProperty('--i', Math.min(i, 8)); });
+            arm(cards);
+        });
     }
 
     /* everything else gets the quiet fade */
@@ -241,7 +266,7 @@ for (const [rel, kind] of Object.entries(PAGES)) {
       L.must(s, 'uk-tube:start', 1);
     }
     s = L.replaceAll(s, '</head>', CSS + '</head>', 1);
-    s = s.replace(/<\/body>\s*<\/html>\s*$/, JS + '</body>\n</html>\n');
+    s = s.replace(/<\/body>\s*<\/html>\s*$/, JS.replace('__UKM_KIND__', kind) + '</body>\n</html>\n');
     L.must(s, 'uk-motion:start', 1); L.must(s, 'uk-motion-js:start', 1);
   }
   s = s.replace(/\r?\n/g, '\r\n');
