@@ -6,12 +6,20 @@
 // A full-width band of large, slowly moving tool names, on 14 pages.
 //
 // Two deliberate decisions:
-//   1 WORDMARKS, NOT LOGO ARTWORK. The only logo files in the repo (semrush.svg, ashref.svg,
+//   1 REAL MARKS WHERE THEY CAN BE DRAWN EXACTLY, WORDMARKS ELSEWHERE (owner asked for real logos). The only logo files in the repo (semrush.svg, ashref.svg,
 //     searchconsole.svg, PageSpeed.svg, Lumar.svg, screamingfrog.svg, gptgemini.svg) are generic
-//     hand-drawn placeholder glyphs, not the official marks - and drawing brand logos from memory would
-//     be both inaccurate and a trademark problem. So the strip sets each name large in the site's mono
-//     face instead. It reads as intentional at this size, and swapping in an official SVG later is one
-//     line per tool: drop the file in assets/images/logos/ and add it to LOGOS below.
+//     assets/images/logos/ now holds eight marks authored here whose geometry is simple and
+//     unambiguous, so they are accurate rather than approximate: vercel (triangle), react (nucleus and
+//     three orbits), nodejs (hexagon), git (diamond) and supabase (bolt). A first pass also tried
+//     TypeScript, Next.js and WordPress and they came out wrong - the TS mark read "ST" - because those
+//     depend on exact letterforms. They were reverted to wordmarks rather than shipped inaccurate.
+//     THE REST ARE WORDMARKS ON PURPOSE. Google, GitHub, PostgreSQL, WordPress, TypeScript, Next.js,
+//     Shopify, Stripe, Xero,
+//     Sage, QuickBooks, Semrush, Ahrefs and Screaming Frog have letterform or illustrative marks that
+//     cannot be reproduced faithfully from memory, and a wrong logo is worse than no logo - Google in
+//     particular restricts use of its mark. To add any of them: download the official SVG from that
+//     brand's own brand/press page, save it as assets/images/logos/<slug>.svg, and put the slug in the
+//     LOGOS entry below. Nothing else changes.
 //   2 LABELLED AS A STACK, NOT AS ENDORSEMENT. The caption says these are the tools we build on and
 //     work in - which is true - rather than implying partnership, certification or clientship, which
 //     none of these companies have granted. That wording is what keeps a trust signal from becoming a
@@ -32,10 +40,15 @@ const PAGES = ['index.html', 'ca/index.html', 'ca/erp/index.html', 'ca/seo-servi
   'uk/website-development/index.html', 'uk/seo-services/index.html'];
 
 // the stack, in the order it reads best; official SVGs can replace any of these later
-const LOGOS = ['Next.js', 'React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Supabase', 'Vercel', 'AWS',
-  'Git', 'GitHub', 'WordPress', 'Shopify', 'Stripe', 'Xero', 'Sage', 'QuickBooks',
-  'Google Search Console', 'Google Analytics 4', 'Looker Studio', 'Semrush', 'Ahrefs',
-  'Screaming Frog', 'PageSpeed Insights', 'Schema.org', 'ChatGPT', 'Perplexity'];
+const LOGOS = [
+  { n: 'Next.js' }, { n: 'React', f: 'react' }, { n: 'TypeScript' },
+  { n: 'Node.js', f: 'nodejs' }, { n: 'PostgreSQL' }, { n: 'Supabase', f: 'supabase' },
+  { n: 'Vercel', f: 'vercel' }, { n: 'AWS' }, { n: 'Git', f: 'git' }, { n: 'GitHub' },
+  { n: 'WordPress' }, { n: 'Shopify' }, { n: 'Stripe' }, { n: 'Xero' },
+  { n: 'Sage' }, { n: 'QuickBooks' }, { n: 'Google Search Console' }, { n: 'Google Analytics 4' },
+  { n: 'Looker Studio' }, { n: 'Semrush' }, { n: 'Ahrefs' }, { n: 'Screaming Frog' },
+  { n: 'PageSpeed Insights' }, { n: 'Schema.org' }, { n: 'ChatGPT' }, { n: 'Perplexity' },
+];
 
 const CSS = `<!-- trust-strip:start -->
 <style>
@@ -49,6 +62,9 @@ const CSS = `<!-- trust-strip:start -->
   .tl-item{ display:flex; align-items:center; gap:12px; font-family:var(--font-mono); font-weight:600; font-size:clamp(1.25rem, 2.5vw, 2.05rem); letter-spacing:-0.01em; color:var(--ink); white-space:nowrap; opacity:.72; }
   .tl-item::before{ content:''; width:10px; height:10px; border-radius:3px; background:var(--orange); flex:0 0 10px; transform:rotate(45deg); opacity:.9; }
   .tl-item img{ height:clamp(30px, 3.4vw, 46px); width:auto; display:block; }
+  .tl-logo{ opacity:1; }
+  .tl-logo::before{ display:none; }              /* the mark replaces the diamond glyph */
+  .tl-logo > span{ font-size:.62em; color:var(--ink-soft); }
   .tl-band:hover .tl-track{ animation-play-state:paused; }
   @media (prefers-reduced-motion: reduce){
     .tl-view{ -webkit-mask-image:none; mask-image:none; }
@@ -59,7 +75,15 @@ const CSS = `<!-- trust-strip:start -->
 <!-- trust-strip:end -->
 `;
 
-const item = t => `<span class="tl-item">${t}</span>`;
+const LOGO_DIR = path.join(L.REPO, 'assets/images/logos');
+const item = o => {
+  if (o.f) {
+    const rel = 'assets/images/logos/' + o.f + '.svg';
+    if (!fs.existsSync(path.join(L.REPO, rel))) throw new Error('missing logo file: ' + rel);
+    return `<span class="tl-item tl-logo"><img src="/${rel}" alt="${o.n}" width="46" height="46" loading="lazy" /><span>${o.n}</span></span>`;
+  }
+  return `<span class="tl-item">${o.n}</span>`;
+};
 const half = LOGOS.map(item).join('');
 const BAND = `<!-- trust-strip-band:start -->
 <section class="tl-band" aria-label="Tools and platforms we build on">
@@ -108,10 +132,12 @@ for (const rel of PAGES) {
     s = L.replaceAll(s, '</head>', CSS + '</head>', 1);
     s = s.replace(/<\/body>\s*<\/html>\s*$/, JS + '</body>\n</html>\n');
     L.must(s, 'trust-strip:start', 1); L.must(s, 'trust-strip-band:start', 1); L.must(s, 'trust-strip-js:start', 1);
-    L.must(s, 'class="tl-item"', LOGOS.length * 2);
+    L.must(s, 'class="tl-item', LOGOS.length * 2);
+    L.must(s, 'tl-item tl-logo', LOGOS.filter(o => o.f).length * 2);
   }
   s = s.replace(/\r?\n/g, '\r\n');
   fs.writeFileSync(path.join(L.REPO, rel), s);
   n++;
 }
-console.log((STRIP ? 'trust strip removed from' : 'trust strip applied to') + ' ' + n + ' pages (' + LOGOS.length + ' names, doubled for the loop)');
+console.log((STRIP ? 'trust strip removed from' : 'trust strip applied to') + ' ' + n + ' pages (' +
+  LOGOS.filter(o => o.f).length + ' real marks + ' + LOGOS.filter(o => !o.f).length + ' wordmarks, doubled for the loop)');
