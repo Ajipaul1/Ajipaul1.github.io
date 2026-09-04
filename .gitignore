@@ -14,3 +14,4 @@ autopilot-engine/screenshots/
 *.pdf
 !assets/images/**
 !assets/videos/**
+scripts/keyword-research/uk_keywords.json
