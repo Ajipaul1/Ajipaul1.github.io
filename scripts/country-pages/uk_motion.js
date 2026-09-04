@@ -24,7 +24,7 @@ const L = require('./lib.js');
 const fs = require('fs'); const path = require('path');
 const STRIP = process.argv.includes('--strip');
 
-const PAGES = { 'uk/index.html': 'hub', 'uk/erp/index.html': 'erp', 'uk/website-development/index.html': 'web', 'uk/seo-services/index.html': 'seo', 'uk/manchester/index.html': 'city' };
+const PAGES = { 'uk/index.html': 'hub', 'uk/erp/index.html': 'erp', 'uk/website-development/index.html': 'web', 'uk/seo-services/index.html': 'seo', 'uk/manchester/index.html': 'city', 'uk/reading/index.html': 'reading' };
 
 const CSS = `<!-- uk-motion:start -->
 <style>
@@ -109,6 +109,18 @@ const CSS = `<!-- uk-motion:start -->
   html.ukm .uk-stamp.in{ animation:ukmStamp .5s cubic-bezier(.2,1.4,.4,1) forwards; }
   @keyframes ukmStamp{ 60%{ opacity:1; transform:scale(.97) rotate(1deg); } 100%{ opacity:1; transform:none; } }
 
+  /* ---- /uk/reading/ : the Core Web Vitals dials ---- */
+  .uk-dials{ display:flex; flex-wrap:wrap; gap:clamp(20px, 4vw, 54px); margin:28px 0 4px; }
+  .uk-dial{ text-align:center; width:132px; }
+  .uk-dial svg{ display:block; width:132px; height:78px; overflow:visible; }
+  .uk-dial .bg{ fill:none; stroke:var(--line); stroke-width:9; stroke-linecap:round; }
+  .uk-dial .val{ fill:none; stroke:var(--orange); stroke-width:9; stroke-linecap:round; }
+  .uk-dial b{ display:block; font-family:var(--font-mono); font-size:1.02rem; color:var(--ink); margin-top:-16px; }
+  .uk-dial span{ display:block; font-family:var(--font-mono); font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); margin-top:4px; }
+  html.ukm .uk-dial .val{ stroke-dasharray:1; stroke-dashoffset:1; }
+  html.ukm .uk-dials.in .val{ animation:ukmSweep 1.3s cubic-bezier(.3,0,.2,1) forwards; animation-delay:calc(var(--d,0) * .18s); }
+  @keyframes ukmSweep{ to{ stroke-dashoffset:.1; } }   /* 0.1 of the arc left = a 90+ score */
+
   /* ---- both : the closing band ---- */
   .final-cta-section{ position:relative; overflow:hidden; }
   .final-cta-section > *{ position:relative; z-index:2; }
@@ -184,6 +196,29 @@ const STAMP = `        <!-- uk-stamp:start -->
         </div>
         <!-- uk-stamp:end -->
 `;
+// The Reading page's signature: the three Core Web Vitals we hold every build to, sweeping to the
+// 90+ mark once. These are our build standard, not a measured client result, and the labels say so.
+const DIALS = `        <!-- uk-dials:start -->
+        <div class="uk-dials" aria-hidden="true">
+            <div class="uk-dial">
+                <svg viewBox="0 0 120 70" role="presentation" focusable="false"><path class="bg" d="M12 62a48 48 0 0196 0"/><path class="val" style="--d:0" pathLength="1" d="M12 62a48 48 0 0196 0"/></svg>
+                <b>LCP</b>
+                <span>under 2.5s</span>
+            </div>
+            <div class="uk-dial">
+                <svg viewBox="0 0 120 70" role="presentation" focusable="false"><path class="bg" d="M12 62a48 48 0 0196 0"/><path class="val" style="--d:1" pathLength="1" d="M12 62a48 48 0 0196 0"/></svg>
+                <b>INP</b>
+                <span>under 200ms</span>
+            </div>
+            <div class="uk-dial">
+                <svg viewBox="0 0 120 70" role="presentation" focusable="false"><path class="bg" d="M12 62a48 48 0 0196 0"/><path class="val" style="--d:2" pathLength="1" d="M12 62a48 48 0 0196 0"/></svg>
+                <b>CLS</b>
+                <span>under 0.1</span>
+            </div>
+        </div>
+        <p class="us-cost-note" style="margin:6px 0 0">The build standard we hold, measured on a mid-range Android over 4G &mdash; verifiable in PageSpeed Insights on launch day.</p>
+        <!-- uk-dials:end -->
+`;
 const BELT = `            <!-- uk-belt:start --><i class="uk-belt" aria-hidden="true"></i><!-- uk-belt:end -->
 `;
 
@@ -253,6 +288,9 @@ const JS = `<!-- uk-motion-js:start -->
 
     /* the postcode stamp: it lands once, like a rubber stamp */
     if (KIND === 'city') arm($('.uk-stamp'));
+
+    /* the dials sweep once to the 90+ mark */
+    if (KIND === 'reading') arm($('.uk-dials'));
 
     /* everything else gets the quiet fade */
     arm($('.section-head'));
@@ -326,7 +364,8 @@ function strip(s) {
           .replace(/ *<!-- uk-tube:start -->[\s\S]*?<!-- uk-tube:end -->\n/, '')
           .replace(/ *<!-- uk-belt:start -->.*?<!-- uk-belt:end -->\n/, '')
           .replace(/ *<!-- uk-serp:start -->[\s\S]*?<!-- uk-serp:end -->\n/, '')
-          .replace(/ *<!-- uk-stamp:start -->[\s\S]*?<!-- uk-stamp:end -->\n/, '');
+          .replace(/ *<!-- uk-stamp:start -->[\s\S]*?<!-- uk-stamp:end -->\n/, '')
+          .replace(/ *<!-- uk-dials:start -->[\s\S]*?<!-- uk-dials:end -->\n/, '');
 }
 
 for (const [rel, kind] of Object.entries(PAGES)) {
@@ -340,6 +379,14 @@ for (const [rel, kind] of Object.entries(PAGES)) {
       L.must(s, anchor, 1);
       s = L.replaceAll(s, anchor, TUBE + anchor, 1);
       L.must(s, 'uk-tube:start', 1);
+    }
+    if (kind === 'reading') {
+      const at = s.indexOf('id="rdg-speed"');
+      if (at < 0) throw new Error('rdg-speed section not found');
+      const row = s.indexOf('        <div class="erp-benefit-row">', at);
+      if (row < 0) throw new Error('rdg-speed benefit row not found');
+      s = s.slice(0, row) + DIALS + s.slice(row);
+      L.must(s, 'uk-dials:start', 1);
     }
     if (kind === 'city') {
       const at = s.indexOf('id="mcr-floor"');
