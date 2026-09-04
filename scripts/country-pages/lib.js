@@ -272,9 +272,24 @@ function setRotatePhrases(s, country, currencyLine, cities, ctry2) {
 function setSideText(s, to, idSuffix) { s = replaceAll(s, '<span>to Canada.</span>', `<span>${to}</span>`, 1); s = replaceAll(s, 'heroArcPathCA', 'heroArcPath' + idSuffix); return s; }
 function setBody(s, bodyHtml) { return replaceBetween(s, '<section class="tap-answer-section">', '<section class="final-cta-section"', bodyHtml, { keepStart: false, keepEnd: true }); }
 function setFinalCta(s, h2, note) { s = s.replace(/(<section class="final-cta-section" id="contact">\s*<div class="final-cta">\s*<h2>)[\s\S]*?(<\/h2>)/, `$1${h2}$2`); if (note) s = s.replace(/(<span class="final-cta-note"[^>]*>)[\s\S]*?(<\/span>)/, `$1${note}$2`); return s; }
+// Replace the page-level JSON-LD. Rewritten 2026-09-03: the old version cut everything between the
+// FIRST </style> and a </head> indented by exactly 8 spaces, which silently deleted a second <style>
+// block on templates that have one (ca/toronto) and threw on templates whose </head> is not indented.
+// Now it removes the existing page-level schema blocks wherever they sit after the stylesheet, keeps the
+// site-wide Organization block that precedes it, and inserts the new blocks immediately before </head>.
 function setPageSchemas(s, blocks) {
-  const a = s.indexOf('</style>'); const b = s.indexOf('        </head>', a); if (a === -1 || b === -1) throw new Error('schema area not found');
-  return s.slice(0, a + '</style>'.length) + '\n\n\n\n' + blocks.join('\n') + '\n' + s.slice(b);
+  const head = s.search(/\n[ \t]*<\/head>/); if (head === -1) throw new Error('closing head tag not found');
+  const styleEnd = s.lastIndexOf('</style>', head);
+  const firstStyle = s.indexOf('<style');
+  if (firstStyle === -1 || styleEnd === -1) throw new Error('stylesheet not found before </head>');
+  let before = s.slice(0, firstStyle), middle = s.slice(firstStyle, head), after = s.slice(head);
+  const had = (middle.match(/<script type="application\/ld\+json">/g) || []).length;
+  middle = middle.replace(/[ \t]*<script type="application\/ld\+json">[\s\S]*?<\/script>\r?\n?/g, '');
+  const out = before + middle.replace(/\s*$/, '') + '\n\n' + blocks.join('\n') + after;
+  if ((out.match(/<script type="application\/ld\+json">/g) || []).length !== blocks.length + 1) {
+    throw new Error(`schema count wrong: removed ${had} page blocks, added ${blocks.length}, expected ${blocks.length + 1} total including the site-wide Organization block`);
+  }
+  return out;
 }
 function promise(o) { return `<section class="tap-promise-section">
     <div class="container promise-grid">

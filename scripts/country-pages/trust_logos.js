@@ -45,8 +45,8 @@ const LOGOS = [
   { n: 'Node.js', f: 'nodejs' }, { n: 'PostgreSQL' }, { n: 'Supabase', f: 'supabase' },
   { n: 'Vercel', f: 'vercel' }, { n: 'AWS' }, { n: 'Git', f: 'git' }, { n: 'GitHub' },
   { n: 'WordPress' }, { n: 'Shopify' }, { n: 'Stripe' }, { n: 'Xero' },
-  { n: 'Sage' }, { n: 'QuickBooks' }, { n: 'Google Search Console' }, { n: 'Google Analytics 4' },
-  { n: 'Looker Studio' }, { n: 'Semrush' }, { n: 'Ahrefs' }, { n: 'Screaming Frog' },
+  { n: 'Sage' }, { n: 'QuickBooks' }, { n: 'Google Search Console', f: 'google' }, { n: 'Google Analytics 4', f: 'google' },
+  { n: 'Looker Studio' }, { n: 'Semrush', f: 'semrush' }, { n: 'Ahrefs', f: 'ahrefs' }, { n: 'Screaming Frog' },
   { n: 'PageSpeed Insights' }, { n: 'Schema.org' }, { n: 'ChatGPT' }, { n: 'Perplexity' },
 ];
 

@@ -24,7 +24,7 @@ const L = require('./lib.js');
 const fs = require('fs'); const path = require('path');
 const STRIP = process.argv.includes('--strip');
 
-const PAGES = { 'uk/index.html': 'hub', 'uk/erp/index.html': 'erp', 'uk/website-development/index.html': 'web', 'uk/seo-services/index.html': 'seo' };
+const PAGES = { 'uk/index.html': 'hub', 'uk/erp/index.html': 'erp', 'uk/website-development/index.html': 'web', 'uk/seo-services/index.html': 'seo', 'uk/manchester/index.html': 'city' };
 
 const CSS = `<!-- uk-motion:start -->
 <style>
@@ -101,6 +101,14 @@ const CSS = `<!-- uk-motion:start -->
   html.ukm .uk-serp .ai{ opacity:0; }
   html.ukm .uk-serp.in .ai{ animation:ukmFade .8s ease 1.6s forwards; }
 
+  /* ---- /uk/manchester/ : the postcode stamp ---- */
+  .uk-stamp{ display:inline-flex; align-items:center; gap:14px; margin:26px 0 2px; padding:14px 22px; border:2px solid var(--orange); border-radius:12px; background:var(--paper); }
+  .uk-stamp b{ font-family:var(--font-mono); font-size:clamp(1.6rem, 3.4vw, 2.4rem); letter-spacing:.06em; color:var(--orange-dark); line-height:1; }
+  .uk-stamp span{ font-family:var(--font-mono); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-faint); max-width:26ch; line-height:1.5; }
+  html.ukm .uk-stamp{ opacity:0; transform:scale(1.35) rotate(-7deg); }
+  html.ukm .uk-stamp.in{ animation:ukmStamp .5s cubic-bezier(.2,1.4,.4,1) forwards; }
+  @keyframes ukmStamp{ 60%{ opacity:1; transform:scale(.97) rotate(1deg); } 100%{ opacity:1; transform:none; } }
+
   /* ---- both : the closing band ---- */
   .final-cta-section{ position:relative; overflow:hidden; }
   .final-cta-section > *{ position:relative; z-index:2; }
@@ -168,6 +176,14 @@ const SERP = `        <!-- uk-serp:start -->
         </div>
         <!-- uk-serp:end -->
 `;
+// The city pages' signature: the postcode area stamped onto the page, once.
+const STAMP = `        <!-- uk-stamp:start -->
+        <div class="uk-stamp">
+            <b>M1&ndash;M90</b>
+            <span>Greater Manchester &middot; Trafford Park to Oldham &middot; remote team, UK data</span>
+        </div>
+        <!-- uk-stamp:end -->
+`;
 const BELT = `            <!-- uk-belt:start --><i class="uk-belt" aria-hidden="true"></i><!-- uk-belt:end -->
 `;
 
@@ -234,6 +250,9 @@ const JS = `<!-- uk-motion-js:start -->
             }, { rootMargin: '0px 0px -20% 0px' }).observe(serp);
         }
     }
+
+    /* the postcode stamp: it lands once, like a rubber stamp */
+    if (KIND === 'city') arm($('.uk-stamp'));
 
     /* everything else gets the quiet fade */
     arm($('.section-head'));
@@ -306,7 +325,8 @@ function strip(s) {
           .replace(/<!-- uk-motion-js:start -->[\s\S]*?<!-- uk-motion-js:end -->\n/, '')
           .replace(/ *<!-- uk-tube:start -->[\s\S]*?<!-- uk-tube:end -->\n/, '')
           .replace(/ *<!-- uk-belt:start -->.*?<!-- uk-belt:end -->\n/, '')
-          .replace(/ *<!-- uk-serp:start -->[\s\S]*?<!-- uk-serp:end -->\n/, '');
+          .replace(/ *<!-- uk-serp:start -->[\s\S]*?<!-- uk-serp:end -->\n/, '')
+          .replace(/ *<!-- uk-stamp:start -->[\s\S]*?<!-- uk-stamp:end -->\n/, '');
 }
 
 for (const [rel, kind] of Object.entries(PAGES)) {
@@ -320,6 +340,14 @@ for (const [rel, kind] of Object.entries(PAGES)) {
       L.must(s, anchor, 1);
       s = L.replaceAll(s, anchor, TUBE + anchor, 1);
       L.must(s, 'uk-tube:start', 1);
+    }
+    if (kind === 'city') {
+      const at = s.indexOf('id="mcr-floor"');
+      if (at < 0) throw new Error('mcr-floor section not found');
+      const grid = s.indexOf('        <div class="erp-benefit-row">', at);
+      if (grid < 0) throw new Error('city benefit row not found');
+      s = s.slice(0, grid) + STAMP + s.slice(grid);
+      L.must(s, 'uk-stamp:start', 1);
     }
     if (kind === 'seo') {
       // the illustration goes inside the AEO/GEO section, just before its card grid
