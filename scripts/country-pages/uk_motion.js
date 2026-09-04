@@ -113,7 +113,7 @@ const TUBE = `        <!-- uk-tube:start -->
                 <text style="--d:.98" x="700" y="192" text-anchor="middle">SEO / AEO / GEO</text>
                 <circle class="term" style="--d:1.5" cx="1030" cy="105" r="14" />
                 <text style="--d:1.5" x="1030" y="78" text-anchor="middle">Your business</text>
-                <text class="sub" style="--d:1.5" x="1030" y="140" text-anchor="middle">one invoice &middot; one engineer</text>
+                <text class="sub" style="--d:1.5" x="1030" y="140" text-anchor="middle">one invoice &middot; one team</text>
             </svg>
         </div>
         <!-- uk-tube:end -->

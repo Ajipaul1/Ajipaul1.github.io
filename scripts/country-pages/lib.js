@@ -263,7 +263,7 @@ function setRotatePhrases(s, country, currencyLine, cities, ctry2) {
     "'Best AI Developers for Canada.'": `'Best AI Developers for ${ctry2}.'`,
     "'Trusted ERP Partner in Canada.'": `'Trusted ERP Partner in ${ctry2}.'`,
     "'AI-Native Engineering Team — Serving Canada'": `'AI-Native Engineering Team — Serving ${ctry2}'`,
-    "'CA$1,490/mo &bull; Save 57%'": `'${currencyLine}'`,
+    "'Pricing scoped on a call'": `'${currencyLine}'`,
     "'Toronto &bull; Vancouver &bull; Montreal'": `'${cities}'`,
   };
   for (const [from, to] of Object.entries(lit)) s = s.split(from).join(to);
@@ -386,6 +386,7 @@ ${cards.map(c => `            <div class="us-industry-card">
 </section>
 
 `; }
+// DO NOT USE - removed from every page 2026-09-03 as duplicate boilerplate (owner). Kept for reference only; not exported.
 function whySection(eyebrow, h2, badges, stackLabel, stack) { return `<section class="tap-erp-why-section">
     <div class="container">
 ${sectionHead(eyebrow, h2)}        <div class="security-badges-grid">
@@ -435,4 +436,4 @@ ${items.map((it, i) => `        { "@type": "ListItem", "position": ${i + 1}, "na
       ]
     }
     </script>`; }
-module.exports = { REPO, FORM, read, write, count, must, replaceAll, replaceBetween, esc, plain, jsonStr, setHead, faqSchema, faqHtml, addUsToNavAndFooter, usFooterCities, addUkToNavAndFooter, ukFooterCities, injectExtras, setHero, setSideText, setRotatePhrases, setBody, setFinalCta, setPageSchemas, promise, sectionHead, answer, benefitRow, modulesGrid, compareTable, processRow, costGrid, industriesGrid, whySection, statRow, serviceSchema, breadcrumbSchema };
+module.exports = { REPO, FORM, read, write, count, must, replaceAll, replaceBetween, esc, plain, jsonStr, setHead, faqSchema, faqHtml, addUsToNavAndFooter, usFooterCities, addUkToNavAndFooter, ukFooterCities, injectExtras, setHero, setSideText, setRotatePhrases, setBody, setFinalCta, setPageSchemas, promise, sectionHead, answer, benefitRow, modulesGrid, compareTable, processRow, costGrid, industriesGrid, statRow, serviceSchema, breadcrumbSchema };

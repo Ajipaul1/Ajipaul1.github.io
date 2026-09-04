@@ -63,11 +63,11 @@ module.exports = [
 <p><strong>Six examples:</strong></p>
 <div class="article-table-wrap"><table>
 <tr><th>Before</th><th>After</th></tr>
-<tr><td>We are a leading provider of innovative solutions. Contact us today!</td><td>Custom ERP for US small and mid-size businesses &mdash; inventory, orders, purchasing and finance in one system, integrated with QuickBooks and Shopify. Flat US$1,800/month, you own the code.</td></tr>
+<tr><td>We are a leading provider of innovative solutions. Contact us today!</td><td>Custom ERP for US small and mid-size businesses &mdash; inventory, orders, purchasing and finance in one system, integrated with QuickBooks and Shopify. One agreed monthly fee, and you own the code.</td></tr>
 <tr><td>Learn about SEO.</td><td>SEO is the work of making your site easy for Google and AI engines to find and recommend. How search works, the three types of SEO, what it costs and how long it takes.</td></tr>
 <tr><td>Blog</td><td>Plain-English guides to ERP, web development and AI-era search, written by the engineers who do the work.</td></tr>
 <tr><td>(empty)</td><td>Cloud ERP runs on internet-hosted servers instead of your own. How it differs from on-premise and hybrid, what it really costs, and how to decide.</td></tr>
-<tr><td>Best website company best web design best prices call now</td><td>Custom website design and development on Next.js and React &mdash; 90+ Core Web Vitals, mobile-first, SEO-ready. Flat US$1,800/month including updates.</td></tr>
+<tr><td>Best website company best web design best prices call now</td><td>Custom website design and development on Next.js and React &mdash; 90+ Core Web Vitals, mobile-first, SEO-ready. One agreed monthly fee, including updates.</td></tr>
 <tr><td>Read our latest article about keywords.</td><td>Keyword research is finding the words customers actually search, measuring demand and difficulty, and mapping them to pages. The 6-step process with a worked example.</td></tr>
 </table></div>`,
       figure: { img: 'two-women-reviewing-document-bright-office.png', alt: 'Two colleagues editing page titles and descriptions together', w: 411, h: 489, cap: 'Specific beats clever. The description is a summary of the answer, not a slogan.' } },
@@ -206,7 +206,7 @@ module.exports = [
       figure: { img: 'istock-1954420507-stylus-tablet-charts-city-dusk.jpg', alt: 'Comparing paid and organic traffic lines on a tablet chart', w: 612, h: 402, cap: 'Paid is a faucet; organic is a well. Most businesses need the faucet while they dig.' } },
     { h2: 'What Each Actually Costs a US Small Business', html: `
 <p><strong>Paid search:</strong> the clicks themselves &mdash; commonly US$2&ndash;$10 for many local services and US$15&ndash;$50+ for competitive legal, financial, insurance and B2B software terms &mdash; plus management, either a percentage of spend (often 10&ndash;20%) or a flat fee. A small business spending US$3,000 a month on clicks might spend US$3,500&ndash;$3,800 all-in, every month, forever.</p>
-<p><strong>SEO:</strong> US agencies commonly charge US$3,000&ndash;$5,000+ per month; consultants US$100&ndash;$300 an hour. TechAuditPros runs the full organic program for a flat US$1,800 per month for <a href="/us/seo-services/">US businesses</a> and CA$1,490 for <a href="/ca/seo-services/">Canadian businesses</a>. The difference in the economics is not the monthly number; it is that organic spend builds an asset while paid spend rents a position.</p>` },
+<p><strong>SEO:</strong> US agencies commonly charge US$3,000&ndash;$5,000+ per month; consultants US$100&ndash;$300 an hour. TechAuditPros runs the full organic program one agreed monthly fee for <a href="/us/seo-services/">US businesses</a> and one agreed monthly fee for <a href="/ca/seo-services/">Canadian businesses</a>. The difference in the economics is not the monthly number; it is that organic spend builds an asset while paid spend rents a position.</p>` },
     { h2: 'When Paid Search Is the Right Answer', html: `
 <ul>
 <li>You need leads this month, not this quarter.</li>

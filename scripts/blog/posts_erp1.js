@@ -59,7 +59,7 @@ module.exports = [
 <ul>
 <li><strong>Multi-tenant SaaS ERP:</strong> commonly US$100&ndash;$250 per user per month, plus an implementation project from an integration partner that often runs US$15,000 to well over US$100,000 depending on modules and data migration. The subscription rises with every hire.</li>
 <li><strong>Custom cloud ERP built as an upfront project:</strong> US agencies commonly quote from the high five figures into six figures, followed by hourly change requests and a maintenance retainer.</li>
-<li><strong>Custom cloud ERP on a flat monthly fee:</strong> TechAuditPros builds and runs custom ERP for a flat US$1,800 per month (CA$1,490 in Canada) with no per-seat fees, hosted in a cloud account the client owns. First working module in 6&ndash;10 weeks.</li>
+<li><strong>Custom cloud ERP on a flat monthly fee:</strong> TechAuditPros builds and runs custom ERP one agreed monthly fee  with no per-seat fees, hosted in a cloud account the client owns. First working module in 6&ndash;10 weeks.</li>
 </ul>
 <p>Whichever model you choose, ask for the five-year number, not the year-one number. Per-seat subscriptions look cheap at 8 users and expensive at 40; upfront builds look expensive in year one and cheap in year four; flat fees are flat. Compare them on the same horizon.</p>` },
     { h2: 'Cloud ERP Security: The Questions Worth Asking', html: `
@@ -129,7 +129,7 @@ module.exports = [
 <ul>
 <li><strong>Off-the-shelf:</strong> a subscription commonly of US$100&ndash;$250 per user per month, plus an implementation project that, for small and mid-size businesses, commonly runs US$15,000 to US$100,000 or more through a partner. Integrations and customizations are usually extra.</li>
 <li><strong>Custom, upfront project:</strong> US agencies commonly quote from the high five figures into six figures for a full system, followed by hourly change requests.</li>
-<li><strong>Custom, flat monthly:</strong> TechAuditPros includes implementation &mdash; discovery, build, migration, integrations, training and post-launch support &mdash; in a flat US$1,800 per month (CA$1,490 in Canada) with no separate implementation invoice. See what that covers on our <a href="/us/erp/">US custom ERP page</a>.</li>
+<li><strong>Custom, flat monthly:</strong> TechAuditPros includes implementation &mdash; discovery, build, migration, integrations, training and post-launch support &mdash; in one agreed monthly fee  with no separate implementation invoice. See what that covers on our <a href="/us/erp/">US custom ERP page</a>.</li>
 </ul>
 <p>Budget honestly for internal time too. A part-time project owner on your side for the duration of the project is the cheapest insurance you can buy.</p>` },
     { h2: 'Why ERP Implementations Fail: 7 Causes', html: `
@@ -150,14 +150,14 @@ module.exports = [
 <li>Phase the rollout: one module, one department, one site first.</li>
 <li>Test with real transactions and real people; keep a written list of what broke and what was fixed.</li>
 <li>Choose a go-live date in your quietest period and staff the first two weeks after it heavily.</li>
-<li>Keep the same engineers after go-live. The people who built it fix it fastest &mdash; which is why our clients keep their dedicated engineer through the "run" phase rather than being handed to a support queue.</li>
+<li>Keep the same team after go-live. The people who built it fix it fastest &mdash; which is why our clients keep the same team through the "run" phase rather than being handed to a support queue.</li>
 </ul>
 <p>Not sure the project is right for you yet? Our <a href="/blog/how-to-choose-erp-software.html">ERP buyer's guide</a> covers how to evaluate custom, cloud and off-the-shelf options before you commit to any implementation.</p>`,
       figure: { img: 'istock-1313265074-boardroom-team-through-glass-dark.jpg', alt: 'Leadership team meeting about an ERP project in a boardroom', w: 612, h: 408, cap: 'Implementations succeed when someone on the business side owns the decisions.' } },
   ],
   faqs: [
     { q: 'What is the ERP implementation life cycle?', a: 'Discovery and scope, design, build or configuration, data migration, integration, testing, training and change management, then cut-over and stabilization. Most projects also include an ongoing "run and improve" phase after go-live.' },
-    { q: 'How much does it cost to implement an ERP system?', a: 'For US small and mid-size businesses, off-the-shelf implementations through a partner commonly cost US$15,000&ndash;$100,000+ on top of the subscription. TechAuditPros includes implementation in a flat US$1,800 per month for custom ERP, with no separate implementation invoice.' },
+    { q: 'How much does it cost to implement an ERP system?', a: 'For US small and mid-size businesses, off-the-shelf implementations through a partner commonly cost US$15,000&ndash;$100,000+ on top of the subscription. TechAuditPros includes implementation in one agreed monthly fee for custom ERP, with no separate implementation invoice.' },
     { q: 'Who should be involved in an ERP implementation?', a: 'An executive sponsor, one internal project owner, a champion from each department that will use the system, the accounting lead, and the engineers or implementation partner. Involve the people who will actually do the work daily &mdash; they know the exceptions.' },
     { q: 'Can you implement ERP without disrupting the business?', a: 'Mostly, yes: phase the rollout, migrate data in trial runs, go live at a quiet point in your cycle, and run old and new in parallel for a defined period if the risk warrants it. Some disruption during cut-over is normal; weeks of it is a sign the project skipped testing.' },
   ],
@@ -208,13 +208,13 @@ module.exports = [
 <p><strong>What you can usually skip at this size:</strong> finite-capacity scheduling with optimization algorithms, IoT machine-monitoring dashboards, advanced planning across multiple plants, and a formal APS (advanced planning and scheduling) module. They are impressive in demos and rarely used by a 40-person shop. Add them when a real bottleneck justifies the complexity.</p>` },
     { h2: 'Custom Manufacturing ERP vs. Off-the-Shelf', html: `
 <p>Off-the-shelf manufacturing ERP is built around a generic model of a factory. It fits well when your production is standard &mdash; discrete assembly from a stable catalog, for example. It fits badly when your process has quirks the model does not expect: made-to-order variants configured per quote, mixed process and discrete steps, unusual units of measure, or a costing method your accountant insists on. Small manufacturers spend a surprising amount on customization consultants to make a product behave like their shop.</p>
-<p>A custom manufacturing ERP is coded around the way your shop runs, and it only includes the modules you need. TechAuditPros builds these for US manufacturers for a flat US$1,800 per month with the first module &mdash; usually inventory and BOMs, or work orders &mdash; live in 6&ndash;10 weeks, integrated with QuickBooks or Xero for the books. Details on the <a href="/us/erp/">US custom ERP page</a>; Canadian shops can see the <a href="/ca/erp/">Canadian version</a>.</p>
+<p>A custom manufacturing ERP is coded around the way your shop runs, and it only includes the modules you need. TechAuditPros builds these for US manufacturers one agreed monthly fee with the first module &mdash; usually inventory and BOMs, or work orders &mdash; live in 6&ndash;10 weeks, integrated with QuickBooks or Xero for the books. Details on the <a href="/us/erp/">US custom ERP page</a>; Canadian shops can see the <a href="/ca/erp/">Canadian version</a>.</p>
 <div class="article-callout">Rule of thumb: if you have already asked an off-the-shelf vendor "can it do X?" and heard "with customization, yes" three times, you are in custom territory &mdash; you will just be paying for a product too.</div>` },
     { h2: 'What Manufacturing ERP Costs', html: `
 <ul>
 <li><strong>Subscription manufacturing ERP:</strong> entry tiers commonly run from tens of dollars per user per month for light systems into the US$100&ndash;$250 range for full-featured ones, plus implementation.</li>
 <li><strong>Mid-market manufacturing suites:</strong> typically custom-quoted, with implementation partners and per-user licensing; total first-year cost often reaches well into six figures for a small plant.</li>
-<li><strong>Custom, flat monthly:</strong> US$1,800/month all-in with TechAuditPros, no per-seat fees &mdash; so adding a second shift or a second site does not raise the software bill.</li>
+<li><strong>Custom, flat monthly:</strong> one agreed monthly fee all-in with TechAuditPros, no per-seat fees &mdash; so adding a second shift or a second site does not raise the software bill.</li>
 </ul>
 <p>Whatever you choose, run the numbers at the headcount you expect in three years, not today's.</p>`,
       figure: { img: 'mentor-explaining-data-on-monitor-warm-office.jpg', alt: 'Engineer walking a manufacturer through job-cost data on screen', w: 1344, h: 1335, cap: 'True job cost, compared with the quote, is where small manufacturers find their margin leaks.' } },
@@ -225,7 +225,7 @@ module.exports = [
     { q: 'What is the difference between MRP and ERP in manufacturing?', a: 'MRP (material requirements planning) is the planning calculation that turns demand, stock and bills of materials into what to buy and make. ERP is the complete business system &mdash; finance, inventory, sales, purchasing and production &mdash; that MRP is one module of.' },
     { q: 'Does a small job shop need manufacturing ERP?', a: 'If you quote custom work, carry inventory and want to know real job cost, yes &mdash; those three needs are exactly what the manufacturing modules answer. A shop with a handful of employees and a simple product may get by on accounting software plus a good spreadsheet for a while.' },
     { q: 'What is a bill of materials in ERP?', a: 'A bill of materials (BOM) is the structured list of components, sub-assemblies and quantities needed to build one unit of a finished product, with revision control so engineering changes are tracked. It is the foundation of MRP, costing and work orders.' },
-    { q: 'How much does manufacturing ERP cost for a small business?', a: 'Subscription systems range from tens of dollars per user per month for light tools to US$100&ndash;$250 for full suites, plus implementation. TechAuditPros builds custom manufacturing ERP for a flat US$1,800 per month with no per-user fees.' },
+    { q: 'How much does manufacturing ERP cost for a small business?', a: 'Subscription systems range from tens of dollars per user per month for light tools to US$100&ndash;$250 for full suites, plus implementation. TechAuditPros builds custom manufacturing ERP one agreed monthly fee with no per-user fees.' },
   ],
   cta: { h3: 'Running a shop on spreadsheets and a QuickBooks add-on?', p: 'Book a free strategy call. We look at your BOMs, inventory and job costing together and tell you honestly whether custom, cloud or off-the-shelf manufacturing ERP fits your shop.' },
 },

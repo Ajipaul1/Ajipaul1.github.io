@@ -20,12 +20,12 @@ const ONLY = (process.argv.find(a => a.indexOf('--only=') === 0) || '').slice(7)
 
 const PAGES = {
   'us/index.html': { bands: [['<section id="how-it-works" class="us-section us-section-alt">', '<section id="how-it-works" class="us-section us-section-alt band-cinema" style="--band-img:url(\'/assets/images/library/istock-1674601384-woman-world-map-teal-global.jpg\')">']] },
-  'us/erp/index.html': { bands: [['<section class="tap-erp-why-section">', '<section class="tap-erp-why-section band-cinema" style="--band-img:url(\'/assets/images/library/istock-2189585598-electronics-factory-engineers-laptop.jpg\')">']] },
+  'us/erp/index.html': { bands: [] },   // the why-us band section was removed 2026-09-03 (duplicate boilerplate)
   'us/seo-services/index.html': { bands: [
     ['<section class="tap-erp-why-section">', '<section class="tap-erp-why-section band-cinema" style="--band-img:url(\'/assets/images/library/istock-2148073937-ai-wireframe-head-particles.jpg\')">'],
     ['<section id="seo-proof" class="us-section">', '<section id="seo-proof" class="us-section band-cinema" style="--band-img:url(\'/assets/images/library/istock-1128252197-analyst-data-wall-pencil-thinking.jpg\')">'],
   ] },
-  'us/website-development/index.html': { bands: [['<section class="tap-erp-why-section">', '<section class="tap-erp-why-section band-cinema" style="--band-img:url(\'/assets/images/library/istock-2228764569-developer-night-debugging-monitors.jpg\')">']] },
+  'us/website-development/index.html': { bands: [] },
 };
 
 const CSS = `<!-- cinematic-layer:start -->

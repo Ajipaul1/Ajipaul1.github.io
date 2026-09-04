@@ -78,7 +78,7 @@ module.exports = [
 <li>Monitor new links and mentions monthly; disavow only genuinely toxic ones.</li>
 </ol>
 </div>
-<p>Both halves run inside our <a href="/us/seo-services/">US SEO service</a> and <a href="/ca/seo-services/">Canadian SEO service</a> &mdash; on-page by the same engineers who fix the technical side, off-page without ever buying a link.</p>` },
+<p>Both halves run inside our <a href="/us/seo-services/">US SEO service</a> and <a href="/ca/seo-services/">Canadian SEO service</a> &mdash; on-page by the same team that fixes the technical side, off-page without ever buying a link.</p>` },
   ],
   faqs: [
     { q: 'Is technical SEO part of on-page SEO?', a: 'They overlap but are usually treated separately. On-page SEO is the content and markup of individual pages; technical SEO is site-wide infrastructure &mdash; crawlability, indexation, speed, security. Page speed sits on the boundary: caused on the page, fixed by engineers.' },
@@ -289,7 +289,7 @@ module.exports = [
 <p>Put the primary term in the title tag, the H1, the first paragraph and one or two H2s where it fits naturally. Use the variations from the cluster where a person would use them. Then stop thinking about it. Search engines understand synonyms and context; a page that repeats "custom ERP software development company" eleven times reads as spam to both algorithms and humans. If a sentence would embarrass you read aloud to a customer, rewrite it.</p>`,
       figure: { img: 'istock-1332827275-businessman-ai-robot-double-exposure.jpg', alt: 'Double exposure of a person and an AI figure, representing human review of AI-assisted drafts', w: 612, h: 408, cap: 'AI can draft; a named human has to check, add the specifics and take responsibility.' } },
     { h2: 'Using AI to Write SEO Content: The Honest Position', html: `
-<p>AI tools are excellent at research summaries, outlines and first drafts, and terrible at the things that make content rank: your real numbers, your experience, your judgment about what to leave out. Publishing raw AI output produces exactly the generic, sourceless content search engines are demoting and AI engines summarize without citing. Our practice &mdash; and our recommendation &mdash; is AI for speed to a first draft, then a named engineer or specialist who fact-checks, adds the specifics only your business knows, and signs it. That is how the content on this site is produced, including this page.</p>
+<p>AI tools are excellent at research summaries, outlines and first drafts, and terrible at the things that make content rank: your real numbers, your experience, your judgment about what to leave out. Publishing raw AI output produces exactly the generic, sourceless content search engines are demoting and AI engines summarize without citing. Our practice &mdash; and our recommendation &mdash; is AI for speed to a first draft, then an engineer or specialist who fact-checks, adds the specifics only your business knows, and signs it. That is how the content on this site is produced, including this page.</p>
 <p>Content is the third step of the program described in our <a href="/us/seo-services/">US SEO service</a> and <a href="/ca/seo-services/">Canadian SEO service</a>, after the audit and the technical fixes &mdash; because the best article in the world cannot rank on a site Google cannot crawl.</p>` },
   ],
   faqs: [

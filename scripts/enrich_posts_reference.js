@@ -56,7 +56,7 @@ const jobs = [
         ],
         inserts: [
             ['<h2>Off-the-Shelf vs. Custom ERP</h2>', fig('mentor-explaining-data-on-monitor-warm-office.jpg', 'Engineer walking a client through operational data on screen', 'A custom build starts with your real data and workflows, not a demo environment.', 1344, 1335)],
-            ['<h2>What a Custom ERP Build Actually Looks Like</h2>', fig('confident-leader-office-team-background.webp', 'Project lead reviewing an ERP build with the team working behind her', 'One dedicated engineer owns the build end to end &mdash; with a team behind them.', 2000, 1333)],
+            ['<h2>What a Custom ERP Build Actually Looks Like</h2>', fig('confident-leader-office-team-background.webp', 'Project lead reviewing an ERP build with the team working behind her', 'One accountable team owns the build end to end.', 2000, 1333)],
         ],
     },
     {

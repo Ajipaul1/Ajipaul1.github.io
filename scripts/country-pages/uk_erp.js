@@ -26,13 +26,13 @@ s = L.ukFooterCities(s);
 s = L.setHead(s, {
   title: 'Custom ERP Software Development for UK Businesses | TechAuditPros',
   ogTitle: 'Custom ERP Software Development for UK Businesses | TechAuditPros',
-  desc: 'TechAuditPros builds custom ERP and manufacturing ERP software for UK small and mid-size businesses &mdash; stock, orders, purchasing, production and finance in one system, integrated with Xero, Sage and QuickBooks, MTD-ready, hosted in AWS London. Flat &pound;1,200/month, dedicated engineer, you own the code.',
+  desc: 'TechAuditPros builds custom ERP and manufacturing ERP software for UK small and mid-size businesses &mdash; stock, orders, purchasing, production and finance in one system, integrated with Xero, Sage and QuickBooks, MTD-ready, hosted in AWS London. Flat one agreed monthly fee, dedicated engineering team, you own the code.',
   url: URL,
   hreflang: [{ lang: 'en-gb', href: URL }, { lang: 'en-us', href: 'https://techauditpros.com/us/erp/' }, { lang: 'en-ca', href: 'https://techauditpros.com/ca/erp/' }],
 });
 
 const faqs = [
-  { q: 'How much does custom ERP software cost in the UK?', a: 'TechAuditPros builds and runs your custom ERP for a flat &pound;1,200 per month &mdash; that covers your dedicated engineer, design, development, integrations, hosting guidance and ongoing support, with no per-seat licences and no separate implementation invoice. For orientation, published UK prices for subscription ERP sit around &pound;74&ndash;&pound;112 per user per month (Oracle NetSuite from &pound;74, Epicor Kinetic from &pound;75, SAP Business One from &pound;77, Microsoft Dynamics 365 from &pound;82, Infor CloudSuite from &pound;112), Sage 200 starts near &pound;374 a month, and independent UK research puts realistic all-in cost at &pound;15,000&ndash;&pound;60,000 a year once implementation and support are counted. Your scope call ends with a fixed monthly number, not an estimate.' },
+  { q: 'How much does custom ERP software cost in the UK?', a: 'TechAuditPros builds and runs your custom ERP one agreed monthly fee &mdash; that covers your dedicated engineering team, design, development, integrations, hosting guidance and ongoing support, with no per-seat licences and no separate implementation invoice. For orientation, published UK prices for subscription ERP sit around &pound;74&ndash;&pound;112 per user per month (Oracle NetSuite from &pound;74, Epicor Kinetic from &pound;75, SAP Business One from &pound;77, Microsoft Dynamics 365 from &pound;82, Infor CloudSuite from &pound;112), Sage 200 starts near &pound;374 a month, and independent UK research puts realistic all-in cost at &pound;15,000&ndash;&pound;60,000 a year once implementation and support are counted. Your scope call ends with a fixed monthly number, not an estimate.' },
   { q: 'What is manufacturing ERP software, and how is it different from generic ERP?', a: 'Manufacturing ERP adds the production layer that generic ERP leaves out: bills of materials, work orders and routing, MRP planning against real stock and lead times, shop-floor status, work-in-progress and scrap, batch or lot traceability, and true cost of goods manufactured. If you make, assemble, machine or blend anything, that layer is where the money leaks &mdash; and it is what we build first for UK manufacturers and job shops.' },
   { q: 'What is the difference between MRP, ERP and WMS?', a: 'MRP (material requirements planning) works out what to make or buy and when, from your bills of materials, stock and lead times. ERP is the wider system of record around it &mdash; orders, purchasing, production, stock and finance in one place. WMS (warehouse management) runs the physical warehouse: locations, picking routes, goods-in and stock accuracy. Most UK SMEs need ERP with MRP inside it; a separate WMS only pays for itself once the warehouse is big or complex enough to need directed picking.' },
   { q: 'How long does a custom ERP take to build?', a: 'Most UK engagements reach a working first module &mdash; usually stock, orders or quoting, whichever hurts most &mdash; within 6 to 10 weeks. The full system then rolls out in phases over roughly 4 to 9 months, with your team using each module on real data as it ships rather than waiting for one big launch. For comparison, published UK implementation timelines for subscription ERP are commonly 3 to 6 months for a small business and 6 to 12 for mid-market, before customisation.' },
@@ -41,7 +41,7 @@ const faqs = [
   { q: 'Can the ERP integrate with Xero, Sage, QuickBooks, Shopify or Stripe?', a: 'Yes. Two-way syncs with Xero, Sage, QuickBooks Online, Shopify, WooCommerce, Amazon, Stripe, GoCardless, HubSpot and Salesforce are scoped during discovery and built on the tools&rsquo; official APIs. Payroll exports for BrightPay, Sage Payroll or your bureau are included where needed, and we can automate the workplace-pension side of auto-enrolment so contributions are not re-keyed by hand.' },
   { q: 'Where is our data hosted under UK GDPR?', a: 'In a UK cloud region inside an account you own &mdash; AWS London (eu-west-2) or Google Cloud europe-west2 by default, so the data does not leave the UK. We work under an NDA and a data processing agreement naming you as controller and us as processor, with role-based access you control and can revoke, weekly encrypted backups and no shared credentials. Access from our team in India is covered by that agreement and the UK international transfer addendum.' },
   { q: 'Who owns the source code?', a: 'You do, fully &mdash; the repository, the database and the documentation are yours from day one. If you ever want to move development in-house or to another supplier, nothing is locked behind us.' },
-  { q: 'How does the time-zone difference with your India team work?', a: 'Our engineers work from Kochi, which runs 4.5 hours ahead of London in summer (BST) and 5.5 hours ahead in winter (GMT). In practice you get a live overlap window every UK morning and early afternoon for calls, Slack or Teams, and anything you send at the end of your day is picked up before ours ends. You get a weekly demo and a monthly written report from the same named engineer, first call to hundredth deploy.' },
+  { q: 'How does the time-zone difference with your India team work?', a: 'Our engineers work from Kochi, which runs 4.5 hours ahead of London in summer (BST) and 5.5 hours ahead in winter (GMT). In practice you get a live overlap window every UK morning and early afternoon for calls, Slack or Teams, and anything you send at the end of your day is picked up before ours ends. You get a weekly demo and a monthly written report from the same team, first call to hundredth deploy.' },
   { q: 'Cloud or on-premise?', a: 'Cloud by default &mdash; cheaper to run, easier to back up, and reachable from every site and warehouse. If you have a regulatory or connectivity reason to keep the system on your own servers, we can deploy on-premise or into a private cloud instead.' },
   { q: 'What is the difference between custom ERP and a cloud ERP subscription?', a: 'A subscription ERP is one product every customer shares, priced per user, that you configure around; a custom ERP is coded around your workflows, priced flat, and changes whenever your business does. Subscriptions win when your processes are standard and your headcount is stable; custom wins when they are not, or when per-seat fees are climbing faster than the business.' },
   { q: 'Do we need a long-term contract, and do you charge VAT?', a: 'No contract &mdash; engagements are month to month and you can pause or stop at any time, keeping the code and the data either way. Invoices are issued from India in pounds sterling with no UK VAT added; a UK VAT-registered business accounts for it under the reverse charge and normally reclaims it in the same return. Your accountant will confirm your position.' },
@@ -54,18 +54,18 @@ s = L.setPageSchemas(s, [
 ]);
 
 s = L.setSideText(s, 'to Britain.', 'UK');
-s = L.setRotatePhrases(s, 'UK', '&pound;1,200/mo &bull; Save 57%', 'London &bull; Manchester &bull; Leeds &bull; Bristol', 'the UK');
+s = L.setRotatePhrases(s, 'UK', 'Pricing scoped on a call', 'London &bull; Manchester &bull; Leeds &bull; Bristol', 'the UK');
 s = L.setHero(s, {
   eyebrow: 'Custom ERP &amp; Manufacturing ERP Software &mdash; United Kingdom',
   h1: 'Custom ERP Software <span>Built Around How Your UK Business Actually Runs.</span>',
-  sub: 'TechAuditPros designs and builds custom ERP and manufacturing ERP systems for UK small and mid-size businesses &mdash; one system of record for stock, orders, purchasing, production and finance, integrated with the Xero, Sage, QuickBooks and Shopify accounts you already run, MTD-ready and hosted in AWS London. Flat monthly rate, dedicated engineer, source code yours.',
+  sub: 'TechAuditPros designs and builds custom ERP and manufacturing ERP systems for UK small and mid-size businesses &mdash; one system of record for stock, orders, purchasing, production and finance, integrated with the Xero, Sage, QuickBooks and Shopify accounts you already run, MTD-ready and hosted in AWS London. One agreed monthly fee, a dedicated engineering team, source code yours.',
   ghostHref: '#erp-modules', ghostText: 'See what’s included &darr;',
-  features: ['\u{1F468}‍\u{1F4BB} Dedicated Engineer', '\u{1F1EC}\u{1F1E7} UK Data Residency', '\u{1F4BB} You Own the Code'],
-  trust: [['250+', 'Projects delivered'], ['&pound;1,200', 'Flat starting rate/mo'], ['6&ndash;10 wks', 'To first working module'], ['4.9/5', 'Client rating']],
+  features: ['\u{1F468}‍\u{1F4BB} Dedicated Engineering Team', '\u{1F1EC}\u{1F1E7} UK Data Residency', '\u{1F4BB} You Own the Code'],
+  trust: [['250+', 'Projects delivered'], ['No lock-in', 'Month to month'], ['6&ndash;10 wks', 'To first working module'], ['4.9/5', 'Client rating']],
 });
 
 let body = '';
-body += L.answer('<strong>Custom ERP software</strong> is an enterprise resource planning system designed and coded for one company’s workflows, instead of a subscription product every company shares. TechAuditPros builds custom ERP and <strong>manufacturing ERP</strong> for UK businesses on <strong>Node.js, PostgreSQL and React</strong>, hosted in <strong>AWS London</strong> in an account you own, for a <strong>flat &pound;1,200 per month</strong> &mdash; no per-user licences, no five-figure implementation invoice, no long-term contract. Most clients are using their first working module within 6&ndash;10 weeks.');
+body += L.answer('<strong>Custom ERP software</strong> is an enterprise resource planning system designed and coded for one company’s workflows, instead of a subscription product every company shares. TechAuditPros builds custom ERP and <strong>manufacturing ERP</strong> for UK businesses on <strong>Node.js, PostgreSQL and React</strong>, hosted in <strong>AWS London</strong> in an account you own, for a <strong>one agreed monthly fee</strong> &mdash; no per-user licences, no five-figure implementation invoice, no long-term contract. Most clients are using their first working module within 6&ndash;10 weeks.');
 
 body += L.benefitRow('what-custom-erp-replaces', 'What a Custom ERP Replaces', 'The three things that quietly cost a growing UK business the most.', [
   { icon: '\u{1F4CA}', h4: 'The Spreadsheet Sprawl', p: 'The stock sheet, the order tracker, the price list, the one only Dawn understands. A custom ERP turns them into one system of record with one version of the truth.' },
@@ -92,7 +92,7 @@ body += L.modulesGrid('erp-modules', 'What’s Included', 'Eight modules, built 
 
 body += L.promise({
   h2: 'We Map Your Real Workflow Before We Write a Line of Code',
-  p: 'Every UK engagement starts with your dedicated engineer walking through your actual spreadsheets, exports and daily routines with you &mdash; how an order really moves from quote to cash, where it stalls, who fixes it by hand. You approve a clickable prototype and a data model before development begins, so the system reflects how the business runs today and where you want it to go.',
+  p: 'Every UK engagement starts with your engineering team walking through your actual spreadsheets, exports and daily routines with you &mdash; how an order really moves from quote to cash, where it stalls, who fixes it by hand. You approve a clickable prototype and a data model before development begins, so the system reflects how the business runs today and where you want it to go.',
   href: '#process', cta: 'See Our 6-Step Process',
   img: 'whiteboard-process-mapping-two-colleagues.jpg', alt: 'TechAuditPros engineer mapping a client’s order-to-cash workflow on a whiteboard', w: 2400, h: 1601,
 });
@@ -130,7 +130,7 @@ body += L.modulesGrid('vs-products', 'If You Are Evaluating the Big Names', 'Sag
   { icon: '\u{1F7E6}', h4: 'Microsoft Dynamics 365 &mdash; from &pound;82/user/mo', p: 'Wins if you are deep in Microsoft already and want ERP, CRM and BI in one estate. Real fit usually needs a partner, and partner days are where the budget goes.' },
   { icon: '\u{2699}️', h4: 'Epicor Kinetic &mdash; from &pound;75/user/mo', p: 'Strong, genuinely manufacturing-first functionality for discrete makers. Heavier than most UK SMEs need, and priced per user as you grow the shop floor.' },
   { icon: '\u{1F536}', h4: 'SAP Business One &mdash; from &pound;77/user/mo', p: 'Wins when a parent company mandates SAP or you need the SAP ecosystem. Expect partner-led implementation and change requests through that partner.' },
-  { icon: '\u{2705}', h4: 'Custom (TechAuditPros) &mdash; &pound;1,200/mo flat', p: 'Wins when your processes are the reason you are still on spreadsheets, when per-user fees are rising faster than the business, or when you need the ERP, the website and the search all pulling together.' },
+  { icon: '\u{2705}', h4: 'Custom (TechAuditPros) &mdash; one agreed monthly fee', p: 'Wins when your processes are the reason you are still on spreadsheets, when per-user fees are rising faster than the business, or when you need the ERP, the website and the search all pulling together.' },
 ], false);
 
 body += L.benefitRow('erp-risks', 'Where ERP Projects Actually Go Wrong', 'The four failure modes &mdash; and how each engagement is set up to avoid them.', [
@@ -142,34 +142,34 @@ body += L.benefitRow('erp-risks', 'Where ERP Projects Actually Go Wrong', 'The f
 
 body += L.compareTable('erp-compare', 'Custom vs. Subscription vs. Legacy', 'Three ways to run a UK business on software &mdash; compared honestly.', 'The right answer depends on how standard your processes are and how fast you are hiring. Here is how the options actually differ, with published UK prices for orientation.', ['Custom ERP (TechAuditPros)', 'Subscription ERP (SaaS)', 'Legacy on-premise ERP'], 0, [
   ['Fit to your workflows', 'Coded around your processes; nothing generic to work around', 'You configure around the vendor’s model; edge cases become workarounds', 'Deep but rigid; changes need specialist consultants'],
-  ['Pricing model', 'Flat &pound;1,200/month, all-in', '&pound;74&ndash;&pound;112 per user per month, plus implementation', 'Large upfront licence plus annual maintenance'],
+  ['Pricing model', 'One agreed monthly fee, all-in', '&pound;74&ndash;&pound;112 per user per month, plus implementation', 'Large upfront licence plus annual maintenance'],
   ['Per-user fees', 'None &mdash; add staff, sites and warehouses freely', 'Every new hire raises the bill', 'Usually per seat or per module'],
   ['Implementation', 'First module live in 6&ndash;10 weeks, phased rollout', 'Commonly 3&ndash;6 months for a small business, 6&ndash;12 mid-market, billed separately', 'Often 12 months or more'],
   ['Integrations', 'Built on the official APIs of the tools you keep (Xero, Sage, Shopify&hellip;)', 'Marketplace connectors; gaps need middleware', 'Custom connectors, expensive to maintain'],
   ['UK compliance', 'MTD-ready records, UK GDPR scoped up front, duty and rules-of-origin fields where you import', 'Depends on the vendor’s UK localisation', 'Usually solid, but changes are chargeable'],
-  ['Changes after go-live', 'Included &mdash; the same engineer keeps evolving it', 'Wait for the vendor roadmap or pay for add-ons', 'Change requests billed by the hour'],
+  ['Changes after go-live', 'Included &mdash; the same team keeps evolving it', 'Wait for the vendor roadmap or pay for add-ons', 'Change requests billed by the hour'],
   ['Data ownership &amp; residency', 'Your cloud account, AWS London, your code', 'Vendor’s multi-tenant cloud; export on exit', 'Your servers, your hardware costs'],
   ['Best for', 'UK SMEs with non-standard processes or rising per-seat costs', 'Standard processes, small stable teams, fast start', 'Regulated environments that must stay on-premise'],
 ], true, 'Third-party figures are published UK list prices as of September 2026 (Oracle NetSuite from &pound;74/user/mo, Epicor Kinetic &pound;75, SAP Business One &pound;77, Microsoft Dynamics 365 &pound;82, Infor CloudSuite &pound;112, Sage 200 from &pound;374/mo) and vary with scope and reseller. Our rate is fixed in writing before work starts.');
 
 body += L.processRow('process', 'How We Build It', 'A 6-step process from your spreadsheets to a running system.', [
-  { h4: 'Discovery &amp; Data Walkthrough', p: 'Your engineer studies your real data, tools and daily pain points with you &mdash; not a generic questionnaire.' },
+  { h4: 'Discovery &amp; Data Walkthrough', p: 'Your engineering team studies your real data, tools and daily pain points with you &mdash; not a generic questionnaire.' },
   { h4: 'Blueprint &amp; Prototype', p: 'A data model and clickable screens you approve before development, so nothing is built on a guess.' },
   { h4: 'Build in Two-Week Sprints', p: 'First working module in 6&ndash;10 weeks; you test each sprint on your own data and steer priorities.' },
   { h4: 'Migrate &amp; Integrate', p: 'Spreadsheet, Xero or Sage and e-commerce history imported and reconciled; live syncs switched on.' },
   { h4: 'Go-Live &amp; Training', p: 'Role-based training and a cut-over plan, with a parallel run where the risk justifies it.' },
-  { h4: 'Run &amp; Evolve', p: 'The same engineer keeps improving the system every month, with a written report of what shipped.' },
+  { h4: 'Run &amp; Evolve', p: 'The same team keeps improving the system every month, with a written report of what shipped.' },
 ]);
 
 body += L.costGrid('erp-cost', 'Cost &amp; Timeline', 'What ERP actually costs a UK business &mdash; with real numbers.', 'Most ERP pages hide pricing behind a form. Here is the honest picture for a UK small or mid-size business, alongside published market rates.', [
   { tag: 'Typical UK custom build', num: '&pound;40k&ndash;&pound;150k+', sub: 'Upfront project fee, commonly quoted', items: ['6&ndash;18 months before the full system is usable', 'Change requests billed hourly after launch', 'You fund everything before you see value', 'Support retainer on top'] },
-  { tag: 'TechAuditPros', num: '&pound;1,200/mo', sub: 'Flat, all-in, month to month', hi: true, items: ['Dedicated engineer from discovery through support', 'First working module in 6&ndash;10 weeks; full system phased over 4&ndash;9 months', 'Integrations, migration and training included', 'AWS London hosting in your own account; you own the code', 'Monthly written report; stop any time'] },
+  { tag: 'TechAuditPros', num: 'Let’s talk', sub: 'Scoped on the call and put in writing', hi: true, items: ['Dedicated engineering team from discovery through support', 'First working module in 6&ndash;10 weeks; full system phased over 4&ndash;9 months', 'Integrations, migration and training included', 'AWS London hosting in your own account; you own the code', 'Monthly written report; stop any time'] },
   { tag: 'Subscription ERP (SaaS)', num: '&pound;74&ndash;&pound;112', sub: 'Per user per month, plus implementation', items: ['Independent UK research puts all-in cost at &pound;15,000&ndash;&pound;60,000 a year', 'Bill rises with every hire and every module', 'Customisation limited to what the vendor allows', 'Data lives in the vendor’s cloud'] },
 ], 'Third-party ranges reflect published UK pricing and commonly quoted project fees as of September 2026, shown for orientation; they vary with scope. Our rate is fixed in writing before work starts.', true);
 
 body += L.promise({
   h2: 'Your Day Ends. Our Build Day Overlaps It.',
-  p: 'Kochi runs 4.5 hours ahead of London in summer and 5.5 in winter &mdash; so you get a live overlap window every UK morning and early afternoon for calls and Slack, and anything you send at the end of your day is picked up before ours ends. You get a weekly demo, a monthly report in plain English, and the same engineer on your project from the first call to the hundredth deploy.',
+  p: 'Kochi runs 4.5 hours ahead of London in summer and 5.5 in winter &mdash; so you get a live overlap window every UK morning and early afternoon for calls and Slack, and anything you send at the end of your day is picked up before ours ends. You get a weekly demo, a monthly report in plain English, and the same team on your project from the first call to the hundredth deploy.',
   href: '#erp-faq', cta: 'Read the FAQ',
   img: 'female-developer-red-hair-dual-monitors-code.jpg', alt: 'A TechAuditPros engineer building a client’s ERP module at a dual-monitor workstation', w: 2400, h: 1601,
 });
@@ -180,8 +180,6 @@ body += L.industriesGrid('erp-industries', 'Who It’s For', 'Built for the UK b
   { img: 'istock-1496103633-healthcare-nurse-tablet-hologram.jpg', alt: 'Clinical staff member reviewing records on a tablet', w: 612, h: 375, h4: 'Clinics &amp; Care Providers', p: 'Scheduling, consumables, billing exports and reporting for multi-site practices, with compliance scoped up front.' },
   { img: 'istock-2196870531-consultants-walking-tablet-corridor.jpg', alt: 'Consultants reviewing a project dashboard while walking through an office', w: 612, h: 408, h4: 'Professional &amp; Field Services', p: 'Jobs, crews, quotes, time and invoicing connected &mdash; from building services and construction to agencies and consultancies.' },
 ], false);
-
-body += L.whySection('Why TechAuditPros', 'Your data stays yours &mdash; and stays in the UK.', [['\u{1F512}', 'NDA &amp; UK GDPR Data Processing Agreement'], ['\u{1F4BB}', 'Source Code Ownership'], ['\u{1F1EC}\u{1F1E7}', 'AWS London (eu-west-2)'], ['\u{1F4BE}', 'Weekly Encrypted Backups']], 'Built on', ['Node.js', 'PostgreSQL', 'React', 'REST &amp; GraphQL APIs', 'AWS London / Google Cloud europe-west2']);
 
 body += L.faqHtml('erp-faq', 'FAQ', 'Custom ERP Development in the UK: Frequently Asked Questions', faqs);
 
@@ -195,7 +193,7 @@ L.must(s, 'https://techauditpros.com/ca/erp/', 1);      // hreflang alternate on
 L.must(s, 'Canadian', 0); L.must(s, 'CA$1,490', 0); L.must(s, 'US$', 0);
 // FAQ copy exists twice by design (visible HTML + FAQPage schema), so these are presence checks
 L.must(s, 'Making Tax Digital'); L.must(s, 'eu-west-2'); L.must(s, 'reverse charge');
-L.must(s, '&pound;1,200'); L.must(s, 'library/istock', 4);   // 612px files on the small industry cards only
+L.must(s, 'one agreed monthly fee'); L.must(s, 'library/istock', 4);   // 612px files on the small industry cards only
 // SERP parity (crawled 2026-09-03): every theme the ranking pages carry must be present
 ['Discrete', 'Process &amp; Batch', 'Job Shop', 'Make to Order', 'Make to Stock', 'Assemble to Order',
  'Engineer to Order', 'Lean &amp; Just in Time', 'Standard Costing', 'Overhead &amp; WIP', 'FRS 102',

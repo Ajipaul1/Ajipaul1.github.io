@@ -239,7 +239,7 @@ function setRotatePhrases(s, country, currencyLine, cities, ctry2) {
     "'Best AI Developers for Canada.'": `'Best AI Developers for ${ctry2}.'`,
     "'Trusted ERP Partner in Canada.'": `'Trusted ERP Partner in ${ctry2}.'`,
     "'AI-Native Engineering Team — Serving Canada'": `'AI-Native Engineering Team — Serving ${ctry2}'`,
-    "'CA$1,490/mo &bull; Save 57%'": `'${currencyLine}'`,
+    "'Pricing scoped on a call'": `'${currencyLine}'`,
     "'Toronto &bull; Vancouver &bull; Montreal'": `'${cities}'`,
   };
   for (const [from, to] of Object.entries(lit)) s = s.split(from).join(to);

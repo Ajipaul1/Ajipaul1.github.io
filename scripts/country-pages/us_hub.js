@@ -11,15 +11,15 @@ s = L.usFooterCities(s);
 
 s = L.setHead(s, {
   title: 'ERP, Web Development &amp; SEO Agency for US Businesses | TechAuditPros',
-  desc: 'TechAuditPros is an AI-native engineering team for US businesses: custom ERP software, high-performance website development and SEO/AEO/GEO from one dedicated team &mdash; flat US$1,800/month, about 60% less than a typical US agency, no long-term contract.',
+  desc: 'TechAuditPros is an AI-native engineering team for US businesses: custom ERP software, high-performance website development and SEO/AEO/GEO from one dedicated team &mdash; one agreed monthly fee, well below a comparable agency than a typical US agency, no long-term contract.',
   url: URL,
   hreflang: [{ lang: 'en-us', href: URL }, { lang: 'en-ca', href: 'https://techauditpros.com/ca/' }, { lang: 'x-default', href: 'https://techauditpros.com/' }],
 });
 
 const faqs = [
   { q: 'What does TechAuditPros do for US businesses?', a: 'Three things, from one team: custom ERP software (inventory, orders, purchasing, production and finance in one system), custom website design and development on Next.js and React, and SEO with AI-search optimization (AEO/GEO). Most US clients start with the one that hurts most and add the others when they are ready.' },
-  { q: 'How much does it cost?', a: 'A flat US$1,800 per month per engagement, all-in &mdash; dedicated engineer, design, development, integrations and monthly reporting, with no per-seat licenses, no upfront project fee and no long-term contract. That is roughly 60% below the US$4,500-a-month retainers common at US agencies for comparable work.' },
-  { q: 'How does working with an India-based team work from the US?', a: 'Our engineers work from Kochi, India &mdash; 9.5 hours ahead of New York and 12.5 ahead of Los Angeles. Work you send at the end of your day is done by your next morning, there is a live overlap window every US morning for calls, Slack and Teams, and you get a weekly demo plus a monthly written report from a named engineer who knows your account.' },
+  { q: 'How much does it cost?', a: 'One agreed monthly fee per engagement, all-in &mdash; dedicated engineering team, design, development, integrations and monthly reporting, with no per-seat licenses, no upfront project fee and no long-term contract. That is roughly 60% below the US$4,500-a-month retainers common at US agencies for comparable work.' },
+  { q: 'How does working with an India-based team work from the US?', a: 'Our engineers work from Kochi, India &mdash; 9.5 hours ahead of New York and 12.5 ahead of Los Angeles. Work you send at the end of your day is done by your next morning, there is a live overlap window every US morning for calls, Slack and Teams, and you get a weekly demo plus a monthly written report from a engineering team that knows your account.' },
   { q: 'Is there a contract or minimum term?', a: 'No. Engagements run month to month, invoiced in US dollars, and you can pause or stop at any time. Code, content, data and accounts are yours regardless.' },
   { q: 'How do you protect our data and code?', a: 'Every engagement is under NDA. Systems are built in cloud accounts you own, in US regions, with role-based access you control and can revoke, weekly encrypted backups, and no shared credentials. You own the source code from day one.' },
   { q: 'Which US cities and states do you serve?', a: 'All 50 states, remotely &mdash; from New York, Los Angeles, Chicago, Houston and Dallas to Phoenix, Atlanta, Miami, Seattle, Denver, Boston and everywhere between. We do not have a US office, and we say so up front: if you need someone on-site, we are not the right fit.' },
@@ -38,13 +38,13 @@ s = L.setSideText(s, 'to America.', 'US');
 const hero = `
             <p class="eyebrow" id="heroEyebrowRotate"><span class="hero-rotate-text">AI-Native Engineering Team &mdash; Serving the United States</span></p>
             <h1>An AI-Native Team for <span id="heroRotate" class="hero-rotate"><span class="hero-rotate-text">US ERP, Web &amp; SEO.</span></span></h1>
-            <p class="hero-subtitle">TechAuditPros is a dedicated AI-native technical team running custom ERP builds, website development and SEO with AI-search optimization for US businesses and agencies &mdash; from New York and Chicago to Texas and California &mdash; at a flat US$1,800/month, about 60% below a typical US agency.</p>
+            <p class="hero-subtitle">TechAuditPros is a dedicated AI-native technical team running custom ERP builds, website development and SEO with AI-search optimization for US businesses and agencies &mdash; from New York and Chicago to Texas and California &mdash; for one agreed monthly fee, without the overhead a typical US agency has to recover.</p>
             <div class="hero-actions">
                 <a href="${L.FORM}" target="_blank" class="primary-btn-large">Book a Free Strategy Call</a>
                 <a href="#services" class="btn-ghost">See the three services</a>
             </div>
             <div class="hero-features-list">
-                <div class="hero-feature-item">\u{1F468}‍\u{1F4BB} Dedicated Engineer</div>
+                <div class="hero-feature-item">\u{1F468}‍\u{1F4BB} Dedicated Engineering Team</div>
                 <div class="hero-feature-item">\u{1F4C5} Monthly Plain-English Report</div>
                 <div class="hero-feature-item">\u{1F512} NDA &amp; US Data Residency</div>
                 <div class="hero-feature-item">\u{1F513} No Long-Term Contract</div>
@@ -74,18 +74,18 @@ s = s.replace(/rotateText\('heroRotate', \[[\s\S]*?\], 2600, 0\);/, `rotateText(
 s = s.replace(/rotateText\('heroEyebrowRotate', \[[\s\S]*?\], 3200, 1200\);/, `rotateText('heroEyebrowRotate', [
         'AI-Native Engineering Team — Serving the United States',
         '250+ Projects Delivered',
-        'US$1,800/mo &bull; Save 60%',
+        'Pricing scoped on a call',
         '4.9/5 Client Rating',
         'New York &bull; Los Angeles &bull; Chicago &bull; Houston'
     ], 3200, 1200);`);
 L.must(s, 'Best AI Developers for America.', 1); L.must(s, 'Serving the United States', 2);
 
 let body = '';
-body += L.answer('TechAuditPros is an <strong>AI-native technical team</strong> serving US businesses and agencies with <strong>custom ERP software</strong>, <strong>high-performance website development</strong> and <strong>SEO with AI-search optimization (AEO/GEO)</strong> &mdash; built to rank on Google and get cited by ChatGPT, Perplexity and AI Overviews. Flat pricing of <strong>US$1,800/month</strong>, about <strong>60% less</strong> than a comparable US agency, with one dedicated engineer and project manager on every engagement, month to month, in US dollars.');
+body += L.answer('TechAuditPros is an <strong>AI-native technical team</strong> serving US businesses and agencies with <strong>custom ERP software</strong>, <strong>high-performance website development</strong> and <strong>SEO with AI-search optimization (AEO/GEO)</strong> &mdash; built to rank on Google and get cited by ChatGPT, Perplexity and AI Overviews. Flat pricing of <strong>one agreed monthly fee</strong>, about <strong>60% less</strong> than a comparable US agency, with one accountable team on every engagement, month to month, in US dollars.');
 
 body += L.promise({
   h2: 'Built for US Businesses That Are Done Juggling Vendors',
-  p: 'A developer for the website, an agency for SEO, a consultant for the software that runs the back office &mdash; three invoices, three roadmaps, and nobody accountable for the whole picture. TechAuditPros puts one engineering team behind all three, so the site is built to rank, the ERP talks to the site, and one named engineer answers for the result.',
+  p: 'A developer for the website, an agency for SEO, a consultant for the software that runs the back office &mdash; three invoices, three roadmaps, and nobody accountable for the whole picture. TechAuditPros puts one engineering team behind all three, so the site is built to rank, the ERP talks to the site, and one accountable team answers for the result.',
   href: '#services', cta: 'See the Three Services',
   img: 'istock-1489414046-woman-engineer-laptop-ops-room.jpg', alt: 'TechAuditPros engineer working on a client system from the operations room', w: 612, h: 323,
 });
@@ -142,32 +142,32 @@ body += `<section class="tap-pillars-section" id="services">
                 <span class="region-card-badge">You are here</span>
                 <span class="region-flag"><img src="https://flagcdn.com/w80/us.png" srcset="https://flagcdn.com/w160/us.png 2x" alt="" width="40" height="40" loading="lazy" /></span>
                 <h3>United States</h3>
-                <span class="region-rate-amount">US$1,800<span class="region-rate-period">/mo</span></span>
-                <div class="region-rate-row"><span class="region-rate-label">Starting rate</span><span class="region-save">Save 60%</span></div>
+                <span class="region-rate-amount">Let’s talk<span class="region-rate-period">pricing</span></span>
+                <div class="region-rate-row"><span class="region-rate-label">Scoped on a call</span><span class="region-save">In writing</span></div>
             </a>
             <a href="/ca/" class="region-card">
                 <span class="region-flag"><img src="https://flagcdn.com/w80/ca.png" srcset="https://flagcdn.com/w160/ca.png 2x" alt="" width="40" height="40" loading="lazy" /></span>
                 <h3>Canada</h3>
-                <span class="region-rate-amount">CA$1,490<span class="region-rate-period">/mo</span></span>
-                <div class="region-rate-row"><span class="region-rate-label">Starting rate</span><span class="region-save">Save 57%</span></div>
+                <span class="region-rate-amount">Let’s talk<span class="region-rate-period">pricing</span></span>
+                <div class="region-rate-row"><span class="region-rate-label">Scoped on a call</span><span class="region-save">In writing</span></div>
             </a>
             <a href="#contact" class="region-card">
                 <span class="region-flag"><img src="https://flagcdn.com/w80/au.png" srcset="https://flagcdn.com/w160/au.png 2x" alt="" width="40" height="40" loading="lazy" /></span>
                 <h3>Australia</h3>
-                <span class="region-rate-amount">AU$1,600<span class="region-rate-period">/mo</span></span>
-                <div class="region-rate-row"><span class="region-rate-label">Starting rate</span><span class="region-save">Save 59%</span></div>
+                <span class="region-rate-amount">Let’s talk<span class="region-rate-period">pricing</span></span>
+                <div class="region-rate-row"><span class="region-rate-label">Scoped on a call</span><span class="region-save">In writing</span></div>
             </a>
             <a href="#contact" class="region-card">
                 <span class="region-flag"><img src="https://flagcdn.com/w80/gb.png" srcset="https://flagcdn.com/w160/gb.png 2x" alt="" width="40" height="40" loading="lazy" /></span>
                 <h3>United Kingdom</h3>
-                <span class="region-rate-amount">&pound;1,200<span class="region-rate-period">/mo</span></span>
-                <div class="region-rate-row"><span class="region-rate-label">Starting rate</span><span class="region-save">Save 57%</span></div>
+                <span class="region-rate-amount">Let’s talk<span class="region-rate-period">pricing</span></span>
+                <div class="region-rate-row"><span class="region-rate-label">Scoped on a call</span><span class="region-save">In writing</span></div>
             </a>
             <a href="#contact" class="region-card">
                 <span class="region-flag"><img src="https://flagcdn.com/w80/ae.png" srcset="https://flagcdn.com/w160/ae.png 2x" alt="" width="40" height="40" loading="lazy" /></span>
                 <h3>Dubai, UAE</h3>
-                <span class="region-rate-amount">AED 3,800<span class="region-rate-period">/mo</span></span>
-                <div class="region-rate-row"><span class="region-rate-label">Starting rate</span><span class="region-save">Save 52%</span></div>
+                <span class="region-rate-amount">Let’s talk<span class="region-rate-period">pricing</span></span>
+                <div class="region-rate-row"><span class="region-rate-label">Scoped on a call</span><span class="region-save">In writing</span></div>
             </a>
         </div>
         <p class="regions-footnote">* Starting rates shown vs. average local agency pricing in each market.</p>
@@ -193,8 +193,8 @@ body += `<section class="tap-pillars-section" id="services">
             <div class="compare-card positive">
                 <h4>TechAuditPros</h4>
                 <ul>
-                    <li>A dedicated engineer + project manager, not a ticket queue</li>
-                    <li>Flat US$1,800/month &mdash; month to month, in US dollars</li>
+                    <li>A dedicated engineering team, not a ticket queue</li>
+                    <li>One agreed monthly fee &mdash; month to month, in US dollars</li>
                     <li>Every engagement starts with real technical scoping or a real audit</li>
                     <li>Monthly plain-English report; code, content and data fully yours</li>
                 </ul>
@@ -207,14 +207,14 @@ body += `<section class="tap-pillars-section" id="services">
 
 body += L.statRow('how-it-works', 'How the US &harr; India Model Works', 'Your working day and ours barely overlap &mdash; and that is the advantage.', 'Kochi runs 9.5 hours ahead of New York and 12.5 ahead of Los Angeles. Here is what that means in practice.', [
   ['Overnight', 'Feedback you send at the end of your day is built and waiting the next morning'],
-  ['Every morning', 'A live overlap window for calls, Slack and Teams with your engineer'],
+  ['Every morning', 'A live overlap window for calls, Slack and Teams with your team'],
   ['Weekly', 'A demo of what shipped, on a staging site you can click through'],
   ['Monthly', 'A written report in plain English: what changed, what moved, what is next'],
 ], true);
 
 body += L.promise({
   h2: 'One Team You Can Actually Reach',
-  p: 'Behind every US engagement is a small, senior team &mdash; not a rotating cast of account managers. You know your engineer by name, they know your business by heart, and the whole team stands behind every launch. That is what one accountable partner for ERP, web and SEO feels like week to week.',
+  p: 'Behind every US engagement is a small, senior team &mdash; not a rotating cast of account managers. You know the team by name, they know your business by heart, and the whole team stands behind every launch. That is what one accountable partner for ERP, web and SEO feels like week to week.',
   href: '#contact', cta: 'Meet Us on a Call',
   img: 'istock-1818616410-young-team-tablet-night-huddle.jpg', alt: 'The TechAuditPros team reviewing a client launch together', w: 612, h: 408,
 });
@@ -224,7 +224,7 @@ body += `<section class="tap-numbers-section" id="results">
         <div class="number-stat-item"><div class="num">180%</div><div class="label">Traffic growth &mdash; US HVAC client, 6 months</div></div>
         <div class="number-stat-item"><div class="num">205%</div><div class="label">Traffic growth &mdash; Canadian appliance client, 8 months</div></div>
         <div class="number-stat-item"><div class="num">97%</div><div class="label">Client retention rate</div></div>
-        <div class="number-stat-item"><div class="num">US$1.8K</div><div class="label">Flat monthly rate, no long-term contract</div></div>
+        <div class="number-stat-item"><div class="num">Month to month</div><div class="label">No long-term contract, stop any time</div></div>
     </div>
 </section>
 
@@ -284,5 +284,5 @@ s = L.injectExtras(s, faqCss);
 
 L.must(s, 'https://techauditpros.com/ca/', 1); // hreflang alternate (region card uses a relative href)
 L.must(s, 'Canadian', 1); // real Canadian case stat
-L.must(s, 'CA$1,490', 1); // Canada region card
+L.must(s, 'region-rate-amount', 5); // five market cards
 L.write('us/index.html', s);

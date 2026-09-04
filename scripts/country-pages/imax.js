@@ -280,7 +280,7 @@ const JS = `<!-- imax-layer-js:start -->
 <!-- imax-layer-js:end -->
 `;
 
-const TICKER_ITEMS = ['Custom ERP Software', 'Website Design &amp; Development', 'SEO &middot; AEO &middot; GEO', 'US$1,800/month flat', 'Dedicated engineer + project manager', 'NDA &amp; US data residency', 'No long-term contract', 'New York &middot; Chicago &middot; Texas &middot; California', '250+ projects delivered', '16 countries served', '4.9/5 client rating', 'Monthly plain-English report'];
+const TICKER_ITEMS = ['Custom ERP Software', 'Website Design &amp; Development', 'SEO &middot; AEO &middot; GEO', 'one agreed monthly fee flat', 'Dedicated engineering team + project manager', 'NDA &amp; US data residency', 'No long-term contract', 'New York &middot; Chicago &middot; Texas &middot; California', '250+ projects delivered', '16 countries served', '4.9/5 client rating', 'Monthly plain-English report'];
 const tickerList = '<ul>' + TICKER_ITEMS.map(t => `<li>${t}</li>`).join('') + '</ul>';
 const TICKER = `<!-- imax-ticker:start -->
 <div class="imx-ticker" aria-hidden="true"><div class="imx-ticker-track">${tickerList}${tickerList}</div></div>
@@ -293,7 +293,7 @@ const CLOCK = `        <!-- imax-clock:start -->
                 <li><b>6 pm New York</b><span>You send the day&rsquo;s feedback and log off.</span></li>
                 <li><b>9 am Kochi</b><span>Our day starts &mdash; 11:30 pm your time. Your notes are already in the queue.</span></li>
                 <li><b>Overnight for you</b><span>Built, tested and pushed to staging while you sleep.</span></li>
-                <li><b>9 am New York</b><span>Live overlap window &mdash; 6:30 pm in Kochi, your engineer on Slack or Teams.</span></li>
+                <li><b>9 am New York</b><span>Live overlap window &mdash; 6:30 pm in Kochi, your team on Slack or Teams.</span></li>
             </ul>
         </div>
         <!-- imax-clock:end -->
