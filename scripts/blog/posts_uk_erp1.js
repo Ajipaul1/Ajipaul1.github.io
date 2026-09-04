@@ -137,7 +137,7 @@ module.exports = [
 <div class="article-table-wrap"><table>
 <tr><th>Headcount needing access</th><th>At &pound;80 per user/month</th><th>Per year</th></tr>
 <tr><th>8 users</th><td>&pound;640</td><td>&pound;7,680</td></tr>
-<tr><th>15 users</th><td>&pound;1,200</td><td>&pound;14,400</td></tr>
+<tr><th>15 users</th><td>one agreed monthly fee</td><td>&pound;14,400</td></tr>
 <tr><th>25 users</th><td>&pound;2,000</td><td>&pound;24,000</td></tr>
 <tr><th>40 users</th><td>&pound;3,200</td><td>&pound;38,400</td></tr>
 </table></div>
