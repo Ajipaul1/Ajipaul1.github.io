@@ -24,7 +24,7 @@ const L = require('./lib.js');
 const fs = require('fs'); const path = require('path');
 const STRIP = process.argv.includes('--strip');
 
-const PAGES = { 'uk/index.html': 'hub', 'uk/erp/index.html': 'erp', 'uk/website-development/index.html': 'web' };
+const PAGES = { 'uk/index.html': 'hub', 'uk/erp/index.html': 'erp', 'uk/website-development/index.html': 'web', 'uk/seo-services/index.html': 'seo' };
 
 const CSS = `<!-- uk-motion:start -->
 <style>
@@ -84,6 +84,23 @@ const CSS = `<!-- uk-motion:start -->
   html.ukm .uk-blueprint.in{ animation:ukmBlueprint 2.4s ease forwards; }
   @keyframes ukmBlueprint{ 0%{ opacity:0; } 22%{ opacity:1; } 100%{ opacity:0; } }
 
+  /* ---- /uk/seo-services/ : the SERP climb ---- */
+  .uk-serp{ margin:30px 0 4px; border:1px solid var(--line); border-radius:14px; background:var(--paper); padding:18px 20px; max-width:760px; }
+  .uk-serp ol{ list-style:none; margin:0; padding:0; counter-reset:pos; }
+  .uk-serp li{ counter-increment:pos; display:flex; align-items:center; gap:12px; padding:9px 0; border-bottom:1px dashed var(--line); font-size:.92rem; color:var(--ink-soft); }
+  .uk-serp li:last-child{ border-bottom:none; }
+  .uk-serp li::before{ content:counter(pos); flex:0 0 26px; height:26px; border-radius:7px; background:var(--paper-alt); color:var(--ink-faint); font-family:var(--font-mono); font-size:.76rem; display:flex; align-items:center; justify-content:center; }
+  .uk-serp li.you{ color:var(--ink); font-weight:600; }
+  .uk-serp li.you::before{ background:var(--orange); color:#fff; }
+  .uk-serp .ai{ margin-top:14px; padding:14px 16px; border-radius:12px; background:var(--navy-deep); color:rgba(255,255,255,.92); font-size:.9rem; line-height:1.55; }
+  .uk-serp .ai b{ display:block; font-family:var(--font-mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--orange); margin-bottom:6px; }
+  .uk-serp .ai i{ font-style:normal; border-right:2px solid var(--orange); padding-right:2px; }
+  html.ukm .uk-serp li.you{ order:9; }
+  html.ukm .uk-serp.in li.you{ animation:ukmClimb 1.5s cubic-bezier(.3,0,.2,1) .3s forwards; }
+  @keyframes ukmClimb{ 0%{ order:9; transform:translateY(0); } 99%{ transform:translateY(0); } 100%{ order:-1; } }
+  html.ukm .uk-serp .ai{ opacity:0; }
+  html.ukm .uk-serp.in .ai{ animation:ukmFade .8s ease 1.6s forwards; }
+
   /* ---- both : the closing band ---- */
   .final-cta-section{ position:relative; overflow:hidden; }
   .final-cta-section > *{ position:relative; z-index:2; }
@@ -131,6 +148,26 @@ const TUBE = `        <!-- uk-tube:start -->
         <!-- uk-tube:end -->
 `;
 
+// The SEO page's illustration: a results page where the client's row climbs to the top, then the AI
+// answer that follows. Real markup, so with JS off it is a finished, honest diagram. No competitor
+// names (CONTEXT rule 2) - the other rows are described by type.
+const SERP = `        <!-- uk-serp:start -->
+        <div class="uk-serp">
+            <p class="us-cost-note" style="margin:0 0 12px">Illustration &mdash; the same query, both games. Your page has to climb the list <em>and</em> become the source the AI answer names.</p>
+            <ol>
+                <li>Directory listing</li>
+                <li>Software comparison site</li>
+                <li>Vendor brochure page</li>
+                <li>Trade publication article</li>
+                <li class="you">Your page &mdash; answer-first, structured, verifiable</li>
+            </ol>
+            <div class="ai">
+                <b>AI answer</b>
+                <i>For a UK manufacturer, the practical shortlist depends on production method, VAT and MTD handling, and whether per-user licensing will outgrow the business &mdash; as set out in your guide.</i>
+            </div>
+        </div>
+        <!-- uk-serp:end -->
+`;
 const BELT = `            <!-- uk-belt:start --><i class="uk-belt" aria-hidden="true"></i><!-- uk-belt:end -->
 `;
 
@@ -178,6 +215,24 @@ const JS = `<!-- uk-motion-js:start -->
             cards.forEach(function(c, i){ c.classList.add('uk-wire'); c.style.setProperty('--i', Math.min(i, 8)); });
             arm(cards);
         });
+    }
+
+    /* the SERP climb: the client's row rises to the top, then the AI answer types itself */
+    if (KIND === 'seo'){
+        var serp = document.querySelector('.uk-serp');
+        if (serp){
+            arm([serp]);
+            var you = serp.querySelector('li.you'), list = serp.querySelector('ol');
+            var typeEl = serp.querySelector('.ai i'), full = typeEl ? typeEl.textContent : '';
+            if (typeEl) typeEl.textContent = '';
+            new IntersectionObserver(function(es, ob){
+                if (!es[0].isIntersecting) return;
+                ob.disconnect();
+                setTimeout(function(){ if (you && list) list.insertBefore(you, list.firstChild); }, 1500);
+                var i = 0;
+                setTimeout(function tick(){ if (!typeEl || i > full.length) return; typeEl.textContent = full.slice(0, i++); setTimeout(tick, 18); }, 2100);
+            }, { rootMargin: '0px 0px -20% 0px' }).observe(serp);
+        }
     }
 
     /* everything else gets the quiet fade */
@@ -250,7 +305,8 @@ function strip(s) {
   return s.replace(/<!-- uk-motion:start -->[\s\S]*?<!-- uk-motion:end -->\n/, '')
           .replace(/<!-- uk-motion-js:start -->[\s\S]*?<!-- uk-motion-js:end -->\n/, '')
           .replace(/ *<!-- uk-tube:start -->[\s\S]*?<!-- uk-tube:end -->\n/, '')
-          .replace(/ *<!-- uk-belt:start -->.*?<!-- uk-belt:end -->\n/, '');
+          .replace(/ *<!-- uk-belt:start -->.*?<!-- uk-belt:end -->\n/, '')
+          .replace(/ *<!-- uk-serp:start -->[\s\S]*?<!-- uk-serp:end -->\n/, '');
 }
 
 for (const [rel, kind] of Object.entries(PAGES)) {
@@ -264,6 +320,15 @@ for (const [rel, kind] of Object.entries(PAGES)) {
       L.must(s, anchor, 1);
       s = L.replaceAll(s, anchor, TUBE + anchor, 1);
       L.must(s, 'uk-tube:start', 1);
+    }
+    if (kind === 'seo') {
+      // the illustration goes inside the AEO/GEO section, just before its card grid
+      const at = s.indexOf('id="aeo-geo"');
+      if (at < 0) throw new Error('aeo-geo section not found');
+      const grid = s.indexOf('        <div class="us-modules-grid">', at);
+      if (grid < 0) throw new Error('aeo-geo card grid not found');
+      s = s.slice(0, grid) + SERP + s.slice(grid);
+      L.must(s, 'uk-serp:start', 1);
     }
     s = L.replaceAll(s, '</head>', CSS + '</head>', 1);
     s = s.replace(/<\/body>\s*<\/html>\s*$/, JS.replace('__UKM_KIND__', kind) + '</body>\n</html>\n');

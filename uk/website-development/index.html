@@ -929,6 +929,23 @@
   html.ukm .uk-blueprint.in{ animation:ukmBlueprint 2.4s ease forwards; }
   @keyframes ukmBlueprint{ 0%{ opacity:0; } 22%{ opacity:1; } 100%{ opacity:0; } }
 
+  /* ---- /uk/seo-services/ : the SERP climb ---- */
+  .uk-serp{ margin:30px 0 4px; border:1px solid var(--line); border-radius:14px; background:var(--paper); padding:18px 20px; max-width:760px; }
+  .uk-serp ol{ list-style:none; margin:0; padding:0; counter-reset:pos; }
+  .uk-serp li{ counter-increment:pos; display:flex; align-items:center; gap:12px; padding:9px 0; border-bottom:1px dashed var(--line); font-size:.92rem; color:var(--ink-soft); }
+  .uk-serp li:last-child{ border-bottom:none; }
+  .uk-serp li::before{ content:counter(pos); flex:0 0 26px; height:26px; border-radius:7px; background:var(--paper-alt); color:var(--ink-faint); font-family:var(--font-mono); font-size:.76rem; display:flex; align-items:center; justify-content:center; }
+  .uk-serp li.you{ color:var(--ink); font-weight:600; }
+  .uk-serp li.you::before{ background:var(--orange); color:#fff; }
+  .uk-serp .ai{ margin-top:14px; padding:14px 16px; border-radius:12px; background:var(--navy-deep); color:rgba(255,255,255,.92); font-size:.9rem; line-height:1.55; }
+  .uk-serp .ai b{ display:block; font-family:var(--font-mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--orange); margin-bottom:6px; }
+  .uk-serp .ai i{ font-style:normal; border-right:2px solid var(--orange); padding-right:2px; }
+  html.ukm .uk-serp li.you{ order:9; }
+  html.ukm .uk-serp.in li.you{ animation:ukmClimb 1.5s cubic-bezier(.3,0,.2,1) .3s forwards; }
+  @keyframes ukmClimb{ 0%{ order:9; transform:translateY(0); } 99%{ transform:translateY(0); } 100%{ order:-1; } }
+  html.ukm .uk-serp .ai{ opacity:0; }
+  html.ukm .uk-serp.in .ai{ animation:ukmFade .8s ease 1.6s forwards; }
+
   /* ---- both : the closing band ---- */
   .final-cta-section{ position:relative; overflow:hidden; }
   .final-cta-section > *{ position:relative; z-index:2; }
@@ -947,6 +964,26 @@
   }
 </style>
 <!-- uk-motion:end -->
+<!-- trust-strip:start -->
+<style>
+  /* ================= TRUST STRIP (2026-09-03) — the stack, big and moving ================= */
+  .tl-band{ position:relative; overflow:hidden; padding:38px 0 34px; background:var(--paper-alt); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .tl-label{ text-align:center; font-family:var(--font-mono); font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 22px; padding:0 20px; }
+  .tl-view{ position:relative; overflow:hidden; -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  .tl-track{ display:flex; align-items:center; gap:clamp(30px, 4vw, 64px); width:max-content; will-change:transform; }
+  .tl-band.on .tl-track{ animation:tlRoll 46s linear infinite; }
+  @keyframes tlRoll{ from{ transform:translate3d(0,0,0); } to{ transform:translate3d(-50%,0,0); } }
+  .tl-item{ display:flex; align-items:center; gap:12px; font-family:var(--font-mono); font-weight:600; font-size:clamp(1.25rem, 2.5vw, 2.05rem); letter-spacing:-0.01em; color:var(--ink); white-space:nowrap; opacity:.72; }
+  .tl-item::before{ content:''; width:10px; height:10px; border-radius:3px; background:var(--orange); flex:0 0 10px; transform:rotate(45deg); opacity:.9; }
+  .tl-item img{ height:clamp(30px, 3.4vw, 46px); width:auto; display:block; }
+  .tl-band:hover .tl-track{ animation-play-state:paused; }
+  @media (prefers-reduced-motion: reduce){
+    .tl-view{ -webkit-mask-image:none; mask-image:none; }
+    .tl-track{ animation:none !important; flex-wrap:wrap; width:auto; justify-content:center; row-gap:16px; }
+    .tl-band .tl-track > *:nth-child(n+27){ display:none; }   /* the duplicate half is only for the loop */
+  }
+</style>
+<!-- trust-strip:end -->
 </head>
 <body class="home-page-redesign">
 
@@ -1072,6 +1109,15 @@
     </div>
     </div>
 </section>
+
+<!-- trust-strip-band:start -->
+<section class="tl-band" aria-label="Tools and platforms we build on">
+    <p class="tl-label">Built on &amp; worked in daily &mdash; the stack behind every engagement</p>
+    <div class="tl-view">
+        <div class="tl-track"><span class="tl-item">Next.js</span><span class="tl-item">React</span><span class="tl-item">TypeScript</span><span class="tl-item">Node.js</span><span class="tl-item">PostgreSQL</span><span class="tl-item">Supabase</span><span class="tl-item">Vercel</span><span class="tl-item">AWS</span><span class="tl-item">Git</span><span class="tl-item">GitHub</span><span class="tl-item">WordPress</span><span class="tl-item">Shopify</span><span class="tl-item">Stripe</span><span class="tl-item">Xero</span><span class="tl-item">Sage</span><span class="tl-item">QuickBooks</span><span class="tl-item">Google Search Console</span><span class="tl-item">Google Analytics 4</span><span class="tl-item">Looker Studio</span><span class="tl-item">Semrush</span><span class="tl-item">Ahrefs</span><span class="tl-item">Screaming Frog</span><span class="tl-item">PageSpeed Insights</span><span class="tl-item">Schema.org</span><span class="tl-item">ChatGPT</span><span class="tl-item">Perplexity</span><span class="tl-item">Next.js</span><span class="tl-item">React</span><span class="tl-item">TypeScript</span><span class="tl-item">Node.js</span><span class="tl-item">PostgreSQL</span><span class="tl-item">Supabase</span><span class="tl-item">Vercel</span><span class="tl-item">AWS</span><span class="tl-item">Git</span><span class="tl-item">GitHub</span><span class="tl-item">WordPress</span><span class="tl-item">Shopify</span><span class="tl-item">Stripe</span><span class="tl-item">Xero</span><span class="tl-item">Sage</span><span class="tl-item">QuickBooks</span><span class="tl-item">Google Search Console</span><span class="tl-item">Google Analytics 4</span><span class="tl-item">Looker Studio</span><span class="tl-item">Semrush</span><span class="tl-item">Ahrefs</span><span class="tl-item">Screaming Frog</span><span class="tl-item">PageSpeed Insights</span><span class="tl-item">Schema.org</span><span class="tl-item">ChatGPT</span><span class="tl-item">Perplexity</span></div>
+    </div>
+</section>
+<!-- trust-strip-band:end -->
 
 <section class="tap-answer-section">
     <div class="container answer-grid">
@@ -2462,6 +2508,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    /* the SERP climb: the client's row rises to the top, then the AI answer types itself */
+    if (KIND === 'seo'){
+        var serp = document.querySelector('.uk-serp');
+        if (serp){
+            arm([serp]);
+            var you = serp.querySelector('li.you'), list = serp.querySelector('ol');
+            var typeEl = serp.querySelector('.ai i'), full = typeEl ? typeEl.textContent : '';
+            if (typeEl) typeEl.textContent = '';
+            new IntersectionObserver(function(es, ob){
+                if (!es[0].isIntersecting) return;
+                ob.disconnect();
+                setTimeout(function(){ if (you && list) list.insertBefore(you, list.firstChild); }, 1500);
+                var i = 0;
+                setTimeout(function tick(){ if (!typeEl || i > full.length) return; typeEl.textContent = full.slice(0, i++); setTimeout(tick, 18); }, 2100);
+            }, { rootMargin: '0px 0px -20% 0px' }).observe(serp);
+        }
+    }
+
     /* everything else gets the quiet fade */
     arm($('.section-head'));
 
@@ -2526,5 +2590,19 @@ document.addEventListener('DOMContentLoaded', function() {
 })();
 </script>
 <!-- uk-motion-js:end -->
+<!-- trust-strip-js:start -->
+<script>
+(function(){
+    var band = document.querySelector('.tl-band');
+    if (!band) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!('IntersectionObserver' in window)) { band.classList.add('on'); return; }
+    new IntersectionObserver(function(es){                       // only moves while it is on screen
+        band.classList.toggle('on', es[0].isIntersecting && !document.hidden);
+    }, { rootMargin: '10% 0px' }).observe(band);
+    document.addEventListener('visibilitychange', function(){ if (document.hidden) band.classList.remove('on'); });
+})();
+</script>
+<!-- trust-strip-js:end -->
 </body>
 </html>
