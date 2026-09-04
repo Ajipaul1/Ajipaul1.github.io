@@ -762,16 +762,21 @@
   @keyframes hmFocus{ to{ opacity:1; filter:none; transform:none; } }
 
   /* 9 closing CTA — the US page treatment: navy box, converging lines, VIBGYOR heading */
-  .final-cta{ position:relative; overflow:hidden; background:var(--navy-deep) !important; }
-  .final-cta > *{ position:relative; z-index:2; }
-  .final-cta::before{ content:''; position:absolute; z-index:0; pointer-events:none; width:70%; height:340%; left:-14%; top:-120%; border-radius:50%; background:radial-gradient(circle, rgba(217,83,30,.32), transparent 62%); filter:blur(46px); }
-  html.hm .final-cta.hm-live::before{ animation:hmAurora 30s ease-in-out infinite alternate; }
+  /* full-bleed band, edge to edge on any desktop (owner: full size width, full desktop) */
+  .final-cta-section{ position:relative; overflow:hidden; padding:0 !important; background:var(--navy-deep); }
+  .final-cta-section > .container{ position:relative; z-index:2; max-width:none; padding:0; }
+  .final-cta{ background:transparent !important; border-radius:0; max-width:1180px; margin:0 auto; padding:104px 40px; }
+  @media (min-width:1440px){ .final-cta{ max-width:1480px; } }
+  @media (min-width:1850px){ .final-cta{ max-width:1720px; } }
+  @media (max-width:760px){ .final-cta{ padding:64px 24px; } }
+  .final-cta-section::before{ content:''; position:absolute; z-index:0; pointer-events:none; width:46%; height:320%; left:-8%; top:-110%; border-radius:50%; background:radial-gradient(circle, rgba(217,83,30,.32), transparent 62%); filter:blur(46px); }
+  html.hm .final-cta-section.hm-live::before{ animation:hmAurora 30s ease-in-out infinite alternate; }
   @keyframes hmAurora{ from{ transform:translate3d(0,0,0) scale(1); } to{ transform:translate3d(10%,6%,0) scale(1.15); } }
   .hm-spark{ position:absolute; inset:0; z-index:1; width:100%; height:100%; pointer-events:none; }
   .final-cta h2{ color:#fff; }
   .final-cta .final-cta-note{ color:rgba(255,255,255,.62); }
   .hm-vib{ background-image:linear-gradient(90deg,#86FFAE,#FFF06B,#FFC46B,#FF8A8A,#D9A6FF,#7FE3FF,#86FFAE); background-size:220% 100%; background-position:0% 50%; background-repeat:no-repeat; -webkit-background-clip:text; background-clip:text; color:transparent !important; -webkit-text-fill-color:transparent; }
-  html.hm .final-cta.hm-live .hm-vib{ animation:hmSheen 14s linear infinite; }
+  html.hm .final-cta-section.hm-live .hm-vib{ animation:hmSheen 14s linear infinite; }
   @keyframes hmSheen{ to{ background-position:100% 50%; } }
 
   /* + the spine: one transform on one element, tracking scroll */
@@ -2221,6 +2226,7 @@ function copyEmailToClipboard() {
 <script>
 (function(){
     var doc = document.documentElement, body = document.body;
+    var band = document.querySelector('.final-cta-section');
     var cta = document.querySelector('.final-cta'), h2 = cta && cta.querySelector('h2');
     var note = cta && cta.querySelector('.final-cta-note');
     if (h2) h2.classList.add('hm-vib');
@@ -2346,10 +2352,10 @@ function copyEmailToClipboard() {
     window.addEventListener('resize', onScroll); onScroll();
 
     /* 9 closing CTA — the converging lines (the only canvas on this page) */
-    if (cta && document.createElement('canvas').getContext){
+    if (band && cta && document.createElement('canvas').getContext){
         var cv = document.createElement('canvas');
         cv.className = 'hm-spark'; cv.setAttribute('aria-hidden', 'true');
-        cta.insertBefore(cv, cta.firstChild);
+        band.insertBefore(cv, band.firstChild);
         var x = cv.getContext('2d'), W = 0, H = 0, P = [], run = false, last = 0, glow = 0, fx = 0, fy = 0;
         function seed(){
             var e = Math.random(), px, py;
@@ -2358,11 +2364,11 @@ function copyEmailToClipboard() {
             return { ox: px, oy: py, t: Math.random(), v: .1 + Math.random() * .22, c: Math.random() < .45, r: .9 + Math.random() * 1.6 };
         }
         function layout(){
-            W = cta.offsetWidth; H = cta.offsetHeight;
+            W = band.offsetWidth; H = band.offsetHeight;
             var r = Math.min(window.devicePixelRatio || 1, 1.75);
             cv.width = Math.max(1, Math.round(W * r)); cv.height = Math.max(1, Math.round(H * r));
             x.setTransform(r, 0, 0, r, 0, 0);
-            var cr = cta.getBoundingClientRect();
+            var cr = band.getBoundingClientRect();
             if (h2){ var hr = h2.getBoundingClientRect(); fx = hr.left - cr.left + hr.width * .5; fy = hr.top - cr.top + hr.height * .5; }
             else { fx = W * .3; fy = H * .5; }
             var want = W < 760 ? 30 : 64;
@@ -2399,9 +2405,9 @@ function copyEmailToClipboard() {
         document.addEventListener('visibilitychange', function(){ if (document.hidden) setRun(false); });
         new IntersectionObserver(function(es){
             var vis = es[0].isIntersecting;
-            cta.classList.toggle('hm-live', vis);              // the two loops only exist while it is on screen
+            band.classList.toggle('hm-live', vis);             // the two loops only exist while it is on screen
             setRun(vis && !document.hidden);
-        }, { rootMargin: '10% 0px' }).observe(cta);
+        }, { rootMargin: '10% 0px' }).observe(band);
     }
 })();
 </script>
