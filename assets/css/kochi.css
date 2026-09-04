@@ -47,9 +47,14 @@
     border-color: rgba(255, 255, 255, 0.2);
 }
 .certificate-image {
-    width: 100%;
+    /* width:auto, not 100%: the Semrush scan is only 211px wide and was being stretched to
+       299px in the card. A narrow badge now shows at its own size, centred, instead of soft. */
+    width: auto;
     max-width: 100%;
     height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
     margin-bottom: 24px;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
