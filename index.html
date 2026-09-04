@@ -670,6 +670,134 @@
     .header-logo .logo-text{ font-size:1.1rem; }
     .header-logo .logo-tagline{ display:none; }
   }
+
+
+
+/* home-story-css:start */
+  /* ============ home_story.js : the company story in pictures ============ */
+  .hs{ position:relative; }
+  .hs-img{ display:block; width:100%; height:100%; object-fit:cover; }
+  .hs-act{ position:relative; overflow-x:hidden; overflow-x:clip; padding:clamp(50px,6.5vw,98px) 0; }
+  .hs-act.tone-dark{ background:var(--navy-deep); color:#fff; }
+  .hs-act.tone-light{ background:var(--paper); }
+  .hs-head{ max-width:1180px; width:92%; margin:0 auto clamp(24px,3.4vw,48px); }
+  .hs-slate{ display:flex; align-items:center; gap:12px; margin:0 0 12px; }
+  .hs-slate b{ font-family:var(--font-mono); font-size:.78rem; font-weight:700; letter-spacing:.06em; color:#fff; background:var(--orange); border-radius:5px; padding:3px 9px; }
+  .hs-slate span{ font-family:var(--font-mono); font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-faint); }
+  .tone-dark .hs-slate span{ color:rgba(255,255,255,.52); }
+  .hs-title{ font-size:clamp(1.55rem,3.3vw,2.8rem); line-height:1.1; font-weight:800; margin:0 0 14px; max-width:30ch; color:var(--ink); }
+  .tone-dark .hs-title{ color:#fff; }
+  .hs-lede{ font-size:clamp(.95rem,1.1vw,1.05rem); line-height:1.66; color:var(--ink-soft); margin:0; max-width:66ch; }
+  .tone-dark .hs-lede{ color:rgba(255,255,255,.72); }
+  .hs-note{ max-width:1180px; width:92%; margin:clamp(16px,2vw,26px) auto 0; font-size:.88rem; line-height:1.6; color:var(--ink-faint); }
+  .tone-dark .hs-note{ color:rgba(255,255,255,.55); }
+  .hs-cap{ font-weight:700; line-height:1.2; margin:0; color:var(--ink); }
+  .tone-dark .hs-cap{ color:#fff; }
+  .hs-sub{ font-size:.88rem; line-height:1.58; color:var(--ink-soft); margin:7px 0 0; }
+  .tone-dark .hs-sub{ color:rgba(255,255,255,.62); }
+  .hs-eyebrow{ font-family:var(--font-mono); font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--orange); margin:0 0 8px; }
+  .hs-n{ font-family:var(--font-mono); font-size:.72rem; letter-spacing:.1em; color:var(--orange); display:block; margin-bottom:7px; }
+  .hs-go{ display:inline-flex; align-items:center; gap:6px; margin-top:13px; font-family:var(--font-mono); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--orange); }
+  .hs-shot{ position:relative; overflow:hidden; background:rgba(120,130,150,.14); }
+
+  /* --- A : TRIPTYCH -- the three disciplines, portrait plates, text below --- */
+  .hsTri{ max-width:1180px; width:92%; margin:0 auto; display:grid; gap:clamp(16px,2.2vw,30px); grid-template-columns:1fr; }
+  .hsTri a.pane{ display:block; text-decoration:none; }
+  .hsTri .hs-shot{ aspect-ratio:4/3; border-radius:14px; }
+  .hsTri .w{ padding:16px 2px 0; }
+  .hsTri .hs-cap{ font-size:clamp(1.1rem,1.5vw,1.32rem); }
+  .hsTri a.pane:hover .hs-shot{ box-shadow:0 16px 38px rgba(15,23,42,.14); }
+  .hsTri a.pane:hover .hs-cap{ color:var(--orange); }
+  @media (min-width:860px){ .hsTri{ grid-template-columns:repeat(3,1fr); } .hsTri .hs-shot{ aspect-ratio:3/4; } }
+
+  /* --- B : DOORS -- the markets, wide plates with the words over the picture --- */
+  .hsDoors{ display:grid; gap:3px; grid-template-columns:1fr; width:100vw; max-width:100vw; margin-left:calc(50% - 50vw); }
+  .hsDoors a.door{ position:relative; display:block; text-decoration:none; overflow:hidden; }
+  .hsDoors .hs-shot{ aspect-ratio:16/11; }
+  .hsDoors .hs-shot::after{ content:''; position:absolute; inset:0; background:linear-gradient(0deg, rgba(4,9,20,.93) 0%, rgba(4,9,20,.42) 46%, rgba(4,9,20,.1) 100%); }
+  .hsDoors .w{ position:absolute; z-index:2; inset:auto 0 0 0; padding:clamp(20px,2.6vw,34px); }
+  .hsDoors .hs-cap{ color:#fff; font-size:clamp(1.35rem,2.2vw,1.85rem); }
+  .hsDoors .hs-sub{ color:rgba(255,255,255,.76); max-width:40ch; }
+  .hsDoors a.door:hover .hs-shot::after{ background:linear-gradient(0deg, rgba(4,9,20,.96) 0%, rgba(217,83,30,.3) 60%, rgba(4,9,20,.1) 100%); }
+  @media (min-width:900px){ .hsDoors{ grid-template-columns:repeat(3,1fr); } .hsDoors .hs-shot{ aspect-ratio:3/4; } }
+
+  /* --- C : PLACE -- one wide plate, then three beats in a row --- */
+  .hsPlace .plate{ position:relative; overflow:hidden; width:100vw; max-width:100vw; margin-left:calc(50% - 50vw); margin-bottom:clamp(16px,2.2vw,30px); }
+  .hsPlace .plate .hs-shot{ aspect-ratio:21/9; }
+  .hsPlace .plate .hs-shot::after{ content:''; position:absolute; inset:0; background:linear-gradient(0deg, rgba(4,9,20,.82), rgba(4,9,20,.06) 70%); }
+  .hsPlace .plate .w{ position:absolute; z-index:2; inset:auto 0 0 0; padding:clamp(18px,3.2vw,44px) max(4vw, calc(50% - 590px + 4vw)); }
+  .hsPlace .plate .hs-cap{ color:#fff; font-size:clamp(1.2rem,2.4vw,2rem); max-width:28ch; }
+  .hsPlace .beats{ max-width:1180px; width:92%; margin:0 auto; display:grid; gap:clamp(14px,1.8vw,24px); grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
+  .hsPlace .beat .hs-shot{ aspect-ratio:16/10; border-radius:12px; }
+  .hsPlace .beat .w{ padding:13px 2px 0; }
+  .hsPlace .beat .hs-cap{ font-size:1.02rem; }
+  @media (max-width:700px){ .hsPlace .plate .hs-shot{ aspect-ratio:3/2; } }
+
+  /* --- D : STEPS -- three numbered frames, offset so the eye walks them --- */
+  .hsSteps{ max-width:1180px; width:92%; margin:0 auto; display:grid; gap:clamp(16px,2.2vw,30px); grid-template-columns:1fr; }
+  .hsSteps .step .hs-shot{ aspect-ratio:16/10; border-radius:13px; }
+  .hsSteps .step .w{ padding:15px 2px 0; }
+  .hsSteps .step .hs-cap{ font-size:1.1rem; }
+  @media (min-width:880px){
+    .hsSteps{ grid-template-columns:repeat(3,1fr); align-items:start; }
+    .hsSteps .step:nth-child(2){ margin-top:clamp(20px,3vw,46px); }
+    .hsSteps .step:nth-child(3){ margin-top:clamp(40px,6vw,92px); }
+  }
+
+  /* ---- reveal : one shot, in view, then finished ---- */
+  html.hs-on .hs .hs-shot{ clip-path:inset(0 0 100% 0); }
+  html.hs-on .hs .hs-shot > .hs-img{ transform:scale(1.07); transition:transform 1.2s cubic-bezier(.18,.72,.2,1); }
+  html.hs-on .hs .w{ opacity:0; transform:translateY(14px); }
+  html.hs-on .hs .lit .hs-shot{ animation:hsWipe .8s cubic-bezier(.32,0,.18,1) forwards; animation-delay:calc(var(--d,0) * .1s); }
+  html.hs-on .hs .lit .hs-shot > .hs-img{ transform:scale(1); transition-delay:calc(var(--d,0) * .1s); }
+  html.hs-on .hs .lit .w{ animation:hsLift .58s cubic-bezier(.2,.7,.2,1) forwards; animation-delay:calc(var(--d,0) * .1s + .18s); }
+  html.hs-on .hs-head{ opacity:0; transform:translateY(15px); }
+  html.hs-on .hs-head.lit{ animation:hsLift .6s cubic-bezier(.2,.7,.2,1) forwards; }
+  @keyframes hsWipe{ from{ clip-path:inset(0 0 100% 0); } to{ clip-path:inset(0 0 0 0); } }
+  @keyframes hsLift{ to{ opacity:1; transform:none; } }
+
+  /* ---- the scroll-driven layer: compositor only, no JS, absent where unsupported.
+          Movement only -- never opacity, because this runs with JS off too and a fade would leave
+          below-the-fold content dimmed until the visitor scrolled to it. ---- */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) and (min-width:860px) {
+      .hsDoors a.door, .hsPlace .plate, .hsTri a.pane{ view-timeline-name:--hsf; }
+      .hsDoors a.door .hs-img, .hsPlace .plate .hs-img{
+        animation:hsDrift linear both; animation-timeline:view(); animation-range:entry 0% exit 100%;
+      }
+      .hsSteps .step{ animation:hsWalk linear both; animation-timeline:view(); animation-range:entry 8% cover 45%; }
+    }
+  }
+  @keyframes hsDrift{ from{ transform:scale(1.12) translateY(-2.2%); } to{ transform:scale(1.12) translateY(2.2%); } }
+  @keyframes hsWalk{ from{ transform:translateY(22px); } to{ transform:none; } }
+
+  /* ---- the phone cut ---- */
+  @media (max-width:700px){
+    .hs-act{ padding:38px 0 42px; }
+    .hs-head{ width:88%; margin-bottom:22px; }
+    .hs-title{ font-size:1.5rem; max-width:none; }
+    .hs-lede{ font-size:.95rem; }
+    .hs-note{ width:88%; }
+    .hsTri{ width:88%; gap:20px; }
+    .hsTri .hs-shot{ aspect-ratio:16/11; }
+    .hsDoors{ gap:2px; }
+    .hsDoors .hs-shot{ aspect-ratio:5/4; }
+    .hsDoors .w{ padding:20px; }
+    .hsDoors .hs-cap{ font-size:1.42rem; }
+    .hsDoors .hs-sub{ max-width:none; }
+    .hsPlace .plate .w{ padding:20px; }
+    .hsPlace .plate .hs-cap{ font-size:1.24rem; max-width:none; }
+    .hsPlace .beats{ width:88%; gap:16px; }
+    .hsSteps{ width:88%; gap:20px; }
+    .hsSteps .step .hs-shot{ aspect-ratio:4/3; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html.hs-on .hs .hs-shot, html.hs-on .hs .w, html.hs-on .hs .hs-shot > .hs-img, html.hs-on .hs-head{
+      clip-path:none !important; opacity:1 !important; transform:none !important; animation:none !important; transition:none !important;
+    }
+  }
+/* home-story-css:end */
 </style>
 
 
@@ -975,7 +1103,7 @@
             <a href="#services" class="btn-navy">Learn More</a>
         </div>
         <div class="promise-media">
-            <img src="/assets/images/library/whiteboard-process-mapping-two-colleagues.jpg" alt="TechAuditPros engineer mapping a client's business process on a whiteboard" width="2400" height="1601" loading="lazy" />
+            <img src="/assets/images/library/whiteboard-process-mapping-two-colleagues.jpg" alt="TechAuditPros engineer mapping a client's business process on a whiteboard" width="2400" height="1601" loading="lazy" srcset="/assets/images/library/whiteboard-process-mapping-two-colleagues-700.jpg 700w, /assets/images/library/whiteboard-process-mapping-two-colleagues-1400.jpg 1400w, /assets/images/library/whiteboard-process-mapping-two-colleagues.jpg 2400w" sizes="(max-width:700px) 100vw, 760px" decoding="async" />
         </div>
     </div>
 </section>
@@ -988,7 +1116,7 @@
         </div>
         <div class="pillars-grid">
             <a href="/ca/erp/" class="pillar-card">
-                <div class="pillar-media"><img src="/assets/images/library/mentor-explaining-data-on-monitor-warm-office.jpg" alt="Engineer walking a client through ERP data on screen" loading="lazy" /></div>
+                <div class="pillar-media"><img src="/assets/images/library/mentor-explaining-data-on-monitor-warm-office.jpg" alt="Engineer walking a client through ERP data on screen" loading="lazy" srcset="/assets/images/library/mentor-explaining-data-on-monitor-warm-office-700.jpg 700w, /assets/images/library/mentor-explaining-data-on-monitor-warm-office.jpg 1344w" sizes="(max-width:700px) 100vw, 760px" width="1344" height="1335" decoding="async" /></div>
                 <span class="pillar-index">01 / ERP</span>
                 <h3>Enterprise ERP Solutions</h3>
                 <p>Custom business ERP software, CRM dashboards, and internal portals engineered around how your operations actually run.</p>
@@ -999,7 +1127,7 @@
                 <span class="pillar-link">Scope an ERP build →</span>
             </a>
             <a href="/ca/website-development/" class="pillar-card">
-                <div class="pillar-media"><img src="/assets/images/library/female-developer-red-hair-dual-monitors-code.jpg" alt="Developer writing website code across two monitors" loading="lazy" /></div>
+                <div class="pillar-media"><img src="/assets/images/library/female-developer-red-hair-dual-monitors-code.jpg" alt="Developer writing website code across two monitors" loading="lazy" srcset="/assets/images/library/female-developer-red-hair-dual-monitors-code-700.jpg 700w, /assets/images/library/female-developer-red-hair-dual-monitors-code-1400.jpg 1400w, /assets/images/library/female-developer-red-hair-dual-monitors-code.jpg 2400w" sizes="(max-width:700px) 100vw, 760px" width="2400" height="1601" decoding="async" /></div>
                 <span class="pillar-index">02 / WEB</span>
                 <h3>Website Development</h3>
                 <p>Next.js and React builds engineered for 90+ Core Web Vitals from day one — fast enough to rank, built to convert.</p>
@@ -1010,7 +1138,7 @@
                 <span class="pillar-link">Scope a build →</span>
             </a>
             <a href="/ca/seo-services/" class="pillar-card">
-                <div class="pillar-media"><img src="/assets/images/library/team-standing-document-review-bright-room.jpg" alt="Team reviewing search findings around a table" loading="lazy" /></div>
+                <div class="pillar-media"><img src="/assets/images/library/team-standing-document-review-bright-room.jpg" alt="Team reviewing search findings around a table" loading="lazy" srcset="/assets/images/library/team-standing-document-review-bright-room-700.jpg 700w, /assets/images/library/team-standing-document-review-bright-room-1400.jpg 1400w, /assets/images/library/team-standing-document-review-bright-room.jpg 2400w" sizes="(max-width:700px) 100vw, 760px" width="2400" height="1601" decoding="async" /></div>
                 <span class="pillar-index">03 / SEO</span>
                 <h3>SEO, AEO &amp; GEO</h3>
                 <p>Technical SEO, schema architecture, and Answer &amp; Generative Engine Optimization — built to get cited by AI, not just ranked.</p>
@@ -1023,6 +1151,153 @@
         </div>
     </div>
 </section>
+<!-- home-story:start -->
+<section class="hs-act tone-light" aria-label="What we actually deliver">
+    <div class="hs-head">
+        <p class="hs-slate"><b>A</b> <span>What we actually deliver</span></p>
+        <h2 class="hs-title">Three disciplines, one team, one monthly fee.</h2>
+        <p class="hs-lede">Most businesses end up buying these from three different suppliers who blame each other. We run all three, which is the only reason the ERP can put live stock on the website and the search work can point at pages that load.</p>
+    </div>
+    <div class="hs hsTri">
+        <a class="pane" href="/us/erp/">
+            <div class="hs-shot"><img class="hs-img" src="/assets/images/library/home-colour-coded-bins-stacked.jpg" srcset="/assets/images/library/home-colour-coded-bins-stacked-700.jpg 700w, /assets/images/library/home-colour-coded-bins-stacked-1400.jpg 1400w, /assets/images/library/home-colour-coded-bins-stacked.jpg 2400w" sizes="(max-width:860px) 88vw, 31vw" alt="One system instead of nine spreadsheets." width="2400" height="1500" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="hs-eyebrow">Custom ERP</p>
+                <p class="hs-cap">One system instead of nine spreadsheets.</p>
+                <p class="hs-sub">Stock, orders, purchasing, production and job costing in one place, integrated with the accounting package you already use.</p>
+                <span class="hs-go">See ERP <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+        </a>
+        <a class="pane" href="/us/website-development/">
+            <div class="hs-shot"><img class="hs-img" src="/assets/images/library/home-two-at-code-review.jpg" srcset="/assets/images/library/home-two-at-code-review-700.jpg 700w, /assets/images/library/home-two-at-code-review-1400.jpg 1400w, /assets/images/library/home-two-at-code-review.jpg 2400w" sizes="(max-width:860px) 88vw, 31vw" alt="Built in code, handed to you." width="2400" height="1350" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="hs-eyebrow">Web development</p>
+                <p class="hs-cap">Built in code, handed to you.</p>
+                <p class="hs-sub">Fast, accessible sites and web apps in your repository and your hosting account &mdash; not locked to a page builder or to us.</p>
+                <span class="hs-go">See Web <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+        </a>
+        <a class="pane" href="/us/seo-services/">
+            <div class="hs-shot"><img class="hs-img" src="/assets/images/library/home-stylus-charts-on-tablet.jpg" srcset="/assets/images/library/home-stylus-charts-on-tablet-700.jpg 700w, /assets/images/library/home-stylus-charts-on-tablet-1400.jpg 1400w, /assets/images/library/home-stylus-charts-on-tablet.jpg 2400w" sizes="(max-width:860px) 88vw, 31vw" alt="Found by Google, and by the answer engines." width="2400" height="1601" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="hs-eyebrow">SEO, AEO &amp; GEO</p>
+                <p class="hs-cap">Found by Google, and by the answer engines.</p>
+                <p class="hs-sub">Technical fixes, content that answers real questions, and the structured data that gets you quoted rather than skipped.</p>
+                <span class="hs-go">See Search <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+        </a>
+    </div>
+</section>
+
+<section class="hs-act tone-dark" aria-label="Where the work goes">
+    <div class="hs-head">
+        <p class="hs-slate"><b>B</b> <span>Where the work goes</span></p>
+        <h2 class="hs-title">Three markets with their own pages, because they are not the same job.</h2>
+        <p class="hs-lede">A US importer, a UK manufacturer and a Canadian distributor ask us for genuinely different things &mdash; different compliance, different buyers, different software. Each market has a page written for it rather than the same page with the country swapped.</p>
+    </div>
+    <div class="hs hsDoors">
+        <a class="door" href="/us/">
+            <div class="hs-shot"><img class="hs-img" src="/assets/images/library/home-new-york-skyline-golden-hour.jpg" srcset="/assets/images/library/home-new-york-skyline-golden-hour-700.jpg 700w, /assets/images/library/home-new-york-skyline-golden-hour-1400.jpg 1400w, /assets/images/library/home-new-york-skyline-golden-hour.jpg 2400w" sizes="(max-width:900px) 100vw, 33vw" alt="United States" width="2400" height="1600" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="hs-cap">United States</p>
+                <p class="hs-sub">Multi-state operations, sales tax by jurisdiction, and buyers who compare you against agencies charging several times more.</p>
+                <span class="hs-go">See United States <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+        </a>
+        <a class="door" href="/uk/">
+            <div class="hs-shot"><img class="hs-img" src="/assets/images/library/uk-london-skyline-night-water.jpg" srcset="/assets/images/library/uk-london-skyline-night-water-700.jpg 700w, /assets/images/library/uk-london-skyline-night-water-1400.jpg 1400w, /assets/images/library/uk-london-skyline-night-water.jpg 2400w" sizes="(max-width:900px) 100vw, 33vw" alt="United Kingdom" width="2400" height="1500" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="hs-cap">United Kingdom</p>
+                <p class="hs-sub">Making Tax Digital, UK GAAP, post-Brexit customs and duty, hosted in an AWS London account you own.</p>
+                <span class="hs-go">See United Kingdom <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+        </a>
+        <a class="door" href="/ca/">
+            <div class="hs-shot"><img class="hs-img" src="/assets/images/library/home-toronto-cn-tower-night.jpg" srcset="/assets/images/library/home-toronto-cn-tower-night-700.jpg 700w, /assets/images/library/home-toronto-cn-tower-night-1400.jpg 1400w, /assets/images/library/home-toronto-cn-tower-night.jpg 2400w" sizes="(max-width:900px) 100vw, 33vw" alt="Canada" width="2400" height="1066" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="hs-cap">Canada</p>
+                <p class="hs-sub">GST, HST and PST by province, bilingual requirements where they apply, and data kept in a Canadian region.</p>
+                <span class="hs-go">See Canada <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+        </a>
+    </div>
+    <p class="hs-note">Plus project work across sixteen countries. If your market is not one of the three above, the engagement runs the same way &mdash; the compliance layer is what changes.</p>
+</section>
+
+<section class="hs-act tone-light" aria-label="Where it gets built">
+    <div class="hs-head">
+        <p class="hs-slate"><b>C</b> <span>Where it gets built</span></p>
+        <h2 class="hs-title">Kochi, Kerala. We are open about that being the trade.</h2>
+        <p class="hs-lede">There is no London, New York or Toronto office, and most of a local quote is local labour. What you get instead is a team that starts its day before yours, a live window every working morning for calls, and a written report every month. What you give up is somebody who can be in your building this afternoon &mdash; and if you need that weekly, hire locally. We will tell you so on the call.</p>
+    </div>
+    <div class="hs hsPlace">
+        <div class="plate">
+            <div class="hs-shot"><img class="hs-img" src="/assets/images/library/home-kerala-green-backwaters-buildings.jpg" srcset="/assets/images/library/home-kerala-green-backwaters-buildings-700.jpg 700w, /assets/images/library/home-kerala-green-backwaters-buildings-1400.jpg 1400w, /assets/images/library/home-kerala-green-backwaters-buildings.jpg 2400w" sizes="100vw" alt="Buildings above the green Kerala backwaters" width="2400" height="1350" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="hs-cap">Kerala, four and a half to five and a half hours ahead of the UK.</p>
+            </div>
+        </div>
+        <div class="beats">
+            <div class="beat">
+            <div class="hs-shot"><img class="hs-img" src="/assets/images/library/home-standup-to-seated-team.jpg" srcset="/assets/images/library/home-standup-to-seated-team-700.jpg 700w, /assets/images/library/home-standup-to-seated-team-1400.jpg 1400w, /assets/images/library/home-standup-to-seated-team.jpg 2400w" sizes="(max-width:700px) 88vw, 30vw" alt="A morning briefing to a seated delivery team" width="2400" height="1600" loading="lazy" decoding="async" /></div>
+                <div class="w">
+                    <p class="hs-cap">The day starts before yours.</p>
+                    <p class="hs-sub">What you send at six in the evening is picked up before our day ends.</p>
+                </div>
+            </div>
+            <div class="beat">
+            <div class="hs-shot"><img class="hs-img" src="/assets/images/library/home-workstations-open-plan.jpg" srcset="/assets/images/library/home-workstations-open-plan-700.jpg 700w, /assets/images/library/home-workstations-open-plan-1400.jpg 1400w, /assets/images/library/home-workstations-open-plan.jpg 2400w" sizes="(max-width:700px) 88vw, 30vw" alt="Workstations across an open-plan delivery floor" width="2400" height="1601" loading="lazy" decoding="async" /></div>
+                <div class="w">
+                    <p class="hs-cap">A staging URL every week.</p>
+                    <p class="hs-sub">Progress you click through yourself, plus a written monthly report.</p>
+                </div>
+            </div>
+            <div class="beat">
+            <div class="hs-shot"><img class="hs-img" src="/assets/images/library/home-kerala-palms-at-sunset.jpg" srcset="/assets/images/library/home-kerala-palms-at-sunset-700.jpg 700w, /assets/images/library/home-kerala-palms-at-sunset-1400.jpg 1400w, /assets/images/library/home-kerala-palms-at-sunset.jpg 2400w" sizes="(max-width:700px) 88vw, 30vw" alt="Palms silhouetted over the water at sunset in Kerala" width="2400" height="1600" loading="lazy" decoding="async" /></div>
+                <div class="w">
+                    <p class="hs-cap">And an overlap window, every day.</p>
+                    <p class="hs-sub">Roughly four hours with the UK, and the whole US morning with the east coast.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="hs-act tone-dark" aria-label="How an engagement runs">
+    <div class="hs-head">
+        <p class="hs-slate"><b>D</b> <span>How an engagement runs</span></p>
+        <h2 class="hs-title">Audit first. Then a working module. Then the rest.</h2>
+        <p class="hs-lede">Nobody signs a retainer to find out whether we are any good. The audit comes first, it is yours to keep either way, and it ends with an honest recommendation &mdash; including the times that recommendation is to change nothing yet.</p>
+    </div>
+    <div class="hs hsSteps">
+        <div class="step">
+            <div class="hs-shot"><img class="hs-img" src="/assets/images/library/home-team-in-meeting.jpg" srcset="/assets/images/library/home-team-in-meeting-700.jpg 700w, /assets/images/library/home-team-in-meeting-1400.jpg 1400w, /assets/images/library/home-team-in-meeting.jpg 2400w" sizes="(max-width:880px) 88vw, 31vw" alt="A working session mapping a client process" width="2400" height="1350" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <span class="hs-n">01</span>
+                <p class="hs-cap">We follow one real process.</p>
+                <p class="hs-sub">Enquiry to invoice, with the people who do it. You keep the map whether or not you continue.</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="hs-shot"><img class="hs-img" src="/assets/images/library/home-pair-working-at-office-computers.jpg" srcset="/assets/images/library/home-pair-working-at-office-computers-700.jpg 700w, /assets/images/library/home-pair-working-at-office-computers-1400.jpg 1400w, /assets/images/library/home-pair-working-at-office-computers.jpg 2400w" sizes="(max-width:880px) 88vw, 31vw" alt="A pair building a module at office computers" width="2400" height="1600" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <span class="hs-n">02</span>
+                <p class="hs-cap">One module, live in weeks.</p>
+                <p class="hs-sub">On your own data, used by your own team &mdash; a far better test of fit than any demo.</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="hs-shot"><img class="hs-img" src="/assets/images/library/home-hands-on-tablet-timeline.jpg" srcset="/assets/images/library/home-hands-on-tablet-timeline-700.jpg 700w, /assets/images/library/home-hands-on-tablet-timeline-1400.jpg 1400w, /assets/images/library/home-hands-on-tablet-timeline.jpg 2400w" sizes="(max-width:880px) 88vw, 31vw" alt="Working a delivery schedule on a tablet" width="2400" height="1800" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <span class="hs-n">03</span>
+                <p class="hs-cap">Then we run it, monthly.</p>
+                <p class="hs-sub">One agreed fee, a written report, and no long-term contract holding you in place.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- home-story:end -->
+
 
 <section id="regions" class="tap-regions-section">
     <div class="container">
@@ -1149,7 +1424,7 @@
             <a href="#contact" class="btn-navy">Meet Us on a Call</a>
         </div>
         <div class="promise-media">
-            <img src="/assets/images/library/executive-woman-tablet-grand-hall.jpg" alt="Decision-maker reviewing progress on a tablet" width="2400" height="1601" loading="lazy" />
+            <img src="/assets/images/library/executive-woman-tablet-grand-hall.jpg" alt="Decision-maker reviewing progress on a tablet" width="2400" height="1601" loading="lazy" srcset="/assets/images/library/executive-woman-tablet-grand-hall-700.jpg 700w, /assets/images/library/executive-woman-tablet-grand-hall-1400.jpg 1400w, /assets/images/library/executive-woman-tablet-grand-hall.jpg 2400w" sizes="(max-width:700px) 100vw, 760px" decoding="async" />
         </div>
     </div>
 </section>
@@ -2303,5 +2578,33 @@ document.addEventListener('DOMContentLoaded', function() {
 })();
 </script>
 <!-- trust-strip-js:end -->
+<script>
+
+</script>
+<script>
+/* home-story-js:start */
+/* home_story.js : light each frame once as it arrives, then stop watching it. html.hs-on is added
+   only here, so with JS off or reduced motion on, the whole photo story is simply visible. */
+(function () {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var frames = document.querySelectorAll('.hs a.pane, .hs a.door, .hs .plate, .hs .beat, .hs .step, .hs-head');
+    if (!frames.length || !('IntersectionObserver' in window)) return;
+    document.documentElement.classList.add('hs-on');
+    var acts = document.querySelectorAll('.hs-act');
+    for (var a = 0; a < acts.length; a++) {
+        var kids = acts[a].querySelectorAll('a.pane, a.door, .plate, .beat, .step');
+        for (var k = 0; k < kids.length; k++) kids[k].style.setProperty('--d', k % 4);
+    }
+    var io = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (!entries[i].isIntersecting) continue;
+            entries[i].target.classList.add('lit');
+            io.unobserve(entries[i].target);
+        }
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+    for (var f = 0; f < frames.length; f++) io.observe(frames[f]);
+})();
+/* home-story-js:end */
+</script>
 </body>
 </html>

@@ -740,6 +740,134 @@
     .header-logo .logo-text{ font-size:1.1rem; }
     .header-logo .logo-tagline{ display:none; }
   }
+
+
+
+/* home-story-css:start */
+  /* ============ home_story.js : the company story in pictures ============ */
+  .hs{ position:relative; }
+  .hs-img{ display:block; width:100%; height:100%; object-fit:cover; }
+  .hs-act{ position:relative; overflow-x:hidden; overflow-x:clip; padding:clamp(50px,6.5vw,98px) 0; }
+  .hs-act.tone-dark{ background:var(--navy-deep); color:#fff; }
+  .hs-act.tone-light{ background:var(--paper); }
+  .hs-head{ max-width:1180px; width:92%; margin:0 auto clamp(24px,3.4vw,48px); }
+  .hs-slate{ display:flex; align-items:center; gap:12px; margin:0 0 12px; }
+  .hs-slate b{ font-family:var(--font-mono); font-size:.78rem; font-weight:700; letter-spacing:.06em; color:#fff; background:var(--orange); border-radius:5px; padding:3px 9px; }
+  .hs-slate span{ font-family:var(--font-mono); font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-faint); }
+  .tone-dark .hs-slate span{ color:rgba(255,255,255,.52); }
+  .hs-title{ font-size:clamp(1.55rem,3.3vw,2.8rem); line-height:1.1; font-weight:800; margin:0 0 14px; max-width:30ch; color:var(--ink); }
+  .tone-dark .hs-title{ color:#fff; }
+  .hs-lede{ font-size:clamp(.95rem,1.1vw,1.05rem); line-height:1.66; color:var(--ink-soft); margin:0; max-width:66ch; }
+  .tone-dark .hs-lede{ color:rgba(255,255,255,.72); }
+  .hs-note{ max-width:1180px; width:92%; margin:clamp(16px,2vw,26px) auto 0; font-size:.88rem; line-height:1.6; color:var(--ink-faint); }
+  .tone-dark .hs-note{ color:rgba(255,255,255,.55); }
+  .hs-cap{ font-weight:700; line-height:1.2; margin:0; color:var(--ink); }
+  .tone-dark .hs-cap{ color:#fff; }
+  .hs-sub{ font-size:.88rem; line-height:1.58; color:var(--ink-soft); margin:7px 0 0; }
+  .tone-dark .hs-sub{ color:rgba(255,255,255,.62); }
+  .hs-eyebrow{ font-family:var(--font-mono); font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--orange); margin:0 0 8px; }
+  .hs-n{ font-family:var(--font-mono); font-size:.72rem; letter-spacing:.1em; color:var(--orange); display:block; margin-bottom:7px; }
+  .hs-go{ display:inline-flex; align-items:center; gap:6px; margin-top:13px; font-family:var(--font-mono); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--orange); }
+  .hs-shot{ position:relative; overflow:hidden; background:rgba(120,130,150,.14); }
+
+  /* --- A : TRIPTYCH -- the three disciplines, portrait plates, text below --- */
+  .hsTri{ max-width:1180px; width:92%; margin:0 auto; display:grid; gap:clamp(16px,2.2vw,30px); grid-template-columns:1fr; }
+  .hsTri a.pane{ display:block; text-decoration:none; }
+  .hsTri .hs-shot{ aspect-ratio:4/3; border-radius:14px; }
+  .hsTri .w{ padding:16px 2px 0; }
+  .hsTri .hs-cap{ font-size:clamp(1.1rem,1.5vw,1.32rem); }
+  .hsTri a.pane:hover .hs-shot{ box-shadow:0 16px 38px rgba(15,23,42,.14); }
+  .hsTri a.pane:hover .hs-cap{ color:var(--orange); }
+  @media (min-width:860px){ .hsTri{ grid-template-columns:repeat(3,1fr); } .hsTri .hs-shot{ aspect-ratio:3/4; } }
+
+  /* --- B : DOORS -- the markets, wide plates with the words over the picture --- */
+  .hsDoors{ display:grid; gap:3px; grid-template-columns:1fr; width:100vw; max-width:100vw; margin-left:calc(50% - 50vw); }
+  .hsDoors a.door{ position:relative; display:block; text-decoration:none; overflow:hidden; }
+  .hsDoors .hs-shot{ aspect-ratio:16/11; }
+  .hsDoors .hs-shot::after{ content:''; position:absolute; inset:0; background:linear-gradient(0deg, rgba(4,9,20,.93) 0%, rgba(4,9,20,.42) 46%, rgba(4,9,20,.1) 100%); }
+  .hsDoors .w{ position:absolute; z-index:2; inset:auto 0 0 0; padding:clamp(20px,2.6vw,34px); }
+  .hsDoors .hs-cap{ color:#fff; font-size:clamp(1.35rem,2.2vw,1.85rem); }
+  .hsDoors .hs-sub{ color:rgba(255,255,255,.76); max-width:40ch; }
+  .hsDoors a.door:hover .hs-shot::after{ background:linear-gradient(0deg, rgba(4,9,20,.96) 0%, rgba(217,83,30,.3) 60%, rgba(4,9,20,.1) 100%); }
+  @media (min-width:900px){ .hsDoors{ grid-template-columns:repeat(3,1fr); } .hsDoors .hs-shot{ aspect-ratio:3/4; } }
+
+  /* --- C : PLACE -- one wide plate, then three beats in a row --- */
+  .hsPlace .plate{ position:relative; overflow:hidden; width:100vw; max-width:100vw; margin-left:calc(50% - 50vw); margin-bottom:clamp(16px,2.2vw,30px); }
+  .hsPlace .plate .hs-shot{ aspect-ratio:21/9; }
+  .hsPlace .plate .hs-shot::after{ content:''; position:absolute; inset:0; background:linear-gradient(0deg, rgba(4,9,20,.82), rgba(4,9,20,.06) 70%); }
+  .hsPlace .plate .w{ position:absolute; z-index:2; inset:auto 0 0 0; padding:clamp(18px,3.2vw,44px) max(4vw, calc(50% - 590px + 4vw)); }
+  .hsPlace .plate .hs-cap{ color:#fff; font-size:clamp(1.2rem,2.4vw,2rem); max-width:28ch; }
+  .hsPlace .beats{ max-width:1180px; width:92%; margin:0 auto; display:grid; gap:clamp(14px,1.8vw,24px); grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
+  .hsPlace .beat .hs-shot{ aspect-ratio:16/10; border-radius:12px; }
+  .hsPlace .beat .w{ padding:13px 2px 0; }
+  .hsPlace .beat .hs-cap{ font-size:1.02rem; }
+  @media (max-width:700px){ .hsPlace .plate .hs-shot{ aspect-ratio:3/2; } }
+
+  /* --- D : STEPS -- three numbered frames, offset so the eye walks them --- */
+  .hsSteps{ max-width:1180px; width:92%; margin:0 auto; display:grid; gap:clamp(16px,2.2vw,30px); grid-template-columns:1fr; }
+  .hsSteps .step .hs-shot{ aspect-ratio:16/10; border-radius:13px; }
+  .hsSteps .step .w{ padding:15px 2px 0; }
+  .hsSteps .step .hs-cap{ font-size:1.1rem; }
+  @media (min-width:880px){
+    .hsSteps{ grid-template-columns:repeat(3,1fr); align-items:start; }
+    .hsSteps .step:nth-child(2){ margin-top:clamp(20px,3vw,46px); }
+    .hsSteps .step:nth-child(3){ margin-top:clamp(40px,6vw,92px); }
+  }
+
+  /* ---- reveal : one shot, in view, then finished ---- */
+  html.hs-on .hs .hs-shot{ clip-path:inset(0 0 100% 0); }
+  html.hs-on .hs .hs-shot > .hs-img{ transform:scale(1.07); transition:transform 1.2s cubic-bezier(.18,.72,.2,1); }
+  html.hs-on .hs .w{ opacity:0; transform:translateY(14px); }
+  html.hs-on .hs .lit .hs-shot{ animation:hsWipe .8s cubic-bezier(.32,0,.18,1) forwards; animation-delay:calc(var(--d,0) * .1s); }
+  html.hs-on .hs .lit .hs-shot > .hs-img{ transform:scale(1); transition-delay:calc(var(--d,0) * .1s); }
+  html.hs-on .hs .lit .w{ animation:hsLift .58s cubic-bezier(.2,.7,.2,1) forwards; animation-delay:calc(var(--d,0) * .1s + .18s); }
+  html.hs-on .hs-head{ opacity:0; transform:translateY(15px); }
+  html.hs-on .hs-head.lit{ animation:hsLift .6s cubic-bezier(.2,.7,.2,1) forwards; }
+  @keyframes hsWipe{ from{ clip-path:inset(0 0 100% 0); } to{ clip-path:inset(0 0 0 0); } }
+  @keyframes hsLift{ to{ opacity:1; transform:none; } }
+
+  /* ---- the scroll-driven layer: compositor only, no JS, absent where unsupported.
+          Movement only -- never opacity, because this runs with JS off too and a fade would leave
+          below-the-fold content dimmed until the visitor scrolled to it. ---- */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) and (min-width:860px) {
+      .hsDoors a.door, .hsPlace .plate, .hsTri a.pane{ view-timeline-name:--hsf; }
+      .hsDoors a.door .hs-img, .hsPlace .plate .hs-img{
+        animation:hsDrift linear both; animation-timeline:view(); animation-range:entry 0% exit 100%;
+      }
+      .hsSteps .step{ animation:hsWalk linear both; animation-timeline:view(); animation-range:entry 8% cover 45%; }
+    }
+  }
+  @keyframes hsDrift{ from{ transform:scale(1.12) translateY(-2.2%); } to{ transform:scale(1.12) translateY(2.2%); } }
+  @keyframes hsWalk{ from{ transform:translateY(22px); } to{ transform:none; } }
+
+  /* ---- the phone cut ---- */
+  @media (max-width:700px){
+    .hs-act{ padding:38px 0 42px; }
+    .hs-head{ width:88%; margin-bottom:22px; }
+    .hs-title{ font-size:1.5rem; max-width:none; }
+    .hs-lede{ font-size:.95rem; }
+    .hs-note{ width:88%; }
+    .hsTri{ width:88%; gap:20px; }
+    .hsTri .hs-shot{ aspect-ratio:16/11; }
+    .hsDoors{ gap:2px; }
+    .hsDoors .hs-shot{ aspect-ratio:5/4; }
+    .hsDoors .w{ padding:20px; }
+    .hsDoors .hs-cap{ font-size:1.42rem; }
+    .hsDoors .hs-sub{ max-width:none; }
+    .hsPlace .plate .w{ padding:20px; }
+    .hsPlace .plate .hs-cap{ font-size:1.24rem; max-width:none; }
+    .hsPlace .beats{ width:88%; gap:16px; }
+    .hsSteps{ width:88%; gap:20px; }
+    .hsSteps .step .hs-shot{ aspect-ratio:4/3; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html.hs-on .hs .hs-shot, html.hs-on .hs .w, html.hs-on .hs .hs-shot > .hs-img, html.hs-on .hs-head{
+      clip-path:none !important; opacity:1 !important; transform:none !important; animation:none !important; transition:none !important;
+    }
+  }
+/* home-story-css:end */
 </style>
 
 <style>
@@ -1085,7 +1213,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" data-sub="SEO Fundamentals" data-date="2026-09-03" href="/blog/what-is-seo.html">
-                <div class="post-media"><img src="/assets/images/library/istock-1128252197-analyst-data-wall-pencil-thinking.jpg" alt="What Is SEO and How Does It Work? A Plain-English Guide for Business Owners" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/istock-1128252197-analyst-data-wall-pencil-thinking.jpg" alt="What Is SEO and How Does It Work? A Plain-English Guide for Business Owners" width="612" height="344" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO Fundamentals</span>
                     <h3>What Is SEO and How Does It Work? A Plain-English Guide for Business Owners</h3>
@@ -1094,7 +1222,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="web" data-sub="Web Development" data-date="2026-09-03" href="/blog/how-much-does-a-website-cost.html">
-                <div class="post-media"><img src="/assets/images/library/istock-1954420507-stylus-tablet-charts-city-dusk.jpg" alt="How Much Does a Website Cost in 2026? Real Numbers for US Businesses" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/istock-1954420507-stylus-tablet-charts-city-dusk.jpg" alt="How Much Does a Website Cost in 2026? Real Numbers for US Businesses" width="612" height="402" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Web Development</span>
                     <h3>How Much Does a Website Cost in 2026? Real Numbers for US Businesses</h3>
@@ -1103,7 +1231,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="erp" data-sub="ERP Fundamentals" data-date="2026-09-03" href="/blog/what-is-cloud-erp.html">
-                <div class="post-media"><img src="/assets/images/library/istock-2072805054-woman-tablet-neon-corridor.jpg" alt="What Is Cloud ERP? Cloud vs. On-Premise vs. Hybrid, Explained" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/istock-2072805054-woman-tablet-neon-corridor.jpg" alt="What Is Cloud ERP? Cloud vs. On-Premise vs. Hybrid, Explained" width="612" height="408" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">ERP Fundamentals</span>
                     <h3>What Is Cloud ERP? Cloud vs. On-Premise vs. Hybrid, Explained</h3>
@@ -1112,7 +1240,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" data-sub="SEO &amp; Content" data-date="2026-09-03" href="/blog/what-is-a-content-strategy.html">
-                <div class="post-media"><img src="/assets/images/library/team-flatlay-reviewing-wireframe-sketch.jpg" alt="What Is a Content Strategy? Definition, Framework and a One-Page Template" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/team-flatlay-reviewing-wireframe-sketch-700.jpg" srcset="/assets/images/library/team-flatlay-reviewing-wireframe-sketch-700.jpg 700w, /assets/images/library/team-flatlay-reviewing-wireframe-sketch.jpg 720w" sizes="(max-width:700px) 100vw, 380px" alt="What Is a Content Strategy? Definition, Framework and a One-Page Template" width="700" height="407" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO &amp; Content</span>
                     <h3>What Is a Content Strategy? Definition, Framework and a One-Page Template</h3>
@@ -1121,7 +1249,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="web" data-sub="Web Development" data-date="2026-09-03" href="/blog/how-to-make-a-website-mobile-friendly.html">
-                <div class="post-media"><img src="/assets/images/library/casual-outdoor-study-picnic-phones.jpg" alt="How to Make a Website Mobile-Friendly: 14 Fixes That Actually Matter" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/casual-outdoor-study-picnic-phones-700.jpg" srcset="/assets/images/library/casual-outdoor-study-picnic-phones-700.jpg 700w, /assets/images/library/casual-outdoor-study-picnic-phones.jpg 1336w" sizes="(max-width:700px) 100vw, 380px" alt="How to Make a Website Mobile-Friendly: 14 Fixes That Actually Matter" width="700" height="1048" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Web Development</span>
                     <h3>How to Make a Website Mobile-Friendly: 14 Fixes That Actually Matter</h3>
@@ -1130,7 +1258,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="erp" data-sub="ERP Fundamentals" data-date="2026-09-03" href="/blog/erp-implementation-guide.html">
-                <div class="post-media"><img src="/assets/images/library/whiteboard-process-mapping-two-colleagues.jpg" alt="ERP Implementation: Steps, Timeline, Cost and Why Projects Fail" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/whiteboard-process-mapping-two-colleagues-700.jpg" srcset="/assets/images/library/whiteboard-process-mapping-two-colleagues-700.jpg 700w, /assets/images/library/whiteboard-process-mapping-two-colleagues-1400.jpg 1400w, /assets/images/library/whiteboard-process-mapping-two-colleagues.jpg 2400w" sizes="(max-width:700px) 100vw, 380px" alt="ERP Implementation: Steps, Timeline, Cost and Why Projects Fail" width="700" height="467" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">ERP Fundamentals</span>
                     <h3>ERP Implementation: Steps, Timeline, Cost and Why Projects Fail</h3>
@@ -1139,7 +1267,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" data-sub="SEO Fundamentals" data-date="2026-09-03" href="/blog/what-is-technical-seo.html">
-                <div class="post-media"><img src="/assets/images/library/istock-1164885329-developer-afro-night-code-overlays.jpg" alt="What Is Technical SEO? The Checklist That Actually Moves Rankings" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/istock-1164885329-developer-afro-night-code-overlays.jpg" alt="What Is Technical SEO? The Checklist That Actually Moves Rankings" width="612" height="390" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO Fundamentals</span>
                     <h3>What Is Technical SEO? The Checklist That Actually Moves Rankings</h3>
@@ -1148,7 +1276,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="web" data-sub="Web Development" data-date="2026-09-03" href="/blog/custom-website-vs-template.html">
-                <div class="post-media"><img src="/assets/images/library/istock-2150307337-creative-studio-neon-review.jpg" alt="Custom Website vs. Template vs. Website Builder: Which Should Your Business Use?" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/istock-2150307337-creative-studio-neon-review.jpg" alt="Custom Website vs. Template vs. Website Builder: Which Should Your Business Use?" width="612" height="323" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Web Development</span>
                     <h3>Custom Website vs. Template vs. Website Builder: Which Should Your Business Use?</h3>
@@ -1157,7 +1285,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="erp" data-sub="ERP for Industry" data-date="2026-09-03" href="/blog/manufacturing-erp-small-manufacturers.html">
-                <div class="post-media"><img src="/assets/images/library/istock-2155877725-factory-engineers-hardhats-tablet.jpg" alt="Manufacturing ERP: What Small Manufacturers Actually Need (and What They Don’t)" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/istock-2155877725-factory-engineers-hardhats-tablet.jpg" alt="Manufacturing ERP: What Small Manufacturers Actually Need (and What They Don’t)" width="612" height="408" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">ERP for Industry</span>
                     <h3>Manufacturing ERP: What Small Manufacturers Actually Need (and What They Don’t)</h3>
@@ -1166,7 +1294,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" data-sub="SEO Fundamentals" data-date="2026-09-03" href="/blog/what-is-an-seo-audit.html">
-                <div class="post-media"><img src="/assets/images/library/team-standing-document-review-bright-room.jpg" alt="What Is an SEO Audit? What It Covers, What It Costs and What to Do With It" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/team-standing-document-review-bright-room-700.jpg" srcset="/assets/images/library/team-standing-document-review-bright-room-700.jpg 700w, /assets/images/library/team-standing-document-review-bright-room-1400.jpg 1400w, /assets/images/library/team-standing-document-review-bright-room.jpg 2400w" sizes="(max-width:700px) 100vw, 380px" alt="What Is an SEO Audit? What It Covers, What It Costs and What to Do With It" width="700" height="467" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO Fundamentals</span>
                     <h3>What Is an SEO Audit? What It Covers, What It Costs and What to Do With It</h3>
@@ -1175,7 +1303,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="web" data-sub="Web Development" data-date="2026-09-03" href="/blog/what-is-web-development.html">
-                <div class="post-media"><img src="/assets/images/library/male-developer-dual-monitors-colorful-office.jpg" alt="What Is Web Development? Front-End, Back-End and Full-Stack Explained for Business Owners" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/male-developer-dual-monitors-colorful-office-700.jpg" srcset="/assets/images/library/male-developer-dual-monitors-colorful-office-700.jpg 700w, /assets/images/library/male-developer-dual-monitors-colorful-office.jpg 766w" sizes="(max-width:700px) 100vw, 380px" alt="What Is Web Development? Front-End, Back-End and Full-Stack Explained for Business Owners" width="700" height="366" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Web Development</span>
                     <h3>What Is Web Development? Front-End, Back-End and Full-Stack Explained for Business Owners</h3>
@@ -1184,7 +1312,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="erp" data-sub="ERP Fundamentals" data-date="2026-09-03" href="/blog/erp-system-examples.html">
-                <div class="post-media"><img src="/assets/images/library/istock-2231952003-presenting-dashboard-wood-meeting-room.jpg" alt="ERP System Examples: What ERP Looks Like in 8 Types of Business" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/istock-2231952003-presenting-dashboard-wood-meeting-room.jpg" alt="ERP System Examples: What ERP Looks Like in 8 Types of Business" width="612" height="408" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">ERP Fundamentals</span>
                     <h3>ERP System Examples: What ERP Looks Like in 8 Types of Business</h3>
@@ -1193,7 +1321,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" data-sub="SEO Fundamentals" data-date="2026-09-03" href="/blog/on-page-vs-off-page-seo.html">
-                <div class="post-media"><img src="/assets/images/library/team-huddle-reviewing-screen-daylight.jpg" alt="On-Page SEO vs. Off-Page SEO: What Each Covers and Which Matters More" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/team-huddle-reviewing-screen-daylight.jpg" alt="On-Page SEO vs. Off-Page SEO: What Each Covers and Which Matters More" width="605" height="507" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO Fundamentals</span>
                     <h3>On-Page SEO vs. Off-Page SEO: What Each Covers and Which Matters More</h3>
@@ -1202,7 +1330,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="web" data-sub="Web Development" data-date="2026-09-03" href="/blog/how-to-choose-a-web-development-company.html">
-                <div class="post-media"><img src="/assets/images/library/client-consultation-meeting-clipboard.jpg" alt="How to Choose a Web Development Company: 15 Questions to Ask Before You Sign" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/client-consultation-meeting-clipboard.jpg" alt="How to Choose a Web Development Company: 15 Questions to Ask Before You Sign" width="547" height="365" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Web Development</span>
                     <h3>How to Choose a Web Development Company: 15 Questions to Ask Before You Sign</h3>
@@ -1211,7 +1339,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="erp" data-sub="ERP Fundamentals" data-date="2026-09-03" href="/blog/erp-vs-crm.html">
-                <div class="post-media"><img src="/assets/images/library/istock-1404269031-digital-handshake-lowpoly-neon.jpg" alt="ERP vs. CRM: What’s the Difference, and Do You Need Both?" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/istock-1404269031-digital-handshake-lowpoly-neon.jpg" alt="ERP vs. CRM: What’s the Difference, and Do You Need Both?" width="612" height="349" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">ERP Fundamentals</span>
                     <h3>ERP vs. CRM: What’s the Difference, and Do You Need Both?</h3>
@@ -1220,7 +1348,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" data-sub="SEO Fundamentals" data-date="2026-09-03" href="/blog/what-are-backlinks.html">
-                <div class="post-media"><img src="/assets/images/library/istock-1404269031-digital-handshake-lowpoly-neon.jpg" alt="What Are Backlinks? How They Work and How to Earn Them Without Getting Penalized" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/istock-1404269031-digital-handshake-lowpoly-neon.jpg" alt="What Are Backlinks? How They Work and How to Earn Them Without Getting Penalized" width="612" height="349" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO Fundamentals</span>
                     <h3>What Are Backlinks? How They Work and How to Earn Them Without Getting Penalized</h3>
@@ -1229,7 +1357,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="web" data-sub="Web Development" data-date="2026-09-03" href="/blog/web-application-vs-website.html">
-                <div class="post-media"><img src="/assets/images/library/istock-1321462048-woman-holographic-ui-network.jpg" alt="Web Application vs. Website: What’s the Difference, and Which Do You Need?" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/istock-1321462048-woman-holographic-ui-network.jpg" alt="Web Application vs. Website: What’s the Difference, and Which Do You Need?" width="612" height="344" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Web Development</span>
                     <h3>Web Application vs. Website: What’s the Difference, and Which Do You Need?</h3>
@@ -1238,7 +1366,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="erp" data-sub="ERP &amp; Software" data-date="2026-09-03" href="/blog/what-is-crm-software.html">
-                <div class="post-media"><img src="/assets/images/library/support-agent-headset-smiling-laptop.jpg" alt="What Is CRM Software? A Plain-English Guide for Small Businesses" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/support-agent-headset-smiling-laptop-700.jpg" srcset="/assets/images/library/support-agent-headset-smiling-laptop-700.jpg 700w, /assets/images/library/support-agent-headset-smiling-laptop.jpg 767w" sizes="(max-width:700px) 100vw, 380px" alt="What Is CRM Software? A Plain-English Guide for Small Businesses" width="700" height="365" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">ERP &amp; Software</span>
                     <h3>What Is CRM Software? A Plain-English Guide for Small Businesses</h3>
@@ -1247,7 +1375,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" data-sub="SEO Fundamentals" data-date="2026-09-03" href="/blog/keyword-research-guide.html">
-                <div class="post-media"><img src="/assets/images/library/istock-1954420507-stylus-tablet-charts-city-dusk.jpg" alt="How to Do Keyword Research: Choosing SEO Keywords That Bring Customers" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/istock-1954420507-stylus-tablet-charts-city-dusk.jpg" alt="How to Do Keyword Research: Choosing SEO Keywords That Bring Customers" width="612" height="402" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO Fundamentals</span>
                     <h3>How to Do Keyword Research: Choosing SEO Keywords That Bring Customers</h3>
@@ -1256,7 +1384,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="web" data-sub="Web Development" data-date="2026-09-03" href="/blog/how-to-get-a-business-website.html">
-                <div class="post-media"><img src="/assets/images/library/small-business-owner-laptop-sidewalk-cafe.jpg" alt="How to Get a Website for Your Business: DIY, Freelancer or Agency?" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/small-business-owner-laptop-sidewalk-cafe.jpg" alt="How to Get a Website for Your Business: DIY, Freelancer or Agency?" width="678" height="452" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Web Development</span>
                     <h3>How to Get a Website for Your Business: DIY, Freelancer or Agency?</h3>
@@ -1265,7 +1393,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="erp" data-sub="ERP Buyer’s Guide" data-date="2026-09-03" href="/blog/how-to-choose-erp-software.html">
-                <div class="post-media"><img src="/assets/images/library/client-consultation-meeting-clipboard.jpg" alt="How to Choose ERP Software: A Buyer’s Guide for Small and Mid-Size Businesses" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/client-consultation-meeting-clipboard.jpg" alt="How to Choose ERP Software: A Buyer’s Guide for Small and Mid-Size Businesses" width="547" height="365" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">ERP Buyer’s Guide</span>
                     <h3>How to Choose ERP Software: A Buyer’s Guide for Small and Mid-Size Businesses</h3>
@@ -1274,7 +1402,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" data-sub="SEO &amp; Content" data-date="2026-09-03" href="/blog/seo-content-writing.html">
-                <div class="post-media"><img src="/assets/images/library/female-developer-red-hair-dual-monitors-code.jpg" alt="SEO Content Writing: How to Write Content That Ranks and Gets Cited by AI" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/female-developer-red-hair-dual-monitors-code-700.jpg" srcset="/assets/images/library/female-developer-red-hair-dual-monitors-code-700.jpg 700w, /assets/images/library/female-developer-red-hair-dual-monitors-code-1400.jpg 1400w, /assets/images/library/female-developer-red-hair-dual-monitors-code.jpg 2400w" sizes="(max-width:700px) 100vw, 380px" alt="SEO Content Writing: How to Write Content That Ranks and Gets Cited by AI" width="700" height="467" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO &amp; Content</span>
                     <h3>SEO Content Writing: How to Write Content That Ranks and Gets Cited by AI</h3>
@@ -1283,7 +1411,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="web" data-sub="Web Development" data-date="2026-09-03" href="/blog/what-is-a-landing-page-conversion.html">
-                <div class="post-media"><img src="/assets/images/library/istock-1954420507-stylus-tablet-charts-city-dusk.jpg" alt="What Is a Landing Page Conversion? Rates, Benchmarks and How to Improve Yours" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/istock-1954420507-stylus-tablet-charts-city-dusk.jpg" alt="What Is a Landing Page Conversion? Rates, Benchmarks and How to Improve Yours" width="612" height="402" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Web Development</span>
                     <h3>What Is a Landing Page Conversion? Rates, Benchmarks and How to Improve Yours</h3>
@@ -1292,7 +1420,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="erp" data-sub="ERP Fundamentals" data-date="2026-09-03" href="/blog/what-is-hr-software.html">
-                <div class="post-media"><img src="/assets/images/library/team-standing-document-review-bright-room.jpg" alt="What Is HR Software? HRIS vs. HRMS vs. the HR Module in Your ERP" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/team-standing-document-review-bright-room-700.jpg" srcset="/assets/images/library/team-standing-document-review-bright-room-700.jpg 700w, /assets/images/library/team-standing-document-review-bright-room-1400.jpg 1400w, /assets/images/library/team-standing-document-review-bright-room.jpg 2400w" sizes="(max-width:700px) 100vw, 380px" alt="What Is HR Software? HRIS vs. HRMS vs. the HR Module in Your ERP" width="700" height="467" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">ERP Fundamentals</span>
                     <h3>What Is HR Software? HRIS vs. HRMS vs. the HR Module in Your ERP</h3>
@@ -1301,7 +1429,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" data-sub="SEO Fundamentals" data-date="2026-09-03" href="/blog/title-tags-and-meta-descriptions.html">
-                <div class="post-media"><img src="/assets/images/library/team-flatlay-reviewing-business-report-charts.jpg" alt="Title Tags and Meta Descriptions: What They Are and How to Write Them" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/team-flatlay-reviewing-business-report-charts-700.jpg" srcset="/assets/images/library/team-flatlay-reviewing-business-report-charts-700.jpg 700w, /assets/images/library/team-flatlay-reviewing-business-report-charts.jpg 739w" sizes="(max-width:700px) 100vw, 380px" alt="Title Tags and Meta Descriptions: What They Are and How to Write Them" width="700" height="393" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO Fundamentals</span>
                     <h3>Title Tags and Meta Descriptions: What They Are and How to Write Them</h3>
@@ -1310,7 +1438,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="web" data-sub="Web Development" data-date="2026-09-03" href="/blog/how-to-design-a-website.html">
-                <div class="post-media"><img src="/assets/images/library/team-flatlay-reviewing-wireframe-sketch.jpg" alt="How to Design a Website: The Process Professionals Actually Follow" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/team-flatlay-reviewing-wireframe-sketch-700.jpg" srcset="/assets/images/library/team-flatlay-reviewing-wireframe-sketch-700.jpg 700w, /assets/images/library/team-flatlay-reviewing-wireframe-sketch.jpg 720w" sizes="(max-width:700px) 100vw, 380px" alt="How to Design a Website: The Process Professionals Actually Follow" width="700" height="407" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Web Development</span>
                     <h3>How to Design a Website: The Process Professionals Actually Follow</h3>
@@ -1319,7 +1447,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" data-sub="SEO Fundamentals" data-date="2026-09-03" href="/blog/international-seo-guide.html">
-                <div class="post-media"><img src="/assets/images/library/istock-1674601384-woman-world-map-teal-global.jpg" alt="International SEO: How to Rank in Multiple Countries Without Duplicate Content" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/istock-1674601384-woman-world-map-teal-global.jpg" alt="International SEO: How to Rank in Multiple Countries Without Duplicate Content" width="612" height="408" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO Fundamentals</span>
                     <h3>International SEO: How to Rank in Multiple Countries Without Duplicate Content</h3>
@@ -1328,7 +1456,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" data-sub="SEO Fundamentals" data-date="2026-09-03" href="/blog/seo-vs-sem.html">
-                <div class="post-media"><img src="/assets/images/library/istock-2231952003-presenting-dashboard-wood-meeting-room.jpg" alt="SEO vs. SEM: What’s the Difference, and Which Should You Pay For?" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/istock-2231952003-presenting-dashboard-wood-meeting-room.jpg" alt="SEO vs. SEM: What’s the Difference, and Which Should You Pay For?" width="612" height="408" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO Fundamentals</span>
                     <h3>SEO vs. SEM: What’s the Difference, and Which Should You Pay For?</h3>
@@ -1337,7 +1465,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" data-sub="SEO &amp; AI Search" data-date="2026-09-03" href="/blog/is-seo-dead.html">
-                <div class="post-media"><img src="/assets/images/library/istock-1416029563-ar-glasses-future-portrait-dark.jpg" alt="Is SEO Dead? What AI Search Actually Changed (and What Still Works)" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/istock-1416029563-ar-glasses-future-portrait-dark.jpg" alt="Is SEO Dead? What AI Search Actually Changed (and What Still Works)" width="612" height="408" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO &amp; AI Search</span>
                     <h3>Is SEO Dead? What AI Search Actually Changed (and What Still Works)</h3>
@@ -1346,7 +1474,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" data-sub="SEO Strategy" data-date="2026-09-03" href="/blog/how-to-build-an-seo-strategy.html">
-                <div class="post-media"><img src="/assets/images/library/whiteboard-process-mapping-two-colleagues.jpg" alt="How to Build an SEO Strategy: A Step-by-Step Plan for 2026" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/whiteboard-process-mapping-two-colleagues-700.jpg" srcset="/assets/images/library/whiteboard-process-mapping-two-colleagues-700.jpg 700w, /assets/images/library/whiteboard-process-mapping-two-colleagues-1400.jpg 1400w, /assets/images/library/whiteboard-process-mapping-two-colleagues.jpg 2400w" sizes="(max-width:700px) 100vw, 380px" alt="How to Build an SEO Strategy: A Step-by-Step Plan for 2026" width="700" height="467" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO Strategy</span>
                     <h3>How to Build an SEO Strategy: A Step-by-Step Plan for 2026</h3>
@@ -1355,7 +1483,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" data-sub="SEO Strategy" data-date="2026-09-03" href="/blog/what-should-an-seo-report-include.html">
-                <div class="post-media"><img src="/assets/images/library/istock-1954420507-stylus-tablet-charts-city-dusk.jpg" alt="What Should an SEO Report Include? A Plain-English Guide to Reading Yours" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/istock-1954420507-stylus-tablet-charts-city-dusk.jpg" alt="What Should an SEO Report Include? A Plain-English Guide to Reading Yours" width="612" height="402" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO Strategy</span>
                     <h3>What Should an SEO Report Include? A Plain-English Guide to Reading Yours</h3>
@@ -1364,7 +1492,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" data-sub="SEO Fundamentals" data-date="2026-09-02" href="/blog/what-is-a-content-audit.html">
-                <div class="post-media"><img src="/assets/images/library/team-flatlay-reviewing-business-report-charts.jpg" alt="What Is a Content Audit? A Plain-English Guide" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/team-flatlay-reviewing-business-report-charts-700.jpg" srcset="/assets/images/library/team-flatlay-reviewing-business-report-charts-700.jpg 700w, /assets/images/library/team-flatlay-reviewing-business-report-charts.jpg 739w" sizes="(max-width:700px) 100vw, 380px" alt="What Is a Content Audit? A Plain-English Guide" width="700" height="393" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO Fundamentals</span>
                     <h3>What Is a Content Audit? A Plain-English Guide</h3>
@@ -1373,7 +1501,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="web" data-sub="Web Fundamentals" data-date="2026-09-02" href="/blog/website-design-vs-development.html">
-                <div class="post-media"><img src="/assets/images/library/team-flatlay-reviewing-wireframe-sketch.jpg" alt="Website Design vs. Website Development: The Difference" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/team-flatlay-reviewing-wireframe-sketch-700.jpg" srcset="/assets/images/library/team-flatlay-reviewing-wireframe-sketch-700.jpg 700w, /assets/images/library/team-flatlay-reviewing-wireframe-sketch.jpg 720w" sizes="(max-width:700px) 100vw, 380px" alt="Website Design vs. Website Development: The Difference" width="700" height="407" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Web Fundamentals</span>
                     <h3>Website Design vs. Website Development: The Difference</h3>
@@ -1382,7 +1510,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="erp" data-sub="ERP Fundamentals" data-date="2026-09-02" href="/blog/what-is-erp-software-plain-english.html">
-                <div class="post-media"><img src="/assets/images/library/whiteboard-process-mapping-two-colleagues.jpg" alt="What Is ERP Software? A Plain-English Guide" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/whiteboard-process-mapping-two-colleagues-700.jpg" srcset="/assets/images/library/whiteboard-process-mapping-two-colleagues-700.jpg 700w, /assets/images/library/whiteboard-process-mapping-two-colleagues-1400.jpg 1400w, /assets/images/library/whiteboard-process-mapping-two-colleagues.jpg 2400w" sizes="(max-width:700px) 100vw, 380px" alt="What Is ERP Software? A Plain-English Guide" width="700" height="467" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">ERP Fundamentals</span>
                     <h3>What Is ERP Software? A Plain-English Guide</h3>
@@ -1391,7 +1519,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="erp" data-sub="Buyer's Guide &mdash; Canada" data-date="2026-08-31" href="/blog/full-service-vs-diy-erp-agency-canada.html">
-                <div class="post-media"><img src="/assets/images/library/confident-leader-office-team-background.webp" alt="Full-Service vs. DIY: ERP, Web &amp; SEO Partner in Canada" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/confident-leader-office-team-background-700.jpg" srcset="/assets/images/library/confident-leader-office-team-background-700.jpg 700w, /assets/images/library/confident-leader-office-team-background-1400.jpg 1400w, /assets/images/library/confident-leader-office-team-background.webp 2000w" sizes="(max-width:700px) 100vw, 380px" alt="Full-Service vs. DIY: ERP, Web &amp; SEO Partner in Canada" width="700" height="467" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Buyer's Guide &mdash; Canada</span>
                     <h3>Full-Service vs. DIY: ERP, Web &amp; SEO Partner in Canada</h3>
@@ -1400,7 +1528,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="erp" data-sub="ERP &amp; Software" data-date="2026-07-10" href="/blog/enterprise-ai-adoption-literacy-integration-guide.html">
-                <div class="post-media"><img src="/assets/images/library/whiteboard-process-mapping-two-colleagues.jpg" alt="The Enterprise AI Transformation Playbook: Adoption, Literacy, &amp; Integration" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/whiteboard-process-mapping-two-colleagues-700.jpg" srcset="/assets/images/library/whiteboard-process-mapping-two-colleagues-700.jpg 700w, /assets/images/library/whiteboard-process-mapping-two-colleagues-1400.jpg 1400w, /assets/images/library/whiteboard-process-mapping-two-colleagues.jpg 2400w" sizes="(max-width:700px) 100vw, 380px" alt="The Enterprise AI Transformation Playbook: Adoption, Literacy, &amp; Integration" width="700" height="467" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">ERP &amp; Software</span>
                     <h3>The Enterprise AI Transformation Playbook: Adoption, Literacy, &amp; Integration</h3>
@@ -1409,7 +1537,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="out" data-sub="Outsourcing &amp; Agencies" data-date="2026-07-10" href="/blog/offshore-software-development-guide.html">
-                <div class="post-media"><img src="/assets/images/library/team-casual-standup-meeting-lounge.webp" alt="The Ultimate Guide to Offshore Software Development in 2026" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/team-casual-standup-meeting-lounge.webp" alt="The Ultimate Guide to Offshore Software Development in 2026" width="676" height="676" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Outsourcing &amp; Agencies</span>
                     <h3>The Ultimate Guide to Offshore Software Development in 2026</h3>
@@ -1418,7 +1546,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" data-sub="SEO &amp; AI Search" data-date="2026-07-09" href="/blog/outsourcing-technical-seo-agency-guide.html">
-                <div class="post-media"><img src="/assets/images/library/team-standing-document-review-bright-room.jpg" alt="How to Outsource Technical SEO: The Agency Playbook" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/team-standing-document-review-bright-room-700.jpg" srcset="/assets/images/library/team-standing-document-review-bright-room-700.jpg 700w, /assets/images/library/team-standing-document-review-bright-room-1400.jpg 1400w, /assets/images/library/team-standing-document-review-bright-room.jpg 2400w" sizes="(max-width:700px) 100vw, 380px" alt="How to Outsource Technical SEO: The Agency Playbook" width="700" height="467" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO &amp; AI Search</span>
                     <h3>How to Outsource Technical SEO: The Agency Playbook</h3>
@@ -1427,7 +1555,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="out" data-sub="Outsourcing &amp; Agencies" data-date="2026-07-08" href="/blog/staff-augmentation-vs-local-hiring-cost.html">
-                <div class="post-media"><img src="/assets/images/library/executive-woman-tablet-grand-hall.jpg" alt="Staff Augmentation vs. Local Hiring: 2026 Cost Analysis" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/executive-woman-tablet-grand-hall-700.jpg" srcset="/assets/images/library/executive-woman-tablet-grand-hall-700.jpg 700w, /assets/images/library/executive-woman-tablet-grand-hall-1400.jpg 1400w, /assets/images/library/executive-woman-tablet-grand-hall.jpg 2400w" sizes="(max-width:700px) 100vw, 380px" alt="Staff Augmentation vs. Local Hiring: 2026 Cost Analysis" width="700" height="467" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Outsourcing &amp; Agencies</span>
                     <h3>Staff Augmentation vs. Local Hiring: 2026 Cost Analysis</h3>
@@ -1436,7 +1564,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="out" data-sub="Outsourcing &amp; Agencies" data-date="2026-07-02" href="/blog/advantages-partnering-ai-white-label-seo.html">
-                <div class="post-media"><img src="/assets/images/library/support-agent-headset-smiling-laptop.jpg" alt="Advantages of Partnering with an AI SEO Agency for White-Label" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/support-agent-headset-smiling-laptop-700.jpg" srcset="/assets/images/library/support-agent-headset-smiling-laptop-700.jpg 700w, /assets/images/library/support-agent-headset-smiling-laptop.jpg 767w" sizes="(max-width:700px) 100vw, 380px" alt="Advantages of Partnering with an AI SEO Agency for White-Label" width="700" height="365" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Outsourcing &amp; Agencies</span>
                     <h3>Advantages of Partnering with an AI SEO Agency for White-Label</h3>
@@ -1445,7 +1573,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="out" data-sub="Outsourcing &amp; Agencies" data-date="2026-07-01" href="/blog/white-label-seo-agency-uk-growth.html">
-                <div class="post-media"><img src="/assets/images/library/small-business-owner-laptop-sidewalk-cafe.jpg" alt="How UK Agencies Leverage White-Label SEO Backends for Rapid Scale" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/small-business-owner-laptop-sidewalk-cafe.jpg" alt="How UK Agencies Leverage White-Label SEO Backends for Rapid Scale" width="678" height="452" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Outsourcing &amp; Agencies</span>
                     <h3>How UK Agencies Leverage White-Label SEO Backends for Rapid Scale</h3>
@@ -1454,7 +1582,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="out" data-sub="Outsourcing &amp; Agencies" data-date="2026-06-29" href="/blog/outsource-seo-services-au-tips.html">
-                <div class="post-media"><img src="/assets/images/library/team-casual-standup-meeting-lounge.webp" alt="Navigating Timezone-Aligned SEO Outsourcing for Australian Agencies" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/team-casual-standup-meeting-lounge.webp" alt="Navigating Timezone-Aligned SEO Outsourcing for Australian Agencies" width="676" height="676" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Outsourcing &amp; Agencies</span>
                     <h3>Navigating Timezone-Aligned SEO Outsourcing for Australian Agencies</h3>
@@ -1463,7 +1591,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="web" data-sub="Web Development" data-date="2026-06-28" href="/blog/how-to-outsource-web-development-to-india.html">
-                <div class="post-media"><img src="/assets/images/library/female-developer-red-hair-dual-monitors-code.jpg" alt="How to Outsource Web Development to India Without Quality Loss" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/female-developer-red-hair-dual-monitors-code-700.jpg" srcset="/assets/images/library/female-developer-red-hair-dual-monitors-code-700.jpg 700w, /assets/images/library/female-developer-red-hair-dual-monitors-code-1400.jpg 1400w, /assets/images/library/female-developer-red-hair-dual-monitors-code.jpg 2400w" sizes="(max-width:700px) 100vw, 380px" alt="How to Outsource Web Development to India Without Quality Loss" width="700" height="467" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Web Development</span>
                     <h3>How to Outsource Web Development to India Without Quality Loss</h3>
@@ -1472,7 +1600,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="out" data-sub="Outsourcing &amp; Agencies" data-date="2026-06-27" href="/blog/offshore-developer-center-dubai.html">
-                <div class="post-media"><img src="/assets/images/library/executive-woman-tablet-grand-hall.jpg" alt="Why Dubai Startups Build Dedicated Offshore Development Centers in India" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/executive-woman-tablet-grand-hall-700.jpg" srcset="/assets/images/library/executive-woman-tablet-grand-hall-700.jpg 700w, /assets/images/library/executive-woman-tablet-grand-hall-1400.jpg 1400w, /assets/images/library/executive-woman-tablet-grand-hall.jpg 2400w" sizes="(max-width:700px) 100vw, 380px" alt="Why Dubai Startups Build Dedicated Offshore Development Centers in India" width="700" height="467" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Outsourcing &amp; Agencies</span>
                     <h3>Why Dubai Startups Build Dedicated Offshore Development Centers in India</h3>
@@ -1481,7 +1609,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="web" data-sub="Web Development" data-date="2026-06-25" href="/blog/outsource-website-management-canada.html">
-                <div class="post-media"><img src="/assets/images/library/istock-2150307337-creative-studio-neon-review.jpg" alt="Why Outsource Website Management? A Canadian Business Perspective" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/istock-2150307337-creative-studio-neon-review.jpg" alt="Why Outsource Website Management? A Canadian Business Perspective" width="612" height="323" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Web Development</span>
                     <h3>Why Outsource Website Management? A Canadian Business Perspective</h3>
@@ -1490,7 +1618,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="web" data-sub="Web Development" data-date="2026-06-22" href="/blog/what-to-look-for-outsourcing-website-management.html">
-                <div class="post-media"><img src="/assets/images/library/male-developer-dual-monitors-colorful-office.jpg" alt="What to Look for When Outsourcing Website Management" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/male-developer-dual-monitors-colorful-office-700.jpg" srcset="/assets/images/library/male-developer-dual-monitors-colorful-office-700.jpg 700w, /assets/images/library/male-developer-dual-monitors-colorful-office.jpg 766w" sizes="(max-width:700px) 100vw, 380px" alt="What to Look for When Outsourcing Website Management" width="700" height="366" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Web Development</span>
                     <h3>What to Look for When Outsourcing Website Management</h3>
@@ -1499,7 +1627,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="out" data-sub="Outsourcing &amp; Agencies" data-date="2026-06-15" href="/blog/why-agencies-outsource-seo-to-india.html">
-                <div class="post-media"><img src="/assets/images/library/support-agent-headset-smiling-laptop.jpg" alt="Why Modern Agencies Outsource SEO to India: Global Report" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/support-agent-headset-smiling-laptop-700.jpg" srcset="/assets/images/library/support-agent-headset-smiling-laptop-700.jpg 700w, /assets/images/library/support-agent-headset-smiling-laptop.jpg 767w" sizes="(max-width:700px) 100vw, 380px" alt="Why Modern Agencies Outsource SEO to India: Global Report" width="700" height="365" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Outsourcing &amp; Agencies</span>
                     <h3>Why Modern Agencies Outsource SEO to India: Global Report</h3>
@@ -1508,7 +1636,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" data-sub="SEO &amp; AI Search" data-date="2026-06-12" href="/blog/ai-in-digital-marketing/">
-                <div class="post-media"><img src="/assets/images/library/istock-1128252197-analyst-data-wall-pencil-thinking.jpg" alt="AI in Digital Marketing" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/istock-1128252197-analyst-data-wall-pencil-thinking.jpg" alt="AI in Digital Marketing" width="612" height="344" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO &amp; AI Search</span>
                     <h3>AI in Digital Marketing</h3>
@@ -1517,7 +1645,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" data-sub="SEO &amp; AI Search" data-date="2026-06-12" href="/blog/what-is-digital-marketing/">
-                <div class="post-media"><img src="/assets/images/library/team-flatlay-reviewing-business-report-charts.jpg" alt="What is Digital Marketing?" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/team-flatlay-reviewing-business-report-charts-700.jpg" srcset="/assets/images/library/team-flatlay-reviewing-business-report-charts-700.jpg 700w, /assets/images/library/team-flatlay-reviewing-business-report-charts.jpg 739w" sizes="(max-width:700px) 100vw, 380px" alt="What is Digital Marketing?" width="700" height="393" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO &amp; AI Search</span>
                     <h3>What is Digital Marketing?</h3>
@@ -1526,7 +1654,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" data-sub="SEO &amp; AI Search" data-date="2026-06-05" href="/blog/ecommerce-seo-strategy/">
-                <div class="post-media"><img src="/assets/images/library/istock-2148073937-ai-wireframe-head-particles.jpg" alt="Ecommerce SEO Strategy: Optimizing Products and Category Pages" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/istock-2148073937-ai-wireframe-head-particles.jpg" alt="Ecommerce SEO Strategy: Optimizing Products and Category Pages" width="612" height="323" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO &amp; AI Search</span>
                     <h3>Ecommerce SEO Strategy: Optimizing Products and Category Pages</h3>
@@ -1535,7 +1663,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" data-sub="SEO &amp; AI Search" data-date="2026-06-05" href="/blog/how-much-does-seo-cost-small-business/">
-                <div class="post-media"><img src="/assets/images/library/team-huddle-reviewing-screen-daylight.jpg" alt="How Much Does SEO Cost for a Small Business: Pricing and ROI Guide" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/team-huddle-reviewing-screen-daylight.jpg" alt="How Much Does SEO Cost for a Small Business: Pricing and ROI Guide" width="605" height="507" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO &amp; AI Search</span>
                     <h3>How Much Does SEO Cost for a Small Business: Pricing and ROI Guide</h3>
@@ -1544,7 +1672,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" data-sub="SEO &amp; AI Search" data-date="2026-06-05" href="/blog/how-to-do-local-seo/">
-                <div class="post-media"><img src="/assets/images/library/istock-1954420507-stylus-tablet-charts-city-dusk.jpg" alt="How Do You Perform Local SEO: Step-by-Step Optimization Blueprint" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/istock-1954420507-stylus-tablet-charts-city-dusk.jpg" alt="How Do You Perform Local SEO: Step-by-Step Optimization Blueprint" width="612" height="402" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO &amp; AI Search</span>
                     <h3>How Do You Perform Local SEO: Step-by-Step Optimization Blueprint</h3>
@@ -1553,7 +1681,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" data-sub="SEO &amp; AI Search" data-date="2026-06-05" href="/blog/how-to-qualify-leads-for-seo-agency/">
-                <div class="post-media"><img src="/assets/images/library/two-women-reviewing-document-bright-office.png" alt="How to Qualify Leads for an SEO Agency and Maximize ROI" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/two-women-reviewing-document-bright-office.png" alt="How to Qualify Leads for an SEO Agency and Maximize ROI" width="411" height="489" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO &amp; AI Search</span>
                     <h3>How to Qualify Leads for an SEO Agency and Maximize ROI</h3>
@@ -1562,7 +1690,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" data-sub="SEO &amp; AI Search" data-date="2026-06-05" href="/blog/python-for-seo/">
-                <div class="post-media"><img src="/assets/images/library/istock-2231952003-presenting-dashboard-wood-meeting-room.jpg" alt="Python for SEO: Automating Technical Audits and Crawl Log Analysis" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/istock-2231952003-presenting-dashboard-wood-meeting-room.jpg" alt="Python for SEO: Automating Technical Audits and Crawl Log Analysis" width="612" height="408" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO &amp; AI Search</span>
                     <h3>Python for SEO: Automating Technical Audits and Crawl Log Analysis</h3>
@@ -1571,7 +1699,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="out" data-sub="Outsourcing &amp; Agencies" data-date="2026-06-05" href="/blog/why-choose-indian-seo-agency/">
-                <div class="post-media"><img src="/assets/images/library/small-business-owner-laptop-sidewalk-cafe.jpg" alt="Why Global Businesses Choose Indian Agencies for Technical SEO" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/small-business-owner-laptop-sidewalk-cafe.jpg" alt="Why Global Businesses Choose Indian Agencies for Technical SEO" width="678" height="452" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Outsourcing &amp; Agencies</span>
                     <h3>Why Global Businesses Choose Indian Agencies for Technical SEO</h3>
@@ -1580,7 +1708,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" data-sub="SEO &amp; AI Search" data-date="2026-06-05" href="/blog/generative-engine-optimization-geo/">
-                <div class="post-media"><img src="/assets/images/library/team-standing-document-review-bright-room.jpg" alt="Generative Engine Optimization (GEO) Guide" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/team-standing-document-review-bright-room-700.jpg" srcset="/assets/images/library/team-standing-document-review-bright-room-700.jpg 700w, /assets/images/library/team-standing-document-review-bright-room-1400.jpg 1400w, /assets/images/library/team-standing-document-review-bright-room.jpg 2400w" sizes="(max-width:700px) 100vw, 380px" alt="Generative Engine Optimization (GEO) Guide" width="700" height="467" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO &amp; AI Search</span>
                     <h3>Generative Engine Optimization (GEO) Guide</h3>
@@ -1589,7 +1717,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="web" data-sub="Web Development" data-date="2026-06-05" href="/blog/seo-friendly-web-design-guide/">
-                <div class="post-media"><img src="/assets/images/library/istock-2228764569-developer-night-debugging-monitors.jpg" alt="SEO Friendly Web Design Guide" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/istock-2228764569-developer-night-debugging-monitors.jpg" alt="SEO Friendly Web Design Guide" width="612" height="408" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Web Development</span>
                     <h3>SEO Friendly Web Design Guide</h3>
@@ -1598,7 +1726,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="web" data-sub="Web Development" data-date="2026-06-04" href="/blog/react-vs-nextjs-for-seo/">
-                <div class="post-media"><img src="/assets/images/library/team-flatlay-reviewing-wireframe-sketch.jpg" alt="React vs Next.js for SEO | Search Crawlability Guide" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/team-flatlay-reviewing-wireframe-sketch-700.jpg" srcset="/assets/images/library/team-flatlay-reviewing-wireframe-sketch-700.jpg 700w, /assets/images/library/team-flatlay-reviewing-wireframe-sketch.jpg 720w" sizes="(max-width:700px) 100vw, 380px" alt="React vs Next.js for SEO | Search Crawlability Guide" width="700" height="407" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">Web Development</span>
                     <h3>React vs Next.js for SEO | Search Crawlability Guide</h3>
@@ -1607,7 +1735,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" data-sub="SEO &amp; AI Search" data-date="2026-06-04" href="/blog/how-to-fix-crawlability-issues/">
-                <div class="post-media"><img src="/assets/images/library/istock-1128252197-analyst-data-wall-pencil-thinking.jpg" alt="How to Fix Crawlability Issues: Technical Guide" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/istock-1128252197-analyst-data-wall-pencil-thinking.jpg" alt="How to Fix Crawlability Issues: Technical Guide" width="612" height="344" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO &amp; AI Search</span>
                     <h3>How to Fix Crawlability Issues: Technical Guide</h3>
@@ -1616,7 +1744,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="erp" data-sub="ERP &amp; Software" data-date="2026-06-04" href="/blog/saas-vs-custom-software/">
-                <div class="post-media"><img src="/assets/images/library/istock-2155877725-factory-engineers-hardhats-tablet.jpg" alt="SaaS vs Custom Software Development | Technical Strategy" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/istock-2155877725-factory-engineers-hardhats-tablet.jpg" alt="SaaS vs Custom Software Development | Technical Strategy" width="612" height="408" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">ERP &amp; Software</span>
                     <h3>SaaS vs Custom Software Development | Technical Strategy</h3>
@@ -1625,7 +1753,7 @@
                 </div>
             </a>
             <a class="post-card" data-cat="seo" data-sub="SEO &amp; AI Search" data-date="2026-06-04" href="/blog/what-is-serp-in-seo/">
-                <div class="post-media"><img src="/assets/images/library/team-flatlay-reviewing-business-report-charts.jpg" alt="What is SERP in SEO? Technical Guide to Search Results" loading="lazy" decoding="async" /></div>
+                <div class="post-media"><img src="/assets/images/library/team-flatlay-reviewing-business-report-charts-700.jpg" srcset="/assets/images/library/team-flatlay-reviewing-business-report-charts-700.jpg 700w, /assets/images/library/team-flatlay-reviewing-business-report-charts.jpg 739w" sizes="(max-width:700px) 100vw, 380px" alt="What is SERP in SEO? Technical Guide to Search Results" width="700" height="393" loading="lazy" decoding="async" /></div>
                 <div class="post-card-body">
                     <span class="post-tag">SEO &amp; AI Search</span>
                     <h3>What is SERP in SEO? Technical Guide to Search Results</h3>
