@@ -20,7 +20,7 @@ for (const f of fs.readdirSync(path.join(L.REPO, 'blog')).sort()) {
   if (f.endsWith('.html') && f !== 'index.html') add('/blog/' + f, 'blog/' + f);
   else if (fs.statSync(p).isDirectory() && fs.existsSync(path.join(p, 'index.html'))) add('/blog/' + f + '/', 'blog/' + f + '/index.html');
 }
-for (const dir of ['ca', 'uk', 'us']) {
+for (const dir of ['ca', 'in', 'uk', 'us']) {
   add('/' + dir + '/', dir + '/index.html');
   for (const f of fs.readdirSync(path.join(L.REPO, dir)).sort()) { const p = path.join(L.REPO, dir, f); if (fs.statSync(p).isDirectory() && fs.existsSync(path.join(p, 'index.html'))) add(`/${dir}/${f}/`, `${dir}/${f}/index.html`); }
 }
