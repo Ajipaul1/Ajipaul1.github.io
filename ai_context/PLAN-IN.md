@@ -44,7 +44,7 @@ marine, tourism, ayurveda) → *where the work goes* (six city doors) → *what 
 
 | Page | Winnable/mo | Med KD | What the cluster asks for | Signature animation | Photo set |
 |---|---|---|---|---|---|
-| `/in/mumbai/` | 29,940 | 19 | agency · ecommerce · WordPress · Navi Mumbai | **the sea link** — a bridge of dashes connecting island city to Navi Mumbai, lit segment by segment | Marine Drive, Sea Link, Gateway, a D2C parcel, a warehouse |
+| `/in/mumbai/` **— REBUILT 2026-09-05 to §9 parity (`in_mumbai.js`, ~4,770 words, 12 FAQs, e-commerce spine, Navi Mumbai/Thane, railway-line localities, 11 photos)** | 29,940 | 19 | agency · ecommerce · WordPress · Navi Mumbai | **the sea link** — a bridge of dashes connecting island city to Navi Mumbai, lit segment by segment | Marine Drive, Sea Link, Gateway, a D2C parcel, a warehouse |
 | `/in/kolkata/` | 14,900 | 18 | consultant vs company (unique to this city) | **the two columns** — consultant and company weighed on a scale that settles | Howrah bridge, tram, Park Street, a single desk, a team table |
 | `/in/kerala/` **— REBUILT 2026-09-05 to §8 parity (`in_kerala.js`, 5,131 words, 12 FAQs, founder + 4 real certificates, 14 districts, 11 photos)** | 8,010 | 14 | freelancer intent — 4 of top 7 terms | **one becomes many** — a single dot that multiplies into a team as you scroll | backwaters, tea, a loom, spices, a fishing harbour |
 | `/in/vadodara/` | 6,000 | 14 | one huge term + technical buyers | **the specification sheet** — a datasheet that fills in row by row | chemical plant, pipework, a lab, Laxmi Vilas, a machine shop |
@@ -168,7 +168,8 @@ inside `@supports`, movement only — never opacity.
 - **Reveal scoping rule** (bug found 2026-09-05): a reveal keyed on `.ins .lit .x` needs `lit` on a frame *inside* `.ins`. Whatever the observer lights must be the element the CSS expects — measure with a computed-style diagnostic (`/tmp/diag_panels.js` pattern), not by eye.
 - **Slates number in DOM order.** Sections replaced in place + sections inserted later drift; re-read the built HTML.
 
-- **India rebuild order is fixed:** `in_hub.js → in_city.js → in_story.js → in_kerala.js` (each later step destructively edits what the earlier one wrote; none is idempotent alone). `in_kerala.js` asserts it is reading a fresh `in_city` skeleton.
+- **India rebuild order is fixed:** `in_hub.js → in_city.js → in_story.js → in_kerala.js → in_mumbai.js` (each later step destructively edits what the earlier one wrote; none is idempotent alone). `in_kerala.js` asserts it is reading a fresh `in_city` skeleton.
+- **`scripts/verify/overflow.js <path> [width]`** names every element extending past the viewport — run it at 1440 and 390 before any screenshot review; a `margin:` shorthand written after a `margin-left:calc(50% - 50vw)` bleed silently resets it (found on Mumbai).
 - **Verify with `scripts/verify/jsoff.js <path> <scope>`** (JS disabled → hidden must be 0) as well as `shot.js`; scope to the page's own sections, the template nav dropdowns are hidden by design.
 
 ## 8. SERP parity — Kerala (crawled 2026-09-04, live Google)
@@ -205,3 +206,37 @@ reporting) · a process · a cities list · WhatsApp CTA · FAQ.
   monthly report shown, a weekly staging URL
 
 Same method for every other page before it is written: search → crawl top 3–5 → table → build to beat.
+
+## 9. SERP parity — Mumbai (crawled 2026-09-05, live Google)
+
+Queries: `seo agency mumbai` (6,600/KD27) · `best seo company in mumbai` · `ecommerce seo services mumbai` (1,000/KD19).
+Cluster: 49 winnable terms, 30,860/mo. Second tier is specific — `wordpress website development in mumbai` 1,900/KD15,
+`website development company in mumbai` 1,600, `ecommerce website development mumbai` 1,300/KD11, `local seo in mumbai`
+1,000/KD10, **Navi Mumbai** (880+880) and **Thane** (320+320+170) as their own sub-clusters, `erp software companies in mumbai` 140/KD11.
+Careers/classes terms excluded as before. **The SERP is owned by established agencies**, not freelancers (opposite of Kerala).
+
+| Ranking page | Words | FAQs | Price stated | Claims carried |
+|---|---|---|---|---|
+| digichefs.com/seo-agency-mumbai | ~8,000 | 12 | none | 10+ yrs · 200+ sites · 4.8★/230+ reviews · 4 case studies with % · 20+ testimonials · 70+ logos · 18 services incl. AI SEO/AEO/GEO · 10-step process · Andheri office |
+| gbim.com/seo-company-in-mumbai | ~3,800 | 10 | budget bands in form ₹50k–₹10L+ | 21+ yrs · 1,000+ clients · Google Partner · "Top 3 guaranteed" · 3 case studies · 15+ testimonials · HQ Navi Mumbai, 8 city pages |
+| theyellowstrawberry.com/seo | ~2,800 | 12 | "₹35,000 to ₹1,00,000+" | Google 4.9★ · Clutch 4.8★ · team avg 8+ yrs · 12 industries · 30+ logos · Vashi office · WhatsApp |
+| savit.in (home) | ~2,800 | 10 | none | 20+ yrs · 93 staff · 3,175+ clients · 55,000+ keywords · 8 awards · 12 testimonials |
+| webaxis.info | ~2,800 | 4 | full rate card: SEO min ₹40,000/mo, category ₹46k–₹1.2L/mo, web ₹35k | since 2005 · 7 testimonials · Andheri West |
+| scaledelight.com (ecommerce) | ~4,800 | 4 | none | 300+ clients · 20,000+ top-5 keywords · 16 case studies · 10 ecommerce services (product/category/schema/speed/image) · 11 localities listed |
+
+**Every one carries:** years + client counts · case studies with % · testimonials + logo walls · 10–18 service list ·
+a numbered process · industries list · an office address in Mumbai · form + WhatsApp/phone. Two publish price bands.
+
+**To be directly competitive, `/in/mumbai/` needs, minimum:**
+- 4,000–5,000 words · 12 FAQs answered in the first sentence
+- **honesty about the office**: no Mumbai address → say so in the first screen and turn it into the argument
+  (same time zone, weekly staging URL, written report; "if you need someone in your office weekly, hire locally")
+- **ecommerce as the spine** (the cluster's second intent + Mumbai's economy): storefront + stock system as one
+  problem, Shopify/WooCommerce/custom, category architecture, faceted-URL bloat, product schema, mobile speed
+- **Navi Mumbai and Thane as named sections** (their own sub-clusters, manufacturing/warehousing/B2B)
+- localities named the way Scale Delight does (Andheri, Bandra, Lower Parel, Malad, Goregaon, Borivali, Thane, Vashi, Airoli…)
+- the market price range **attributed** (₹35,000–₹1,00,000+/mo TYS; ₹40,000/mo minimum WebAxis; ₹50k+ bands GBIM) — never ours
+- WordPress + website development section (1,900 + 1,600 + 720 /mo, KD 15–30)
+- what none of them have: the ERP angle (140/KD11 + the stock-truth problem), the hire checklist, "what you keep"
+- 8–10 Mumbai photographs of its own (sea link, Marine Drive, local train, market, harbour, high-rises, warehouse), own
+  signature — **the sea link** per §2.2 — and per-section motion unlike Kerala's
