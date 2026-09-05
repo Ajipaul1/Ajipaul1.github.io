@@ -46,7 +46,7 @@ marine, tourism, ayurveda) → *where the work goes* (six city doors) → *what 
 |---|---|---|---|---|---|
 | `/in/mumbai/` | 29,940 | 19 | agency · ecommerce · WordPress · Navi Mumbai | **the sea link** — a bridge of dashes connecting island city to Navi Mumbai, lit segment by segment | Marine Drive, Sea Link, Gateway, a D2C parcel, a warehouse |
 | `/in/kolkata/` | 14,900 | 18 | consultant vs company (unique to this city) | **the two columns** — consultant and company weighed on a scale that settles | Howrah bridge, tram, Park Street, a single desk, a team table |
-| `/in/kerala/` | 8,010 | 14 | freelancer intent — 4 of top 7 terms | **one becomes many** — a single dot that multiplies into a team as you scroll | backwaters, tea, a loom, spices, a fishing harbour |
+| `/in/kerala/` **— REBUILT 2026-09-05 to §8 parity (`in_kerala.js`, 5,131 words, 12 FAQs, founder + 4 real certificates, 14 districts, 11 photos)** | 8,010 | 14 | freelancer intent — 4 of top 7 terms | **one becomes many** — a single dot that multiplies into a team as you scroll | backwaters, tea, a loom, spices, a fishing harbour |
 | `/in/vadodara/` | 6,000 | 14 | one huge term + technical buyers | **the specification sheet** — a datasheet that fills in row by row | chemical plant, pipework, a lab, Laxmi Vilas, a machine shop |
 | `/in/lucknow/` | 5,740 | 17 | website development leads, not SEO | **the handover** — repo → hosting → domain → yours, four keys turning | Bara Imambara, Hazratganj, a developer, a laptop on a desk |
 | `/in/calicut/` | 3,380 | 12 | pure agency intent, least contested | **the open door** — a doorway that widens as the competition bars shrink | Kozhikode beach, Mananchira, a spice warehouse, a shopfront |
@@ -167,6 +167,9 @@ inside `@supports`, movement only — never opacity.
 - **Every page gets its own design, not only its own photos** (owner, 2026-09-05: "every page new designs… storytelling, I mean the design"). A new page never inherits another page's section layouts or motion; it gets its own signature (§2.2), its own section shapes, its own reveal choreography. Shared: nav, footer, type scale, colours, final CTA. Nothing else.
 - **Reveal scoping rule** (bug found 2026-09-05): a reveal keyed on `.ins .lit .x` needs `lit` on a frame *inside* `.ins`. Whatever the observer lights must be the element the CSS expects — measure with a computed-style diagnostic (`/tmp/diag_panels.js` pattern), not by eye.
 - **Slates number in DOM order.** Sections replaced in place + sections inserted later drift; re-read the built HTML.
+
+- **India rebuild order is fixed:** `in_hub.js → in_city.js → in_story.js → in_kerala.js` (each later step destructively edits what the earlier one wrote; none is idempotent alone). `in_kerala.js` asserts it is reading a fresh `in_city` skeleton.
+- **Verify with `scripts/verify/jsoff.js <path> <scope>`** (JS disabled → hidden must be 0) as well as `shot.js`; scope to the page's own sections, the template nav dropdowns are hidden by design.
 
 ## 8. SERP parity — Kerala (crawled 2026-09-04, live Google)
 
