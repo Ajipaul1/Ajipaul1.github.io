@@ -87,7 +87,7 @@
     },
     {
       "source": "/seo-audit-india/:path*",
-      "destination": "/seo-audit-kochi/",
+      "destination": "/in/",
       "permanent": true
     },
     {
@@ -437,12 +437,12 @@
     },
     {
       "source": "/seo-audit-india",
-      "destination": "/seo-audit-kochi/",
+      "destination": "/in/",
       "permanent": true
     },
     {
       "source": "/seo-audit-india/",
-      "destination": "/seo-audit-kochi/",
+      "destination": "/in/",
       "permanent": true
     },
     {
