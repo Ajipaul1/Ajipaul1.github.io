@@ -138,3 +138,24 @@ inside `@supports`, movement only — never opacity.
 - Section-hash audit: 0 blocks shared with any other page
 - Linked from `/in/` and the Markets dropdown; in the sitemap
 - `PROGRESS.md` appended before commit; pushed with the repo's own identity
+
+---
+
+## 7. Owner's design rules — 2026-09-04, point by point
+
+- Every section on every page: its own animation. No two sections move the same way.
+- Content told by images + design, like a film. A visitor who reads nothing must still get what the
+  page is and what it is for.
+- No limit on image count. "Even if it looks like a photographer's page" — that is acceptable.
+- Full-desktop-width treatment, as `/uk/` has. Not a centred 1180px column of text.
+- Hero height: the UK ratio (~576px at 1440). Not the 750px template hero.
+- Build `/in/` to this standard first; owner reviews; only then the city pages and the rest.
+- Rank targets on every page: SEO + AEO + GEO together. Question-shaped H2s, answer in the first
+  sentence, FAQPage schema, verifiable specifics.
+- No "offshore" on India pages. No "audit" as a service word anywhere (company name only).
+- ai_context entries: bullets, not paragraphs. Tokens are the owner's cost.
+- Rebuild order for India: `in_hub.js` → `in_city.js` → `in_story.js`. Cities inherit the clean hub;
+  the story layer is hub-only.
+- `L.setFinalCta(s, h2, note)` is positional. Passing an object renders `[object Object]`.
+- Footer inherits the CA template: fix tagline (offshore swap doubles "dedicated") and the
+  "SERVING ... CANADA" cities line on every India page.

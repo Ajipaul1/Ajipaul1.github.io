@@ -195,7 +195,23 @@ const CSS = `
     .insDoors{ width:88%; }
     .insDoors .ins-shot{ aspect-ratio:5/4; }
   }
+  /* ---- the non-story sections: each gets its own one-shot ---- */
+  /* services: card-deal */
+  html.ins-on #services .pillar-card{ opacity:0; transform:translateY(30px) rotate(-1.4deg); }
+  html.ins-on #services.lit .pillar-card{ animation:insDeal .7s cubic-bezier(.2,.8,.2,1) forwards; animation-delay:calc(var(--d,0) * .12s); }
+  @keyframes insDeal{ to{ opacity:1; transform:none; } }
+  /* kerala trio: rise in turn, icon pops after */
+  html.ins-on #in-kerala .erp-benefit{ opacity:0; transform:translateY(22px); }
+  html.ins-on #in-kerala .erp-benefit .erp-benefit-icon{ transform:scale(.6); }
+  html.ins-on #in-kerala.lit .erp-benefit{ animation:insLift .6s cubic-bezier(.2,.7,.2,1) forwards; animation-delay:calc(var(--d,0) * .14s); }
+  html.ins-on #in-kerala.lit .erp-benefit .erp-benefit-icon{ animation:insPop .5s cubic-bezier(.2,.9,.3,1.4) forwards; animation-delay:calc(var(--d,0) * .14s + .3s); }
+  /* cost table: rows wipe left to right */
+  html.ins-on #in-cost tbody tr, html.ins-on #in-cost table tr{ clip-path:inset(0 100% 0 0); }
+  html.ins-on #in-cost.lit table tr{ animation:insWipeR .55s cubic-bezier(.3,0,.2,1) forwards; animation-delay:calc(var(--d,0) * .09s); }
+  @keyframes insWipeR{ to{ clip-path:inset(0 0 0 0); } }
+
   @media (prefers-reduced-motion: reduce){
+    html.ins-on #services .pillar-card, html.ins-on #in-kerala .erp-benefit, html.ins-on #in-kerala .erp-benefit .erp-benefit-icon, html.ins-on #in-cost table tr{ opacity:1 !important; transform:none !important; clip-path:none !important; animation:none !important; }
     html.ins-on .ins .ins-shot, html.ins-on .ins .w, html.ins-on .ins .ins-shot > .ins-img, html.ins-on .ins-head,
     html.ins-on .ins-coast-line, html.ins-on .ins-coast-dot, html.ins-on .ins-coast-label, html.ins-on .ins-pin{
       clip-path:none !important; opacity:1 !important; transform:none !important; animation:none !important; transition:none !important; stroke-dashoffset:0 !important;
@@ -207,7 +223,13 @@ const JS = `
    only here, so with JS off or reduced motion on, the whole picture story is simply visible. */
 (function () {
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    var frames = document.querySelectorAll('.ins .plate, .ins .beat, .ins .tile, .ins a.door, .ins-head');
+    var frames = document.querySelectorAll('.ins .plate, .ins .beat, .ins .tile, .ins a.door, .ins-head, #services, #in-kerala, #in-cost');
+    /* stagger indices for the non-story sections */
+    var groups = [['#services .pillar-card'], ['#in-kerala .erp-benefit'], ['#in-cost table tr']];
+    for (var g = 0; g < groups.length; g++) {
+        var els = document.querySelectorAll(groups[g][0]);
+        for (var e = 0; e < els.length; e++) els[e].style.setProperty('--d', e);
+    }
     if (!frames.length || !('IntersectionObserver' in window)) return;
     document.documentElement.classList.add('ins-on');
     var acts = document.querySelectorAll('.ins-act');

@@ -253,6 +253,11 @@ s = L.setFinalCta(s, 'Let&rsquo;s look at one real process together.', 'Takes 60
 // offshore->Dedicated swap turned that into 'Dedicated Dedicated', so the tagline is set explicitly
 // first and only then is any remaining 'offshore' neutralised.
 s = L.replaceAll(s, 'Your Dedicated Offshore Technical Team', 'Your Technical Team in Kochi');
+// footer tagline, also carrying 'offshore' -- set explicitly so the swap below cannot double a word
+s = s.replace(/Your dedicated offshore technical team\./i, 'Your technical team in Kochi.');
+// footer cities: the CA template lists Canadian provinces; this page serves India
+s = s.replace(/SERVING BUSINESSES ACROSS CANADA/i, 'SERVING BUSINESSES ACROSS INDIA');
+s = s.replace(/Toronto &bull; Vancouver[\s\S]*?and every Canadian province/, 'Kochi &bull; Calicut &bull; Thrissur &bull; Trivandrum &bull; Mumbai &bull; Pune &bull; Bangalore &bull; Kolkata &bull; Vadodara &bull; Lucknow &bull; Delhi NCR &bull; and every Indian state, remotely');
 s = s.replace(/[Oo]ffshore/g, m => (m[0] === 'O' ? 'Dedicated' : 'dedicated'));
 // "audit" is the company name, not the offer (owner's instruction 2026-09-04). Four places in the
 // inherited template tell Google otherwise, and all four are things Google actually reads:
@@ -289,6 +294,26 @@ for (const [from, to] of [
     throw new Error('"audit" survives as a service word on /in/ (' + left.length + '): …'
       + prose.slice(Math.max(0, i - 90), i + 70).replace(/\s+/g, ' ') + '…');
   }
+}
+// hero to the UK ratio: padding and margins only, type scale untouched
+{
+  const tight = [
+    '  /* in_hub: hero tightened to the UK ratio (~576px at 1440) */',
+    '  .tap-new-hero{ padding:56px 0 48px; }',
+    '  .tap-new-hero .eyebrow{ margin:2px 0 6px; }',
+    '  .hero-main-content h1{ line-height:1.02; margin:8px 0 10px; }',
+    '  .hero-subtitle{ margin:0 0 16px; }',
+    '  .hero-actions{ margin:0 0 14px; }',
+    '  .hero-features-list{ margin:0 0 10px; gap:8px 26px; }',
+    '  .hero-feature-item{ font-size:.74rem; }',
+    '  .hero-subtitle{ max-width:60ch; }',
+    '  .hero-grid .trust-strip{ padding-top:12px; }',
+    '  .hero-grid .trust-strip{ gap:10px 30px; padding-top:14px; }',
+    '  @media (min-width:1900px){ .tap-new-hero{ padding:68px 0 60px; } }',
+    '  @media (max-width:760px){ .tap-new-hero{ padding:48px 0 44px; } .hero-subtitle{ margin:0 0 14px; } }',
+  ].join('\n');
+  const at = s.indexOf('</style>');
+  s = s.slice(0, at) + tight + '\n' + s.slice(at);
 }
 L.write('in/index.html', s);
 console.log('/in/ written — India hub, Kerala-first, no "offshore" and no "audit" as a service word');
