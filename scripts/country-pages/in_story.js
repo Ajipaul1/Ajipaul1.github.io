@@ -62,7 +62,7 @@ const ACTS = [
     ],
   },
   {
-    n: '03', kind: 'doors', tone: 'dark',
+    n: '05', kind: 'doors', tone: 'dark',
     label: 'Where the work goes',
     title: 'Six cities with their own page, because the search data says they are six markets.',
     lede: 'Each of these was written from that city&rsquo;s own keyword cluster, not from a template. Kerala&rsquo;s page is about freelancers because that is what Kerala searches for. Lucknow&rsquo;s leads on website development because that is what Lucknow searches for. Open two side by side.',
@@ -76,6 +76,32 @@ const ACTS = [
     ],
   },
 ];
+
+// The two sections that used to be bare HTML. Owned here now, with their own photos and motion.
+const KERALA = {
+  label: 'Kerala first',
+  title: 'The one thing a Mumbai or Bangalore agency cannot offer a Kerala business.',
+  lede: 'We are in Kochi. For a business in Ernakulam, Calicut, Thrissur or Trivandrum that means the person who builds your system can be in your office, look at how your team actually works, and come back. Remote delivery is not a compromise &mdash; we do it every day for clients in four countries &mdash; but when the choice exists, walking the shop floor is worth something no video call replaces.',
+  panels: [
+    { slug: 'in-kerala-green-road', cap: 'We can meet you', sub: 'Kochi, Ernakulam, Kakkanad, Thrippunithura &mdash; and reachable across Kerala. For the first conversation about a system that will run your business, that matters.', alt: 'A road through green Kerala countryside' },
+    { slug: 'in-working-a-machine-textiles', cap: 'We know the businesses here', sub: 'Textiles and garments, spices and food processing, marine exports, tourism, construction, ayurveda. The production layer differs by sector; the system of record does not.', alt: 'Working a machine in a textile workshop' },
+    { slug: 'uk-london-aerial-skyline', cap: 'Built to a standard set abroad', sub: 'The same team delivers for clients in the US, Canada, the UK and the Gulf. Kerala clients get that standard without the distance premium.', alt: 'Aerial view of the London skyline' },
+  ],
+};
+const COST = {
+  label: 'What it costs, and what actually drives it',
+  title: 'Nobody can quote your price from a package name.',
+  lede: '&ldquo;SEO charges in India&rdquo; is one of the most-searched questions in this market, and almost every answer is a number attached to a package that does not describe your situation. Here is what genuinely moves the figure, so you can judge any quote &mdash; ours or anyone else&rsquo;s.',
+  plate: { slug: 'in-working-by-the-window', cap: 'Five things move the number. None of them is the package name.', alt: 'Working through figures by a window in a quiet office' },
+  rows: [
+    ['How much technical work comes first', 'A site that is slow, badly structured or partly unindexed cannot rank whatever you publish on it. If that work is needed, it comes before content and it is where the early hours go.'],
+    ['How competitive your terms really are', 'Ranking in a city of twenty competitors and ranking nationally against funded brands are different projects with the same label.'],
+    ['Whether anyone can implement changes', 'Recommendations that sit in a developer queue for three months cost you three months. This is the single most common reason work stalls.'],
+    ['How much content genuinely has to be new', 'Most sites have more short-term upside in fixing and sharpening the pages they already have than in writing more.'],
+    ['Whether you need one discipline or three', 'A site rebuild plus search plus a system is three projects. Doing them in sequence is usually cheaper and always calmer than doing them at once.'],
+  ],
+  note: 'What to ask any supplier, including us: what will be done in the first thirty days, what will I have at the end of it, and what do I keep if I stop after three months? Compare those answers rather than the monthly figure &mdash; two quotes at the same price routinely describe completely different work.',
+};
 
 // A stylised Kerala coastline for the act-1 plate. Drawn once, top to bottom, when the plate is lit.
 // viewBox 0 0 200 600 -- a long thin strip; Kochi is the dot roughly two-thirds down.
@@ -195,23 +221,47 @@ const CSS = `
     .insDoors{ width:88%; }
     .insDoors .ins-shot{ aspect-ratio:5/4; }
   }
-  /* ---- the non-story sections: each gets its own one-shot ---- */
-  /* services: card-deal */
+  /* ---- services: card-deal (the pillars section keeps the template's own card CSS) ---- */
   html.ins-on #services .pillar-card{ opacity:0; transform:translateY(30px) rotate(-1.4deg); }
   html.ins-on #services.lit .pillar-card{ animation:insDeal .7s cubic-bezier(.2,.8,.2,1) forwards; animation-delay:calc(var(--d,0) * .12s); }
   @keyframes insDeal{ to{ opacity:1; transform:none; } }
-  /* kerala trio: rise in turn, icon pops after */
-  html.ins-on #in-kerala .erp-benefit{ opacity:0; transform:translateY(22px); }
-  html.ins-on #in-kerala .erp-benefit .erp-benefit-icon{ transform:scale(.6); }
-  html.ins-on #in-kerala.lit .erp-benefit{ animation:insLift .6s cubic-bezier(.2,.7,.2,1) forwards; animation-delay:calc(var(--d,0) * .14s); }
-  html.ins-on #in-kerala.lit .erp-benefit .erp-benefit-icon{ animation:insPop .5s cubic-bezier(.2,.9,.3,1.4) forwards; animation-delay:calc(var(--d,0) * .14s + .3s); }
-  /* cost table: rows wipe left to right */
-  html.ins-on #in-cost tbody tr, html.ins-on #in-cost table tr{ clip-path:inset(0 100% 0 0); }
-  html.ins-on #in-cost.lit table tr{ animation:insWipeR .55s cubic-bezier(.3,0,.2,1) forwards; animation-delay:calc(var(--d,0) * .09s); }
+
+  /* ---- kind: PANELS -- Kerala. Full-bleed dark band, three photo panels entering from alternating sides ---- */
+  .insPanels{ width:100vw; max-width:100vw; margin-left:calc(50% - 50vw); display:grid; grid-template-columns:1fr; gap:3px; }
+  .insPanels .panel{ position:relative; overflow:hidden; }
+  .insPanels .panel .ins-shot{ aspect-ratio:4/3; }
+  .insPanels .panel .ins-shot::after{ content:''; position:absolute; inset:0; background:linear-gradient(0deg, rgba(4,9,20,.94) 0%, rgba(4,9,20,.4) 50%, rgba(4,9,20,.1) 100%); }
+  .insPanels .panel .w{ position:absolute; z-index:2; inset:auto 0 0 0; padding:clamp(18px,2.4vw,34px); }
+  .insPanels .panel .ins-n{ font-family:var(--font-mono); font-size:.72rem; letter-spacing:.14em; color:var(--orange); display:block; margin-bottom:8px; }
+  .insPanels .panel .ins-cap{ color:#fff; font-size:clamp(1.15rem,1.9vw,1.55rem); max-width:22ch; }
+  .insPanels .panel .ins-sub{ color:rgba(255,255,255,.76); max-width:44ch; }
+  @media (min-width:860px){ .insPanels{ grid-template-columns:repeat(3,1fr); } .insPanels .panel .ins-shot{ aspect-ratio:3/4; } }
+  html.ins-on .insPanels .panel{ opacity:0; transform:translateX(-6%); }
+  html.ins-on .insPanels .panel:nth-child(even){ transform:translateX(6%); }
+  html.ins-on .insPanels.lit .panel{ animation:insSlideIn .8s cubic-bezier(.2,.8,.2,1) forwards; animation-delay:calc(var(--d,0) * .16s); }
+  @keyframes insSlideIn{ to{ opacity:1; transform:none; } }
+
+  /* ---- kind: DRIVERS -- the cost section. A photo plate, then five numbered rows that wipe in ---- */
+  .insDrivers .plate{ position:relative; overflow:hidden; width:100vw; max-width:100vw; margin-left:calc(50% - 50vw); margin-bottom:clamp(18px,2.6vw,36px); }
+  .insDrivers .plate .ins-shot{ aspect-ratio:21/9; }
+  .insDrivers .plate .ins-shot::after{ content:''; position:absolute; inset:0; background:linear-gradient(90deg, rgba(6,12,26,.86) 0%, rgba(6,12,26,.5) 50%, rgba(6,12,26,.15) 100%); }
+  .insDrivers .plate .w{ position:absolute; z-index:2; inset:auto 0 0 0; padding:clamp(20px,4vw,54px) max(4vw, calc(50% - 590px + 4vw)); }
+  .insDrivers .plate .ins-cap{ color:#fff; font-size:clamp(1.15rem,2.4vw,1.9rem); max-width:26ch; }
+  .insDrivers .rows{ max-width:1180px; width:92%; margin:0 auto; }
+  .insDrivers .row{ display:grid; grid-template-columns:64px 1fr; gap:clamp(14px,2.4vw,32px); align-items:start; padding:clamp(16px,2vw,24px) 0; border-top:1px solid var(--line); }
+  .insDrivers .row:last-of-type{ border-bottom:1px solid var(--line); }
+  .insDrivers .row .ix{ font-family:var(--font-mono); font-size:clamp(1.6rem,2.6vw,2.4rem); font-weight:700; line-height:1; color:var(--orange); letter-spacing:-.02em; }
+  .insDrivers .row h3{ font-size:clamp(1.02rem,1.4vw,1.2rem); margin:0 0 6px; color:var(--ink); }
+  .insDrivers .row p{ margin:0; color:var(--ink-soft); line-height:1.6; max-width:70ch; }
+  .insDrivers .note{ max-width:1180px; width:92%; margin:clamp(16px,2vw,26px) auto 0; font-size:.9rem; line-height:1.6; color:var(--ink-faint); border-left:3px solid var(--orange); padding-left:14px; }
+  @media (min-width:860px){ .insDrivers .row{ grid-template-columns:80px 1fr 1.4fr; } .insDrivers .row h3{ margin:0; padding-top:4px; } .insDrivers .row p{ padding-top:4px; } }
+  html.ins-on .insDrivers .row{ clip-path:inset(0 100% 0 0); }
+  html.ins-on .insDrivers.lit .row{ animation:insWipeR .6s cubic-bezier(.3,0,.2,1) forwards; animation-delay:calc(var(--d,0) * .11s); }
   @keyframes insWipeR{ to{ clip-path:inset(0 0 0 0); } }
+  @media (max-width:700px){ .insPanels .panel .w{ padding:18px; } .insDrivers .plate .ins-shot{ aspect-ratio:4/5; } .insDrivers .rows, .insDrivers .note{ width:88%; } }
 
   @media (prefers-reduced-motion: reduce){
-    html.ins-on #services .pillar-card, html.ins-on #in-kerala .erp-benefit, html.ins-on #in-kerala .erp-benefit .erp-benefit-icon, html.ins-on #in-cost table tr{ opacity:1 !important; transform:none !important; clip-path:none !important; animation:none !important; }
+    html.ins-on #services .pillar-card, html.ins-on .insPanels .panel, html.ins-on .insDrivers .row{ opacity:1 !important; transform:none !important; clip-path:none !important; animation:none !important; }
     html.ins-on .ins .ins-shot, html.ins-on .ins .w, html.ins-on .ins .ins-shot > .ins-img, html.ins-on .ins-head,
     html.ins-on .ins-coast-line, html.ins-on .ins-coast-dot, html.ins-on .ins-coast-label, html.ins-on .ins-pin{
       clip-path:none !important; opacity:1 !important; transform:none !important; animation:none !important; transition:none !important; stroke-dashoffset:0 !important;
@@ -223,9 +273,9 @@ const JS = `
    only here, so with JS off or reduced motion on, the whole picture story is simply visible. */
 (function () {
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    var frames = document.querySelectorAll('.ins .plate, .ins .beat, .ins .tile, .ins a.door, .ins-head, #services, #in-kerala, #in-cost');
+    var frames = document.querySelectorAll('.ins .plate, .ins .beat, .ins .tile, .ins a.door, .insPanels .panel, .ins-head, #services, .insPanels, .insDrivers');
     /* stagger indices for the non-story sections */
-    var groups = [['#services .pillar-card'], ['#in-kerala .erp-benefit'], ['#in-cost table tr']];
+    var groups = [['#services .pillar-card'], ['.insPanels .panel'], ['.insDrivers .row']];
     for (var g = 0; g < groups.length; g++) {
         var els = document.querySelectorAll(groups[g][0]);
         for (var e = 0; e < els.length; e++) els[e].style.setProperty('--d', e);
@@ -264,6 +314,46 @@ const words = (s, extra) => {
   return l.join('\n');
 };
 
+const KERALA_HTML = [
+  '<section class="ins-act tone-dark" id="in-kerala" aria-label="Kerala first">',
+  '    <div class="ins-head">',
+  '        <p class="ins-slate"><b>03</b> <span>' + KERALA.label + '</span></p>',
+  '        <h2 class="ins-title">' + KERALA.title + '</h2>',
+  '        <p class="ins-lede">' + KERALA.lede + '</p>',
+  '    </div>',
+  '    <div class="ins insPanels">',
+  ...KERALA.panels.map((p, i) => [
+    '        <div class="panel">',
+    shot(p, '(max-width:860px) 100vw, 34vw'),
+    '            <div class="w">',
+    '                <span class="ins-n">0' + (i + 1) + '</span>',
+    '                <p class="ins-cap">' + p.cap + '</p>',
+    '                <p class="ins-sub">' + p.sub + '</p>',
+    '            </div>',
+    '        </div>'].join('\n')),
+  '    </div>',
+  '</section>',
+].join('\n');
+const COST_HTML = [
+  '<section class="ins-act tone-light" id="in-cost" aria-label="What it costs">',
+  '    <div class="ins-head">',
+  '        <p class="ins-slate"><b>04</b> <span>' + COST.label + '</span></p>',
+  '        <h2 class="ins-title">' + COST.title + '</h2>',
+  '        <p class="ins-lede">' + COST.lede + '</p>',
+  '    </div>',
+  '    <div class="ins insDrivers">',
+  '        <div class="plate">',
+  shot(COST.plate, '100vw'),
+  '            <div class="w"><p class="ins-cap">' + COST.plate.cap + '</p></div>',
+  '        </div>',
+  '        <div class="rows">',
+  ...COST.rows.map((r, i) => '            <div class="row"><span class="ix">0' + (i + 1) + '</span><h3>' + r[0] + '</h3><p>' + r[1] + '</p></div>'),
+  '        </div>',
+  '        <p class="note">' + COST.note + '</p>',
+  '    </div>',
+  '</section>',
+].join('\n');
+
 const BODY = {
   coast: a => '    <div class="ins insCoast">\n'
     + '        <div class="plate">\n' + shot(a.hero, '100vw') + '\n' + COAST + '\n' + words(a.hero) + '\n        </div>\n'
@@ -293,7 +383,7 @@ function strip(s) {
 
 // no photo on this page may appear anywhere else on the site
 const mine = new Set();
-for (const a of ACTS) for (const s of a.shots.concat(a.hero ? [a.hero] : [])) {
+for (const a of ACTS.concat([{ shots: KERALA.panels.concat([COST.plate]) }])) for (const s of a.shots.concat(a.hero ? [a.hero] : [])) {
   if (mine.has(s.slug)) throw new Error('photo ' + s.slug + ' used twice on /in/');
   mine.add(s.slug);
 }
@@ -322,6 +412,11 @@ else {
   const styleEnd = s.indexOf('</style>');
   s = s.slice(0, styleEnd) + '\n' + C0 + CSS + '\n' + C1 + '\n' + s.slice(styleEnd);
 
+  // the two bare-HTML sections become designed blocks owned by this layer
+  s = s.replace(/<section class="tap-section" id="in-kerala">[\s\S]*?<\/section>\n?/, KERALA_HTML + '\n');
+  s = s.replace(/<section class="tap-section tap-section-alt" id="in-cost">[\s\S]*?<\/section>\n?/, COST_HTML + '\n');
+  L.must(s, 'class="ins insPanels"', 1); L.must(s, 'class="ins insDrivers"', 1);
+
   // acts 1 and 2 go after the answer block (before the pillars); act 3 replaces the city grid before the cost section
   const film12 = ACTS.slice(0, 2).map(a => ['<section class="ins-act tone-' + a.tone + '" aria-label="' + L.esc(a.label) + '">', head(a), BODY[a.kind](a), '</section>'].join('\n')).join('\n\n');
   const film3 = ACTS.slice(2).map(a => ['<section class="ins-act tone-' + a.tone + '" aria-label="' + L.esc(a.label) + '">', head(a), BODY[a.kind](a), '</section>'].join('\n')).join('\n\n');
@@ -339,7 +434,7 @@ else {
   const bodyEnd = s.lastIndexOf('</body>');
   s = s.slice(0, bodyEnd) + '<script>\n' + J0 + JS + '\n' + J1 + '\n</script>\n' + s.slice(bodyEnd);
 
-  L.must(s, 'class="ins-act', ACTS.length);
+  L.must(s, 'class="ins-act', ACTS.length + 2);   // 3 story acts + the Kerala panels + the cost drivers
   L.must(s, 'class="ins-coast"', 1);
   L.write(FILE, s);
   console.log('/in/ rebuilt: ' + ACTS.length + ' acts, ' + mine.size + ' photographs, coastline signature');

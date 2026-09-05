@@ -785,23 +785,47 @@
     .insDoors{ width:88%; }
     .insDoors .ins-shot{ aspect-ratio:5/4; }
   }
-  /* ---- the non-story sections: each gets its own one-shot ---- */
-  /* services: card-deal */
+  /* ---- services: card-deal (the pillars section keeps the template's own card CSS) ---- */
   html.ins-on #services .pillar-card{ opacity:0; transform:translateY(30px) rotate(-1.4deg); }
   html.ins-on #services.lit .pillar-card{ animation:insDeal .7s cubic-bezier(.2,.8,.2,1) forwards; animation-delay:calc(var(--d,0) * .12s); }
   @keyframes insDeal{ to{ opacity:1; transform:none; } }
-  /* kerala trio: rise in turn, icon pops after */
-  html.ins-on #in-kerala .erp-benefit{ opacity:0; transform:translateY(22px); }
-  html.ins-on #in-kerala .erp-benefit .erp-benefit-icon{ transform:scale(.6); }
-  html.ins-on #in-kerala.lit .erp-benefit{ animation:insLift .6s cubic-bezier(.2,.7,.2,1) forwards; animation-delay:calc(var(--d,0) * .14s); }
-  html.ins-on #in-kerala.lit .erp-benefit .erp-benefit-icon{ animation:insPop .5s cubic-bezier(.2,.9,.3,1.4) forwards; animation-delay:calc(var(--d,0) * .14s + .3s); }
-  /* cost table: rows wipe left to right */
-  html.ins-on #in-cost tbody tr, html.ins-on #in-cost table tr{ clip-path:inset(0 100% 0 0); }
-  html.ins-on #in-cost.lit table tr{ animation:insWipeR .55s cubic-bezier(.3,0,.2,1) forwards; animation-delay:calc(var(--d,0) * .09s); }
+
+  /* ---- kind: PANELS -- Kerala. Full-bleed dark band, three photo panels entering from alternating sides ---- */
+  .insPanels{ width:100vw; max-width:100vw; margin-left:calc(50% - 50vw); display:grid; grid-template-columns:1fr; gap:3px; }
+  .insPanels .panel{ position:relative; overflow:hidden; }
+  .insPanels .panel .ins-shot{ aspect-ratio:4/3; }
+  .insPanels .panel .ins-shot::after{ content:''; position:absolute; inset:0; background:linear-gradient(0deg, rgba(4,9,20,.94) 0%, rgba(4,9,20,.4) 50%, rgba(4,9,20,.1) 100%); }
+  .insPanels .panel .w{ position:absolute; z-index:2; inset:auto 0 0 0; padding:clamp(18px,2.4vw,34px); }
+  .insPanels .panel .ins-n{ font-family:var(--font-mono); font-size:.72rem; letter-spacing:.14em; color:var(--orange); display:block; margin-bottom:8px; }
+  .insPanels .panel .ins-cap{ color:#fff; font-size:clamp(1.15rem,1.9vw,1.55rem); max-width:22ch; }
+  .insPanels .panel .ins-sub{ color:rgba(255,255,255,.76); max-width:44ch; }
+  @media (min-width:860px){ .insPanels{ grid-template-columns:repeat(3,1fr); } .insPanels .panel .ins-shot{ aspect-ratio:3/4; } }
+  html.ins-on .insPanels .panel{ opacity:0; transform:translateX(-6%); }
+  html.ins-on .insPanels .panel:nth-child(even){ transform:translateX(6%); }
+  html.ins-on .insPanels.lit .panel{ animation:insSlideIn .8s cubic-bezier(.2,.8,.2,1) forwards; animation-delay:calc(var(--d,0) * .16s); }
+  @keyframes insSlideIn{ to{ opacity:1; transform:none; } }
+
+  /* ---- kind: DRIVERS -- the cost section. A photo plate, then five numbered rows that wipe in ---- */
+  .insDrivers .plate{ position:relative; overflow:hidden; width:100vw; max-width:100vw; margin-left:calc(50% - 50vw); margin-bottom:clamp(18px,2.6vw,36px); }
+  .insDrivers .plate .ins-shot{ aspect-ratio:21/9; }
+  .insDrivers .plate .ins-shot::after{ content:''; position:absolute; inset:0; background:linear-gradient(90deg, rgba(6,12,26,.86) 0%, rgba(6,12,26,.5) 50%, rgba(6,12,26,.15) 100%); }
+  .insDrivers .plate .w{ position:absolute; z-index:2; inset:auto 0 0 0; padding:clamp(20px,4vw,54px) max(4vw, calc(50% - 590px + 4vw)); }
+  .insDrivers .plate .ins-cap{ color:#fff; font-size:clamp(1.15rem,2.4vw,1.9rem); max-width:26ch; }
+  .insDrivers .rows{ max-width:1180px; width:92%; margin:0 auto; }
+  .insDrivers .row{ display:grid; grid-template-columns:64px 1fr; gap:clamp(14px,2.4vw,32px); align-items:start; padding:clamp(16px,2vw,24px) 0; border-top:1px solid var(--line); }
+  .insDrivers .row:last-of-type{ border-bottom:1px solid var(--line); }
+  .insDrivers .row .ix{ font-family:var(--font-mono); font-size:clamp(1.6rem,2.6vw,2.4rem); font-weight:700; line-height:1; color:var(--orange); letter-spacing:-.02em; }
+  .insDrivers .row h3{ font-size:clamp(1.02rem,1.4vw,1.2rem); margin:0 0 6px; color:var(--ink); }
+  .insDrivers .row p{ margin:0; color:var(--ink-soft); line-height:1.6; max-width:70ch; }
+  .insDrivers .note{ max-width:1180px; width:92%; margin:clamp(16px,2vw,26px) auto 0; font-size:.9rem; line-height:1.6; color:var(--ink-faint); border-left:3px solid var(--orange); padding-left:14px; }
+  @media (min-width:860px){ .insDrivers .row{ grid-template-columns:80px 1fr 1.4fr; } .insDrivers .row h3{ margin:0; padding-top:4px; } .insDrivers .row p{ padding-top:4px; } }
+  html.ins-on .insDrivers .row{ clip-path:inset(0 100% 0 0); }
+  html.ins-on .insDrivers.lit .row{ animation:insWipeR .6s cubic-bezier(.3,0,.2,1) forwards; animation-delay:calc(var(--d,0) * .11s); }
   @keyframes insWipeR{ to{ clip-path:inset(0 0 0 0); } }
+  @media (max-width:700px){ .insPanels .panel .w{ padding:18px; } .insDrivers .plate .ins-shot{ aspect-ratio:4/5; } .insDrivers .rows, .insDrivers .note{ width:88%; } }
 
   @media (prefers-reduced-motion: reduce){
-    html.ins-on #services .pillar-card, html.ins-on #in-kerala .erp-benefit, html.ins-on #in-kerala .erp-benefit .erp-benefit-icon, html.ins-on #in-cost table tr{ opacity:1 !important; transform:none !important; clip-path:none !important; animation:none !important; }
+    html.ins-on #services .pillar-card, html.ins-on .insPanels .panel, html.ins-on .insDrivers .row{ opacity:1 !important; transform:none !important; clip-path:none !important; animation:none !important; }
     html.ins-on .ins .ins-shot, html.ins-on .ins .w, html.ins-on .ins .ins-shot > .ins-img, html.ins-on .ins-head,
     html.ins-on .ins-coast-line, html.ins-on .ins-coast-dot, html.ins-on .ins-coast-label, html.ins-on .ins-pin{
       clip-path:none !important; opacity:1 !important; transform:none !important; animation:none !important; transition:none !important; stroke-dashoffset:0 !important;
@@ -1198,51 +1222,67 @@
     </div>
 </section>
 
-<section class="tap-section" id="in-kerala">
-    <div class="container">
-        <p class="section-label">&#9670; Kerala first</p>
-        <h2 class="section-title">The one thing a Mumbai or Bangalore agency cannot offer a Kerala business.</h2>
-        <p class="us-lead">We are in Kochi. For a business in Ernakulam, Calicut, Thrissur or Trivandrum that means the person who builds your system can be in your office, look at how your team actually works, and come back. Nothing about remote delivery is bad &mdash; we do it every day for clients in four countries &mdash; but when the choice is available, being able to walk the shop floor is worth something no video call replaces.</p>
-        <div class="erp-benefit-row">
-            <div class="erp-benefit">
-                <div class="erp-benefit-icon">🤝</div>
-                <h3>We can meet you</h3>
-                <p>Kochi, Ernakulam, Kakkanad, Thrippunithura &mdash; and reachable across Kerala. For the first conversation about a system that will run your business, that matters.</p>
+<section class="ins-act tone-dark" id="in-kerala" aria-label="Kerala first">
+    <div class="ins-head">
+        <p class="ins-slate"><b>03</b> <span>Kerala first</span></p>
+        <h2 class="ins-title">The one thing a Mumbai or Bangalore agency cannot offer a Kerala business.</h2>
+        <p class="ins-lede">We are in Kochi. For a business in Ernakulam, Calicut, Thrissur or Trivandrum that means the person who builds your system can be in your office, look at how your team actually works, and come back. Remote delivery is not a compromise &mdash; we do it every day for clients in four countries &mdash; but when the choice exists, walking the shop floor is worth something no video call replaces.</p>
+    </div>
+    <div class="ins insPanels">
+        <div class="panel">
+            <div class="ins-shot"><img class="ins-img" src="/assets/images/library/in-kerala-green-road.jpg" srcset="/assets/images/library/in-kerala-green-road-700.jpg 700w, /assets/images/library/in-kerala-green-road-1400.jpg 1400w, /assets/images/library/in-kerala-green-road.jpg 2400w" sizes="(max-width:860px) 100vw, 34vw" alt="A road through green Kerala countryside" width="2400" height="1800" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <span class="ins-n">01</span>
+                <p class="ins-cap">We can meet you</p>
+                <p class="ins-sub">Kochi, Ernakulam, Kakkanad, Thrippunithura &mdash; and reachable across Kerala. For the first conversation about a system that will run your business, that matters.</p>
             </div>
-            <div class="erp-benefit">
-                <div class="erp-benefit-icon">🏭</div>
-                <h3>We know the businesses here</h3>
-                <p>Textiles and garments, spices and food processing, marine exports, tourism, construction, ayurveda and healthcare. The production layer differs by sector; the system of record does not.</p>
+        </div>
+        <div class="panel">
+            <div class="ins-shot"><img class="ins-img" src="/assets/images/library/in-working-a-machine-textiles.jpg" srcset="/assets/images/library/in-working-a-machine-textiles-700.jpg 700w, /assets/images/library/in-working-a-machine-textiles-1400.jpg 1400w, /assets/images/library/in-working-a-machine-textiles.jpg 2400w" sizes="(max-width:860px) 100vw, 34vw" alt="Working a machine in a textile workshop" width="2400" height="1600" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <span class="ins-n">02</span>
+                <p class="ins-cap">We know the businesses here</p>
+                <p class="ins-sub">Textiles and garments, spices and food processing, marine exports, tourism, construction, ayurveda. The production layer differs by sector; the system of record does not.</p>
             </div>
-            <div class="erp-benefit">
-                <div class="erp-benefit-icon">🌐</div>
-                <h3>Built to a standard set abroad</h3>
-                <p>The same team delivers for clients in the US, Canada, the UK and the Gulf. Kerala clients get that standard without the distance premium.</p>
+        </div>
+        <div class="panel">
+            <div class="ins-shot"><img class="ins-img" src="/assets/images/library/uk-london-aerial-skyline.jpg" srcset="/assets/images/library/uk-london-aerial-skyline-700.jpg 700w, /assets/images/library/uk-london-aerial-skyline-1400.jpg 1400w, /assets/images/library/uk-london-aerial-skyline.jpg 2400w" sizes="(max-width:860px) 100vw, 34vw" alt="Aerial view of the London skyline" width="2400" height="1600" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <span class="ins-n">03</span>
+                <p class="ins-cap">Built to a standard set abroad</p>
+                <p class="ins-sub">The same team delivers for clients in the US, Canada, the UK and the Gulf. Kerala clients get that standard without the distance premium.</p>
             </div>
         </div>
     </div>
 </section>
 
-<section class="tap-section tap-section-alt" id="in-cost">
-    <div class="container">
-        <p class="section-label">&#9670; What it costs, and what actually drives it</p>
-        <h2 class="section-title">Nobody can quote your price from a package name.</h2>
-        <p class="us-lead">&ldquo;SEO charges in India&rdquo; is one of the most-searched questions in this market, and almost every answer is a number attached to a package that does not describe your situation. Here is what genuinely moves the figure, so you can judge any quote &mdash; ours or anyone else&rsquo;s.</p>
-        <div class="article-table-wrap"><table>
-            <tr><th>What drives the cost</th><th>Why it moves the number so much</th></tr>
-            <tr><th>How much technical work comes first</th><td>A site that is slow, badly structured or partly unindexed cannot rank whatever you publish on it. If that work is needed, it comes before content and it is where the early hours go</td></tr>
-            <tr><th>How competitive your terms really are</th><td>Ranking in a city of twenty competitors and ranking nationally against funded brands are different projects with the same label</td></tr>
-            <tr><th>Whether anyone can implement changes</th><td>Recommendations that sit in a developer queue for three months cost you three months. This is the single most common reason work stalls</td></tr>
-            <tr><th>How much content genuinely has to be new</th><td>Most sites have more short-term upside in fixing and sharpening the pages they already have than in writing more</td></tr>
-            <tr><th>Whether you need one discipline or three</th><td>A site rebuild plus search plus a system is three projects. Doing them in sequence is usually cheaper and always calmer than doing them at once</td></tr>
-        </table></div>
-        <p class="us-cost-note">What to ask any supplier, including us: what will be done in the first thirty days, what will I have at the end of it, and what do I keep if I stop after three months? Compare those answers rather than the monthly figure &mdash; two quotes at the same price routinely describe completely different work.</p>
+
+<section class="ins-act tone-light" id="in-cost" aria-label="What it costs">
+    <div class="ins-head">
+        <p class="ins-slate"><b>04</b> <span>What it costs, and what actually drives it</span></p>
+        <h2 class="ins-title">Nobody can quote your price from a package name.</h2>
+        <p class="ins-lede">&ldquo;SEO charges in India&rdquo; is one of the most-searched questions in this market, and almost every answer is a number attached to a package that does not describe your situation. Here is what genuinely moves the figure, so you can judge any quote &mdash; ours or anyone else&rsquo;s.</p>
+    </div>
+    <div class="ins insDrivers">
+        <div class="plate">
+            <div class="ins-shot"><img class="ins-img" src="/assets/images/library/in-working-by-the-window.jpg" srcset="/assets/images/library/in-working-by-the-window-700.jpg 700w, /assets/images/library/in-working-by-the-window-1400.jpg 1400w, /assets/images/library/in-working-by-the-window.jpg 2400w" sizes="100vw" alt="Working through figures by a window in a quiet office" width="2400" height="1800" loading="lazy" decoding="async" /></div>
+            <div class="w"><p class="ins-cap">Five things move the number. None of them is the package name.</p></div>
+        </div>
+        <div class="rows">
+            <div class="row"><span class="ix">01</span><h3>How much technical work comes first</h3><p>A site that is slow, badly structured or partly unindexed cannot rank whatever you publish on it. If that work is needed, it comes before content and it is where the early hours go.</p></div>
+            <div class="row"><span class="ix">02</span><h3>How competitive your terms really are</h3><p>Ranking in a city of twenty competitors and ranking nationally against funded brands are different projects with the same label.</p></div>
+            <div class="row"><span class="ix">03</span><h3>Whether anyone can implement changes</h3><p>Recommendations that sit in a developer queue for three months cost you three months. This is the single most common reason work stalls.</p></div>
+            <div class="row"><span class="ix">04</span><h3>How much content genuinely has to be new</h3><p>Most sites have more short-term upside in fixing and sharpening the pages they already have than in writing more.</p></div>
+            <div class="row"><span class="ix">05</span><h3>Whether you need one discipline or three</h3><p>A site rebuild plus search plus a system is three projects. Doing them in sequence is usually cheaper and always calmer than doing them at once.</p></div>
+        </div>
+        <p class="note">What to ask any supplier, including us: what will be done in the first thirty days, what will I have at the end of it, and what do I keep if I stop after three months? Compare those answers rather than the monthly figure &mdash; two quotes at the same price routinely describe completely different work.</p>
     </div>
 </section>
 
+
 <section class="ins-act tone-dark" aria-label="Where the work goes">
     <div class="ins-head">
-        <p class="ins-slate"><b>03</b> <span>Where the work goes</span></p>
+        <p class="ins-slate"><b>05</b> <span>Where the work goes</span></p>
         <h2 class="ins-title">Six cities with their own page, because the search data says they are six markets.</h2>
         <p class="ins-lede">Each of these was written from that city&rsquo;s own keyword cluster, not from a template. Kerala&rsquo;s page is about freelancers because that is what Kerala searches for. Lucknow&rsquo;s leads on website development because that is what Lucknow searches for. Open two side by side.</p>
     </div>
@@ -2257,9 +2297,9 @@ document.addEventListener('DOMContentLoaded', function() {
    only here, so with JS off or reduced motion on, the whole picture story is simply visible. */
 (function () {
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    var frames = document.querySelectorAll('.ins .plate, .ins .beat, .ins .tile, .ins a.door, .ins-head, #services, #in-kerala, #in-cost');
+    var frames = document.querySelectorAll('.ins .plate, .ins .beat, .ins .tile, .ins a.door, .insPanels .panel, .ins-head, #services, .insPanels, .insDrivers');
     /* stagger indices for the non-story sections */
-    var groups = [['#services .pillar-card'], ['#in-kerala .erp-benefit'], ['#in-cost table tr']];
+    var groups = [['#services .pillar-card'], ['.insPanels .panel'], ['.insDrivers .row']];
     for (var g = 0; g < groups.length; g++) {
         var els = document.querySelectorAll(groups[g][0]);
         for (var e = 0; e < els.length; e++) els[e].style.setProperty('--d', e);

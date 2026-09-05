@@ -158,4 +158,47 @@ inside `@supports`, movement only — never opacity.
   the story layer is hub-only.
 - `L.setFinalCta(s, h2, note)` is positional. Passing an object renders `[object Object]`.
 - Footer inherits the CA template: fix tagline (offshore swap doubles "dedicated") and the
+- Never reuse a class from another template (.erp-benefit-row, .article-table-wrap) without checking
+  the target page actually carries its CSS. Bare HTML is the result.
   "SERVING ... CANADA" cities line on every India page.
+
+---
+
+- **Every page gets its own design, not only its own photos** (owner, 2026-09-05: "every page new designs… storytelling, I mean the design"). A new page never inherits another page's section layouts or motion; it gets its own signature (§2.2), its own section shapes, its own reveal choreography. Shared: nav, footer, type scale, colours, final CTA. Nothing else.
+- **Reveal scoping rule** (bug found 2026-09-05): a reveal keyed on `.ins .lit .x` needs `lit` on a frame *inside* `.ins`. Whatever the observer lights must be the element the CSS expects — measure with a computed-style diagnostic (`/tmp/diag_panels.js` pattern), not by eye.
+- **Slates number in DOM order.** Sections replaced in place + sections inserted later drift; re-read the built HTML.
+
+## 8. SERP parity — Kerala (crawled 2026-09-04, live Google)
+
+Queries: `seo expert kerala` · `best seo company in kerala` · `freelance seo kerala`.
+**The SERP is owned by individual freelancers' personal-brand sites**, not agencies. Our honest angle
+(team vs freelancer, said plainly) matches the intent instead of fighting it.
+
+| Ranking page | Words | FAQs | Price stated | Claims carried |
+|---|---|---|---|---|
+| jijojosephseo.in | ~8,500 | 10 | "from ₹9,000/mo" | 14+ yrs · 300+ projects · 1,000+ audits · 12k students · Google + HubSpot certs · 10+ testimonials · 7 logos · Clutch/Trustpilot badges |
+| techpullers.com | ~6,500 | 6 | ₹25k–40k / 40k–75k / 75k+ per mo | 13+ yrs · 100+ projects · Clutch 5.0 · Google Partner · 6 case studies · 10+ logos · 14 cities |
+| graffiti9.com/seo-expert-kerala | ~3,500 | 4 | none | 17+ yrs · 400+ projects · "10,376+ leads" · 5 testimonials · 9 logos · 3 case studies · team of 7 |
+| seoexpertkiran.in | ~2,800 | 8 | from ₹6,000/mo, rec. ₹20,000 | Google/HubSpot/SEMrush certs · 73 Google reviews 4.9 · 6 logos |
+| sanoopbalan.com/services/seo-expert-kerala | ~2,500 | 11 | ₹8k–50k/mo | 10+ yrs · all 14 districts listed · GEO/AEO section · Knowledge Panel |
+
+**Every one carries:** a named person + story · years + project counts · Google/HubSpot certs ·
+client logos · testimonials · a services list (technical, local/GBP, ecommerce, links, content,
+reporting) · a process · a cities list · WhatsApp CTA · FAQ.
+
+**To be directly competitive, `/in/kerala/` needs, minimum:**
+- 3,500–4,500 words (currently ~1,200)
+- 10–12 FAQs (currently 5), answers in the first sentence
+- the founder, named, with story and photo (`assets/images/founder/aji-paul.webp` exists)
+- the **real** certificates already on `/seo-audit-kochi/` (GA4, Google Ads, Semrush, Digital
+  Marketing — `videos/mainvideos/Certificates/`) — genuine E-E-A-T, currently unused on India pages
+- the trust strip figures (250+ projects · 128+ clients · 16 countries · 4.9/5) stated in prose too
+- all 14 Kerala districts named
+- services incl. GEO/AEO (only Sanoop has it — an opening)
+- the market price range **attributed** ("published Kerala retainers run ₹6,000–₹75,000/mo") — never ours
+- a freelancer-vs-team comparison table, which none of them have
+- 6+ Kerala photographs, own signature ("one becomes many"), per-section motion
+- what none of them have: honest caveats, "when a freelancer is the better answer", a written
+  monthly report shown, a weekly staging URL
+
+Same method for every other page before it is written: search → crawl top 3–5 → table → build to beat.
