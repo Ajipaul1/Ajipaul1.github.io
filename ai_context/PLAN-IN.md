@@ -45,7 +45,7 @@ marine, tourism, ayurveda) → *where the work goes* (six city doors) → *what 
 | Page | Winnable/mo | Med KD | What the cluster asks for | Signature animation | Photo set |
 |---|---|---|---|---|---|
 | `/in/mumbai/` **— REBUILT 2026-09-05 to §9 parity (`in_mumbai.js`, ~4,770 words, 12 FAQs, e-commerce spine, Navi Mumbai/Thane, railway-line localities, 11 photos)** | 29,940 | 19 | agency · ecommerce · WordPress · Navi Mumbai | **the sea link** — a bridge of dashes connecting island city to Navi Mumbai, lit segment by segment | Marine Drive, Sea Link, Gateway, a D2C parcel, a warehouse |
-| `/in/kolkata/` | 14,900 | 18 | consultant vs company (unique to this city) | **the two columns** — consultant and company weighed on a scale that settles | Howrah bridge, tram, Park Street, a single desk, a team table |
+| `/in/kolkata/` **— REBUILT 2026-09-05 to §10 parity (`in_kolkata.js`, ~4,440 words, 12 FAQs, the scale, profile card, terminal, tram route, price ladder, 12 photos)** | 14,900 | 18 | consultant vs company (unique to this city) | **the two columns** — consultant and company weighed on a scale that settles | Howrah bridge, tram, Park Street, a single desk, a team table |
 | `/in/kerala/` **— REBUILT 2026-09-05 to §8 parity (`in_kerala.js`, 5,131 words, 12 FAQs, founder + 4 real certificates, 14 districts, 11 photos)** | 8,010 | 14 | freelancer intent — 4 of top 7 terms | **one becomes many** — a single dot that multiplies into a team as you scroll | backwaters, tea, a loom, spices, a fishing harbour |
 | `/in/vadodara/` | 6,000 | 14 | one huge term + technical buyers | **the specification sheet** — a datasheet that fills in row by row | chemical plant, pipework, a lab, Laxmi Vilas, a machine shop |
 | `/in/lucknow/` | 5,740 | 17 | website development leads, not SEO | **the handover** — repo → hosting → domain → yours, four keys turning | Bara Imambara, Hazratganj, a developer, a laptop on a desk |
@@ -168,7 +168,7 @@ inside `@supports`, movement only — never opacity.
 - **Reveal scoping rule** (bug found 2026-09-05): a reveal keyed on `.ins .lit .x` needs `lit` on a frame *inside* `.ins`. Whatever the observer lights must be the element the CSS expects — measure with a computed-style diagnostic (`/tmp/diag_panels.js` pattern), not by eye.
 - **Slates number in DOM order.** Sections replaced in place + sections inserted later drift; re-read the built HTML.
 
-- **India rebuild order is fixed:** `in_hub.js → in_city.js → in_story.js → in_kerala.js → in_mumbai.js` (each later step destructively edits what the earlier one wrote; none is idempotent alone). `in_kerala.js` asserts it is reading a fresh `in_city` skeleton.
+- **India rebuild order is fixed:** `in_hub.js → in_city.js → in_story.js → in_kerala.js → in_mumbai.js → in_kolkata.js` (each later step destructively edits what the earlier one wrote; none is idempotent alone). `in_kerala.js` asserts it is reading a fresh `in_city` skeleton.
 - **`scripts/verify/overflow.js <path> [width]`** names every element extending past the viewport — run it at 1440 and 390 before any screenshot review; a `margin:` shorthand written after a `margin-left:calc(50% - 50vw)` bleed silently resets it (found on Mumbai).
 - **Verify with `scripts/verify/jsoff.js <path> <scope>`** (JS disabled → hidden must be 0) as well as `shot.js`; scope to the page's own sections, the template nav dropdowns are hidden by design.
 
@@ -240,3 +240,33 @@ a numbered process · industries list · an office address in Mumbai · form + W
 - what none of them have: the ERP angle (140/KD11 + the stock-truth problem), the hire checklist, "what you keep"
 - 8–10 Mumbai photographs of its own (sea link, Marine Drive, local train, market, harbour, high-rises, warehouse), own
   signature — **the sea link** per §2.2 — and per-section motion unlike Kerala's
+
+## 10. SERP parity — Kolkata (crawled 2026-09-05, live Google)
+
+Queries: `seo company in kolkata` (1,900/KD15) · `seo consultant kolkata` (1,000/KD21) · `best seo expert in kolkata`.
+Cluster: 35 winnable terms, 15,010/mo; `seo consultant (in) kolkata` 1,590 combined — the consultant intent is unique to
+this city; `local seo kolkata` 480/KD10; ecommerce website development 260+260+210; Salt Lake as a sub-locality.
+**The SERP is mixed — agencies AND named consultants — and it is the most price-published market in the data.**
+
+| Ranking page | Words | FAQs | Price stated | Claims carried |
+|---|---|---|---|---|
+| digitalpiloto.com/seo-company-kolkata | ~15,000 | many | ₹15,000 – ₹2L/mo, cost calculator | est. 2017 · 55+ staff · 4.9★/101 · Google Partner · ISO 9001 + 27001 · 5 case studies (80%/74%) · 8 video testimonials · 18+ logos · 20+ localities |
+| houseofleads.in | ~8,500 | 12 | ₹7,500 / ₹15,000 / ₹22,000 tiers | 100+ businesses · 2 named SEOs · 5 traffic graphs · AI-search angle |
+| seocontrol.net (home) | ~8,500 | 12 | ₹15k–₹50k retainers · ₹2k–5k/hr · ₹50k–₹2L projects | 8 yrs · 4.9★/3,349 · BYJU'S/ZEE5/Raymond logos · 19 technical items · Salt Lake Sector V · (page carries casino spam) |
+| amlanmaiti.co.in/seo-expert/kolkata | ~3,500 | 0 | none | consultant · 15+ yrs · 20 case studies with % · AI/GEO/SAO heavy · 200+ city pages · stats show "0+" placeholders |
+| krishnaseo.com/seo-expert-kolkata | ~3,000 | 0 | none | consultant · 9+ yrs · certified · no cases/testimonials/logos |
+| thebrandatory.com/seo-services-kolkata | ~3,000 | 6 | "from ₹15,000" | since 2019 · 4 testimonials · 15 logos · 14 services |
+
+**Every agency carries:** price or package · logos · a Kolkata address (Salt Lake, Park Street, Jadavpur…) · 12+ services ·
+video/YouTube proof. **Every consultant carries:** a name, years, case-study percentages, no FAQ, no price.
+
+**To be directly competitive, `/in/kolkata/` needs, minimum:**
+- 4,500+ words · 12 FAQs (the two consultants have none — an opening)
+- **consultant vs company weighed honestly** (§2.2 signature: the two columns / the scale) — the cluster's unique intent
+- the market price range **attributed** (₹7,500–₹22,000 tiers; ₹15,000–₹50,000 retainers; ₹15,000–₹2L) — never ours; and why a ₹7,500 tier and a ₹2L tier have the same name
+- **local SEO as the first thirty days** (480/KD10, and the audit-free observation from the data: incomplete profiles everywhere)
+- the technical layer named item by item (SEOControl sells 19 — we do the engineering half every day)
+- localities: Salt Lake Sector V, New Town/Rajarhat, Park Street, Ballygunge, Alipore, Tollygunge, Jadavpur, Behala, Dum Dum, Howrah, Garia, Barasat
+- ecommerce website development (three terms) + website developer (480)
+- what none of them have: "what you keep", the weekly staging URL, "when a consultant is the better answer", no office said first
+- 8–10 Kolkata photographs of its own (Howrah, Vidyasagar Setu, tram, taxi, Victoria Memorial, markets, flower sellers), own signature and per-section motion unlike Kerala's and Mumbai's
