@@ -245,10 +245,7 @@ body += `<section class="tap-pillars-section" id="services">
 `;
 
 s = L.setBody(s, body);
-s = L.setFinalCta(s, {
-  h2: 'Let&rsquo;s look at one real process together.',
-  p: 'Book a free strategy call. We go through one process or one page with you and tell you honestly where the leverage is &mdash; including the times the answer is that you do not need us yet. The findings are yours to keep, and nothing is on a long-term contract.',
-});
+s = L.setFinalCta(s, 'Let&rsquo;s look at one real process together.', 'Takes 60 seconds &middot; The findings are yours to keep &middot; No long-term contract');
 
 // ---- the two positioning rules, enforced ------------------------------------------------------
 // "offshore" is right on every other market page and wrong on this one.

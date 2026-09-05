@@ -255,10 +255,7 @@ for (const c of CITIES) {
   body += L.faqHtml('city-faq', 'Questions we get from ' + c.name, 'Straight answers, including the ones that send you elsewhere.', c.faqs);
 
   s = L.setBody(s, body);
-  s = L.setFinalCta(s, {
-    h2: `Let&rsquo;s look at one real page together.`,
-    p: `Book a free strategy call. We go through one page or one process with you and tell you honestly where the leverage is for a ${c.name} business &mdash; including the times the answer is that you do not need us yet.`,
-  });
+  s = L.setFinalCta(s, 'Let&rsquo;s look at one real page together.', 'Takes 60 seconds &middot; For ' + c.name + ' businesses &middot; No long-term contract');
 
   // the standing India rules, enforced per page
   s = s.replace(/[Oo]ffshore/g, m => (m[0] === 'O' ? 'Dedicated' : 'dedicated'));

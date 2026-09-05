@@ -662,6 +662,123 @@
     .header-logo .logo-text{ font-size:1.1rem; }
     .header-logo .logo-tagline{ display:none; }
   }
+
+/* in-story-css:start */
+  /* ================= in_story.js : the India hub in pictures ================= */
+  .ins{ position:relative; }
+  .ins-img{ display:block; width:100%; height:100%; object-fit:cover; }
+  .ins-act{ position:relative; overflow-x:hidden; overflow-x:clip; padding:clamp(52px,7vw,104px) 0; }
+  .ins-act.tone-dark{ background:var(--navy-deep); color:#fff; }
+  .ins-act.tone-light{ background:var(--paper); }
+  .ins-head{ max-width:1180px; width:92%; margin:0 auto clamp(26px,3.6vw,52px); }
+  .ins-slate{ display:flex; align-items:baseline; gap:14px; margin:0 0 14px; }
+  .ins-slate b{ font-family:var(--font-mono); font-size:clamp(2.2rem,5vw,4.4rem); line-height:.85; font-weight:700; color:var(--orange); letter-spacing:-.02em; }
+  .ins-slate span{ font-family:var(--font-mono); font-size:.7rem; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-faint); }
+  .tone-dark .ins-slate span{ color:rgba(255,255,255,.5); }
+  .ins-title{ font-size:clamp(1.6rem,3.6vw,3rem); line-height:1.08; font-weight:800; margin:0 0 14px; max-width:26ch; color:var(--ink); }
+  .tone-dark .ins-title{ color:#fff; }
+  .ins-lede{ font-size:clamp(.95rem,1.15vw,1.06rem); line-height:1.66; color:var(--ink-soft); margin:0; max-width:64ch; }
+  .tone-dark .ins-lede{ color:rgba(255,255,255,.72); }
+  .ins-cap{ font-weight:700; line-height:1.2; margin:0; color:var(--ink); }
+  .tone-dark .ins-cap{ color:#fff; }
+  .ins-sub{ font-size:.86rem; line-height:1.55; color:var(--ink-soft); margin:6px 0 0; }
+  .tone-dark .ins-sub{ color:rgba(255,255,255,.62); }
+  .ins-shot{ position:relative; overflow:hidden; background:rgba(120,130,150,.14); }
+
+  /* ---- kind: COAST -- one wide plate with the coastline drawn over it, then two beats ---- */
+  .insCoast .plate{ position:relative; overflow:hidden; width:100vw; max-width:100vw; margin-left:calc(50% - 50vw); margin-bottom:clamp(16px,2.2vw,30px); }
+  .insCoast .plate .ins-shot{ aspect-ratio:21/9; }
+  .insCoast .plate .ins-shot::after{ content:''; position:absolute; inset:0; background:linear-gradient(90deg, rgba(6,12,26,.55) 0%, rgba(6,12,26,.15) 40%, rgba(6,12,26,.7) 100%); }
+  .insCoast .plate .w{ position:absolute; z-index:2; left:0; right:0; bottom:0; padding:clamp(20px,4vw,54px) max(4vw, calc(50% - 590px + 4vw)); background:linear-gradient(0deg, rgba(6,12,26,.86), rgba(6,12,26,0) 80%); }
+  .insCoast .plate .ins-cap{ color:#fff; font-size:clamp(1.05rem,2.2vw,1.7rem); max-width:34ch; font-weight:600; }
+  .ins-coast{ position:absolute; z-index:3; right:max(3vw, calc(50% - 590px + 3vw)); top:0; height:100%; width:auto; pointer-events:none; }
+  .ins-coast-line{ fill:none; stroke:var(--orange); stroke-width:3; stroke-linecap:round; }
+  .ins-coast-dot{ fill:#fff; stroke:var(--orange); stroke-width:3; }
+  .ins-coast-label{ fill:#fff; font-family:var(--font-mono); font-size:13px; letter-spacing:.1em; text-transform:uppercase; }
+  .insCoast .beats{ max-width:1180px; width:92%; margin:0 auto; display:grid; gap:clamp(12px,1.6vw,22px); grid-template-columns:1fr 1fr; }
+  .insCoast .beat .ins-shot{ aspect-ratio:16/10; border-radius:11px; }
+  .insCoast .beat .w{ padding:12px 2px 0; }
+  .insCoast .beat .ins-cap{ font-size:1rem; }
+  @media (max-width:700px){ .insCoast .plate .ins-shot{ aspect-ratio:4/5; } .insCoast .beats{ grid-template-columns:1fr; } .ins-coast{ right:4vw; } }
+
+  /* ---- kind: MOSAIC -- six sector tiles, two big and four small ---- */
+  .insMosaic{ max-width:1180px; width:92%; margin:0 auto; display:grid; gap:clamp(10px,1.4vw,18px); grid-template-columns:repeat(2,1fr); }
+  .insMosaic .tile{ position:relative; overflow:hidden; border-radius:12px; }
+  .insMosaic .tile .ins-shot{ aspect-ratio:4/3; }
+  .insMosaic .tile .w{ position:absolute; z-index:2; inset:auto 0 0 0; padding:clamp(14px,2vw,22px); background:linear-gradient(0deg, rgba(6,12,26,.9), rgba(6,12,26,0)); }
+  .insMosaic .tile .ins-cap{ color:#fff; font-size:clamp(1rem,1.5vw,1.25rem); }
+  .insMosaic .tile .ins-sub{ color:rgba(255,255,255,.78); }
+  @media (min-width:860px){
+    .insMosaic{ grid-template-columns:repeat(4,1fr); grid-auto-rows:1fr; }
+    .insMosaic .tile:nth-child(1), .insMosaic .tile:nth-child(4){ grid-column:span 2; grid-row:span 2; }
+    .insMosaic .tile:nth-child(1) .ins-shot, .insMosaic .tile:nth-child(4) .ins-shot{ aspect-ratio:auto; height:100%; }
+  }
+
+  /* ---- kind: DOORS -- six city doors, each a link, with the map-dot pop ---- */
+  .insDoors{ max-width:1180px; width:92%; margin:0 auto; display:grid; gap:clamp(12px,1.6vw,20px); grid-template-columns:1fr; }
+  .insDoors a.door{ position:relative; display:block; text-decoration:none; overflow:hidden; border-radius:12px; }
+  .insDoors .ins-shot{ aspect-ratio:16/10; }
+  .insDoors .ins-shot::after{ content:''; position:absolute; inset:0; background:linear-gradient(0deg, rgba(4,9,20,.92) 0%, rgba(4,9,20,.35) 55%, rgba(4,9,20,.08) 100%); }
+  .insDoors .w{ position:absolute; z-index:2; inset:auto 0 0 0; padding:clamp(16px,2.2vw,26px); }
+  .insDoors .ins-cap{ color:#fff; font-size:clamp(1.25rem,1.9vw,1.6rem); }
+  .insDoors .ins-sub{ color:rgba(255,255,255,.76); }
+  .insDoors .go{ display:inline-flex; align-items:center; gap:6px; margin-top:10px; font-family:var(--font-mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--orange); }
+  .insDoors a.door:hover .ins-shot::after{ background:linear-gradient(0deg, rgba(4,9,20,.95) 0%, rgba(217,83,30,.3) 60%, rgba(4,9,20,.08) 100%); }
+  .ins-pin{ position:absolute; z-index:3; top:14px; right:14px; width:12px; height:12px; border-radius:50%; background:var(--orange); box-shadow:0 0 0 4px rgba(217,83,30,.28); }
+  @media (min-width:700px){ .insDoors{ grid-template-columns:repeat(2,1fr); } }
+  @media (min-width:1000px){ .insDoors{ grid-template-columns:repeat(3,1fr); } }
+
+  /* ================= the reveal : one shot, in view, then finished ================= */
+  html.ins-on .ins .ins-shot{ clip-path:inset(0 0 100% 0); }
+  html.ins-on .ins .ins-shot > .ins-img{ transform:scale(1.07); transition:transform 1.25s cubic-bezier(.18,.72,.2,1); }
+  html.ins-on .ins .w{ opacity:0; transform:translateY(14px); }
+  html.ins-on .ins .lit .ins-shot{ animation:insCurtain .8s cubic-bezier(.32,0,.18,1) forwards; animation-delay:calc(var(--d,0) * .09s); }
+  html.ins-on .ins .lit .ins-shot > .ins-img{ transform:scale(1); transition-delay:calc(var(--d,0) * .09s); }
+  html.ins-on .ins .lit .w{ animation:insLift .58s cubic-bezier(.2,.7,.2,1) forwards; animation-delay:calc(var(--d,0) * .09s + .18s); }
+  html.ins-on .ins-head{ opacity:0; transform:translateY(15px); }
+  html.ins-on .ins-head.lit{ animation:insLift .6s cubic-bezier(.2,.7,.2,1) forwards; }
+  /* the coastline draws itself once the plate is lit; the Kochi dot and label follow */
+  html.ins-on .ins-coast-line{ stroke-dasharray:900; stroke-dashoffset:900; }
+  html.ins-on .ins-coast-dot, html.ins-on .ins-coast-label{ opacity:0; }
+  html.ins-on .lit .ins-coast-line{ animation:insDraw 2.2s cubic-bezier(.4,0,.2,1) .4s forwards; }
+  html.ins-on .lit .ins-coast-dot{ animation:insPop .5s cubic-bezier(.2,.9,.3,1.4) 1.9s forwards; }
+  html.ins-on .lit .ins-coast-label{ animation:insLift .5s ease 2.2s forwards; }
+  /* the city pin pops as its door lights */
+  html.ins-on .ins-pin{ transform:scale(0); }
+  html.ins-on .lit .ins-pin{ animation:insPop .55s cubic-bezier(.2,.9,.3,1.4) forwards; animation-delay:calc(var(--d,0) * .09s + .5s); }
+  @keyframes insCurtain{ from{ clip-path:inset(0 0 100% 0); } to{ clip-path:inset(0 0 0 0); } }
+  @keyframes insLift{ to{ opacity:1; transform:none; } }
+  @keyframes insDraw{ to{ stroke-dashoffset:0; } }
+  @keyframes insPop{ to{ transform:scale(1); opacity:1; } }
+
+  /* scroll-driven drift on the big plate: compositor only, movement only, absent where unsupported */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) and (min-width:760px) {
+      .insCoast .plate .ins-img{ animation:insDrift linear both; animation-timeline:view(); animation-range:entry 0% exit 100%; }
+    }
+  }
+  @keyframes insDrift{ from{ transform:scale(1.12) translateY(-2.2%); } to{ transform:scale(1.12) translateY(2.2%); } }
+
+  /* the phone cut */
+  @media (max-width:700px){
+    .ins-act{ padding:38px 0 42px; }
+    .ins-head{ width:88%; margin-bottom:22px; }
+    .ins-slate b{ font-size:2.6rem; }
+    .ins-title{ font-size:1.55rem; max-width:none; }
+    .ins-lede{ font-size:.96rem; }
+    .insCoast .plate .w{ padding:20px; }
+    .insCoast .beats{ width:88%; }
+    .insMosaic{ width:88%; gap:12px; }
+    .insDoors{ width:88%; }
+    .insDoors .ins-shot{ aspect-ratio:5/4; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    html.ins-on .ins .ins-shot, html.ins-on .ins .w, html.ins-on .ins .ins-shot > .ins-img, html.ins-on .ins-head,
+    html.ins-on .ins-coast-line, html.ins-on .ins-coast-dot, html.ins-on .ins-coast-label, html.ins-on .ins-pin{
+      clip-path:none !important; opacity:1 !important; transform:none !important; animation:none !important; transition:none !important; stroke-dashoffset:0 !important;
+    }
+  }
+/* in-story-css:end */
 </style>
 
 
@@ -924,6 +1041,93 @@
     </div>
 </section>
 
+<!-- in-story:start -->
+<section class="ins-act tone-dark" aria-label="Where we are">
+    <div class="ins-head">
+        <p class="ins-slate"><b>01</b> <span>Where we are</span></p>
+        <h2 class="ins-title">Kochi. Not a sales office in Kochi &mdash; the team.</h2>
+        <p class="ins-lede">The people who build your system work from here, in the same time zone as every client in India, and for a business in Kerala they can be in your office the same week. That is the whole difference between us and a supplier in another city, and we would rather show you the place than describe it.</p>
+    </div>
+    <div class="ins insCoast">
+        <div class="plate">
+            <div class="ins-shot"><img class="ins-img" src="/assets/images/library/inhub-chinese-fishing-nets-mono.jpg" srcset="/assets/images/library/inhub-chinese-fishing-nets-mono-700.jpg 700w, /assets/images/library/inhub-chinese-fishing-nets-mono-1400.jpg 1400w, /assets/images/library/inhub-chinese-fishing-nets-mono.jpg 2400w" sizes="100vw" alt="Traditional Chinese fishing nets at Fort Kochi with workers" width="2400" height="1600" loading="lazy" decoding="async" /></div>
+<svg class="ins-coast" viewBox="0 0 200 600" aria-hidden="true" focusable="false">
+  <path class="ins-coast-line" d="M62 4 C 70 60, 40 110, 58 170 S 92 250, 74 310 S 44 400, 66 460 S 96 540, 84 596" />
+  <circle class="ins-coast-dot" cx="70" cy="392" r="5" />
+  <text class="ins-coast-label" x="86" y="396">Kochi</text>
+</svg>
+            <div class="w">
+                <p class="ins-cap">Fort Kochi. The nets have been here since the 14th century; we have been here rather less long.</p>
+            </div>
+        </div>
+        <div class="beats">
+            <div class="beat">
+            <div class="ins-shot"><img class="ins-img" src="/assets/images/library/inhub-fishing-nets-over-water.jpg" srcset="/assets/images/library/inhub-fishing-nets-over-water-700.jpg 700w, /assets/images/library/inhub-fishing-nets-over-water-1400.jpg 1400w, /assets/images/library/inhub-fishing-nets-over-water.jpg 2400w" sizes="(max-width:700px) 88vw, 46vw" alt="A row of Chinese fishing nets over the water at Kochi" width="2400" height="1604" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ins-cap">Same time zone as every client in India.</p>
+            </div>
+            </div>
+            <div class="beat">
+            <div class="ins-shot"><img class="ins-img" src="/assets/images/library/inhub-dock-silhouette-sunset.jpg" srcset="/assets/images/library/inhub-dock-silhouette-sunset-700.jpg 700w, /assets/images/library/inhub-dock-silhouette-sunset-1400.jpg 1400w, /assets/images/library/inhub-dock-silhouette-sunset.jpg 2400w" sizes="(max-width:700px) 88vw, 46vw" alt="A figure on a wooden dock at sunset on the Kerala coast" width="2400" height="1594" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ins-cap">Same week in your office, if you are in Kerala.</p>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ins-act tone-light" aria-label="Who we build for">
+    <div class="ins-head">
+        <p class="ins-slate"><b>02</b> <span>Who we build for</span></p>
+        <h2 class="ins-title">Kerala&rsquo;s real economy, and the system each part is missing.</h2>
+        <p class="ins-lede">Textiles and garments, spices and food processing, marine and fishing, tourism, ayurveda, construction. The production layer is completely different in each. The system of record underneath &mdash; stock, orders, purchasing, a real cost per job &mdash; is the same one, and it is the part almost none of them have.</p>
+    </div>
+    <div class="ins insMosaic">
+        <div class="tile">
+            <div class="ins-shot"><img class="ins-img" src="/assets/images/library/inhub-textile-factory-workers.jpg" srcset="/assets/images/library/inhub-textile-factory-workers-700.jpg 700w, /assets/images/library/inhub-textile-factory-workers-1400.jpg 1400w, /assets/images/library/inhub-textile-factory-workers.jpg 2400w" sizes="(max-width:860px) 46vw, 30vw" alt="Workers sewing textiles in a large garment factory" width="2400" height="1600" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ins-cap">Garments</p>
+                <p class="ins-sub">Styles, sizes, fabric lots and a cost per piece that is real.</p>
+            </div>
+        </div>
+        <div class="tile">
+            <div class="ins-shot"><img class="ins-img" src="/assets/images/library/inhub-sewing-machines-line.jpg" srcset="/assets/images/library/inhub-sewing-machines-line-700.jpg 700w, /assets/images/library/inhub-sewing-machines-line-1400.jpg 1400w, /assets/images/library/inhub-sewing-machines-line.jpg 2400w" sizes="(max-width:860px) 46vw, 30vw" alt="Workers at a line of sewing machines" width="2400" height="1600" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ins-cap">Job work</p>
+                <p class="ins-sub">Orders in, pieces out, and what each one actually cost.</p>
+            </div>
+        </div>
+        <div class="tile">
+            <div class="ins-shot"><img class="ins-img" src="/assets/images/library/inhub-dried-chillies-in-bags.jpg" srcset="/assets/images/library/inhub-dried-chillies-in-bags-700.jpg 700w, /assets/images/library/inhub-dried-chillies-in-bags-1400.jpg 1400w, /assets/images/library/inhub-dried-chillies-in-bags.jpg 2400w" sizes="(max-width:860px) 46vw, 30vw" alt="Dried red chillies in bags at a market" width="2400" height="1570" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ins-cap">Spices</p>
+                <p class="ins-sub">Grades, lots and moisture, traceable back to the estate.</p>
+            </div>
+        </div>
+        <div class="tile">
+            <div class="ins-shot"><img class="ins-img" src="/assets/images/library/inhub-sacks-in-storage.jpg" srcset="/assets/images/library/inhub-sacks-in-storage-700.jpg 700w, /assets/images/library/inhub-sacks-in-storage-1400.jpg 1400w, /assets/images/library/inhub-sacks-in-storage.jpg 2400w" sizes="(max-width:860px) 46vw, 30vw" alt="Sacks of produce in a storage godown" width="2400" height="1600" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ins-cap">Food processing</p>
+                <p class="ins-sub">Batches, yields and expiry, with FSSAI records that come out of the system.</p>
+            </div>
+        </div>
+        <div class="tile">
+            <div class="ins-shot"><img class="ins-img" src="/assets/images/library/inhub-fishing-boats-harbour.jpg" srcset="/assets/images/library/inhub-fishing-boats-harbour-700.jpg 700w, /assets/images/library/inhub-fishing-boats-harbour-1400.jpg 1400w, /assets/images/library/inhub-fishing-boats-harbour.jpg 2400w" sizes="(max-width:860px) 46vw, 30vw" alt="Fishing boats moored in a Kerala harbour" width="2400" height="1920" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ins-cap">Marine</p>
+                <p class="ins-sub">Landings, grades, cold-chain custody and export paperwork.</p>
+            </div>
+        </div>
+        <div class="tile">
+            <div class="ins-shot"><img class="ins-img" src="/assets/images/library/inhub-fishing-boat-at-sea.jpg" srcset="/assets/images/library/inhub-fishing-boat-at-sea-700.jpg 700w, /assets/images/library/inhub-fishing-boat-at-sea-1400.jpg 1400w, /assets/images/library/inhub-fishing-boat-at-sea.jpg 2400w" sizes="(max-width:860px) 46vw, 30vw" alt="A fishing boat out on the water" width="2400" height="1350" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ins-cap">Export</p>
+                <p class="ins-sub">Documents, duty and the landed cost you actually made money on.</p>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="tap-pillars-section" id="services">
     <div class="container">
         <div class="section-head">
@@ -1007,80 +1211,77 @@
     </div>
 </section>
 
-<section class="tap-section" id="in-cities">
-    <div class="container">
-        <p class="section-label">&#9670; Where we work</p>
-        <h2 class="section-title">Kerala in person. The rest of India the way we serve four other countries.</h2>
-        <div class="erp-benefit-row">
-            <div class="erp-benefit">
-                <div class="erp-benefit-icon">🌴</div>
-                <h3>Kerala</h3>
-                <p>Kochi, Ernakulam, Calicut, Thrissur, Trivandrum, Kollam and Kannur. Meetings in person where it helps. See <a href="/seo-audit-kochi/">our Kochi page</a> for the local detail.</p>
+<section class="ins-act tone-dark" aria-label="Where the work goes">
+    <div class="ins-head">
+        <p class="ins-slate"><b>03</b> <span>Where the work goes</span></p>
+        <h2 class="ins-title">Six cities with their own page, because the search data says they are six markets.</h2>
+        <p class="ins-lede">Each of these was written from that city&rsquo;s own keyword cluster, not from a template. Kerala&rsquo;s page is about freelancers because that is what Kerala searches for. Lucknow&rsquo;s leads on website development because that is what Lucknow searches for. Open two side by side.</p>
+    </div>
+    <div class="ins insDoors">
+        <a class="door" href="/in/mumbai/">
+            <span class="ins-pin" aria-hidden="true"></span>
+            <div class="ins-shot"><img class="ins-img" src="/assets/images/library/in-mumbai-gateway-of-india.jpg" srcset="/assets/images/library/in-mumbai-gateway-of-india-700.jpg 700w, /assets/images/library/in-mumbai-gateway-of-india-1400.jpg 1400w, /assets/images/library/in-mumbai-gateway-of-india.jpg 2400w" sizes="(max-width:700px) 88vw, 31vw" alt="The Gateway of India on the Mumbai waterfront" width="2400" height="1800" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ins-cap">Mumbai</p>
+                <p class="ins-sub">Trading, D2C and Navi Mumbai. The storefront and the warehouse have to agree.</p>
+                <span class="go">Read the Mumbai page <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
             </div>
-            <div class="erp-benefit">
-                <div class="erp-benefit-icon">🌉</div>
-                <h3>Mumbai, Pune &amp; the west</h3>
-                <p>Trading, distribution and e-commerce businesses where stock accuracy and a fast storefront decide the month. Remote, with a weekly demo you click through yourself.</p>
+        </a>
+        <a class="door" href="/in/kolkata/">
+            <span class="ins-pin" aria-hidden="true"></span>
+            <div class="ins-shot"><img class="ins-img" src="/assets/images/library/inhub-door-kolkata-howrah-sunset.jpg" srcset="/assets/images/library/inhub-door-kolkata-howrah-sunset-700.jpg 700w, /assets/images/library/inhub-door-kolkata-howrah-sunset-1400.jpg 1400w, /assets/images/library/inhub-door-kolkata-howrah-sunset.jpg 2400w" sizes="(max-width:700px) 88vw, 31vw" alt="Howrah Bridge over the Hooghly at sunset" width="2400" height="1584" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ins-cap">Kolkata</p>
+                <p class="ins-sub">The one city that searches for a consultant as often as a company.</p>
+                <span class="go">Read the Kolkata page <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
             </div>
-            <div class="erp-benefit">
-                <div class="erp-benefit-icon">🖥</div>
-                <h3>Bangalore, Delhi NCR &amp; Noida</h3>
-                <p>Technical buyers who read your source before the first call, and internal tools that have to behave like products rather than like forms.</p>
+        </a>
+        <a class="door" href="/in/kerala/">
+            <span class="ins-pin" aria-hidden="true"></span>
+            <div class="ins-shot"><img class="ins-img" src="/assets/images/library/in-house-on-the-lake-shore.jpg" srcset="/assets/images/library/in-house-on-the-lake-shore-700.jpg 700w, /assets/images/library/in-house-on-the-lake-shore-1400.jpg 1400w, /assets/images/library/in-house-on-the-lake-shore.jpg 2400w" sizes="(max-width:700px) 88vw, 31vw" alt="A house on the shore of a Kerala lake" width="2400" height="1512" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ins-cap">Kerala</p>
+                <p class="ins-sub">Home ground, and honest about when a freelancer is the better answer.</p>
+                <span class="go">Read the Kerala page <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
             </div>
-        </div>
+        </a>
+        <a class="door" href="/in/vadodara/">
+            <span class="ins-pin" aria-hidden="true"></span>
+            <div class="ins-shot"><img class="ins-img" src="/assets/images/library/inhub-door-vadodara-red-white-pipes.jpg" srcset="/assets/images/library/inhub-door-vadodara-red-white-pipes-700.jpg 700w, /assets/images/library/inhub-door-vadodara-red-white-pipes-1400.jpg 1400w, /assets/images/library/inhub-door-vadodara-red-white-pipes.jpg 2400w" sizes="(max-width:700px) 88vw, 31vw" alt="A process plant with red and white pipework" width="2400" height="1500" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ins-cap">Vadodara</p>
+                <p class="ins-sub">Engineering and chemicals. Specifications, not adjectives.</p>
+                <span class="go">Read the Vadodara page <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+        </a>
+        <a class="door" href="/in/lucknow/">
+            <span class="ins-pin" aria-hidden="true"></span>
+            <div class="ins-shot"><img class="ins-img" src="/assets/images/library/inhub-door-lucknow-columns-clock.jpg" srcset="/assets/images/library/inhub-door-lucknow-columns-clock-700.jpg 700w, /assets/images/library/inhub-door-lucknow-columns-clock-1400.jpg 1400w, /assets/images/library/inhub-door-lucknow-columns-clock.jpg 2400w" sizes="(max-width:700px) 88vw, 31vw" alt="A columned building in Lucknow with a clock tower" width="2400" height="1800" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ins-cap">Lucknow</p>
+                <p class="ins-sub">Searches for builders, not SEO. So the page starts with the build.</p>
+                <span class="go">Read the Lucknow page <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+        </a>
+        <a class="door" href="/in/calicut/">
+            <span class="ins-pin" aria-hidden="true"></span>
+            <div class="ins-shot"><img class="ins-img" src="/assets/images/library/inhub-door-calicut-beach-aerial.jpg" srcset="/assets/images/library/inhub-door-calicut-beach-aerial-700.jpg 700w, /assets/images/library/inhub-door-calicut-beach-aerial-1400.jpg 1400w, /assets/images/library/inhub-door-calicut-beach-aerial.jpg 2400w" sizes="(max-width:700px) 88vw, 31vw" alt="Aerial view of Kozhikode beach and the city" width="2400" height="1800" loading="lazy" decoding="async" /></div>
+            <div class="w">
+                <p class="ins-cap">Calicut</p>
+                <p class="ins-sub">The least contested market in our data. An opening that will not stay open.</p>
+                <span class="go">Read the Calicut page <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+        </a>
     </div>
 </section>
-<section class="tap-section tap-section-alt" id="in-city-pages">
-    <div class="container">
-        <p class="section-label">&#9670; Written for one place at a time</p>
-        <h2 class="section-title">Six cities with their own page, because the search data says they are different markets.</h2>
-        <p class="us-lead">Each of these was written from that city&rsquo;s own keyword cluster rather than from a template &mdash; which is why the Kerala page is about freelancers, the Lucknow page leads on website development, and the Vadodara page is about specifications.</p>
-        <div class="pillars-grid">
-            <a href="/in/mumbai/" class="pillar-card">
-                <span class="pillar-index">MUMBAI</span>
-                <h3>Mumbai</h3>
-                <p>Trading, distribution and D2C brands — where the storefront and the warehouse have to agree.</p>
-                <span class="pillar-link">Read the Mumbai page &rarr;</span>
-            </a>
-            <a href="/in/kolkata/" class="pillar-card">
-                <span class="pillar-index">KOLKATA</span>
-                <h3>Kolkata</h3>
-                <p>The one Indian city that searches for a consultant as often as an agency. Both are valid; they fail differently.</p>
-                <span class="pillar-link">Read the Kolkata page &rarr;</span>
-            </a>
-            <a href="/in/kerala/" class="pillar-card">
-                <span class="pillar-index">KERALA</span>
-                <h3>Kerala</h3>
-                <p>Home ground. Freelancer intent dominates the search data here, and we say plainly when a freelancer is the better answer.</p>
-                <span class="pillar-link">Read the Kerala page &rarr;</span>
-            </a>
-            <a href="/in/vadodara/" class="pillar-card">
-                <span class="pillar-index">VADODARA</span>
-                <h3>Vadodara</h3>
-                <p>Engineering and chemicals. Technical buyers who want a specification, not adjectives.</p>
-                <span class="pillar-link">Read the Vadodara page &rarr;</span>
-            </a>
-            <a href="/in/lucknow/" class="pillar-card">
-                <span class="pillar-index">LUCKNOW</span>
-                <h3>Lucknow</h3>
-                <p>The demand here leads with website development rather than search, so the page starts there.</p>
-                <span class="pillar-link">Read the Lucknow page &rarr;</span>
-            </a>
-            <a href="/in/calicut/" class="pillar-card">
-                <span class="pillar-index">CALICUT</span>
-                <h3>Calicut</h3>
-                <p>The least contested local search market in our India data — an opening that will not stay open.</p>
-                <span class="pillar-link">Read the Calicut page &rarr;</span>
-            </a>
-        </div>
-    </div>
-</section>
+<!-- in-story:end -->
+
 <section class="final-cta-section" id="contact">
     <div class="final-cta">
-        <h2>[object Object]</h2>
+        <h2>Let&rsquo;s look at one real process together.</h2>
         <div class="final-cta-actions">
             <a href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" class="primary-btn-large">Book a Free Strategy Call</a>
-            <span class="final-cta-note" style="color:rgba(255,255,255,0.55);">Takes 60 seconds &middot; No contracts</span>
+            <span class="final-cta-note" style="color:rgba(255,255,255,0.55);">Takes 60 seconds &middot; The findings are yours to keep &middot; No long-term contract</span>
         </div>
     </div>
 </section>
@@ -2021,5 +2222,30 @@ document.addEventListener('DOMContentLoaded', function() {
 })();
 </script>
 <!-- trust-strip-js:end -->
+<script>
+/* in-story-js:start */
+/* in_story.js : light each frame once as it arrives, then stop watching it. html.ins-on is added
+   only here, so with JS off or reduced motion on, the whole picture story is simply visible. */
+(function () {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var frames = document.querySelectorAll('.ins .plate, .ins .beat, .ins .tile, .ins a.door, .ins-head');
+    if (!frames.length || !('IntersectionObserver' in window)) return;
+    document.documentElement.classList.add('ins-on');
+    var acts = document.querySelectorAll('.ins-act');
+    for (var a = 0; a < acts.length; a++) {
+        var kids = acts[a].querySelectorAll('.plate, .beat, .tile, a.door');
+        for (var k = 0; k < kids.length; k++) kids[k].style.setProperty('--d', k % 6);
+    }
+    var io = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (!entries[i].isIntersecting) continue;
+            entries[i].target.classList.add('lit');
+            io.unobserve(entries[i].target);
+        }
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+    for (var f = 0; f < frames.length; f++) io.observe(frames[f]);
+})();
+/* in-story-js:end */
+</script>
 </body>
 </html>
