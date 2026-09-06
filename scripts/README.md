@@ -25,3 +25,13 @@ The image-library intake process and page-creation how-to live in `ai_context/CO
 - **verify/** — `server.js` (static server on 8934), `shot.js` (Playwright-core screenshot + console/4xx/broken-image checks).
 - **keyword-research/** — `parse.js`, `termgrep.js` for SEMrush Keyword Magic exports.
 - `build_bloghub.js` now sorts newest-first, reads each post's lead figure and eyebrow (sub-topic), renders sub-topic chips + search, and features `/blog/what-is-seo.html`.
+
+
+## Added 2026-09-06
+
+- **country-pages/results_erp.js + results_hub.js** — build `/results/viraat-marine-erp/` and `/results/` from the ca/erp skeleton (run `results_hub.js`; it requires and therefore rebuilds the ERP page first and asserts no photo is shared between the two). **results_nav.js** repoints the nav "Results" item at `/results/` on every page and adds the footer Company link (idempotent; generators call `apply()`).
+- **images/import_local.js** — local files (screenshots, own photos) into the library with the same three tiers + `_sizes.json` entry as `fetch_stock.js`. **images/redact.ps1** pixelates rectangles of a screenshot before import. **images/contact_sheet.ps1** tiles the `-700` variants of a prefix into one PNG so every photo is LOOKED at before it ships. **images/resize.ps1** is the System.Drawing fallback `fetch_stock.js`/`import_local.js` use when ImageMagick is absent.
+- **fetch_stock.js** now falls back to a headless-Chrome download when unsplash.com answers with its bot challenge (`/.within.website`, since 2026-09).
+- **Running without Node (the owner's laptop):** the Deno node-compat shim `%LOCALAPPDATA%\deno
+ode_compat_bin
+ode.exe` runs every script here (`node --check` is NOT supported by it; run the script instead). `verify/package.json` declares playwright-core: `cd scripts/verify && deno install --node-modules-dir=auto` (node_modules is git-ignored). Chrome is looked up in `%LOCALAPPDATA%` first, then Program Files. `lib.js`/`tone_pass.js`/`verify/server.js` derive the repo root from their own location.

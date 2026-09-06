@@ -383,3 +383,15 @@ attribution not required). Credited here anyway.
 - `vm-shot-m-yard.jpg` &mdash; Screenshot of the Viraat Marine ERP (built by TechAuditPros), redacted; TechAuditPros
 - `vm-shot-m-purchase.jpg` &mdash; Screenshot of the Viraat Marine ERP (built by TechAuditPros), redacted; TechAuditPros
 - `vm-shot-m-design.jpg` &mdash; Screenshot of the Viraat Marine ERP (built by TechAuditPros), redacted; TechAuditPros
+- `vm-shot-signin.jpg` &mdash; Screenshot of the Viraat Marine ERP (built by TechAuditPros), redacted; TechAuditPros
+- `vm-shot-director.jpg` &mdash; Screenshot of the Viraat Marine ERP (built by TechAuditPros), redacted; TechAuditPros
+- `vm-shot-design.jpg` &mdash; Screenshot of the Viraat Marine ERP (built by TechAuditPros), redacted; TechAuditPros
+- `vm-shot-register.jpg` &mdash; Screenshot of the Viraat Marine ERP (built by TechAuditPros), redacted; TechAuditPros
+- `vm-shot-purchase.jpg` &mdash; Screenshot of the Viraat Marine ERP (built by TechAuditPros), redacted; TechAuditPros
+- `vm-shot-live-stream.jpg` &mdash; Screenshot of the Viraat Marine ERP (built by TechAuditPros), redacted; TechAuditPros
+- `vm-shot-attendance.jpg` &mdash; Screenshot of the Viraat Marine ERP (built by TechAuditPros), redacted; TechAuditPros
+- `vm-shot-sitelog.jpg` &mdash; Screenshot of the Viraat Marine ERP (built by TechAuditPros), redacted; TechAuditPros
+- `vm-shot-yard.jpg` &mdash; Screenshot of the Viraat Marine ERP (built by TechAuditPros), redacted; TechAuditPros
+- `vm-shot-m-yard.jpg` &mdash; Screenshot of the Viraat Marine ERP (built by TechAuditPros), redacted; TechAuditPros
+- `vm-shot-m-purchase.jpg` &mdash; Screenshot of the Viraat Marine ERP (built by TechAuditPros), redacted; TechAuditPros
+- `vm-shot-m-design.jpg` &mdash; Screenshot of the Viraat Marine ERP (built by TechAuditPros), redacted; TechAuditPros

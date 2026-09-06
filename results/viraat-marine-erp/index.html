@@ -904,7 +904,7 @@
   .vm-hull{ display:block; width:100%; height:auto; margin:10px 0 30px; }
   .vm-keel{ fill:none; stroke:rgba(255,255,255,.35); stroke-width:2; }
   .vm-plate{ fill:#2C4A66; stroke:#0B2036; stroke-width:1.5; transform-box:fill-box; transform-origin:left center; }
-  .vm-spark{ fill:var(--orange); opacity:0; }
+  .vm-spark{ fill:var(--orange); opacity:0; } html:not(.vm-on) .vm-spark{ display:none; }   /* decorative weld sparks exist only when the animation can run; JS off = no hidden boxes */
   .vm-water{ fill:none; stroke:var(--orange); stroke-width:2; opacity:.7; }
   .vm-desks{ display:grid; grid-template-columns:repeat(5,1fr); gap:16px; }
   .vm-desk{ background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:22px 20px; }
@@ -952,7 +952,7 @@
   .vm-tl li{ position:relative; padding-top:34px; }
   .vm-tl li i{ position:absolute; top:4px; left:0; width:18px; height:18px; border-radius:50%; background:var(--navy-deep); border:3px solid var(--orange); }
   .vm-tl time{ font-family:var(--font-mono); font-size:.78rem; color:var(--orange); letter-spacing:.06em; }
-  .vm-tl h3{ font-size:1rem; margin:6px 0 6px; }
+  .vm-tl h3{ font-size:1rem; margin:6px 0 6px; color:#fff; }
   .vm-tl p{ font-size:.88rem; line-height:1.55; }
   /* next + band */
   .vm-dockfig{ margin:0; border-radius:12px; overflow:hidden; aspect-ratio:4/3; }
