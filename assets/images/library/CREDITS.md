@@ -319,3 +319,67 @@ attribution not required). Credited here anyway.
 - `kol-busy-dense-street.jpg` &mdash; Aravind Shivkumar on Unsplash ([photo](https://unsplash.com/photos/xsLfBQLRqLQ))
 - `kol-people-outside-building.jpg` &mdash; Austin Curtis on Unsplash ([photo](https://unsplash.com/photos/3ZQk9F2tHqw))
 - `kol-night-road-timelapse.jpg` &mdash; Arindam Saha on Unsplash ([photo](https://unsplash.com/photos/MzZdPEAh_5E))
+- `vm-welder-ship-hull-dry-dock.jpg` &mdash; Navy Medicine on Unsplash ([photo](https://unsplash.com/photos/ExR99gl00gY))
+- `vm-red-ship-in-drydock.jpg` &mdash; Korina Kasum on Unsplash ([photo](https://unsplash.com/photos/pHrpPbkd4xs))
+- `vm-welders-in-the-dark.jpg` &mdash; Kabiur Rahman Riyad on Unsplash ([photo](https://unsplash.com/photos/ozD1yMPFwXE))
+- `vm-welding-sparks-blue-smoke.jpg` &mdash; Salvador Escalante on Unsplash ([photo](https://unsplash.com/photos/5qzw4pSxxZo))
+- `vm-welder-at-work.jpg` &mdash; Bo Smeets on Unsplash ([photo](https://unsplash.com/photos/L3ZpYDSqVv4))
+- `vm-rusted-hull-plates.jpg` &mdash; Jens Peter Olesen on Unsplash ([photo](https://unsplash.com/photos/dBxcQ5Vc7E0))
+- `vm-ship-superstructure.jpg` &mdash; Alexandr Popadin on Unsplash ([photo](https://unsplash.com/photos/B-_l9U1cf7Q))
+- `vm-boat-being-worked-on-mono.jpg` &mdash; Haberdoedas on Unsplash ([photo](https://unsplash.com/photos/HUJWEVnh6wc))
+- `vm-large-ship-docked.jpg` &mdash; Alec Cooks on Unsplash ([photo](https://unsplash.com/photos/9X7v0zIFQpg))
+- `vm-boat-on-the-hard.jpg` &mdash; Gabriela on Unsplash ([photo](https://unsplash.com/photos/6K51y2zuo58))
+- `vm-vessel-on-blocks.jpg` &mdash; Emma Watson on Unsplash ([photo](https://unsplash.com/photos/I7GCLWacEn0))
+- `vm-black-red-ship-dock.jpg` &mdash; Arjan Van Den Berg on Unsplash ([photo](https://unsplash.com/photos/5pwsNnYlOwo))
+- `vm-two-ships-alongside.jpg` &mdash; Daniel Norris on Unsplash ([photo](https://unsplash.com/photos/J5i6axcCSVw))
+- `vm-ship-at-dock-night.jpg` &mdash; Razvan Mirel on Unsplash ([photo](https://unsplash.com/photos/lkf7R1hMF7Y))
+- `vm-industrial-port-night.jpg` &mdash; Eirik O on Unsplash ([photo](https://unsplash.com/photos/KjJfSBMpSEg))
+- `vm-cranes-through-steel.jpg` &mdash; Polina Kuzovkova on Unsplash ([photo](https://unsplash.com/photos/LUFAWNeng2U))
+- `vm-two-cranes-sunset.jpg` &mdash; Travis Leery on Unsplash ([photo](https://unsplash.com/photos/oQbfROXNHNw))
+- `vm-harbour-cranes-cloudy.jpg` &mdash; Viktor Hesse on Unsplash ([photo](https://unsplash.com/photos/27uoAK-CI24))
+- `vm-cranes-on-the-water.jpg` &mdash; Werner Hilversum on Unsplash ([photo](https://unsplash.com/photos/vFLJEhS_y5w))
+- `vm-kochi-river-cranes-sunset.jpg` &mdash; Suryagayathri C K on Unsplash ([photo](https://unsplash.com/photos/vOtKLNo0sKg))
+- `vm-grinding-sparks-dark.jpg` &mdash; Kabiur Rahman Riyad on Unsplash ([photo](https://unsplash.com/photos/qs4rK_0OGv8))
+- `vm-steel-stock-and-crane.jpg` &mdash; Park Ingyeom on Unsplash ([photo](https://unsplash.com/photos/t5rh9yoJ8QA))
+- `vm-shearing-machine.jpg` &mdash; Zoshua Colah on Unsplash ([photo](https://unsplash.com/photos/bfGbiw5FXK4))
+- `vm-laser-cutting-plate.jpg` &mdash; Zoshua Colah on Unsplash ([photo](https://unsplash.com/photos/4enstJBOGww))
+- `vm-hard-hat-tablet.jpg` &mdash; Fotos on Unsplash ([photo](https://unsplash.com/photos/QPRAhc5AqXg))
+- `vm-yellow-hat-tablet.jpg` &mdash; Fotos on Unsplash ([photo](https://unsplash.com/photos/uxh0dbmNoWc))
+- `vm-paper-stacks-folders.jpg` &mdash; Wesley Tingey on Unsplash ([photo](https://unsplash.com/photos/snNHKZ-mGfE))
+- `vm-desk-pile-of-papers.jpg` &mdash; Wonderlane on Unsplash ([photo](https://unsplash.com/photos/6jA6eVsRJ6Q))
+- `vm-binders.jpg` &mdash; Sear Greyson on Unsplash ([photo](https://unsplash.com/photos/K-ZsC7YdJ6Y))
+- `vm-papers-sticky-tabs.jpg` &mdash; Tanja Tepavac on Unsplash ([photo](https://unsplash.com/photos/81ikZZG7_AA))
+- `res-washer-dryer-pair.jpg` &mdash; Emmanuel Ikwuegbu on Unsplash ([photo](https://unsplash.com/photos/FXpJW_wdMdk))
+- `res-front-load-washer.jpg` &mdash; Oli Woodman on Unsplash ([photo](https://unsplash.com/photos/nUL_PP69IPA))
+- `res-fridge-modular-kitchen.jpg` &mdash; Naomi Hebert on Unsplash ([photo](https://unsplash.com/photos/MP0bgaS_d1c))
+- `res-oven-control-knobs.jpg` &mdash; Franco Debartolo on Unsplash ([photo](https://unsplash.com/photos/AXC2vD7y_ho))
+- `res-ac-units-on-wall.jpg` &mdash; Salar on Unsplash ([photo](https://unsplash.com/photos/HVXmK1wqntk))
+- `res-two-on-a-rooftop.jpg` &mdash; Singapore Stock Photos on Unsplash ([photo](https://unsplash.com/photos/iS5GDeLDk0E))
+- `res-technician-on-roof.jpg` &mdash; Thisisengineering on Unsplash ([photo](https://unsplash.com/photos/BU8lpW2Bn30))
+- `res-hvac-pipes-valves.jpg` &mdash; Aleksandr Eremin on Unsplash ([photo](https://unsplash.com/photos/cAgmhdlkWIk))
+- `res-technician-with-tool.jpg` &mdash; Emmanuel Ikwuegbu on Unsplash ([photo](https://unsplash.com/photos/-0-kl1BjvFc))
+- `res-toronto-autumn-street.jpg` &mdash; Anurag Jamwal on Unsplash ([photo](https://unsplash.com/photos/faR1gf1_PXk))
+- `res-toronto-aerial-autumn.jpg` &mdash; Mahesh Ranaweera on Unsplash ([photo](https://unsplash.com/photos/aWiIYz_ULr4))
+- `res-parcels-on-rack.jpg` &mdash; Chuttersnap on Unsplash ([photo](https://unsplash.com/photos/BNBA1h-NgdY))
+- `res-warehouse-boxes.jpg` &mdash; Alberto Rodriguez on Unsplash ([photo](https://unsplash.com/photos/-aCrA9FmT8Y))
+- `res-warehouse-pallets.jpg` &mdash; Arum Visuals on Unsplash ([photo](https://unsplash.com/photos/VnMbc9Szs-E))
+- `res-handing-over-parcel.jpg` &mdash; Rosebox on Unsplash ([photo](https://unsplash.com/photos/BFdSCxmqvYc))
+- `res-parcels-in-van.jpg` &mdash; Claudio Schwarz on Unsplash ([photo](https://unsplash.com/photos/q8kR_ie6WnI))
+- `res-analytics-laptop.jpg` &mdash; Luke Chesser on Unsplash ([photo](https://unsplash.com/photos/JKUTrJ4vK00))
+- `res-laptop-code-mug.jpg` &mdash; Mohammad Rahmani on Unsplash ([photo](https://unsplash.com/photos/LrxSl4ZxoRs))
+- `res-laptop-dim-light.jpg` &mdash; Martin Katler on Unsplash ([photo](https://unsplash.com/photos/o9XN28KdyN8))
+- `res-cargo-ship-and-crane.jpg` &mdash; Elijah Mears on Unsplash ([photo](https://unsplash.com/photos/sI2eENXdoBI))
+- `res-crane-silhouette.jpg` &mdash; Joakim Honkasalo on Unsplash ([photo](https://unsplash.com/photos/hyj_RRTzJjo))
+- `res-tug-beside-cargo-ship.jpg` &mdash; Bernd Dittrich on Unsplash ([photo](https://unsplash.com/photos/LKvT6sCkuPU))
+- `vm-shot-signin.jpg` &mdash; Screenshot of the Viraat Marine ERP (built by TechAuditPros), redacted; TechAuditPros
+- `vm-shot-director.jpg` &mdash; Screenshot of the Viraat Marine ERP (built by TechAuditPros), redacted; TechAuditPros
+- `vm-shot-design.jpg` &mdash; Screenshot of the Viraat Marine ERP (built by TechAuditPros), redacted; TechAuditPros
+- `vm-shot-register.jpg` &mdash; Screenshot of the Viraat Marine ERP (built by TechAuditPros), redacted; TechAuditPros
+- `vm-shot-purchase.jpg` &mdash; Screenshot of the Viraat Marine ERP (built by TechAuditPros), redacted; TechAuditPros
+- `vm-shot-live-stream.jpg` &mdash; Screenshot of the Viraat Marine ERP (built by TechAuditPros), redacted; TechAuditPros
+- `vm-shot-attendance.jpg` &mdash; Screenshot of the Viraat Marine ERP (built by TechAuditPros), redacted; TechAuditPros
+- `vm-shot-sitelog.jpg` &mdash; Screenshot of the Viraat Marine ERP (built by TechAuditPros), redacted; TechAuditPros
+- `vm-shot-yard.jpg` &mdash; Screenshot of the Viraat Marine ERP (built by TechAuditPros), redacted; TechAuditPros
+- `vm-shot-m-yard.jpg` &mdash; Screenshot of the Viraat Marine ERP (built by TechAuditPros), redacted; TechAuditPros
+- `vm-shot-m-purchase.jpg` &mdash; Screenshot of the Viraat Marine ERP (built by TechAuditPros), redacted; TechAuditPros
+- `vm-shot-m-design.jpg` &mdash; Screenshot of the Viraat Marine ERP (built by TechAuditPros), redacted; TechAuditPros

@@ -2,10 +2,12 @@
 // elements left invisible (opacity 0, clip-path closed, scale(0)). Reveal start states must live under a
 // class JS adds, so with JS off this must report hidden: 0. Default scope: the whole <main>/<body>.
 const { chromium } = require('playwright-core');
+
+const CHROME = [process.env.LOCALAPPDATA + '/Google/Chrome/Application/chrome.exe', 'C:/Program Files/Google/Chrome/Application/chrome.exe'].find(p => require('fs').existsSync(p)); // user-local install on the owner's laptop, Program Files on the other machine
 (async () => {
   let [, , p, scope = 'body'] = process.argv;
   p = '/' + p.replace(/^.*?:\/.*?\/Git\//, '').replace(/^\/+/, '');
-  const b = await chromium.launch({ executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe', args: ['--no-sandbox'] });
+  const b = await chromium.launch({ executablePath: CHROME, args: ['--no-sandbox'] });
   const page = await b.newPage({ viewport: { width: 1440, height: 900 }, javaScriptEnabled: false });
   await page.goto('http://127.0.0.1:8934' + p, { waitUntil: 'load', timeout: 45000 });
   const r = await page.evaluate(sel => {

@@ -1,0 +1,37 @@
+'use strict';
+// /results/viraat-marine-erp/ photo set: the shipyard the ERP runs, told in pictures. Steel, welding,
+// hulls in dock, cranes at dusk, the paper the system replaced, a supervisor with a tablet on the floor.
+// Unsplash only (licence permits commercial use). Nothing here may appear on any other page; every file
+// is verified on a contact sheet before it ships (the descriptions lie). Prefix: vm-.
+module.exports = [
+  { id: 'ExR99gl00gY', slug: 'vm-welder-ship-hull-dry-dock', alt: 'A welder working on a large ship hull in dry dock' },
+  { id: 'pHrpPbkd4xs', slug: 'vm-red-ship-in-drydock', alt: 'A red-hulled ship standing in dry dock for repairs' },
+  { id: 'ozD1yMPFwXE', slug: 'vm-welders-in-the-dark', alt: 'Welders working on steel in a dark fabrication shop' },
+  { id: '5qzw4pSxxZo', slug: 'vm-welding-sparks-blue-smoke', alt: 'Welding arc with bright sparks and blue smoke' },
+  { id: 'L3ZpYDSqVv4', slug: 'vm-welder-at-work', alt: 'A welder in a mask working on a piece of steel' },
+  { id: 'dBxcQ5Vc7E0', slug: 'vm-rusted-hull-plates', alt: 'Weathered steel plates on the side of a large ship' },
+  { id: 'B-_l9U1cf7Q', slug: 'vm-ship-superstructure', alt: 'The superstructure of a large cargo ship' },
+  { id: 'HUJWEVnh6wc', slug: 'vm-boat-being-worked-on-mono', alt: 'A boat being worked on in a yard, black and white' },
+  { id: '9X7v0zIFQpg', slug: 'vm-large-ship-docked', alt: 'A large ship alongside a dock' },
+  { id: '6K51y2zuo58', slug: 'vm-boat-on-the-hard', alt: 'A boat hauled out and standing on the hard' },
+  { id: 'I7GCLWacEn0', slug: 'vm-vessel-on-blocks', alt: 'A vessel resting on timber blocks out of the water' },
+  { id: '5pwsNnYlOwo', slug: 'vm-black-red-ship-dock', alt: 'A black and red ship moored at a dock' },
+  { id: 'J5i6axcCSVw', slug: 'vm-two-ships-alongside', alt: 'Two ships moored alongside each other' },
+  { id: 'lkf7R1hMF7Y', slug: 'vm-ship-at-dock-night', alt: 'A cargo ship at a lit dock at night' },
+  { id: 'KjJfSBMpSEg', slug: 'vm-industrial-port-night', alt: 'An industrial port at night reflected in the water' },
+  { id: 'LUFAWNeng2U', slug: 'vm-cranes-through-steel', alt: 'Harbour cranes seen through a steel structure' },
+  { id: 'oQbfROXNHNw', slug: 'vm-two-cranes-sunset', alt: 'Two dock cranes silhouetted against a sunset' },
+  { id: '27uoAK-CI24', slug: 'vm-harbour-cranes-cloudy', alt: 'A harbour full of cranes under a cloudy sky' },
+  { id: 'vFLJEhS_y5w', slug: 'vm-cranes-on-the-water', alt: 'A row of cranes standing over the water' },
+  { id: 'vOtKLNo0sKg', slug: 'vm-kochi-river-cranes-sunset', alt: 'A calm river under an orange sky with industrial cranes' },
+  { id: 'qs4rK_0OGv8', slug: 'vm-grinding-sparks-dark', alt: 'A worker grinding steel in the dark, sparks flying' },
+  { id: 't5rh9yoJ8QA', slug: 'vm-steel-stock-and-crane', alt: 'Stacked steel rods under a crane in a yard' },
+  { id: 'bfGbiw5FXK4', slug: 'vm-shearing-machine', alt: 'A large industrial metal shearing machine in a workshop' },
+  { id: '4enstJBOGww', slug: 'vm-laser-cutting-plate', alt: 'An industrial laser cutter working on a metal sheet' },
+  { id: 'QPRAhc5AqXg', slug: 'vm-hard-hat-tablet', alt: 'A person in a hard hat looking at a tablet' },
+  { id: 'uxh0dbmNoWc', slug: 'vm-yellow-hat-tablet', alt: 'A man in a yellow hard hat holding a tablet' },
+  { id: 'snNHKZ-mGfE', slug: 'vm-paper-stacks-folders', alt: 'Stacks of paper documents and file folders' },
+  { id: '6jA6eVsRJ6Q', slug: 'vm-desk-pile-of-papers', alt: 'An office table with a pile of papers' },
+  { id: 'K-ZsC7YdJ6Y', slug: 'vm-binders', alt: 'A shelf of brown binders' },
+  { id: '81ikZZG7_AA', slug: 'vm-papers-sticky-tabs', alt: 'A stack of papers marked with coloured sticky tabs' },
+];

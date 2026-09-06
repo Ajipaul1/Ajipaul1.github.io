@@ -24,7 +24,7 @@
 //   node scripts/country-pages/tone_pass.js           apply, then report residuals
 //   node scripts/country-pages/tone_pass.js --report  report only, change nothing
 const fs = require('fs'); const path = require('path');
-const REPO = 'C:/Users/marke/OneDrive/Documents/GitHub/Ajipaul1.github.io';
+const REPO = path.resolve(__dirname, '..', '..').split(String.fromCharCode(92)).join('/')   /* repo root on whichever machine runs this; was hardcoded to one laptop */;
 const REPORT_ONLY = process.argv.includes('--report');
 const rx = s => new RegExp(s, 'g');
 const P = '(?:US\\$1,800|CA\\$1,490|&pound;1,200|\u00a31,200|AU\\$1,600|AED ?3,800)';   // our own price, any currency

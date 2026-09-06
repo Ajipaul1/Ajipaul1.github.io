@@ -1,0 +1,6 @@
+{
+  "name": "techauditpros-verify",
+  "private": true,
+  "description": "Verification harness deps (node_modules is git-ignored): npm install, or deno install --node-modules-dir=auto, in this folder",
+  "dependencies": { "playwright-core": "1.47.2" }
+}

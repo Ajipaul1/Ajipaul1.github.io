@@ -1,9 +1,11 @@
 // usage: node overflow.js <path> [width]  — names the elements whose box extends past the viewport (JS on)
 const { chromium } = require('playwright-core');
+
+const CHROME = [process.env.LOCALAPPDATA + '/Google/Chrome/Application/chrome.exe', 'C:/Program Files/Google/Chrome/Application/chrome.exe'].find(p => require('fs').existsSync(p)); // user-local install on the owner's laptop, Program Files on the other machine
 (async () => {
   let [, , p, w = '1440'] = process.argv;
   p = '/' + p.replace(/^.*?:\/.*?\/Git\//, '').replace(/^\/+/, '');
-  const b = await chromium.launch({ executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe', args: ['--no-sandbox'] });
+  const b = await chromium.launch({ executablePath: CHROME, args: ['--no-sandbox'] });
   const page = await b.newPage({ viewport: { width: +w, height: 900 } });
   await page.goto('http://127.0.0.1:8934' + p, { waitUntil: 'load', timeout: 45000 });
   await page.waitForTimeout(800);

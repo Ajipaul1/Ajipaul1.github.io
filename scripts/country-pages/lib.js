@@ -1,6 +1,6 @@
 'use strict';
 const fs = require('fs'); const path = require('path');
-const REPO = 'C:/Users/marke/OneDrive/Documents/GitHub/Ajipaul1.github.io';
+const REPO = path.resolve(__dirname, '..', '..').split(String.fromCharCode(92)).join('/')   /* repo root on whichever machine runs this; was hardcoded to one laptop */;
 const FORM = 'https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg';
 function read(rel) { return fs.readFileSync(path.join(REPO, rel), 'utf8'); }
 function write(rel, s) {

@@ -27,7 +27,7 @@ const WIDE = 2400;          // hero / full-bleed master
 const MID = 1400;           // in-article figure
 const SMALL = 700;          // small cards, rail frames, phones
 const MAGICK = 'C:/Program Files/ImageMagick-7.1.2-Q16-HDRI/magick.exe';
-const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36';
+const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36';   // a real Chrome version string; the challenge page serves a different (never-completing) variant to malformed ones
 
 function get(url, hops) {
   if ((hops || 0) > 6) return Promise.reject(new Error('too many redirects'));
@@ -35,7 +35,9 @@ function get(url, hops) {
     https.get(url, { headers: { 'User-Agent': UA, Accept: 'image/jpeg,image/*,*/*' } }, res => {
       if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
         res.resume();
-        return resolve(get(res.headers.location, (hops || 0) + 1).then(r => ({ ...r, via: r.via || res.headers.location })));
+        const loc = new URL(res.headers.location, url).href;
+        if (/\.within\.website/.test(loc)) return reject(Object.assign(new Error('bot challenge'), { challenge: true }));
+        return resolve(get(loc, (hops || 0) + 1).then(r => ({ ...r, via: r.via || loc })));
       }
       if (res.statusCode !== 200) { res.resume(); return reject(new Error('HTTP ' + res.statusCode + ' for ' + url)); }
       const chunks = [];
@@ -43,6 +45,33 @@ function get(url, hops) {
       res.on('end', () => resolve({ buf: Buffer.concat(chunks), via: url }));
     }).on('error', reject);
   });
+}
+
+// Fallback for the unsplash.com bot challenge (2026-09): a real headless Chrome meets the challenge, then the
+// download event hands us the file. playwright-core lives in scripts/verify/node_modules (see verify/package.json).
+let _browser = null;
+function loadPlaywright() {
+  try { return require('playwright-core'); } catch (e) { return require(path.join(REPO, 'scripts', 'verify', 'node_modules', 'playwright-core')); }
+}
+async function browserGet(url) {
+  const pw = loadPlaywright();
+  const CHROME = [process.env.LOCALAPPDATA + '/Google/Chrome/Application/chrome.exe', 'C:/Program Files/Google/Chrome/Application/chrome.exe'].find(p => fs.existsSync(p));
+  if (!_browser) _browser = await pw.chromium.launch({ executablePath: CHROME, args: ['--no-sandbox'] });
+  const ctx = _browser.contexts()[0] || await _browser.newContext({ acceptDownloads: true, userAgent: UA });
+  const page = await ctx.newPage();
+  try {
+    const dlp = page.waitForEvent('download', { timeout: 90000 });
+    await page.goto(url, { waitUntil: 'commit', timeout: 90000 }).catch(() => {});   // the navigation "fails" when it turns into a download
+    const dl = await dlp;
+    const tmp = path.join(LIB, '.tmp-dl-' + Date.now());
+    await dl.saveAs(tmp);
+    const buf = fs.readFileSync(tmp); fs.unlinkSync(tmp);
+    return { buf, via: '?dl=' + encodeURIComponent(dl.suggestedFilename()) };
+  } finally { await page.close(); }
+}
+async function fetchPhoto(url) {
+  try { return await get(url); }
+  catch (e) { if (!e.challenge) throw e; return browserGet(url); }
 }
 
 // the redirect URL carries "dl=firstname-lastname-<id>-unsplash.jpg" -- the photographer, for CREDITS.md
@@ -62,6 +91,12 @@ function identify(file) {
 // a hero crop. Three files per photo: the 2400 master, a 1400 for in-article figures, and a 700 for
 // small cards and phones -- without that tier a 350px slot pulls a 1400px file.
 function optimise(src, slug) {
+  // Machines without ImageMagick (the owner's laptop, 2026-09-06) fall back to resize.ps1 (System.Drawing):
+  // same three tiers, EXIF dropped by re-encoding, orientation honoured, quality 82.
+  if (!fs.existsSync(MAGICK)) {
+    const out = execFileSync('powershell', ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', path.join(__dirname, 'resize.ps1'), src, LIB, slug], { encoding: 'utf8' });
+    return out.trim().split(/\r?\n/).filter(Boolean).map(l => { const [file, w, h, kb] = l.trim().split(/\s+/); return { file, w: +w, h: +h, kb: +kb }; });
+  }
   const outs = [];
   for (const [w, name] of [[WIDE, slug + '.jpg'], [MID, slug + '-1400.jpg'], [SMALL, slug + '-700.jpg']]) {
     const dest = path.join(LIB, name);
@@ -96,7 +131,7 @@ function optimise(src, slug) {
     if (fs.existsSync(final) && !force) { skipped++; continue; }
     const url = 'https://unsplash.com/photos/' + item.id + '/download?force=true&w=' + WIDE;
     try {
-      const { buf, via } = await get(url);
+      const { buf, via } = await fetchPhoto(url);
       if (buf.length < 20000) throw new Error('suspiciously small response (' + buf.length + ' bytes)');
       const tmp = path.join(LIB, '.tmp-' + item.slug);
       fs.writeFileSync(tmp, buf);
@@ -118,6 +153,7 @@ function optimise(src, slug) {
       : '# Image credits\n\nPhotos from Unsplash, used under the Unsplash Licence (commercial use permitted,\nattribution not required). Credited here anyway.\n';
     fs.writeFileSync(CREDITS, head.replace(/\s*$/, '') + '\n' + credits.join('\n') + '\n');
   }
+  if (_browser) await _browser.close();
   console.log('\ndownloaded ' + got + ', already present ' + skipped + ', failed ' + failed);
   if (failed) process.exitCode = 1;
 })();
