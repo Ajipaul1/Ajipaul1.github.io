@@ -122,6 +122,22 @@ function addUkToNavAndFooter(s) {
   }
   return s;
 }
+// ---- UAE market (PLAN-AE): nav dropdown + footer Markets item, anchored after India ----
+const AE_NAV_ITEM = `                        <a href="/ae/" class="nav-dropdown-item"><img src="https://flagcdn.com/w40/ae.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United Arab Emirates</a>`;
+const AE_FOOTER_ITEM = `                <p><a href="/ae/" class="footer-link">🇦🇪 United Arab Emirates</a></p>`;
+function addAeToNavAndFooter(s) {
+  if (!s.includes('href="/ae/" class="nav-dropdown-item"')) {
+    const inn = s.match(/^( *)<a href="\/in\/" class="nav-dropdown-item">.*<\/a>$/m) || s.match(/^( *)<a href="\/uk\/" class="nav-dropdown-item">.*<\/a>$/m);
+    if (!inn) throw new Error('no IN/UK nav item to anchor the AE item to');
+    s = s.replace(inn[0], inn[0] + '\n' + AE_NAV_ITEM);
+  }
+  if (!s.includes('href="/ae/" class="footer-link"')) {
+    const inf = s.match(/^( *)<p><a href="\/in\/" class="footer-link">.*<\/a><\/p>$/m) || s.match(/^( *)<p><a href="\/uk\/" class="footer-link">.*<\/a><\/p>$/m);
+    if (!inf) throw new Error('no IN/UK footer item to anchor the AE item to');
+    s = s.replace(inf[0], inf[0] + '\n' + AE_FOOTER_ITEM);
+  }
+  return s;
+}
 function ukFooterCities(s) {
   const start = '<div class="footer-cities">', end = '<div class="footer-bottom">';
   const block = `
@@ -485,4 +501,4 @@ function ukSpelling(s) {
   return out;
 }
 
-module.exports = { REPO, FORM, read, write, count, must, replaceAll, replaceBetween, esc, plain, jsonStr, setHead, faqSchema, faqHtml, addUsToNavAndFooter, usFooterCities, addUkToNavAndFooter, ukFooterCities, injectExtras, setHero, setSideText, setRotatePhrases, setBody, setFinalCta, setPageSchemas, promise, sectionHead, answer, benefitRow, modulesGrid, compareTable, processRow, costGrid, industriesGrid, statRow, serviceSchema, breadcrumbSchema, ukSpelling };
+module.exports = { addAeToNavAndFooter, REPO, FORM, read, write, count, must, replaceAll, replaceBetween, esc, plain, jsonStr, setHead, faqSchema, faqHtml, addUsToNavAndFooter, usFooterCities, addUkToNavAndFooter, ukFooterCities, injectExtras, setHero, setSideText, setRotatePhrases, setBody, setFinalCta, setPageSchemas, promise, sectionHead, answer, benefitRow, modulesGrid, compareTable, processRow, costGrid, industriesGrid, statRow, serviceSchema, breadcrumbSchema, ukSpelling };
