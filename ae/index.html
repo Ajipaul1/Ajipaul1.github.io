@@ -843,6 +843,16 @@
   html.ae-on .aea-qs li > *{ opacity:0; } html.ae-on .aea-qs.lit li > *{ opacity:1; transition:opacity .5s linear calc(.2s + var(--d) * .12s); }
   @supports (animation-timeline: view()){ .aea-bandfig .ae-img{ animation:aeDrift linear both; animation-timeline:view(); animation-range:entry 0% exit 100%; transform-origin:center; } @keyframes aeDrift{ from{ transform:scale(1.14) translateX(-3%); } to{ transform:scale(1.14) translateX(3%); } } }
   @media (prefers-reduced-motion: reduce){ html.ae-on .aet-card, html.ae-on .aet-word i, html.ae-on .aet-cities span, html.ae-on .aet-cities i, html.ae-on .aet-crew > div, html.ae-on .aet-type, html.ae-on .aet-cap, html.ae-on .aet-title, html.ae-on .aea-head .eyebrow, html.ae-on .aea-head .aea-h2, html.ae-on .aea-head .aea-lede, html.ae-on .aea-pair .half .ae-img, html.ae-on .clk .face i, html.ae-on .aea-pair .gap b, html.ae-on .aea-pair .gap span, html.ae-on .aea-pair figcaption, html.ae-on .aea-pair .clk b, html.ae-on .aea-pair .clk span, html.ae-on .aea-two > div, html.ae-on .em, html.ae-on .em figure .ae-img, html.ae-on .cr, html.ae-on .cr figure .ae-img, html.ae-on .aea-strip, html.ae-on .aea-wide .ae-img, html.ae-on .aea-wide figcaption, html.ae-on .aea-thanks li, html.ae-on .drv, html.ae-on .aea-side .ae-img, html.ae-on .aea-side figcaption, html.ae-on .aea-qs li::after, html.ae-on .aea-qs li > *, .aea-bandfig .ae-img{ opacity:1 !important; transform:none !important; clip-path:none !important; animation:none !important; transition:none !important; } }
+
+  /* nav_regions: Service Areas grouped by country */
+  .nav-dropdown-panel.nav-regions{ display:grid; grid-template-columns:repeat(5, minmax(150px, 1fr)); gap:18px 22px; min-width:min(980px, 94vw); padding:22px 28px; left:50%; }
+  .nav-region{ display:grid; gap:4px; align-content:start; }
+  .nav-region-head{ display:flex; align-items:center; gap:8px; font-weight:700; color:var(--ink); text-decoration:none; padding:6px 8px; border-radius:6px; border-bottom:2px solid var(--orange); margin-bottom:4px; white-space:nowrap; }
+  .nav-region-head img{ width:20px; height:20px; border-radius:50%; object-fit:cover; flex-shrink:0; }
+  .nav-region-head:hover{ background:var(--paper-alt); }
+  .nav-region-link{ display:block; padding:5px 8px; border-radius:6px; color:var(--ink-soft); text-decoration:none; font-size:.92rem; white-space:nowrap; }
+  .nav-region-link:hover{ background:var(--paper-alt); color:var(--orange); }
+  @media (max-width:1180px){ .nav-dropdown-panel.nav-regions{ grid-template-columns:repeat(3, 1fr); min-width:min(720px, 92vw); } }
 </style>
 
 
@@ -992,10 +1002,12 @@
             <nav class="desktop-nav">
                 <div class="nav-dropdown">
                     <a href="#services">Services <span class="nav-dropdown-caret">&#9662;</span></a>
-                    <div class="nav-dropdown-panel">
-                        <a href="/us/erp/" class="nav-dropdown-item"><svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06A1.65 1.65 0 004.6 15a1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.6a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09A1.65 1.65 0 0015 4.6a1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg> Enterprise ERP Solutions</a>
-                        <a href="/us/website-development/" class="nav-dropdown-item"><svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> Website Development</a>
-                        <a href="/us/seo-services/" class="nav-dropdown-item"><svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> SEO, AEO &amp; GEO</a>
+                    <div class="nav-dropdown-panel nav-regions">
+                        <div class="nav-region"><a href="/ca/" class="nav-region-head"><img src="https://flagcdn.com/w40/ca.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Canada</a><a href="/ca/toronto/" class="nav-region-link">Toronto</a></div>
+                        <div class="nav-region"><a href="/us/" class="nav-region-head"><img src="https://flagcdn.com/w40/us.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United States</a><a href="/us/erp/" class="nav-region-link">ERP</a><a href="/us/seo-services/" class="nav-region-link">SEO</a><a href="/us/website-development/" class="nav-region-link">Websites</a></div>
+                        <div class="nav-region"><a href="/uk/" class="nav-region-head"><img src="https://flagcdn.com/w40/gb.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United Kingdom</a><a href="/uk/london/" class="nav-region-link">London</a><a href="/uk/manchester/" class="nav-region-link">Manchester</a><a href="/uk/reading/" class="nav-region-link">Reading</a><a href="/uk/scotland/" class="nav-region-link">Scotland</a></div>
+                        <div class="nav-region"><a href="/in/" class="nav-region-head"><img src="https://flagcdn.com/w40/in.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> India</a><a href="/in/kerala/" class="nav-region-link">Kerala</a><a href="/in/mumbai/" class="nav-region-link">Mumbai</a><a href="/in/kolkata/" class="nav-region-link">Kolkata</a><a href="/in/vadodara/" class="nav-region-link">Vadodara</a><a href="/in/lucknow/" class="nav-region-link">Lucknow</a><a href="/in/calicut/" class="nav-region-link">Calicut</a></div>
+                        <div class="nav-region"><a href="/ae/" class="nav-region-head"><img src="https://flagcdn.com/w40/ae.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United Arab Emirates</a><a href="/ae/abu-dhabi/" class="nav-region-link">Abu Dhabi</a><a href="/ae/dubai/" class="nav-region-link">Dubai</a><a href="/ae/ecommerce-website-development/" class="nav-region-link">E-commerce</a><a href="/ae/erp/" class="nav-region-link">ERP</a></div>
                     </div>
                 </div>
                 <div class="nav-dropdown">
