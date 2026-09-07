@@ -1,6 +1,6 @@
 # PLAN-AE — the UAE pages, planned from the data before anything is built
 
-Status: **DRAFT — waiting for the owner's "Approved"** (2026-09-07). Nothing under `/ae/` exists yet.
+Status: **APPROVED by the owner 2026-09-07.** Live: `/ae/` (v2), `/ae/abu-dhabi/`, `/ae/ecommerce-website-development/`. Next: `/ae/dubai/`, `/ae/erp/`, construction, automotive, seo-services, website-development, then the 10 posts. Design rules in §9 override §4 where they differ.
 
 Sources: six SEMrush exports in `ai_context/data/ae/` (git-ignored), parsed by
 `scripts/keyword-research/ae_read.js` into `ae_keywords.json` — 32,989 keywords, 2.6 lakh searches/month;
