@@ -4,40 +4,24 @@
 // DATA (ai_context/data/ae/, ae_read.js, 2026-09-07): 32,989 keywords, 144 winnable at vol>=100 & KD<=40.
 //   This page owns the UAE-wide cluster: seo united arab emirates 720/35 · best seo company in uae 390/33 · erp
 //   software uae 590/22 · erp solution providers in uae 390/25 · erp system in uae 260/18 · erp software companies in
-//   uae 260/16 · ecommerce website development uae 720/24 · website development uae 170/22 · best seo company in uae.
+//   uae 260/16 · ecommerce website development uae 720/24 · website development uae 170/22.
 //   AI Overviews sit on 53% of the winnable SERPs — every heading here is answered in its first sentence.
 // WHAT RANKS (live, 2026-09-07): seo.ae (~4,500 words, 10 FAQs, AED 900–2,500 tiers, 7 emirates + GCC listed),
 //   gear-up.ae (~8,500 words, VAT/CT/PINT-AE/WPS/EOSB, Arabic RTL, WhatsApp x5), digitalgravity.ae (~8,000 words,
 //   50+ FAQs, AED 8k–40k / 15k–100k+ published). Parity here: 4,000+ words, 12 FAQs, compliance item by item, AED
 //   ranges attributed, the no-office fact said first, WhatsApp CTA.
-// POSITIONING: the buyer IS buying a team in another country — a Kochi team a four-hour flight from Dubai on the
-//   same working week. The word "offshore" is avoided (owner decision pending; plan assumes avoided). "Audit" is the
-//   company name only. No price of ours. No +971 number exists yet — the page says so and uses the WhatsApp we have.
+// POSITIONING: a Kochi team a four-hour flight from Dubai on the same working week. "Offshore" avoided (owner decision
+//   pending; plan assumes avoided). "Audit" is the company name only. No price of ours. No +971 number yet — said so.
 //
-// DESIGN — "TITLE SEQUENCE" (owner's brief: open like a Malayalam film — the name, who worked on it, the core idea,
-//   over beautiful moving images; the SEO/AEO/GEO content is the story). Nothing borrowed from /in/, /uk/ or /us/.
-//   • The hero is replaced by a letterboxed, grain-overlaid, full-viewport title sequence of six cards, auto-
-//     advancing (~2.6s each, ~15s total, one shot, JS-driven, skippable by button, key, click or scroll):
-//       1 "TechAuditPros presents" — the word PRESENTS assembles from scattered letters (transform only; scatter
-//         offsets set in JS)            backdrop: desert ridge
-//       2 "a team from Kochi" — caption "a four-hour flight · ninety minutes on the clock · the same working week"
-//                                        backdrop: Kochi water, wiped in by clip-path from the right
-//       3 "for Dubai · Abu Dhabi · the Emirates" — three names light left to right, a hairline draws between them
-//                                        backdrop: Dubai skyline across the water at sunset
-//       4 "in three disciplines" — a crew list in credit typography (role left, person right)
-//                                        backdrop: Abu Dhabi Corniche
-//       5 "written to be quoted" — the AEO card: "53% of these searches are answered by an AI before a click" types
-//         in, then the page's own first sentence appears as the first quotable
-//                                        backdrop: Dubai at night across the water
-//       6 the title card: "United Arab Emirates" + the H1; the letterbox bands slide open and the nav appears
-//                                        backdrop: the Burj above the interchange
-//     JS off (or reduced motion): only card 6 and its backdrop exist visually — a complete poster with the H1.
-//   • Every chapter ("reel") is introduced by a clapperboard slate that snaps shut (top arm rotates on a hinge).
-//   • Reel 1 carries two live clocks (Dubai / Kochi) set by JS; static 10:10 / 11:40 without JS.
-//   • Reel 4 (compliance) is a sprocket-holed film strip that travels sideways with the scroll (view() timeline,
-//     movement only). Reel 5 (cost) is end-credit "with thanks to" cards naming the sources. The FAQ is a credit
-//     roll of native <details>. The CTA is "a TechAuditPros production".
-//   • Start states only under html.ae-on; overflow-x:clip on every reel; verified with shot/jsoff/overflow at 1440/390.
+// DESIGN v2 (owner, 2026-09-07, after seeing v1): KEEP the title sequence — "I like it, the images tell the story" —
+//   and make the WHOLE PAGE work that way; DROP the film-reel props (clapperboards, sprockets, credit roll) and the
+//   black body backgrounds; stay in the brand palette like /uk/ (paper #FFF, paper-alt #F3F6F5, navy-deep #0B2036,
+//   orange). So: hero = the six-card letterboxed title sequence, unchanged. Body = six acts, each led by large
+//   photographs, alternating paper / navy-deep, standard section heads and the standard FAQ accordion.
+//   Motion per act (start states only under html.ae-on; JS off = complete page): the split pair wipes inward and the
+//   clock hands sweep · emirate cards rise while their photos settle · crew tiles drop their photos in · the compliance
+//   strip travels sideways with the scroll (view timeline, movement only) · the cost plate settles and the "with thanks
+//   to" list rises · question underlines draw · the band drifts.
 const fs = require('fs');
 const path = require('path');
 const L = require('./lib.js');
@@ -51,11 +35,12 @@ function img(slug, alt, sizes, cls, eager) {
 }
 // the photographs of this page — asserted unique to it
 const STOCK = {
-  c1: 'ae-dunes-ridge', c2: 'home-kerala-boat-on-water', c3: 'ae-dubai-skyline-sunset-water', c4: 'ae-abu-dhabi-corniche-skyline',
-  c5: 'ae-dubai-night-across-water', c6: 'ae-burj-khalifa-interchange',
+  c1: 'ae-dunes-ridge', c2: 'home-kerala-boat-on-water', c3: 'ae-dubai-skyline-sunset-water', c4: 'ae-abu-dhabi-corniche-skyline', c5: 'ae-dubai-night-across-water', c6: 'ae-burj-khalifa-interchange',
+  kerala: 'in-kerala-tall-building-street', dubai: 'ae-metro-train-towers',
+  emAbu: 'ad-louvre-ceiling', emDxb: 'ae-creek-abras-buildings', emShj: 'ae-sharjah-white-building',
   seo: 'ae-dubai-towers-by-water', web: 'ae-people-walking-marina', erp: 'ae-cranes-at-sunset',
-  strip1: 'ae-spice-souk-baskets', strip2: 'ae-gold-souk-display', strip3: 'ae-abra-on-the-creek',
-  cost: 'ae-dunes-blue-sky',
+  strip1: 'ae-spice-souk-baskets', strip2: 'ae-gold-souk-display', strip3: 'ae-abra-on-the-creek', strip4: 'ae-creek-wooden-dock', strip5: 'ae-metro-blue-train',
+  cost: 'ae-creek-sunset-skyline', check: 'ae-sharjah-skyline-water', band: 'ae-creek-boats-near-buildings',
 };
 const CITY_PAGE = slug => fs.existsSync(path.join(L.REPO, 'ae', slug, 'index.html')) ? '/ae/' + slug + '/' : null;
 
@@ -72,15 +57,17 @@ const CREW = [
 
 const STRIP = [
   { k: 'VAT', h: 'VAT at 5%', p: 'FTA-compliant tax invoices, input/output reconciliation, VAT201 filing data from the ledger, designated-zone and reverse-charge handling. Built into the flow, not bolted on.' },
-  { photo: 'strip1' },
+  { photo: 'strip1', alt: 'Spices in baskets at the Dubai spice souk' },
   { k: 'CT', h: 'Corporate Tax at 9%', p: 'Taxable income above the threshold, the small-business relief election, free-zone qualifying income, transfer-pricing documentation where it applies. The ERP keeps the books that make the return possible.' },
   { k: 'E-INV', h: 'E-invoicing, PINT-AE', p: 'The UAE&rsquo;s Peppol-based PINT-AE format with accredited service providers; Phase 2 mandates from July 2026 per the current Ministry of Finance guidance. Invoices must leave the system already compliant.' },
-  { photo: 'strip2' },
+  { photo: 'strip2', alt: 'Gold jewellery displayed in the Dubai gold souk' },
   { k: 'WPS', h: 'WPS payroll', p: 'Salaries paid through the Wages Protection System with SIF files generated from payroll, MoHRE portal timing, and the fines that follow a late file avoided by design.' },
   { k: 'EOSB', h: 'Gratuity (EOSB)', p: 'End-of-service benefit accrued monthly under UAE Labour Law, per contract type and tenure, so the liability is a number in the accounts rather than a surprise at resignation.' },
-  { photo: 'strip3' },
+  { photo: 'strip3', alt: 'A wooden abra on Dubai Creek' },
   { k: 'ZONE', h: 'Free zone or mainland', p: 'JAFZA, DMCC, DIFC, KIZAD, Sharjah free zones: different licensing, VAT designated-zone status, customs and reporting. The system knows which entity it is invoicing from.' },
+  { photo: 'strip4', alt: 'A wooden boat dock on Dubai Creek' },
   { k: 'AR', h: 'Arabic where it counts', p: 'Bilingual invoices and RTL interfaces for the people who use them; English-first search pages, because 99% of the searches in the data are in English.' },
+  { photo: 'strip5', alt: 'A Dubai Metro train on its elevated track' },
 ];
 
 const COST = [
@@ -121,7 +108,7 @@ const FAQS = [
 ];
 
 // ---------------------------------------------------------------------------------------------
-// the title sequence
+// the title sequence (unchanged from v1 — the owner kept it)
 const letters = w => w.split('').map((ch, i) => '<i style="--i:' + i + '">' + ch + '</i>').join('');
 const TITLES = [
   '<section class="aet" id="ae-titles" aria-label="Opening titles">',
@@ -149,123 +136,111 @@ const TITLES = [
 ].join('\n');
 
 // ---------------------------------------------------------------------------------------------
-// the reels
-const slate = (n, label) => '      <div class="aer-slate" aria-hidden="true"><div class="arm"></div><div class="body"><span class="n">Reel ' + n + '</span><span class="l">' + label + '</span></div></div>';
-const head = (title, lede) => '      <h2 class="aer-h2">' + title + '</h2>' + (lede ? '\n      <p class="aer-lede">' + lede + '</p>' : '');
+// the acts — image-led, brand palette
+const head = (eyebrow, title, lede) => '      <div class="aea-head"><p class="eyebrow">' + eyebrow + '</p><h2 class="aea-h2">' + title + '</h2>' + (lede ? '<p class="aea-lede">' + lede + '</p>' : '') + '</div>';
 
-const REEL1 = [
-  '<section class="aer dark" id="ae-story" aria-label="Where we are and are not">',
+const ACT1 = [
+  '<section class="aea" id="ae-story" aria-label="Where we are and are not">',
   '  <div class="container">',
-  slate(1, 'Where we are, and are not'),
-  head('We are not in Dubai. Here is exactly how far away we are, and what that buys you.', 'Every page that ranks for these searches has a Dubai address, a +971 number and a wall of logos. We have none of those, and this page starts by saying so, because most of them will not tell you what they lack. What a team in Kochi gives a UAE business instead is measurable: a four-hour flight, ninety minutes on the clock, the same Monday-to-Friday week, and a cost base that lets you buy engineering rather than an account manager.'),
-  '    <div class="aer-clocks" aria-label="Local time in Dubai and Kochi">',
-  '      <div class="clk" data-tz="Asia/Dubai" data-h="10" data-m="10"><div class="face"><i class="h"></i><i class="m"></i><i class="c"></i></div><b>Dubai</b><span>GMT+4</span></div>',
-  '      <div class="gap"><b>1h 30m</b><span>apart on the clock</span><b>4h</b><span>by air, COK&rarr;DXB</span><b>Mon&ndash;Fri</b><span>the same week since 2022</span></div>',
-  '      <div class="clk" data-tz="Asia/Kolkata" data-h="11" data-m="40"><div class="face"><i class="h"></i><i class="m"></i><i class="c"></i></div><b>Kochi</b><span>GMT+5:30</span></div>',
-  '    </div>',
-  '    <div class="aer-two">',
-  '      <div><h3>What you do not get</h3><ul class="aer-list"><li>An office in Dubai or Abu Dhabi, or a meeting room to walk into.</li><li>A UAE phone number. Until we have one, this page uses the WhatsApp we have and says so.</li><li>A wall of GCC logos. Our delivered work is mostly for clients in the United States, Canada, the United Kingdom and India, with Gulf clients among the sixteen countries served.</li></ul></div>',
-  '      <div><h3>What you get instead</h3><ul class="aer-list"><li>A staging URL you can open every week to see what changed, and a written report every month against a ninety-day plan.</li><li>A developer on the same call as the search specialist, so a title tag, a redirect or a template fix ships the same week.</li><li>UAE compliance built into the system rather than sold as a localisation partner.</li><li>Everything yours from day one: code, accounts, content, reports.</li></ul></div>',
-  '    </div>',
-  '    <p class="aer-p on-dark">When a Dubai agency is the better answer: a launch that needs people in the room every week, a brand that needs a local address on the proposal, a project where the paid media is the point. Several good ones rank for these searches. Come to us when what you want to see is the work.</p>',
+  head('Where we are, and are not', 'We are not in Dubai. Here is exactly how far away we are, and what that buys you.', 'Every page that ranks for these searches has a Dubai address, a +971 number and a wall of logos. We have none of those, and this page starts by saying so. What a team in Kochi gives a UAE business instead is measurable: a four-hour flight, ninety minutes on the clock, the same Monday-to-Friday week, and a cost base that lets you buy engineering rather than an account manager.'),
   '  </div>',
+  '  <div class="aea-pair">',
+  '    <figure class="half l">' + img(STOCK.kerala, 'A temple street in Kerala, India', '(max-width:860px) 100vw, 50vw') + '<div class="clk" data-tz="Asia/Kolkata" data-h="11" data-m="40"><div class="face"><i class="h"></i><i class="m"></i><i class="c"></i></div><b>Kochi</b><span>GMT+5:30</span></div><figcaption>Kerala, where the team is.</figcaption></figure>',
+  '    <div class="gap"><b>1h 30m</b><span>apart on the clock</span><b>4h</b><span>by air, COK&rarr;DXB</span><b>Mon&ndash;Fri</b><span>the same week since 2022</span></div>',
+  '    <figure class="half r">' + img(STOCK.dubai, 'A Dubai Metro train passing tall towers', '(max-width:860px) 100vw, 50vw') + '<div class="clk" data-tz="Asia/Dubai" data-h="10" data-m="10"><div class="face"><i class="h"></i><i class="m"></i><i class="c"></i></div><b>Dubai</b><span>GMT+4</span></div><figcaption>Dubai, where the work is.</figcaption></figure>',
+  '  </div>',
+  '  <div class="container aea-two">',
+  '    <div><h3>What you do not get</h3><ul class="aea-list"><li>An office in Dubai or Abu Dhabi, or a meeting room to walk into.</li><li>A UAE phone number. Until we have one, this page uses the WhatsApp we have and says so.</li><li>A wall of GCC logos. Our delivered work is mostly for clients in the United States, Canada, the United Kingdom and India, with Gulf clients among the sixteen countries served.</li></ul></div>',
+  '    <div><h3>What you get instead</h3><ul class="aea-list"><li>A staging URL you can open every week to see what changed, and a written report every month against a ninety-day plan.</li><li>A developer on the same call as the search specialist, so a title tag, a redirect or a template fix ships the same week.</li><li>UAE compliance built into the system rather than sold as a localisation partner.</li><li>Everything yours from day one: code, accounts, content, reports.</li></ul></div>',
+  '  </div>',
+  '  <div class="container"><p class="aea-p">When a Dubai agency is the better answer: a launch that needs people in the room every week, a brand that needs a local address on the proposal, a project where the paid media is the point. Several good ones rank for these searches. Come to us when what you want to see is the work.</p></div>',
   '</section>',
 ].join('\n');
 
 const ABU = CITY_PAGE('abu-dhabi'), DXB = CITY_PAGE('dubai');
-const REEL2 = [
-  '<section class="aer" id="ae-emirates" aria-label="The Emirates, one by one">',
+const ACT2 = [
+  '<section class="aea dark" id="ae-emirates" aria-label="The Emirates, one by one">',
   '  <div class="container">',
-  slate(2, 'The Emirates, one by one'),
-  head('Abu Dhabi first, Dubai second, and an honest word about the rest.', 'We planned these pages from 32,989 UAE search terms, and the demand is not where the billboards are. This is what the data says about each emirate and what a business there tends to need first.'),
-  '    <div class="aer-em">',
-  '      <article class="em" style="--d:0"><span class="k">Abu Dhabi</span><h3>The softest large market in our data.</h3><p>&ldquo;SEO services Abu Dhabi&rdquo; is searched 4,400 times a month at a difficulty of 22; the consultant and agency terms beside it are lower still. The pages ranking for it are small local agencies with thin content. For a clinic on Al Reem, a school in Khalifa City or a contractor in Mussafah, local search and a fast site are the first thirty days.</p>' + (ABU ? '<a class="aer-link" href="' + ABU + '">Abu Dhabi page &rarr;</a>' : '<span class="aer-link soon">Abu Dhabi page &mdash; next</span>') + '</article>',
-  '      <article class="em" style="--d:1"><span class="k">Dubai</span><h3>The largest market, and the hardest head terms.</h3><p>&ldquo;SEO agency Dubai&rdquo; is searched 8,100 times a month at a difficulty above 50, owned by agencies of sixty to two hundred people. What is winnable now is the tail: e-commerce development (1,600 a month at 22), local SEO packages, ERP for trading and distribution. Dubai runs on trade, and trade runs on stock that the storefront gets wrong.</p>' + (DXB ? '<a class="aer-link" href="' + DXB + '">Dubai page &rarr;</a>' : '<span class="aer-link soon">Dubai page &mdash; next</span>') + '</article>',
-  '      <article class="em" style="--d:2"><span class="k">Sharjah, Ajman, RAK, Al Ain</span><h3>Served, not paged.</h3><p>Between them these emirates show almost no measurable search for these services &mdash; &ldquo;SEO services in Sharjah&rdquo; is 70 searches a month. We work with businesses there exactly as we do in Dubai; we do not build a page per emirate to pretend otherwise, because a page nobody searches for helps nobody.</p><span class="aer-link soon">No page, on purpose</span></article>',
+  head('The Emirates, one by one', 'Abu Dhabi first, Dubai second, and an honest word about the rest.', 'We planned these pages from 32,989 UAE search terms, and the demand is not where the billboards are. This is what the data says about each emirate and what a business there tends to need first.'),
+  '    <div class="aea-em">',
+  '      <article class="em" style="--d:0"><figure>' + img(STOCK.emAbu, 'The latticed ceiling of the Louvre Abu Dhabi', '(max-width:860px) 100vw, 32vw') + '</figure><div class="t"><span class="k">Abu Dhabi</span><h3>The softest large market in our data.</h3><p>&ldquo;SEO services Abu Dhabi&rdquo; is searched 4,400 times a month at a difficulty of 22; the consultant and agency terms beside it are lower still. The pages ranking for it are small local agencies with thin content. For a clinic on Al Reem, a school in Khalifa City or a contractor in Mussafah, local search and a fast site are the first thirty days.</p>' + (ABU ? '<a class="aea-link" href="' + ABU + '">Abu Dhabi page &rarr;</a>' : '<span class="aea-link soon">Abu Dhabi page &mdash; next</span>') + '</div></article>',
+  '      <article class="em" style="--d:1"><figure>' + img(STOCK.emDxb, 'Abras moored beside the buildings of Dubai Creek', '(max-width:860px) 100vw, 32vw') + '</figure><div class="t"><span class="k">Dubai</span><h3>The largest market, and the hardest head terms.</h3><p>&ldquo;SEO agency Dubai&rdquo; is searched 8,100 times a month at a difficulty above 50, owned by agencies of sixty to two hundred people. What is winnable now is the tail: e-commerce development (1,600 a month at 22), local SEO packages, ERP for trading and distribution. Dubai runs on trade, and trade runs on stock that the storefront gets wrong.</p>' + (DXB ? '<a class="aea-link" href="' + DXB + '">Dubai page &rarr;</a>' : '<span class="aea-link soon">Dubai page &mdash; next</span>') + '</div></article>',
+  '      <article class="em" style="--d:2"><figure>' + img(STOCK.emShj, 'The Al Noor mosque and towers of central Sharjah at dusk', '(max-width:860px) 100vw, 32vw') + '</figure><div class="t"><span class="k">Sharjah, Ajman, RAK, Al Ain</span><h3>Served, not paged.</h3><p>Between them these emirates show almost no measurable search for these services &mdash; &ldquo;SEO services in Sharjah&rdquo; is 70 searches a month. We work with businesses there exactly as we do in Dubai; we do not build a page per emirate to pretend otherwise, because a page nobody searches for helps nobody.</p><span class="aea-link soon">No page, on purpose</span></div></article>',
   '    </div>',
   '  </div>',
   '</section>',
 ].join('\n');
 
-const REEL3 = [
-  '<section class="aer dark" id="ae-crew" aria-label="Three disciplines, one crew">',
+const ACT3 = [
+  '<section class="aea alt" id="ae-crew" aria-label="Three disciplines, one crew">',
   '  <div class="container">',
-  slate(3, 'Three disciplines, one crew'),
-  head('What a UAE business usually buys from three suppliers, run by one crew.', 'A Dubai agency for search, a web company for the site, an ERP vendor for the system, and three invoices that blame each other. We run all three with one team, which is the only reason the storefront can show the stock the ERP actually holds and the search work can point at pages built to load on a phone in a taxi on Sheikh Zayed Road.'),
-  '    <div class="aer-crew">',
-  '      <article class="cr" style="--d:0"><figure>' + img(STOCK.seo, 'High-rise towers beside the water in Dubai', '(max-width:860px) 100vw, 30vw') + '</figure><span class="k">01 &middot; Search</span><h3>SEO, AEO &amp; GEO</h3><p>Technical fixes, local visibility in Abu Dhabi and Dubai, content written from real UAE search data &mdash; and the structure that gets a page quoted by Google&rsquo;s AI Overviews, ChatGPT and Perplexity, which already answer more than half of the searches we can win here.</p><a class="aer-link" href="/us/seo-services/">How the search work runs &rarr;</a></article>',
-  '      <article class="cr" style="--d:1"><figure>' + img(STOCK.web, 'People walking near the high-rises of Dubai Marina', '(max-width:860px) 100vw, 30vw') + '</figure><span class="k">02 &middot; Websites</span><h3>Website &amp; e-commerce development</h3><p>Next.js, WordPress, Shopify or WooCommerce &mdash; chosen for the business, not the developer &mdash; fast on Etisalat and du mobile data, VAT-compliant at checkout, cash-on-delivery handled, and delivered in your own repository with a staging URL from week one.</p><a class="aer-link" href="/us/website-development/">How the builds run &rarr;</a></article>',
-  '      <article class="cr" style="--d:2"><figure>' + img(STOCK.erp, 'Construction cranes and buildings at sunset', '(max-width:860px) 100vw, 30vw') + '</figure><span class="k">03 &middot; Systems</span><h3>Custom ERP for the UAE</h3><p>Stock, orders, purchasing, projects and payroll in one system of record with VAT, Corporate Tax, PINT-AE e-invoicing, WPS and EOSB built in &mdash; for trading, construction, automotive and distribution businesses that have outgrown Tally, Zoho or a spreadsheet.</p><a class="aer-link" href="/us/erp/">How the systems run &rarr;</a></article>',
+  head('Three disciplines, one crew', 'What a UAE business usually buys from three suppliers, run by one crew.', 'A Dubai agency for search, a web company for the site, an ERP vendor for the system, and three invoices that blame each other. We run all three with one team, which is the only reason the storefront can show the stock the ERP actually holds and the search work can point at pages built to load on a phone in a taxi on Sheikh Zayed Road.'),
+  '    <div class="aea-crew">',
+  '      <article class="cr" style="--d:0"><figure>' + img(STOCK.seo, 'High-rise towers beside the water in Dubai', '(max-width:860px) 100vw, 30vw') + '</figure><span class="k">01 &middot; Search</span><h3>SEO, AEO &amp; GEO</h3><p>Technical fixes, local visibility in Abu Dhabi and Dubai, content written from real UAE search data &mdash; and the structure that gets a page quoted by Google&rsquo;s AI Overviews, ChatGPT and Perplexity, which already answer more than half of the searches we can win here.</p><a class="aea-link" href="/us/seo-services/">How the search work runs &rarr;</a></article>',
+  '      <article class="cr" style="--d:1"><figure>' + img(STOCK.web, 'People walking near the high-rises of Dubai Marina', '(max-width:860px) 100vw, 30vw') + '</figure><span class="k">02 &middot; Websites</span><h3>Website &amp; e-commerce development</h3><p>Next.js, WordPress, Shopify or WooCommerce &mdash; chosen for the business, not the developer &mdash; fast on Etisalat and du mobile data, VAT-compliant at checkout, cash-on-delivery handled, and delivered in your own repository with a staging URL from week one.</p><a class="aea-link" href="' + (fs.existsSync(path.join(L.REPO, 'ae', 'ecommerce-website-development', 'index.html')) ? '/ae/ecommerce-website-development/' : '/us/website-development/') + '">How the builds run &rarr;</a></article>',
+  '      <article class="cr" style="--d:2"><figure>' + img(STOCK.erp, 'Construction cranes and buildings at sunset', '(max-width:860px) 100vw, 30vw') + '</figure><span class="k">03 &middot; Systems</span><h3>Custom ERP for the UAE</h3><p>Stock, orders, purchasing, projects and payroll in one system of record with VAT, Corporate Tax, PINT-AE e-invoicing, WPS and EOSB built in &mdash; for trading, construction, automotive and distribution businesses that have outgrown Tally, Zoho or a spreadsheet.</p><a class="aea-link" href="/us/erp/">How the systems run &rarr;</a></article>',
   '    </div>',
   '  </div>',
   '</section>',
 ].join('\n');
 
-const REEL4 = [
-  '<section class="aer alt" id="ae-compliance" aria-label="The compliance layer">',
+const ACT4 = [
+  '<section class="aea" id="ae-compliance" aria-label="The compliance layer">',
   '  <div class="container">',
-  slate(4, 'The compliance layer'),
-  head('Nine things a UAE system has to get right, in one strip.', 'The ERP pages ranking here list these as features. We treat them as the floor. Figures and dates are as published by the FTA and the Ministry of Finance in September 2026; the system reads them from configuration so they can change without a developer.'),
+  head('The compliance layer', 'Nine things a UAE system has to get right, in one strip.', 'The ERP pages ranking here list these as features. We treat them as the floor. Figures and dates are as published by the FTA and the Ministry of Finance in September 2026; the system reads them from configuration so they can change without a developer.'),
   '  </div>',
-  '  <div class="aer-stripwrap">',
-  '    <div class="aer-strip" aria-label="UAE compliance items">',
+  '  <div class="aea-stripwrap"><div class="aea-strip" aria-label="UAE compliance items">',
   ...STRIP.map((f, i) => f.photo
-    ? '      <figure class="fr photo" style="--d:' + i + '">' + img(STOCK[f.photo], ({ strip1: 'Spices in baskets at the Dubai spice souk', strip2: 'Gold jewellery displayed in the Dubai gold souk', strip3: 'A wooden abra on Dubai Creek' })[f.photo], '(max-width:860px) 80vw, 30vw') + '</figure>'
-    : '      <div class="fr" style="--d:' + i + '"><span class="k">' + f.k + '</span><h3>' + f.h + '</h3><p>' + f.p + '</p></div>'),
-  '    </div>',
-  '  </div>',
-  '  <div class="container"><p class="aer-p">Ask any vendor, product or custom, to show one invoice go from despatch to PINT-AE submission to the ledger in a demo, with your data. Products that need a &ldquo;localisation partner&rdquo; for this are not UAE-ready, whatever the list says.</p></div>',
+    ? '    <figure class="fr photo" style="--d:' + i + '">' + img(STOCK[f.photo], f.alt, '(max-width:860px) 80vw, 30vw') + '</figure>'
+    : '    <div class="fr" style="--d:' + i + '"><span class="k">' + f.k + '</span><h3>' + f.h + '</h3><p>' + f.p + '</p></div>'),
+  '  </div></div>',
+  '  <div class="container"><p class="aea-p">Ask any vendor, product or custom, to show one invoice go from despatch to PINT-AE submission to the ledger in a demo, with your data. Products that need a &ldquo;localisation partner&rdquo; for this are not UAE-ready, whatever the list says.</p></div>',
   '</section>',
 ].join('\n');
 
-const REEL5 = [
-  '<section class="aer dark" id="ae-cost" aria-label="What it costs">',
-  '  <div class="container aer-two wide">',
+const ACT5 = [
+  '<section class="aea dark" id="ae-cost" aria-label="What it costs">',
+  '  <figure class="aea-wide">' + img(STOCK.cost, 'The sun setting over the Dubai skyline from the Creek', '100vw') + '<figcaption>What SEO, websites and ERP cost in the UAE &mdash; with thanks to the people who publish a price.</figcaption></figure>',
+  '  <div class="container aea-two wide">',
   '    <div>',
-  slate(5, 'What it costs'),
-  head('What SEO, websites and ERP cost in the UAE, with thanks to the people who publish a price.', 'We read the first page of Google for these searches so you do not have to. The figures below are theirs, as published in September 2026. Ours comes after a written plan, not before it.'),
-  '      <div class="aer-drivers">' + DRIVERS.map(([h, p], i) => '<div class="drv" style="--d:' + i + '"><b>0' + (i + 1) + '</b><h3>' + h + '</h3><p>' + p + '</p></div>').join('') + '</div>',
-  '      <p class="aer-p on-dark">What we publish instead of a rate card: a written plan for the first ninety days, what you will have at the end of it, and what you keep if you stop. Put it beside any AED figure above and the price will explain itself.</p>',
+  head('What it costs', 'The published numbers, attributed. Ours comes after a plan.', 'We read the first page of Google for these searches so you do not have to. The figures beside are theirs, as published in September 2026. Four things move any of them, and they move ours too.'),
+  '      <div class="aea-drivers">' + DRIVERS.map(([h, p], i) => '<div class="drv" style="--d:' + i + '"><b>0' + (i + 1) + '</b><h3>' + h + '</h3><p>' + p + '</p></div>').join('') + '</div>',
+  '      <p class="aea-p">What we publish instead of a rate card: a written plan for the first ninety days, what you will have at the end of it, and what you keep if you stop. Put it beside any AED figure here and the price will explain itself.</p>',
   '    </div>',
+  '    <ol class="aea-thanks" aria-label="Published UAE prices, attributed">' + COST.map(([p, by], i) => '<li style="--d:' + i + '"><span class="wt">with thanks to</span><b>' + p + '</b><span>' + by + '</span></li>').join('') + '</ol>',
+  '  </div>',
+  '</section>',
+].join('\n');
+
+const ACT6 = [
+  '<section class="aea" id="ae-check" aria-label="Before you hire anyone">',
+  '  <div class="container aea-two rev">',
+  '    <figure class="aea-side">' + img(STOCK.check, 'The Sharjah skyline across the water', '(max-width:860px) 100vw, 40vw') + '<figcaption>Take these questions into every meeting on either side of the creek.</figcaption></figure>',
   '    <div>',
-  '      <figure class="aer-plate">' + img(STOCK.cost, 'Sand dunes under a deep blue sky', '(max-width:860px) 100vw, 46vw') + '</figure>',
-  '      <ol class="aer-thanks" aria-label="Published UAE prices, attributed">' + COST.map(([p, by], i) => '<li style="--d:' + i + '"><span class="wt">with thanks to</span><b>' + p + '</b><span>' + by + '</span></li>').join('') + '</ol>',
+  head('Before you hire anyone', 'Six questions for any supplier in the Emirates &mdash; including one four hours away.', 'They separate the people who do the work from the people who sell it, and they apply to us word for word.'),
+  '      <ol class="aea-qs">' + CHECK.map(([q, p], i) => '<li style="--d:' + i + '"><b>0' + (i + 1) + '</b><div><h3>' + q + '</h3><p>' + p + '</p></div></li>').join('') + '</ol>',
   '    </div>',
   '  </div>',
   '</section>',
 ].join('\n');
 
-const REEL6 = [
-  '<section class="aer" id="ae-check" aria-label="Before you hire anyone">',
-  '  <div class="container">',
-  slate(6, 'Before you hire anyone'),
-  head('Six questions for any supplier in the Emirates &mdash; including one four hours away.', 'Take these into every meeting in Dubai or Abu Dhabi. They separate the people who do the work from the people who sell it, and they apply to us word for word.'),
-  '    <ol class="aer-qs">' + CHECK.map(([q, p], i) => '<li style="--d:' + i + '"><b>0' + (i + 1) + '</b><div><h3>' + q + '</h3><p>' + p + '</p></div></li>').join('') + '</ol>',
-  '  </div>',
-  '</section>',
-].join('\n');
-
-const CREDITS = [
-  '<section class="aer credits" id="ae-faq" aria-label="Frequently asked questions">',
-  '  <div class="container">',
-  '    <div class="aer-roll" aria-hidden="true"><span>End credits</span><span>Twelve questions UAE businesses ask</span><span>Answered in the first sentence</span></div>',
-  '    <h2 class="aer-h2 on-dark">Questions from Dubai and Abu Dhabi, answered straight.</h2>',
-  '    <div class="aer-faq">' + FAQS.map((f, i) => '<details style="--d:' + i + '"' + (i === 0 ? ' open' : '') + '><summary><span class="n">' + String(i + 1).padStart(2, '0') + '</span><span>' + f.q + '</span><i></i></summary><p>' + f.a + '</p></details>').join('') + '</div>',
-  '  </div>',
+const BAND = [
+  '<section class="aea-band" aria-label="Start on WhatsApp">',
+  '  <div class="aea-bandfig">' + img(STOCK.band, 'Boats on Dubai Creek near old buildings', '100vw') + '</div>',
+  '  <div class="container aea-bandtext"><p class="eyebrow">No office in the Emirates</p><h2 class="aea-h2">On your screen every week instead.</h2><p>Message us on WhatsApp, book a call, or send us the storefront and the stock sheet that disagree with it.</p><a class="ae-btn" href="__WA__" target="_blank" rel="noopener">Start on WhatsApp</a></div>',
   '</section>',
 ].join('\n');
 
 // ---------------------------------------------------------------------------------------------
 const CSS = `
-  /* ================= ae_hub.js : "Title Sequence" ================= */
-  :root{ --ae-black:#06090F; --ae-paper:#F4F1EA; }
+  /* ================= ae_hub.js : "Title Sequence" (hero) + image-led acts (body) ================= */
   .ae-img{ display:block; width:100%; height:100%; object-fit:cover; }
   .ae-btn{ display:inline-block; background:var(--orange); color:#fff; font-weight:700; padding:14px 22px; border-radius:8px; text-decoration:none; }
   .ae-btn:hover{ background:var(--orange-dark); }
   .ae-btn.ghost{ background:transparent; border:1px solid rgba(255,255,255,.4); color:#fff; }
 
-  /* ---- the titles ---- */
-  .aet{ position:relative; min-height:100svh; background:var(--ae-black); color:#fff; overflow:hidden; display:grid; place-items:center; }
+  /* ---- the titles (the one place the letterbox black belongs) ---- */
+  .aet{ position:relative; min-height:100svh; background:#06090F; color:#fff; overflow:hidden; display:grid; place-items:center; }
   .aet-plates{ position:absolute; inset:0; }
   .aet-plate{ position:absolute; inset:0; clip-path:inset(0 0 0 100%); }
   .aet-plate.on{ clip-path:inset(0); }
@@ -292,8 +267,7 @@ const CSS = `
   .aet-crew > div{ display:grid; grid-template-columns:1fr 2fr; gap:18px; padding:14px 0; border-bottom:1px solid rgba(255,255,255,.14); }
   .aet-crew dt{ font-family:var(--font-mono); font-size:clamp(.85rem,1.3vw,1.05rem); font-weight:700; letter-spacing:.24em; text-transform:uppercase; color:#fff; text-align:right; text-shadow:0 2px 12px rgba(0,0,0,.8); }
   .aet-crew dt::before{ content:''; display:inline-block; width:10px; height:10px; border-radius:50%; background:var(--orange); margin-right:10px; vertical-align:middle; }
-  .aet-crew dd{ text-shadow:0 2px 12px rgba(0,0,0,.8); }
-  .aet-crew dd{ margin:0; font-size:clamp(1rem,1.6vw,1.35rem); line-height:1.4; color:#fff; }
+  .aet-crew dd{ margin:0; font-size:clamp(1rem,1.6vw,1.35rem); line-height:1.4; color:#fff; text-shadow:0 2px 12px rgba(0,0,0,.8); }
   .aet-type{ display:block; font-weight:700; font-size:clamp(1.5rem,3.6vw,3.2rem); line-height:1.15; max-width:24ch; margin:0 auto; }
   .aet-title{ display:block; font-weight:800; font-size:clamp(2rem,6.4vw,6rem); letter-spacing:.04em; text-transform:uppercase; line-height:1; margin-bottom:22px; }
   .aet-h1{ font-size:clamp(1.3rem,2.6vw,2.2rem); line-height:1.2; font-weight:600; color:#fff; margin:0 auto 14px; max-width:34ch; }
@@ -307,90 +281,84 @@ const CSS = `
   .aet-progress i.on{ background:var(--orange); }
   @media (max-width:860px){ .aet-band{ height:7vh; } .aet-skip{ top:calc(7vh + 10px); } .aet-progress{ bottom:calc(7vh + 12px); } .aet-crew > div{ grid-template-columns:1fr; gap:4px; } .aet-crew dt{ text-align:left; } .aet-cards{ min-height:74svh; } }
 
-  /* ---- the reels ---- */
-  .aer{ padding:clamp(56px,7vw,104px) 0; position:relative; overflow-x:clip; background:var(--ae-paper); }
-  .aer.dark{ background:var(--ae-black); color:#fff; }
-  .aer.alt{ background:#fff; }
-  .aer-h2{ font-size:clamp(1.85rem,3.4vw,2.9rem); line-height:1.08; letter-spacing:-.02em; margin:0 0 14px; color:var(--ink); max-width:26ch; }
-  .aer.dark .aer-h2, .aer-h2.on-dark{ color:#fff; }
-  .aer-lede, .aer-p{ font-size:clamp(1rem,1.15vw,1.12rem); line-height:1.68; color:var(--ink-soft); margin:0 0 14px; max-width:68ch; }
-  .aer.dark .aer-lede, .aer-p.on-dark{ color:rgba(255,255,255,.8); }
-  .aer-two{ display:grid; grid-template-columns:1fr; gap:clamp(24px,4vw,56px); align-items:start; }
-  @media (min-width:860px){ .aer-two{ grid-template-columns:1fr 1fr; } .aer-two.wide{ grid-template-columns:6fr 6fr; } }
-  .aer h3{ margin:0 0 8px; font-size:1.1rem; }
-  .aer-list{ margin:0; padding:0 0 0 18px; line-height:1.6; color:var(--ink-soft); }
-  .aer.dark .aer-list{ color:rgba(255,255,255,.82); }
-  .aer-list li{ margin-bottom:8px; }
-  .aer-link{ display:inline-block; margin-top:12px; color:var(--orange); font-weight:700; text-decoration:none; }
-  .aer-link.soon{ color:var(--ink-faint); font-weight:500; font-family:var(--font-mono); font-size:.78rem; letter-spacing:.06em; }
-  /* the slate */
-  .aer-slate{ position:relative; width:min(340px,80vw); height:78px; margin:0 0 26px; }
-  .aer-slate .body{ position:absolute; left:0; right:0; bottom:0; height:52px; background:#111; color:#fff; border-radius:0 0 8px 8px; display:flex; align-items:center; gap:14px; padding:0 16px; font-family:var(--font-mono); }
-  .aer-slate .body .n{ color:var(--orange); letter-spacing:.14em; text-transform:uppercase; font-size:.72rem; }
-  .aer-slate .body .l{ font-size:.86rem; letter-spacing:.02em; }
-  .aer-slate .arm{ position:absolute; left:0; right:0; top:8px; height:18px; border-radius:6px 6px 0 0; transform-origin:left bottom;
-    background:repeating-linear-gradient(-45deg, #111 0 14px, #F4F1EA 14px 28px); }
-  .aer.dark .aer-slate .body{ background:#fff; color:#111; } .aer.dark .aer-slate .body .n{ color:var(--orange-dark); }
-  /* reel 1 clocks */
-  .aer-clocks{ display:grid; grid-template-columns:1fr; gap:22px; align-items:center; margin:clamp(22px,3vw,40px) 0; }
-  @media (min-width:760px){ .aer-clocks{ grid-template-columns:1fr 1fr 1fr; } }
-  .clk{ text-align:center; }
-  .clk .face{ position:relative; width:150px; height:150px; margin:0 auto 12px; border-radius:50%; border:2px solid rgba(255,255,255,.35); background:radial-gradient(circle, rgba(255,255,255,.06), rgba(255,255,255,0) 70%); }
+  /* ---- the acts : brand palette, image-led ---- */
+  .aea{ padding:clamp(56px,7vw,104px) 0; position:relative; overflow-x:clip; background:var(--paper); }
+  .aea.dark{ background:var(--navy-deep); color:#fff; }
+  .aea.alt{ background:var(--paper-alt); }
+  .aea-head{ max-width:66ch; margin-bottom:clamp(22px,3vw,40px); }
+  .aea-head .eyebrow{ margin:0 0 10px; }
+  .aea.dark .eyebrow, .aea-band .eyebrow{ color:rgba(255,255,255,.7); }
+  .aea-h2{ font-size:clamp(1.85rem,3.4vw,2.9rem); line-height:1.08; letter-spacing:-.02em; margin:0 0 14px; color:var(--ink); }
+  .aea.dark .aea-h2, .aea-band .aea-h2{ color:#fff; }
+  .aea-lede, .aea-p{ font-size:clamp(1rem,1.15vw,1.12rem); line-height:1.68; color:var(--ink-soft); margin:0 0 14px; max-width:68ch; }
+  .aea.dark .aea-lede, .aea.dark .aea-p{ color:rgba(255,255,255,.8); }
+  .aea-two{ display:grid; grid-template-columns:1fr; gap:clamp(24px,4vw,56px); align-items:start; margin-top:clamp(22px,3vw,40px); }
+  @media (min-width:860px){ .aea-two{ grid-template-columns:1fr 1fr; } .aea-two.wide{ grid-template-columns:7fr 5fr; } .aea-two.rev{ grid-template-columns:5fr 7fr; margin-top:0; } }
+  .aea h3{ margin:0 0 8px; font-size:1.1rem; }
+  .aea-list{ margin:0; padding:0 0 0 18px; line-height:1.6; color:var(--ink-soft); } .aea-list li{ margin-bottom:8px; }
+  .aea-link{ display:inline-block; margin-top:12px; color:var(--orange); font-weight:700; text-decoration:none; }
+  .aea-link.soon{ color:var(--ink-faint); font-weight:500; font-family:var(--font-mono); font-size:.78rem; letter-spacing:.06em; }
+  .aea.dark .aea-link.soon{ color:rgba(255,255,255,.55); }
+  .aea-side{ margin:0; position:relative; aspect-ratio:4/5; overflow:hidden; border-radius:14px; }
+  .aea-side figcaption, .aea-pair figcaption{ position:absolute; left:16px; right:16px; bottom:14px; color:#fff; font-size:.9rem; text-shadow:0 2px 12px rgba(0,0,0,.75); }
+  /* act 1 : the pair + clocks */
+  .aea-pair{ width:100vw; max-width:100vw; margin:clamp(22px,3vw,40px) 0 0 calc(50% - 50vw); display:grid; grid-template-columns:1fr; gap:0; background:var(--navy-deep); }
+  @media (min-width:860px){ .aea-pair{ grid-template-columns:1fr 240px 1fr; } }
+  .aea-pair .half{ margin:0; position:relative; aspect-ratio:16/10; overflow:hidden; }
+  .aea-pair .half::after{ content:''; position:absolute; inset:0; background:linear-gradient(0deg, rgba(11,32,54,.7) 0%, rgba(11,32,54,.1) 50%); }
+  .aea-pair .clk{ position:absolute; z-index:2; left:clamp(16px,3vw,40px); top:clamp(16px,3vw,40px); text-align:center; color:#fff; }
+  .clk .face{ position:relative; width:110px; height:110px; margin:0 auto 8px; border-radius:50%; border:2px solid rgba(255,255,255,.6); background:rgba(11,32,54,.45); backdrop-filter:blur(2px); }
   .clk .face i{ position:absolute; left:50%; bottom:50%; transform-origin:50% 100%; border-radius:2px; background:#fff; }
-  .clk .face .h{ width:4px; height:40px; margin-left:-2px; transform:rotate(var(--h,300deg)); }
-  .clk .face .m{ width:2px; height:58px; margin-left:-1px; background:var(--orange); transform:rotate(var(--m,60deg)); }
+  .clk .face .h{ width:4px; height:30px; margin-left:-2px; transform:rotate(var(--h,300deg)); }
+  .clk .face .m{ width:2px; height:44px; margin-left:-1px; background:var(--orange); transform:rotate(var(--m,60deg)); }
   .clk .face .c{ width:8px; height:8px; margin-left:-4px; bottom:calc(50% - 4px); border-radius:50%; }
-  .clk b{ display:block; font-size:1.2rem; } .clk span{ font-family:var(--font-mono); font-size:.72rem; letter-spacing:.14em; color:rgba(255,255,255,.6); }
-  .aer-clocks .gap{ text-align:center; display:grid; gap:2px; }
-  .aer-clocks .gap b{ font-family:var(--font-mono); font-size:1.6rem; color:var(--orange); margin-top:8px; } .aer-clocks .gap span{ font-size:.82rem; color:rgba(255,255,255,.7); }
-  /* reel 2 */
-  .aer-em{ display:grid; grid-template-columns:1fr; gap:16px; }
-  @media (min-width:860px){ .aer-em{ grid-template-columns:repeat(3,1fr); } }
-  .em{ background:#fff; border:1px solid var(--line); border-radius:14px; padding:22px; }
+  .clk b{ display:block; font-size:1.05rem; text-shadow:0 2px 10px rgba(0,0,0,.7); } .clk span{ font-family:var(--font-mono); font-size:.68rem; letter-spacing:.14em; color:rgba(255,255,255,.75); }
+  .aea-pair .gap{ display:grid; align-content:center; gap:2px; text-align:center; color:#fff; padding:22px 12px; }
+  .aea-pair .gap b{ font-family:var(--font-mono); font-size:1.5rem; color:var(--orange); margin-top:8px; } .aea-pair .gap span{ font-size:.8rem; color:rgba(255,255,255,.72); }
+  /* act 2 : emirate cards */
+  .aea-em{ display:grid; grid-template-columns:1fr; gap:18px; }
+  @media (min-width:860px){ .aea-em{ grid-template-columns:repeat(3,1fr); } }
+  .em{ background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:14px; overflow:hidden; }
+  .em figure{ margin:0; aspect-ratio:4/3; overflow:hidden; }
+  .em .t{ padding:20px; }
   .em .k{ font-family:var(--font-mono); font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--orange); }
-  .em h3{ margin:8px 0 10px; font-size:1.2rem; color:var(--ink); } .em p{ margin:0; color:var(--ink-soft); line-height:1.6; font-size:.95rem; }
-  /* reel 3 */
-  .aer-crew{ display:grid; grid-template-columns:1fr; gap:18px; }
-  @media (min-width:860px){ .aer-crew{ grid-template-columns:repeat(3,1fr); } }
+  .em h3{ margin:8px 0 10px; font-size:1.2rem; color:#fff; } .em p{ margin:0; color:rgba(255,255,255,.8); line-height:1.6; font-size:.95rem; }
+  /* act 3 : crew */
+  .aea-crew{ display:grid; grid-template-columns:1fr; gap:18px; }
+  @media (min-width:860px){ .aea-crew{ grid-template-columns:repeat(3,1fr); } }
   .cr figure{ margin:0 0 14px; aspect-ratio:4/3; overflow:hidden; border-radius:12px; }
   .cr .k{ font-family:var(--font-mono); font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--orange); }
-  .cr h3{ margin:8px 0 8px; color:#fff; font-size:1.2rem; } .cr p{ margin:0; color:rgba(255,255,255,.78); line-height:1.6; font-size:.95rem; }
-  /* reel 4 strip */
-  .aer-stripwrap{ overflow:hidden; padding:8px 0 20px; }
-  .aer-strip{ display:flex; gap:14px; width:max-content; padding:26px 0; position:relative;
-    background:linear-gradient(#111,#111) top/100% 22px no-repeat, linear-gradient(#111,#111) bottom/100% 22px no-repeat; }
-  .aer-strip::before, .aer-strip::after{ content:''; position:absolute; left:0; right:0; height:22px; background:radial-gradient(circle at 12px 11px, var(--ae-paper) 5px, transparent 6px) 0 0/34px 22px repeat-x; }
-  .aer-strip::before{ top:0; } .aer-strip::after{ bottom:0; }
-  .aer-strip .fr{ width:300px; flex:none; background:#111; color:#fff; padding:18px; border-radius:4px; }
-  .aer-strip .fr.photo{ padding:0; margin:0; overflow:hidden; }
-  .aer-strip .fr .k{ font-family:var(--font-mono); color:var(--orange); letter-spacing:.2em; font-size:.68rem; } .aer-strip .fr h3{ margin:6px 0 8px; font-size:1.05rem; color:#fff; } .aer-strip .fr p{ margin:0; font-size:.86rem; line-height:1.5; color:rgba(255,255,255,.78); }
-  @media (max-width:560px){ .aer-strip .fr{ width:240px; } }
-  /* reel 5 */
-  .aer-drivers{ display:grid; gap:14px; margin:8px 0 18px; }
+  .cr h3{ margin:8px 0 8px; color:var(--ink); font-size:1.2rem; } .cr p{ margin:0; color:var(--ink-soft); line-height:1.6; font-size:.95rem; }
+  /* act 4 : the strip */
+  .aea-stripwrap{ overflow:hidden; padding:8px 0 20px; }
+  .aea-strip{ display:flex; gap:14px; width:max-content; padding:0 clamp(16px,4vw,60px); }
+  .aea-strip .fr{ width:300px; flex:none; background:var(--navy-deep); color:#fff; padding:18px; border-radius:12px; }
+  .aea-strip .fr.photo{ padding:0; margin:0; overflow:hidden; }
+  .aea-strip .fr .k{ font-family:var(--font-mono); color:var(--orange); letter-spacing:.2em; font-size:.68rem; } .aea-strip .fr h3{ margin:6px 0 8px; font-size:1.05rem; color:#fff; } .aea-strip .fr p{ margin:0; font-size:.86rem; line-height:1.5; color:rgba(255,255,255,.8); }
+  @media (max-width:560px){ .aea-strip .fr{ width:240px; } }
+  /* act 5 : cost */
+  .aea-wide{ position:relative; margin:0 0 clamp(28px,4vw,56px) calc(50% - 50vw); width:100vw; max-width:100vw; aspect-ratio:21/8; overflow:hidden; }
+  .aea-wide figcaption{ position:absolute; left:50%; transform:translateX(-50%); bottom:clamp(14px,3vw,36px); width:min(92vw,900px); text-align:center; color:#fff; font-size:clamp(1rem,1.6vw,1.35rem); text-shadow:0 2px 14px rgba(0,0,0,.7); }
+  @media (max-width:700px){ .aea-wide{ aspect-ratio:4/3; } }
+  .aea-drivers{ display:grid; gap:14px; margin:8px 0 18px; }
   .drv{ display:grid; grid-template-columns:44px 1fr; gap:2px 12px; } .drv b{ grid-row:1 / span 2; font-family:var(--font-mono); font-size:1.6rem; color:var(--orange); line-height:1; }
   .drv h3{ margin:0; font-size:1.02rem; color:#fff; } .drv p{ margin:0; font-size:.9rem; line-height:1.55; color:rgba(255,255,255,.72); }
-  .aer-plate{ margin:0 0 16px; aspect-ratio:16/9; overflow:hidden; border-radius:12px; }
-  .aer-thanks{ list-style:none; margin:0; padding:0; }
-  .aer-thanks li{ padding:14px 0; border-top:1px solid rgba(255,255,255,.16); display:grid; gap:4px; text-align:center; }
-  .aer-thanks .wt{ font-family:var(--font-mono); font-size:.66rem; letter-spacing:.24em; text-transform:uppercase; color:rgba(255,255,255,.5); }
-  .aer-thanks b{ font-size:1.15rem; color:#fff; } .aer-thanks span{ font-size:.84rem; color:rgba(255,255,255,.7); }
-  /* reel 6 */
-  .aer-qs{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr; gap:6px 32px; }
-  @media (min-width:760px){ .aer-qs{ grid-template-columns:1fr 1fr; } }
-  .aer-qs li{ display:grid; grid-template-columns:44px 1fr; gap:14px; padding:14px 0; border-bottom:1px solid var(--line); }
-  .aer-qs b{ font-family:var(--font-mono); color:var(--orange); font-size:1.3rem; } .aer-qs h3{ margin:0 0 6px; font-size:1.02rem; color:var(--ink); } .aer-qs p{ margin:0; font-size:.9rem; line-height:1.5; color:var(--ink-soft); }
-  /* credits */
-  .aer.credits{ background:var(--ae-black); color:#fff; }
-  .aer-roll{ display:flex; gap:22px; flex-wrap:wrap; font-family:var(--font-mono); font-size:.7rem; letter-spacing:.24em; text-transform:uppercase; color:rgba(255,255,255,.5); margin-bottom:22px; }
-  .aer-faq details{ border-top:1px solid rgba(255,255,255,.16); }
-  .aer-faq details:last-child{ border-bottom:1px solid rgba(255,255,255,.16); }
-  .aer-faq summary{ list-style:none; cursor:pointer; display:grid; grid-template-columns:40px 1fr 24px; gap:12px; align-items:center; padding:16px 0; font-weight:600; font-size:1.02rem; color:#fff; }
-  .aer-faq summary::-webkit-details-marker{ display:none; }
-  .aer-faq summary .n{ font-family:var(--font-mono); color:var(--orange); }
-  .aer-faq summary i{ width:18px; height:18px; position:relative; } .aer-faq summary i::before, .aer-faq summary i::after{ content:''; position:absolute; left:0; top:8px; width:18px; height:2px; background:#fff; } .aer-faq summary i::after{ transform:rotate(90deg); }
-  .aer-faq details[open] summary i::after{ transform:none; }
-  .aer-faq p{ margin:0 0 18px 52px; color:rgba(255,255,255,.8); line-height:1.65; max-width:70ch; }
-  @media (max-width:560px){ .aer-faq p{ margin-left:0; } }
+  .aea-thanks{ list-style:none; margin:0; padding:0; }
+  .aea-thanks li{ padding:16px 0; border-top:1px solid rgba(255,255,255,.16); display:grid; gap:4px; }
+  .aea-thanks .wt{ font-family:var(--font-mono); font-size:.66rem; letter-spacing:.24em; text-transform:uppercase; color:rgba(255,255,255,.5); }
+  .aea-thanks b{ font-size:1.15rem; color:#fff; } .aea-thanks span{ font-size:.84rem; color:rgba(255,255,255,.7); }
+  /* act 6 : questions */
+  .aea-qs{ list-style:none; margin:0; padding:0; }
+  .aea-qs li{ display:grid; grid-template-columns:44px 1fr; gap:14px; padding:14px 0; position:relative; }
+  .aea-qs li::after{ content:''; position:absolute; left:0; right:0; bottom:0; height:1px; background:var(--line-strong); transform-origin:left center; }
+  .aea-qs b{ font-family:var(--font-mono); color:var(--orange); font-size:1.3rem; } .aea-qs h3{ margin:0 0 6px; font-size:1.02rem; color:var(--ink); } .aea-qs p{ margin:0; font-size:.9rem; line-height:1.5; color:var(--ink-soft); }
+  /* band */
+  .aea-band{ position:relative; background:var(--navy-deep); color:#fff; width:100vw; max-width:100vw; margin-left:calc(50% - 50vw); overflow-x:clip; }
+  .aea-bandfig{ aspect-ratio:21/9; overflow:hidden; position:relative; }
+  .aea-bandfig::after{ content:''; position:absolute; inset:0; background:linear-gradient(90deg, rgba(11,32,54,.88) 0%, rgba(11,32,54,.5) 50%, rgba(11,32,54,.2) 100%); }
+  .aea-bandtext{ position:absolute; left:0; right:0; top:50%; transform:translateY(-50%); }
+  .aea-bandtext p{ color:rgba(255,255,255,.8); max-width:46ch; margin:0 0 18px; }
+  @media (max-width:700px){ .aea-bandfig{ aspect-ratio:4/5; } }
 
   /* ================= motion : start states only under html.ae-on ================= */
   html.ae-on .aet-card{ display:block; opacity:0; pointer-events:none; }
@@ -399,7 +367,6 @@ const CSS = `
   html.ae-on .aet-plate{ transition:clip-path 1.1s cubic-bezier(.7,0,.2,1); }
   html.ae-on .aet-plate .ae-img{ transition:transform 9s linear; }
   html.ae-on .aet-plate.on .ae-img{ transform:scale(1.12); }
-  html.ae-on .aet-plate.on.still .ae-img{ transform:scale(1.04); transition:none; }
   html.ae-on .aet-word i{ transform:translate(var(--x,0px),var(--y,0px)) rotate(var(--r,0deg)); opacity:0; }
   html.ae-on .aet-card.on .aet-word i{ transform:none; opacity:1; transition:transform 1.1s cubic-bezier(.2,.8,.2,1) calc(.15s + var(--i) * .07s), opacity .4s linear calc(.15s + var(--i) * .07s); }
   html.ae-on .aet-cities span{ opacity:.2; } html.ae-on .aet-cities i{ transform:scaleX(0); }
@@ -417,40 +384,42 @@ const CSS = `
   html.ae-on .aet.open .aet-band.top{ transform:translateY(-100%); } html.ae-on .aet.open .aet-band.bottom{ transform:translateY(100%); }
   html.ae-on .aet.open .aet-skip, html.ae-on .aet.open .aet-progress{ opacity:0; transition:opacity .4s linear; pointer-events:none; }
   html.ae-on .aet-skip, html.ae-on .aet-progress{ opacity:1; }
-  /* nav hidden until the titles end */
   html.ae-on.ae-titles-running .site-header{ transform:translateY(-100%); transition:transform .4s ease; }
-  /* reels */
-  html.ae-on .aer-slate .arm{ transform:rotate(-16deg); }
-  html.ae-on .aer-slate.lit .arm{ animation:aeSnap .5s cubic-bezier(.6,0,.9,.3) forwards; }
-  @keyframes aeSnap{ to{ transform:rotate(0); } }
-  html.ae-on .aer-slate .body{ opacity:0; transform:translateY(8px); } html.ae-on .aer-slate.lit .body{ animation:aeIn .4s ease .35s forwards; }
+  /* acts */
+  html.ae-on .aea-head .eyebrow, html.ae-on .aea-head .aea-h2, html.ae-on .aea-head .aea-lede{ opacity:0; transform:translateY(12px); }
+  html.ae-on .aea-head.lit .eyebrow{ animation:aeIn .5s ease forwards; } html.ae-on .aea-head.lit .aea-h2{ animation:aeIn .6s cubic-bezier(.2,.7,.2,1) .1s forwards; } html.ae-on .aea-head.lit .aea-lede{ animation:aeIn .6s cubic-bezier(.2,.7,.2,1) .25s forwards; }
   @keyframes aeIn{ to{ opacity:1; transform:none; } }
-  html.ae-on .aer-h2, html.ae-on .aer-lede{ opacity:0; transform:translateY(12px); }
-  html.ae-on .lit ~ .aer-h2, html.ae-on .lit ~ .aer-lede, html.ae-on .aer-h2.lit, html.ae-on .aer-lede.lit{ animation:aeIn .6s cubic-bezier(.2,.7,.2,1) forwards; }
-  html.ae-on .aer-lede.lit{ animation-delay:.15s; }
-  html.ae-on .clk .face i{ transform:rotate(0deg); } html.ae-on .aer-clocks.lit .clk .face .h{ transform:rotate(var(--h)); transition:transform 1.6s cubic-bezier(.2,.8,.2,1) .2s; } html.ae-on .aer-clocks.lit .clk .face .m{ transform:rotate(var(--m)); transition:transform 1.6s cubic-bezier(.2,.8,.2,1) .2s; }
-  html.ae-on .aer-clocks .gap b, html.ae-on .aer-clocks .gap span{ opacity:0; } html.ae-on .aer-clocks.lit .gap b, html.ae-on .aer-clocks.lit .gap span{ opacity:1; transition:opacity .5s linear 1.4s; }
-  html.ae-on .aer-two > div{ opacity:0; transform:translateY(16px); } html.ae-on .aer-two.lit > div{ animation:aeIn .6s ease forwards; } html.ae-on .aer-two.lit > div:nth-child(2){ animation-delay:.15s; }
-  html.ae-on .em{ opacity:0; transform:translateY(24px) rotate(calc(-1deg + var(--d) * 1deg)); } html.ae-on .aer-em.lit .em{ animation:aeIn .7s cubic-bezier(.2,.8,.2,1) forwards; animation-delay:calc(var(--d) * .14s); }
-  html.ae-on .cr{ opacity:0; transform:translateY(20px); } html.ae-on .aer-crew.lit .cr{ animation:aeIn .7s cubic-bezier(.2,.8,.2,1) forwards; animation-delay:calc(var(--d) * .14s); }
-  html.ae-on .cr figure .ae-img{ clip-path:inset(0 0 100% 0); } html.ae-on .aer-crew.lit .cr figure .ae-img{ animation:aeDrop .8s cubic-bezier(.3,0,.2,1) forwards; animation-delay:calc(.2s + var(--d) * .14s); }
+  html.ae-on .aea-pair .half.l .ae-img{ clip-path:inset(0 100% 0 0); } html.ae-on .aea-pair .half.r .ae-img{ clip-path:inset(0 0 0 100%); }
+  html.ae-on .aea-pair.lit .half .ae-img{ animation:aeWipe 1s cubic-bezier(.3,0,.2,1) forwards; } html.ae-on .aea-pair.lit .half.r .ae-img{ animation-delay:.15s; }
+  @keyframes aeWipe{ to{ clip-path:inset(0); } }
+  html.ae-on .clk .face i{ transform:rotate(0deg); } html.ae-on .aea-pair.lit .clk .face .h{ transform:rotate(var(--h)); transition:transform 1.6s cubic-bezier(.2,.8,.2,1) .8s; } html.ae-on .aea-pair.lit .clk .face .m{ transform:rotate(var(--m)); transition:transform 1.6s cubic-bezier(.2,.8,.2,1) .8s; }
+  html.ae-on .aea-pair .gap b, html.ae-on .aea-pair .gap span, html.ae-on .aea-pair figcaption, html.ae-on .aea-pair .clk b, html.ae-on .aea-pair .clk span{ opacity:0; } html.ae-on .aea-pair.lit .gap b, html.ae-on .aea-pair.lit .gap span, html.ae-on .aea-pair.lit figcaption, html.ae-on .aea-pair.lit .clk b, html.ae-on .aea-pair.lit .clk span{ opacity:1; transition:opacity .5s linear 1.6s; }
+  html.ae-on .aea-two > div{ opacity:0; transform:translateY(16px); } html.ae-on .aea-two.lit > div{ animation:aeIn .6s ease forwards; } html.ae-on .aea-two.lit > div:nth-child(2){ animation-delay:.15s; }
+  html.ae-on .em{ opacity:0; transform:translateY(24px); } html.ae-on .aea-em.lit .em{ animation:aeIn .7s cubic-bezier(.2,.8,.2,1) forwards; animation-delay:calc(var(--d) * .14s); }
+  html.ae-on .em figure .ae-img{ transform:scale(1.1); transition:transform 1.6s cubic-bezier(.18,.72,.2,1) calc(var(--d) * .14s); } html.ae-on .aea-em.lit .em figure .ae-img{ transform:none; }
+  html.ae-on .cr{ opacity:0; transform:translateY(20px); } html.ae-on .aea-crew.lit .cr{ animation:aeIn .7s cubic-bezier(.2,.8,.2,1) forwards; animation-delay:calc(var(--d) * .14s); }
+  html.ae-on .cr figure .ae-img{ clip-path:inset(0 0 100% 0); } html.ae-on .aea-crew.lit .cr figure .ae-img{ animation:aeDrop .8s cubic-bezier(.3,0,.2,1) forwards; animation-delay:calc(.2s + var(--d) * .14s); }
   @keyframes aeDrop{ to{ clip-path:inset(0); } }
-  @supports (animation-timeline: view()){ html.ae-on .aer-strip{ animation:aeSlide linear both; animation-timeline:view(); animation-range:entry 0% exit 100%; } @keyframes aeSlide{ from{ transform:translateX(6vw); } to{ transform:translateX(calc(-100% + 100vw - 6vw)); } } }
-  html.ae-on .aer-thanks li{ opacity:0; transform:translateY(14px); } html.ae-on .aer-thanks.lit li{ animation:aeIn .6s ease forwards; animation-delay:calc(var(--d) * .22s); }
-  html.ae-on .drv{ opacity:0; transform:translateY(14px); } html.ae-on .aer-drivers.lit .drv{ animation:aeIn .55s ease forwards; animation-delay:calc(var(--d) * .12s); }
-  html.ae-on .aer-plate .ae-img{ transform:scale(1.08); transition:transform 1.5s cubic-bezier(.18,.72,.2,1); } html.ae-on .aer-plate.lit .ae-img{ transform:none; }
-  html.ae-on .aer-qs li{ opacity:0; transform:translateX(-10px); } html.ae-on .aer-qs.lit li{ animation:aeIn .5s ease forwards; animation-delay:calc(var(--d) * .1s); }
-  html.ae-on .aer-faq details{ opacity:0; transform:translateY(10px); } html.ae-on .aer-faq.lit details{ animation:aeIn .45s ease forwards; animation-delay:calc(var(--d) * .07s); }
-  @media (prefers-reduced-motion: reduce){ html.ae-on .aet-card, html.ae-on .aet-word i, html.ae-on .aet-cities span, html.ae-on .aet-cities i, html.ae-on .aet-crew > div, html.ae-on .aet-type, html.ae-on .aet-cap, html.ae-on .aet-title, html.ae-on .aer-slate .arm, html.ae-on .aer-slate .body, html.ae-on .aer-h2, html.ae-on .aer-lede, html.ae-on .aer-two > div, html.ae-on .em, html.ae-on .cr, html.ae-on .cr figure .ae-img, html.ae-on .aer-strip, html.ae-on .aer-thanks li, html.ae-on .drv, html.ae-on .aer-plate .ae-img, html.ae-on .aer-qs li, html.ae-on .aer-faq details, html.ae-on .clk .face i{ opacity:1 !important; transform:none !important; clip-path:none !important; animation:none !important; transition:none !important; } }
+  @supports (animation-timeline: view()){ html.ae-on .aea-strip{ animation:aeSlide linear both; animation-timeline:view(); animation-range:entry 0% exit 100%; } @keyframes aeSlide{ from{ transform:translateX(6vw); } to{ transform:translateX(calc(-100% + 100vw - 6vw)); } } }
+  html.ae-on .aea-wide .ae-img{ transform:scale(1.08); transition:transform 1.8s cubic-bezier(.18,.72,.2,1); } html.ae-on .aea-wide.lit .ae-img{ transform:none; }
+  html.ae-on .aea-wide figcaption{ opacity:0; } html.ae-on .aea-wide.lit figcaption{ opacity:1; transition:opacity .6s linear .6s; }
+  html.ae-on .aea-thanks li{ opacity:0; transform:translateY(14px); } html.ae-on .aea-thanks.lit li{ animation:aeIn .6s ease forwards; animation-delay:calc(var(--d) * .22s); }
+  html.ae-on .drv{ opacity:0; transform:translateY(14px); } html.ae-on .aea-drivers.lit .drv{ animation:aeIn .55s ease forwards; animation-delay:calc(var(--d) * .12s); }
+  html.ae-on .aea-side .ae-img{ transform:scale(1.08); transition:transform 1.5s cubic-bezier(.18,.72,.2,1); } html.ae-on .aea-side.lit .ae-img{ transform:none; }
+  html.ae-on .aea-side figcaption{ opacity:0; } html.ae-on .aea-side.lit figcaption{ opacity:1; transition:opacity .5s linear .5s; }
+  html.ae-on .aea-qs li::after{ transform:scaleX(0); } html.ae-on .aea-qs.lit li::after{ animation:aeRule .7s cubic-bezier(.3,0,.2,1) forwards; animation-delay:calc(var(--d) * .12s); }
+  @keyframes aeRule{ to{ transform:scaleX(1); } }
+  html.ae-on .aea-qs li > *{ opacity:0; } html.ae-on .aea-qs.lit li > *{ opacity:1; transition:opacity .5s linear calc(.2s + var(--d) * .12s); }
+  @supports (animation-timeline: view()){ .aea-bandfig .ae-img{ animation:aeDrift linear both; animation-timeline:view(); animation-range:entry 0% exit 100%; transform-origin:center; } @keyframes aeDrift{ from{ transform:scale(1.14) translateX(-3%); } to{ transform:scale(1.14) translateX(3%); } } }
+  @media (prefers-reduced-motion: reduce){ html.ae-on .aet-card, html.ae-on .aet-word i, html.ae-on .aet-cities span, html.ae-on .aet-cities i, html.ae-on .aet-crew > div, html.ae-on .aet-type, html.ae-on .aet-cap, html.ae-on .aet-title, html.ae-on .aea-head .eyebrow, html.ae-on .aea-head .aea-h2, html.ae-on .aea-head .aea-lede, html.ae-on .aea-pair .half .ae-img, html.ae-on .clk .face i, html.ae-on .aea-pair .gap b, html.ae-on .aea-pair .gap span, html.ae-on .aea-pair figcaption, html.ae-on .aea-pair .clk b, html.ae-on .aea-pair .clk span, html.ae-on .aea-two > div, html.ae-on .em, html.ae-on .em figure .ae-img, html.ae-on .cr, html.ae-on .cr figure .ae-img, html.ae-on .aea-strip, html.ae-on .aea-wide .ae-img, html.ae-on .aea-wide figcaption, html.ae-on .aea-thanks li, html.ae-on .drv, html.ae-on .aea-side .ae-img, html.ae-on .aea-side figcaption, html.ae-on .aea-qs li::after, html.ae-on .aea-qs li > *, .aea-bandfig .ae-img{ opacity:1 !important; transform:none !important; clip-path:none !important; animation:none !important; transition:none !important; } }
 `;
 
 const JS = `
-/* ae_hub.js : the title sequence (one shot, ~15s, skippable) and the reel reveals. html.ae-on is added only here. */
+/* ae_hub.js : the title sequence (one shot, ~15s, skippable) and the act reveals. html.ae-on is added only here. */
 (function () {
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduce || !('IntersectionObserver' in window)) return;
     var root = document.documentElement, aet = document.querySelector('.aet'); if (!aet) return;
-    /* scatter the letters of PRESENTS before the start state applies */
     var ls = aet.querySelectorAll('.aet-word i');
     for (var i = 0; i < ls.length; i++) { var a = (i * 137.5) % 360; var r = 120 + (i * 53) % 160; ls[i].style.setProperty('--x', Math.round(Math.cos(a) * r) + 'px'); ls[i].style.setProperty('--y', Math.round(Math.sin(a) * r * .6) + 'px'); ls[i].style.setProperty('--r', ((i % 2 ? -1 : 1) * (8 + (i * 7) % 20)) + 'deg'); }
     root.classList.add('ae-on'); root.classList.add('ae-titles-running');
@@ -458,15 +427,14 @@ const JS = `
     var DUR = [2600, 2600, 3000, 3400, 3800, 0], cur = 0, timer = null, done = false;
     function show(n) {
         for (var c = 0; c < cards.length; c++) { cards[c].classList.toggle('on', c === n); cards[c].classList.toggle('off', c < n); }
-        for (var p = 0; p < plates.length; p++) { plates[p].classList.toggle('on', p <= n); plates[p].classList.remove('still'); }
+        for (var p = 0; p < plates.length; p++) plates[p].classList.toggle('on', p <= n);
         for (var d = 0; d < dots.length; d++) dots[d].classList.toggle('on', d <= n);
         cur = n;
         if (n === cards.length - 1) { done = true; aet.classList.add('open'); root.classList.remove('ae-titles-running'); }
     }
     function finish() { if (done) return; clearTimeout(timer); show(cards.length - 1); }
-    function step() { if (done) return; show(cur); if (DUR[cur] > 0) timer = setTimeout(function () { step2(); }, DUR[cur]); }
+    function step() { if (done) return; show(cur); if (DUR[cur] > 0) timer = setTimeout(step2, DUR[cur]); }
     function step2() { if (done) return; if (cur < cards.length - 1) { cur++; step(); } }
-    /* start: card 6 is the JS-off default, so rewind to card 1 and roll */
     show(0); timer = setTimeout(step2, DUR[0]);
     var skip = aet.querySelector('.aet-skip'); if (skip) skip.addEventListener('click', function () { finish(); });
     window.addEventListener('scroll', function onS() { if (window.scrollY > 40) { finish(); window.removeEventListener('scroll', onS); } });
@@ -478,8 +446,7 @@ const JS = `
         try { var parts = new Intl.DateTimeFormat('en-GB', { timeZone: clks[k].getAttribute('data-tz'), hour: 'numeric', minute: 'numeric', hour12: false }).formatToParts(new Date()); var hh = +parts.find(function (x) { return x.type === 'hour'; }).value % 12, mm = +parts.find(function (x) { return x.type === 'minute'; }).value; clks[k].style.setProperty('--h', (hh * 30 + mm * .5) + 'deg'); clks[k].style.setProperty('--m', (mm * 6) + 'deg'); }
         catch (e) { clks[k].style.setProperty('--h', (+clks[k].getAttribute('data-h') * 30 + +clks[k].getAttribute('data-m') * .5) + 'deg'); clks[k].style.setProperty('--m', (+clks[k].getAttribute('data-m') * 6) + 'deg'); }
     }
-    /* the reels */
-    var frames = document.querySelectorAll('.aer-slate, .aer-h2, .aer-lede, .aer-clocks, .aer-two, .aer-em, .aer-crew, .aer-thanks, .aer-drivers, .aer-plate, .aer-qs, .aer-faq');
+    var frames = document.querySelectorAll('.aea-head, .aea-pair, .aea-two, .aea-em, .aea-crew, .aea-wide, .aea-thanks, .aea-drivers, .aea-side, .aea-qs');
     var io = new IntersectionObserver(function (es) { for (var i = 0; i < es.length; i++) { if (!es[i].isIntersecting) continue; es[i].target.classList.add('lit'); io.unobserve(es[i].target); } }, { rootMargin: '0px 0px -8% 0px', threshold: 0.1 });
     for (var f = 0; f < frames.length; f++) io.observe(frames[f]);
 })();`;
@@ -506,17 +473,14 @@ s = L.setPageSchemas(s, [
   L.faqSchema(FAQS),
 ]);
 
-// the hero becomes the title sequence
 s = L.replaceBetween(s, '<section class="tap-new-hero">', '<section class="tap-answer-section">', TITLES.split('__WA__').join(WA) + '\n\n', { keepStart: false, keepEnd: true });
 s = s.replace(/rotateText\('heroRotate', \[[\s\S]*?\], 2600, 0\);/, '');
 s = s.replace(/rotateText\('heroEyebrowRotate', \[[\s\S]*?\], 3200, 1200\);/, '');
 s = s.replace(/rotateText\('heroSideRotate', \[[\s\S]*?\], \d+, \d+\);/, '');
 
-// the story
-s = L.setBody(s, [L.answer(ANSWER), REEL1, REEL2, REEL3, REEL4, REEL5, REEL6, CREDITS].join('\n'));
-s = L.setFinalCta(s, 'A TechAuditPros production. Let&rsquo;s look at one real page or one real process together.', 'Takes 60 seconds &middot; For Dubai, Abu Dhabi and the Emirates &middot; The findings are yours to keep &middot; No long-term contract');
+s = L.setBody(s, [L.answer(ANSWER), ACT1, ACT2, ACT3, ACT4, ACT5, ACT6, BAND, L.faqHtml('city-faq', 'Questions from Dubai and Abu Dhabi', 'Twelve straight answers, starting with the office.', FAQS)].join('\n').split('__WA__').join(WA));
+s = L.setFinalCta(s, 'Let&rsquo;s look at one real page or one real process together.', 'Takes 60 seconds &middot; For Dubai, Abu Dhabi and the Emirates &middot; The findings are yours to keep &middot; No long-term contract');
 
-// taglines, footer, the two word rules
 s = L.replaceAll(s, 'Your Dedicated Offshore Technical Team', 'Your Technical Team, Four Hours from Dubai');
 s = s.replace(/Your dedicated offshore technical team\./i, 'Your technical team, four hours from Dubai.');
 s = s.replace(/SERVING BUSINESSES ACROSS CANADA/i, 'SERVING BUSINESSES ACROSS THE UAE');
@@ -533,7 +497,6 @@ for (const [from, to] of [
   const at = s.indexOf('</style>'); s = s.slice(0, at) + CSS + s.slice(at);
   const bt = s.lastIndexOf('</body>'); s = s.slice(0, bt) + '<script>' + JS + '</script>\n' + s.slice(bt);
 }
-// guards
 {
   const prose = s.replace(/<style[^>]*>[\s\S]*?<\/style>/g, ' ').replace(/<script(?![^>]*ld\+json)[^>]*>[\s\S]*?<\/script>/g, ' ')
     .replace(/TechAuditPros/g, ' ').replace(/techauditpros/gi, ' ').replace(/seo-audit-kochi/g, ' ').replace(/<[^>]+>/g, ' ');
@@ -544,13 +507,13 @@ for (const [from, to] of [
   console.log('  words: ' + words + ' | FAQs: ' + FAQS.length + ' | photographs: ' + Object.keys(STOCK).length);
 }
 {
-  const walk = (d, out) => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { if (e.name === 'node_modules' || e.name.startsWith('.')) continue; const p = path.join(d, e.name); if (e.isDirectory()) walk(p, out); else if (e.name === 'index.html' || e.name.endsWith('.html')) out.push(p); } return out; };
-  const pages = walk(L.REPO, []).filter(p => !p.replace(/\\/g, '/').endsWith('/ae/index.html') && !p.replace(/\\/g, '/').includes('/archive/') && !p.replace(/\\/g, '/').includes('/scripts/'));
+  const walk = (d, out) => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { if (['node_modules', '.git', 'archive', 'scripts', 'ai_context'].includes(e.name)) continue; const p = path.join(d, e.name); if (e.isDirectory()) walk(p, out); else if (e.name.endsWith('.html')) out.push(p); } return out; };
+  const pages = walk(L.REPO, []).filter(p => !p.split(path.sep).join('/').endsWith('/ae/index.html'));
   const used = [];
   for (const slug of Object.values(STOCK)) for (const p of pages) if (fs.readFileSync(p, 'utf8').includes('library/' + slug)) used.push(slug + ' on ' + path.relative(L.REPO, p));
   if (used.length) throw new Error('photographs reused across pages:\n  ' + used.join('\n  '));
 }
-L.must(s, '<li class="aet-card', 6); L.must(s, ' data-c="', 18);   // 6 plates + 6 cards + 6 progress dots L.must(s, 'class="aer-slate"', 6); L.must(s, '<details', FAQS.length); L.must(s, 'href="/ae/" class="nav-dropdown-item"', 1);
+L.must(s, '<li class="aet-card', 6); L.must(s, ' data-c="', 18); L.must(s, '<section class="aea', 7); L.must(s, '<article class="em"', 3); L.must(s, 'class="fr', STRIP.length); L.must(s, 'href="/ae/" class="nav-dropdown-item"', 1);
 fs.mkdirSync(path.join(L.REPO, 'ae'), { recursive: true });
 L.write('ae/index.html', s);
-console.log('/ae/ written — the UAE hub as a title sequence: 6 cards, 6 reels, credit-roll FAQ' + (ABU ? '' : ' (city links pending: rebuild after ae_abu_dhabi/ae_dubai)'));
+console.log('/ae/ written — title sequence + six image-led acts in the brand palette' + (ABU ? '' : ' (city links pending)'));

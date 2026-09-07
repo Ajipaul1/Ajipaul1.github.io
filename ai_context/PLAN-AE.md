@@ -179,3 +179,14 @@ commit → push, one at a time.
    use the Indian WhatsApp — honest, but weaker. Owner to decide.
 4. **The AED 3,800/month figure** from the archived homepage pricing card — is it still a price we publish
    anywhere? If not, it stays out (tone_pass already treats it as "our price").
+
+## 9. Design rules added after the owner saw /ae/ v1 (2026-09-07)
+
+- **Keep the title-sequence hero. Nothing else from the cinema.** No clapperboards, sprockets, credit rolls or "reel"
+  labels in the body of any page. The hero's letterbox black is the only black on the site.
+- **Brand palette only:** `--paper` #FFFFFF, `--paper-alt` #F3F6F5, `--navy-deep` #0B2036, `--orange`. Dark sections
+  are navy-deep, never #06090F / #08111C / #0B1420. Section heads use the shared `.eyebrow` + h2 pattern like `/uk/`.
+- **Every section is image-led**, the way the hero is: large photographs carry the argument; text explains them.
+  The hub carries 22 photographs; a city or service page 8–14.
+- Motion rules unchanged (§4.2): one signature per page, start states under a JS-added class, transform/clip only,
+  `overflow.js` + `jsoff.js` at 1440/390 before any screenshot review.
