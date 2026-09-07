@@ -36,16 +36,6 @@
       "permanent": true
     },
     {
-      "source": "/uk/:path*",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/ae/:path*",
-      "destination": "/",
-      "permanent": true
-    },
-    {
       "source": "/seo-services/:path*",
       "destination": "/ca/seo-services/",
       "permanent": true
@@ -332,26 +322,6 @@
     },
     {
       "source": "/au/",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/uk",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/uk/",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/ae",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/ae/",
       "destination": "/",
       "permanent": true
     },
