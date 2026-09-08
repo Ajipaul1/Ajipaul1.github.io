@@ -10,13 +10,14 @@ const REGIONS = [
   ['ca', 'Canada', '/ca/', [['Toronto', '/ca/toronto/']]],
   ['us', 'United States', '/us/', [['ERP', '/us/erp/'], ['SEO', '/us/seo-services/'], ['Websites', '/us/website-development/']]],
   ['gb', 'United Kingdom', '/uk/', [['London', '/uk/london/'], ['Manchester', '/uk/manchester/'], ['Reading', '/uk/reading/'], ['Scotland', '/uk/scotland/']]],
+  ['au', 'Australia', '/au/', [['Sydney', '/au/'], ['Melbourne', '/au/'], ['Brisbane', '/au/'], ['Perth', '/au/']]],
   ['in', 'India', '/in/', [['Kerala', '/in/kerala/'], ['Mumbai', '/in/mumbai/'], ['Kolkata', '/in/kolkata/'], ['Vadodara', '/in/vadodara/'], ['Lucknow', '/in/lucknow/'], ['Calicut', '/in/calicut/']]],
   ['ae', 'United Arab Emirates', '/ae/', [['Abu Dhabi', '/ae/abu-dhabi/'], ['Dubai', '/ae/dubai/'], ['E-commerce', '/ae/ecommerce-website-development/'], ['ERP', '/ae/erp/']]],
 ];
 const SERVICES = [
-  ['Custom ERP', '/us/erp/', [['us', 'United States', '/us/erp/'], ['gb', 'United Kingdom', '/uk/erp/'], ['ca', 'Canada', '/ca/erp/'], ['ae', 'United Arab Emirates', '/ae/erp/'], ['ae', 'UAE &middot; Construction', '/ae/erp/construction/'], ['ae', 'UAE &middot; Automotive', '/ae/erp/automotive/'], ['in', 'India', '/in/']]],
-  ['SEO, AEO &amp; GEO', '/us/seo-services/', [['us', 'United States', '/us/seo-services/'], ['gb', 'United Kingdom', '/uk/seo-services/'], ['ca', 'Canada', '/ca/seo-services/'], ['ae', 'Abu Dhabi', '/ae/abu-dhabi/'], ['ae', 'Dubai', '/ae/dubai/'], ['in', 'Kerala', '/in/kerala/'], ['in', 'Mumbai', '/in/mumbai/'], ['in', 'Kolkata', '/in/kolkata/']]],
-  ['Websites &amp; E-commerce', '/us/website-development/', [['us', 'United States', '/us/website-development/'], ['gb', 'United Kingdom', '/uk/website-development/'], ['ca', 'Canada', '/ca/website-development/'], ['ae', 'UAE &middot; E-commerce', '/ae/ecommerce-website-development/'], ['in', 'India', '/in/']]],
+  ['Custom ERP', '/us/erp/', [['us', 'United States', '/us/erp/'], ['gb', 'United Kingdom', '/uk/erp/'], ['ca', 'Canada', '/ca/erp/'], ['au', 'Australia', '/au/'], ['ae', 'United Arab Emirates', '/ae/erp/'], ['ae', 'UAE &middot; Construction', '/ae/erp/construction/'], ['ae', 'UAE &middot; Automotive', '/ae/erp/automotive/'], ['in', 'India', '/in/']]],
+  ['SEO, AEO &amp; GEO', '/us/seo-services/', [['us', 'United States', '/us/seo-services/'], ['gb', 'United Kingdom', '/uk/seo-services/'], ['ca', 'Canada', '/ca/seo-services/'], ['au', 'Australia', '/au/'], ['ae', 'Abu Dhabi', '/ae/abu-dhabi/'], ['ae', 'Dubai', '/ae/dubai/'], ['in', 'Kerala', '/in/kerala/'], ['in', 'Mumbai', '/in/mumbai/'], ['in', 'Kolkata', '/in/kolkata/']]],
+  ['Websites &amp; E-commerce', '/us/website-development/', [['us', 'United States', '/us/website-development/'], ['gb', 'United Kingdom', '/uk/website-development/'], ['ca', 'Canada', '/ca/website-development/'], ['au', 'Australia', '/au/'], ['ae', 'UAE &middot; E-commerce', '/ae/ecommerce-website-development/'], ['in', 'India', '/in/']]],
 ];
 const regionsPanel = '<div class="nav-dropdown-panel nav-regions">\n' + REGIONS.map(([c, n, h, cities]) => '                        <div class="nav-region"><a href="' + h + '" class="nav-region-head">' + flag(c) + ' ' + n + '</a>' + cities.map(([cn, ch]) => '<a href="' + ch + '" class="nav-region-link">' + cn + '</a>').join('') + '</div>').join('\n') + '\n                    </div>';
 const servicesPanel = '<div class="nav-dropdown-panel nav-services">\n' + SERVICES.map(([n, h, rows]) => '                        <div class="nav-region"><a href="' + h + '" class="nav-region-head">' + n + '</a>' + rows.map(([c, cn, ch]) => '<a href="' + ch + '" class="nav-region-link">' + flag(c) + ' ' + cn + '</a>').join('') + '</div>').join('\n') + '\n                    </div>';
@@ -24,7 +25,7 @@ const CSS = [
   '',
   '  /* nav_menus: both dropdowns as grouped grids */',
   '  .nav-dropdown-panel.nav-regions, .nav-dropdown-panel.nav-services{ display:grid; gap:18px 22px; padding:22px 28px; left:50%; }',
-  '  .nav-dropdown-panel.nav-regions{ grid-template-columns:repeat(5, minmax(150px, 1fr)); min-width:min(980px, 94vw); }',
+  '  .nav-dropdown-panel.nav-regions{ grid-template-columns:repeat(6, minmax(140px, 1fr)); min-width:min(1080px, 94vw); }',
   '  .nav-dropdown-panel.nav-services{ grid-template-columns:repeat(3, minmax(210px, 1fr)); min-width:min(780px, 94vw); }',
   '  .nav-region{ display:grid; gap:4px; align-content:start; }',
   '  .nav-region-head{ display:flex; align-items:center; gap:8px; font-weight:700; color:var(--ink); text-decoration:none; padding:6px 8px; border-radius:6px; border-bottom:2px solid var(--orange); margin-bottom:4px; white-space:nowrap; }',

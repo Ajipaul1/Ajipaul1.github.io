@@ -31,11 +31,6 @@
       "permanent": true
     },
     {
-      "source": "/au/:path*",
-      "destination": "/",
-      "permanent": true
-    },
-    {
       "source": "/seo-services/:path*",
       "destination": "/ca/seo-services/",
       "permanent": true
@@ -312,16 +307,6 @@
     },
     {
       "source": "/autopilot-engine/",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/au",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/au/",
       "destination": "/",
       "permanent": true
     },
