@@ -15,7 +15,7 @@ const REGIONS = [
   ['ae', 'United Arab Emirates', '/ae/', [['Abu Dhabi', '/ae/abu-dhabi/'], ['Dubai', '/ae/dubai/'], ['E-commerce', '/ae/ecommerce-website-development/'], ['ERP', '/ae/erp/']]],
 ];
 const SERVICES = [
-  ['Custom ERP', '/us/erp/', [['us', 'United States', '/us/erp/'], ['gb', 'United Kingdom', '/uk/erp/'], ['ca', 'Canada', '/ca/erp/'], ['au', 'Australia', '/au/'], ['ae', 'United Arab Emirates', '/ae/erp/'], ['ae', 'UAE &middot; Construction', '/ae/erp/construction/'], ['ae', 'UAE &middot; Automotive', '/ae/erp/automotive/'], ['in', 'India', '/in/']]],
+  ['Custom ERP', '/us/erp/', [['us', 'United States', '/us/erp/'], ['gb', 'United Kingdom', '/uk/erp/'], ['ca', 'Canada', '/ca/erp/'], ['au', 'Australia', '/au/erp/'], ['ae', 'United Arab Emirates', '/ae/erp/'], ['ae', 'UAE &middot; Construction', '/ae/erp/construction/'], ['ae', 'UAE &middot; Automotive', '/ae/erp/automotive/'], ['in', 'India', '/in/']]],
   ['SEO, AEO &amp; GEO', '/us/seo-services/', [['us', 'United States', '/us/seo-services/'], ['gb', 'United Kingdom', '/uk/seo-services/'], ['ca', 'Canada', '/ca/seo-services/'], ['au', 'Australia', '/au/'], ['ae', 'Abu Dhabi', '/ae/abu-dhabi/'], ['ae', 'Dubai', '/ae/dubai/'], ['in', 'Kerala', '/in/kerala/'], ['in', 'Mumbai', '/in/mumbai/'], ['in', 'Kolkata', '/in/kolkata/']]],
   ['Websites &amp; E-commerce', '/us/website-development/', [['us', 'United States', '/us/website-development/'], ['gb', 'United Kingdom', '/uk/website-development/'], ['ca', 'Canada', '/ca/website-development/'], ['au', 'Australia', '/au/'], ['ae', 'UAE &middot; E-commerce', '/ae/ecommerce-website-development/'], ['in', 'India', '/in/']]],
 ];
