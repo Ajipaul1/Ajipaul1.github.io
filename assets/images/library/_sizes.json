@@ -11686,5 +11686,320 @@
   "kb": 70,
   "id": "KhF58h0hTbc",
   "alt": "A man working on a machine in a garage"
+ },
+ "au-sydney-harbour-opera-house.jpg": {
+  "w": 2400,
+  "h": 1600,
+  "kb": 848
+ },
+ "au-sydney-harbour-opera-house-1400.jpg": {
+  "w": 1400,
+  "h": 933,
+  "kb": 277
+ },
+ "au-sydney-harbour-opera-house-700.jpg": {
+  "w": 700,
+  "h": 467,
+  "kb": 75
+ },
+ "au-melbourne-skyline-yarra-river.jpg": {
+  "w": 2400,
+  "h": 1600,
+  "kb": 768
+ },
+ "au-melbourne-skyline-yarra-river-1400.jpg": {
+  "w": 1400,
+  "h": 933,
+  "kb": 260
+ },
+ "au-melbourne-skyline-yarra-river-700.jpg": {
+  "w": 700,
+  "h": 467,
+  "kb": 78
+ },
+ "new-hero-dual-screen-code.jpg": {
+  "w": 2400,
+  "h": 1600,
+  "kb": 334
+ },
+ "new-hero-dual-screen-code-1400.jpg": {
+  "w": 1400,
+  "h": 933,
+  "kb": 101
+ },
+ "new-hero-dual-screen-code-700.jpg": {
+  "w": 700,
+  "h": 467,
+  "kb": 34
+ },
+ "new-hero-engineering-workstation.jpg": {
+  "w": 2400,
+  "h": 1598,
+  "kb": 377
+ },
+ "new-hero-engineering-workstation-1400.jpg": {
+  "w": 1400,
+  "h": 932,
+  "kb": 133
+ },
+ "new-hero-engineering-workstation-700.jpg": {
+  "w": 700,
+  "h": 466,
+  "kb": 47
+ },
+ "new-erp-automated-warehouse.jpg": {
+  "w": 2400,
+  "h": 1600,
+  "kb": 988
+ },
+ "new-erp-automated-warehouse-1400.jpg": {
+  "w": 1400,
+  "h": 933,
+  "kb": 363
+ },
+ "new-erp-automated-warehouse-700.jpg": {
+  "w": 700,
+  "h": 467,
+  "kb": 114
+ },
+ "new-erp-factory-robotics.jpg": {
+  "w": 2400,
+  "h": 1601,
+  "kb": 597
+ },
+ "new-erp-factory-robotics-1400.jpg": {
+  "w": 1400,
+  "h": 934,
+  "kb": 221
+ },
+ "new-erp-factory-robotics-700.jpg": {
+  "w": 700,
+  "h": 467,
+  "kb": 77
+ },
+ "new-erp-inventory-logistics.jpg": {
+  "w": 2400,
+  "h": 1599,
+  "kb": 685
+ },
+ "new-erp-inventory-logistics-1400.jpg": {
+  "w": 1400,
+  "h": 933,
+  "kb": 232
+ },
+ "new-erp-inventory-logistics-700.jpg": {
+  "w": 700,
+  "h": 466,
+  "kb": 71
+ },
+ "new-web-ui-prototyping-desk.jpg": {
+  "w": 2400,
+  "h": 1600,
+  "kb": 307
+ },
+ "new-web-ui-prototyping-desk-1400.jpg": {
+  "w": 1400,
+  "h": 933,
+  "kb": 96
+ },
+ "new-web-ui-prototyping-desk-700.jpg": {
+  "w": 700,
+  "h": 467,
+  "kb": 34
+ },
+ "new-web-wireframe-layout.jpg": {
+  "w": 1882,
+  "h": 2400,
+  "kb": 579
+ },
+ "new-web-wireframe-layout-1400.jpg": {
+  "w": 1098,
+  "h": 1400,
+  "kb": 216
+ },
+ "new-web-wireframe-layout-700.jpg": {
+  "w": 549,
+  "h": 700,
+  "kb": 70
+ },
+ "new-web-terminal-deployment.jpg": {
+  "w": 2400,
+  "h": 1600,
+  "kb": 344
+ },
+ "new-web-terminal-deployment-1400.jpg": {
+  "w": 1400,
+  "h": 933,
+  "kb": 104
+ },
+ "new-web-terminal-deployment-700.jpg": {
+  "w": 700,
+  "h": 467,
+  "kb": 34
+ },
+ "new-seo-ai-neural-matrix.jpg": {
+  "w": 2400,
+  "h": 1823,
+  "kb": 306
+ },
+ "new-seo-ai-neural-matrix-1400.jpg": {
+  "w": 1400,
+  "h": 1063,
+  "kb": 67
+ },
+ "new-seo-ai-neural-matrix-700.jpg": {
+  "w": 700,
+  "h": 532,
+  "kb": 19
+ },
+ "new-seo-generative-intelligence.jpg": {
+  "w": 1920,
+  "h": 2400,
+  "kb": 1218
+ },
+ "new-seo-generative-intelligence-1400.jpg": {
+  "w": 1120,
+  "h": 1400,
+  "kb": 411
+ },
+ "new-seo-generative-intelligence-700.jpg": {
+  "w": 560,
+  "h": 700,
+  "kb": 101
+ },
+ "new-seo-data-analytics-growth.jpg": {
+  "w": 2400,
+  "h": 1600,
+  "kb": 404
+ },
+ "new-seo-data-analytics-growth-1400.jpg": {
+  "w": 1400,
+  "h": 933,
+  "kb": 132
+ },
+ "new-seo-data-analytics-growth-700.jpg": {
+  "w": 700,
+  "h": 467,
+  "kb": 45
+ },
+ "new-market-london-city-skyline.jpg": {
+  "w": 2400,
+  "h": 1600,
+  "kb": 1024
+ },
+ "new-market-london-city-skyline-1400.jpg": {
+  "w": 1400,
+  "h": 933,
+  "kb": 302
+ },
+ "new-market-london-city-skyline-700.jpg": {
+  "w": 700,
+  "h": 467,
+  "kb": 81
+ },
+ "new-market-new-york-manhattan.jpg": {
+  "w": 2400,
+  "h": 1600,
+  "kb": 608
+ },
+ "new-market-new-york-manhattan-1400.jpg": {
+  "w": 1400,
+  "h": 933,
+  "kb": 203
+ },
+ "new-market-new-york-manhattan-700.jpg": {
+  "w": 700,
+  "h": 467,
+  "kb": 63
+ },
+ "new-market-toronto-skyline.jpg": {
+  "w": 2400,
+  "h": 1600,
+  "kb": 819
+ },
+ "new-market-toronto-skyline-1400.jpg": {
+  "w": 1400,
+  "h": 933,
+  "kb": 308
+ },
+ "new-market-toronto-skyline-700.jpg": {
+  "w": 700,
+  "h": 467,
+  "kb": 93
+ },
+ "new-market-dubai-futuristic.jpg": {
+  "w": 2400,
+  "h": 1600,
+  "kb": 669
+ },
+ "new-market-dubai-futuristic-1400.jpg": {
+  "w": 1400,
+  "h": 933,
+  "kb": 210
+ },
+ "new-market-dubai-futuristic-700.jpg": {
+  "w": 700,
+  "h": 467,
+  "kb": 59
+ },
+ "new-market-kochi-kerala-backwaters.jpg": {
+  "w": 2400,
+  "h": 1350,
+  "kb": 911
+ },
+ "new-market-kochi-kerala-backwaters-1400.jpg": {
+  "w": 1400,
+  "h": 788,
+  "kb": 339
+ },
+ "new-market-kochi-kerala-backwaters-700.jpg": {
+  "w": 700,
+  "h": 394,
+  "kb": 95
+ },
+ "new-team-engineering-strategy.jpg": {
+  "w": 2400,
+  "h": 1600,
+  "kb": 401
+ },
+ "new-team-engineering-strategy-1400.jpg": {
+  "w": 1400,
+  "h": 933,
+  "kb": 155
+ },
+ "new-team-engineering-strategy-700.jpg": {
+  "w": 700,
+  "h": 467,
+  "kb": 58
+ },
+ "new-team-standup-planning.jpg": {
+  "w": 2400,
+  "h": 1600,
+  "kb": 350
+ },
+ "new-team-standup-planning-1400.jpg": {
+  "w": 1400,
+  "h": 933,
+  "kb": 108
+ },
+ "new-team-standup-planning-700.jpg": {
+  "w": 700,
+  "h": 467,
+  "kb": 39
+ },
+ "new-cta-converging-horizon.jpg": {
+  "w": 2400,
+  "h": 1601,
+  "kb": 718
+ },
+ "new-cta-converging-horizon-1400.jpg": {
+  "w": 1400,
+  "h": 934,
+  "kb": 213
+ },
+ "new-cta-converging-horizon-700.jpg": {
+  "w": 700,
+  "h": 467,
+  "kb": 59
  }
 }
