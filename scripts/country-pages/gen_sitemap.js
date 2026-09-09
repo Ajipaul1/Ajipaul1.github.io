@@ -20,13 +20,21 @@ for (const f of fs.readdirSync(path.join(L.REPO, 'blog')).sort()) {
   if (f.endsWith('.html') && f !== 'index.html') add('/blog/' + f, 'blog/' + f);
   else if (fs.statSync(p).isDirectory() && fs.existsSync(path.join(p, 'index.html'))) add('/blog/' + f + '/', 'blog/' + f + '/index.html');
 }
-for (const dir of ['ca', 'in', 'uk', 'us']) {
+for (const dir of ['ae', 'ca', 'in', 'uk', 'us']) {
   add('/' + dir + '/', dir + '/index.html');
-  for (const f of fs.readdirSync(path.join(L.REPO, dir)).sort()) { const p = path.join(L.REPO, dir, f); if (fs.statSync(p).isDirectory() && fs.existsSync(path.join(p, 'index.html'))) add(`/${dir}/${f}/`, `${dir}/${f}/index.html`); }
+  (function sub(relDir) {   // recurse: nested service pages like /ae/erp/construction/ were being missed
+    for (const f of fs.readdirSync(path.join(L.REPO, relDir)).sort()) {
+      const p = path.join(L.REPO, relDir, f);
+      if (!fs.statSync(p).isDirectory()) continue;
+      const child = relDir + '/' + f;
+      if (fs.existsSync(path.join(p, 'index.html'))) add('/' + child + '/', child + '/index.html');
+      sub(child);
+    }
+  })(dir);
 }
 add('/results/', 'results/index.html');
 for (const f of fs.readdirSync(path.join(L.REPO, 'results')).sort()) { const p = path.join(L.REPO, 'results', f); if (fs.statSync(p).isDirectory() && fs.existsSync(path.join(p, 'index.html'))) add('/results/' + f + '/', 'results/' + f + '/index.html'); }
-add('/privacy/', 'privacy/index.html'); add('/seo-audit-kochi/', 'seo-audit-kochi/index.html'); add('/terms/', 'terms/index.html');
+add('/why-us/', 'why-us/index.html'); add('/privacy/', 'privacy/index.html'); add('/seo-audit-kochi/', 'seo-audit-kochi/index.html'); add('/terms/', 'terms/index.html');
 urls.sort((a, b) => a.url.localeCompare(b.url));
 const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `  <url><loc>https://techauditpros.com${u.url}</loc><lastmod>${u.mod}</lastmod></url>`).join('\n')}\n</urlset>\n`;
 fs.writeFileSync(path.join(L.REPO, 'sitemap.xml'), xml);
