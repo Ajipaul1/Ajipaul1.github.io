@@ -28,18 +28,23 @@ let s = L.read('ca/erp/index.html');
 s = L.setHead(s, {
   title: 'Why TechAuditPros | An engineering team in Kochi, and a straight answer',
   ogTitle: 'Why TechAuditPros &mdash; an engineering team, not an agency',
-  desc: 'Who we are and how we work: an engineering team in Kochi, India, building custom ERP systems, search visibility and websites for companies in the US, UK, Canada and the UAE. No office in your country, the code and data are yours, and we say when an off-the-shelf product is the better answer. Includes our 75-second film.',
+  desc: 'Who we are and how we work: an engineering team in Kochi, India, building custom ERP systems, search visibility and websites for companies in the US, UK, Canada, Australia, the UAE and India. No office in your country, the code and data are yours, and we say when an off-the-shelf product is the better answer. Includes our 75-second film.',
   url: URL,
   ogType: 'website',
 });
 s = L.replaceAll(s, 'https://techauditpros.com/assets/images/og-share-cover.jpg', 'https://techauditpros.com' + POSTER);
+// the template's share-image dimensions and alt describe the old 1200x630 cover; the poster is 1920x1080
+s = L.replaceAll(s, '<meta property="og:image:width" content="1200" />', '<meta property="og:image:width" content="1920" />');
+s = L.replaceAll(s, '<meta property="og:image:height" content="630" />', '<meta property="og:image:height" content="1080" />');
+s = L.replaceAll(s, 'TechAuditPros — technical SEO, websites and custom ERP, built in Kochi for clients in the UK, US and Canada',
+  'The opening frame of the TechAuditPros film: the founder seated in a book-lined room, captioned, with an AI-generated presentation label');
 
 // -------------------------------------------------------------------------------------------- content
 const FACTS = [
   ['An engineering team, not an agency',
     'The people who scope your system are the people who build it. There is no account manager between you and the work, and no ticket queue &mdash; you talk to the engineers who wrote the code.'],
   ['In Kochi, and honest about it',
-    'We have no office in your country and no local support desk, and we say so on the first call rather than the last. Our working day overlaps the Gulf entirely, the UK morning, and the North American evening.'],
+    'We have no office in your country and no local support desk, and we say so on the first call rather than the last. Our working day overlaps the Gulf entirely, the UK morning, and the start of the North American morning.'],
   ['The code and the data are yours',
     'Source code, database and documentation belong to you from the first commit, in your own accounts. Nothing is held back to keep you paying, and there is no platform of ours to be locked into.'],
   ['We will tell you not to build',
@@ -70,7 +75,7 @@ const WRONG = [
 
 const FAQS = [
   { q: 'Where is your team, and do you have an office in my country?',
-    a: 'We are an engineering team in Kochi, in Kerala, India. We have no office and no support desk in the United States, the United Kingdom, Canada or the UAE, and we say so before you ask. Our working day covers the Gulf in full, the UK morning and the North American evening; Dubai is a four-hour flight and shares our working week.' },
+    a: 'We are an engineering team in Kochi, in Kerala, India. We have no office and no support desk in the United States, the United Kingdom, Canada, Australia or the UAE, and we say so before you ask. Our working day covers the Gulf in full, the UK morning and the start of the North American morning; Dubai is a four-hour flight and shares our working week.' },
   { q: 'Who owns the code and the data?',
     a: 'You do, from the first commit. The repository, the database and the documentation sit in your accounts, and the handover includes all three. There is no platform of ours in the middle and nothing withheld to keep you on a retainer.' },
   { q: 'Is the video on this page real?',
@@ -78,7 +83,7 @@ const FAQS = [
   { q: 'How do I know work is actually happening?',
     a: 'A staging environment you can open any week of the build, and a written report every month. You are not asked to trust a status meeting.' },
   { q: 'What if an off-the-shelf product would suit us better?',
-    a: 'Then we say so, and we say it on the first call rather than after the scoping fee. Several excellent products serve small and mid-sized businesses well, and pointing you at one costs us a project but keeps the advice worth asking for.' },
+    a: 'Then we say so, and we say it on the first call rather than three weeks into a scope. Several excellent products serve small and mid-sized businesses well, and pointing you at one costs us a project but keeps the advice worth asking for.' },
   { q: 'What do you actually build?',
     a: 'Custom ERP systems &mdash; stock, orders, purchasing, projects, payroll and job costing in one system of record &mdash; along with search visibility work for Google and for the AI answers that increasingly sit above it, and the websites and online stores those systems run behind.' },
 ];
@@ -107,7 +112,7 @@ const HERO = `<section class="tap-new-hero wu-hero">
         <div class="wu-hero-inner">
             <p class="eyebrow">Why Us</p>
             <h1>Why work with us &mdash; <span>a team you can actually reach, and a straight answer about what you need.</span></h1>
-            <p class="wu-hero-sub">TechAuditPros is an engineering team in Kochi, India. We build custom ERP systems, search visibility and websites for companies in the United States, the United Kingdom, Canada and the United Arab Emirates. We have no office in your country, the code we write belongs to you, and when an off-the-shelf product fits your business better than a build, we say so. This page is the short version &mdash; and the film below says it in our own words.</p>
+            <p class="wu-hero-sub">TechAuditPros is an engineering team in Kochi, India. We build custom ERP systems, search visibility and websites for companies in the United States, the United Kingdom, Canada, Australia, the United Arab Emirates and India. We have no office in your country, the code we write belongs to you, and when an off-the-shelf product fits your business better than a build, we say so. This page is the short version &mdash; and the film below says it in our own words.</p>
             <div class="wu-hero-cta">
                 <a href="#film" class="wu-btn wu-btn-primary">Watch the film</a>
                 <a href="#contact" class="wu-btn wu-btn-ghost">Talk to an engineer</a>
@@ -127,14 +132,14 @@ const BODY = `<section class="wu-film-section" id="film">
         </div>
         <figure class="wu-film">
             <div class="wu-film-frame">
-                <video class="wu-video" controls playsinline preload="none" poster="${POSTER}" width="1920" height="1080">
+                <video class="wu-video" controls playsinline preload="none" poster="${POSTER}" width="1920" height="1080" title="Why TechAuditPros &mdash; an engineering team in Kochi (75-second film)">
                     <source src="${VIDEO}" type="video/mp4" />
                     Your browser cannot play this video. <a href="${VIDEO}">Download the film</a> instead.
                 </video>
             </div>
             <figcaption>
                 <p class="wu-film-cap">The captions are burned into the picture, so they travel with the film wherever it plays. Best with the sound on.</p>
-                <p class="wu-film-note"><strong>About this film:</strong> it was produced with generative AI. Our founder&rsquo;s likeness was generated from his own photograph and the words are his; the second presenter is an AI narrator rather than an employee, which is why no one in the film carries a name or a job title. The team, the work and the words are real.</p>
+                <p class="wu-film-note"><strong>About this film:</strong> it was produced with generative AI. Our founder&rsquo;s likeness was generated from his own photograph and the words are his; the second presenter is an AI narrator rather than an employee, which is why she carries no name and no job title. The team, the work and the words are real.</p>
             </figcaption>
         </figure>
     </div>
@@ -259,7 +264,11 @@ const CSS = `
     .wu-hero{ padding:70px 0 60px; }
     .wu-facts, .wu-wrongs{ grid-template-columns:1fr; }
     .wu-step{ padding:22px; gap:16px; }
-    .wu-film-frame{ border-radius:12px; }
+    .wu-film-frame{ border-radius:0; }
+    .wu-film-section > .container{ width:100%; padding:0; }   /* burned-in captions need every pixel on a phone */
+    .wu-film-section .section-head{ padding:0 20px; }
+    .wu-film figcaption{ padding:0 20px; }
+    .wu-film{ max-width:none; }
   }
 `;
 {
@@ -287,6 +296,12 @@ const CSS = `
   L.must(s, 'class="wu-step"', STEPS.length);
   L.must(s, 'class="wu-wrong"', WRONG.length);
   L.must(s, 'class="faq-item"', FAQS.length);
+  // claims corrected after the 2026-09-09 audit — they must not creep back in
+  for (const bad of ['North American evening', 'scoping fee', 'no one in the film carries', 'subtitle tracks are inside']) {
+    if (prose.includes(bad)) throw new Error('a corrected claim reappeared on /why-us/: ' + bad);
+  }
+  L.must(s, '<meta property="og:image:width" content="1920" />', 1);
+  L.must(s, 'title="Why TechAuditPros', 1);
   console.log('  words: ' + words + ' | FAQs: ' + FAQS.length + ' | video 1080p + poster + VideoObject');
 }
 

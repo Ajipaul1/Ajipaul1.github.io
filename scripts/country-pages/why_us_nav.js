@@ -1,8 +1,13 @@
 'use strict';
 // Points the header's "Why Us" item at the real /why-us/ page instead of #compare.
-// #compare is a homepage section that exists on only 5 of the 38 pages carrying the link, so on the other 33 the
-// item scrolled nowhere. Every occurrence site-wide is `href="#compare">Why Us` (desktop + mobile nav), verified
-// before running. Idempotent: re-running finds nothing left to change. (2026-09-09)
+// #compare is a homepage section that exists on only 5 of the pages carrying the link, so everywhere else the
+// item scrolled nowhere. Idempotent: re-running finds nothing left to change. (2026-09-09)
+//
+// TWO LINK FORMS. The country/service pages use the bare anchor `href="#compare"`; the blog pages use the
+// root-absolute `href="/#compare"`, which does work from a blog post (it lands on the homepage section) but is
+// still worse than a dedicated page. The first version of this script only matched the bare form and its
+// "nothing left" assertion only checked that form too, so 150 links across 75 blog files were silently missed
+// and reported as done. Both forms are handled now, and the assertion checks both.
 const L = require('./lib.js'); const fs = require('fs'); const path = require('path');
 const SKIP = ['node_modules', '.git', 'archive', 'scripts', 'scratch', 'supabase', 'api', 'videos', 'assets', 'ai_context'];
 const walk = (d, out) => {
@@ -13,19 +18,26 @@ const walk = (d, out) => {
   }
   return out;
 };
-const FROM = 'href="#compare">Why Us';
-const TO = 'href="/why-us/">Why Us';
+const PAIRS = [
+  ['href="#compare">Why Us', 'href="/why-us/">Why Us'],
+  ['href="/#compare">Why Us', 'href="/why-us/">Why Us'],
+];
 let pages = 0, links = 0;
 for (const p of walk(L.REPO, [])) {
   const rel = path.relative(L.REPO, p).split(path.sep).join('/');
-  const s = fs.readFileSync(p, 'utf8');
-  const n = L.count(s, FROM);
-  if (!n) continue;
-  L.write(rel, s.split(FROM).join(TO));
-  pages++; links += n;
+  let s = fs.readFileSync(p, 'utf8');
+  const before = s;
+  let hits = 0;
+  for (const [from, to] of PAIRS) { const n = L.count(s, from); if (n) { hits += n; s = s.split(from).join(to); } }
+  if (s === before) continue;
+  L.write(rel, s);
+  pages++; links += hits;
 }
-// nothing may still point at the old anchor
-let left = 0;
-for (const p of walk(L.REPO, [])) left += L.count(fs.readFileSync(p, 'utf8'), FROM);
-if (left) throw new Error(left + ' "Why Us" links still point at #compare');
-console.log('Why Us -> /why-us/: ' + links + ' links on ' + pages + ' pages');
+// no "Why Us" link anywhere may still point at the old anchor, in either form
+const left = [];
+for (const p of walk(L.REPO, [])) {
+  const s = fs.readFileSync(p, 'utf8');
+  for (const [from] of PAIRS) if (L.count(s, from)) left.push(path.relative(L.REPO, p) + ' (' + from + ')');
+}
+if (left.length) throw new Error(left.length + ' "Why Us" links still point at #compare:\n  ' + left.slice(0, 10).join('\n  '));
+console.log('Why Us -> /why-us/: ' + links + ' links on ' + pages + ' pages (0 left on the old anchor)');
