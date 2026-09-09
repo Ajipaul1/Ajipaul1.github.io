@@ -9,8 +9,10 @@
 // RULES: no "audit" as a service word (company name only) · no "offshore" · no price of ours · real claims only ·
 //   root-absolute links · visible FAQ text = FAQPage schema · honest about what the film is.
 //
-// ASSETS: assets/videos/techauditpros-why-us-film-1080p.mp4 (1080p, 9.4 MB, captions burned in, eng + mal subtitle
-//   tracks inside the container; assets/videos/ is the un-ignored path, plain videos/*.mp4 is gitignored) and assets/images/why-us-film-poster.jpg (1920x1080 still, frame at 6.4s).
+// ASSETS: assets/videos/techauditpros-why-us-film-1080p.mp4 (1080p, 10 MB, captions burned in, -14 LUFS,
+//   no subtitle tracks — browsers cannot render mov_text, so the web copy ships video+audio only and the
+//   English captions are burned into the picture; assets/videos/ is the un-ignored path, plain videos/*.mp4 is
+//   gitignored. Audio normalised to -14 LUFS: the first cut shipped at -19.3 and read as silent on laptops.) and assets/images/why-us-film-poster.jpg (1920x1080 still, frame at 6.4s).
 //   4K master lives outside the repo at Downloads/TechAuditPros_Film_Final_4K.mp4.
 const fs = require('fs');
 const path = require('path');
@@ -131,7 +133,7 @@ const BODY = `<section class="wu-film-section" id="film">
                 </video>
             </div>
             <figcaption>
-                <p class="wu-film-cap">Captions are part of the picture; English and Malayalam subtitle tracks are inside the file.</p>
+                <p class="wu-film-cap">The captions are burned into the picture, so they travel with the film wherever it plays. Best with the sound on.</p>
                 <p class="wu-film-note"><strong>About this film:</strong> it was produced with generative AI. Our founder&rsquo;s likeness was generated from his own photograph and the words are his; the second presenter is an AI narrator rather than an employee, which is why no one in the film carries a name or a job title. The team, the work and the words are real.</p>
             </figcaption>
         </figure>
