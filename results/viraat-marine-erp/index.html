@@ -456,7 +456,6 @@
   .section-head h2{ font-size:clamp(1.7rem,2.6vw,2.3rem); margin:14px 0 14px; }
   .section-head p{ font-size:1rem; color:var(--ink-soft); }
 
-
   /* ---------- ANSWER-FIRST SUMMARY (AEO) ---------- */
   .tap-answer-section{ padding:60px 0; background:var(--paper-alt); border-bottom:1px solid var(--line); }
   .answer-grid{ display:flex; gap:24px; align-items:flex-start; max-width:920px; margin:0 auto; }
@@ -711,19 +710,93 @@
     .erp-benefit-row, .erp-advantages-grid, .erp-process-row{ grid-template-columns:1fr; }
   }
 
+    .mg-cols{ grid-template-columns:repeat(3, minmax(200px, 1fr)); gap:18px; }
+    .mg-regions{ grid-template-columns:repeat(3, minmax(180px, 1fr)); gap:18px; }
+    .nav-dropdown-panel.nav-services{ min-width:min(880px, 96vw); }
+    .nav-dropdown-panel.nav-regions{ min-width:min(900px, 96vw); }
+  }
+  /* mobile drawer accordion */
+  .drawer-acc{ display:flex; align-items:center; justify-content:space-between; width:100%; padding:14px 6px; background:none; border:none; border-bottom:1px solid var(--line); font:inherit; font-weight:600; font-size:1rem; color:var(--ink); cursor:pointer; text-align:left; }
+  .drawer-acc-i{ position:relative; width:11px; height:11px; flex:0 0 11px; }
+  .drawer-acc-i::before, .drawer-acc-i::after{ content:""; position:absolute; background:var(--ink-faint); transition:transform .2s ease, opacity .2s ease; }
+  .drawer-acc-i::before{ left:0; top:5px; width:11px; height:1.5px; }
+  .drawer-acc-i::after{ left:5px; top:0; width:1.5px; height:11px; }
+  .drawer-acc[aria-expanded="true"]{ color:var(--orange); }
+  .drawer-acc[aria-expanded="true"] .drawer-acc-i::after{ transform:scaleY(0); opacity:0; }
+  .drawer-sub{ padding:6px 0 12px 4px; border-bottom:1px solid var(--line); }
+  .drawer-sub-h{ display:flex; align-items:center; gap:7px; margin:12px 0 4px; font-family:var(--font-mono, monospace); font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-faint); }
+  .drawer-sub-h img{ width:16px; height:16px; border-radius:50%; object-fit:cover; }
+  .drawer-nav .drawer-sub a{ display:flex; align-items:center; gap:8px; padding:10px 8px; font-size:.92rem; font-weight:500; color:var(--ink-soft); border-bottom:none; border-radius:6px; }
+  .drawer-nav .drawer-sub a:active, .drawer-nav .drawer-sub a:hover{ background:var(--paper-alt); color:var(--orange); }
+  .drawer-nav .drawer-sub a img{ width:17px; height:17px; border-radius:50%; object-fit:cover; }
+  .drawer-nav .drawer-sub a.is-sub{ padding-left:26px; font-size:.87rem; }
 
 
-  /* nav_menus: both dropdowns as grouped grids */
-  .nav-dropdown-panel.nav-regions, .nav-dropdown-panel.nav-services{ display:grid; gap:18px 22px; padding:22px 28px; left:50%; }
-  .nav-dropdown-panel.nav-regions{ grid-template-columns:repeat(5, minmax(150px, 1fr)); min-width:min(980px, 94vw); }
-  .nav-dropdown-panel.nav-services{ grid-template-columns:repeat(3, minmax(210px, 1fr)); min-width:min(780px, 94vw); }
-  .nav-region{ display:grid; gap:4px; align-content:start; }
-  .nav-region-head{ display:flex; align-items:center; gap:8px; font-weight:700; color:var(--ink); text-decoration:none; padding:6px 8px; border-radius:6px; border-bottom:2px solid var(--orange); margin-bottom:4px; white-space:nowrap; }
-  .nav-region-head img, .nav-region-link img{ width:20px; height:20px; border-radius:50%; object-fit:cover; flex-shrink:0; }
-  .nav-region-head:hover{ background:var(--paper-alt); }
-  .nav-region-link{ display:flex; align-items:center; gap:8px; padding:5px 8px; border-radius:6px; color:var(--ink-soft); text-decoration:none; font-size:.92rem; white-space:nowrap; }
-  .nav-region-link:hover{ background:var(--paper-alt); color:var(--orange); }
-  @media (max-width:1180px){ .nav-dropdown-panel.nav-regions{ grid-template-columns:repeat(3, 1fr); min-width:min(720px, 92vw); } }
+
+
+  /* nav_v3:start mega dropdowns + mobile accordion */
+  .nav-dropdown::after{ width:340px; }
+  /* display:block — the base stylesheet makes these panels a 5-column grid, which left empty bands */
+  .nav-dropdown-panel.nav-mega{ display:block; padding:0; left:50%; gap:0; }
+  /* fixed widths, not max-content: max-content grew this to 1385px and hung it off the left edge */
+  .nav-dropdown-panel.nav-services{ width:min(1060px, 95vw); min-width:0; }
+  .nav-dropdown-panel.nav-regions{ width:min(1010px, 95vw); min-width:0; }
+  .mg-inner{ padding:18px 22px 0; }
+  .mg-eyebrow{ font-family:var(--font-mono, monospace); font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 14px; }
+  .mg-cols{ display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:22px; }
+  /* these columns are <section>s, and the site styles every section with 88px of vertical padding */
+  .mg-col, .mg-region{ padding:0; margin:0; min-width:0; }
+  .mg-head{ display:flex; gap:11px; align-items:flex-start; padding-bottom:11px; margin-bottom:9px; border-bottom:1px solid var(--line); }
+  .mg-ico{ flex:0 0 30px; width:30px; height:30px; border-radius:8px; background:var(--paper-alt); display:grid; place-items:center; }
+  .mg-ico svg{ width:16px; height:16px; fill:var(--orange); }
+  .mg-head-t{ display:block; min-width:0; }
+  .mg-head-t strong{ display:block; font-size:.95rem; color:var(--ink); line-height:1.25; }
+  .mg-head-t em{ display:block; font-style:normal; font-size:.76rem; line-height:1.45; color:var(--ink-faint); margin-top:3px; }
+  .mg-links{ display:grid; grid-template-columns:1fr 1fr; gap:1px 8px; }
+  .mg-links a{ display:flex; align-items:center; gap:6px; padding:5px 7px; border-radius:6px; color:var(--ink-soft); text-decoration:none; font-size:.85rem; line-height:1.2; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .mg-links a:hover{ background:var(--paper-alt); color:var(--orange); }
+  .mg-links img{ width:17px; height:17px; border-radius:50%; object-fit:cover; flex-shrink:0; }
+  .mg-links a.is-sub{ padding-left:26px; font-size:.8rem; position:relative; }
+  .mg-sub-mark{ position:absolute; left:12px; top:50%; width:7px; height:7px; border-left:1px solid var(--line-strong, #cbd5dd); border-bottom:1px solid var(--line-strong, #cbd5dd); transform:translateY(-70%); }
+  /* three columns of two rows, each region's own links in two columns so the panel stays short */
+  .mg-regions{ display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:16px 24px; }
+  .mg-regions .mg-links{ grid-template-columns:1fr 1fr; }
+  .mg-rhead{ display:flex; align-items:center; gap:8px; text-decoration:none; padding-bottom:9px; margin-bottom:6px; border-bottom:1px solid var(--line); }
+  .mg-rhead img{ width:20px; height:20px; border-radius:50%; object-fit:cover; }
+  .mg-rhead strong{ font-size:.9rem; color:var(--ink); }
+  .mg-rhead:hover strong{ color:var(--orange); }
+  .mg-foot{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin:20px -26px 0; padding:14px 26px; background:var(--paper-alt); border-top:1px solid var(--line); border-radius:0 0 10px 10px; }
+  .mg-foot-t{ flex:1 1 340px; min-width:0; font-size:.78rem; line-height:1.5; color:var(--ink-faint); }
+  .mg-foot-l{ font-size:.8rem; font-weight:700; color:var(--ink); text-decoration:none; white-space:nowrap; }
+  .mg-foot-l:hover{ color:var(--orange); }
+  .mg-foot-cta{ font-size:.8rem; font-weight:700; background:var(--orange); color:#fff; text-decoration:none; padding:9px 15px; border-radius:7px; white-space:nowrap; }
+  .mg-foot-cta:hover{ filter:brightness(1.07); }
+  @media (max-width:1240px){
+    .mg-cols{ grid-template-columns:repeat(3, minmax(200px, 1fr)); gap:18px; }
+    .mg-regions{ grid-template-columns:repeat(3, minmax(180px, 1fr)); gap:18px; }
+    .nav-dropdown-panel.nav-services{ min-width:min(880px, 96vw); }
+    .nav-dropdown-panel.nav-regions{ min-width:min(900px, 96vw); }
+  }
+  /* click (or keyboard) opens the panel too, instead of jumping to a dead anchor */
+  .nav-dropdown.is-open .nav-dropdown-panel{ opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0); }
+  .nav-dropdown.is-open .nav-dropdown-caret{ transform:rotate(180deg); }
+  /* mobile drawer accordion — the panel scrolls, or an open accordion pushes items out of reach */
+  .mobile-drawer .drawer-content{ overflow-y:auto; max-height:100vh; max-height:100dvh; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; }
+  .drawer-acc{ display:flex; align-items:center; justify-content:space-between; width:100%; padding:14px 6px; background:none; border:none; border-bottom:1px solid var(--line); font:inherit; font-weight:600; font-size:1rem; color:var(--ink); cursor:pointer; text-align:left; }
+  .drawer-acc-i{ position:relative; width:11px; height:11px; flex:0 0 11px; }
+  .drawer-acc-i::before, .drawer-acc-i::after{ content:""; position:absolute; background:var(--ink-faint); transition:transform .2s ease, opacity .2s ease; }
+  .drawer-acc-i::before{ left:0; top:5px; width:11px; height:1.5px; }
+  .drawer-acc-i::after{ left:5px; top:0; width:1.5px; height:11px; }
+  .drawer-acc[aria-expanded="true"]{ color:var(--orange); }
+  .drawer-acc[aria-expanded="true"] .drawer-acc-i::after{ transform:scaleY(0); opacity:0; }
+  .drawer-sub{ padding:6px 0 12px 4px; border-bottom:1px solid var(--line); }
+  .drawer-sub-h{ display:flex; align-items:center; gap:7px; margin:12px 0 4px; font-family:var(--font-mono, monospace); font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-faint); }
+  .drawer-sub-h img{ width:16px; height:16px; border-radius:50%; object-fit:cover; }
+  .drawer-nav .drawer-sub a{ display:flex; align-items:center; gap:8px; padding:10px 8px; font-size:.92rem; font-weight:500; color:var(--ink-soft); border-bottom:none; border-radius:6px; }
+  .drawer-nav .drawer-sub a:active, .drawer-nav .drawer-sub a:hover{ background:var(--paper-alt); color:var(--orange); }
+  .drawer-nav .drawer-sub a img{ width:17px; height:17px; border-radius:50%; object-fit:cover; }
+  .drawer-nav .drawer-sub a.is-sub{ padding-left:26px; font-size:.87rem; }
+  /* nav_v3:end */
 </style>
 
     <script type="application/ld+json">
@@ -1035,22 +1108,127 @@
             <nav class="desktop-nav">
                 <div class="nav-dropdown">
                     <a href="#services">Services <span class="nav-dropdown-caret">&#9662;</span></a>
-                    <div class="nav-dropdown-panel nav-services">
-                        <div class="nav-region"><a href="/us/erp/" class="nav-region-head">Custom ERP</a><a href="/us/erp/" class="nav-region-link"><img src="https://flagcdn.com/w40/us.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United States</a><a href="/uk/erp/" class="nav-region-link"><img src="https://flagcdn.com/w40/gb.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United Kingdom</a><a href="/ca/erp/" class="nav-region-link"><img src="https://flagcdn.com/w40/ca.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Canada</a><a href="/au/erp/" class="nav-region-link"><img src="https://flagcdn.com/w40/au.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Australia</a><a href="/ae/erp/" class="nav-region-link"><img src="https://flagcdn.com/w40/ae.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United Arab Emirates</a><a href="/ae/erp/construction/" class="nav-region-link"><img src="https://flagcdn.com/w40/ae.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> UAE &middot; Construction</a><a href="/ae/erp/automotive/" class="nav-region-link"><img src="https://flagcdn.com/w40/ae.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> UAE &middot; Automotive</a><a href="/in/" class="nav-region-link"><img src="https://flagcdn.com/w40/in.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> India</a></div>
-                        <div class="nav-region"><a href="/us/seo-services/" class="nav-region-head">SEO, AEO &amp; GEO</a><a href="/us/seo-services/" class="nav-region-link"><img src="https://flagcdn.com/w40/us.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United States</a><a href="/uk/seo-services/" class="nav-region-link"><img src="https://flagcdn.com/w40/gb.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United Kingdom</a><a href="/ca/seo-services/" class="nav-region-link"><img src="https://flagcdn.com/w40/ca.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Canada</a><a href="/au/" class="nav-region-link"><img src="https://flagcdn.com/w40/au.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Australia</a><a href="/ae/abu-dhabi/" class="nav-region-link"><img src="https://flagcdn.com/w40/ae.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Abu Dhabi</a><a href="/ae/dubai/" class="nav-region-link"><img src="https://flagcdn.com/w40/ae.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Dubai</a><a href="/in/kerala/" class="nav-region-link"><img src="https://flagcdn.com/w40/in.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Kerala</a><a href="/in/mumbai/" class="nav-region-link"><img src="https://flagcdn.com/w40/in.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Mumbai</a><a href="/in/kolkata/" class="nav-region-link"><img src="https://flagcdn.com/w40/in.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Kolkata</a></div>
-                        <div class="nav-region"><a href="/us/website-development/" class="nav-region-head">Websites &amp; E-commerce</a><a href="/us/website-development/" class="nav-region-link"><img src="https://flagcdn.com/w40/us.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United States</a><a href="/uk/website-development/" class="nav-region-link"><img src="https://flagcdn.com/w40/gb.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United Kingdom</a><a href="/ca/website-development/" class="nav-region-link"><img src="https://flagcdn.com/w40/ca.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Canada</a><a href="/au/website-development/" class="nav-region-link"><img src="https://flagcdn.com/w40/au.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Australia</a><a href="/ae/ecommerce-website-development/" class="nav-region-link"><img src="https://flagcdn.com/w40/ae.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> UAE &middot; E-commerce</a><a href="/in/" class="nav-region-link"><img src="https://flagcdn.com/w40/in.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> India</a></div>
+                    <div class="nav-dropdown-panel nav-mega nav-services">
+                    <div class="mg-inner">
+                        <p class="mg-eyebrow">What we build</p>
+                        <div class="mg-cols">
+                        <section class="mg-col">
+                            <div class="mg-head"><span class="mg-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h8v8H3V3zm10 0h8v5h-8V3zM3 13h8v8H3v-8zm10 3h8v5h-8v-5zm0-6h8v4h-8v-4z"/></svg></span><span class="mg-head-t"><strong>Custom ERP</strong><em>One system of record &mdash; stock, orders, projects, payroll.</em></span></div>
+                            <div class="mg-links">
+                                <a href="/us/erp/"><img src="https://flagcdn.com/w40/us.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United States</a>
+                                <a href="/uk/erp/"><img src="https://flagcdn.com/w40/gb.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United Kingdom</a>
+                                <a href="/ca/erp/"><img src="https://flagcdn.com/w40/ca.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Canada</a>
+                                <a href="/au/erp/"><img src="https://flagcdn.com/w40/au.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Australia</a>
+                                <a href="/ae/erp/"><img src="https://flagcdn.com/w40/ae.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> UAE</a>
+                                <a href="/ae/erp/construction/" class="is-sub"><span class="mg-sub-mark" aria-hidden="true"></span> Construction</a>
+                                <a href="/ae/erp/automotive/" class="is-sub"><span class="mg-sub-mark" aria-hidden="true"></span> Automotive</a>
+                                <a href="/in/"><img src="https://flagcdn.com/w40/in.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> India</a>
+                            </div>
+                        </section>
+                        <section class="mg-col">
+                            <div class="mg-head"><span class="mg-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2a8 8 0 105.29 14L21 21.71 22.71 20 17 14.29A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/></svg></span><span class="mg-head-t"><strong>SEO, AEO &amp; GEO</strong><em>Rank on Google &mdash; and be the answer inside the AI summaries above it.</em></span></div>
+                            <div class="mg-links">
+                                <a href="/us/seo-services/"><img src="https://flagcdn.com/w40/us.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United States</a>
+                                <a href="/uk/seo-services/"><img src="https://flagcdn.com/w40/gb.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United Kingdom</a>
+                                <a href="/ca/seo-services/"><img src="https://flagcdn.com/w40/ca.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Canada</a>
+                                <a href="/ae/abu-dhabi/"><img src="https://flagcdn.com/w40/ae.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Abu Dhabi</a>
+                                <a href="/ae/dubai/"><img src="https://flagcdn.com/w40/ae.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Dubai</a>
+                                <a href="/in/kerala/"><img src="https://flagcdn.com/w40/in.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Kerala</a>
+                                <a href="/in/mumbai/"><img src="https://flagcdn.com/w40/in.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Mumbai</a>
+                                <a href="/in/kolkata/"><img src="https://flagcdn.com/w40/in.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Kolkata</a>
+                            </div>
+                        </section>
+                        <section class="mg-col">
+                            <div class="mg-head"><span class="mg-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18a1 1 0 011 1v14a1 1 0 01-1 1H3a1 1 0 01-1-1V5a1 1 0 011-1zm1 4v10h16V8H4zm1-3v1h2V5H5zm3 0v1h2V5H8z"/></svg></span><span class="mg-head-t"><strong>Websites &amp; E-commerce</strong><em>Fast pages, live stock and prices, a checkout that never lies.</em></span></div>
+                            <div class="mg-links">
+                                <a href="/us/website-development/"><img src="https://flagcdn.com/w40/us.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United States</a>
+                                <a href="/uk/website-development/"><img src="https://flagcdn.com/w40/gb.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United Kingdom</a>
+                                <a href="/ca/website-development/"><img src="https://flagcdn.com/w40/ca.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Canada</a>
+                                <a href="/au/website-development/"><img src="https://flagcdn.com/w40/au.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Australia</a>
+                                <a href="/ae/ecommerce-website-development/"><img src="https://flagcdn.com/w40/ae.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> UAE e-commerce</a>
+                                <a href="/in/"><img src="https://flagcdn.com/w40/in.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> India</a>
+                            </div>
+                        </section>
+                        </div>
+                        <div class="mg-foot">
+                            <span class="mg-foot-t">Not sure which you need? We will say so honestly &mdash; even when the answer is &ldquo;buy a product instead&rdquo;.</span>
+                            <a class="mg-foot-l" href="/why-us/">Why us &rarr;</a>
+                            <a class="mg-foot-cta" href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" rel="noopener">Book a free strategy call</a>
+                        </div>
                     </div>
+                </div>
                 </div>
                 <div class="nav-dropdown">
                     <a href="#regions">Service Areas <span class="nav-dropdown-caret">&#9662;</span></a>
-                    <div class="nav-dropdown-panel nav-regions">
-                        <div class="nav-region"><a href="/ca/" class="nav-region-head"><img src="https://flagcdn.com/w40/ca.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Canada</a><a href="/ca/toronto/" class="nav-region-link">Toronto</a></div>
-                        <div class="nav-region"><a href="/us/" class="nav-region-head"><img src="https://flagcdn.com/w40/us.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United States</a><a href="/us/erp/" class="nav-region-link">ERP</a><a href="/us/seo-services/" class="nav-region-link">SEO</a><a href="/us/website-development/" class="nav-region-link">Websites</a></div>
-                        <div class="nav-region"><a href="/uk/" class="nav-region-head"><img src="https://flagcdn.com/w40/gb.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United Kingdom</a><a href="/uk/london/" class="nav-region-link">London</a><a href="/uk/manchester/" class="nav-region-link">Manchester</a><a href="/uk/reading/" class="nav-region-link">Reading</a><a href="/uk/scotland/" class="nav-region-link">Scotland</a></div>
-                        <div class="nav-region"><a href="/au/" class="nav-region-head"><img src="https://flagcdn.com/w40/au.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Australia</a><a href="/au/erp/" class="nav-region-link">ERP</a><a href="/au/website-development/" class="nav-region-link">Websites</a><a href="/au/" class="nav-region-link">Sydney</a><a href="/au/" class="nav-region-link">Melbourne</a></div>
-                        <div class="nav-region"><a href="/in/" class="nav-region-head"><img src="https://flagcdn.com/w40/in.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> India</a><a href="/in/kerala/" class="nav-region-link">Kerala</a><a href="/in/mumbai/" class="nav-region-link">Mumbai</a><a href="/in/kolkata/" class="nav-region-link">Kolkata</a><a href="/in/vadodara/" class="nav-region-link">Vadodara</a><a href="/in/lucknow/" class="nav-region-link">Lucknow</a><a href="/in/calicut/" class="nav-region-link">Calicut</a></div>
-                        <div class="nav-region"><a href="/ae/" class="nav-region-head"><img src="https://flagcdn.com/w40/ae.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United Arab Emirates</a><a href="/ae/abu-dhabi/" class="nav-region-link">Abu Dhabi</a><a href="/ae/dubai/" class="nav-region-link">Dubai</a><a href="/ae/ecommerce-website-development/" class="nav-region-link">E-commerce</a><a href="/ae/erp/" class="nav-region-link">ERP</a></div>
+                    <div class="nav-dropdown-panel nav-mega nav-regions">
+                    <div class="mg-inner">
+                        <p class="mg-eyebrow">Where we work</p>
+                        <div class="mg-regions">
+                        <section class="mg-region">
+                            <a class="mg-rhead" href="/us/"><img src="https://flagcdn.com/w40/us.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> <strong>United States</strong></a>
+                            <div class="mg-links">
+                                <a href="/us/erp/">Custom ERP</a>
+                                <a href="/us/seo-services/">SEO, AEO &amp; GEO</a>
+                                <a href="/us/website-development/">Websites</a>
+                            </div>
+                        </section>
+                        <section class="mg-region">
+                            <a class="mg-rhead" href="/uk/"><img src="https://flagcdn.com/w40/gb.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> <strong>United Kingdom</strong></a>
+                            <div class="mg-links">
+                                <a href="/uk/london/">London</a>
+                                <a href="/uk/manchester/">Manchester</a>
+                                <a href="/uk/reading/">Reading</a>
+                                <a href="/uk/scotland/">Scotland</a>
+                                <a href="/uk/erp/">Custom ERP</a>
+                                <a href="/uk/seo-services/">SEO, AEO &amp; GEO</a>
+                            </div>
+                        </section>
+                        <section class="mg-region">
+                            <a class="mg-rhead" href="/ca/"><img src="https://flagcdn.com/w40/ca.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> <strong>Canada</strong></a>
+                            <div class="mg-links">
+                                <a href="/ca/toronto/">Toronto</a>
+                                <a href="/ca/erp/">Custom ERP</a>
+                                <a href="/ca/seo-services/">SEO, AEO &amp; GEO</a>
+                                <a href="/ca/website-development/">Websites</a>
+                            </div>
+                        </section>
+                        <section class="mg-region">
+                            <a class="mg-rhead" href="/ae/"><img src="https://flagcdn.com/w40/ae.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> <strong>United Arab Emirates</strong></a>
+                            <div class="mg-links">
+                                <a href="/ae/abu-dhabi/">Abu Dhabi</a>
+                                <a href="/ae/dubai/">Dubai</a>
+                                <a href="/ae/erp/">Custom ERP</a>
+                                <a href="/ae/erp/construction/">Construction ERP</a>
+                                <a href="/ae/erp/automotive/">Automotive ERP</a>
+                                <a href="/ae/ecommerce-website-development/">E-commerce</a>
+                            </div>
+                        </section>
+                        <section class="mg-region">
+                            <a class="mg-rhead" href="/in/"><img src="https://flagcdn.com/w40/in.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> <strong>India</strong></a>
+                            <div class="mg-links">
+                                <a href="/in/kerala/">Kerala</a>
+                                <a href="/in/mumbai/">Mumbai</a>
+                                <a href="/in/kolkata/">Kolkata</a>
+                                <a href="/in/vadodara/">Vadodara</a>
+                                <a href="/in/lucknow/">Lucknow</a>
+                                <a href="/in/calicut/">Calicut</a>
+                            </div>
+                        </section>
+                        <section class="mg-region">
+                            <a class="mg-rhead" href="/au/"><img src="https://flagcdn.com/w40/au.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> <strong>Australia</strong></a>
+                            <div class="mg-links">
+                                <a href="/au/erp/">Custom ERP</a>
+                                <a href="/au/website-development/">Websites</a>
+                            </div>
+                        </section>
+                        </div>
+                        <div class="mg-foot">
+                            <span class="mg-foot-t">An engineering team in Kochi, India. No office in your country &mdash; we say that first.</span>
+                            <a class="mg-foot-l" href="/why-us/">How we work &rarr;</a>
+                            <a class="mg-foot-cta" href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" rel="noopener">Book a free strategy call</a>
+                        </div>
                     </div>
+                </div>
                 </div>
                 <a href="/results/">Results</a>
                 <a href="/why-us/">Why Us</a>
@@ -1072,18 +1250,85 @@
             <button class="close-drawer" id="closeDrawer" aria-label="Close Navigation">&times;</button>
         </div>
         <nav class="drawer-nav">
-            <a href="/">Home</a>
-            <a href="#services">Services</a>
-            <a href="#regions">Service Areas</a>
-            <a href="/results/">Results</a>
-            <a href="/why-us/">Why Us</a>
-            <a href="/blog/">Blog</a>
-            <a href="#contact">Contact</a>
-            <a href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" class="drawer-cta">Book a Free Strategy Call</a>
-        </nav>
+                <a href="/">Home</a>
+                <button class="drawer-acc" type="button" aria-expanded="false" aria-controls="drawerServices" data-acc="drawerServices">Services<span class="drawer-acc-i" aria-hidden="true"></span></button>
+                <div class="drawer-sub" id="drawerServices" hidden>
+                    <p class="drawer-sub-h">Custom ERP</p>
+                    <a href="/us/erp/"><img src="https://flagcdn.com/w40/us.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United States</a>
+                    <a href="/uk/erp/"><img src="https://flagcdn.com/w40/gb.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United Kingdom</a>
+                    <a href="/ca/erp/"><img src="https://flagcdn.com/w40/ca.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Canada</a>
+                    <a href="/au/erp/"><img src="https://flagcdn.com/w40/au.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Australia</a>
+                    <a href="/ae/erp/"><img src="https://flagcdn.com/w40/ae.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> UAE</a>
+                    <a href="/ae/erp/construction/" class="is-sub">Construction</a>
+                    <a href="/ae/erp/automotive/" class="is-sub">Automotive</a>
+                    <a href="/in/"><img src="https://flagcdn.com/w40/in.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> India</a>
+                    <p class="drawer-sub-h">SEO, AEO &amp; GEO</p>
+                    <a href="/us/seo-services/"><img src="https://flagcdn.com/w40/us.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United States</a>
+                    <a href="/uk/seo-services/"><img src="https://flagcdn.com/w40/gb.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United Kingdom</a>
+                    <a href="/ca/seo-services/"><img src="https://flagcdn.com/w40/ca.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Canada</a>
+                    <a href="/ae/abu-dhabi/"><img src="https://flagcdn.com/w40/ae.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Abu Dhabi</a>
+                    <a href="/ae/dubai/"><img src="https://flagcdn.com/w40/ae.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Dubai</a>
+                    <a href="/in/kerala/"><img src="https://flagcdn.com/w40/in.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Kerala</a>
+                    <a href="/in/mumbai/"><img src="https://flagcdn.com/w40/in.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Mumbai</a>
+                    <a href="/in/kolkata/"><img src="https://flagcdn.com/w40/in.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Kolkata</a>
+                    <p class="drawer-sub-h">Websites &amp; E-commerce</p>
+                    <a href="/us/website-development/"><img src="https://flagcdn.com/w40/us.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United States</a>
+                    <a href="/uk/website-development/"><img src="https://flagcdn.com/w40/gb.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United Kingdom</a>
+                    <a href="/ca/website-development/"><img src="https://flagcdn.com/w40/ca.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Canada</a>
+                    <a href="/au/website-development/"><img src="https://flagcdn.com/w40/au.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Australia</a>
+                    <a href="/ae/ecommerce-website-development/"><img src="https://flagcdn.com/w40/ae.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> UAE e-commerce</a>
+                    <a href="/in/"><img src="https://flagcdn.com/w40/in.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> India</a>
+                </div>
+                <button class="drawer-acc" type="button" aria-expanded="false" aria-controls="drawerRegions" data-acc="drawerRegions">Service Areas<span class="drawer-acc-i" aria-hidden="true"></span></button>
+                <div class="drawer-sub" id="drawerRegions" hidden>
+                    <p class="drawer-sub-h"><img src="https://flagcdn.com/w40/us.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United States</p>
+                    <a href="/us/">Overview</a>
+                    <a href="/us/erp/">Custom ERP</a>
+                    <a href="/us/seo-services/">SEO, AEO &amp; GEO</a>
+                    <a href="/us/website-development/">Websites</a>
+                    <p class="drawer-sub-h"><img src="https://flagcdn.com/w40/gb.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United Kingdom</p>
+                    <a href="/uk/">Overview</a>
+                    <a href="/uk/london/">London</a>
+                    <a href="/uk/manchester/">Manchester</a>
+                    <a href="/uk/reading/">Reading</a>
+                    <a href="/uk/scotland/">Scotland</a>
+                    <a href="/uk/erp/">Custom ERP</a>
+                    <a href="/uk/seo-services/">SEO, AEO &amp; GEO</a>
+                    <p class="drawer-sub-h"><img src="https://flagcdn.com/w40/ca.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Canada</p>
+                    <a href="/ca/">Overview</a>
+                    <a href="/ca/toronto/">Toronto</a>
+                    <a href="/ca/erp/">Custom ERP</a>
+                    <a href="/ca/seo-services/">SEO, AEO &amp; GEO</a>
+                    <a href="/ca/website-development/">Websites</a>
+                    <p class="drawer-sub-h"><img src="https://flagcdn.com/w40/ae.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> United Arab Emirates</p>
+                    <a href="/ae/">Overview</a>
+                    <a href="/ae/abu-dhabi/">Abu Dhabi</a>
+                    <a href="/ae/dubai/">Dubai</a>
+                    <a href="/ae/erp/">Custom ERP</a>
+                    <a href="/ae/erp/construction/">Construction ERP</a>
+                    <a href="/ae/erp/automotive/">Automotive ERP</a>
+                    <a href="/ae/ecommerce-website-development/">E-commerce</a>
+                    <p class="drawer-sub-h"><img src="https://flagcdn.com/w40/in.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> India</p>
+                    <a href="/in/">Overview</a>
+                    <a href="/in/kerala/">Kerala</a>
+                    <a href="/in/mumbai/">Mumbai</a>
+                    <a href="/in/kolkata/">Kolkata</a>
+                    <a href="/in/vadodara/">Vadodara</a>
+                    <a href="/in/lucknow/">Lucknow</a>
+                    <a href="/in/calicut/">Calicut</a>
+                    <p class="drawer-sub-h"><img src="https://flagcdn.com/w40/au.png" alt="" width="40" height="30" loading="lazy" decoding="async" /> Australia</p>
+                    <a href="/au/">Overview</a>
+                    <a href="/au/erp/">Custom ERP</a>
+                    <a href="/au/website-development/">Websites</a>
+                </div>
+                <a href="/results/">Results</a>
+                <a href="/why-us/">Why Us</a>
+                <a href="/blog/">Blog</a>
+                <a href="#contact">Contact</a>
+                <a href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" class="drawer-cta">Book a Free Strategy Call</a>
+            </nav>
     </div>
 </div>
-
 
 <section class="vm vm-hero" id="vm-hero" data-act aria-label="Viraat Marine ERP case study">
   <div class="vm-hero-plate"><img class="vm-hero-img" src="/assets/images/library/vm-welder-ship-hull-dry-dock.jpg" srcset="/assets/images/library/vm-welder-ship-hull-dry-dock-700.jpg 700w, /assets/images/library/vm-welder-ship-hull-dry-dock-1400.jpg 1400w, /assets/images/library/vm-welder-ship-hull-dry-dock.jpg 2400w" sizes="100vw" alt="A welder working on the hull of a ship in dry dock" width="2400" height="1898" loading="eager" fetchpriority="high" decoding="async" /></div>
@@ -1102,14 +1347,11 @@
   </div>
 </section>
 
-
-
 <section class="vm vm-answer" id="vm-answer" data-act>
   <div class="wrap">
     <p><strong>Viraat Marine ERP</strong> is a custom enterprise system TechAuditPros built for Viraat Marine Shipyard Pvt Ltd between 20 July and 2 September 2026. It replaces separate tools and paper with one browser-based system of 19 role desks &mdash; director, design, naval architecture, production, purchase, accounts, marketing, members and attendance &mdash; on 38 database tables, with a live activity stream, realtime updates on every open screen, a sign-in gate on every desk and a phone layout for the yard. It is live at erp.viraatmarine.com and is being prepared to run on the shipyard&rsquo;s own office computer with no internet connection.</p>
   </div>
 </section>
-
 
 <section class="vm vm-brief" id="vm-brief" data-act>
   <div class="wrap vm-two">
@@ -1133,7 +1375,6 @@
   </div>
 </section>
 
-
 <section class="vm dark vm-system" id="vm-system" data-act>
   <div class="wrap">
     
@@ -1156,7 +1397,6 @@
     </div>
   </div>
 </section>
-
 
 <section class="vm black vm-screens" id="vm-screens" data-act>
   <div class="wrap">
@@ -1200,7 +1440,6 @@
   </div>
 </section>
 
-
 <section class="vm vm-flow" id="vm-flow" data-act>
   <div class="wrap">
     
@@ -1220,7 +1459,6 @@
     <p class="vm-note">Drawings follow the same shape: a draftsman submits, the design head reviews and comments, a revision is recorded, an approved drawing can be shared with the client through the portal. Leave requests, invoice requests and enquiries each have their own chain. None of them can skip a step.</p>
   </div>
 </section>
-
 
 <section class="vm dark vm-floor" id="vm-floor" data-act>
   <div class="vm-floor-plate"><img class="vm-floor-img" src="/assets/images/library/vm-ship-at-dock-night.jpg" srcset="/assets/images/library/vm-ship-at-dock-night-700.jpg 700w, /assets/images/library/vm-ship-at-dock-night-1400.jpg 1400w, /assets/images/library/vm-ship-at-dock-night.jpg 2400w" sizes="100vw" alt="A cargo ship at a lit dock at night" width="2400" height="1350" loading="lazy" decoding="async" /></div>
@@ -1242,7 +1480,6 @@
     </div>
   </div>
 </section>
-
 
 <section class="vm vm-truth" id="vm-truth" data-act>
   <div class="wrap vm-two">
@@ -1266,7 +1503,6 @@
   </div>
 </section>
 
-
 <section class="vm dark vm-timeline" id="vm-timeline" data-act>
   <div class="wrap">
     
@@ -1289,7 +1525,6 @@
     </div>
   </div>
 </section>
-
 
 <section class="vm vm-next" id="vm-next" data-act>
   <div class="wrap vm-two">
@@ -1390,7 +1625,6 @@
         </div>
     </div>
 </section>
-
 
 <footer class="site-footer">
     <div class="container footer-container">
@@ -1923,8 +2157,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-
-
 <!-- Real Google Maps API Integration script -->
 <script>
 window.initGoogleMap = function() {
@@ -2059,7 +2291,6 @@ window.initGoogleMap = function() {
     setTimeout(loadThirdPartyScripts, 4500);
 })();
 </script>
-
 
 <!-- Floating Gmail Widget -->
 <div class="gmail-float" id="gmail-float-trigger" aria-label="Contact TechAuditPros via Email">
@@ -2275,12 +2506,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-
-
-
-
-
-
 <!-- ============================================================
      MOBILE STICKY CTA BAR — only visible on ≤480px via CSS
 ============================================================ -->
@@ -2320,7 +2545,6 @@ document.addEventListener('DOMContentLoaded', function() {
 })();
 </script>
 
-
 <script>
 (function(){
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -2345,5 +2569,49 @@ document.addEventListener('DOMContentLoaded', function() {
   var hero = document.getElementById('vm-hero'); if (hero) requestAnimationFrame(function(){ hero.classList.add('lit'); });
 })();
 </script>
+<!-- nav_v3:js:start -->
+<script>
+    // nav_v3: mobile drawer accordions (buttons, so the existing "close on link tap" handler is unaffected)
+    (function () {
+        var accs = [].slice.call(document.querySelectorAll('.drawer-acc'));
+        if (!accs.length) return;
+        accs.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var panel = document.getElementById(btn.getAttribute('data-acc'));
+                var isOpen = btn.getAttribute('aria-expanded') === 'true';
+                accs.forEach(function (other) {
+                    if (other === btn) return;
+                    other.setAttribute('aria-expanded', 'false');
+                    var op = document.getElementById(other.getAttribute('data-acc'));
+                    if (op) op.hidden = true;
+                });
+                btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+                if (panel) panel.hidden = isOpen;
+            });
+        });
+        // the two dropdown triggers point at #services / #regions, anchors that exist on no page.
+        // Hover already opens the panel; make click and keyboard do it too rather than nothing.
+        [].slice.call(document.querySelectorAll('.nav-dropdown > a')).forEach(function (a) {
+            var href = a.getAttribute('href') || '';
+            if (href.indexOf('#services') < 0 && href.indexOf('#regions') < 0) return;
+            a.setAttribute('aria-haspopup', 'true');
+            a.setAttribute('aria-expanded', 'false');
+            a.addEventListener('click', function (e) {
+                e.preventDefault();
+                var wrap = a.parentNode, open = wrap.classList.contains('is-open');
+                [].slice.call(document.querySelectorAll('.nav-dropdown.is-open')).forEach(function (w) {
+                    w.classList.remove('is-open');
+                    var t = w.firstElementChild; if (t && t.tagName === 'A') t.setAttribute('aria-expanded', 'false');
+                });
+                if (!open) { wrap.classList.add('is-open'); a.setAttribute('aria-expanded', 'true'); }
+            });
+        });
+        document.addEventListener('click', function (e) {
+            if (e.target.closest && e.target.closest('.nav-dropdown')) return;
+            [].slice.call(document.querySelectorAll('.nav-dropdown.is-open')).forEach(function (w) { w.classList.remove('is-open'); });
+        });
+    })();
+</script>
+<!-- nav_v3:js:end -->
 </body>
 </html>
