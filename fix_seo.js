@@ -113,7 +113,7 @@ const newFooter = `    <footer class="site-footer" id="contact">
     </footer>`;
 
 for (const f of files) {
-    const fullPath = path.join('C:\\Users\\marke\\OneDrive\\Documents\\GitHub\\Ajipaul1.github.io', f.path);
+    const fullPath = path.join(__dirname, f.path);
     let content = fs.readFileSync(fullPath, 'utf-8');
 
     // 1. Replace image

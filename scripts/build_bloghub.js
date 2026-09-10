@@ -1,7 +1,8 @@
+const path = require('path');
 // Build the new blog hub from the live design system (index.html) + full post inventory.
 'use strict';
 const fs = require('fs');
-const REPO = 'C:/Users/marke/OneDrive/Documents/GitHub/Ajipaul1.github.io';
+const REPO = path.resolve(__dirname, '..').split(String.fromCharCode(92)).join('/');
 const idx = fs.readFileSync(REPO + '/index.html', 'utf8');
 
 // ---------- extract shared blocks from the live homepage ----------

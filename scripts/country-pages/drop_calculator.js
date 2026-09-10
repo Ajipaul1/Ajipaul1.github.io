@@ -14,7 +14,7 @@
 // Removes whole <script> elements whose contents reference the calculator, nothing else. Idempotent.
 //   node scripts/country-pages/drop_calculator.js
 const fs = require('fs'); const path = require('path');
-const REPO = 'C:/Users/marke/OneDrive/Documents/GitHub/Ajipaul1.github.io';
+const REPO = path.resolve(__dirname, '..', '..').split(String.fromCharCode(92)).join('/');
 const MARKS = /dev_tap|calc-country|calc-devs-rate|calc-seos-tap-rate|onCountryChange|updateCalculator/;
 
 const files = [];

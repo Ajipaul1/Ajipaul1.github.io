@@ -14,7 +14,7 @@
 // re-added by accident. Idempotent.
 //   node scripts/country-pages/drop_why_section.js
 const fs = require('fs'); const path = require('path');
-const REPO = 'C:/Users/marke/OneDrive/Documents/GitHub/Ajipaul1.github.io';
+const REPO = path.resolve(__dirname, '..', '..').split(String.fromCharCode(92)).join('/');
 const read = r => fs.readFileSync(path.join(REPO, r), 'utf8');
 const write = (r, s) => fs.writeFileSync(path.join(REPO, r), s);
 

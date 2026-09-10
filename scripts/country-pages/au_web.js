@@ -10,7 +10,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const repoRoot = 'C:\\Users\\marke\\OneDrive\\Documents\\GitHub\\Ajipaul1.github.io';
+const repoRoot = path.resolve(__dirname, '..', '..');
 const L = require(path.join(repoRoot, 'scripts', 'country-pages', 'lib.js'));
 
 const URL = 'https://techauditpros.com/au/website-development/';

@@ -1,0 +1,9 @@
+# Not served — excluded from deployments.
+# Vercel stores a complete copy of every deployment, so anything shipped here is multiplied by the
+# number of deployments kept. On 2026-09-10 that arithmetic had reached 223 GB of a 10 GB allowance.
+# Only add paths here that no page, stylesheet or client script requests at runtime.
+scripts/
+ai_context/
+archive/
+scratch/
+supabase/

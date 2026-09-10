@@ -1,7 +1,8 @@
+const path = require('path');
 // Add 2-3 images + a key-takeaways box + figcaption styling to the 4 modern posts.
 'use strict';
 const fs = require('fs');
-const REPO = 'C:/Users/marke/OneDrive/Documents/GitHub/Ajipaul1.github.io';
+const REPO = path.resolve(__dirname, '..').split(String.fromCharCode(92)).join('/');
 
 const extraCss = `
   .article-figure figcaption{ font-family:var(--font-mono); font-size:0.75rem; color:var(--ink-faint); padding:10px 6px 0; text-align:center; }

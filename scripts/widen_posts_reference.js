@@ -1,7 +1,8 @@
+const path = require('path');
 // Wide-desktop layout for the 4 modern posts: content column + sticky "On this page" TOC.
 'use strict';
 const fs = require('fs');
-const REPO = 'C:/Users/marke/OneDrive/Documents/GitHub/Ajipaul1.github.io';
+const REPO = path.resolve(__dirname, '..').split(String.fromCharCode(92)).join('/');
 const files = [
     'blog/what-is-a-content-audit.html',
     'blog/website-design-vs-development.html',

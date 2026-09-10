@@ -90,7 +90,7 @@ function dims(file) {
   if (b.slice(0, 4).toString() === 'RIFF' && b.slice(8, 12).toString() === 'WEBP') return { w: 0, h: 0 };
   return { w: 0, h: 0 };
 }
-const LIB = 'C:/Users/marke/OneDrive/Documents/GitHub/Ajipaul1.github.io/assets/images/library/';
+const LIB = path.resolve(__dirname, '..', '..').split(String.fromCharCode(92)).join('/') + '/assets/images/library/';
 console.log('\n=== image library by width ===');
 const imgs = fs.readdirSync(LIB).filter(f => /\.(jpg|jpeg|png|webp)$/i.test(f)).map(f => {
   const d = dims(LIB + f);
