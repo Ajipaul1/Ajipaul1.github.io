@@ -302,6 +302,23 @@ function swapPanel(s, triggerRe, panel) {
 }
 // remove v3's blocks (and any legacy unmarked one) so nothing runs twice
 function stripOld(s) {
+  // unmarked legacy blocks, written before markers existed. Cut by character position, not by rebuilding
+  // the text: these files are CRLF, and a block re-joined with LF matches nothing.
+  for (const tag of ["  /* nav_v3: mega dropdowns", "  /* nav_menus: both dropdowns"]) {
+    const head = s.indexOf(tag);
+    if (head < 0) continue;
+    let pos = s.indexOf(String.fromCharCode(10), head);
+    if (pos < 0) continue;
+    pos += 1;
+    for (;;) {
+      const next = s.indexOf(String.fromCharCode(10), pos);
+      const line = s.slice(pos, next < 0 ? s.length : next).replace(/\r$/, "");
+      if (!/^  (\.|@media|\/\*|\})/.test(line)) break;
+      if (next < 0) { pos = s.length; break; }
+      pos = next + 1;
+    }
+    s = s.slice(0, head) + s.slice(pos);
+  }
   s = s.replace(/\r?\n  \/\* nav_v3:start[\s\S]*?\/\* nav_v3:end \*\/\r?\n/, '\n');
   s = s.replace(/<!-- nav_v3:js:start -->[\s\S]*?<!-- nav_v3:js:end -->\r?\n?/, '');
   s = s.replace(/\r?\n  \/\* nav_v4:start[\s\S]*?\/\* nav_v4:end \*\/\r?\n/, '\n');
