@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>TechAuditPros | Offshore SEO (AEO/GEO), Web Development & ERP Solutions</title>
-<meta name="description" content="TechAuditPros is your dedicated offshore technical team. We provide complete SEO (Technical, AEO, GEO, On-Page & Link Building), Custom Website Design & Development, and Enterprise ERP Software Solutions & Web Portals for digital agencies and growing businesses worldwide." />
+<title>TechAuditPros | 100-Page SEO Website in 14 Days, Fixed Price</title>
+<meta name="description" content="TechAuditPros is a technical team in Kochi, India. Fixed price: a complete 100-page SEO website live in 14 working days, or a custom ERP live in 30 days." />
 <!-- WhatsApp, LinkedIn, Facebook Open Graph Meta Tags -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="TechAuditPros" />
 <meta property="og:url" content="https://techauditpros.com/" />
-<meta property="og:title" content="TechAuditPros | Offshore SEO (AEO/GEO), Web Development & ERP Solutions" />
-<meta property="og:description" content="Technical SEO, websites and custom ERP from one team. Built in Kochi for businesses in the UK, the US and Canada. Audit first, no long-term contract." />
+<meta property="og:title" content="TechAuditPros | 100-Page SEO Website in 14 Days, Fixed Price" />
+<meta property="og:description" content="TechAuditPros is a technical team in Kochi, India. Fixed price: a complete 100-page SEO website live in 14 working days, or a custom ERP live in 30 days." />
 <meta property="og:image" content="https://techauditpros.com/assets/images/og-share-cover.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -21,8 +21,8 @@
 <!-- Twitter / X Card Meta Tags -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@techauditpros" />
-<meta name="twitter:title" content="TechAuditPros | Offshore SEO (AEO/GEO), Web Development & ERP Solutions" />
-<meta name="twitter:description" content="Technical SEO, websites and custom ERP from one team. Built in Kochi for businesses in the UK, the US and Canada. Audit first, no long-term contract." />
+<meta name="twitter:title" content="TechAuditPros | 100-Page SEO Website in 14 Days, Fixed Price" />
+<meta name="twitter:description" content="TechAuditPros is a technical team in Kochi, India. Fixed price: a complete 100-page SEO website live in 14 working days, or a custom ERP live in 30 days." />
 <meta name="twitter:image" content="https://techauditpros.com/assets/images/og-share-cover.jpg" />
 <!-- WhatsApp, LinkedIn, Facebook Open Graph Meta Tags -->
 <!-- Twitter / X Card Meta Tags -->
@@ -875,6 +875,69 @@
   .drawer-nav .drawer-sub2 a img{ width:17px; height:17px; border-radius:50%; object-fit:cover; }
   .drawer-nav .drawer-sub2 a.is-sub{ padding-left:26px; font-size:.86rem; }
   /* nav_v4:end */
+/* offers_v1:css:start */
+  .ofr-section{ background:var(--paper-alt); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .ofr-lede{ max-width:70ch; margin:0 0 40px; font-size:1.02rem; color:var(--ink-soft); }
+  .ofr-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:24px; align-items:stretch; }
+  .ofr-card{
+    display:flex; flex-direction:column; background:var(--paper); border:1px solid var(--line);
+    border-radius:14px; padding:32px 30px 30px; box-shadow:var(--shadow-sm); position:relative;
+  }
+  .ofr-card::before{
+    content:''; position:absolute; inset:-1px -1px auto -1px; height:4px;
+    background:var(--orange); border-radius:14px 14px 0 0;
+  }
+  .ofr-card.is-system::before{ background:var(--navy-deep); }
+  .ofr-tag{
+    font-family:var(--font-mono); font-size:0.68rem; letter-spacing:0.16em; text-transform:uppercase;
+    color:var(--ink-faint); margin:0 0 10px;
+  }
+  .ofr-card h3{ font-size:1.5rem; margin:0 0 4px; }
+  .ofr-days{ font-family:var(--font-mono); font-size:0.8rem; color:var(--orange-dark); margin:0 0 18px; }
+  .ofr-card.is-system .ofr-days{ color:var(--ink); }
+  .ofr-price{
+    display:flex; align-items:baseline; flex-wrap:wrap; gap:8px;
+    margin:0 0 6px; padding-top:18px; border-top:1px solid var(--line);
+  }
+  .ofr-amount{ font-size:2.15rem; font-weight:680; letter-spacing:-0.03em; color:var(--ink); line-height:1.05; }
+  .ofr-unit{ font-family:var(--font-mono); font-size:0.78rem; color:var(--ink-faint); }
+  .ofr-plus{ margin:0 0 18px; font-size:0.92rem; color:var(--ink-soft); }
+  .ofr-plus strong{ color:var(--ink); font-weight:620; }
+  .ofr-claim{ margin:0 0 20px; font-size:0.98rem; color:var(--ink-soft); }
+  .ofr-sub{
+    font-family:var(--font-mono); font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--ink-faint); margin:0 0 10px;
+  }
+  .ofr-in{ list-style:none; padding:0; margin:0 0 22px; }
+  .ofr-in li{ position:relative; padding:0 0 9px 24px; font-size:0.94rem; color:var(--ink-soft); }
+  .ofr-in li::before{
+    content:''; position:absolute; left:2px; top:7px; width:9px; height:5px;
+    border-left:2px solid var(--good); border-bottom:2px solid var(--good);
+    transform:rotate(-45deg);
+  }
+  .ofr-out{
+    margin:0 0 22px; padding:14px 16px; background:var(--paper-alt); border-left:3px solid var(--line-strong);
+    border-radius:0 7px 7px 0; font-size:0.88rem; color:var(--ink-soft);
+  }
+  .ofr-out strong{ color:var(--ink); font-weight:620; }
+  .ofr-proof{ margin:0 0 22px; font-size:0.88rem; color:var(--ink-soft); }
+  .ofr-proof a{ color:var(--orange-dark); font-weight:600; text-decoration:underline; text-underline-offset:2px; }
+  .ofr-cta{
+    margin-top:auto; display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    background:var(--orange); color:#fff !important; text-decoration:none; font-weight:620; font-size:0.95rem;
+    padding:14px 22px; border-radius:8px; transition:background .18s ease, transform .18s ease;
+  }
+  .ofr-cta:hover{ background:var(--orange-dark); transform:translateY(-1px); }
+  .ofr-card.is-system .ofr-cta{ background:var(--navy-deep); }
+  .ofr-card.is-system .ofr-cta:hover{ background:var(--ink); }
+  .ofr-note{ margin:30px 0 0; font-size:0.85rem; color:var(--ink-faint); max-width:78ch; }
+  .ofr-note a{ color:var(--orange-dark); text-decoration:underline; text-underline-offset:2px; }
+  @media (max-width:860px){
+    .ofr-grid{ grid-template-columns:1fr; gap:20px; }
+    .ofr-card{ padding:28px 22px 26px; }
+    .ofr-amount{ font-size:1.85rem; }
+  }
+/* offers_v1:css:end */
 </style>
 
     <script type="application/ld+json">
@@ -1031,6 +1094,62 @@
   }
 </style>
 <!-- trust-strip:end -->
+<!-- offers_v1:schema:start -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "OfferCatalog",
+  "name": "TechAuditPros Fixed-Price Packages",
+  "url": "https://techauditpros.com/#offers",
+  "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "The 14-Day Site",
+          "description": "A complete website of up to 100 pages, live in 14 working days from content sign-off. Includes the build, on-page technical SEO, schema markup, Core Web Vitals tuning, analytics and Search Console setup, and one round of revisions.",
+          "price": "4500",
+          "priceCurrency": "USD",
+          "priceValidUntil": "2027-03-31",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": "4500",
+            "priceCurrency": "USD",
+            "valueAddedTaxIncluded": false
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "The 14-Day Site",
+            "serviceType": "Website design and development",
+            "provider": { "@type": "Organization", "name": "TechAuditPros", "url": "https://techauditpros.com/" },
+            "areaServed": ["US", "GB", "CA", "AU", "AE", "IN"]
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "The 30-Day System",
+          "description": "A custom ERP covering stock, orders, jobs and billing, live in 30 days, with existing data migrated, role-based logins, staff training and documentation. Setup is one time; hosting, support and changes are $750 a month afterwards.",
+          "price": "7500",
+          "priceCurrency": "USD",
+          "priceValidUntil": "2027-03-31",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": "7500",
+            "priceCurrency": "USD",
+            "valueAddedTaxIncluded": false
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "The 30-Day System",
+            "serviceType": "Custom ERP software development",
+            "provider": { "@type": "Organization", "name": "TechAuditPros", "url": "https://techauditpros.com/" },
+            "areaServed": ["US", "GB", "CA", "AU", "AE", "IN"]
+          }
+        }
+  ]
+}
+</script>
+<!-- offers_v1:schema:end -->
 </head>
 <body class="home-page-redesign">
 
@@ -1420,6 +1539,66 @@
 </section>
 <!-- trust-strip-band:end -->
 
+<!-- offers_v1:start -->
+<section class="ofr-section" id="offers" aria-label="Fixed-price packages">
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow">Two Things We Price Up Front</p>
+            <h2>Fixed scope. Fixed price. Fixed date.</h2>
+        </div>
+        <p class="ofr-lede">TechAuditPros is a technical team based in Kochi, Kerala, India. We build websites, do technical SEO including AEO and GEO, and build custom ERP systems for digital agencies and growing businesses in the United States, the United Kingdom, Canada, the UAE and India. Most work we scope before we price it, because most work is not the same twice. These two are, so they carry a price and a date.</p>
+        <div class="ofr-grid">
+            <article class="ofr-card">
+                <p class="ofr-tag">Package 01</p>
+                <h3>The 14-Day Site</h3>
+                <p class="ofr-days">Live in 14 working days</p>
+                <p class="ofr-price">
+                    <span class="ofr-amount">$4,500</span>
+                    <span class="ofr-unit">fixed, one time</span>
+                </p>
+                <p class="ofr-plus">No monthly fee. Search and content work afterwards is optional and separate.</p>
+                <p class="ofr-claim">A complete website of up to 100 pages, live in 14 working days counted from the day you sign off the content &mdash; not from the day you pay.</p>
+                <p class="ofr-sub">What you get</p>
+                <ul class="ofr-in">
+                    <li>Up to 100 pages built on your domain, your hosting, your accounts</li>
+                    <li>Titles, descriptions, headings and internal links written for every page</li>
+                    <li>Schema markup, so Google and AI assistants can quote you correctly</li>
+                    <li>Core Web Vitals tuned on mobile and desktop before handover</li>
+                    <li>Forms, Google Analytics 4 and Search Console connected and verified</li>
+                    <li>One round of revisions after you have seen it live</li>
+                </ul>
+                <p class="ofr-out"><strong>Not in this price:</strong> writing the content itself for pages you have not drafted, paid advertising, ongoing link building, and anything that needs a customer login or a payment gateway. Each of those is quoted separately, and we tell you before you pay, not after.</p>
+                <a class="ofr-cta" href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" rel="noopener">Start the 14-day clock</a>
+            </article>
+            <article class="ofr-card is-system">
+                <p class="ofr-tag">Package 02</p>
+                <h3>The 30-Day System</h3>
+                <p class="ofr-days">Live in 30 days</p>
+                <p class="ofr-price">
+                    <span class="ofr-amount">$7,500</span>
+                    <span class="ofr-unit">setup, one time</span>
+                </p>
+                <p class="ofr-plus">Then <strong>$750 a month</strong> for hosting, support and changes.</p>
+                <p class="ofr-claim">A working ERP covering stock, orders, jobs and billing, live in 30 days, with your data already in it and your team already trained on it.</p>
+                <p class="ofr-sub">What you get</p>
+                <ul class="ofr-in">
+                    <li>Stock, orders, jobs and billing in one system your staff actually open</li>
+                    <li>Your existing spreadsheets and records migrated in</li>
+                    <li>A separate login and permission level for every role</li>
+                    <li>Staff training, plus written documentation you keep</li>
+                    <li>Source code, database and documentation are yours from the first commit</li>
+                    <li>The monthly fee covers hosting, backups, support and small changes</li>
+                </ul>
+                <p class="ofr-out"><strong>Not in this price:</strong> payroll, manufacturing planning, multi-branch consolidation, and integrations with systems you already run. Any of those is a second phase, priced only after the first system is live and being used.</p>
+                <p class="ofr-proof">This is the same system already running the daily operations of a marine engineering company &mdash; <a href="/results/viraat-marine-erp/">read what it replaced</a>.</p>
+                <a class="ofr-cta" href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" rel="noopener">Scope the 30 days</a>
+            </article>
+        </div>
+        <p class="ofr-note">Both figures are fixed for the scope listed above. Anything outside that scope is quoted in writing before it starts, never added to an invoice afterwards. These two prices are held until 31 March 2027. For scale: a comparable US agency retainer, elsewhere on this site, runs about $4,500 a <em>month</em>. The site package is $4,500 <em>once</em>. Figures shown in US dollars &mdash; if you are buying from India, the rupee prices are on our <a href="/in/">India page</a>.</p>
+    </div>
+</section>
+<!-- offers_v1:end -->
+
 <section class="tap-promise-section">
     <div class="container promise-grid">
         <div class="promise-content">
@@ -1687,7 +1866,7 @@
                 <ul>
                     <li>Hand-built custom ERP architecture, human-managed end to end</li>
                     <li>A dedicated engineering team, not a ticket queue</li>
-                    <li>Flat-rate pricing from $1,200/mo — no long contracts</li>
+                    <li>Fixed-price packages, or a flat retainer from $1,200/mo &mdash; no long contracts</li>
                     <li>Every engagement starts with real technical scoping</li>
                     <li>Monthly reporting, source code and data fully yours</li>
                 </ul>
