@@ -420,14 +420,14 @@
       sub: 'found on Google, and quoted inside AI answers',
       pdfTitle: 'SEO PROPOSAL',
       rows: [
-        { id:'audit',  nm:'Technical SEO audit', note:'Every page crawled, what is broken listed with the fix beside it, and a written plan in order of what pays first.', rate:15000, qty:1, edit:true },
-        { id:'onpage', nm:'On-page optimisation, per page', note:'Title, description, headings, internal links and schema written for one page.', rate:1500, qty:5, edit:true },
-        { id:'aeo',    nm:'AEO setup — answer engine optimisation', note:'Schema, FAQ blocks and answer-shaped content so your pages are what gets read out as the answer.', rate:12000, qty:1, edit:true },
-        { id:'geo',    nm:'GEO setup — visibility inside AI answers', note:'Your business made citable by ChatGPT, Gemini, Perplexity and AI Overviews, with entity and source signals put in place.', rate:15000, qty:1, edit:true },
-        { id:'local',  nm:'Local SEO and Google Business Profile', note:'Profile claimed, categories and services filled, photographs, service area, first review requests.', rate:6000, qty:1, edit:true },
-        { id:'content',nm:'Article written and published', note:'Researched, written for the trade, published with internal links and schema.', rate:2500, qty:0, edit:true },
-        { id:'links',  nm:'Link building, per month', note:'Real placements on sites in your industry. No directories, no spam.', rate:15000, qty:0, edit:true },
-        { id:'report', nm:'Rank and traffic reporting', note:'Where you stand, what moved, and what is next — in plain figures.', rate:3000, qty:1, edit:true }
+        { id:'audit',  nm:'Technical SEO audit', note:'Every page crawled, what is broken listed with the fix beside it, and a written plan in order of what pays first.', rate:15000, qty:0, def:1, edit:true },
+        { id:'onpage', nm:'On-page optimisation, per page', note:'Title, description, headings, internal links and schema written for one page.', rate:1500, qty:0, def:5, edit:true },
+        { id:'aeo',    nm:'AEO setup — answer engine optimisation', note:'Schema, FAQ blocks and answer-shaped content so your pages are what gets read out as the answer.', rate:12000, qty:0, def:1, edit:true },
+        { id:'geo',    nm:'GEO setup — visibility inside AI answers', note:'Your business made citable by ChatGPT, Gemini, Perplexity and AI Overviews, with entity and source signals put in place.', rate:15000, qty:0, def:1, edit:true },
+        { id:'local',  nm:'Local SEO and Google Business Profile', note:'Profile claimed, categories and services filled, photographs, service area, first review requests.', rate:6000, qty:0, def:1, edit:true },
+        { id:'content',nm:'Article written and published', note:'Researched, written for the trade, published with internal links and schema.', rate:2500, qty:0, def:0, edit:true },
+        { id:'links',  nm:'Link building, per month', note:'Real placements on sites in your industry. No directories, no spam.', rate:15000, qty:0, def:0, edit:true },
+        { id:'report', nm:'Rank and traffic reporting', note:'Where you stand, what moved, and what is next — in plain figures.', rate:3000, qty:0, def:1, edit:true }
       ],
       monthly: [ ['SEO and AEO retainer — ongoing work and reporting', 20000] ]
     },
@@ -437,16 +437,16 @@
       sub: 'designed, written, built and launched',
       pdfTitle: 'WEBSITE PROPOSAL',
       rows: [
-        { id:'land',  nm:'One landing page', note:'A single page built to do one job — take an enquiry, sell one service, back one campaign.', rate:8000, qty:0, edit:true },
-        { id:'s5',    nm:'Business website, five pages', note:'Home, about, services, work, contact. Written for the business, works on a phone, contact form reaching your inbox.', rate:25000, qty:1, edit:true },
-        { id:'s10',   nm:'Business website, ten pages', note:'The five above plus service or location pages, each written on its own.', rate:45000, qty:0, edit:true },
-        { id:'shop',  nm:'Online shop', note:'Products, cart, payment gateway, order emails and a stock screen you can run yourself.', rate:60000, qty:0, edit:true },
-        { id:'extra', nm:'Extra page', note:'Any page beyond the ones above, written and built to match.', rate:3000, qty:0, edit:true },
-        { id:'copy',  nm:'Copywriting, per page', note:'Words written for your trade and your customer, not filled with sample text.', rate:2000, qty:0, edit:true },
-        { id:'logo',  nm:'Logo and brand kit', note:'Logo in colour and black, PNG and SVG at print quality, colours and fonts written down.', rate:5000, qty:1, edit:true },
-        { id:'mail',  nm:'Business email on your own domain', note:'Up to five users, records set so your mail is not marked spam, signatures made.', rate:4000, qty:1, edit:true },
-        { id:'dns',   nm:'Domain, SSL and DNS', note:'Domain pointed, certificate fitted so the browser shows the lock, mail records set.', rate:2000, qty:1, edit:true },
-        { id:'speed', nm:'Speed and Core Web Vitals fix', note:'Images, scripts and fonts cut back until the page opens fast on a phone on mobile data.', rate:8000, qty:0, edit:true }
+        { id:'land',  nm:'One landing page', note:'A single page built to do one job — take an enquiry, sell one service, back one campaign.', rate:8000, qty:0, def:0, edit:true },
+        { id:'s5',    nm:'Business website, five pages', note:'Home, about, services, work, contact. Written for the business, works on a phone, contact form reaching your inbox.', rate:25000, qty:0, def:1, edit:true },
+        { id:'s10',   nm:'Business website, ten pages', note:'The five above plus service or location pages, each written on its own.', rate:45000, qty:0, def:0, edit:true },
+        { id:'shop',  nm:'Online shop', note:'Products, cart, payment gateway, order emails and a stock screen you can run yourself.', rate:60000, qty:0, def:0, edit:true },
+        { id:'extra', nm:'Extra page', note:'Any page beyond the ones above, written and built to match.', rate:3000, qty:0, def:0, edit:true },
+        { id:'copy',  nm:'Copywriting, per page', note:'Words written for your trade and your customer, not filled with sample text.', rate:2000, qty:0, def:0, edit:true },
+        { id:'logo',  nm:'Logo and brand kit', note:'Logo in colour and black, PNG and SVG at print quality, colours and fonts written down.', rate:5000, qty:0, def:1, edit:true },
+        { id:'mail',  nm:'Business email on your own domain', note:'Up to five users, records set so your mail is not marked spam, signatures made.', rate:4000, qty:0, def:1, edit:true },
+        { id:'dns',   nm:'Domain, SSL and DNS', note:'Domain pointed, certificate fitted so the browser shows the lock, mail records set.', rate:2000, qty:0, def:1, edit:true },
+        { id:'speed', nm:'Speed and Core Web Vitals fix', note:'Images, scripts and fonts cut back until the page opens fast on a phone on mobile data.', rate:8000, qty:0, def:0, edit:true }
       ],
       monthly: [ ['Website care — updates, backups, fixes and hosting checks', 4000] ]
     }
@@ -467,6 +467,7 @@
     el('b-title').textContent = svc.title;
     el('b-sub').textContent = svc.sub;
     el('scope').style.display = cur === 'erp' ? '' : 'none';
+    if (!svc.seeded) { svc.seeded = true; svc.rows.forEach(function (r) { if (r.def !== undefined) r.qty = r.def; }); }
 
     var host = el('rows'); host.textContent = '';
 
