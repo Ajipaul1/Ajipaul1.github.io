@@ -33,16 +33,15 @@
   :root {
     color-scheme: light;
     --paper:#FFFFFF; --paper-alt:#F3F6F5;
-    --ink:#0E2A3E; --ink-soft:#4B5B67; --ink-faint:#8595A0;
+    --ink:#0E2A3E; --ink-soft:#4B5B67;
+    /* was #8595A0 — 3.1:1 on white, under the readable minimum at the 9.5-13px this is used
+       at (the footer address and GSTIN among them). #6B7A85 is 4.6:1 and still recedes. */
+    --ink-faint:#6B7A85;
     --line:#DCE3E1; --line-strong:#C3CDCA;
     --orange:#D9531E; --orange-dark:#B84313; --orange-tint:#FCE8DF;
-    --navy-deep:#0B2036; --navy-ink:#FFFFFF; --navy-dim:rgba(255,255,255,.74);
-    --good:#1B7A4D; --good-tint:#E3F3EA;
-    --ground:#F3F6F5;
+    --good:#1B7A4D;
     --font-sans:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
     --font-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
-    --shadow-sm:0 1px 3px rgba(14,42,62,.06), 0 1px 2px rgba(14,42,62,.08);
-    --shadow-md:0 8px 20px rgba(14,42,62,.08);
   }
   * { box-sizing: border-box; }
   body {
@@ -102,7 +101,8 @@
   input:hover, textarea:hover { border-color: var(--line-strong); }
   input:focus, textarea:focus { border-color: var(--orange); background: var(--orange-tint); }
   textarea {
-    font-family: var(--font-sans); font-size: 15.5px; line-height: 1.5; color: var(--ink);
+    /* 16px or iOS Safari zooms the whole page when it takes focus */
+    font-family: var(--font-sans); font-size: 16px; line-height: 1.5; color: var(--ink);
     background: var(--paper-alt); border: 1.5px solid var(--line); border-radius: 8px;
     padding: 12px 13px; width: 100%; min-height: 118px; resize: vertical; display: block;
   }
@@ -132,6 +132,8 @@
   .row .rate .fixed { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 14.5px; color: var(--orange); font-weight: 600; }
   .row .amt { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 17px; font-weight: 600; color: var(--orange); }
   .row:not(.on) .amt { color: var(--ink-faint); }
+  /* orange on orange-tint is 3.4:1; the darker token is 4.6:1 on the same ground */
+  .row.on .amt, .row.on .rate .fixed { color: var(--orange-dark); }
   .row .lock { text-align: center; font-family: var(--font-mono); font-size: 17px; font-weight: 600; color: var(--ink-soft); }
   .row .lock small { display: block; font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint); font-weight: 400; }
 
@@ -178,7 +180,7 @@
   .tline b { color: var(--ink); font-weight: 600; }
   .tline .v { font-family: var(--font-mono); font-variant-numeric: tabular-nums; color: var(--ink); }
   .tline.adj { border-top: 1px solid var(--line); margin-top: 4px; padding-top: 10px; }
-  .tline.adj input { width: 130px; min-height: 40px; font-size: 15px; }
+  .tline.adj input { width: 130px; min-height: 40px; font-size: 16px; }
   .tline.gst label { display: flex; align-items: center; gap: 9px; cursor: pointer; }
   .tline.gst input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--orange); }
   .tline.sub { border-top: 1px solid var(--line); padding-top: 10px; }
@@ -211,7 +213,8 @@
   .msg { margin-top: 12px; font-size: 14.5px; color: var(--ink-soft); min-height: 21px; }
   .msg.ok { color: var(--good); font-weight: 600; }
 
-  footer { padding: 26px 20px 50px; font-size: 13px; color: var(--ink-faint); }
+  footer { padding: 26px 20px 50px; font-size: 13px; color: var(--ink-soft); }
+  .printonly { display: none; }
   footer b { color: var(--ink-soft); font-weight: 600; }
   footer a { color: var(--orange); text-decoration: none; }
 
@@ -221,7 +224,15 @@
     .row .note { grid-column: 1 / -1; }
     .row .rate { grid-column: 1; text-align: left; }
     .row .amt { grid-column: 2; grid-row: 1; }
-    .row input[type="number"], .row .lock { grid-column: 2; }
+    .row .qtyw, .row .lock { grid-column: 2; }
+    /* the column strip is hidden here, so name the two boxes where they sit */
+    .row .rate::before, .row .qtyw::before {
+      display: block; font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--ink-soft); margin-bottom: 3px;
+    }
+    .row .rate::before { content: 'Rate each'; }
+    .row .qtyw::before { content: 'How many'; text-align: center; }
+    .split { grid-template-columns: 1fr; }
     .mrow { grid-template-columns: 1fr 1fr; padding: 12px 16px; }
     .mrow input[type="text"] { grid-column: 1 / -1; }
     .mrow .amt { text-align: left; }
@@ -232,7 +243,15 @@
   @media print {
     body { background: #fff; }
     .top { border-bottom: 2px solid #D9531E; }
-    .acts, .addb, .xb, .pick, .chip:not(.on) { display: none !important; }
+    .acts, .addb, .xb, .chip:not(.on), #q-mailnote { display: none !important; }
+    /* the dropdown and the two identity inputs print as controls; the mirrored text replaces them */
+    .pick, .notes label, .notes .hint, #f-notes { display: none !important; }
+    .printonly { display: block; }
+    #print-meta { font-size: 13px; color: var(--ink-soft); margin-bottom: 10px; }
+    #print-notes { white-space: pre-wrap; font-size: 13.5px; color: var(--ink); padding: 14px 20px 16px; }
+    /* unprinted backgrounds would leave white text on white paper */
+    .chip.on { background: transparent !important; color: var(--ink) !important; border: 1px solid var(--ink) !important; }
+    .mark { background: #fff !important; color: var(--orange) !important; border: 1px solid var(--orange); }
     .total { border: 1px solid #DCE3E1; border-top: 3px solid #D9531E; }
     .row:not(.on) { display: none; }
     details.scope { display: block; } details.scope[open] .scopebody { display: grid; }
@@ -251,6 +270,7 @@
         <a href="tel:+916282520339">+91 62825 20339</a>
       </div>
     </div>
+    <div id="print-meta" class="printonly"></div>
     <p class="eyebrow">Get your quote online</p>
     <h1>Configure your project. See the investment instantly.</h1>
     <p>Choose the people, the business functions and the reports your company needs. Your estimate updates as you go, and it comes out the other end as a proposal you can download or send us.</p>
@@ -310,6 +330,7 @@
       <div class="bhead"><h2>Anything else you need</h2><span class="sub">tell us, or price it yourself</span></div>
       <div class="notes">
         <label for="f-notes">Tell us about the work</label>
+        <div id="print-notes" class="printonly"></div>
         <p class="hint">What you have now, what is going wrong, what the system must do, anything we should know before we call. It goes into the proposal as your own words.</p>
         <textarea id="f-notes" placeholder="For example: we run three sites and the supervisors send photographs on WhatsApp, and nobody knows what stock is where."></textarea>
       </div>
@@ -354,7 +375,8 @@
       <a class="btn wa" id="b-wa" href="https://wa.me/916282520339" target="_blank" rel="noopener">Send on WhatsApp</a>
       <button class="btn ghost" id="b-print" type="button">Print</button>
     </div>
-    <div class="msg" id="msg"></div>
+    <div class="msg" id="msg" role="status"></div>
+    <div class="msg" id="q-mailnote"></div>
 
   </div>
 </div>
@@ -375,7 +397,7 @@
 
   var SERVICES = {
     erp: {
-      title: 'Build your ERP',
+      title: 'Build your ERP', short: 'ERP',
       sub: 'configure your system — the investment updates as you go',
       pdfTitle: 'CUSTOM ERP PROPOSAL',
       rows: [
@@ -394,11 +416,11 @@
           sel:['Attendance','Inventory movement','Finance','Project progress'] },
         { id:'qa',   nm:'QA and release testing', note:'Automated checks run against the live system before anything is released. Put 0 if your own people will test it.', rate:10000, qty:1 }
       ],
-      monthly: [ ['Development and support — new features, changes and fixes', 12000], ['Cloud and database', 'at actual cost'] ]
+      monthly: [ ['Development and support — new features, changes and fixes', 12000], ['Cloud and database, paid to the hosting provider', 500] ]
     },
 
     seo: {
-      title: 'Plan your SEO, AEO and GEO',
+      title: 'Plan your SEO, AEO and GEO', short: 'SEO, AEO and GEO',
       sub: 'found on Google, and quoted inside AI answers',
       pdfTitle: 'SEO PROPOSAL',
       rows: [
@@ -415,7 +437,7 @@
     },
 
     web: {
-      title: 'Plan your website',
+      title: 'Plan your website', short: 'Website',
       sub: 'designed, written, built and launched',
       pdfTitle: 'WEBSITE PROPOSAL',
       rows: [
@@ -434,6 +456,8 @@
     }
   };
 
+  /* ORDER is the catalogue, NOT the quote. A quotation covers the ONE service selected in
+     the dropdown plus the manual lines — see figures(). */
   var ORDER = ['erp', 'seo', 'web'];
   var manual = [], nextId = 1, cur = 'erp';
 
@@ -485,11 +509,26 @@
       if (r.lock) {
         qc = document.createElement('div'); qc.className = 'lock'; qc.innerHTML = '1<small>always</small>';
       } else {
-        qc = document.createElement('input');
-        qc.type = 'number'; qc.min = '0'; qc.max = '999'; qc.step = '1'; qc.value = r.qty;
-        qc.id = 'qty-' + cur + '-' + r.id;
-        qc.setAttribute('aria-label', 'how many ' + r.nm);
-        qc.addEventListener('input', function () { r.qty = n(qc.value); recalc(); });
+        qc = document.createElement('div'); qc.className = 'qtyw';
+        var qi0 = document.createElement('input');
+        qi0.type = 'number'; qi0.min = '0'; qi0.max = '999'; qi0.step = '1'; qi0.value = r.qty;
+        qi0.id = 'qty-' + cur + '-' + r.id;
+        qi0.setAttribute('aria-label', 'how many ' + r.nm);
+        qi0.addEventListener('input', function () {
+          r.qty = n(qi0.value);
+          /* Typing a number below the number of chips tapped used to leave the extra chips lit
+             while the proposal quietly dropped them. Trim the selection and un-light them. */
+          if (r.sel && r.qty < r.sel.length) {
+            r.sel = r.sel.slice(0, r.qty);
+            var rw = el('row-' + cur + '-' + r.id);
+            if (rw) Array.prototype.forEach.call(rw.querySelectorAll('.chip'), function (c) {
+              var on = r.sel.indexOf(c.textContent) > -1;
+              c.classList.toggle('on', on); c.setAttribute('aria-pressed', on ? 'true' : 'false');
+            });
+          }
+          recalc();
+        });
+        qc.appendChild(qi0);
       }
 
       var amt = document.createElement('div'); amt.className = 'amt'; amt.id = 'amt-' + cur + '-' + r.id;
@@ -562,9 +601,8 @@
   function manualTotal() { var t = 0; manual.forEach(function (m) { t += m.rate * m.qty; }); return t; }
 
   function figures() {
-    var gross = 0;
-    ORDER.forEach(function (k) { gross += svcTotal(k); });
-    gross += manualTotal();
+    /* ONLY the service on screen. See the note above ORDER. */
+    var gross = svcTotal(cur) + manualTotal();
     var adj = Math.min(gross, n(el('f-adj').value));
     var sub = gross - adj;
     var gst = el('f-gst').checked ? Math.round(sub * 0.18) : 0;
@@ -580,13 +618,13 @@
     });
 
     var br = el('t-break'); br.textContent = '';
-    ORDER.forEach(function (k) {
-      var t = svcTotal(k); if (t <= 0) return;
+    var st = svcTotal(cur);
+    if (st > 0) {
       var d = document.createElement('div'); d.className = 'tline';
-      var a = document.createElement('span'); a.innerHTML = '<b>' + SERVICES[k].title.replace(/^(Build|Plan) your /, '') + '</b>';
-      var b = document.createElement('span'); b.className = 'v'; b.textContent = inr(t);
+      var a = document.createElement('span'); a.innerHTML = '<b>' + SERVICES[cur].short + '</b>';
+      var b = document.createElement('span'); b.className = 'v'; b.textContent = inr(st);
       d.appendChild(a); d.appendChild(b); br.appendChild(d);
-    });
+    }
     var mt = manualTotal();
     if (mt > 0) {
       var d2 = document.createElement('div'); d2.className = 'tline';
@@ -609,10 +647,10 @@
 
   function scopeLines() {
     var out = [];
-    ORDER.forEach(function (k) {
+    [cur].forEach(function (k) {
       if (svcTotal(k) <= 0) return;
       var svc = SERVICES[k];
-      out.push({ head: svc.title.replace(/^(Build|Plan) your /, '') });
+      out.push({ head: svc.short });
       svc.rows.forEach(function (r) {
         var qty = q(r); if (qty <= 0) return;
         var names = '';
@@ -624,16 +662,21 @@
         out.push({ nm: r.nm, qty: qty, rate: r.rate, amt: qty * r.rate, names: names });
       });
     });
-    if (manualTotal() > 0) {
+    /* A line the client named but did not price still belongs in the proposal — as
+       "to be quoted", not silently dropped. */
+    var usable = manual.filter(function (m) { return m.desc.trim() || (m.rate && m.qty); });
+    if (usable.length) {
       out.push({ head: 'Anything else' });
-      manual.forEach(function (m) { if (m.rate && m.qty) out.push({ nm: m.desc || 'Extra line', qty: m.qty, rate: m.rate, amt: m.rate * m.qty, names: '' }); });
+      usable.forEach(function (m) {
+        out.push({ nm: m.desc.trim() || 'Extra line', qty: m.qty || 1, rate: m.rate, amt: m.rate * m.qty, names: '', tbq: !(m.rate && m.qty) });
+      });
     }
     return out;
   }
 
   function activeMonthly() {
     var out = [];
-    ORDER.forEach(function (k) { if (svcTotal(k) > 0 && SERVICES[k].monthly) SERVICES[k].monthly.forEach(function (m) { out.push(m); }); });
+    if (svcTotal(cur) > 0 && SERVICES[cur].monthly) SERVICES[cur].monthly.forEach(function (m) { out.push(m); });
     return out;
   }
 
@@ -648,7 +691,7 @@
     L.push('');
     scopeLines().forEach(function (r) {
       if (r.head) { L.push('-- ' + r.head + ' --'); return; }
-      L.push(r.nm + '  x' + r.qty + '  =  ' + inr(r.amt));
+      L.push(r.nm + '  x' + r.qty + '  =  ' + (r.tbq ? 'to be quoted' : inr(r.amt)));
       if (r.names) L.push('   (' + r.names + ')');
     });
     L.push('');
@@ -668,25 +711,51 @@
     var co = el('f-co').value.trim();
     var subj = 'Proposal request' + (co ? ' — ' + co : '');
     var txt = summaryText();
-    el('b-mail').href = 'mailto:info@techauditpros.com?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(txt);
     el('b-wa').href = 'https://wa.me/916282520339?text=' + encodeURIComponent(txt);
+    /* Mail clients silently truncate — or refuse — a very long mailto. Past a safe length the
+       note is left out of the email and the person is told to attach the PDF instead, rather
+       than sending half a sentence without knowing. */
+    var mailTxt = txt, note = el('q-mailnote');
+    if (encodeURIComponent(txt).length > 1800) {
+      var notes = el('f-notes').value.trim();
+      mailTxt = notes ? txt.replace('About the work:\n' + notes, 'About the work: (in the PDF — please attach it)') : txt;
+      if (encodeURIComponent(mailTxt).length > 1800) mailTxt = mailTxt.slice(0, 1200) + '\n\n(…full detail in the attached PDF)';
+      if (note) note.textContent = 'Your note is long, so the email carries a short version — download the PDF and attach it, or send it on WhatsApp instead.';
+    } else if (note) { note.textContent = ''; }
+    el('b-mail').href = 'mailto:info@techauditpros.com?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(mailTxt);
   }
 
   /* ------------------------------------------------------------------- pdf --- */
+
+  /* jsPDF's standard Helvetica is WinAnsi: a rupee sign, a curly quote or an em dash the
+     visitor types comes out as a wrong glyph and can spoil the whole run. Fold what has an
+     obvious equivalent, drop what does not. */
+  function pdfSafe(v) {
+    return String(v === null || v === undefined ? '' : v).split('').map(function (ch) {
+      if (ch === '\u20B9') return 'Rs.';
+      if (ch === '\u2018' || ch === '\u2019') return "'";
+      if (ch === '\u201C' || ch === '\u201D') return '"';
+      if (ch === '\u2013' || ch === '\u2014') return '-';
+      if (ch === '\u2026') return '...';
+      if (ch === '\u2022') return '-';
+      var c = ch.charCodeAt(0);
+      if (c === 9 || c === 10 || c === 13) return ch;
+      return (c >= 32 && c <= 255) ? ch : '';
+    }).join('');
+  }
 
   function makePdf() {
     var J = window.jspdf && window.jspdf.jsPDF; if (!J) return null;
     var doc = new J({ unit: 'pt', format: 'a4' });
     var W = doc.internal.pageSize.getWidth(), H = doc.internal.pageSize.getHeight(), M = 46, y = 0;
 
-    var title = 'PROPOSAL';
-    for (var i = 0; i < ORDER.length; i++) if (svcTotal(ORDER[i]) > 0) { title = SERVICES[ORDER[i]].pdfTitle; break; }
+    var title = SERVICES[cur].pdfTitle;
 
     function band() {
       doc.setTextColor(14, 42, 62); doc.setFont('helvetica', 'bold'); doc.setFontSize(18);
       doc.text('TechAuditPros', M, 40);
       doc.setFont('helvetica', 'normal'); doc.setFontSize(8.5); doc.setTextColor(217, 83, 30);
-      doc.text('YOUR DEDICATED OFFSHORE TECHNICAL TEAM  ·  INDIA', M, 54);
+      doc.text('YOUR DEDICATED OFFSHORE TECHNICAL TEAM  -  INDIA', M, 54);
       doc.setTextColor(133, 149, 160);
       doc.text('info@techauditpros.com   +91 62825 20339   techauditpros.com', M, 70);
       doc.setFont('helvetica', 'bold'); doc.setFontSize(17); doc.setTextColor(217, 83, 30);
@@ -699,13 +768,21 @@
 
     band();
 
-    var co = el('f-co').value.trim() || 'Not named', by = el('f-by').value.trim();
+    var named = pdfSafe(el('f-co').value.trim());
+    var co = named || 'Not named', by = pdfSafe(el('f-by').value.trim());
     var d = new Date(), ds = String(d.getDate()).padStart(2, '0') + '/' + String(d.getMonth() + 1).padStart(2, '0') + '/' + d.getFullYear();
 
     doc.setFont('helvetica', 'normal'); doc.setFontSize(9); doc.setTextColor(90, 100, 110);
     doc.text('Prepared for', M, y); doc.text('Prepared by', W / 2, y); doc.text('Date', W - M, y, { align: 'right' });
     y += 14; doc.setFont('helvetica', 'bold'); doc.setFontSize(12); doc.setTextColor(14, 42, 62);
-    doc.text(co, M, y); doc.text('TechAuditPros', W / 2, y); doc.text(ds, W - M, y, { align: 'right' });
+    /* "Sreekrishna Engineering & Fabrication Works Pvt Ltd" is 305pt at 12pt bold against the
+       252pt this column has, and used to print straight through "TechAuditPros". Step the size
+       down until it fits rather than truncate somebody's own company name. */
+    var coSize = 12;
+    while (coSize > 7 && doc.getTextWidth(co) > W / 2 - M - 14) { coSize -= 0.5; doc.setFontSize(coSize); }
+    doc.text(co, M, y);
+    doc.setFontSize(12);
+    doc.text('TechAuditPros', W / 2, y); doc.text(ds, W - M, y, { align: 'right' });
     if (by) { y += 13; doc.setFont('helvetica', 'normal'); doc.setFontSize(9); doc.setTextColor(90, 100, 110); doc.text(by, M, y); }
     y += 30;
 
@@ -715,11 +792,11 @@
       if (r.head) { room(22); doc.setFont('helvetica', 'bold'); doc.setFontSize(10.5); doc.setTextColor(14, 42, 62); doc.text(r.head, M, y); y += 15; return; }
       room(28);
       doc.setFont('helvetica', 'bold'); doc.setFontSize(9.5); doc.setTextColor(30, 30, 30);
-      doc.text(r.qty + '  ' + r.nm, M + 10, y);
+      doc.text(r.qty + '  ' + pdfSafe(r.nm), M + 10, y);
       y += 12;
       if (r.names) {
         doc.setFont('helvetica', 'normal'); doc.setFontSize(9); doc.setTextColor(75, 91, 103);
-        var lines = doc.splitTextToSize(r.names, W - 2 * M - 30);
+        var lines = doc.splitTextToSize(pdfSafe(r.names), W - 2 * M - 30);
         doc.text(lines, M + 22, y); y += lines.length * 11;
       }
       y += 4;
@@ -727,9 +804,9 @@
     y += 8;
 
     /* the client's own words */
-    var notes = el('f-notes').value.trim();
+    var notes = pdfSafe(el('f-notes').value.trim());
     if (notes) {
-      h2('About the work, in ' + co + '’s words');
+      h2(named ? 'About the work, in ' + named + '\u2019s words' : 'About the work, in your own words');
       doc.setFont('helvetica', 'normal'); doc.setFontSize(9.5); doc.setTextColor(75, 91, 103);
       var nl = doc.splitTextToSize(notes, W - 2 * M - 10);
       for (var ni = 0; ni < nl.length; ni++) { room(14); doc.text(nl[ni], M + 5, y); y += 12; }
@@ -738,21 +815,28 @@
 
     /* investment */
     h2('Investment');
-    doc.setFillColor(243, 246, 245); doc.rect(M, y, W - 2 * M, 20, 'F');
-    doc.setDrawColor(220, 227, 225); doc.line(M, y + 20, W - M, y + 20);
-    doc.setTextColor(14, 42, 62); doc.setFont('helvetica', 'bold'); doc.setFontSize(8.5);
-    doc.text('ITEM', M + 9, y + 14); doc.text('QTY', W - M - 190, y + 14, { align: 'right' });
-    doc.text('RATE', W - M - 105, y + 14, { align: 'right' }); doc.text('AMOUNT', W - M - 9, y + 14, { align: 'right' });
-    y += 20;
+    function tableHead() {
+      doc.setFillColor(243, 246, 245); doc.rect(M, y, W - 2 * M, 20, 'F');
+      doc.setDrawColor(220, 227, 225); doc.line(M, y + 20, W - M, y + 20);
+      doc.setTextColor(14, 42, 62); doc.setFont('helvetica', 'bold'); doc.setFontSize(8.5);
+      doc.text('ITEM', M + 9, y + 14); doc.text('QTY', W - M - 190, y + 14, { align: 'right' });
+      doc.text('RATE', W - M - 105, y + 14, { align: 'right' }); doc.text('AMOUNT', W - M - 9, y + 14, { align: 'right' });
+      y += 20;
+    }
+    room(46); tableHead();
     scopeLines().forEach(function (r) {
       if (r.head) return;
+      /* A table that breaks over a page used to leave three unlabelled money columns. */
+      var before = doc.internal.getCurrentPageInfo().pageNumber;
       room(22);
+      if (doc.internal.getCurrentPageInfo().pageNumber !== before) tableHead();
       doc.setTextColor(30, 30, 30); doc.setFont('helvetica', 'normal'); doc.setFontSize(9.5);
-      var nmL = doc.splitTextToSize(r.nm, W - 2 * M - 215); var hh = Math.max(19, nmL.length * 11 + 8);
+      var nmL = doc.splitTextToSize(pdfSafe(r.nm), W - 2 * M - 215); var hh = Math.max(19, nmL.length * 11 + 8);
       doc.text(nmL, M + 9, y + 13);
       doc.setFont('courier', 'normal'); doc.text(String(r.qty), W - M - 190, y + 13, { align: 'right' });
-      doc.text(inr(r.rate), W - M - 105, y + 13, { align: 'right' });
-      doc.setFont('courier', 'bold'); doc.setTextColor(184, 67, 19); doc.text(inr(r.amt), W - M - 9, y + 13, { align: 'right' });
+      doc.text(r.tbq ? '—' : inr(r.rate), W - M - 105, y + 13, { align: 'right' });
+      doc.setFont('courier', 'bold'); doc.setTextColor(184, 67, 19);
+      doc.text(r.tbq ? 'to be quoted' : inr(r.amt), W - M - 9, y + 13, { align: 'right' });
       doc.setDrawColor(220, 227, 225); doc.line(M, y + hh, W - M, y + hh); y += hh;
     });
 
@@ -787,7 +871,7 @@
     if (mon.length) {
       h2('Ongoing, after deployment');
       mon.forEach(function (m) {
-        room(16); var t = doc.splitTextToSize(m[0], W - 2 * M - 140);
+        room(16); var t = doc.splitTextToSize(pdfSafe(m[0]), W - 2 * M - 140);
         doc.setFont('helvetica', 'normal'); doc.setFontSize(9.5); doc.setTextColor(75, 91, 103); doc.text(t, M + 9, y);
         doc.setFont('courier', 'bold'); doc.setTextColor(184, 67, 19);
         doc.text(typeof m[1] === 'number' ? inr(m[1]) + ' / month' : m[1], W - M - 9, y, { align: 'right' });
@@ -797,20 +881,20 @@
     }
 
     /* scope boundary, ERP only */
-    if (svcTotal('erp') > 0) {
+    if (cur === 'erp' && svcTotal('erp') > 0) {
       room(150);
       h2('Scope of a business module');
       var colW = (W - 2 * M - 20) / 2, y0 = y;
       doc.setFont('helvetica', 'bold'); doc.setFontSize(8.5); doc.setTextColor(27, 122, 77); doc.text('INCLUDED', M, y); y += 13;
       doc.setFont('helvetica', 'normal'); doc.setFontSize(9); doc.setTextColor(75, 91, 103);
       ['Fitted to your own fields, rules and terms', 'Placed on the portals you chose', 'Forms, lists, search and filters', 'Photo and file attachments where they apply', 'The standard report that comes with it', 'Staff shown how to use it'].forEach(function (t) {
-        var l = doc.splitTextToSize('•  ' + t, colW); doc.text(l, M, y); y += l.length * 11;
+        var l = doc.splitTextToSize('-  ' + t, colW); doc.text(l, M, y); y += l.length * 11;
       });
       var yL = y; y = y0;
-      doc.setFont('helvetica', 'bold'); doc.setFontSize(8.5); doc.setTextColor(184, 67, 19); doc.text('NOT INCLUDED — QUOTED SEPARATELY', M + colW + 20, y); y += 13;
+      doc.setFont('helvetica', 'bold'); doc.setFontSize(8.5); doc.setTextColor(184, 67, 19); doc.text('NOT INCLUDED - QUOTED SEPARATELY', M + colW + 20, y); y += 13;
       doc.setFont('helvetica', 'normal'); doc.setFontSize(9); doc.setTextColor(75, 91, 103);
       ['Biometric or hardware device integration', 'Payroll calculation and statutory filings (PF, ESI, GST returns)', 'Government portal or compliance integration', 'Third-party API integration: Tally, banks, couriers, WhatsApp', 'Loading data out of an old system', 'Changes to scope after sign-off'].forEach(function (t) {
-        var l = doc.splitTextToSize('•  ' + t, colW); doc.text(l, M + colW + 20, y); y += l.length * 11;
+        var l = doc.splitTextToSize('-  ' + t, colW); doc.text(l, M + colW + 20, y); y += l.length * 11;
       });
       y = Math.max(y, yL) + 10;
     }
@@ -820,15 +904,16 @@
     doc.setDrawColor(195, 205, 202);
     doc.line(M, y + 28, M + 200, y + 28); doc.line(W - M - 200, y + 28, W - M, y + 28);
     doc.setFont('helvetica', 'normal'); doc.setFontSize(8.5); doc.setTextColor(133, 149, 160);
-    doc.text('For TechAuditPros', M, y + 40); doc.text('Accepted for ' + co + '  —  name, date and signature', W - M, y + 40, { align: 'right' });
+    doc.text('For TechAuditPros', M, y + 40);
+    doc.text(named ? 'Accepted for ' + named + '  -  name, date and signature' : 'Accepted  -  name, date and signature', W - M, y + 40, { align: 'right' });
 
     var pages = doc.internal.getNumberOfPages();
     for (var p = 1; p <= pages; p++) {
       doc.setPage(p);
       doc.setDrawColor(220, 227, 225); doc.line(M, H - 58, W - M, H - 58);
       doc.setFont('helvetica', 'normal'); doc.setFontSize(7.5); doc.setTextColor(133, 149, 160);
-      doc.text('TechAuditPros  ·  Tholanikunnel House, Ayankara, Pothanicad, Kothamangalam, Kerala 686671  ·  GSTIN 32CXYPP6750P1ZC', M, H - 44);
-      doc.text('All figures in Indian rupees. Valid 90 days. Domain, hosting, advertising spend and WhatsApp fees are billed to you by those companies.', M, H - 33);
+      doc.text('TechAuditPros  -  Tholanikunnel House, Ayankara, Pothanicad, Kothamangalam, Kerala 686671  -  GSTIN 32CXYPP6750P1ZC', M, H - 44);
+      doc.text('All figures in Indian rupees and indicative until confirmed by TechAuditPros. Valid 90 days. Domain, hosting, advertising spend and WhatsApp fees are billed to you by those companies.', M, H - 33);
       doc.text('Page ' + p + ' of ' + pages, W - M, H - 33, { align: 'right' });
     }
     return doc;
@@ -846,7 +931,17 @@
   el('f-adj').addEventListener('input', recalc);
   el('f-gst').addEventListener('change', recalc);
   el('b-add').addEventListener('click', function () { addManual('', 0, 1).focus(); });
-  el('b-print').addEventListener('click', function () { window.print(); });
+  el('b-print').addEventListener('click', function () {
+    /* A textarea prints clipped to its box, and an empty one prints its example sentence.
+       The select and the two identity inputs print as controls. Mirror the real values into
+       plain text for paper, and hide the controls there. */
+    var co = el('f-co').value.trim(), by = el('f-by').value.trim(), nt = el('f-notes').value.trim();
+    var meta = el('print-meta'), pn = el('print-notes');
+    meta.textContent = (co ? 'Prepared for ' + co : 'Prepared for —') + (by ? '   ·   ' + by : '') + '   ·   ' + SERVICES[cur].short;
+    pn.textContent = nt;
+    pn.style.display = nt ? 'block' : 'none';
+    window.print();
+  });
 
   el('b-pdf').addEventListener('click', function () {
     var doc = makePdf();
