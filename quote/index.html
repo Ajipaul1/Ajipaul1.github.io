@@ -25,8 +25,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <style>
-  /* TechAuditPros design system — tokens taken from techauditpros.com */
+  /* TechAuditPros design system — tokens taken from techauditpros.com.
+     One look, always white. The page used to follow the reader's dark mode and came out
+     navy-on-navy for anyone whose phone or laptop is set dark; a quotation should look the
+     same to everyone who opens it. color-scheme:light keeps the native dropdowns, date
+     pickers and number spinners light too, whatever the device is set to. */
   :root {
+    color-scheme: light;
     --paper:#FFFFFF; --paper-alt:#F3F6F5;
     --ink:#0E2A3E; --ink-soft:#4B5B67; --ink-faint:#8595A0;
     --line:#DCE3E1; --line-strong:#C3CDCA;
@@ -39,29 +44,6 @@
     --shadow-sm:0 1px 3px rgba(14,42,62,.06), 0 1px 2px rgba(14,42,62,.08);
     --shadow-md:0 8px 20px rgba(14,42,62,.08);
   }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --paper:#102434; --paper-alt:#0D1E2C;
-      --ink:#E8EFF3; --ink-soft:#A3B4BF; --ink-faint:#7A8C98;
-      --line:#1E3648; --line-strong:#2B4759;
-      --orange:#F0713C; --orange-dark:#D9531E; --orange-tint:#31190F;
-      --navy-deep:#071624; --navy-ink:#E8EFF3; --navy-dim:rgba(232,239,243,.72);
-      --good:#5FBF8E; --good-tint:#11301F;
-      --ground:#081420;
-      --shadow-sm:0 1px 3px rgba(0,0,0,.4); --shadow-md:0 8px 20px rgba(0,0,0,.45);
-    }
-  }
-  :root[data-theme="dark"] {
-    --paper:#102434; --paper-alt:#0D1E2C;
-    --ink:#E8EFF3; --ink-soft:#A3B4BF; --ink-faint:#7A8C98;
-    --line:#1E3648; --line-strong:#2B4759;
-    --orange:#F0713C; --orange-dark:#D9531E; --orange-tint:#31190F;
-    --navy-deep:#071624; --navy-ink:#E8EFF3; --navy-dim:rgba(232,239,243,.72);
-    --good:#5FBF8E; --good-tint:#11301F;
-    --ground:#081420;
-    --shadow-sm:0 1px 3px rgba(0,0,0,.4); --shadow-md:0 8px 20px rgba(0,0,0,.45);
-  }
-
   * { box-sizing: border-box; }
   body {
     background: var(--paper); color: var(--ink);
@@ -459,6 +441,16 @@
   function n(v) { return Math.max(0, parseInt(v, 10) || 0); }
   function inr(v) { return 'Rs.' + Math.round(Number(v) || 0).toLocaleString('en-IN'); }
   function q(r) { return r.lock ? 1 : r.qty; }
+
+  /* The estimate is priced the day it is opened and held for 90 days. Both dates are worked out
+     here and printed on the page and in the PDF, so a quotation can never carry "valid 90 days"
+     without saying ninety days from WHEN. */
+  var VALID_DAYS = 90;
+  function addDays(d, k) { var x = new Date(d.getTime()); x.setDate(x.getDate() + k); return x; }
+  function dmy(d) { return String(d.getDate()).padStart(2, '0') + '/' + String(d.getMonth() + 1).padStart(2, '0') + '/' + d.getFullYear(); }
+  function longDate(d) { return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }); }
+  function priced() { return new Date(); }
+  function until() { return addDays(priced(), VALID_DAYS); }
 
   /* ------------------------------------------------------------------ rows --- */
 
