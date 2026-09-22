@@ -256,6 +256,35 @@
     .row:not(.on) { display: none; }
     details.scope { display: block; } details.scope[open] .scopebody { display: grid; }
   }
+
+/* quote-briefing.js */
+.brief{margin:18px 0;border:1px solid var(--line,#e2e5ea);border-radius:10px;background:#fbfcfd}
+.brief>summary{cursor:pointer;padding:13px 16px;font-weight:600;font-size:15px;list-style:none}
+.brief>summary::-webkit-details-marker{display:none}
+.brief>summary::before{content:'\25B8 ';display:inline-block;transition:transform .15s}
+.brief[open]>summary::before{transform:rotate(90deg)}
+.brief-in{padding:2px 18px 18px;max-width:72ch;font-size:14.5px;line-height:1.62}
+.brief-in h3{font-size:14px;letter-spacing:.04em;text-transform:uppercase;margin:22px 0 7px;color:#4a5361}
+.brief-in ul,.brief-in ol{padding-left:20px;margin:8px 0}
+.brief-in li{margin:6px 0}
+.brief-in p{margin:8px 0}
+.gloss{margin:8px 0 0;display:grid;grid-template-columns:auto 1fr;gap:5px 14px;align-items:baseline}
+.gloss dt{font-weight:600;white-space:nowrap}
+.gloss dd{margin:0;color:#4a5361}
+@media(max-width:560px){.gloss{grid-template-columns:1fr;gap:1px 0}.gloss dd{margin:0 0 9px}}
+
+.presetbar{margin:0 0 14px}
+.plab{display:block;font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:#6b7480;margin-bottom:7px}
+#presets{display:flex;flex-wrap:wrap;gap:8px}
+.preset{border:1px solid var(--line,#d8dde4);background:#fff;border-radius:999px;padding:8px 15px;
+  font:inherit;font-size:13.5px;cursor:pointer;transition:background .12s,border-color .12s}
+.preset:hover{background:#f1f5f9;border-color:#9aa5b4}
+.preset:active{background:#e6ecf3}
+
+.grouphead{grid-column:1/-1;margin:20px 0 3px;padding-top:13px;border-top:1px solid var(--line,#e8ebef);
+  font-size:12.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#5a6472}
+.grouphead:first-child{margin-top:2px;padding-top:0;border-top:0}
+
 </style>
 
 <div class="top">
@@ -291,6 +320,77 @@
         <div class="fld"><label for="f-co">Prepared for</label><input id="f-co" type="text" placeholder="Company name" autocomplete="organization"></div>
         <div class="fld"><label for="f-by">Your name and phone</label><input id="f-by" type="text" placeholder="So we know who to call" autocomplete="name"></div>
       </div>
+    </div>
+
+    <details class="brief" data-briefing="1">
+      <summary>New here? Read this first &mdash; 3 minutes</summary>
+      <div class="brief-in">
+
+        <h3>What we sell</h3>
+        <p>Three things, and a customer usually wants one of them:</p>
+        <ul>
+          <li><b>A custom ERP.</b> Software that runs the inside of a business &mdash; attendance,
+            stock, purchase approvals, job cards, invoices. It replaces the registers, the
+            spreadsheets and the WhatsApp groups a company is using now.</li>
+          <li><b>A website.</b> How customers find them and decide to call.</li>
+          <li><b>SEO.</b> Work that makes their website appear on Google, and now inside AI
+            answers like ChatGPT and Gemini too.</li>
+        </ul>
+
+        <h3>What an ERP actually is, in one example</h3>
+        <p>A marine engineering company in Kochi uses ours every working day. Their supervisor
+          opens his phone and marks who came to work. The store keeper enters what stock went out.
+          A purchase request goes to the manager, then to the owner, and only then to the supplier.
+          The owner opens one screen and sees all of it. Fifteen people, every day, since July.</p>
+        <p>That is the whole pitch. It is real, it is running, and you can show it.</p>
+
+        <h3>How to use this page</h3>
+        <ol>
+          <li>Pick what they want at the top &mdash; ERP, SEO or Website.</li>
+          <li>Tap the button that sounds most like their business. The quantities fill in.</li>
+          <li>Talk it through and change the numbers as they tell you more.</li>
+          <li>Put their company name and your name in the two boxes.</li>
+          <li>Download the PDF and send it.</li>
+        </ol>
+        <p>Every line has a grey sentence under it explaining what it is. If a customer asks what
+          something means, read that sentence out. It is written for exactly that moment.</p>
+
+        <h3>Never promise these</h3>
+        <ul>
+          <li><b>A date.</b> Say &ldquo;Aji will confirm the timeline&rdquo;. A date promised in a
+            meeting becomes a date we owe.</li>
+          <li><b>A discount.</b> If the price is too much, do not lower it &mdash; take something
+            out. &ldquo;We could start with four modules instead of seven and add the rest later.&rdquo;</li>
+          <li><b>A Google ranking.</b> Nobody can promise position one. Anyone who does is lying,
+            and saying so out loud is usually why we get the work.</li>
+          <li><b>Anything not on this page.</b> If they ask for something you cannot see here, write
+            it down and say you will check. That is a good answer, not a weak one.</li>
+        </ul>
+
+        <h3>When you do not know</h3>
+        <p>Say: <i>&ldquo;That is a good question and I want to give you the right answer rather than
+          a quick one. Let me check with our engineer and come back to you today.&rdquo;</i></p>
+        <p>Then send it to Aji. Guessing in front of a customer costs far more than waiting an hour.</p>
+
+        <h3>Words customers use</h3>
+        <dl class="gloss">
+          <dt>Module</dt><dd>One job the system does &mdash; attendance is a module, purchasing is a module.</dd>
+          <dt>Portal</dt><dd>What one kind of person sees when they log in. The owner's portal shows everything; the store keeper's shows stock.</dd>
+          <dt>Dashboard</dt><dd>One screen with the important numbers on it.</dd>
+          <dt>SEO</dt><dd>Work that makes a website show up on Google without paying for ads.</dd>
+          <dt>AEO / GEO</dt><dd>The same idea for AI answers &mdash; getting quoted by ChatGPT, Gemini and Google's AI results.</dd>
+          <dt>Core Web Vitals</dt><dd>Google's measure of whether a page loads fast enough. Slow pages rank lower.</dd>
+          <dt>Schema</dt><dd>Hidden labels on a page that tell Google what the business is. It is what makes a listing show stars and details.</dd>
+          <dt>Domain / SSL</dt><dd>The web address, and the certificate that puts the padlock in the browser.</dd>
+          <dt>Retainer</dt><dd>A monthly fee for ongoing work, rather than a one-time project.</dd>
+        </dl>
+
+      </div>
+    </details>
+
+    <div class="presetbar">
+      <span class="plab">Start from a business like theirs</span>
+      <div id="presets"></div>
     </div>
 
     <div class="block">
@@ -401,11 +501,11 @@
       sub: 'configure your system — the investment updates as you go',
       pdfTitle: 'CUSTOM ERP PROPOSAL',
       rows: [
-        { id:'plan', nm:'Discovery and planning', note:'We sit with you, work out which people and which departments need a portal, and design the system in your own branding. Charged once, whatever the size.', rate:6000, qty:1, lock:true },
-        { id:'dash', nm:'User and role portals', note:'One portal per kind of role — the owner sees everything, the supervisor runs his team, accounts controls the money, the store keeper sees stock, your customer sees his own job. A portal shared by people doing the same job counts as ONE.', rate:10000, qty:5,
+        { id:'plan', grp:'Step 1 \u2014 design', nm:'Discovery and planning', note:'We sit with you, work out which people and which departments need a portal, and design the system in your own branding. Charged once, whatever the size.', rate:6000, qty:1, lock:true },
+        { id:'dash', grp:'Step 2 \u2014 who logs in', nm:'User and role portals', note:'One portal per kind of role — the owner sees everything, the supervisor runs his team, accounts controls the money, the store keeper sees stock, your customer sees his own job. A portal shared by people doing the same job counts as ONE.', rate:10000, qty:5,
           chips:['Admin / owner','Accounts','Production head','Design head','Purchase','Store','Supervisor and his team','Site engineer','HR and admin','Quality','Sales','Client portal','A role of your own'],
           sel:['Admin / owner','Accounts','Store','Supervisor and his team','Client portal'] },
-        { id:'mod',  nm:'Business modules', note:'The functions your company actually runs — attendance, site reporting, purchasing, inventory, finance and so on. Each one fitted to your own fields and rules and placed on the portals you chose.', rate:10000, qty:4,
+        { id:'mod', grp:'Step 3 \u2014 what the system does',  nm:'Business modules', note:'The functions your company actually runs — attendance, site reporting, purchasing, inventory, finance and so on. Each one fitted to your own fields and rules and placed on the portals you chose.', rate:10000, qty:4,
           chips:['Attendance and leave','Daily site reporting','Weekly planning','Projects and jobs','Inventory','Purchase','Enquiries and sales','Finance and payments','Client work diary','Records and recycle bin'],
           sel:['Attendance and leave','Daily site reporting','Inventory','Purchase'] },
         { id:'add',  nm:'Integrations and add-ons', note:'Built on top of the modules — the mobile layout, customer chat, UPI and QR payments, push alerts, database-level security, document storage.', rate:10000, qty:1,
@@ -414,7 +514,7 @@
         { id:'rep',  nm:'Reports', note:'Each report built to what you want to see on it.', rate:1000, qty:4,
           chips:['Attendance','Daily production','Weekly plan','Workload','Inventory movement','Purchase','Finance','Project progress','Milestones','Client record'],
           sel:['Attendance','Inventory movement','Finance','Project progress'] },
-        { id:'qa',   nm:'QA and release testing', note:'Automated checks run against the live system before anything is released. Put 0 if your own people will test it.', rate:10000, qty:1 }
+        { id:'qa', grp:'Step 4 \u2014 before it goes live',   nm:'QA and release testing', note:'Automated checks run against the live system before anything is released. Put 0 if your own people will test it.', rate:10000, qty:1 }
       ],
       monthly: [ ['Development and support — new features, changes and fixes', 12000], ['Cloud and database, paid to the hosting provider', 500] ]
     },
@@ -424,12 +524,12 @@
       sub: 'found on Google, and quoted inside AI answers',
       pdfTitle: 'SEO PROPOSAL',
       rows: [
-        { id:'audit',  nm:'Technical SEO audit', note:'Every page crawled, what is broken listed with the fix beside it, and a written plan in order of what pays first.', rate:15000, qty:0, def:1, edit:true },
+        { id:'audit', grp:'Foundation \u2014 do these first',  nm:'Technical SEO audit', note:'Every page crawled, what is broken listed with the fix beside it, and a written plan in order of what pays first.', rate:15000, qty:0, def:1, edit:true },
         { id:'onpage', nm:'On-page optimisation, per page', note:'Title, description, headings, internal links and schema written for one page.', rate:1500, qty:0, def:5, edit:true },
-        { id:'aeo',    nm:'AEO setup — answer engine optimisation', note:'Schema, FAQ blocks and answer-shaped content so your pages are what gets read out as the answer.', rate:12000, qty:0, def:1, edit:true },
+        { id:'aeo', grp:'Being found inside AI answers',    nm:'AEO setup — answer engine optimisation', note:'Schema, FAQ blocks and answer-shaped content so your pages are what gets read out as the answer.', rate:12000, qty:0, def:1, edit:true },
         { id:'geo',    nm:'GEO setup — visibility inside AI answers', note:'Your business made citable by ChatGPT, Gemini, Perplexity and AI Overviews, with entity and source signals put in place.', rate:15000, qty:0, def:1, edit:true },
         { id:'local',  nm:'Local SEO and Google Business Profile', note:'Profile claimed, categories and services filled, photographs, service area, first review requests.', rate:6000, qty:0, def:1, edit:true },
-        { id:'content',nm:'Article written and published', note:'Researched, written for the trade, published with internal links and schema.', rate:2500, qty:0, def:0, edit:true },
+        { id:'content', grp:'Ongoing, every month',nm:'Article written and published', note:'Researched, written for the trade, published with internal links and schema.', rate:2500, qty:0, def:0, edit:true },
         { id:'links',  nm:'Link building, per month', note:'Real placements on sites in your industry. No directories, no spam.', rate:15000, qty:0, def:0, edit:true },
         { id:'report', nm:'Rank and traffic reporting', note:'Where you stand, what moved, and what is next — in plain figures.', rate:3000, qty:0, def:1, edit:true }
       ],
@@ -441,14 +541,14 @@
       sub: 'designed, written, built and launched',
       pdfTitle: 'WEBSITE PROPOSAL',
       rows: [
-        { id:'land',  nm:'One landing page', note:'A single page built to do one job — take an enquiry, sell one service, back one campaign.', rate:8000, qty:0, def:0, edit:true },
+        { id:'land', grp:'The website itself \u2014 pick ONE',  nm:'One landing page', note:'A single page built to do one job — take an enquiry, sell one service, back one campaign.', rate:8000, qty:0, def:0, edit:true },
         { id:'s5',    nm:'Business website, five pages', note:'Home, about, services, work, contact. Written for the business, works on a phone, contact form reaching your inbox.', rate:25000, qty:0, def:1, edit:true },
         { id:'s10',   nm:'Business website, ten pages', note:'The five above plus service or location pages, each written on its own.', rate:45000, qty:0, def:0, edit:true },
         { id:'shop',  nm:'Online shop', note:'Products, cart, payment gateway, order emails and a stock screen you can run yourself.', rate:60000, qty:0, def:0, edit:true },
-        { id:'extra', nm:'Extra page', note:'Any page beyond the ones above, written and built to match.', rate:3000, qty:0, def:0, edit:true },
+        { id:'extra', grp:'Add to it', nm:'Extra page', note:'Any page beyond the ones above, written and built to match.', rate:3000, qty:0, def:0, edit:true },
         { id:'copy',  nm:'Copywriting, per page', note:'Words written for your trade and your customer, not filled with sample text.', rate:2000, qty:0, def:0, edit:true },
         { id:'logo',  nm:'Logo and brand kit', note:'Logo in colour and black, PNG and SVG at print quality, colours and fonts written down.', rate:5000, qty:0, def:1, edit:true },
-        { id:'mail',  nm:'Business email on your own domain', note:'Up to five users, records set so your mail is not marked spam, signatures made.', rate:4000, qty:0, def:1, edit:true },
+        { id:'mail', grp:'Setup and technical',  nm:'Business email on your own domain', note:'Up to five users, records set so your mail is not marked spam, signatures made.', rate:4000, qty:0, def:1, edit:true },
         { id:'dns',   nm:'Domain, SSL and DNS', note:'Domain pointed, certificate fitted so the browser shows the lock, mail records set.', rate:2000, qty:0, def:1, edit:true },
         { id:'speed', nm:'Speed and Core Web Vitals fix', note:'Images, scripts and fonts cut back until the page opens fast on a phone on mobile data.', rate:8000, qty:0, def:0, edit:true }
       ],
@@ -478,6 +578,50 @@
 
   /* ------------------------------------------------------------------ rows --- */
 
+
+  /* What a recognisable customer usually needs. Not a package and not a discount — just a
+     starting point, so nobody has to invent quantities in front of a client. */
+  var PRESETS = {
+    erp: [
+      { nm:'Workshop / fabrication', q:{ plan:1, dash:4, mod:5, add:1, rep:4, qa:1 } },
+      { nm:'Contractor / site work', q:{ plan:1, dash:5, mod:7, add:2, rep:5, qa:1 } },
+      { nm:'Office / trading',       q:{ plan:1, dash:3, mod:4, add:1, rep:3, qa:1 } },
+      { nm:'Full system',            q:{ plan:1, dash:8, mod:12, add:5, rep:8, qa:1 } }
+    ],
+    seo: [
+      { nm:'Just starting',        q:{ audit:1, onpage:5,  local:1, report:1 } },
+      { nm:'Serious about Google', q:{ audit:1, onpage:15, local:1, aeo:1, content:4, report:1 } },
+      { nm:'Full, with AI search', q:{ audit:1, onpage:25, local:1, aeo:1, geo:1, content:8, links:1, report:1 } }
+    ],
+    web: [
+      { nm:'Small business',    q:{ s5:1, logo:1, mail:1, dns:1 } },
+      { nm:'Growing business',  q:{ s10:1, copy:10, logo:1, mail:1, dns:1, speed:1 } },
+      { nm:'Online shop',       q:{ shop:1, copy:10, logo:1, mail:1, dns:1 } }
+    ]
+  };
+
+  function applyPreset(p) {
+    var svc = SERVICES[cur];
+    svc.rows.forEach(function (r) {
+      r.qty = p.q[r.id] || 0;
+      /* Chips must agree with the number, or the proposal lists roles the total never charged for. */
+      if (r.chips) r.sel = r.chips.slice(0, r.qty);
+    });
+    drawRows(); drawPresets(); recalc();
+  }
+
+  function drawPresets() {
+    var host = el('presets');
+    if (!host) return;
+    host.textContent = '';
+    (PRESETS[cur] || []).forEach(function (p) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'preset'; b.textContent = p.nm;
+      b.addEventListener('click', function () { applyPreset(p); });
+      host.appendChild(b);
+    });
+  }
+
   function drawRows() {
     var svc = SERVICES[cur];
     el('b-title').textContent = svc.title;
@@ -487,7 +631,15 @@
 
     var host = el('rows'); host.textContent = '';
 
+    var lastGrp = null;
     svc.rows.forEach(function (r) {
+      if (r.grp && r.grp !== lastGrp) {
+        lastGrp = r.grp;
+        var gh = document.createElement('div');
+        gh.className = 'grouphead';
+        gh.textContent = r.grp;
+        host.appendChild(gh);
+      }
       var row = document.createElement('div');
       row.className = 'row'; row.id = 'row-' + cur + '-' + r.id;
 
@@ -924,7 +1076,7 @@
 
   /* ------------------------------------------------------------------ wire --- */
 
-  el('svc').addEventListener('change', function () { cur = el('svc').value; drawRows(); recalc(); });
+  el('svc').addEventListener('change', function () { cur = el('svc').value; drawRows(); drawPresets(); recalc(); });
   el('f-co').addEventListener('input', recalc);
   el('f-by').addEventListener('input', updateShare);
   el('f-notes').addEventListener('input', updateShare);
