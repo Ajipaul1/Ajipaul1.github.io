@@ -146,6 +146,8 @@ ${pages.map(([label, href]) => `                        <a href="${href}">${labe
                 <a href="/results/">Results</a>
                 <a href="/why-us/">Why Us</a>
                 <a href="/blog/">Blog</a>
+                <a href="/quote/">Get a quote</a>
+                <a href="https://app.techauditpros.com/" rel="nofollow">Employee login</a>
                 <a href="#contact">Contact</a>
                 <a href="${FORM}" target="_blank" class="drawer-cta">Book a Free Strategy Call</a>
             </nav>`;
