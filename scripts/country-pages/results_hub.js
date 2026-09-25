@@ -121,7 +121,7 @@ const HERO = `
       <a class="rs-btn ghost" href="${L.FORM}" target="_blank">Book a Free Strategy Call</a>
     </div>
     <ul class="rs-facts rs-rise" style="--d:.7s" aria-label="Company figures">
-      <li><b>250+</b><span>projects delivered</span></li><li><b>128+</b><span>active clients</span></li><li><b>16</b><span>countries served</span></li><li><b>97%</b><span>client retention</span></li><li><b>4.9/5</b><span>client rating</span></li>
+      <li><b>45 days</b><span>shipyard ERP, start to live</span></li><li><b>19</b><span>role desks live</span></li><li><b>3</b><span>client systems live</span></li><li><b>38</b><span>tables behind that ERP</span></li><li><b>GST</b><span>registered in Kerala</span></li>
     </ul>
   </div>
 </section>
@@ -374,8 +374,8 @@ const BODY = [ANSWER, FLAGSHIP, SEARCH, MONTHLY, VERIFY, MAP, L.faqHtml('rs-faq'
 s = L.setBody(s, BODY);
 s = L.setFinalCta(s, 'Let&rsquo;s look at one real page or one real workflow together.', 'Takes 60 seconds &middot; The findings are yours to keep &middot; No long-term contract');
 s = L.replaceBetween(s, '<div class="footer-cities">', '<div class="footer-bottom">', `
-            <h3>Serving Businesses in 16 Countries</h3>
-            <p class="footer-cities-list">Canada &bull; United States &bull; United Kingdom &bull; India &bull; Australia &bull; United Arab Emirates &bull; and clients in ten more, remotely, from Kochi</p>
+            <h3>Serving Businesses in Six Markets</h3>
+            <p class="footer-cities-list">Canada &bull; United States &bull; United Kingdom &bull; India &bull; Australia &bull; United Arab Emirates, remotely, from Kochi</p>
         </div>
         `, { keepStart: true, keepEnd: true });
 

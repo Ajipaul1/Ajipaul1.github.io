@@ -131,7 +131,7 @@ s = L.setHero(s, {
     ['250+', 'Projects delivered'],
     ['4&ndash;8 wks', 'To first live version'],
     ['90+', 'Core Web Vitals target'],
-    ['4.9/5', 'Client rating']
+    ['GST', 'Registered business, Kerala']
   ]
 });
 

@@ -61,7 +61,7 @@ s = L.setHero(s, {
   sub: 'TechAuditPros designs and builds custom ERP and manufacturing ERP systems for UK small and mid-size businesses &mdash; one system of record for stock, orders, purchasing, production and finance, integrated with the Xero, Sage, QuickBooks and Shopify accounts you already run, MTD-ready and hosted in AWS London. One agreed monthly fee, a dedicated engineering team, source code yours.',
   ghostHref: '#erp-modules', ghostText: 'See what’s included &darr;',
   features: ['\u{1F468}‍\u{1F4BB} Dedicated Engineering Team', '\u{1F1EC}\u{1F1E7} UK Data Residency', '\u{1F4BB} You Own the Code'],
-  trust: [['250+', 'Projects delivered'], ['No lock-in', 'Month to month'], ['6&ndash;10 wks', 'To first working module'], ['4.9/5', 'Client rating']],
+  trust: [['250+', 'Projects delivered'], ['No lock-in', 'Month to month'], ['6&ndash;10 wks', 'To first working module'], ['GST', 'Registered business, Kerala']],
 });
 
 let body = '';

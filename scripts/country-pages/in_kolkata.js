@@ -150,7 +150,7 @@ const ACT_SCALE = [
   '  <div class="container kol-two">',
   '    <div>',
   head('01', 'The scale', 'Consultant or company. Kolkata asks the question; almost nobody answers it honestly.', 'The search data for this city is rare: &ldquo;SEO consultant Kolkata&rdquo; is searched almost as often as &ldquo;SEO company&rdquo;. The consultants ranking for it publish no prices and no FAQs; the agencies publish tiers from &#8377;7,500 to &#8377;2,00,000 a month under the same word. Both sides are selling their own answer. We are a team, so we have a side too &mdash; which is why we built the scale and put weights in both pans.'),
-  '      <ul class="kol-facts"><li><b>250+</b> projects delivered</li><li><b>128+</b> active clients</li><li><b>16</b> countries served</li><li><b>4.9/5</b> client rating</li></ul>',
+  '      <ul class="kol-facts"><li><b>45 days</b> shipyard ERP, start to live</li><li><b>19</b> role desks live</li><li><b>3</b> client systems live</li><li><b>GST</b> registered in Kerala</li></ul>',
   '      <div class="kol-cta-row"><a class="kol-btn" href="__WA__" target="_blank" rel="noopener">Start on WhatsApp</a><a class="kol-btn ghost" href="#kol-when">When each is right &darr;</a></div>',
   '    </div>',
   '    <div class="kol-stage" role="img" aria-label="A balance scale over Howrah Bridge: weights drop into a consultant pan and a team pan and the beam settles level">',

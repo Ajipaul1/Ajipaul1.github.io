@@ -228,9 +228,9 @@ function setRotatePhrases(s, country, currencyLine, cities, ctry2) {
     ], 2600, 0);`);
   s = s.replace(/rotateText\('heroEyebrowRotate', \[[\s\S]*?\], 3200, 1200\);/, `rotateText('heroEyebrowRotate', [
         'AI-Native Engineering Team — Serving ${ctry2}',
-        '250+ Projects Delivered',
+        '45-Day Shipyard ERP, Live',
         '${currencyLine}',
-        '4.9/5 Client Rating',
+        'GST-Registered in Kerala, India',
         '${cities}'
     ], 3200, 1200);`);
   // literal fallbacks (the dead rotateText calls on service pages use other timing args)

@@ -280,7 +280,7 @@ const JS = `<!-- imax-layer-js:start -->
 <!-- imax-layer-js:end -->
 `;
 
-const TICKER_ITEMS = ['Custom ERP Software', 'Website Design &amp; Development', 'SEO &middot; AEO &middot; GEO', 'one agreed monthly fee flat', 'Dedicated engineering team + project manager', 'NDA &amp; US data residency', 'No long-term contract', 'New York &middot; Chicago &middot; Texas &middot; California', '250+ projects delivered', '16 countries served', '4.9/5 client rating', 'Monthly plain-English report'];
+const TICKER_ITEMS = ['Custom ERP Software', 'Website Design &amp; Development', 'SEO &middot; AEO &middot; GEO', 'one agreed monthly fee flat', 'Dedicated engineering team + project manager', 'NDA &amp; US data residency', 'No long-term contract', 'New York &middot; Chicago &middot; Texas &middot; California', '45-day shipyard ERP, live', '3 client systems live today', 'GST-registered in Kerala', 'Monthly plain-English report'];
 const tickerList = '<ul>' + TICKER_ITEMS.map(t => `<li>${t}</li>`).join('') + '</ul>';
 const TICKER = `<!-- imax-ticker:start -->
 <div class="imx-ticker" aria-hidden="true"><div class="imx-ticker-track">${tickerList}${tickerList}</div></div>

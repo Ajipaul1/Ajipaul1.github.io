@@ -99,10 +99,10 @@ const hero = `
                 <div class="hero-feature-item">\u{1F513} No Long-Term Contract</div>
             </div>
             <div class="trust-strip">
-                <div class="trust-item"><span class="num">250+</span><span class="lbl">Projects delivered</span></div>
-                <div class="trust-item"><span class="num">128+</span><span class="lbl">Active clients</span></div>
-                <div class="trust-item"><span class="num">16</span><span class="lbl">Countries served</span></div>
-                <div class="trust-item"><span class="num">4.9/5</span><span class="lbl">Client rating</span></div>
+                <div class="trust-item"><span class="num">45 days</span><span class="lbl">Shipyard ERP, first line to live</span></div>
+                <div class="trust-item"><span class="num">19</span><span class="lbl">Role desks live at the yard</span></div>
+                <div class="trust-item"><span class="num">3</span><span class="lbl">Client systems live today</span></div>
+                <div class="trust-item"><span class="num">GST</span><span class="lbl">Registered business, Kerala</span></div>
             </div>
         </div>
     </div>
@@ -120,9 +120,9 @@ s = s.replace(/rotateText\('heroRotate', \[[\s\S]*?\], 2600, 0\);/, `rotateText(
     ], 2600, 0);`);
 s = s.replace(/rotateText\('heroEyebrowRotate', \[[\s\S]*?\], 3200, 1200\);/, `rotateText('heroEyebrowRotate', [
         'Built in Kochi — Working Across India',
-        '250+ Projects Delivered',
+        '45-Day Shipyard ERP, Live',
         'Kochi &bull; Calicut &bull; Mumbai &bull; Bangalore',
-        '4.9/5 Client Rating'
+        'GST-Registered in Kerala, India'
     ], 3200, 1200);`);
 L.must(s, 'Built in Kerala.', 2);   // once in the hero h1, once in the rotator list
 

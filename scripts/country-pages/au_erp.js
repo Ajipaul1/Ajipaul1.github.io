@@ -129,7 +129,7 @@ s = L.setHero(s, {
     ['250+', 'Projects delivered'],
     ['No lock-in', 'Month to month'],
     ['6&ndash;10 wks', 'To first working module'],
-    ['4.9/5', 'Client satisfaction']
+    ['GST', 'Registered business, Kerala']
   ]
 });
 

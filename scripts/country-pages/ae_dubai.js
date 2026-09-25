@@ -113,7 +113,7 @@ const HERO = [
   '    <h1>' + H1 + '</h1>',
   '    <p class="dxh-sub">' + SUB + '</p>',
   '    <div class="dxh-ctas"><a class="dx-btn" href="__WA__" target="_blank" rel="noopener">Start on WhatsApp</a><a class="dx-btn ghost" href="#dx-stairs">What is winnable now &darr;</a></div>',
-  '    <ul class="dxh-facts"><li><b>250+</b> projects</li><li><b>128+</b> active clients</li><li><b>16</b> countries</li><li><b>4.9/5</b> rating</li></ul>',
+  '    <ul class="dxh-facts"><li><b>45 days</b> shipyard ERP, start to live</li><li><b>19</b> role desks live</li><li><b>3</b> client systems live</li><li><b>GST</b> registered in Kerala</li></ul>',
   '  </div>',
   '</section>',
 ].join('\n');

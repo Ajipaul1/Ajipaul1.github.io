@@ -65,7 +65,7 @@ s = L.setHero(s, {
   sub: 'Custom Next.js and React builds for Reading, Wokingham, Bracknell and Slough &mdash; engineered to 90+ Core Web Vitals on a mid-range Android, WCAG 2.2 AA, hosted in a UK region you own, and kept current every month. We are a remote team and we say so up front.',
   ghostHref: '#rdg-speed', ghostText: 'See the build standard &darr;',
   features: ['⚡ 90+ Core Web Vitals', '\u{1F4F1} Mobile-First', '\u{1F1EC}\u{1F1E7} UK Hosting &amp; GDPR'],
-  trust: [['250+', 'Projects delivered'], ['4&ndash;8 wks', 'To first live version'], ['90+', 'Core Web Vitals target'], ['4.9/5', 'Client rating']],
+  trust: [['250+', 'Projects delivered'], ['4&ndash;8 wks', 'To first live version'], ['90+', 'Core Web Vitals target'], ['GST', 'Registered business, Kerala']],
 });
 
 let body = '';

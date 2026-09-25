@@ -71,7 +71,7 @@ s = L.setHero(s, {
   sub: 'TechAuditPros designs and builds custom, mobile-first websites for UK businesses on Next.js and React &mdash; 90+ Core Web Vitals, ready for Google and AI search from the first sprint, hosted in a UK region, and kept current every month by the team that built it. You own the code.',
   ghostHref: '#web-services', ghostText: 'See what’s included &darr;',
   features: ['⚡ 90+ Core Web Vitals', '\u{1F4F1} Mobile-First', '\u{1F1EC}\u{1F1E7} UK Hosting &amp; GDPR'],
-  trust: [['250+', 'Projects delivered'], ['4&ndash;8 wks', 'To first live version'], ['90+', 'Core Web Vitals target'], ['4.9/5', 'Client rating']],
+  trust: [['250+', 'Projects delivered'], ['4&ndash;8 wks', 'To first live version'], ['90+', 'Core Web Vitals target'], ['GST', 'Registered business, Kerala']],
 });
 
 let body = '';

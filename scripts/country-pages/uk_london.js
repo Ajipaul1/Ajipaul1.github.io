@@ -63,7 +63,7 @@ s = L.setHero(s, {
   sub: 'Custom ERP, websites and search work for firms across the City, Canary Wharf, Park Royal, Croydon and Stratford &mdash; multi-site and multi-currency where you need it, MTD-ready, hosted in AWS London in an account you own. We are a remote team; most of a local quote is London labour, and we are open about that being the trade.',
   ghostHref: '#ldn-reality', ghostText: 'See what you are really paying for &darr;',
   features: ['\u{1F3E6} Multi-Site &amp; Multi-Currency', '\u{1F510} UK GDPR &amp; AWS London', '\u{1F4BB} You Own the Code'],
-  trust: [['250+', 'Projects delivered'], ['6&ndash;10 wks', 'To first working module'], ['Audit', 'Before any retainer'], ['4.9/5', 'Client rating']],
+  trust: [['250+', 'Projects delivered'], ['6&ndash;10 wks', 'To first working module'], ['Audit', 'Before any retainer'], ['GST', 'Registered business, Kerala']],
 });
 
 let body = '';

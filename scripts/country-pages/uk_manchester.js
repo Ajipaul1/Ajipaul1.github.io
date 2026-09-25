@@ -73,7 +73,7 @@ s = L.setHero(s, {
   sub: 'Stock, works orders, subcontract operations, purchasing and finance in one system &mdash; integrated with the Xero or Sage you already run, MTD-ready, hosted in AWS London. We are a remote engineering team, we say so up front, and every engagement starts with an audit of how your orders actually move.',
   ghostHref: '#mcr-floor', ghostText: 'See how it maps to your floor &darr;',
   features: ['\u{1F3ED} Works Orders &amp; MRP', '\u{1F501} Subcontract Tracking', '\u{1F1EC}\u{1F1E7} AWS London'],
-  trust: [['250+', 'Projects delivered'], ['6&ndash;10 wks', 'To first working module'], ['Audit', 'Before any retainer'], ['4.9/5', 'Client rating']],
+  trust: [['250+', 'Projects delivered'], ['6&ndash;10 wks', 'To first working module'], ['Audit', 'Before any retainer'], ['GST', 'Registered business, Kerala']],
 });
 
 let body = '';

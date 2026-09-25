@@ -67,7 +67,7 @@ s = L.setHero(s, {
   sub: 'Job, time and equipment capture that works offline on a site in Aberdeen; batch and lot traceability for food and drink; stock and works orders for manufacturers across the central belt &mdash; all feeding one system that talks to your Xero or Sage. Remote team, audit first, data hosted in the UK.',
   ghostHref: '#sco-two', ghostText: 'Two cities, two problems &darr;',
   features: ['\u{1F6E0}️ Offline Field Capture', '\u{1F4E6} Batch &amp; Lot Traceability', '\u{1F1EC}\u{1F1E7} AWS London'],
-  trust: [['250+', 'Projects delivered'], ['6&ndash;10 wks', 'To first working module'], ['Audit', 'Before any retainer'], ['4.9/5', 'Client rating']],
+  trust: [['250+', 'Projects delivered'], ['6&ndash;10 wks', 'To first working module'], ['Audit', 'Before any retainer'], ['GST', 'Registered business, Kerala']],
 });
 
 let body = '';

@@ -47,7 +47,7 @@ s = L.setHero(s, {
   sub: 'TechAuditPros designs and builds custom ERP systems for US small and mid-size businesses &mdash; one system of record for inventory, orders, purchasing, production and finance, integrated with the QuickBooks, Shopify, Stripe and Salesforce accounts you already run. One agreed monthly fee, a dedicated engineering team, source code yours.',
   ghostHref: '#erp-modules', ghostText: 'See what’s included &darr;',
   features: ['\u{1F468}‍\u{1F4BB} Dedicated Engineering Team', '\u{1F1FA}\u{1F1F8} US Data Residency', '\u{1F4BB} You Own the Code'],
-  trust: [['250+', 'Projects delivered'], ['No lock-in', 'Month to month'], ['6&ndash;10 wks', 'To first working module'], ['4.9/5', 'Client rating']],
+  trust: [['250+', 'Projects delivered'], ['No lock-in', 'Month to month'], ['6&ndash;10 wks', 'To first working module'], ['GST', 'Registered business, Kerala']],
 });
 
 let body = '';

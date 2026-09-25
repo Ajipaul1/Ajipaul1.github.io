@@ -178,7 +178,7 @@ const ACT_ONE = [
   '    <div>',
   head('01', 'One becomes many', 'Kerala searches for one expert. This is what that one person looks like when it is a team.', 'The search data for this state is unusually clear: people want a freelance SEO expert in Kerala, not an agency. We think that instinct is right about the important thing &mdash; you want a person, not an account manager &mdash; and wrong about the arithmetic. Real search work today is a developer&rsquo;s job as often as a marketer&rsquo;s, and for Kerala&rsquo;s producers it very often turns out to be a systems job too. So we kept the person, and put a team behind them.', true),
   '      <ul class="ker-facts">',
-  '        <li><b>250+</b> projects delivered</li><li><b>128+</b> active clients</li><li><b>16</b> countries served</li><li><b>4.9/5</b> client rating</li>',
+  '        <li><b>45 days</b> shipyard ERP, start to live</li><li><b>19</b> role desks live</li><li><b>3</b> client systems live</li><li><b>GST</b> registered in Kerala</li>',
   '      </ul>',
   '      <div class="ker-cta-row"><a class="ker-btn" href="__WA__" target="_blank" rel="noopener">Start on WhatsApp</a><a class="ker-btn ghost" href="#ker-founder">Meet the person first &darr;</a></div>',
   '    </div>',

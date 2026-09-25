@@ -58,10 +58,10 @@ const hero = `
                 <div class="hero-feature-item">\u{1F513} No Long-Term Contract</div>
             </div>
             <div class="trust-strip">
-                <div class="trust-item"><span class="num">250+</span><span class="lbl">Projects delivered</span></div>
-                <div class="trust-item"><span class="num">128+</span><span class="lbl">Active clients</span></div>
-                <div class="trust-item"><span class="num">16</span><span class="lbl">Countries served</span></div>
-                <div class="trust-item"><span class="num">4.9/5</span><span class="lbl">Client rating</span></div>
+                <div class="trust-item"><span class="num">45 days</span><span class="lbl">Shipyard ERP, first line to live</span></div>
+                <div class="trust-item"><span class="num">19</span><span class="lbl">Role desks live at the yard</span></div>
+                <div class="trust-item"><span class="num">3</span><span class="lbl">Client systems live today</span></div>
+                <div class="trust-item"><span class="num">GST</span><span class="lbl">Registered business, Kerala</span></div>
             </div>
         </div>
     </div>
@@ -80,9 +80,9 @@ s = s.replace(/rotateText\('heroRotate', \[[\s\S]*?\], 2600, 0\);/, `rotateText(
     ], 2600, 0);`);
 s = s.replace(/rotateText\('heroEyebrowRotate', \[[\s\S]*?\], 3200, 1200\);/, `rotateText('heroEyebrowRotate', [
         'AI-Native Engineering Team — Serving the United Kingdom',
-        '250+ Projects Delivered',
+        '45-Day Shipyard ERP, Live',
         'Pricing scoped on a call',
-        '4.9/5 Client Rating',
+        'GST-Registered in Kerala, India',
         'London &bull; Manchester &bull; Leeds &bull; Bristol'
     ], 3200, 1200);`);
 L.must(s, 'Best AI Developers for Britain.', 1); L.must(s, 'Serving the United Kingdom', 2);
@@ -228,9 +228,9 @@ body += L.promise({
 
 body += `<section class="tap-numbers-section" id="results">
     <div class="container numbers-grid">
-        <div class="number-stat-item"><div class="num">205%</div><div class="label">Traffic growth &mdash; Canadian appliance client, 8 months</div></div>
-        <div class="number-stat-item"><div class="num">180%</div><div class="label">Traffic growth &mdash; US HVAC client, 6 months</div></div>
-        <div class="number-stat-item"><div class="num">97%</div><div class="label">Client retention rate</div></div>
+        <div class="number-stat-item"><div class="num">45 days</div><div class="label">Viraat Marine ERP, first line to live</div></div>
+        <div class="number-stat-item"><div class="num">19</div><div class="label">Role desks the shipyard works from</div></div>
+        <div class="number-stat-item"><div class="num">38</div><div class="label">Database tables behind them</div></div>
         <div class="number-stat-item"><div class="num">Month to month</div><div class="label">No long-term contract, stop any time</div></div>
     </div>
 </section>
@@ -238,34 +238,33 @@ body += `<section class="tap-numbers-section" id="results">
 <section class="tap-cases-section">
     <div class="container">
         <div class="section-head">
-            <p class="eyebrow">Case Studies</p>
-            <h2>Real engagements, real numbers &mdash; from our other markets.</h2>
-            <p class="us-lead">We are open about this: the UK set is new, so every figure below comes from a delivered engagement in North America or Australia rather than a British client. Ask us to walk through any of them on the call, including the monthly reporting you would get.</p>
+            <p class="eyebrow">Proof you can open</p>
+            <h2>Live systems, not screenshots.</h2>
         </div>
         <div class="cases-grid">
             <div class="case-card">
-                <span class="case-tag">\u{1F1E8}\u{1F1E6} Canada &middot; Appliance retailer</span>
-                <h3>Organic traffic growth</h3>
-                <div class="case-stat-row"><span>Traffic increase</span><strong>+205%</strong></div>
-                <div class="case-stat-row"><span>Keywords ranked</span><strong>+460</strong></div>
-                <div class="case-stat-row"><span>Timeframe</span><strong>8 months</strong></div>
-                <a class="case-card-link" href="#contact">Ask About This Project &rarr;</a>
+                <span class="case-tag">🇮🇳 Kerala · Shipyard</span>
+                <h3>Viraat Marine custom ERP</h3>
+                <div class="case-stat-row"><span>Built in</span><strong>45 days</strong></div>
+                <div class="case-stat-row"><span>Role desks</span><strong>19</strong></div>
+                <div class="case-stat-row"><span>Database tables</span><strong>38</strong></div>
+                <a class="case-card-link" href="/results/viraat-marine-erp/">Read the case study →</a>
             </div>
             <div class="case-card">
-                <span class="case-tag">\u{1F1FA}\u{1F1F8} USA &middot; HVAC business</span>
-                <h3>Local rank dominance</h3>
-                <div class="case-stat-row"><span>Traffic increase</span><strong>+180%</strong></div>
-                <div class="case-stat-row"><span>Keywords ranked</span><strong>+320</strong></div>
-                <div class="case-stat-row"><span>Timeframe</span><strong>6 months</strong></div>
-                <a class="case-card-link" href="#contact">Ask About This Project &rarr;</a>
+                <span class="case-tag">🇮🇳 Kerala · Power infrastructure</span>
+                <h3>Telgo Power Projects website and staff app</h3>
+                <div class="case-stat-row"><span>Company website</span><strong>Live</strong></div>
+                <div class="case-stat-row"><span>Staff app</span><strong>Live</strong></div>
+                <div class="case-stat-row"><span>Built</span><strong>May–Jul 2026</strong></div>
+                <a class="case-card-link" href="https://telgopowerprojects.com/" target="_blank" rel="noopener">telgopowerprojects.com →</a>
             </div>
             <div class="case-card">
-                <span class="case-tag">\u{1F1E6}\u{1F1FA} Australia &middot; E-commerce</span>
-                <h3>Revenue growth optimisation</h3>
-                <div class="case-stat-row"><span>Traffic increase</span><strong>+165%</strong></div>
-                <div class="case-stat-row"><span>Top-3 keywords</span><strong>+380</strong></div>
-                <div class="case-stat-row"><span>Timeframe</span><strong>7 months</strong></div>
-                <a class="case-card-link" href="#contact">Ask About This Project &rarr;</a>
+                <span class="case-tag">🇮🇳 Kochi · Our own sales team</span>
+                <h3>TechAuditPros staff app</h3>
+                <div class="case-stat-row"><span>Calls, chat, quotes</span><strong>One phone app</strong></div>
+                <div class="case-stat-row"><span>Live since</span><strong>Sep 2026</strong></div>
+                <div class="case-stat-row"><span>Built</span><strong>In-house</strong></div>
+                <a class="case-card-link" href="/results/">See all our work →</a>
             </div>
         </div>
     </div>

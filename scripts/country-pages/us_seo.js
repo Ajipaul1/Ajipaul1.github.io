@@ -47,7 +47,7 @@ s = L.setHero(s, {
   sub: 'TechAuditPros runs technical SEO, local SEO, content and AI-visibility optimization (AEO/GEO) for US small and mid-size businesses &mdash; built on real US search data, engineered by the same team that builds your website, and reported every month in plain English. One agreed monthly fee, no long-term contract.',
   ghostHref: '#seo-deliverables', ghostText: 'See what’s included &darr;',
   features: ['\u{1F4CA} Monthly Plain-English Report', '\u{1F513} No Long-Term Contract', '\u{1F6AB} No Paid Links, Ever'],
-  trust: [['250+', 'Projects delivered'], ['one agreed monthly fee', 'Flat rate/mo, all-in'], ['4&ndash;8 wks', 'To first ranking movement'], ['4.9/5', 'Client rating']],
+  trust: [['250+', 'Projects delivered'], ['one agreed monthly fee', 'Flat rate/mo, all-in'], ['4&ndash;8 wks', 'To first ranking movement'], ['GST', 'Registered business, Kerala']],
 });
 
 let body = '';
@@ -100,11 +100,11 @@ body += L.costGrid('seo-cost', 'Pricing', 'What SEO services cost in the US &mda
   { tag: 'Freelancer or consultant', num: 'US$100&ndash;$300', sub: 'Per hour, or fixed-price projects', items: ['Good for a one-time audit or strategy document', 'Rarely includes engineering, content and local together', 'Capacity limits how much gets done each month', 'Continuity depends on one person’s availability'] },
 ], 'Third-party ranges reflect commonly quoted US market pricing and vary with scope. Our rate is fixed in writing before work starts.', true);
 
-body += L.statRow('seo-proof', 'Real Results', 'Real engagements, real numbers.', 'Figures from actual client work &mdash; not projections.', [
-  ['+180%', 'Organic traffic growth for a US HVAC business in 6 months'],
-  ['+320', 'Keywords ranked for the same US client'],
-  ['+205%', 'Traffic growth for a Canadian appliance retailer in 8 months'],
-  ['97%', 'Client retention rate across our engagements'],
+body += L.statRow('seo-proof', 'What you can hold us to', 'Four things every SEO engagement includes.', 'Written into the agreement, not promised on a call.', [
+  ['Semrush', 'SEO certification held by the engineer who leads your account'],
+  ['Your data', 'Every plan starts from your own Search Console, not a template'],
+  ['Weekly', 'Crawl, index and ranking check on the pages that earn money'],
+  ['Month to month', 'No long-term contract; you keep every change we make'],
 ], false);
 
 body += L.promise({

@@ -462,8 +462,8 @@ s = L.setFinalCta(s, 'Want one system for your yard, plant or fleet? Let&rsquo;s
 
 // footer: global line
 s = L.replaceBetween(s, '<div class="footer-cities">', '<div class="footer-bottom">', `
-            <h3>Serving Businesses in 16 Countries</h3>
-            <p class="footer-cities-list">Canada &bull; United States &bull; United Kingdom &bull; India &bull; Australia &bull; United Arab Emirates &bull; and clients in ten more, remotely, from Kochi</p>
+            <h3>Serving Businesses in Six Markets</h3>
+            <p class="footer-cities-list">Canada &bull; United States &bull; United Kingdom &bull; India &bull; Australia &bull; United Arab Emirates, remotely, from Kochi</p>
         </div>
         `, { keepStart: true, keepEnd: true });
 
