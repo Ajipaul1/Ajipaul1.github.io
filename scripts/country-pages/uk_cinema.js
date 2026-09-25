@@ -117,7 +117,7 @@ const ACTS = [
     n: '06', kind: 'map', tone: 'light',
     label: 'Act six',
     title: 'Four UK markets, four different problems.',
-    lede: 'We work remotely from Kochi for clients across the United Kingdom. Each of these pages is written for what that place actually asks us for &mdash; not the same page with the city name swapped.',
+    lede: 'We work remotely from Kerala for businesses across the United Kingdom. Each of these pages is written for what that place actually asks us for &mdash; not the same page with the city name swapped.',
     shots: [
       { slug: 'uk-london-river-and-bridge', cap: 'London', sub: 'The City, the Wharf, and the industrial belt &mdash; and they need different software.', href: '/uk/london/', alt: 'The Thames and a London bridge with the city behind' },
       { slug: 'uk-manchester-red-brick-street', cap: 'Manchester', sub: 'A broad production base: textiles, food, plastics, fabrication, distribution round the M60.', href: '/uk/manchester/', alt: 'Manchester street lined with tall red-brick buildings' },

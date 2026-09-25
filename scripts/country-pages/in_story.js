@@ -85,7 +85,7 @@ const KERALA = {
   panels: [
     { slug: 'in-kerala-green-road', cap: 'We can meet you', sub: 'Kochi, Ernakulam, Kakkanad, Thrippunithura &mdash; and reachable across Kerala. For the first conversation about a system that will run your business, that matters.', alt: 'A road through green Kerala countryside' },
     { slug: 'in-working-a-machine-textiles', cap: 'We know the businesses here', sub: 'Textiles and garments, spices and food processing, marine exports, tourism, construction, ayurveda. The production layer differs by sector; the system of record does not.', alt: 'Working a machine in a textile workshop' },
-    { slug: 'uk-london-aerial-skyline', cap: 'Built to a standard set abroad', sub: 'The same team delivers for clients in the US, Canada, the UK and the Gulf. Kerala clients get that standard without the distance premium.', alt: 'Aerial view of the London skyline' },
+    { slug: 'uk-london-aerial-skyline', cap: 'Built to a standard set abroad', sub: 'The same team builds for businesses in the US, Canada, Australia, the UAE and the UK. Kerala businesses get that standard without the distance premium.', alt: 'Aerial view of the London skyline' },
   ],
 };
 const COST = {

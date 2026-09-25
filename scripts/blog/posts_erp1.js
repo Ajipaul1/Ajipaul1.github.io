@@ -150,7 +150,7 @@ module.exports = [
 <li>Phase the rollout: one module, one department, one site first.</li>
 <li>Test with real transactions and real people; keep a written list of what broke and what was fixed.</li>
 <li>Choose a go-live date in your quietest period and staff the first two weeks after it heavily.</li>
-<li>Keep the same team after go-live. The people who built it fix it fastest &mdash; which is why our clients keep the same team through the "run" phase rather than being handed to a support queue.</li>
+<li>Keep the same team after go-live. The people who built it fix it fastest &mdash; which is why we keep the same team through the "run" phase rather than being handed to a support queue.</li>
 </ul>
 <p>Not sure the project is right for you yet? Our <a href="/blog/how-to-choose-erp-software.html">ERP buyer's guide</a> covers how to evaluate custom, cloud and off-the-shelf options before you commit to any implementation.</p>`,
       figure: { img: 'istock-1313265074-boardroom-team-through-glass-dark.jpg', alt: 'Leadership team meeting about an ERP project in a boardroom', w: 612, h: 408, cap: 'Implementations succeed when someone on the business side owns the decisions.' } },
@@ -194,7 +194,7 @@ module.exports = [
 <p>A close cousin, <strong>MRP II</strong> (manufacturing resource planning), extended the original MRP with capacity planning and shop-floor control. Modern manufacturing ERP includes all of it.</p>`,
       figure: { img: 'istock-2189585598-electronics-factory-engineers-laptop.jpg', alt: 'Engineers checking component inventory against a build plan on a laptop', w: 612, h: 344, cap: 'MRP is arithmetic: demand, minus stock, exploded through the BOM, becomes a buy list and a build list.' } },
     { h2: 'What a Small Manufacturer Actually Needs', html: `
-<p>Across the small manufacturers and job shops we have worked with &mdash; metal fabrication, electronics assembly, food and beverage, custom furniture, packaging &mdash; the same five capabilities decide whether the system is worth having:</p>
+<p>Across small manufacturers and job shops &mdash; metal fabrication, electronics assembly, food and beverage, custom furniture, packaging &mdash; the same five capabilities decide whether the system is worth having:</p>
 <div class="article-checklist">
 <h3>The non-negotiable five</h3>
 <ol>

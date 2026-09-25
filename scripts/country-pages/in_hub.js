@@ -196,7 +196,7 @@ body += `<section class="tap-pillars-section" id="services">
             <div class="erp-benefit">
                 <div class="erp-benefit-icon">\u{1F310}</div>
                 <h3>Built to a standard set abroad</h3>
-                <p>The same team delivers for clients in the US, Canada, the UK and the Gulf. Kerala clients get that standard without the distance premium.</p>
+                <p>The same team builds for businesses in the US, Canada, Australia, the UAE and the UK. Kerala businesses get that standard without the distance premium.</p>
             </div>
         </div>
     </div>
