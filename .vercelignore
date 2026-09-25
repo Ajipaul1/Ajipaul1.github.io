@@ -7,3 +7,24 @@ ai_context/
 archive/
 scratch/
 supabase/
+# Working files that no page requests (2026-09-25 audit: they were public and indexable on the live domain)
+CLAUDE.md
+README.md
+CNAME
+outreach_templates.txt
+seo_prospecting_leads.csv
+supabase_schema.sql
+google_search_operators.txt
+fix_pages.py
+fix_seo.js
+minify.js
+threaded_server.py
+audit-1.png
+audit-report.webp
+competitors.png
+results-graph.png
+shared-roadmap.webp
+technical-gap.webp
+.agents/
+.qodo/
+.github/

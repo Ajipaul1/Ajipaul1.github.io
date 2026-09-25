@@ -1,8 +1,5 @@
-# This tells all search engines (Google, Bing, etc.) they are allowed to scan the site
+# techauditpros.com: every crawler may read every page (search and AI answer engines alike)
 User-agent: *
 Allow: /
 
-# This tells them where to find your map
 Sitemap: https://techauditpros.com/sitemap.xml
-
-# Demo line for Kochi page check
