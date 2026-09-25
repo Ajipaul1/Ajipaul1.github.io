@@ -75,7 +75,7 @@ s = s.replace(/rotateText\('heroRotate', \[[\s\S]*?\], 2600, 0\);/, `rotateText(
         'UK ERP, Web &amp; SEO.',
         'Best AI Developers for Britain.',
         'Trusted ERP Partner in the UK.',
-        'Full-Spectrum SEO Experts.',
+        'SEO, AEO &amp; GEO.',
         'AI-Native Web Development.'
     ], 2600, 0);`);
 s = s.replace(/rotateText\('heroEyebrowRotate', \[[\s\S]*?\], 3200, 1200\);/, `rotateText('heroEyebrowRotate', [

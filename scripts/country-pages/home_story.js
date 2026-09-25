@@ -55,14 +55,17 @@ const ACTS = [
   {
     n: 'B', kind: 'doors', tone: 'dark',
     label: 'Where the work goes',
-    title: 'Three markets with their own pages, because they are not the same job.',
-    lede: 'A US importer, a UK manufacturer and a Canadian distributor ask us for genuinely different things &mdash; different compliance, different buyers, different software. Each market has a page written for it rather than the same page with the country swapped.',
+    title: 'Six markets with their own pages, because they are not the same job.',
+    lede: 'A US importer, a Canadian distributor, an Australian manufacturer, a Dubai trading house, an Indian exporter and a UK firm need genuinely different things &mdash; different tax, different buyers, different software. Each market has a page written for it rather than the same page with the country swapped.',
     shots: [
       { slug: 'home-new-york-skyline-golden-hour', cap: 'United States', sub: 'Multi-state operations, sales tax by jurisdiction, and buyers who compare you against agencies charging several times more.', href: '/us/', go: 'United States' },
-      { slug: 'uk-london-skyline-night-water', cap: 'United Kingdom', sub: 'Making Tax Digital, UK GAAP, post-Brexit customs and duty, hosted in an AWS London account you own.', href: '/uk/', go: 'United Kingdom' },
       { slug: 'home-toronto-cn-tower-night', cap: 'Canada', sub: 'GST, HST and PST by province, bilingual requirements where they apply, and data kept in a Canadian region.', href: '/ca/', go: 'Canada' },
+      { slug: 'au-sydney-harbour-blue-sky', cap: 'Australia', sub: 'GST and BAS, Single Touch Payroll, and hosting in an AWS Sydney account you own.', href: '/au/', go: 'Australia' },
+      { slug: 'home-dubai-downtown-cityscape', cap: 'UAE &amp; Dubai', sub: 'VAT and Corporate Tax, WPS payroll, and e-invoicing built in rather than bolted on.', href: '/ae/', go: 'UAE' },
+      { slug: 'in-mumbai-across-the-water', cap: 'India', sub: 'GST e-invoicing and e-way bills, the step up from Tally or Zoho, and prices in rupees.', href: '/in/', go: 'India' },
+      { slug: 'uk-london-skyline-night-water', cap: 'United Kingdom', sub: 'Making Tax Digital, UK GAAP, post-Brexit customs and duty, hosted in an AWS London account you own.', href: '/uk/', go: 'United Kingdom' },
     ],
-    note: 'Plus project work across sixteen countries. If your market is not one of the three above, the engagement runs the same way &mdash; the compliance layer is what changes.',
+    note: 'If your market is not one of these six, the engagement runs the same way &mdash; the compliance layer is what changes.',
   },
   {
     n: 'C', kind: 'place', tone: 'light',

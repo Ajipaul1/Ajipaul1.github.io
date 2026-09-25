@@ -223,7 +223,7 @@ function setRotatePhrases(s, country, currencyLine, cities, ctry2) {
         '${country} ERP, Web &amp; SEO.',
         'Best AI Developers for ${ctry2}.',
         'Trusted ERP Partner in ${ctry2}.',
-        'Full-Spectrum SEO Experts.',
+        'SEO, AEO &amp; GEO.',
         'AI-Native Web Development.'
     ], 2600, 0);`);
   s = s.replace(/rotateText\('heroEyebrowRotate', \[[\s\S]*?\], 3200, 1200\);/, `rotateText('heroEyebrowRotate', [

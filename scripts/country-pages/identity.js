@@ -12,7 +12,7 @@
  *      GSTIN now finds a different address, which is worse than having no address at all.
  *
  *   2. /results/ claimed "a registered office at Infopark Phase 1" and "250+ projects in 16
- *      countries". It is one engineer and a handful of projects. The true version is also the
+ *      countries". It is one team and a handful of projects. The true version is also the
  *      stronger one: the outreach emails say "sole developer" precisely because that is unusual,
  *      and a prospect who reads both notices the contradiction.
  *

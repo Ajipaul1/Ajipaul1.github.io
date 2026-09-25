@@ -44,7 +44,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Digital-payment/ERP-for-retail content, India-team storytelling, small-business digitization blogs, any "we understand real businesses" narrative.
 
-**Used on:** /us/seo-services/; /us/website-development/ (added 2026-09-03)
+**Used on:** /us/seo-services/; /us/website-development/; /au/website-development/; /uk/london/; /uk/manchester/; /uk/seo-services/; /uk/website-development/ (added 2026-09-03)
 
 ---
 
@@ -78,7 +78,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** "Humans with AI" content (matches the honest AI positioning), enterprise-AI adoption blog, about-our-AI-workflow sections.
 
-**Used on:** /blog/is-seo-dead.html; /blog/seo-content-writing.html (added 2026-09-03)
+**Used on:** /blog/is-seo-dead.html; /blog/seo-content-writing.html; /uk/seo-services/ (added 2026-09-03)
 
 ---
 
@@ -129,7 +129,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Enterprise/board-level content, ERP decision-maker sections, case-study or governance storytelling.
 
-**Used on:** /blog/erp-implementation-guide.html; /blog/how-to-choose-a-web-development-company.html; /blog/how-to-choose-erp-software.html (added 2026-09-03)
+**Used on:** /blog/erp-implementation-guide.html; /blog/how-to-choose-a-web-development-company.html; /blog/how-to-choose-erp-software.html; /uk/london/ (added 2026-09-03)
 
 ---
 
@@ -163,7 +163,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Testimonial/leadership sections, "who you'll work with" content, service-page trust blocks.
 
-**Used on:** /blog/what-is-crm-software.html; /blog/erp-vs-crm.html; /blog/seo-vs-sem.html; /us/seo-services/ (added 2026-09-03)
+**Used on:** /blog/what-is-crm-software.html; /blog/erp-vs-crm.html; /blog/seo-vs-sem.html; /us/seo-services/; /uk/scotland/; /uk/seo-services/ (added 2026-09-03)
 
 ---
 
@@ -180,7 +180,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** SEO-audit and analytics content, research-methodology sections, data-driven-decisions blog posts.
 
-**Used on:** /blog/what-are-backlinks.html; /blog/what-is-an-seo-audit.html; /blog/what-is-seo.html; /us/seo-services/ (added 2026-09-03)
+**Used on:** /blog/what-are-backlinks.html; /blog/what-is-an-seo-audit.html; /blog/what-is-seo.html; /us/seo-services/; /uk/seo-services/ (added 2026-09-03)
 
 ---
 
@@ -316,7 +316,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** "Dedicated engineer" trust sections (matches the core promise), team pages, support/contact blocks.
 
-**Used on:** /blog/how-to-make-a-website-mobile-friendly.html; /blog/web-application-vs-website.html; /blog/what-is-cloud-erp.html; /us/ (added 2026-09-03)
+**Used on:** /blog/how-to-make-a-website-mobile-friendly.html; /blog/web-application-vs-website.html; /blog/what-is-cloud-erp.html; /us/; /uk/manchester/; /uk/scotland/ (added 2026-09-03)
 
 ---
 
@@ -367,7 +367,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** MANUFACTURING ERP content (the planned vertical blog post), factory case studies, operations-automation sections.
 
-**Used on:** /blog/erp-system-examples.html; /blog/manufacturing-erp-small-manufacturers.html; /us/erp/ (added 2026-09-03)
+**Used on:** /blog/erp-system-examples.html; /blog/manufacturing-erp-small-manufacturers.html; /us/erp/; /au/erp/; /uk/erp/; /uk/manchester/; /uk/scotland/ (added 2026-09-03)
 
 ---
 
@@ -435,7 +435,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** HEALTHCARE vertical content (if we target healthcare ERP/software), industry-solutions sections.
 
-**Used on:** /blog/erp-system-examples.html; /us/erp/; /us/seo-services/ (added 2026-09-03)
+**Used on:** /blog/erp-system-examples.html; /us/erp/; /us/seo-services/; /au/erp/; /uk/erp/ (added 2026-09-03)
 
 ---
 
@@ -469,7 +469,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Manufacturing/electronics ERP content, factory-automation posts, industry pages.
 
-**Used on:** /blog/manufacturing-erp-small-manufacturers.html; /us/erp/ (added 2026-09-03)
+**Used on:** /blog/manufacturing-erp-small-manufacturers.html; /us/erp/; /au/erp/; /uk/erp/; /uk/london/; /uk/manchester/; /uk/scotland/ (added 2026-09-03)
 
 ---
 
@@ -486,7 +486,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Consulting/discovery-call content, onboarding-process sections, B2B services storytelling.
 
-**Used on:** /blog/what-is-crm-software.html; /blog/erp-vs-crm.html; /blog/how-to-choose-a-web-development-company.html; /us/erp/ (added 2026-09-03)
+**Used on:** /blog/what-is-crm-software.html; /blog/erp-vs-crm.html; /blog/how-to-choose-a-web-development-company.html; /us/erp/; /au/erp/; /uk/erp/ (added 2026-09-03)
 
 ---
 
@@ -503,7 +503,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Systems-integration/ERP content, automation storytelling, hero accents on AI posts.
 
-**Used on:** /blog/web-application-vs-website.html; /us/website-development/ (added 2026-09-03)
+**Used on:** /blog/web-application-vs-website.html; /us/website-development/; /au/website-development/; /uk/website-development/ (added 2026-09-03)
 
 ---
 
@@ -612,7 +612,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** ERP needs-analysis / discovery-process sections, "how we scope your build" content, or a hero behind headline text. Strongest process-story image in the library.
 
-**Used on:** homepage (/) promise section; blog/what-is-erp-software-plain-english.html lead image; /blog/erp-implementation-guide.html; /blog/how-to-build-an-seo-strategy.html; /blog/how-to-choose-erp-software.html; /blog/how-to-design-a-website.html; /blog/what-is-erp-software-plain-english.html; /us/erp/ (added 2026-09-03)
+**Used on:** homepage (/) promise section; blog/what-is-erp-software-plain-english.html lead image; /blog/erp-implementation-guide.html; /blog/how-to-build-an-seo-strategy.html; /blog/how-to-choose-erp-software.html; /blog/how-to-design-a-website.html; /blog/what-is-erp-software-plain-english.html; /us/erp/; /au/erp/; /uk/erp/; /uk/manchester/ (added 2026-09-03)
 
 ---
 
@@ -629,7 +629,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Website-development / engineering-capability sections; pairs naturally with the smaller male/female-developer duo already in the library, but this one is high-res enough for big placements.
 
-**Used on:** /ca/website-development/ — "Real Engineers, Really Building" section; /blog/custom-website-vs-template.html; /blog/how-to-make-a-website-mobile-friendly.html; /blog/seo-content-writing.html (added 2026-09-03)
+**Used on:** /ca/website-development/ — "Real Engineers, Really Building" section; /blog/custom-website-vs-template.html; /blog/how-to-make-a-website-mobile-friendly.html; /blog/seo-content-writing.html; /au/erp/; /au/website-development/; /blog/website-design-vs-development.html; /uk/erp/ (added 2026-09-03)
 
 ---
 
@@ -646,7 +646,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Leadership/decision-maker facing sections, "for business owners" framings, or an about/vision block. Distinct mood from everything else in the library — use where a premium editorial feel is wanted.
 
-**Used on:** /blog/how-much-does-a-website-cost.html; /us/website-development/ (added 2026-09-03)
+**Used on:** /blog/how-much-does-a-website-cost.html; /us/website-development/; /au/erp/; /uk/london/; /uk/scotland/; /uk/seo-services/ (added 2026-09-03)
 
 ---
 
@@ -663,7 +663,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** "How we work with you" / review-and-approval process sections, proposal/planning content, team-collaboration blocks.
 
-**Used on:** /ca/seo-services/ — audit promise section (upgraded from the low-res team-huddle shot); /blog/what-is-an-seo-audit.html; /blog/what-is-hr-software.html (added 2026-09-03)
+**Used on:** /ca/seo-services/ — audit promise section (upgraded from the low-res team-huddle shot); /blog/what-is-an-seo-audit.html; /blog/what-is-hr-software.html; /au/; /au/website-development/; /blog/what-is-a-content-audit.html; /uk/; /uk/website-development/ (added 2026-09-03)
 
 ---
 
@@ -727,7 +727,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** "Who we serve" / small-business-owner-facing sections, or a Toronto/city-page supporting image alongside the street-scene photo above.
 
-**Used on:** /ca/toronto/ — "From Solo Owners to Growing GTA Teams" section; /blog/how-to-get-a-business-website.html (added 2026-09-03)
+**Used on:** /ca/toronto/ — "From Solo Owners to Growing GTA Teams" section; /blog/how-to-get-a-business-website.html; /uk/london/ (added 2026-09-03)
 
 ---
 
@@ -761,7 +761,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** "Needs analysis" / discovery-call / consultation moments on service pages (ERP needs-analysis step, SEO audit kickoff, etc.).
 
-**Used on:** /blog/how-to-choose-a-web-development-company.html; /blog/how-to-choose-erp-software.html (added 2026-09-03)
+**Used on:** /blog/how-to-choose-a-web-development-company.html; /blog/how-to-choose-erp-software.html; /blog/full-service-vs-diy-erp-agency-canada.html (added 2026-09-03)
 
 ---
 
@@ -804,7 +804,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Website-development-page "design" step (mirrors the ERP page's "Design" process step), or any "how we plan" section -- and it's face-free, so it's safe to use without needing model diversity/representation consideration.
 
-**Used on:** `/ca/website-development/` -- promise section ("You See the Design Before a Line of Code Gets Written"); blog/website-design-vs-development.html lead image; /blog/custom-website-vs-template.html; /blog/how-much-does-a-website-cost.html; /blog/how-to-design-a-website.html; /blog/how-to-get-a-business-website.html; /blog/seo-content-writing.html; /blog/what-is-a-content-strategy.html (added 2026-09-03)
+**Used on:** `/ca/website-development/` -- promise section ("You See the Design Before a Line of Code Gets Written"); blog/website-design-vs-development.html lead image; /blog/custom-website-vs-template.html; /blog/how-much-does-a-website-cost.html; /blog/how-to-design-a-website.html; /blog/how-to-get-a-business-website.html; /blog/seo-content-writing.html; /blog/what-is-a-content-strategy.html; /au/website-development/; /blog/website-design-vs-development.html; /uk/reading/; /uk/website-development/ (added 2026-09-03)
 
 ---
 
@@ -821,7 +821,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** SEO page's "monthly reporting" section, or ERP's "data before code" section as an alternate to the mentor-and-monitor photo already used there.
 
-**Used on:** /ca/seo-services/ — "Reporting You Can Actually Read" section; blog/what-is-a-content-audit.html lead image; /blog/how-to-build-an-seo-strategy.html; /blog/keyword-research-guide.html; /blog/on-page-vs-off-page-seo.html; /blog/title-tags-and-meta-descriptions.html; /blog/what-is-a-landing-page-conversion.html; /blog/what-is-seo.html; /blog/what-should-an-seo-report-include.html (added 2026-09-03)
+**Used on:** /ca/seo-services/ — "Reporting You Can Actually Read" section; blog/what-is-a-content-audit.html lead image; /blog/how-to-build-an-seo-strategy.html; /blog/keyword-research-guide.html; /blog/on-page-vs-off-page-seo.html; /blog/title-tags-and-meta-descriptions.html; /blog/what-is-a-landing-page-conversion.html; /blog/what-is-seo.html; /blog/what-should-an-seo-report-include.html; /blog/what-is-a-content-audit.html (added 2026-09-03)
 
 ---
 
@@ -855,7 +855,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** "Meet the team" / engineering-culture sections, anywhere you want to show real developers writing real code rather than a generic handshake photo. Pairs naturally with `female-developer-dual-monitors-colorful-office.jpg` (same shoot, reverse angle) for a two-image team spread.
 
-**Used on:** /blog/what-is-web-development.html (added 2026-09-03)
+**Used on:** /blog/what-is-web-development.html; /au/website-development/; /blog/website-design-vs-development.html; /uk/website-development/ (added 2026-09-03)
 
 ---
 
@@ -887,7 +887,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Leadership/founder-style sections, "about us," team/culture pages, anywhere the story is "one person leading, a team behind them." High resolution, portrait-oriented -- works well as a large hero-side or split-section image.
 
-**Used on:** `/ca/` &mdash; promise section ("Enterprise ERP, Engineered Around Your Business"), replacing the generic `erp_hero.webp` stock image.; /blog/what-is-erp-software-plain-english.html (added 2026-09-03)
+**Used on:** `/ca/` &mdash; promise section ("Enterprise ERP, Engineered Around Your Business"), replacing the generic `erp_hero.webp` stock image.; /blog/what-is-erp-software-plain-english.html; /blog/full-service-vs-diy-erp-agency-canada.html (added 2026-09-03)
 
 ---
 
@@ -904,7 +904,7 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** "How we work" / process / collaboration sections, small supporting imagery rather than a hero.
 
-**Used on:** /blog/on-page-vs-off-page-seo.html (added 2026-09-03)
+**Used on:** /blog/on-page-vs-off-page-seo.html; /blog/what-is-a-content-audit.html (added 2026-09-03)
 
 ---
 
@@ -919,4 +919,50 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 
 **Best used for:** Exactly the "walking a client through their audit/data findings" moment -- strong fit for ERP/technical-review/results-focused sections given TechAuditPros' actual work. High resolution, works large.
 
-**Used on:** `/ca/erp/` &mdash; new promise section ("We Sit Down With Your Data Before We Write a Line of Code"), bridging the advantages grid into the 5-step process.; /blog/manufacturing-erp-small-manufacturers.html; /blog/what-is-erp-software-plain-english.html (added 2026-09-03)
+**Used on:** `/ca/erp/` &mdash; new promise section ("We Sit Down With Your Data Before We Write a Line of Code"), bridging the advantages grid into the 5-step process.; /blog/manufacturing-erp-small-manufacturers.html; /blog/what-is-erp-software-plain-english.html; /au/; /au/website-development/; /uk/; /uk/website-development/ (added 2026-09-03)
+
+## au-sydney-harbour-blue-sky.jpg
+*Unsplash RXE3uXSIEeY (portrait 2400x3200), fetched 2026-09-25 via manifest_au.js*
+
+**What's in it:** Sydney Harbour Bridge filling the top of the frame, the Opera House small on the far shore, blue water and sky. Checked on a contact sheet.
+
+**Region:** AUSTRALIA, unmistakably. The library had no Australian photograph before this set.
+
+**Best used for:** Tall cards and doors that need "Australia" at a glance.
+
+**Used on:** / (homepage, "Where the work goes" door)
+
+## au-sydney-opera-house-bridge-sunset.jpg
+*Unsplash PjRnF3aYPeg (2400x1800), manifest_au.js*
+
+**What's in it:** Opera House and Harbour Bridge in silhouette against an orange sunset over dark water.
+
+**Region:** AUSTRALIA. **Best used for:** /au/ hero or closing band. **Used on:** (free)
+
+## au-sydney-opera-house-harbour-view.jpg
+*Unsplash qG2qPRyqPaQ (2400x1600), manifest_au.js*
+
+**What's in it:** Opera House sails in daylight with the Harbour Bridge behind, calm water in front.
+
+**Region:** AUSTRALIA. **Best used for:** /au/ service pages (ERP, web, SEO). **Used on:** (free)
+
+## au-sydney-harbour-bridge-opera-house.jpg
+*Unsplash 8SS6VX_mGqE (portrait 2400x3200), manifest_au.js*
+
+**What's in it:** Looking up at the underside of the Harbour Bridge from the harbour walk; Opera House and CBD towers across the water.
+
+**Region:** AUSTRALIA. **Best used for:** tall cards on /au/ pages. **Used on:** (free)
+
+## home-dubai-downtown-cityscape.jpg
+*Unsplash bVblbt3tGxM (portrait 2400x3200), manifest_home4.js*
+
+**What's in it:** Burj Khalifa over Downtown Dubai under a vivid teal sky, the fountain lake and towers below.
+
+**Region:** UAE / DUBAI. **Best used for:** homepage only (home_story.js refuses shared photos). **Used on:** / (homepage, "Where the work goes" door)
+
+## home-dubai-burj-khalifa-skyline.jpg
+*Unsplash Bu435tjPsvk (portrait 2400x3200), manifest_home4.js*
+
+**What's in it:** Burj Khalifa straight on, Dubai Mall and the lake at the base, clear blue sky.
+
+**Region:** UAE / DUBAI. **Best used for:** a future /ae/website-development/ page. **Used on:** (free)
