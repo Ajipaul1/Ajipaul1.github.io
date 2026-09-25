@@ -11,9 +11,10 @@
 //   open, no artefacts. WHAT THIS PAGE DOES ABOUT IT: a named live system you can open now · the search
 //   figures the site already publishes, with what was done and how long it took · what a client sees
 //   every month · verifiable credentials (real certificates) · where the work went · 8 FAQs.
-// RULES: only figures already published by the owner (homepage) or read from the ERP repository; clients
-//   of the search engagements stay anonymised as on the homepage; no price of ours; no photo shared with
-//   any other page (asserted against results_erp.js); reveal start states only under html.rs-on.
+// RULES (2026-09-25, owner): only work a visitor can open and check — the Viraat Marine ERP, the Telgo Power
+//   Projects website (credits us in its footer), our own staff app, real certificates. No anonymous percentages:
+//   the three "search engagements" (+205/180/165%) had no source and were removed. No price of ours; no photo
+//   shared with any other page (asserted against results_erp.js); reveal start states only under html.rs-on.
 //
 // SIGNATURE — "the letterbox": every act's photo plate opens from a thin horizontal slit to full height,
 //   the way a cinema screen opens, and a film-sprocket rail on the left lights act by act on desktop.
@@ -39,9 +40,8 @@ function img(slug, alt, sizes, cls, extra) {
 const P = {   // chosen on the contact sheet 2026-09-06: crane-silhouette is portrait (rejected for the hero), parcels-in-van shows retailer logos, washer-dryer-pair is a bare bathroom
   hero: 'res-tug-beside-cargo-ship',
   erp: 'res-cargo-ship-and-crane',
-  ca1: 'res-front-load-washer', ca2: 'res-toronto-autumn-street',
-  us1: 'res-technician-on-roof', us2: 'res-two-on-a-rooftop',
-  au1: 'res-parcels-on-rack', au2: 'res-warehouse-boxes',
+  tg1: 'res-shot-telgo-site', tg2: 'res-shot-telgo-site-phone',
+  tp1: 'res-shot-tap-app', tp2: 'lead-two-on-headsets-office',
   m1: 'res-analytics-laptop', m2: 'res-laptop-code-mug', m3: 'res-laptop-dim-light',
   band: 'res-toronto-aerial-autumn',
 };
@@ -54,20 +54,18 @@ const CERTS = [
   { f: 'digital-marketing-aji-paul.png', w: 315, h: 339, name: 'Digital Marketing', by: 'Certified course' },
 ];
 
-// the search engagements the homepage publishes (owner's figures, kept anonymised as there)
+// live work beyond the flagship — every item can be opened without asking us
 const CASES = [
-  { flag: '🇨🇦', where: 'Canada', who: 'Appliance repair &amp; retail', h: 'From page three to the phone ringing.', num: 205, pre: '+', suf: '%', numLabel: 'organic traffic in 8 months',
-    rows: [['Keywords ranking', '+460'], ['Timeframe', '8 months'], ['Work', 'Technical fixes, service &amp; suburb pages, reviews']],
-    did: ['Rebuilt service pages around how Ontario households actually search: brand + fault + suburb.', 'Fixed crawl paths, speed and structured data so the pages could be found before they could rank.', 'Monthly written report against the plan; Search Console shared from week one.'],
-    imgs: [[P.ca1, 'A row of front-loading washing machines'], [P.ca2, 'A tree-lined residential street in autumn']] },
-  { flag: '🇺🇸', where: 'United States', who: 'HVAC contractor', h: 'The season you must be found in.', num: 180, pre: '+', suf: '%', numLabel: 'organic traffic in 6 months',
-    rows: [['Keywords ranking', '+320'], ['Timeframe', '6 months'], ['Work', 'Local SEO, service pages, review programme']],
-    did: ['Local pack first: the profile, categories and reviews that decide who gets the emergency call.', 'Service and repair pages written for the two seasons the phone rings, not for a keyword list.', 'A page speed pass so mobile searchers on a hot day did not bounce.'],
-    imgs: [[P.us1, 'A technician in a hard hat walking across a rooftop of air-conditioning units'], [P.us2, 'Two technicians working on rooftop air-conditioning units']] },
-  { flag: '🇦🇺', where: 'Australia', who: 'E-commerce store', h: 'Categories that sell, not just products that exist.', num: 165, pre: '+', suf: '%', numLabel: 'organic traffic in 7 months',
-    rows: [['Top-3 keywords', '+380'], ['Timeframe', '7 months'], ['Work', 'Category architecture, product schema, speed']],
-    did: ['Category architecture rebuilt so the money pages carried the demand, with faceted URL bloat closed off.', 'Product schema and image work so listings showed price, stock and reviews in the results.', 'Core Web Vitals to green on the templates that mattered.'],
-    imgs: [[P.au1, 'A stack of cardboard shipping boxes inside a delivery van'], [P.au2, 'A large warehouse filled with boxes']] },
+  { flag: '🇮🇳', where: 'Kerala', who: 'Power infrastructure contractor', h: 'A power contractor&rsquo;s website that credits its builder.', num: 11, pre: '', suf: '', numLabel: 'weeks from first commit to the site as it stands',
+    rows: [['Website', 'telgopowerprojects.com'], ['Built', 'May to July 2026'], ['Credit', 'TechAuditPros, in the site footer']],
+    did: ['A company website for Telgo Power Projects, which lays underground cable, installs ring main units and tests power distribution networks across Kerala.', 'Pages for its expertise, projects, plant and capacity, and safety record: what a utility or developer checks before awarding work.', 'The live site credits TechAuditPros in its footer, which you can check yourself.'],
+    imgs: [[P.tg1, 'The Telgo Power Projects website home page'], [P.tg2, 'The Telgo Power Projects website on a phone']],
+    link: ['https://telgopowerprojects.com/', 'Open telgopowerprojects.com'] },
+  { flag: '🇮🇳', where: 'Kochi', who: 'Our own sales team', h: 'The app our own sales team runs on.', num: 60, pre: '', suf: '', numLabel: 'lessons in its built-in sales course, in English and Malayalam',
+    rows: [['Does', 'Calls, follow-ups, chat, quotes'], ['Works on', 'Any phone, as a Home Screen app'], ['Live since', 'September 2026']],
+    did: ['Calls, follow-ups, chat, quotes and notifications in one phone app, instead of a spreadsheet and three messaging apps.', 'A built-in sales course with quizzes, a final exam and a certificate, in English and Malayalam.', 'Built on the same stack as the ERPs we build for clients, so every feature is tested on our own team first.'],
+    imgs: [[P.tp1, 'The sign-in screen of the TechAuditPros staff app on a phone'], [P.tp2, 'Two people on headsets at their desks']],
+    link: ['https://app.techauditpros.com/', 'See the sign-in page'] },
 ];
 
 const MONTH = [
@@ -78,22 +76,22 @@ const MONTH = [
 ];
 
 const MARKETS = [
-  ['🇨🇦', 'Canada', '/ca/', 'Our best-converting market. Toronto and every province, remotely.'],
   ['🇺🇸', 'United States', '/us/', 'ERP, web and search for US owners who want one accountable team.'],
+  ['🇨🇦', 'Canada', '/ca/', 'ERP, web and search for Canadian firms, with GST, HST and PST handled by province.'],
+  ['🇦🇺', 'Australia', '/au/', 'Kerala is four and a half to five and a half hours behind Sydney: a real working overlap.'],
+  ['🇦🇪', 'United Arab Emirates', '/ae/', 'Dubai, Abu Dhabi and the free zones, ninety minutes behind Kerala.'],
+  ['🇮🇳', 'India', '/in/', 'Home. Kerala first, then Mumbai, Kolkata and the rest of the country.'],
   ['🇬🇧', 'United Kingdom', '/uk/', 'London, Manchester, Reading and Scotland pages, UK spelling and compliance.'],
-  ['🇮🇳', 'India', '/in/', 'Home. Kochi first, then Kerala, Mumbai, Kolkata and beyond.'],
-  ['🇦🇪', 'United Arab Emirates', '/blog/offshore-developer-center-dubai.html', 'Dubai and the free zones, the same time zone plus ninety minutes.'],
-  ['🇦🇺', 'Australia', '/blog/outsource-seo-services-au-tips.html', 'Kochi is four and a half to five and a half hours behind AEST: a real working overlap.'],
 ];
 
 const FAQS = [
-  { q: 'Are these results real?', a: `Yes. The shipyard ERP is a live system with a public sign-in page at <a href="${LIVE}" target="_blank" rel="noopener">erp.viraatmarine.com</a>, and every figure about it is read from its repository. The search figures are the ones we publish on our homepage, taken from each client&rsquo;s Search Console; the clients are not named here at their request, and the underlying reports are shown on a call.` },
-  { q: 'Why are the search clients not named?', a: 'Because they asked us not to. An appliance repair company and an HVAC contractor compete locally, and publishing what worked for them is publishing a playbook for their competitors. We name clients when they say yes, as Viraat Marine did, and otherwise show the numbers with the industry and the country.' },
+  { q: 'Are these results real?', a: `Yes, and you can check every one without asking us. The shipyard ERP has a public sign-in page at <a href="${LIVE}" target="_blank" rel="noopener">erp.viraatmarine.com</a> and every figure about it is read from its repository. The Telgo Power Projects website is live at <a href="https://telgopowerprojects.com/" target="_blank" rel="noopener">telgopowerprojects.com</a> and credits us in its footer.` },
+  { q: 'Why are there no search case studies with percentages?', a: 'Because we only publish work you can verify. TechAuditPros is a young business, and our search engagements are too recent for honest before-and-after numbers. When a client agrees to be named and the figures are in, they go on this page with the Search Console evidence.' },
   { q: 'Can I see the shipyard ERP live?', a: 'The sign-in page is public; the desks behind it hold the yard&rsquo;s own data and are not. On a call we share a screen and walk through the real system with the client&rsquo;s permission, then talk about which parts match your business.' },
   { q: 'What do I get every month if I work with you?', a: 'A staging URL you can open any week, a written report every month against a ninety-day plan, your own accounts opened in your name, and everything handed over if you stop. One agreed monthly fee, no long-term contract.' },
-  { q: 'Do you only work with shipyards and repair companies?', a: 'No. The pattern travels: any business with a workflow that crosses departments needs the same kind of system, and any business that gets found online needs the same kind of search work. Manufacturing, trade contractors, e-commerce, clinics and agencies are what we see most.' },
-  { q: 'Where is the team?', a: 'Kochi, Kerala, India, at Infopark Phase 1. Clients in Canada, the United States, the United Kingdom, India, Australia and the UAE, worked with remotely, with a real overlap of working hours in every one of those time zones.' },
-  { q: 'Do you sign NDAs?', a: 'Yes, before we see anything. It is also why some of the most interesting work we have done is not on this page.' },
+  { q: 'Do you only work with shipyards and power contractors?', a: 'No. The pattern travels: any business with a workflow that crosses departments needs the same kind of system, and any business that gets found online needs the same kind of search work. Manufacturers, contractors, distributors, e-commerce stores and agencies all run on the same building blocks.' },
+  { q: 'Where is the team?', a: 'In Kerala, India. The business is registered for GST in Ernakulam district (GSTIN 32CXYPP6750P1ZC) and run by its founder, Aji Paul. We work remotely with businesses in the United States, Canada, Australia, the UAE and the UK, with a daily overlap of working hours for calls.' },
+  { q: 'Do you sign NDAs?', a: 'Yes, before we see anything.' },
   { q: 'How do I start?', a: 'Book a free strategy call. We look at one real page or one real workflow with you, tell you where the leverage is, and send a written plan for the first ninety days. The findings are yours whether or not we ever speak again.' },
 ];
 
@@ -114,14 +112,14 @@ const HERO = `
   <div class="rs-hero-shade" aria-hidden="true"></div>
   <div class="wrap rs-hero-body">
     <p class="rs-eyebrow rs-rise" style="--d:.1s">Results &amp; case studies</p>
-    <h1 class="rs-rise" style="--d:.25s">The work, not the pitch. <span>A shipyard ERP you can open right now, and search engagements with the numbers attached.</span></h1>
-    <p class="rs-sub rs-rise" style="--d:.4s">Everything on this page is something we actually shipped. One system for a Kerala shipyard, live since summer 2026. Three search engagements on three continents, reported the way we report to clients: the figure, the timeframe, what was done.</p>
+    <h1 class="rs-rise" style="--d:.25s">The work, not the pitch. <span>A shipyard ERP, a power contractor&rsquo;s website, and the app our own team runs on. All live.</span></h1>
+    <p class="rs-sub rs-rise" style="--d:.4s">Everything on this page is something we actually shipped and you can open: an ERP that runs a Kerala shipyard, the website of a Kerala power contractor, and our own sales app. No anonymous percentages.</p>
     <div class="rs-hero-actions rs-rise" style="--d:.55s">
       <a class="rs-btn" href="${ERP_URL}">See the shipyard ERP</a>
       <a class="rs-btn ghost" href="${L.FORM}" target="_blank">Book a Free Strategy Call</a>
     </div>
     <ul class="rs-facts rs-rise" style="--d:.7s" aria-label="Company figures">
-      <li><b>45 days</b><span>shipyard ERP, start to live</span></li><li><b>19</b><span>role desks live</span></li><li><b>3</b><span>client systems live</span></li><li><b>38</b><span>tables behind that ERP</span></li><li><b>GST</b><span>registered in Kerala</span></li>
+      <li><b>45 days</b><span>shipyard ERP, start to live</span></li><li><b>19</b><span>role desks live</span></li><li><b>2</b><span>client systems live</span></li><li><b>38</b><span>tables behind that ERP</span></li><li><b>GST</b><span>registered in Kerala</span></li>
     </ul>
   </div>
 </section>
@@ -130,7 +128,7 @@ const HERO = `
 const ANSWER = `
 <section class="rs rs-answer" id="rs-answer" data-act="00">
   <div class="wrap">
-    <p><strong>TechAuditPros results:</strong> a custom ERP for Viraat Marine Shipyard in Kerala, built in 45 days and live at erp.viraatmarine.com, with 19 role desks, 38 database tables and a phone layout for the slipway; and search engagements that grew organic traffic by 205% for a Canadian appliance company in 8 months, 180% for a US HVAC contractor in 6 months and 165% for an Australian e-commerce store in 7 months. Across 250+ projects in 16 countries the team keeps 97% of its clients. Clients of the search work are anonymised at their request; the ERP is named with the client&rsquo;s permission.</p>
+    <p><strong>TechAuditPros results:</strong> a custom ERP for Viraat Marine Shipyard in Kerala, built in 45 days and live at erp.viraatmarine.com, with 19 role desks, 38 database tables and a phone layout for the slipway; the company website of Telgo Power Projects, a Kerala power-infrastructure contractor, at telgopowerprojects.com; and the phone app our own sales team works from. The ERP is named with the client&rsquo;s permission.</p>
   </div>
 </section>
 `;
@@ -157,7 +155,7 @@ const FLAGSHIP = `
 const SEARCH = `
 <section class="rs rs-search" id="rs-search" data-act="02">
   <div class="wrap">
-    ${head('02', 'Search &middot; three continents', 'Three businesses that are found now.', 'The figures we publish on our homepage, with what was actually done. Organic traffic from each client&rsquo;s Search Console; clients anonymised at their request, shown on a call.')}
+    ${head('02', 'More live work', 'Two more systems, both running now.', 'The Telgo website you can browse today; our own sales app you can see from its sign-in page.')}
     <div class="rs-cases">
       ${CASES.map((c, i) => `<article class="rs-case" style="--d:${i * 0.15}s">
         <div class="rs-dip"><figure class="l">${img(c.imgs[0][0], c.imgs[0][1], '(max-width:900px) 50vw, 420px')}</figure><figure class="r">${img(c.imgs[1][0], c.imgs[1][1], '(max-width:900px) 50vw, 420px')}</figure></div>
@@ -167,7 +165,7 @@ const SEARCH = `
           <div class="rs-big">${NUM(c)}<span>${c.numLabel}</span></div>
           <dl>${c.rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>
           <ul>${c.did.map(t => `<li>${t}</li>`).join('')}</ul>
-          <a class="rs-link" href="${L.FORM}" target="_blank">Ask about this engagement &rarr;</a>
+          <a class="rs-link" href="${c.link[0]}" target="_blank" rel="noopener">${c.link[1]} &nearr;</a>
         </div>
       </article>`).join('\n      ')}
     </div>
@@ -201,8 +199,8 @@ const VERIFY = `
       <ul class="rs-checks">
         <li><b>A live system.</b> The shipyard ERP&rsquo;s sign-in page is public at <a href="${LIVE}" target="_blank" rel="noopener">erp.viraatmarine.com</a>. Open it. It is the same system the yard signs into every morning.</li>
         <li><b>Real certificates.</b> The founder&rsquo;s Google Analytics, Google Ads, Semrush and digital marketing certificates are shown here as issued, not as badges we drew ourselves.</li>
-        <li><b>A public footprint.</b> <a href="https://linkedin.com/in/ajipaul-officia/" target="_blank" rel="noopener">LinkedIn</a>, <a href="https://github.com/Ajipaul1" target="_blank" rel="noopener">GitHub</a>, and a registered office at Infopark Phase 1, Kochi.</li>
-        <li><b>The rest, on a call.</b> Search Console for the engagements above, the ERP behind its sign-in, and references from clients who have agreed to be asked.</li>
+        <li><b>A public footprint.</b> <a href="https://linkedin.com/in/ajipaul-officia/" target="_blank" rel="noopener">LinkedIn</a>, <a href="https://github.com/Ajipaul1" target="_blank" rel="noopener">GitHub</a>, and a GST registration anyone can check: GSTIN 32CXYPP6750P1ZC, Ernakulam, Kerala.</li>
+        <li><b>The rest, on a call.</b> Search Console for this site, the ERP behind its sign-in, and a reference from a client where they agree to it.</li>
       </ul>
     </div>
     <div class="rs-certs" aria-label="Certificates">
@@ -215,16 +213,17 @@ const VERIFY = `
 const MAP = `
 <section class="rs rs-map" id="rs-map" data-act="05">
   <div class="wrap">
-    ${head('05', 'Where the work went', 'Sixteen countries, six with pages of their own.', 'The same team, the same monthly rhythm, in every one of these time zones.')}
+    ${head('05', 'Where we work', 'Six markets, each with a page of its own.', 'The same team, the same monthly rhythm, in every one of these time zones.')}
     <div class="rs-tiles">
       ${MARKETS.map(([f, n, h, p], i) => `<a class="rs-tile" href="${h}" style="--d:${i * 0.1}s"><span class="rs-tile-flag">${f}</span><h3>${n}</h3><p>${p}</p></a>`).join('\n      ')}
     </div>
   </div>
-  <div class="rs-band rs-drift">${img(P.band, 'Aerial view of a city skyline behind autumn trees', '100vw', 'rs-band-img')}<p>Built in Kochi. Read in Toronto, Houston, Manchester, Dubai and Sydney.</p></div>
+  <div class="rs-band rs-drift">${img(P.band, 'Aerial view of a city skyline behind autumn trees', '100vw', 'rs-band-img')}<p>Built in Kerala. Written for Houston, Toronto, Sydney, Dubai, Mumbai and Manchester.</p></div>
 </section>
 `;
 
 const CSS = `
+.rs-case dd{ overflow-wrap:anywhere; }
   /* ================= /results/ ================= */
   .rs{ position:relative; padding:clamp(60px,7vw,110px) 0; overflow-x:clip; background:var(--paper); color:var(--ink); }
   .rs .wrap{ width:min(1480px,92%); margin:0 auto; }
@@ -282,7 +281,7 @@ const CSS = `
   .rs-frame-bar em{ flex:1; margin-left:8px; font-style:normal; font-family:var(--font-mono); font-size:.72rem; color:rgba(255,255,255,.55); background:rgba(0,0,0,.25); border-radius:6px; padding:3px 10px; }
   .rs-flag-frame{ position:absolute; right:-6%; bottom:0; width:78%; }
   /* search */
-  .rs-cases{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  .rs-cases{ display:grid; grid-template-columns:repeat(2,1fr); gap:22px; max-width:1180px; }
   .rs-case{ background:var(--paper); border:1px solid var(--line); border-radius:16px; overflow:hidden; display:flex; flex-direction:column; }
   .rs-dip{ display:grid; grid-template-columns:1fr 1fr; gap:4px; aspect-ratio:2/1; }
   .rs-dip figure{ margin:0; overflow:hidden; } .rs-dip img{ width:100%; height:100%; object-fit:cover; }
@@ -362,15 +361,15 @@ const JS = `<script>
 let s = L.read('ca/erp/index.html');
 L.must(s, '<section class="tap-new-hero">', 1); L.must(s, '<!-- trust-strip-band:start -->', 1);
 
-const TITLE = 'Results & Case Studies: Real ERP, Web and SEO Work | TechAuditPros';
-const DESC = 'A shipyard ERP live at erp.viraatmarine.com, built in 45 days. Search engagements up 205%, 180% and 165% in Canada, the US and Australia. The work, the numbers, the timeframes.';
-s = L.setHead(s, { title: TITLE, desc: DESC, url: URL, hreflang: [{ lang: 'en', href: URL }, { lang: 'x-default', href: URL }] });
+const TITLE = 'Results: Live ERP, Website and App Work | TechAuditPros';
+const DESC = 'A shipyard ERP live at erp.viraatmarine.com, built in 45 days, and the Telgo Power Projects website. Live work you can open, not anonymous percentages.';
+s = L.setHead(s, { title: TITLE, desc: DESC, url: URL, hreflang: [] });   // no country alternates (scripts/seo/hreflang.js owns hreflang)
 s = L.replaceBetween(s, '<section class="tap-new-hero">', '<!-- trust-strip-band:start -->', RAIL + HERO, { keepStart: false, keepEnd: true });
 s = L.replaceBetween(s, '<!-- trust-strip-band:start -->', '<!-- trust-strip-band:end -->', '', { keepStart: false, keepEnd: false });
 if (s.includes('<!-- trust-strip-js:start -->') && s.includes('<!-- trust-strip-js:end -->')) s = L.replaceBetween(s, '<!-- trust-strip-js:start -->', '<!-- trust-strip-js:end -->', '', { keepStart: false, keepEnd: false });
 if (s.includes('<!-- trust-strip:start -->') && s.includes('<!-- trust-strip:end -->')) s = L.replaceBetween(s, '<!-- trust-strip:start -->', '<!-- trust-strip:end -->', '', { keepStart: false, keepEnd: false });   // its stylesheet block in <head>
 
-const BODY = [ANSWER, FLAGSHIP, SEARCH, MONTHLY, VERIFY, MAP, L.faqHtml('rs-faq', 'Questions about our results', 'Eight straight answers, including why some clients are not named.', FAQS)].join('\n');
+const BODY = [ANSWER, FLAGSHIP, SEARCH, MONTHLY, VERIFY, MAP, L.faqHtml('rs-faq', 'Questions about our results', 'Eight straight answers, including why there are no anonymous percentages here.', FAQS)].join('\n');
 s = L.setBody(s, BODY);
 s = L.setFinalCta(s, 'Let&rsquo;s look at one real page or one real workflow together.', 'Takes 60 seconds &middot; The findings are yours to keep &middot; No long-term contract');
 s = L.replaceBetween(s, '<div class="footer-cities">', '<div class="footer-bottom">', `
@@ -391,9 +390,8 @@ const COLLECTION = `    <script type="application/ld+json">
         "@type": "ItemList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "url": "${ERP_URL}", "name": ${L.jsonStr('Viraat Marine ERP: a shipyard run on one system')} },
-          { "@type": "ListItem", "position": 2, "name": ${L.jsonStr('Canadian appliance company: +205% organic traffic in 8 months')} },
-          { "@type": "ListItem", "position": 3, "name": ${L.jsonStr('US HVAC contractor: +180% organic traffic in 6 months')} },
-          { "@type": "ListItem", "position": 4, "name": ${L.jsonStr('Australian e-commerce store: +165% organic traffic in 7 months')} }
+          { "@type": "ListItem", "position": 2, "url": "https://telgopowerprojects.com/", "name": ${L.jsonStr('Telgo Power Projects: company website')} },
+          { "@type": "ListItem", "position": 3, "url": "https://app.techauditpros.com/", "name": ${L.jsonStr('TechAuditPros staff app: calls, chat, quotes and a sales course')} }
         ]
       }
     }

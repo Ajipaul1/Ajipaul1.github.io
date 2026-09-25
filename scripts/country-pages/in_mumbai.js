@@ -152,7 +152,7 @@ const ACT_LINK = [
   '  <div class="container mum-two">',
   '    <div>',
   head('01', 'The sea link', 'Mumbai has more agencies than any city in India. We are not one of them, and that is the point.', 'The search data for this city is unusually clear about what people buy: an agency first, then professional services, WordPress and e-commerce development, local visibility, and &mdash; distinct enough to matter &mdash; a supplier in Navi Mumbai or Thane. Almost nobody is searching for theory. They are searching for someone who will do the work and show it. This page is written to that list, in that order, and it starts by telling you what we do not have.'),
-  '      <ul class="mum-facts"><li><b>45 days</b> shipyard ERP, start to live</li><li><b>19</b> role desks live</li><li><b>3</b> client systems live</li><li><b>GST</b> registered in Kerala</li></ul>',
+  '      <ul class="mum-facts"><li><b>45 days</b> shipyard ERP, start to live</li><li><b>19</b> role desks live</li><li><b>2</b> client systems live</li><li><b>GST</b> registered in Kerala</li></ul>',
   '      <div class="mum-cta-row"><a class="mum-btn" href="__WA__" target="_blank" rel="noopener">Start on WhatsApp</a><a class="mum-btn ghost" href="#mum-ledger">What we lack, honestly &darr;</a></div>',
   '    </div>',
   '    <div class="mum-stage" role="img" aria-label="A bridge lighting up segment by segment from the island city to Navi Mumbai over the Bandra–Worli Sea Link">',

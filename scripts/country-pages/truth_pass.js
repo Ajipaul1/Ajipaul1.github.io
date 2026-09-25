@@ -2,7 +2,7 @@
 // Owner decision 2026-09-25: remove 4.9/5, 250+, 128+, 16 countries, 97%, +205/180/165% and the
 // "Verified International Trust Score"; the author "Shreya K" has left, her posts are signed by Aji Paul.
 // Real proof only: Viraat Marine ERP (45 days, 19 role desks, 38 tables, erp.viraatmarine.com),
-// Telgo Power Projects (telgopowerprojects.com + app.telgopowerprojects.com, which credit us),
+// Telgo Power Projects website (telgopowerprojects.com credits us; app.telgopowerprojects.com shows only a README, so no app claim),
 // our own staff app, the Semrush certificate, the GSTIN.
 // Runs over live pages AND the generators in scripts/, so a regenerated page cannot bring a claim back.
 // Idempotent. RUN AFTER ANY GENERATOR RUN (with tone_pass.js).  Usage: node scripts/country-pages/truth_pass.js [--dry]
@@ -15,13 +15,13 @@ const TRUE_LINE = 'Live shipyard ERP in Kerala &bull; Semrush-certified SEO lead
 const STRIP = { // hero trust strip, one-for-one
   '250+': ['45 days', 'Shipyard ERP, first line to live'],
   '128+': ['19', 'Role desks live at the yard'],
-  '16': ['3', 'Client systems live today'],
+  '16': ['2', 'Client systems live today'],
   '4.9/5': ['GST', 'Registered business, Kerala'],
 };
 const FACTS = { // <ul class="*-facts"> and /results/ lists
   '250+': ['45 days', 'shipyard ERP, start to live'],
   '128+': ['19', 'role desks live'],
-  '16': ['3', 'client systems live'],
+  '16': ['2', 'client systems live'],
   '4.9/5': ['GST', 'registered in Kerala'],
   '97%': ['38', 'tables behind that ERP'],
 };
@@ -29,13 +29,13 @@ const NUMBERS = { // .tap-numbers-section
   '205%': ['45 days', 'Viraat Marine ERP, first line to live'],
   '180%': ['19', 'Role desks the shipyard works from'],
   '97%': ['38', 'Database tables behind them'],
-  '165%': ['3', 'Client systems live today'],
+  '165%': ['2', 'Client systems live today'],
 };
 const ROTATE = {
   "'250+ Projects Delivered'": "'45-Day Shipyard ERP, Live'",
   "'128+ Active Clients Worldwide'": "'Semrush-Certified SEO Lead'",
   "'4.9/5 Client Rating'": "'GST-Registered in Kerala, India'",
-  "'16 Countries Served'": "'3 Client Systems Live Today'",
+  "'16 Countries Served'": "'2 Client Systems Live Today'",
 };
 const SEO_CARDS = { // /us/seo-services/ stat row
   '+180%': ['Semrush', 'SEO certification held by the engineer who leads your account'],
@@ -63,9 +63,9 @@ function proofSection(eol) {
     '            </div>',
     '            <div class="case-card">',
     '                <span class="case-tag">🇮🇳 Kerala · Power infrastructure</span>',
-    '                <h3>Telgo Power Projects website and staff app</h3>',
+    '                <h3>Telgo Power Projects website</h3>',
     '                <div class="case-stat-row"><span>Company website</span><strong>Live</strong></div>',
-    '                <div class="case-stat-row"><span>Staff app</span><strong>Live</strong></div>',
+    '                <div class="case-stat-row"><span>Credits us</span><strong>In its footer</strong></div>',
     '                <div class="case-stat-row"><span>Built</span><strong>May–Jul 2026</strong></div>',
     '                <a class="case-card-link" href="https://telgopowerprojects.com/" target="_blank" rel="noopener">telgopowerprojects.com →</a>',
     '            </div>',
@@ -108,8 +108,8 @@ function transform(s) {
   rep('byline', /By Shreya K, Chief Technical Editor/g, 'By Aji Paul, Founder');
   // the same claims as generator arrays (scripts/country-pages/*.js)
   rep('gen strip', /\['4\.9\/5', 'Client (rating|satisfaction)'\]/g, "['GST', 'Registered business, Kerala']");
-  rep('gen strip', /\['16', 'Countries served'\]/g, "['3', 'Client systems live today']");
-  rep('gen list', /'250\+ projects delivered', '16 countries served', '4\.9\/5 client rating'/g, "'45-day shipyard ERP, live', '3 client systems live today', 'GST-registered in Kerala'");
+  rep('gen strip', /\['16', 'Countries served'\]/g, "['2', 'Client systems live today']");
+  rep('gen list', /'250\+ projects delivered', '16 countries served', '4\.9\/5 client rating'/g, "'45-day shipyard ERP, live', '2 client systems live today', 'GST-registered in Kerala'");
   rep('gen seo row', /'Real Results', 'Real engagements, real numbers\.', 'Figures from actual client work &mdash; not projections\.'/g,
     "'What you can hold us to', 'Four things every SEO engagement includes.', 'Written into the agreement, not promised on a call.'");
   rep('gen seo row', /\['(\+180%|\+320|\+205%|97%)', '[^']*(?:HVAC|US client|appliance retailer|retention)[^']*'\]/g, (m, k) => `['${SEO_CARDS[k][0]}', '${SEO_CARDS[k][1]}']`);

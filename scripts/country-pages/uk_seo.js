@@ -72,7 +72,7 @@ s = L.setHero(s, {
   sub: 'Technical SEO, content, local and off-page work on real UK search data &mdash; plus Answer and Generative Engine Optimisation, so you are the source ChatGPT, Perplexity and Google AI Overviews cite. Every engagement starts with an audit, not a retainer.',
   ghostHref: '#seo-audit', ghostText: 'Start with the audit &darr;',
   features: ['\u{1F50D} Technical &amp; Content', '\u{1F916} AEO &amp; GEO', '\u{1F4C4} Plain-English Reporting'],
-  trust: [['250+', 'Projects delivered'], ['3', 'Client systems live today'], ['Audit', 'Before any retainer'], ['GST', 'Registered business, Kerala']],
+  trust: [['250+', 'Projects delivered'], ['2', 'Client systems live today'], ['Audit', 'Before any retainer'], ['GST', 'Registered business, Kerala']],
 });
 
 let body = '';

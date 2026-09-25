@@ -558,3 +558,6 @@ attribution not required). Credited here anyway.
 - `au-sydney-harbour-blue-sky.jpg` &mdash; Henry Chen on Unsplash ([photo](https://unsplash.com/photos/RXE3uXSIEeY))
 - `home-dubai-burj-khalifa-skyline.jpg` &mdash; Shinzan Murray on Unsplash ([photo](https://unsplash.com/photos/Bu435tjPsvk))
 - `home-dubai-downtown-cityscape.jpg` &mdash; Nejc Soklic on Unsplash ([photo](https://unsplash.com/photos/bVblbt3tGxM))
+- `res-shot-telgo-site.jpg` &mdash; Screenshot of telgopowerprojects.com (built by TechAuditPros); TechAuditPros
+- `res-shot-telgo-site-phone.jpg` &mdash; Screenshot of telgopowerprojects.com (built by TechAuditPros); TechAuditPros
+- `res-shot-tap-app.jpg` &mdash; Screenshot of app.techauditpros.com (built by TechAuditPros); TechAuditPros

@@ -11812,5 +11812,68 @@
   "kb": 132,
   "id": "bVblbt3tGxM",
   "alt": "The Burj Khalifa over Downtown Dubai"
+ },
+ "res-shot-telgo-site.jpg": {
+  "w": 1440,
+  "h": 900,
+  "kb": 117,
+  "id": "local",
+  "alt": "The Telgo Power Projects website home page"
+ },
+ "res-shot-telgo-site-1400.jpg": {
+  "w": 1400,
+  "h": 875,
+  "kb": 112,
+  "id": "local",
+  "alt": "The Telgo Power Projects website home page"
+ },
+ "res-shot-telgo-site-700.jpg": {
+  "w": 700,
+  "h": 438,
+  "kb": 42,
+  "id": "local",
+  "alt": "The Telgo Power Projects website home page"
+ },
+ "res-shot-telgo-site-phone.jpg": {
+  "w": 780,
+  "h": 1688,
+  "kb": 127,
+  "id": "local",
+  "alt": "The Telgo Power Projects website on a phone"
+ },
+ "res-shot-telgo-site-phone-1400.jpg": {
+  "w": 780,
+  "h": 1688,
+  "kb": 127,
+  "id": "local",
+  "alt": "The Telgo Power Projects website on a phone"
+ },
+ "res-shot-telgo-site-phone-700.jpg": {
+  "w": 700,
+  "h": 1515,
+  "kb": 112,
+  "id": "local",
+  "alt": "The Telgo Power Projects website on a phone"
+ },
+ "res-shot-tap-app.jpg": {
+  "w": 780,
+  "h": 1688,
+  "kb": 51,
+  "id": "local",
+  "alt": "The sign-in screen of the TechAuditPros staff app on a phone"
+ },
+ "res-shot-tap-app-1400.jpg": {
+  "w": 780,
+  "h": 1688,
+  "kb": 51,
+  "id": "local",
+  "alt": "The sign-in screen of the TechAuditPros staff app on a phone"
+ },
+ "res-shot-tap-app-700.jpg": {
+  "w": 700,
+  "h": 1515,
+  "kb": 47,
+  "id": "local",
+  "alt": "The sign-in screen of the TechAuditPros staff app on a phone"
  }
 }

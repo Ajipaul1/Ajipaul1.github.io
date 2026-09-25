@@ -118,7 +118,7 @@ const HERO = [
   '    <h1>' + H1 + '</h1>',
   '    <p class="e5h-sub">' + SUB + '</p>',
   '    <div class="e5h-ctas"><a class="e5-btn" href="__WA__" target="_blank" rel="noopener">Start on WhatsApp</a><a class="e5-btn ghost" href="#e5-ledger">The compliance ledger &darr;</a></div>',
-  '    <ul class="e5h-facts"><li><b>45 days</b> shipyard ERP, start to live</li><li><b>19</b> role desks live</li><li><b>3</b> client systems live</li><li><b>GST</b> registered in Kerala</li></ul>',
+  '    <ul class="e5h-facts"><li><b>45 days</b> shipyard ERP, start to live</li><li><b>19</b> role desks live</li><li><b>2</b> client systems live</li><li><b>GST</b> registered in Kerala</li></ul>',
   '  </div>',
   '</section>',
 ].join('\n');

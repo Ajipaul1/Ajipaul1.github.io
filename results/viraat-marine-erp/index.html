@@ -1422,6 +1422,7 @@
     </div>
 </div>
 
+
 <section class="vm vm-hero" id="vm-hero" data-act aria-label="Viraat Marine ERP case study">
   <div class="vm-hero-plate"><img class="vm-hero-img" src="/assets/images/library/vm-welder-ship-hull-dry-dock.jpg" srcset="/assets/images/library/vm-welder-ship-hull-dry-dock-700.jpg 700w, /assets/images/library/vm-welder-ship-hull-dry-dock-1400.jpg 1400w, /assets/images/library/vm-welder-ship-hull-dry-dock.jpg 2400w" sizes="100vw" alt="A welder working on the hull of a ship in dry dock" width="2400" height="1898" loading="eager" fetchpriority="high" decoding="async" /></div>
   <div class="vm-hero-shade" aria-hidden="true"></div>
@@ -1439,11 +1440,14 @@
   </div>
 </section>
 
+
+
 <section class="vm vm-answer" id="vm-answer" data-act>
   <div class="wrap">
     <p><strong>Viraat Marine ERP</strong> is a custom enterprise system TechAuditPros built for Viraat Marine Shipyard Pvt Ltd between 20 July and 2 September 2026. It replaces separate tools and paper with one browser-based system of 19 role desks &mdash; director, design, naval architecture, production, purchase, accounts, marketing, members and attendance &mdash; on 38 database tables, with a live activity stream, realtime updates on every open screen, a sign-in gate on every desk and a phone layout for the yard. It is live at erp.viraatmarine.com and is being prepared to run on the shipyard&rsquo;s own office computer with no internet connection.</p>
   </div>
 </section>
+
 
 <section class="vm vm-brief" id="vm-brief" data-act>
   <div class="wrap vm-two">
@@ -1467,6 +1471,7 @@
   </div>
 </section>
 
+
 <section class="vm dark vm-system" id="vm-system" data-act>
   <div class="wrap">
     
@@ -1489,6 +1494,7 @@
     </div>
   </div>
 </section>
+
 
 <section class="vm black vm-screens" id="vm-screens" data-act>
   <div class="wrap">
@@ -1532,6 +1538,7 @@
   </div>
 </section>
 
+
 <section class="vm vm-flow" id="vm-flow" data-act>
   <div class="wrap">
     
@@ -1551,6 +1558,7 @@
     <p class="vm-note">Drawings follow the same shape: a draftsman submits, the design head reviews and comments, a revision is recorded, an approved drawing can be shared with the client through the portal. Leave requests, invoice requests and enquiries each have their own chain. None of them can skip a step.</p>
   </div>
 </section>
+
 
 <section class="vm dark vm-floor" id="vm-floor" data-act>
   <div class="vm-floor-plate"><img class="vm-floor-img" src="/assets/images/library/vm-ship-at-dock-night.jpg" srcset="/assets/images/library/vm-ship-at-dock-night-700.jpg 700w, /assets/images/library/vm-ship-at-dock-night-1400.jpg 1400w, /assets/images/library/vm-ship-at-dock-night.jpg 2400w" sizes="100vw" alt="A cargo ship at a lit dock at night" width="2400" height="1350" loading="lazy" decoding="async" /></div>
@@ -1572,6 +1580,7 @@
     </div>
   </div>
 </section>
+
 
 <section class="vm vm-truth" id="vm-truth" data-act>
   <div class="wrap vm-two">
@@ -1595,6 +1604,7 @@
   </div>
 </section>
 
+
 <section class="vm dark vm-timeline" id="vm-timeline" data-act>
   <div class="wrap">
     
@@ -1617,6 +1627,7 @@
     </div>
   </div>
 </section>
+
 
 <section class="vm vm-next" id="vm-next" data-act>
   <div class="wrap vm-two">
@@ -2637,30 +2648,7 @@ document.addEventListener('DOMContentLoaded', function() {
 })();
 </script>
 
-<script>
-(function(){
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce || !('IntersectionObserver' in window)) return;
-    var sel = '.erp-benefit-item, .erp-advantage-card, .erp-process-step, .promise-grid, .security-badge-item, .faq-item, .pillar-card, .region-card, .case-card, .compare-card, .number-stat-item, .us-module-card, .us-industry-card, .us-cost-card, .us-compare-wrap, .us-stat-card';
-    var targets = document.querySelectorAll(sel);
-    targets.forEach(function(t){ t.classList.add('reveal'); });
-    var io = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { rootMargin: '0px 0px -8% 0px' });
-    targets.forEach(function(t){ io.observe(t); });
-})();
-</script>
-<script>
-(function(){
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduce || !('IntersectionObserver' in window)) return;
-  document.documentElement.classList.add('vm-on');
-  var acts = document.querySelectorAll('.vm[data-act]');
-  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('lit'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
-  acts.forEach(function(a){ io.observe(a); });
-  var hero = document.getElementById('vm-hero'); if (hero) requestAnimationFrame(function(){ hero.classList.add('lit'); });
-})();
-</script>
+
 <!-- nav_v4:js:start -->
 <script>
     // nav_v4: two-pane dropdowns and nested drawer accordions
@@ -2726,5 +2714,29 @@ document.addEventListener('DOMContentLoaded', function() {
     })();
 </script>
 <!-- nav_v4:js:end -->
+<script>
+(function(){
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) return;
+    var sel = '.erp-benefit-item, .erp-advantage-card, .erp-process-step, .promise-grid, .security-badge-item, .faq-item, .pillar-card, .region-card, .case-card, .compare-card, .number-stat-item, .us-module-card, .us-industry-card, .us-cost-card, .us-compare-wrap, .us-stat-card';
+    var targets = document.querySelectorAll(sel);
+    targets.forEach(function(t){ t.classList.add('reveal'); });
+    var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    targets.forEach(function(t){ io.observe(t); });
+})();
+</script>
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) return;
+  document.documentElement.classList.add('vm-on');
+  var acts = document.querySelectorAll('.vm[data-act]');
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('lit'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+  acts.forEach(function(a){ io.observe(a); });
+  var hero = document.getElementById('vm-hero'); if (hero) requestAnimationFrame(function(){ hero.classList.add('lit'); });
+})();
+</script>
 </body>
 </html>

@@ -124,7 +124,7 @@ const HERO = [
   '    <h1>' + H1 + '</h1>',
   '    <p class="adh-sub">' + SUB + '</p>',
   '    <div class="adh-ctas"><a class="ad-btn" href="__WA__" target="_blank" rel="noopener">Start on WhatsApp</a><a class="ad-btn ghost" href="#ad-shelf">Why Abu Dhabi first &darr;</a></div>',
-  '    <ul class="adh-facts"><li><b>45 days</b> shipyard ERP, start to live</li><li><b>19</b> role desks live</li><li><b>3</b> client systems live</li><li><b>GST</b> registered in Kerala</li></ul>',
+  '    <ul class="adh-facts"><li><b>45 days</b> shipyard ERP, start to live</li><li><b>19</b> role desks live</li><li><b>2</b> client systems live</li><li><b>GST</b> registered in Kerala</li></ul>',
   '  </div>',
   '</section>',
 ].join('\n');

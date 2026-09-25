@@ -223,7 +223,7 @@ for (const c of CITIES) {
             <div class="trust-strip">
                 <div class="trust-item"><span class="num">45 days</span><span class="lbl">Shipyard ERP, first line to live</span></div>
                 <div class="trust-item"><span class="num">19</span><span class="lbl">Role desks live at the yard</span></div>
-                <div class="trust-item"><span class="num">3</span><span class="lbl">Client systems live today</span></div>
+                <div class="trust-item"><span class="num">2</span><span class="lbl">Client systems live today</span></div>
                 <div class="trust-item"><span class="num">GST</span><span class="lbl">Registered business, Kerala</span></div>
             </div>
         </div>

@@ -446,7 +446,7 @@ L.must(s, '<section class="tap-new-hero">', 1); L.must(s, '<!-- trust-strip-band
 
 const TITLE = 'Viraat Marine ERP Case Study: a Shipyard Run on One System | TechAuditPros';
 const DESC = 'How we built a custom ERP for Viraat Marine Shipyard in 45 days: 19 role desks, 38 tables, live activity stream, phone layout for the slipway. Real screens, real numbers, live at erp.viraatmarine.com.';
-s = L.setHead(s, { title: TITLE, desc: DESC, url: URL, ogType: 'article', hreflang: [{ lang: 'en', href: URL }, { lang: 'x-default', href: URL }] });
+s = L.setHead(s, { title: TITLE, desc: DESC, url: URL, ogType: 'article', hreflang: [] });   // no country alternates (scripts/seo/hreflang.js owns hreflang)
 
 // hero + marquee out, our hero in
 s = L.replaceBetween(s, '<section class="tap-new-hero">', '<!-- trust-strip-band:start -->', HERO, { keepStart: false, keepEnd: true });
