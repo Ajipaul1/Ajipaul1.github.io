@@ -125,7 +125,7 @@ const HERO = `
       <a class="rs-btn ghost" href="${L.FORM}" target="_blank">Book a Free Strategy Call</a>
     </div>
     <ul class="rs-facts rs-rise" style="--d:.7s" aria-label="Company figures">
-      <li><b>45 days</b><span>shipyard ERP, start to live</span></li><li><b>19</b><span>role desks live</span></li><li><b>2</b><span>client systems live</span></li><li><b>38</b><span>tables behind that ERP</span></li><li><b>GST</b><span>registered in Kerala</span></li>
+      <li><b>45 days</b><span>shipyard ERP, start to live</span></li><li><b>19</b><span>role desks live</span></li><li><b>3</b><span>client systems live</span></li><li><b>38</b><span>tables behind that ERP</span></li><li><b>GST</b><span>registered in Kerala</span></li>
     </ul>
   </div>
 </section>
