@@ -4,25 +4,25 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Custom ERP, Websites &amp; SEO from India | TechAuditPros</title>
-<meta name="description" content="Custom ERP, websites and SEO from one engineering team in Kerala, India, for firms in the US, Canada, Australia, the UAE and India. Fixed prices, live proof." />
+<meta name="description" content="Custom ERP, websites and SEO from an engineering team in Kerala, India, for firms in the US, Canada, Australia, UAE and India. Fixed prices, live proof." />
 <!-- WhatsApp, LinkedIn, Facebook Open Graph Meta Tags -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="TechAuditPros" />
 <meta property="og:url" content="https://techauditpros.com/" />
 <meta property="og:title" content="Custom ERP, Websites &amp; SEO from India | TechAuditPros" />
-<meta property="og:description" content="Custom ERP, websites and SEO from one engineering team in Kerala, India, for firms in the US, Canada, Australia, the UAE and India. Fixed prices, live proof." />
+<meta property="og:description" content="Custom ERP, websites and SEO from an engineering team in Kerala, India, for firms in the US, Canada, Australia, UAE and India. Fixed prices, live proof." />
 <meta property="og:image" content="https://techauditpros.com/assets/images/og-share-cover.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta name="twitter:image:alt" content="TechAuditPros — technical SEO, websites and custom ERP, built in Kochi for clients in the UK, US and Canada" />
+<meta name="twitter:image:alt" content="TechAuditPros &mdash; custom ERP, websites and technical SEO, built in Kerala, India, for businesses in the US, Canada, Australia, the UAE and India" />
 <meta property="og:locale" content="en_GB" />
-<meta property="og:image:alt" content="TechAuditPros — technical SEO, websites and custom ERP, built in Kochi for clients in the UK, US and Canada" />
+<meta property="og:image:alt" content="TechAuditPros &mdash; custom ERP, websites and technical SEO, built in Kerala, India, for businesses in the US, Canada, Australia, the UAE and India" />
 <meta property="og:image:type" content="image/jpeg" />
 <!-- Twitter / X Card Meta Tags -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@techauditpros" />
 <meta name="twitter:title" content="Custom ERP, Websites &amp; SEO from India | TechAuditPros" />
-<meta name="twitter:description" content="Custom ERP, websites and SEO from one engineering team in Kerala, India, for firms in the US, Canada, Australia, the UAE and India. Fixed prices, live proof." />
+<meta name="twitter:description" content="Custom ERP, websites and SEO from an engineering team in Kerala, India, for firms in the US, Canada, Australia, UAE and India. Fixed prices, live proof." />
 <meta name="twitter:image" content="https://techauditpros.com/assets/images/og-share-cover.jpg" />
 <!-- WhatsApp, LinkedIn, Facebook Open Graph Meta Tags -->
 <!-- Twitter / X Card Meta Tags -->
@@ -919,10 +919,32 @@
   .ofr-card.is-system .ofr-cta:hover{ background:var(--ink); }
   .ofr-note{ margin:30px 0 0; font-size:0.85rem; color:var(--ink-faint); max-width:78ch; }
   .ofr-note a{ color:var(--orange-dark); text-decoration:underline; text-underline-offset:2px; }
+  /* hub version: one market, two prices, and a door to the full terms on the homepage */
+  .ofr-mini .ofr-mini-wrap{ display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); gap:48px; align-items:start; }
+  .ofr-mini .section-head{ margin-bottom:18px; }
+  .ofr-mini-copy p.ofr-mini-say{ margin:0 0 14px; font-size:1rem; color:var(--ink-soft); max-width:62ch; }
+  .ofr-mini-copy p.ofr-mini-say a{ color:var(--orange-dark); text-decoration:underline; text-underline-offset:2px; }
+  .ofr-mini-link{
+    display:inline-flex; align-items:center; gap:8px; margin-top:8px; font-weight:620; font-size:0.95rem;
+    color:var(--ink); text-decoration:none; border-bottom:2px solid var(--orange); padding-bottom:2px;
+  }
+  .ofr-mini-link:hover{ color:var(--orange-dark); }
+  .ofr-mini-prices{ display:grid; gap:16px; }
+  .ofr-tile{
+    background:var(--paper); border:1px solid var(--line); border-left:4px solid var(--orange);
+    border-radius:12px; padding:22px 24px; box-shadow:var(--shadow-sm);
+  }
+  .ofr-tile.is-system{ border-left-color:var(--navy-deep); }
+  .ofr-tile .ofr-price{ padding-top:0; border-top:0; margin:0 0 8px; }
+  .ofr-tile .ofr-amount{ font-size:1.9rem; }
+  .ofr-tile-what{ margin:0; font-size:0.92rem; color:var(--ink-soft); }
   @media (max-width:860px){
     .ofr-grid{ grid-template-columns:1fr; gap:20px; }
     .ofr-card{ padding:28px 22px 26px; }
     .ofr-amount{ font-size:1.85rem; }
+    .ofr-mini .ofr-mini-wrap{ grid-template-columns:1fr; gap:28px; }
+    .ofr-tile{ padding:20px 18px; }
+    .ofr-tile .ofr-amount{ font-size:1.7rem; }
   }
 /* offers_v1:css:end */
 
@@ -1267,6 +1289,7 @@
           "priceCurrency": "USD",
           "priceValidUntil": "2027-03-31",
           "availability": "https://schema.org/InStock",
+          "url": "https://techauditpros.com/#offers",
           "priceSpecification": {
             "@type": "PriceSpecification",
             "price": "4500",
@@ -1289,12 +1312,22 @@
           "priceCurrency": "USD",
           "priceValidUntil": "2027-03-31",
           "availability": "https://schema.org/InStock",
-          "priceSpecification": {
+          "url": "https://techauditpros.com/#offers",
+          "priceSpecification": [
+          {
             "@type": "PriceSpecification",
             "price": "7500",
             "priceCurrency": "USD",
             "valueAddedTaxIncluded": false
           },
+          {
+            "@type": "UnitPriceSpecification",
+            "price": "750",
+            "priceCurrency": "USD",
+            "unitText": "MONTH",
+            "valueAddedTaxIncluded": false
+          }
+          ],
           "itemOffered": {
             "@type": "Service",
             "name": "The 30-Day System",
@@ -1755,7 +1788,7 @@
                 <a class="ofr-cta" href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" rel="noopener">Scope the 30 days</a>
             </article>
         </div>
-        <p class="ofr-note">Both figures are fixed for the scope listed above. Anything outside that scope is quoted in writing before it starts, never added to an invoice afterwards. These two prices are held until 31 March 2027. For scale: a comparable US agency retainer, elsewhere on this site, runs about $4,500 a <em>month</em>. The site package is $4,500 <em>once</em>. Figures shown in US dollars &mdash; if you are buying from India, the rupee prices are on our <a href="/in/">India page</a>.</p>
+        <p class="ofr-note">Both figures are fixed for the scope listed above. Anything outside that scope is quoted in writing before it starts, never added to an invoice afterwards. These two prices are held until 31 March 2027. Figures shown in US dollars &mdash; the same two packages are priced in local currency on our <a href="/ca/">Canada</a>, <a href="/uk/">UK</a>, <a href="/au/">Australia</a>, <a href="/ae/">UAE</a> and <a href="/in/">India</a> pages.</p>
     </div>
 </section>
 <!-- offers_v1:end -->

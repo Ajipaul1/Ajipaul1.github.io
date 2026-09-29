@@ -1122,10 +1122,32 @@
   .ofr-card.is-system .ofr-cta:hover{ background:var(--ink); }
   .ofr-note{ margin:30px 0 0; font-size:0.85rem; color:var(--ink-faint); max-width:78ch; }
   .ofr-note a{ color:var(--orange-dark); text-decoration:underline; text-underline-offset:2px; }
+  /* hub version: one market, two prices, and a door to the full terms on the homepage */
+  .ofr-mini .ofr-mini-wrap{ display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); gap:48px; align-items:start; }
+  .ofr-mini .section-head{ margin-bottom:18px; }
+  .ofr-mini-copy p.ofr-mini-say{ margin:0 0 14px; font-size:1rem; color:var(--ink-soft); max-width:62ch; }
+  .ofr-mini-copy p.ofr-mini-say a{ color:var(--orange-dark); text-decoration:underline; text-underline-offset:2px; }
+  .ofr-mini-link{
+    display:inline-flex; align-items:center; gap:8px; margin-top:8px; font-weight:620; font-size:0.95rem;
+    color:var(--ink); text-decoration:none; border-bottom:2px solid var(--orange); padding-bottom:2px;
+  }
+  .ofr-mini-link:hover{ color:var(--orange-dark); }
+  .ofr-mini-prices{ display:grid; gap:16px; }
+  .ofr-tile{
+    background:var(--paper); border:1px solid var(--line); border-left:4px solid var(--orange);
+    border-radius:12px; padding:22px 24px; box-shadow:var(--shadow-sm);
+  }
+  .ofr-tile.is-system{ border-left-color:var(--navy-deep); }
+  .ofr-tile .ofr-price{ padding-top:0; border-top:0; margin:0 0 8px; }
+  .ofr-tile .ofr-amount{ font-size:1.9rem; }
+  .ofr-tile-what{ margin:0; font-size:0.92rem; color:var(--ink-soft); }
   @media (max-width:860px){
     .ofr-grid{ grid-template-columns:1fr; gap:20px; }
     .ofr-card{ padding:28px 22px 26px; }
     .ofr-amount{ font-size:1.85rem; }
+    .ofr-mini .ofr-mini-wrap{ grid-template-columns:1fr; gap:28px; }
+    .ofr-tile{ padding:20px 18px; }
+    .ofr-tile .ofr-amount{ font-size:1.7rem; }
   }
 /* offers_v1:css:end */
 </style>
@@ -1440,8 +1462,8 @@
 {
   "@context": "https://schema.org",
   "@type": "OfferCatalog",
-  "name": "TechAuditPros Fixed-Price Packages",
-  "url": "https://techauditpros.com/#offers",
+  "name": "TechAuditPros Fixed-Price Packages - Australia",
+  "url": "https://techauditpros.com/au/#offers",
   "itemListElement": [
         {
           "@type": "Offer",
@@ -1451,6 +1473,7 @@
           "priceCurrency": "AUD",
           "priceValidUntil": "2027-03-31",
           "availability": "https://schema.org/InStock",
+          "url": "https://techauditpros.com/au/#offers",
           "priceSpecification": {
             "@type": "PriceSpecification",
             "price": "7000",
@@ -1462,7 +1485,7 @@
             "name": "The 14-Day Site",
             "serviceType": "Website design and development",
             "provider": { "@type": "Organization", "name": "TechAuditPros", "url": "https://techauditpros.com/" },
-            "areaServed": ["US", "GB", "CA", "AU", "AE", "IN"]
+            "areaServed": ["AU"]
           }
         },
         {
@@ -1473,18 +1496,28 @@
           "priceCurrency": "AUD",
           "priceValidUntil": "2027-03-31",
           "availability": "https://schema.org/InStock",
-          "priceSpecification": {
+          "url": "https://techauditpros.com/au/#offers",
+          "priceSpecification": [
+          {
             "@type": "PriceSpecification",
             "price": "11500",
             "priceCurrency": "AUD",
             "valueAddedTaxIncluded": false
           },
+          {
+            "@type": "UnitPriceSpecification",
+            "price": "1150",
+            "priceCurrency": "AUD",
+            "unitText": "MONTH",
+            "valueAddedTaxIncluded": false
+          }
+          ],
           "itemOffered": {
             "@type": "Service",
             "name": "The 30-Day System",
             "serviceType": "Custom ERP software development",
             "provider": { "@type": "Organization", "name": "TechAuditPros", "url": "https://techauditpros.com/" },
-            "areaServed": ["US", "GB", "CA", "AU", "AE", "IN"]
+            "areaServed": ["AU"]
           }
         }
   ]
@@ -1884,61 +1917,29 @@
 <!-- trust-strip-band:end -->
 
 <!-- offers_v1:start -->
-<section class="ofr-section" id="offers" aria-label="Fixed-price packages">
-    <div class="container">
-        <div class="section-head">
-            <p class="eyebrow">Two Things We Price Up Front</p>
-            <h2>Fixed scope. Fixed price. Fixed date.</h2>
+<section class="ofr-section ofr-mini" id="offers" aria-label="Fixed-price packages, Australia">
+    <div class="container ofr-mini-wrap">
+        <div class="ofr-mini-copy">
+            <div class="section-head">
+                <p class="eyebrow">Fixed prices &middot; Australia</p>
+                <h2>Two packages with an Australian-dollar price</h2>
+            </div>
+            <p class="ofr-mini-say">Both are priced in AUD and held to 31 March 2027. Sydney and Melbourne are 4&frac12; hours ahead of Kerala (5&frac12; during daylight saving) and Perth 2&frac12;, so our day begins in your early afternoon.</p>
+            <p class="ofr-mini-say">The 30-day scope is deliberately narrow. Single Touch Payroll and a connection to your accounting software are a second phase, quoted after the first system is live and in use.</p>
+            <a class="ofr-mini-link" href="/#offers">The full package terms, line by line &rarr;</a>
         </div>
-        <p class="ofr-lede">TechAuditPros is a technical team based in Kochi, Kerala, India. We build websites, do technical SEO including AEO and GEO, and build custom ERP systems for digital agencies and growing businesses in the United States, Canada, Australia, the UAE, India and the United Kingdom. Most work we scope before we price it, because most work is not the same twice. These two are, so they carry a price and a date.</p>
-        <div class="ofr-grid">
-            <article class="ofr-card">
-                <p class="ofr-tag">Package 01</p>
-                <h3>The 14-Day Site</h3>
-                <p class="ofr-days">Live in 14 working days</p>
-                <p class="ofr-price">
-                    <span class="ofr-amount">AUD 7,000</span>
-                    <span class="ofr-unit">fixed, one time</span>
-                </p>
-                <p class="ofr-plus">No monthly fee. Search and content work afterwards is optional and separate.</p>
-                <p class="ofr-claim">A complete website of up to 100 pages, live in 14 working days counted from the day you sign off the content &mdash; not from the day you pay.</p>
-                <p class="ofr-sub">What you get</p>
-                <ul class="ofr-in">
-                    <li>Up to 100 pages built on your domain, your hosting, your accounts</li>
-                    <li>Titles, descriptions, headings and internal links written for every page</li>
-                    <li>Schema markup, so Google and AI assistants can quote you correctly</li>
-                    <li>Core Web Vitals tuned on mobile and desktop before handover</li>
-                    <li>Forms, Google Analytics 4 and Search Console connected and verified</li>
-                    <li>One round of revisions after you have seen it live</li>
-                </ul>
-                <p class="ofr-out"><strong>Not in this price:</strong> writing the content itself for pages you have not drafted, paid advertising, ongoing link building, and anything that needs a customer login or a payment gateway. Each of those is quoted separately, and we tell you before you pay, not after.</p>
-                <a class="ofr-cta" href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" rel="noopener">Start the 14-day clock</a>
-            </article>
-            <article class="ofr-card is-system">
-                <p class="ofr-tag">Package 02</p>
-                <h3>The 30-Day System</h3>
-                <p class="ofr-days">Live in 30 days</p>
-                <p class="ofr-price">
-                    <span class="ofr-amount">AUD 11,500</span>
-                    <span class="ofr-unit">setup, one time</span>
-                </p>
-                <p class="ofr-plus">Then <strong>AUD 1,150 a month</strong> for hosting, support and changes.</p>
-                <p class="ofr-claim">A working ERP covering stock, orders, jobs and billing, live in 30 days, with your data already in it and your team already trained on it.</p>
-                <p class="ofr-sub">What you get</p>
-                <ul class="ofr-in">
-                    <li>Stock, orders, jobs and billing in one system your staff actually open</li>
-                    <li>Your existing spreadsheets and records migrated in</li>
-                    <li>A separate login and permission level for every role</li>
-                    <li>Staff training, plus written documentation you keep</li>
-                    <li>Source code, database and documentation are yours from the first commit</li>
-                    <li>The monthly fee covers hosting, backups, support and small changes</li>
-                </ul>
-                <p class="ofr-out"><strong>Not in this price:</strong> payroll, manufacturing planning, multi-branch consolidation, and integrations with systems you already run. Any of those is a second phase, priced only after the first system is live and being used.</p>
-                <p class="ofr-proof">The same stack runs Viraat Marine&rsquo;s shipyard: a larger build, 19 role desks, that went from first line to live in 45 days. <a href="/results/viraat-marine-erp/">Read the case study</a>.</p>
-                <a class="ofr-cta" href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" rel="noopener">Scope the 30 days</a>
-            </article>
+        <div class="ofr-mini-prices">
+            <div class="ofr-tile">
+                <p class="ofr-tag">The 14-Day Site</p>
+                <p class="ofr-price"><span class="ofr-amount">AUD 7,000</span> <span class="ofr-unit">fixed, paid once</span></p>
+                <p class="ofr-tile-what">A site of up to 100 pages, live 14 working days after content approval.</p>
+            </div>
+            <div class="ofr-tile is-system">
+                <p class="ofr-tag">The 30-Day System</p>
+                <p class="ofr-price"><span class="ofr-amount">AUD 11,500</span> <span class="ofr-unit">setup, AUD 1,150 a month after</span></p>
+                <p class="ofr-tile-what">One system for stock, orders, jobs and billing, with your spreadsheets migrated in.</p>
+            </div>
         </div>
-        <p class="ofr-note">Both figures are fixed for the scope listed above. Anything outside that scope is quoted in writing before it starts, never added to an invoice afterwards. These two prices are held until 31 March 2027.</p>
     </div>
 </section>
 <!-- offers_v1:end -->
