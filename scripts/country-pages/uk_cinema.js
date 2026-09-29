@@ -53,7 +53,7 @@ const ACTS = [
     n: '01', kind: 'strip', tone: 'dark',
     label: 'Act one',
     title: 'This is what it looks like before we start.',
-    lede: 'Not a criticism. Almost every business that calls us is running on some version of this, and it worked right up until it did not.',
+    lede: 'Not a criticism. Plenty of growing firms run on some version of this, and it works right up until the day it does not.',
     shots: [
       { slug: 'uk-stacks-of-paper-and-folders', cap: 'The job travels on paper.', alt: 'Stacks of paper documents and file folders' },
       { slug: 'uk-rows-of-filing-cabinets', cap: 'Last year lives in a drawer.', alt: 'Rows of old filing cabinets with handwritten labels' },
@@ -66,10 +66,10 @@ const ACTS = [
     label: 'Act two',
     title: 'We follow one real order. That is the whole first step.',
     lede: 'Enquiry to invoice, on a wall, with the people who actually do it &mdash; not a questionnaire, and not a demo of our software. Every workaround gets written down in their words, and the map that comes out is yours whether or not you carry on.',
-    hero: { slug: 'uk-planning-on-glass-panel', alt: 'Colleagues mapping a process on a glass panel', cap: 'One order, one wall, the people who do the work.' },
+    hero: { slug: 'uk-planning-on-glass-panel', alt: 'Colleagues mapping a process on a glass panel', cap: 'A real order, pinned up and walked from enquiry to invoice.' },
     shots: [
-      { slug: 'uk-whiteboard-session-two-people', cap: 'Every step, in their words.', alt: 'Two people working through a process diagram at a whiteboard' },
-      { slug: 'uk-two-professionals-in-discussion', cap: 'Including the parts nobody documents.', alt: 'Two professionals talking through a step in the process' },
+      { slug: 'uk-whiteboard-session-two-people', cap: 'Each hand-off written down as the team describes it.', alt: 'Two people working through a process diagram at a whiteboard' },
+      { slug: 'uk-two-professionals-in-discussion', cap: 'The side-spreadsheets and sticky notes too.', alt: 'Two professionals talking through a step in the process' },
       { slug: 'uk-colleagues-checking-paper-file', cap: 'And the workaround everyone forgot was a workaround.', alt: 'Two colleagues checking figures in a paper file' },
     ],
   },
