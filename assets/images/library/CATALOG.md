@@ -966,3 +966,19 @@ The 29 `istock-*` files below are iStock/Getty assets (asset ID preserved in eac
 **What's in it:** Burj Khalifa straight on, Dubai Mall and the lake at the base, clear blue sky.
 
 **Region:** UAE / DUBAI. **Best used for:** a future /ae/website-development/ page. **Used on:** (free)
+
+## home2-telgo-app-signin-phone.jpg
+
+*Screenshot, public sign-in page of telgo-app.vercel.app (780x1688), manifest_home2_telgoapp.js*
+
+**What's in it:** the Telgo Power Projects site app sign-in screen on a phone: logo, login ID and password fields, Sign in button, Android install card. No client data.
+
+**Region:** INDIA / KERALA. **Best used for:** proof of the Telgo staff app. **Used on:** /results/
+
+## home2-telgo-app-signin-desktop.jpg
+
+*Screenshot, public sign-in page of telgo-app.vercel.app (1440x900), manifest_home2_telgoapp.js*
+
+**What's in it:** the same sign-in page in a desktop browser: a narrow centred card on a pale lavender background. Reads small; pair it with the phone shot.
+
+**Region:** INDIA / KERALA. **Best used for:** second frame beside the phone shot. **Used on:** /results/

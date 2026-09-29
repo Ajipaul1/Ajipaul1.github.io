@@ -561,3 +561,5 @@ attribution not required). Credited here anyway.
 - `res-shot-telgo-site.jpg` &mdash; Screenshot of telgopowerprojects.com (built by TechAuditPros); TechAuditPros
 - `res-shot-telgo-site-phone.jpg` &mdash; Screenshot of telgopowerprojects.com (built by TechAuditPros); TechAuditPros
 - `res-shot-tap-app.jpg` &mdash; Screenshot of app.techauditpros.com (built by TechAuditPros); TechAuditPros
+- `home2-telgo-app-signin-phone.jpg` &mdash; Screenshot of telgo-app.vercel.app sign-in page (built by TechAuditPros); TechAuditPros
+- `home2-telgo-app-signin-desktop.jpg` &mdash; Screenshot of telgo-app.vercel.app sign-in page (built by TechAuditPros); TechAuditPros

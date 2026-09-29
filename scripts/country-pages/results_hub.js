@@ -41,6 +41,7 @@ const P = {   // chosen on the contact sheet 2026-09-06: crane-silhouette is por
   hero: 'res-tug-beside-cargo-ship',
   erp: 'res-cargo-ship-and-crane',
   tg1: 'res-shot-telgo-site', tg2: 'res-shot-telgo-site-phone',
+  ta1: 'home2-telgo-app-signin-phone', ta2: 'home2-telgo-app-signin-desktop',
   tp1: 'res-shot-tap-app', tp2: 'lead-two-on-headsets-office',
   m1: 'res-analytics-laptop', m2: 'res-laptop-code-mug', m3: 'res-laptop-dim-light',
   band: 'res-toronto-aerial-autumn',
@@ -61,6 +62,11 @@ const CASES = [
     did: ['A company website for Telgo Power Projects, which lays underground cable, installs ring main units and tests power distribution networks across Kerala.', 'Pages for its expertise, projects, plant and capacity, and safety record: what a utility or developer checks before awarding work.', 'The live site credits TechAuditPros in its footer, which you can check yourself.'],
     imgs: [[P.tg1, 'The Telgo Power Projects website home page'], [P.tg2, 'The Telgo Power Projects website on a phone']],
     link: ['https://telgopowerprojects.com/', 'Open telgopowerprojects.com'] },
+  { flag: '🇮🇳', where: 'Kerala', who: 'Power contractor&rsquo;s field staff', h: 'A site app for a power contractor&rsquo;s field staff.', num: 4, pre: '', suf: '', numLabel: 'steps in the daily site report: site and day, work done, workers and wages, expenses',
+    rows: [['Does', 'GPS sign-in, site reports, chat'], ['Works on', 'Android and iPhone'], ['Built', 'May&ndash;Jul 2026, rebuilt Sep']],
+    did: ['GPS sign-in and attendance for site staff, and a four-step daily site report that goes to the director for review.', 'Team chat, site inventory with admin approval, and a file manager in the same app.', 'Each project&rsquo;s route and work plan is drawn on a map inside the app.'],
+    imgs: [[P.ta1, 'The sign-in screen of the Telgo Power Projects site app on a phone'], [P.ta2, 'The sign-in page of the Telgo Power Projects site app in a desktop browser']],
+    link: ['https://telgo-app.vercel.app/', 'See the sign-in page'] },
   { flag: '🇮🇳', where: 'Kochi', who: 'Our own sales team', h: 'The app our own sales team runs on.', num: 60, pre: '', suf: '', numLabel: 'lessons in its built-in sales course, in English and Malayalam',
     rows: [['Does', 'Calls, follow-ups, chat, quotes'], ['Works on', 'Any phone, as a Home Screen app'], ['Live since', 'September 2026']],
     did: ['Calls, follow-ups, chat, quotes and notifications in one phone app, instead of a spreadsheet and three messaging apps.', 'A built-in sales course with quizzes, a final exam and a certificate, in English and Malayalam.', 'Built on the same stack as the ERPs we build for clients, so every feature is tested on our own team first.'],
@@ -85,7 +91,7 @@ const MARKETS = [
 ];
 
 const FAQS = [
-  { q: 'Are these results real?', a: `Yes, and you can check every one without asking us. The shipyard ERP has a public sign-in page at <a href="${LIVE}" target="_blank" rel="noopener">erp.viraatmarine.com</a> and every figure about it is read from its repository. The Telgo Power Projects website is live at <a href="https://telgopowerprojects.com/" target="_blank" rel="noopener">telgopowerprojects.com</a> and credits us in its footer.` },
+  { q: 'Are these results real?', a: `Yes, and you can check every one without asking us. The shipyard ERP has a public sign-in page at <a href="${LIVE}" target="_blank" rel="noopener">erp.viraatmarine.com</a> and every figure about it is read from its repository. The Telgo Power Projects website is live at <a href="https://telgopowerprojects.com/" target="_blank" rel="noopener">telgopowerprojects.com</a> and credits us in its footer. Its site app for field staff has a public sign-in page at <a href="https://telgo-app.vercel.app/" target="_blank" rel="noopener">telgo-app.vercel.app</a>.` },
   { q: 'Why are there no search case studies with percentages?', a: 'Because we only publish work you can verify. TechAuditPros is a young business, and our search engagements are too recent for honest before-and-after numbers. When a client agrees to be named and the figures are in, they go on this page with the Search Console evidence.' },
   { q: 'Can I see the shipyard ERP live?', a: 'The sign-in page is public; the desks behind it hold the yard&rsquo;s own data and are not. On a call we share a screen and walk through the real system with the client&rsquo;s permission, then talk about which parts match your business.' },
   { q: 'What do I get every month if I work with you?', a: 'A staging URL you can open any week, a written report every month against a ninety-day plan, your own accounts opened in your name, and everything handed over if you stop. One agreed monthly fee, no long-term contract.' },
@@ -128,7 +134,7 @@ const HERO = `
 const ANSWER = `
 <section class="rs rs-answer" id="rs-answer" data-act="00">
   <div class="wrap">
-    <p><strong>TechAuditPros results:</strong> a custom ERP for Viraat Marine Shipyard in Kerala, built in 45 days and live at erp.viraatmarine.com, with 19 role desks, 38 database tables and a phone layout for the slipway; the company website of Telgo Power Projects, a Kerala power-infrastructure contractor, at telgopowerprojects.com; and the phone app our own sales team works from. The ERP is named with the client&rsquo;s permission.</p>
+    <p><strong>TechAuditPros results:</strong> a custom ERP for Viraat Marine Shipyard in Kerala, built in 45 days and live at erp.viraatmarine.com, with 19 role desks, 38 database tables and a phone layout for the slipway; the company website of Telgo Power Projects, a Kerala power-infrastructure contractor, at telgopowerprojects.com, and its site app for GPS attendance and daily site reports; and the phone app our own sales team works from. The ERP is named with the client&rsquo;s permission.</p>
   </div>
 </section>
 `;
@@ -155,7 +161,7 @@ const FLAGSHIP = `
 const SEARCH = `
 <section class="rs rs-search" id="rs-search" data-act="02">
   <div class="wrap">
-    ${head('02', 'More live work', 'Two more systems, both running now.', 'The Telgo website you can browse today; our own sales app you can see from its sign-in page.')}
+    ${head('02', 'More live work', 'Three more systems, all running now.', 'The Telgo website and its site app you can open today; our own sales app you can see from its sign-in page.')}
     <div class="rs-cases">
       ${CASES.map((c, i) => `<article class="rs-case" style="--d:${i * 0.15}s">
         <div class="rs-dip"><figure class="l">${img(c.imgs[0][0], c.imgs[0][1], '(max-width:900px) 50vw, 420px')}</figure><figure class="r">${img(c.imgs[1][0], c.imgs[1][1], '(max-width:900px) 50vw, 420px')}</figure></div>
@@ -281,7 +287,7 @@ const CSS = `
   .rs-frame-bar em{ flex:1; margin-left:8px; font-style:normal; font-family:var(--font-mono); font-size:.72rem; color:rgba(255,255,255,.55); background:rgba(0,0,0,.25); border-radius:6px; padding:3px 10px; }
   .rs-flag-frame{ position:absolute; right:-6%; bottom:0; width:78%; }
   /* search */
-  .rs-cases{ display:grid; grid-template-columns:repeat(2,1fr); gap:22px; max-width:1180px; }
+  .rs-cases{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; max-width:1180px; }
   .rs-case{ background:var(--paper); border:1px solid var(--line); border-radius:16px; overflow:hidden; display:flex; flex-direction:column; }
   .rs-dip{ display:grid; grid-template-columns:1fr 1fr; gap:4px; aspect-ratio:2/1; }
   .rs-dip figure{ margin:0; overflow:hidden; } .rs-dip img{ width:100%; height:100%; object-fit:cover; }
@@ -362,7 +368,7 @@ let s = L.read('ca/erp/index.html');
 L.must(s, '<section class="tap-new-hero">', 1); L.must(s, '<!-- trust-strip-band:start -->', 1);
 
 const TITLE = 'Results: Live ERP, Website and App Work | TechAuditPros';
-const DESC = 'A shipyard ERP live at erp.viraatmarine.com, built in 45 days, and the Telgo Power Projects website. Live work you can open, not anonymous percentages.';
+const DESC = 'A shipyard ERP built in 45 days, the Telgo Power Projects website and its site app, and our own staff app: live work you can open, not anonymous claims.';
 s = L.setHead(s, { title: TITLE, desc: DESC, url: URL, hreflang: [] });   // no country alternates (scripts/seo/hreflang.js owns hreflang)
 s = L.replaceBetween(s, '<section class="tap-new-hero">', '<!-- trust-strip-band:start -->', RAIL + HERO, { keepStart: false, keepEnd: true });
 s = L.replaceBetween(s, '<!-- trust-strip-band:start -->', '<!-- trust-strip-band:end -->', '', { keepStart: false, keepEnd: false });
@@ -391,7 +397,8 @@ const COLLECTION = `    <script type="application/ld+json">
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "url": "${ERP_URL}", "name": ${L.jsonStr('Viraat Marine ERP: a shipyard run on one system')} },
           { "@type": "ListItem", "position": 2, "url": "https://telgopowerprojects.com/", "name": ${L.jsonStr('Telgo Power Projects: company website')} },
-          { "@type": "ListItem", "position": 3, "url": "https://app.techauditpros.com/", "name": ${L.jsonStr('TechAuditPros staff app: calls, chat, quotes and a sales course')} }
+          { "@type": "ListItem", "position": 3, "url": "https://telgo-app.vercel.app/", "name": ${L.jsonStr('Telgo Power Projects: site app for field staff')} },
+          { "@type": "ListItem", "position": 4, "url": "https://app.techauditpros.com/", "name": ${L.jsonStr('TechAuditPros staff app: calls, chat, quotes and a sales course')} }
         ]
       }
     }
