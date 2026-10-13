@@ -6,7 +6,8 @@
    Scenes (each one runs only while it is on screen):
      1 HERO       intro + dotted globe live in home-globe.js; this file only lifts the copy away on scroll
      2 MANIFESTO  three colour blocks shrink into keyword tags that drift around one sentence (pinned)
-     3 CORDS      the tool band pins; two twisted cords wind as the stack slides through the middle
+     3 CORDS      the tool band pins; real 3D cords (home-cords3d.js) drop in, wind into pairs while the stack slides,
+                  then unwind and the camera flies through them; a 2D drawing stands in where WebGL is missing
      4 STACK      "How an engagement runs" becomes three cards that stack on top of each other
      5 MARKETS    the six markets become rows; on a mouse, a city photo follows the pointer
      6 TYPE       every section heading rises word by word; blocks, numbers and cards reveal once
@@ -177,7 +178,7 @@
     });
   })();
 
-  /* ---------- 3 CORDS ---------- */
+  /* ---------- 3 CORDS: real 3D (home-cords3d.js, loaded as the band nears); the 2D drawing is the fallback ---------- */
   (function () {
     var band = d.querySelector('.tl-band'); if (!band) return;
     var seen = {}, items = [];
@@ -188,7 +189,8 @@
     });
     if (items.length < 3) return;
     band.classList.add('vs-cords');
-    var pin = el('div', 'vs-cords-pin'), cv = el('canvas', 'vs-cord-cv'); cv.setAttribute('aria-hidden', 'true');
+    var pin = el('div', 'vs-cords-pin'), cv = el('canvas', 'vs-cord-cv'), row = el('div', 'vs-cords-row');
+    cv.setAttribute('aria-hidden', 'true');
     var left = el('p', 'vs-cords-l', 'We build it'), right = el('p', 'vs-cords-r', 'and stay to run&nbsp;it');
     left.setAttribute('aria-hidden', 'true'); right.setAttribute('aria-hidden', 'true');
     var mid = el('div', 'vs-cords-mid'), list = el('ul', 'vs-stack-list');
@@ -200,17 +202,32 @@
     });
     var label = band.querySelector('.tl-label');
     mid.appendChild(list);
-    pin.appendChild(cv); pin.appendChild(left); pin.appendChild(mid); pin.appendChild(right);
-    if (label) pin.appendChild(label);
+    row.appendChild(left); row.appendChild(mid); row.appendChild(right);
+    if (label) row.appendChild(label);
+    pin.appendChild(cv); pin.appendChild(row);
     band.appendChild(pin);
     var lis = Array.prototype.slice.call(list.children), n = lis.length;
+
+    // the 3D scene, fetched only when the band is close; until then (and if WebGL is missing) the 2D drawing runs
+    var gl3 = null, asked = false, lastY = w.scrollY, energy = 0, dir = 1, scrolled = false, lastT = 0;
+    w.addEventListener('scroll', function () { scrolled = true; }, { passive: true, once: true });
+    function want3D() {
+      if (asked) return; asked = true;
+      var sc = d.createElement('script'); sc.src = '/assets/js/home-cords3d.js'; sc.async = true;
+      sc.onload = function () {
+        try { gl3 = w.TAP_CORDS3D ? w.TAP_CORDS3D(pin) : null; } catch (e) { gl3 = null; }
+        if (gl3) { pin.classList.add('vs-3d'); pin.insertBefore(gl3.canvas, row); }
+      };
+      d.head.appendChild(sc);
+    }
+    w.addEventListener('resize', function () { if (gl3) gl3.resize(); });
+
     var ctx = cv.getContext('2d'), dpr = Math.min(w.devicePixelRatio || 1, 1.5), W = 0, H = 0;
     function size() { W = pin.clientWidth; H = pin.clientHeight; cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); cv.style.width = W + 'px'; cv.style.height = H + 'px'; }
-    size(); w.addEventListener('resize', size);
+    size(); w.addEventListener('resize', function () { if (!gl3) size(); });
     var PAIRS = [['#D9531E', '#A9C4DE'], ['#5E7426', '#F2B53A']], ST = 3;
     function strand(cx, A, ph, col, twist, front, lw, slide) {
-      // one pass of one strand: only the segments on the requested side (front/back) of the twist, so the
-      // two strands of a pair pass over and under each other like a cord
+      // fallback only: one pass of one strand, only the segments on the requested side of the twist
       var prev = null, edge = 'rgba(11,32,54,.38)';
       for (var y = -12, i = 0; y <= H + 12; y += ST, i++) {
         var f = Math.PI / 2 + twist * (y / H * 6 * Math.PI) + ph, s = Math.sin(f), dep = Math.cos(f);
@@ -220,31 +237,43 @@
           ctx.strokeStyle = edge; ctx.lineWidth = wd + 2; ctx.beginPath(); ctx.moveTo(prev[0], prev[1]); ctx.lineTo(x, y); ctx.stroke();
           ctx.strokeStyle = col; ctx.lineWidth = wd; ctx.beginPath(); ctx.moveTo(prev[0], prev[1]); ctx.lineTo(x, y); ctx.stroke();
           var k = (i + slide) % 6, sl = (x - prev[0]) * 1.4;
-          if (k === 0 || k === 3) { // the weave: dark flecks on alternating sides, a pale one between
-            var side = k === 0 ? -1 : 1;
-            ctx.fillStyle = '#0B2036'; ctx.fillRect(x + side * wd * .12 - wd * .28 + sl, y - 1.6, wd * .42, 3.4);
-          } else if (k === 1) {
-            ctx.fillStyle = 'rgba(255,255,255,.85)'; ctx.fillRect(x - wd * .18 + sl, y - 1, wd * .36, 2.2);
-          }
+          if (k === 0 || k === 3) { var side = k === 0 ? -1 : 1; ctx.fillStyle = '#0B2036'; ctx.fillRect(x + side * wd * .12 - wd * .28 + sl, y - 1.6, wd * .42, 3.4); }
+          else if (k === 1) { ctx.fillStyle = 'rgba(255,255,255,.85)'; ctx.fillRect(x - wd * .18 + sl, y - 1, wd * .36, 2.2); }
         }
         prev = [x, y];
       }
     }
-    var tIdle = 0;
-    scenes.push(function (now) {
-      if (!near(band, 80)) return;
-      var p = pinP(band), r = band.getBoundingClientRect(), enter = ease(seg(1 - r.top / vh, 0, 1));
-      tIdle = now * .00025;
-      var twist = easeIO(seg(p, .02, .55)), ph = p * 9 + tIdle, slide = Math.floor(p * 420);
+    function draw2D(slide, exit, now) {
+      var twist = easeIO(seg(slide, .02, .9)), ph = (slide + exit) * 9 + now * .00025, sl = Math.floor((slide + exit) * 420);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H); ctx.lineCap = 'round';
       var gap = mobile ? Math.min(118, W * .3) : Math.max(180, W * .14), lw = mobile ? 11 : 15, A = lw * (.5 + .32 * twist);
       [W / 2 - gap, W / 2 + gap].forEach(function (cx, k) {
         var c = PAIRS[k], phk = ph + k * 1.7;
-        strand(cx, A, phk + Math.PI, c[1], twist, false, lw, slide); strand(cx, A, phk, c[0], twist, false, lw, slide);
-        strand(cx, A, phk + Math.PI, c[1], twist, true, lw, slide); strand(cx, A, phk, c[0], twist, true, lw, slide);
+        strand(cx, A, phk + Math.PI, c[1], twist, false, lw, sl); strand(cx, A, phk, c[0], twist, false, lw, sl);
+        strand(cx, A, phk + Math.PI, c[1], twist, true, lw, sl); strand(cx, A, phk, c[0], twist, true, lw, sl);
       });
+      cv.style.opacity = (1 - seg(exit, .5, .9)).toFixed(3);
+    }
+
+    scenes.push(function (now) {
+      var r = band.getBoundingClientRect();
+      if (r.bottom > -vh * 1.5 && r.top < vh * 2.5) want3D();
+      if (!near(band, 80)) { lastY = w.scrollY; lastT = now; return; }
+      // the pinned run: the first 45% slides the stack through the cords, the rest is the exit
+      var p = pinP(band), enter = ease(seg(1 - r.top / vh, 0, 1)), slide = seg(p, 0, .45), exit = seg(p, .45, 1);
+      var y = w.scrollY, dy = y - lastY, dt = lastT ? Math.min(.05, (now - lastT) / 1000) : .016; lastY = y; lastT = now;
+      if (dy) dir = dy > 0 ? 1 : -1;
+      energy = Math.min(1, energy * .94 + Math.abs(dy) * .0009);
+      if (gl3 && gl3.alive()) {
+        gl3.frame({ enter: enter, slide: slide, exit: exit, energy: energy, dir: dir, dt: dt, time: now / 1000, scrolled: scrolled });
+        gl3.canvas.style.opacity = (1 - seg(exit, .93, 1)).toFixed(3);
+        if (cv.width) { cv.width = 0; cv.height = 0; }
+      } else {
+        if (!cv.width) size();
+        draw2D(slide, exit, now);
+      }
       pin.style.setProperty('--vs-enter', enter.toFixed(3));
-      var pos = ease(seg(p, .06, .9)) * (n - 1), gapY = mobile ? 74 : 86;
+      var pos = ease(seg(slide, .06, 1)) * (n - 1), gapY = mobile ? 74 : 86;
       for (var i = 0; i < n; i++) {
         var o = i - pos, a = Math.abs(o);
         if (a > 6) { lis[i].style.opacity = 0; continue; }
@@ -252,10 +281,12 @@
         lis[i].style.opacity = Math.max(0, 1 - a * .36).toFixed(3);
         lis[i].classList.toggle('on', a < .5);
       }
-      var ex = seg(p, .9, 1);
-      left.style.transform = 'translate3d(' + (-(1 - enter) * 30 - ex * 8).toFixed(1) + 'vw,-50%,0)';
-      right.style.transform = 'translate3d(' + ((1 - enter) * 30 + ex * 8).toFixed(1) + 'vw,-50%,0)';
-      left.style.opacity = right.style.opacity = (1 - ex).toFixed(3);
+      // the words and the stack lift away first, then the cords unwind and the camera flies through them
+      var et = ease(seg(exit, 0, .32));
+      row.style.transform = 'translate3d(0,' + (-et * 60).toFixed(2) + 'vh,0)';
+      row.style.opacity = (1 - et).toFixed(3);
+      left.style.transform = 'translate3d(' + (-(1 - enter) * 30).toFixed(1) + 'vw,-50%,0)';
+      right.style.transform = 'translate3d(' + ((1 - enter) * 30).toFixed(1) + 'vw,-50%,0)';
     });
   })();
 

@@ -1335,10 +1335,11 @@
   }
 
   /* 3 cords: the tool band pins and the stack slides through the middle */
-  html.vs .tl-band.vs-cords{ height:300vh; padding:0; overflow:visible; background:#F3F2EE; }
+  html.vs .tl-band.vs-cords{ height:380vh; padding:0; overflow:visible; background:#F3F2EE; }
   html.vs .vs-cords .tl-view{ display:none; }
   .vs-cords-pin{ position:sticky; top:0; height:100vh; overflow:hidden; }
-  .vs-cord-cv{ position:absolute; inset:0; z-index:1; display:block; }
+  .vs-cord-cv, .vs-cord-gl{ position:absolute; inset:0; z-index:1; display:block; }
+  .vs-cords-row{ position:absolute; inset:0; z-index:2; will-change:transform, opacity; }
   .vs-cords-l, .vs-cords-r{ position:absolute; top:50%; z-index:3; margin:0; max-width:5.6em; font-family:var(--font-sans); font-weight:700; font-size:clamp(2.6rem, 5.4vw, 5.6rem); line-height:.94; letter-spacing:-.045em; color:var(--ink); will-change:transform; }
   .vs-cords-l{ left:4.5vw; }
   .vs-cords-r{ right:4.5vw; text-align:right; }
@@ -1353,7 +1354,7 @@
   .vs-cords-pin .tl-label{ position:absolute; left:4.5vw; right:auto; bottom:28px; z-index:3; margin:0; padding:0; max-width:30vw; text-align:left; }
   @media (max-width:767px){ .vs-cords-pin .tl-label{ left:6vw; right:6vw; max-width:none; bottom:20px; } }
   @media (max-width:767px){
-    html.vs .tl-band.vs-cords{ height:260vh; }
+    html.vs .tl-band.vs-cords{ height:330vh; }
     .vs-cords-l{ top:19%; left:6vw; }
     .vs-cords-r{ top:76%; left:6vw; right:auto; text-align:left; }
     .vs-cords-l, .vs-cords-r{ font-size:2.3rem; }
@@ -1797,6 +1798,7 @@
     </div>
     </div>
 </section>
+
 
 
 

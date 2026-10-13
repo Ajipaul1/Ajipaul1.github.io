@@ -24,7 +24,7 @@
   try { sessionStorage.setItem('tapIntro', '1'); } catch (e) {}
   de.classList.add('vs-film-on');
 
-  var FILMS = ['orbit', 'ink', 'waves', 'sculpt'], film = 'orbit';
+  var FILMS = ['sculpt', 'orbit', 'ink', 'waves'], film = 'sculpt';
   try { var q = new URLSearchParams(location.search).get('film'); if (q && FILMS.indexOf(q) >= 0) film = q; } catch (e) {}
   var cut = (w.innerWidth < 768 || w.innerHeight > w.innerWidth * 1.1) ? 'm' : 'd';
   var base = '/assets/videos/home/hero-' + film + '-' + cut;
