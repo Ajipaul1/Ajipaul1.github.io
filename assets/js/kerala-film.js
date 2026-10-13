@@ -24,7 +24,7 @@
   /* ---------- films ---------- */
   var vids = $$('video[data-kf-v]'), btn = d.querySelector('.kf-pause');
   var cut = phone() ? '-m' : '-d', auto = !reduce && !saveData, held = !auto;
-  function base(v) { return '/videos/kerala/kerala-' + v.getAttribute('data-kf-v') + cut; }
+  function base(v) { return '/assets/videos/kerala/kerala-' + v.getAttribute('data-kf-v') + cut; }
   vids.forEach(function (v) { v.muted = true; v.defaultMuted = true; v.setAttribute('poster', base(v) + '.webp'); });
   function load(v) { if (!v.__src) { v.__src = 1; v.preload = 'auto'; v.src = base(v) + '.mp4'; } }
   function play(v) { if (held) return; load(v); var p = v.play(); if (p && p.catch) p.catch(function () {}); }

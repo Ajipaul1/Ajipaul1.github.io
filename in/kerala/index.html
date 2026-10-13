@@ -1196,7 +1196,7 @@
     }
     </script>
 <!-- kf-css:start -->
-<link rel="preload" as="image" href="/videos/kerala/kerala-falls-d.webp" media="(min-width: 768px)" />
+<link rel="preload" as="image" href="/assets/videos/kerala/kerala-falls-d.webp" media="(min-width: 768px)" />
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"/>
 <style>
   /* ================= /in/kerala/ FILM (in_kerala_film.js) — start states only under html.kf-on ================= */
@@ -1454,6 +1454,7 @@
     .kf-rail-t{ writing-mode:vertical-rl; transform:rotate(180deg); text-transform:uppercase; max-height:220px; overflow:hidden; white-space:nowrap; }
   }
   .kf-pause{ position:fixed; left:18px; bottom:20px; z-index:60; width:38px; height:38px; padding:0; border-radius:50%; display:grid; place-items:center; background:rgba(8,19,29,.72); color:var(--kf-ink); border:1px solid var(--kf-glass-b); font-size:.8rem; line-height:1; cursor:pointer; -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); }
+  .kf-pause[hidden]{ display:none; }
   .kf-pause:hover, .kf-pause:focus-visible{ border-color:rgba(255,255,255,.45); }
 
   /* reveals */
@@ -1472,7 +1473,8 @@
     .kf-drivers{ grid-template-columns:1fr 1fr; row-gap:26px; }
     .kf-drv:nth-child(3){ padding-left:0; border-left:0; }
     .kf-map-grid{ grid-template-columns:1fr; }
-    .kf-map-stick{ order:-1; top:76px; height:38vh; z-index:3; background:linear-gradient(var(--kf-bg) 82%, transparent); }
+    .kf-map-stick{ order:-1; top:76px; height:38vh; z-index:3; background:var(--kf-bg); }
+    .kf-map-stick::after{ content:''; position:absolute; left:0; right:0; top:100%; height:36px; background:linear-gradient(var(--kf-bg), transparent); pointer-events:none; }
     .kf-map{ max-height:none; }
     .kf-map-name b{ font-size:1.6rem; }
     .kf-trust{ grid-template-columns:1fr 1fr; }
@@ -1839,7 +1841,7 @@
   <div class="kf-hero-run">
     <div class="kf-hero-stage">
       <div class="kf-glow" aria-hidden="true"></div>
-      <div class="kf-drop-media"><video class="kf-video" data-kf-v="falls" muted playsinline loop preload="none" aria-hidden="true" poster="/videos/kerala/kerala-falls-d.webp"></video><span class="kf-shade"></span></div>
+      <div class="kf-drop-media"><video class="kf-video" data-kf-v="falls" muted playsinline loop preload="none" aria-hidden="true" poster="/assets/videos/kerala/kerala-falls-d.webp"></video><span class="kf-shade"></span></div>
       <p class="kf-hero-aside" aria-hidden="true"><em class="kf-it">Kochi, Kerala.</em><span>From Kasaragod to Thiruvananthapuram</span></p>
       <div class="kf-answer"><p>TechAuditPros is a Kochi-based team providing <strong>SEO, website development and custom ERP</strong> to businesses across <strong>Kerala</strong> &mdash; from Kasaragod to Thiruvananthapuram. Most people searching this phrase want a freelance SEO expert; we do the same work as a team, in the same time zone, with a developer who can actually make the changes, a monthly written report, and everything you pay for left in your hands if you stop. Founded by Aji Paul, a mechanical engineer turned technical search specialist, holding Google Analytics, Google Ads and Semrush certifications.</p></div>
     </div>
@@ -1848,7 +1850,7 @@
 </section>
 
 <section class="kf-film" id="ker-one" data-kf-ch="01" data-kf-label="One becomes many" aria-label="One becomes many">
-  <div class="kf-film-media"><div class="kf-stick"><video class="kf-video" data-kf-v="mangrove" muted playsinline loop preload="none" aria-hidden="true" poster="/videos/kerala/kerala-mangrove-d.webp"></video><span class="kf-shade"></span></div></div>
+  <div class="kf-film-media"><div class="kf-stick"><video class="kf-video" data-kf-v="mangrove" muted playsinline loop preload="none" aria-hidden="true" poster="/assets/videos/kerala/kerala-mangrove-d.webp"></video><span class="kf-shade"></span></div></div>
   <div class="kf-film-title"><p class="kf-slate kf-r">01 &middot; One becomes many</p><h2 class="kf-h2 kf-r">Kerala searches for one expert. <em class="kf-it">This is what that one person looks like when it is a team.</em></h2></div>
   <div class="kf-film-body kf-wrap">
     <div class="kf-glass kf-two kf-r">
@@ -1888,7 +1890,7 @@
 </section>
 
 <section class="kf-sec kf-districts" id="ker-districts" data-kf-ch="03" data-kf-label="Fourteen districts" aria-label="Fourteen districts">
-  <div class="kf-dist-bg" aria-hidden="true"><video class="kf-video" data-kf-v="paddy" muted playsinline loop preload="none" aria-hidden="true" poster="/videos/kerala/kerala-paddy-d.webp"></video></div>
+  <div class="kf-dist-bg" aria-hidden="true"><video class="kf-video" data-kf-v="paddy" muted playsinline loop preload="none" aria-hidden="true" poster="/assets/videos/kerala/kerala-paddy-d.webp"></video></div>
   <div class="kf-wrap kf-head"><p class="kf-slate kf-r">03 &middot; Fourteen districts, one team</p><h2 class="kf-h2 kf-r">North to south, <em class="kf-it">what we actually see in each district of Kerala.</em></h2><p class="kf-lede kf-r">Ranking pages list the districts. We would rather tell you what a business in each one tends to need, because it differs more than the search terms suggest &mdash; and because if you are in Kannur or Kollam you should know we have thought about you, not just tagged you.</p></div>
   <div class="kf-wrap kf-map-grid">
     <ol class="kf-dlist">
@@ -1968,7 +1970,7 @@
 </section>
 
 <section class="kf-film" id="ker-services" data-kf-ch="05" data-kf-label="What we do" aria-label="What we do for Kerala businesses">
-  <div class="kf-film-media"><div class="kf-stick"><video class="kf-video" data-kf-v="nets" muted playsinline loop preload="none" aria-hidden="true" poster="/videos/kerala/kerala-nets-d.webp"></video><span class="kf-shade"></span></div></div>
+  <div class="kf-film-media"><div class="kf-stick"><video class="kf-video" data-kf-v="nets" muted playsinline loop preload="none" aria-hidden="true" poster="/assets/videos/kerala/kerala-nets-d.webp"></video><span class="kf-shade"></span></div></div>
   <div class="kf-film-title"><p class="kf-slate kf-r">05 &middot; What we do</p><h2 class="kf-h2 kf-r">Six things, <em class="kf-it">one team, one invoice.</em></h2><p class="kf-lede kf-r">Everything below is done by people on the team, not referred out. That is the practical difference between this page and most of the others you will read today.</p></div>
   <div class="kf-film-body kf-wrap"><div class="kf-svcgrid"><article class="kf-glass kf-svc kf-r"><span class="kf-idx">01</span><h3>Technical SEO</h3><p>Crawl paths, indexation, Core Web Vitals, structured data, hreflang for pages in Malayalam and English. The engineering half of search, done by people who write code every day.</p></article><article class="kf-glass kf-svc kf-r"><span class="kf-idx">02</span><h3>Local SEO &amp; Google Business Profile</h3><p>The map results for Kochi, Calicut, Thrissur and Trivandrum decide who gets the walk-in and the call. Profile, categories, reviews, citations, and pages that match how people here actually search.</p></article><article class="kf-glass kf-svc kf-r"><span class="kf-idx">03</span><h3>Ecommerce SEO</h3><p>Category architecture, faceted navigation, product schema and speed on Shopify, WooCommerce and custom builds. Kerala sells gold, garments, spices and ayurveda to the whole country; the site has to be found first.</p></article><article class="kf-glass kf-svc kf-r"><span class="kf-idx">04</span><h3>Content, AEO and GEO</h3><p>Pages written to be quoted: by Google&rsquo;s AI Overviews, by ChatGPT and Perplexity, and by the people who still read. Answer first, evidence second, in Indian English and, where it earns it, Malayalam.</p></article><article class="kf-glass kf-svc kf-r"><span class="kf-idx">05</span><h3>Website development</h3><p>Fast, owned, hand-built or on the platform you already run. No page builder lock-in, no monthly ransom, a staging URL from week one and the repository handed to you.</p></article><article class="kf-glass kf-svc kf-r"><span class="kf-idx">06</span><h3>ERP for Kerala&rsquo;s producers</h3><p>Stock, orders, purchasing, production and job costing in one system, connected to the accounting package you already keep. Textiles, food processing, marine export and construction are the ones we see most.</p></article></div></div>
 </section>
@@ -1979,7 +1981,7 @@
 </section>
 
 <section class="kf-film" id="ker-process" data-kf-ch="07" data-kf-label="How the work runs" aria-label="How the work runs">
-  <div class="kf-film-media"><div class="kf-stick"><video class="kf-video" data-kf-v="road" muted playsinline loop preload="none" aria-hidden="true" poster="/videos/kerala/kerala-road-d.webp"></video><span class="kf-shade"></span></div></div>
+  <div class="kf-film-media"><div class="kf-stick"><video class="kf-video" data-kf-v="road" muted playsinline loop preload="none" aria-hidden="true" poster="/assets/videos/kerala/kerala-road-d.webp"></video><span class="kf-shade"></span></div></div>
   <div class="kf-film-title"><p class="kf-slate kf-r">07 &middot; How the work runs</p><h2 class="kf-h2 kf-r">Four steps, <em class="kf-it">and you can see every one of them.</em></h2><p class="kf-lede kf-r">This is the process every Kerala client gets, from a one-page clinic site in Thrissur to a garment exporter&rsquo;s ERP in Kannur.</p><p class="kf-filmcap kf-r">The road is the same for everyone. What differs is whether you can see where you are on it.</p></div>
   <div class="kf-film-body kf-wrap"><ol class="kf-steps"><span class="kf-steps-line" aria-hidden="true"><i></i></span><li class="kf-glass kf-step kf-r"><i>1</i><h3>One page, one process</h3><p>Free. We look at one real page or one real workflow with you &mdash; in Kochi, or on a call &mdash; and tell you where the leverage is. The findings are yours whether or not we ever speak again.</p></li><li class="kf-glass kf-step kf-r"><i>2</i><h3>A written plan for ninety days</h3><p>What gets done in the first thirty days, what you will have at the end of ninety, and what you keep if you stop then. Compare it with any other quote; two quotes at the same price routinely describe different work.</p></li><li class="kf-glass kf-step kf-r"><i>3</i><h3>Weekly staging, monthly report</h3><p>A staging URL you can open any week to see what changed. A written report every month against the plan, in plain English, with the numbers that matter to a business and not just to us.</p></li><li class="kf-glass kf-step kf-r"><i>4</i><h3>You keep everything</h3><p>Code, accounts, content, the report history. No retainer trap, no notice period measured in quarters. If we are worth keeping, you will keep us; if not, nothing of yours leaves with us.</p></li></ol></div>
 </section>
@@ -2006,7 +2008,7 @@
 </section>
 
 <section class="kf-film kf-band" data-kf-ch="10" data-kf-label="Kerala" aria-label="Kochi is where we are">
-  <div class="kf-film-media"><div class="kf-stick"><video class="kf-video" data-kf-v="canoe" muted playsinline loop preload="none" aria-hidden="true" poster="/videos/kerala/kerala-canoe-d.webp"></video><span class="kf-shade"></span></div></div>
+  <div class="kf-film-media"><div class="kf-stick"><video class="kf-video" data-kf-v="canoe" muted playsinline loop preload="none" aria-hidden="true" poster="/assets/videos/kerala/kerala-canoe-d.webp"></video><span class="kf-shade"></span></div></div>
   <div class="kf-film-title"><p class="kf-slate kf-r">Kochi is where we are</p><h2 class="kf-h2 kf-xl kf-r">Kerala <em class="kf-it">is where we work.</em></h2><p class="kf-lede kf-r">Message us on WhatsApp, book a call, or tell us where you are and we will come to you.</p><div class="kf-actions kf-r"><a class="kf-btn" href="https://wa.me/916282520339?text=Hi%20TechAuditPros%2C%20I%27d%20like%20to%20talk%20about%20a%20project." target="_blank" rel="noopener">Start on WhatsApp</a></div></div>
 </section>
 
@@ -2093,7 +2095,7 @@
 </div>
 
 <section class="kf-film kf-final" id="contact" data-kf-ch="12" data-kf-label="Talk to us">
-  <div class="kf-film-media"><div class="kf-stick"><video class="kf-video" data-kf-v="mist" muted playsinline loop preload="none" aria-hidden="true" poster="/videos/kerala/kerala-mist-d.webp"></video><span class="kf-shade"></span></div></div>
+  <div class="kf-film-media"><div class="kf-stick"><video class="kf-video" data-kf-v="mist" muted playsinline loop preload="none" aria-hidden="true" poster="/assets/videos/kerala/kerala-mist-d.webp"></video><span class="kf-shade"></span></div></div>
   <div class="kf-film-title kf-final-in"><h2 class="kf-h2 kf-xl kf-r">Let&rsquo;s look at one real page together <em class="kf-it">&mdash; in Kochi or on WhatsApp.</em></h2><div class="final-cta-actions kf-actions kf-r"><a href="https://forms.zohopublic.in/infotechau1/form/ContactUs/formperma/dbhRozkUnAh8YL0_CF5nUiAKfUFzPOL3FKmZnW6D0Fg" target="_blank" class="kf-btn">Book a Free Strategy Call</a>
             <span class="final-cta-note">Takes 60 seconds &middot; For Kerala businesses &middot; The findings are yours to keep &middot; No long-term contract</span></div></div>
 </section>

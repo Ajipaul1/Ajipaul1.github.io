@@ -8,8 +8,8 @@
 //   that opens to full screen as you scroll · a pinned map of Kerala's fourteen districts that lights each
 //   district as you read it (morpho's globe moment) · glass panels for figures · a chapter rail on the left.
 //
-// VIDEOS: videos/kerala/kerala-<name>-{d,m}.mp4 + .webp posters — Pexels clips (Pexels licence, commercial
-//   use allowed, no attribution required; credited anyway in videos/kerala/CREDITS.md), re-encoded as silent
+// VIDEOS: assets/videos/kerala/ (the only tracked video path: .gitignore drops *.mp4 elsewhere) kerala-<name>-{d,m}.mp4 + .webp posters — Pexels clips (Pexels licence, commercial
+//   use allowed, no attribution required; credited anyway in assets/videos/kerala/CREDITS.md), re-encoded as silent
 //   seamless loops (desktop 1440/1600 wide, phone 540x960 crop). They are decoration: aria-hidden, no text
 //   is burned in, nothing claims they show our premises, people or clients.
 // MAP: district outlines from DataMeet (CC BY 4.0) via github.com/geohacker/kerala, simplified here; the
@@ -128,7 +128,7 @@ function film(h) {
   return h;
 }
 const slate = (t, extra = '') => `<p class="kf-slate kf-r${extra}">${t}</p>`;
-const video = (name, cls = '') => `<video class="kf-video${cls}" data-kf-v="${name}" muted playsinline loop preload="none" aria-hidden="true" poster="/videos/kerala/kerala-${name}-d.webp"></video>`;
+const video = (name, cls = '') => `<video class="kf-video${cls}" data-kf-v="${name}" muted playsinline loop preload="none" aria-hidden="true" poster="/assets/videos/kerala/kerala-${name}-d.webp"></video>`;
 const ch = (n, label) => `data-kf-ch="${n}" data-kf-label="${label}"`;
 
 // Kerala map: project, simplify, write paths + label points
@@ -324,7 +324,7 @@ L.must(TAIL, 'kf-js:start', 1);
 
 let head = HEAD.replace(/<!-- kf-css:start -->[\s\S]*?<!-- kf-css:end -->\n?/, '');
 head += `<!-- kf-css:start -->
-<link rel="preload" as="image" href="/videos/kerala/kerala-falls-d.webp" media="(min-width: 768px)" />
+<link rel="preload" as="image" href="/assets/videos/kerala/kerala-falls-d.webp" media="(min-width: 768px)" />
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"/>
 <style>
 ${fs.readFileSync(path.join(__dirname, 'in_kerala_film.css'), 'utf8')}

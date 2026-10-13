@@ -1,7 +1,8 @@
 'use strict';
 // /in/kerala/ — rebuilt to SERP parity (PLAN-IN §8) with its own design (PLAN-IN §2.2, §7).
 //
-// RUN ORDER (not idempotent alone): in_hub.js -> in_city.js -> in_story.js -> in_kerala.js
+// RUN ORDER (not idempotent alone): in_hub.js -> in_city.js -> in_story.js -> in_kerala.js -> post-passes -> in_kerala_film.js
+//   (2026-10-13: the LIVE page is the film layout from in_kerala_film.js; text edits here reach it by re-running that last)
 //   in_city writes the Kerala skeleton (head, hero, nav, footer); this file replaces everything between
 //   the hero and the closing CTA with the full page, and asserts it is reading a fresh in_city output.
 //
