@@ -1234,7 +1234,7 @@
 </script>
 <!-- offers_v1:schema:end -->
 <!-- home-scroll:start -->
-<script>try{var r=document.documentElement;r.classList.add('vs-globe');if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&!sessionStorage.getItem('tapIntro'))r.classList.add('vs-intro')}catch(e){}</script>
+<script>try{var r=document.documentElement;r.classList.add('vs-film');if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&!sessionStorage.getItem('tapIntro'))r.classList.add('vs-intro')}catch(e){}</script>
 <style>
   /* ================= HOME SCROLL (2026-10-13) — scroll-driven scenes; start states only under html.vs ================= */
   html.lenis, html.lenis body{ height:auto; }
@@ -1274,14 +1274,35 @@
   html.vs .vs-go .vs-hgrid .vs-l, html.vs .vs-go.vs-hgrid .vs-l, html.vs .vs-go > .vs-hgrid .vs-l{ clip-path:inset(0 0 0 0); }
   html.vs .vs-go .vs-tile{ opacity:1; transform:none; }
 
-  /* 1 hero: intro + dotted globe (assets/js/home-globe.js); html.vs-globe / html.vs-intro are set in <head> */
-  html.vs-globe .tap-new-hero .hero-canvas, html.vs-globe .tap-new-hero .hero-side-text{ display:none; }
-  .vs-globe-cv{ position:absolute; inset:0; z-index:1; display:block; pointer-events:none; }
-  html.vs-globe .tap-new-hero .container{ position:relative; z-index:2; }
-  html.vs-globe .tap-new-hero .hero-social-row{ z-index:3; }
-  html.vs-intro .tap-new-hero .hero-main-content > *{ opacity:0; transform:translate3d(0,30px,0); animation:vsIntroFail 0s linear 4s forwards; }
-  html.vs-intro.vs-intro-text .tap-new-hero .hero-main-content > *{ opacity:1; transform:none; animation:none; transition:opacity .9s ease, transform 1.15s cubic-bezier(.19,1,.22,1); transition-delay:calc(var(--hi, 0) * .08s); }
+  /* 1 hero: cinematic film + staged copy (assets/js/home-film.js); html.vs-film / html.vs-intro are set in <head> */
+  html.vs-film .tap-new-hero .hero-canvas, html.vs-film .tap-new-hero .hero-side-text, html.vs-film .tap-new-hero .hero-spotlight{ display:none; }
+  html.vs-film .tap-new-hero{ background:#05080d; }
+  .vs-film{ position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none; background:#05080d; }
+  .vs-film video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transform:scale(1.14); transition:transform 10s cubic-bezier(.2,.6,.2,1); }
+  .vs-film.open video{ transform:scale(1.02); }
+  .vs-film-orbit video{ transform:scale(-1.14, 1.14); }   /* mirrored: the Earth sits right, the dark cockpit behind the copy */
+  .vs-film-orbit.open video{ transform:scale(-1.02, 1.02); }
+  .vs-film-shade{ position:absolute; inset:0; background:linear-gradient(90deg, rgba(4,9,16,.93) 0%, rgba(4,9,16,.84) 36%, rgba(4,9,16,.48) 58%, rgba(4,9,16,.08) 84%), linear-gradient(180deg, rgba(4,9,16,.4) 0%, rgba(4,9,16,0) 28%, rgba(4,9,16,0) 62%, rgba(4,9,16,.88) 100%); }
+  .vs-lid{ position:absolute; left:0; right:0; z-index:2; height:50.5%; background:#05080d; transition:transform 1.7s cubic-bezier(.77,0,.18,1) .2s; }
+  .vs-lid.t{ top:0; } .vs-lid.b{ bottom:0; }
+  .vs-film.open .vs-lid.t{ transform:translateY(-100%); } .vs-film.open .vs-lid.b{ transform:translateY(100%); }
+  html:not(.vs-intro) .vs-lid{ display:none; }
+  html.vs-film .tap-new-hero .container{ position:relative; z-index:2; }
+  html.vs-film .tap-new-hero .hero-social-row{ z-index:3; }
+  .vs-hw{ display:inline-block; overflow:hidden; vertical-align:top; padding-bottom:.1em; margin-bottom:-.1em; }
+  .vs-hwi{ display:inline-block; }
+  .hero-main-content h1 .vs-hw, .hero-main-content h1 .vs-hwi{ color:#fff; }   /* the site paints every h1 span orange; only the rotating phrase should be */
+  html.vs-intro .tap-new-hero .hero-main-content > :not(h1), html.vs-intro .tap-new-hero h1 .vs-hws{ opacity:0; transform:translate3d(0,26px,0); animation:vsIntroFail 0s linear 5s forwards; }
+  html.vs-intro .tap-new-hero h1 .vs-hwi{ transform:translate3d(0,112%,0); animation:vsIntroFail 0s linear 5s forwards; }
+  html.vs-intro.vs-intro-text .tap-new-hero .hero-main-content > :not(h1), html.vs-intro.vs-intro-text .tap-new-hero h1 .vs-hws, html.vs-intro.vs-intro-text .tap-new-hero h1 .vs-hwi{ opacity:1; transform:none; animation:none; transition:opacity 1s ease, transform 1.2s cubic-bezier(.19,1,.22,1); }
+  html.vs-intro.vs-intro-text .tap-new-hero h1 .vs-hwi, html.vs-intro.vs-intro-text .tap-new-hero h1 .vs-hws{ transition-delay:calc(.2s + var(--w, 0) * .09s); }
+  html.vs-intro.vs-intro-text .tap-new-hero .hero-subtitle{ transition-delay:.85s; }
+  html.vs-intro.vs-intro-text .tap-new-hero .hero-actions{ transition-delay:1.1s; }
+  html.vs-intro.vs-intro-text .tap-new-hero .hero-features-list{ transition-delay:1.3s; }
+  html.vs-intro.vs-intro-text .tap-new-hero .trust-strip{ transition-delay:1.45s; }
+  html.vs-intro.vs-intro-fast .tap-new-hero .hero-main-content > *, html.vs-intro.vs-intro-fast .tap-new-hero h1 .vs-hwi, html.vs-intro.vs-intro-fast .tap-new-hero h1 .vs-hws{ transition-duration:.45s !important; transition-delay:0s !important; }
   @keyframes vsIntroFail{ to{ opacity:1; transform:none; } }
+  @media (max-width:767px){ .vs-film-shade{ background:linear-gradient(180deg, rgba(4,9,16,.5) 0%, rgba(4,9,16,.72) 38%, rgba(4,9,16,.9) 100%); } }
   .vs-skip{ position:fixed; left:50%; bottom:28px; z-index:1001; transform:translateX(-50%); padding:11px 18px; border-radius:999px; border:1px solid rgba(255,255,255,.24); background:rgba(11,32,54,.62); color:#fff; font:500 .68rem/1 var(--font-mono); letter-spacing:.14em; text-transform:uppercase; cursor:pointer; -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); transition:opacity .5s ease, border-color .3s; }
   .vs-skip:hover, .vs-skip:focus-visible{ border-color:rgba(255,255,255,.55); }
   .vs-skip.gone{ opacity:0; pointer-events:none; }
@@ -1776,6 +1797,8 @@
     </div>
     </div>
 </section>
+
+
 
 
 
@@ -3320,8 +3343,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- home-scroll-js:start -->
 <script src="/assets/js/vendor/lenis-1.1.13.min.js" defer></script>
 <script src="/assets/js/home-scroll.js" defer></script>
-<script src="/assets/js/home-globe-dots.js" defer></script>
-<script src="/assets/js/home-globe.js" defer></script>
+<script src="/assets/js/home-film.js" defer></script>
 <!-- home-scroll-js:end -->
 </body>
 </html>
