@@ -4,7 +4,7 @@
    reduced-motion check, so with JS off, for crawlers and under reduced motion the page is fully static.
 
    Scenes (each one runs only while it is on screen):
-     1 HERO       grid lines draw across the hero, the content rises, then it parts as you scroll away
+     1 HERO       intro + dotted globe live in home-globe.js; this file only lifts the copy away on scroll
      2 MANIFESTO  three colour blocks shrink into keyword tags that drift around one sentence (pinned)
      3 CORDS      the tool band pins; two twisted cords wind as the stack slides through the middle
      4 STACK      "How an engagement runs" becomes three cards that stack on top of each other
@@ -115,30 +115,14 @@
 
   var scenes = [];
 
-  /* ---------- 1 HERO ---------- */
+  /* ---------- 1 HERO: the intro and the globe are home-globe.js; here only the copy lifting away ---------- */
   (function () {
-    var grid = el('div', 'vs-hgrid'); grid.setAttribute('aria-hidden', 'true');
-    grid.innerHTML = '<i class="vs-l v v1"></i><i class="vs-l v v2"></i><i class="vs-l h"></i>';
-    hero.appendChild(grid);
-    var tiles = el('nav', 'vs-tiles'); tiles.setAttribute('aria-label', 'On this page');
-    tiles.innerHTML = '<a class="vs-tile t1" href="#services">Three services<b>&rarr;</b></a>'
-      + '<a class="vs-tile t2" href="#offers">Fixed prices<b>&rarr;</b></a>'
-      + '<a class="vs-tile t3" href="#regions">Six markets<b>&rarr;</b></a>'
-      + '<a class="vs-tile t4" href="#results">Live proof<b>&rarr;</b></a>';
-    hero.appendChild(tiles);
-    var kids = hero.querySelectorAll('.hero-main-content > *');
-    for (var i = 0; i < kids.length; i++) kids[i].style.setProperty('--hi', i);
-    requestAnimationFrame(function () { requestAnimationFrame(function () { hero.classList.add('vs-go'); }); });
-    var content = hero.querySelector('.hero-main-content'), canvas = hero.querySelector('.hero-canvas'),
-      side = hero.querySelector('.hero-side-text'), v1 = grid.querySelector('.v1'), v2 = grid.querySelector('.v2');
+    var content = hero.querySelector('.hero-main-content');
+    if (!content) return;
     scenes.push(function () {
       if (!near(hero, 0)) return;
-      var r = hero.getBoundingClientRect(), q = clamp(-r.top / Math.max(1, r.height), 0, 1), e = ease(q);
-      if (content) { content.style.transform = 'translate3d(0,' + (-e * 90).toFixed(1) + 'px,0)'; content.style.opacity = (1 - seg(q, .25, .85)).toFixed(3); }
-      if (canvas) canvas.style.transform = 'scale(' + (1 + e * .14).toFixed(4) + ')';
-      if (side) side.style.transform = 'translate3d(' + (e * 60).toFixed(1) + 'px,' + (-e * 40).toFixed(1) + 'px,0)';
-      v1.style.transform = 'translateX(' + (-e * 70).toFixed(1) + 'px)'; v2.style.transform = 'translateX(' + (e * 70).toFixed(1) + 'px)';
-      tiles.style.opacity = (1 - seg(q, .1, .5)).toFixed(3);
+      var r = hero.getBoundingClientRect(), q = clamp(-r.top / Math.max(1, r.height), 0, 1);
+      content.style.transform = 'translate3d(0,' + (-ease(q) * 90).toFixed(1) + 'px,0)'; content.style.opacity = (1 - seg(q, .25, .85)).toFixed(3);
     });
   })();
 

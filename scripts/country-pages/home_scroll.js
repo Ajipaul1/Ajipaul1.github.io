@@ -4,7 +4,9 @@
 // So the page keeps its own design, words and SEO; what changes is HOW it moves: scroll-driven scenes in
 // the manner of varsity.vc instead of the one-shot moves of home_motion.js, which this layer retires.
 //
-//   1 HERO       thin grid lines draw across the hero, the copy rises, then it parts as you scroll away
+//   1 HERO       (2026-10-13, austinwerner.io-style intro) LED-visor TA logo -> fly into a dotted globe on Kochi ->
+//                pull back -> arcs to the five markets; the globe stays as the hero background (assets/js/home-globe.js,
+//                land dots from home_globe_dots.js). First visit per session; Skip button; reduced motion = still globe.
 //   2 MANIFESTO  NEW section after the hero: three colour blocks shrink into keyword tags that drift
 //                around one sentence while the band goes from navy to paper (pinned, scrubbed)
 //   3 CORDS      the tool band pins; two pairs of cords wind tighter as the stack slides through the middle
@@ -53,6 +55,7 @@ ${TAGS.map(t => `            <li class="c-${t[4]}${t[5] ? ' vs-dt' : ''}" style=
 `;
 
 const CSS = `<!-- home-scroll:start -->
+<script>try{var r=document.documentElement;r.classList.add('vs-globe');if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&!sessionStorage.getItem('tapIntro'))r.classList.add('vs-intro')}catch(e){}</script>
 <style>
   /* ================= HOME SCROLL (2026-10-13) — scroll-driven scenes; start states only under html.vs ================= */
   html.lenis, html.lenis body{ height:auto; }
@@ -80,7 +83,7 @@ const CSS = `<!-- home-scroll:start -->
   html.vs .vs-r{ opacity:0; transform:translate3d(0,36px,0); transition:opacity .9s cubic-bezier(.19,1,.22,1), transform 1.15s cubic-bezier(.19,1,.22,1); transition-delay:calc(var(--ri,0) * 90ms); }
   html.vs .vs-r.vs-in{ opacity:1; transform:none; }
 
-  /* 1 hero: the grid */
+  /* shared grid lines (the closing band draws them) */
   .vs-hgrid{ position:absolute; inset:0; z-index:1; pointer-events:none; }
   .vs-l{ position:absolute; display:block; background:rgba(255,255,255,.15); }
   .vs-l.v{ top:0; bottom:0; width:1px; }
@@ -90,24 +93,19 @@ const CSS = `<!-- home-scroll:start -->
   html.vs .vs-hgrid .vs-l.h{ clip-path:inset(0 100% 0 0); transition:clip-path 1.5s cubic-bezier(.77,0,.18,1) .45s; }
   html.vs .vs-hgrid .vs-l.v2{ transition-delay:.18s; }
   html.vs .vs-go .vs-hgrid .vs-l, html.vs .vs-go.vs-hgrid .vs-l, html.vs .vs-go > .vs-hgrid .vs-l{ clip-path:inset(0 0 0 0); }
-  html.vs .tap-new-hero .container{ position:relative; z-index:2; }
-  html.vs .tap-new-hero .hero-canvas{ opacity:0; transition:opacity 1.8s ease .1s; transform-origin:50% 40%; }
-  html.vs .tap-new-hero.vs-go .hero-canvas{ opacity:1; }
-  html.vs .tap-new-hero .hero-main-content > *{ transform:translate3d(0,44px,0); transition:transform 1.25s cubic-bezier(.19,1,.22,1), opacity 1s ease; transition-delay:calc(.2s + var(--hi,0) * .085s); }
-  html.vs .tap-new-hero .hero-main-content > :not(h1):not(.hero-subtitle){ opacity:0; }
-  html.vs .tap-new-hero.vs-go .hero-main-content > *, html.vs .tap-new-hero.vs-go .hero-main-content > :not(h1):not(.hero-subtitle){ transform:none; opacity:1; }
-  .vs-tiles{ position:absolute; inset:0; z-index:3; pointer-events:none; }
-  .vs-tile{ position:absolute; pointer-events:auto; display:flex; justify-content:space-between; align-items:center; gap:14px; width:calc(33.333% - 40px); padding:0 0 13px; font:500 .7rem/1 var(--font-mono); letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.7); text-decoration:none; }
-  .vs-tile b{ font-weight:400; font-size:1rem; transition:transform .6s cubic-bezier(.19,1,.22,1); }
-  .vs-tile:hover, .vs-tile:focus-visible{ color:#fff; }
-  .vs-tile:hover b, .vs-tile:focus-visible b{ transform:translateX(7px); }
-  .vs-tile.t1{ left:calc(66.666% + 20px); bottom:calc(42% + 1px); }
-  .vs-tile.t2{ left:calc(66.666% + 20px); bottom:18px; }
-  .vs-tile.t3{ left:calc(33.333% + 20px); bottom:18px; }
-  .vs-tile.t4{ display:none; }
-  html.vs .vs-tile{ opacity:0; transform:translate3d(0,12px,0); transition:opacity .9s ease, transform 1.1s cubic-bezier(.19,1,.22,1), color .3s; transition-delay:1.1s, 1.1s, 0s; }
   html.vs .vs-go .vs-tile{ opacity:1; transform:none; }
-  @media (max-width:1023px){ .vs-tiles, .vs-hgrid .vs-l.v{ display:none; } }
+
+  /* 1 hero: intro + dotted globe (assets/js/home-globe.js); html.vs-globe / html.vs-intro are set in <head> */
+  html.vs-globe .tap-new-hero .hero-canvas, html.vs-globe .tap-new-hero .hero-side-text{ display:none; }
+  .vs-globe-cv{ position:absolute; inset:0; z-index:1; display:block; pointer-events:none; }
+  html.vs-globe .tap-new-hero .container{ position:relative; z-index:2; }
+  html.vs-globe .tap-new-hero .hero-social-row{ z-index:3; }
+  html.vs-intro .tap-new-hero .hero-main-content > *{ opacity:0; transform:translate3d(0,30px,0); animation:vsIntroFail 0s linear 4s forwards; }
+  html.vs-intro.vs-intro-text .tap-new-hero .hero-main-content > *{ opacity:1; transform:none; animation:none; transition:opacity .9s ease, transform 1.15s cubic-bezier(.19,1,.22,1); transition-delay:calc(var(--hi, 0) * .08s); }
+  @keyframes vsIntroFail{ to{ opacity:1; transform:none; } }
+  .vs-skip{ position:fixed; left:50%; bottom:28px; z-index:1001; transform:translateX(-50%); padding:11px 18px; border-radius:999px; border:1px solid rgba(255,255,255,.24); background:rgba(11,32,54,.62); color:#fff; font:500 .68rem/1 var(--font-mono); letter-spacing:.14em; text-transform:uppercase; cursor:pointer; -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); transition:opacity .5s ease, border-color .3s; }
+  .vs-skip:hover, .vs-skip:focus-visible{ border-color:rgba(255,255,255,.55); }
+  .vs-skip.gone{ opacity:0; pointer-events:none; }
 
   /* 2 manifesto: static scatter without JS; pinned, scrubbed scene with it */
   .vs-mani{ position:relative; background:#F4F2EC; }
@@ -221,6 +219,8 @@ const CSS = `<!-- home-scroll:start -->
 const JS = `<!-- home-scroll-js:start -->
 <script src="/assets/js/vendor/lenis-1.1.13.min.js" defer></script>
 <script src="/assets/js/home-scroll.js" defer></script>
+<script src="/assets/js/home-globe-dots.js" defer></script>
+<script src="/assets/js/home-globe.js" defer></script>
 <!-- home-scroll-js:end -->
 `;
 
