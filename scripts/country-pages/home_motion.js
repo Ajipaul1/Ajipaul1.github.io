@@ -353,6 +353,8 @@ function strip(s) {
 
 for (const rel of PAGES) {
   let s = L.read(rel).replace(/\r\n/g, '\n');
+  // retired 2026-10-13: home_scroll.js replaced this layer; run `home_scroll.js --strip` first to bring it back
+  if (!STRIP && s.includes('<!-- home-scroll:start -->')) throw new Error('home_scroll.js layer is on; strip it before re-applying home_motion');
   s = strip(s);
   if (!STRIP) {
     // the sections this layer choreographs must all still be there
