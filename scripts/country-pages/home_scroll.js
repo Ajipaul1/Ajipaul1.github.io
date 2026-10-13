@@ -55,7 +55,7 @@ ${TAGS.map(t => `            <li class="c-${t[4]}${t[5] ? ' vs-dt' : ''}" style=
 `;
 
 const CSS = `<!-- home-scroll:start -->
-<script>try{var r=document.documentElement;r.classList.add('vs-film');if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&!sessionStorage.getItem('tapIntro'))r.classList.add('vs-intro')}catch(e){}</script>
+<script>try{var r=document.documentElement;r.classList.add('vs-fh');if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&!sessionStorage.getItem('tapIntro'))r.classList.add('vs-intro')}catch(e){}</script>
 <style>
   /* ================= HOME SCROLL (2026-10-13) — scroll-driven scenes; start states only under html.vs ================= */
   html.lenis, html.lenis body{ height:auto; }
@@ -95,9 +95,9 @@ const CSS = `<!-- home-scroll:start -->
   html.vs .vs-go .vs-hgrid .vs-l, html.vs .vs-go.vs-hgrid .vs-l, html.vs .vs-go > .vs-hgrid .vs-l{ clip-path:inset(0 0 0 0); }
   html.vs .vs-go .vs-tile{ opacity:1; transform:none; }
 
-  /* 1 hero: cinematic film + staged copy (assets/js/home-film.js); html.vs-film / html.vs-intro are set in <head> */
-  html.vs-film .tap-new-hero .hero-canvas, html.vs-film .tap-new-hero .hero-side-text, html.vs-film .tap-new-hero .hero-spotlight{ display:none; }
-  html.vs-film .tap-new-hero{ background:#05080d; }
+  /* 1 hero: cinematic film + staged copy (assets/js/home-film.js); html.vs-fh / html.vs-intro are set in <head> */
+  html.vs-fh .tap-new-hero .hero-canvas, html.vs-fh .tap-new-hero .hero-side-text, html.vs-fh .tap-new-hero .hero-spotlight{ display:none; }
+  html.vs-fh .tap-new-hero{ background:#05080d; }
   .vs-film{ position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none; background:#05080d; }
   .vs-film video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transform:scale(1.14); transition:transform 10s cubic-bezier(.2,.6,.2,1); }
   .vs-film.open video{ transform:scale(1.02); }
@@ -108,8 +108,8 @@ const CSS = `<!-- home-scroll:start -->
   .vs-lid.t{ top:0; } .vs-lid.b{ bottom:0; }
   .vs-film.open .vs-lid.t{ transform:translateY(-100%); } .vs-film.open .vs-lid.b{ transform:translateY(100%); }
   html:not(.vs-intro) .vs-lid{ display:none; }
-  html.vs-film .tap-new-hero .container{ position:relative; z-index:2; }
-  html.vs-film .tap-new-hero .hero-social-row{ z-index:3; }
+  html.vs-fh .tap-new-hero .container{ position:relative; z-index:2; }
+  html.vs-fh .tap-new-hero .hero-social-row{ z-index:3; }
   .vs-hw{ display:inline-block; overflow:hidden; vertical-align:top; padding-bottom:.1em; margin-bottom:-.1em; }
   .vs-hwi{ display:inline-block; }
   .hero-main-content h1 .vs-hw, .hero-main-content h1 .vs-hwi{ color:#fff; }   /* the site paints every h1 span orange; only the rotating phrase should be */
