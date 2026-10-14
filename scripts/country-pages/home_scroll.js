@@ -55,7 +55,7 @@ ${TAGS.map(t => `            <li class="c-${t[4]}${t[5] ? ' vs-dt' : ''}" style=
 `;
 
 const CSS = `<!-- home-scroll:start -->
-<script>try{var r=document.documentElement;r.classList.add('vs-fh');if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&!sessionStorage.getItem('tapIntro'))r.classList.add('vs-intro')}catch(e){}</script>
+<script>try{var r=document.documentElement;r.classList.add('vs-fh')}catch(e){}</script>
 <style>
   /* ================= HOME SCROLL (2026-10-13) — scroll-driven scenes; start states only under html.vs ================= */
   html.lenis, html.lenis body{ height:auto; }
