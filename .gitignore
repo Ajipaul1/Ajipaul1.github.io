@@ -14,6 +14,7 @@ autopilot-engine/screenshots/
 *.pdf
 !assets/images/**
 !assets/videos/**
+!assets/apple-touch-icon.png
 scripts/keyword-research/uk_keywords.json
 
 # Search Console / Analytics exports (business data, never committed)
