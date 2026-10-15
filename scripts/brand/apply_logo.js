@@ -3,8 +3,8 @@
 // nicely on the TechAuditPros letters, only the logo"). In every page's header and footer:
 //   - the old "TA" box becomes the laptop screen-face mark (drawn in tap_mark.js), inline so it can move;
 //   - the name gets the homepage title's split: "Tech" navy, "AuditPros" orange;
-//   - only the mark moves: it jumps in sideways over the name and settles when the page opens (owner, 15 Oct),
-//     hops when pointed at, and blinks every few seconds;
+//   - only the mark moves: when the page opens it jumps straight up and bounces lower each time until it rests
+//     (owner, 15 Oct: no travelling), does it again when pointed at, and blinks every few seconds;
 //     people who ask their device for less motion get it still;
 //   - the phone home-screen icon link points at the new 180 px icon (was the 64 px favicon).
 // The favicon files, logoonly.svg (also the logo Google reads) and favicon.ico come from build_kit.js.
@@ -29,28 +29,28 @@ const NEW_MARK = '<span class="logo-mark tap-mark" aria-hidden="true"><svg viewB
 const OLD_NAME = '<span class="logo-text">TechAuditPros</span>';
 const NEW_NAME = '<span class="logo-text"><span class="lt-t">Tech</span>AuditPros</span>';
 
-const HOP = '0%,100%{transform:none}18%{transform:scale(1.06,.92)}42%{transform:translateY(-7px) scale(.97,1.04)}66%{transform:scale(1.05,.94)}82%{transform:translateY(-2px)}';
-// the entrance (owner, 15 Oct: "jumping ... sideways and settle there"): drops in to the right of its place, three hops
-// left over the name, lands with a squash and a small bounce. --tm-run = how far to the right it starts.
-const R = (k) => 'calc(var(--tm-run) * ' + k + ')';
-const ENTER = '0%{opacity:0;transform:translate(var(--tm-run),-60px) rotate(-12deg)}8%{opacity:1;transform:translate(var(--tm-run),0) scale(1.14,.82)}12%{transform:translate(var(--tm-run),0)}'
-  + '20%{transform:translate(' + R(.82) + ',-30px) rotate(-10deg) scale(.95,1.07)}27%{transform:translate(' + R(.66) + ',-34px) rotate(-6deg)}33%{transform:translate(' + R(.55) + ',0) scale(1.12,.86)}37%{transform:translate(' + R(.55) + ',0)}'
-  + '45%{transform:translate(' + R(.38) + ',-26px) rotate(-9deg) scale(.95,1.07)}52%{transform:translate(' + R(.24) + ',-29px) rotate(-5deg)}58%{transform:translate(' + R(.14) + ',0) scale(1.1,.88)}62%{transform:translate(' + R(.14) + ',0)}'
-  + '70%{transform:translate(' + R(.05) + ',-18px) rotate(-6deg) scale(.97,1.05)}78%{transform:translate(0,-10px) rotate(-2deg)}84%{transform:translate(0,0) scale(1.12,.86)}90%{transform:translate(0,-4px) scale(.98,1.03)}95%{transform:scale(1.02,.98)}100%{opacity:1;transform:none}';
+// the bounce (owner, 15 Oct: "do not make it travel ... only jump upward, downward in the empty space and slowly stop,
+// professional"): it jumps straight up from its own place and bounces lower each time until it rests. Going up it
+// slows down (U), coming down it speeds up (D), like a real jump. --tm-h = the height of the first jump.
+const U = 'animation-timing-function:cubic-bezier(.22,.7,.4,1)', D = 'animation-timing-function:cubic-bezier(.6,0,.78,.35)';
+const H = (k) => 'translateY(calc(var(--tm-h) * -' + k + '))';
+const BOUNCE = '0%{transform:none}7%{transform:scale(1.07,.91);' + U + '}24%{transform:' + H(1) + ' scale(.97,1.04);' + D + '}'
+  + '40%{transform:scale(1.09,.9);' + U + '}53%{transform:' + H(.48) + ' scale(.99,1.02);' + D + '}64%{transform:scale(1.05,.95);' + U + '}'
+  + '73%{transform:' + H(.2) + ';' + D + '}81%{transform:scale(1.025,.975);' + U + '}87%{transform:' + H(.07) + ';' + D + '}93%{transform:scale(1.01,.99)}100%{transform:none}';
 const CSS = [
   '<!-- brand-logo:start -->',
   '<style>',
   '/* the laptop screen-face logo (scripts/brand/apply_logo.js): only the mark moves, never the name */',
-  '.header-logo .logo-mark.tap-mark{width:44px;height:37px;background:none!important;border-radius:0!important;overflow:visible;position:relative;z-index:3;--tm-run:240px}',
+  '.header-logo .logo-mark.tap-mark{width:44px;height:37px;background:none!important;border-radius:0!important;overflow:visible;--tm-h:20px}',
   '.tap-mark svg{display:block;width:100%;height:100%;overflow:visible;transform-origin:50% 100%}',
-  '.tap-mark .tm-eyes{transform-box:fill-box;transform-origin:50% 50%;animation:tm-blink 6s ease-in-out 2.9s infinite}',
-  '.site-header .tap-mark svg,header .tap-mark svg{animation:tm-enter 2.4s cubic-bezier(.45,0,.55,1) .4s both}',
-  '.header-logo:hover .tap-mark svg,.header-logo:focus-visible .tap-mark svg{animation:tm-hop2 .9s cubic-bezier(.3,.7,.4,1) both}',
+  '.tap-mark .tm-eyes{transform-box:fill-box;transform-origin:50% 50%;animation:tm-blink 6s ease-in-out 2.3s infinite}',
+  '.site-header .tap-mark svg,header .tap-mark svg{animation:tm-bounce 1.8s ease .4s both}',
+  '.header-logo:hover .tap-mark svg,.header-logo:focus-visible .tap-mark svg{animation:tm-bounce2 1.8s ease both}',
   '.header-logo .logo-text .lt-t{color:var(--navy-deep,#0B2036)}',
-  '@keyframes tm-enter{' + ENTER + '}',
-  '@keyframes tm-hop2{' + HOP + '}',
+  '@keyframes tm-bounce{' + BOUNCE + '}',
+  '@keyframes tm-bounce2{' + BOUNCE + '}',
   '@keyframes tm-blink{0%,3%,7%,100%{transform:none}5%{transform:scaleY(.12)}}',
-  '@media (max-width:640px){.header-logo .logo-mark.tap-mark{width:36px;height:30px;--tm-run:150px}}',
+  '@media (max-width:640px){.header-logo .logo-mark.tap-mark{width:36px;height:30px;--tm-h:14px}}',
   '@media (prefers-reduced-motion:reduce){.tap-mark svg,.tap-mark .tm-eyes{animation:none!important}}',
   '</style>',
   '<!-- brand-logo:end -->'
