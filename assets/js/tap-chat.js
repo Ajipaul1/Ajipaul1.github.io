@@ -45,7 +45,8 @@
     + '-webkit-backdrop-filter:none!important;backdrop-filter:none!important}'
     + '.backdrop::before{content:"TAP Assistant";margin-right:auto;color:#fff;font:600 15px "IBM Plex Sans",-apple-system,"Segoe UI",sans-serif}'
     + '.backdrop button{position:static!important;margin:0!important;color:#fff!important}'
-    + '.content{top:0!important;height:calc(100% - 54px)!important;border-radius:0!important}';
+    + '.content{top:0!important;height:calc(100% - 54px)!important;border-radius:0!important}'
+    + '.search-bar-container,ucs-search-bar{padding-left:0!important;padding-right:0!important;margin-left:0!important;margin-right:0!important;width:auto!important;max-width:none!important}';
   var RESULTS = '.scroller,.conversation-and-results,.search-results-container,.search-bar-container{width:auto!important;max-width:none!important;margin-left:0!important;margin-right:0!important;box-sizing:border-box!important}'
     + '.conversation-and-results,.search-results-container{padding-left:14px!important;padding-right:14px!important}'
     + '.search-bar-container,.sticky,ucs-search-bar{padding-left:0!important;padding-right:0!important;margin-left:0!important;margin-right:0!important;width:auto!important;max-width:none!important}';
@@ -66,7 +67,7 @@
     var r = w.shadowRoot.querySelector('ucs-results');
     if (!r || !r.shadowRoot) return;
     addStyle(r.shadowRoot, RESULTS);
-    var b = r.shadowRoot.querySelector('ucs-search-bar');
+    var b = w.shadowRoot.querySelector('ucs-search-bar') || r.shadowRoot.querySelector('ucs-search-bar');   // the bar sits in the widget's root, slotted into the results
     if (b) addStyle(b.shadowRoot, BAR);
   }
 
