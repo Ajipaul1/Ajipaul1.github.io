@@ -36,7 +36,43 @@
     document.body.appendChild(b);
   }
 
+  // Google's panel fills the screen by default. These rules make it a small round chat window at the bottom right.
+  // They go inside the widget's shadow roots, because outside rules can't reach there.
+  var FRAME = 'div:has(> .content){top:auto!important;left:auto!important;right:16px!important;bottom:16px!important;'
+    + 'width:min(380px,calc(100vw - 24px))!important;height:min(600px,calc(100dvh - 24px))!important;border-radius:22px!important;overflow:hidden!important;'
+    + 'background:#fff!important;box-shadow:0 18px 50px rgba(11,32,54,.34)!important}'
+    + '.backdrop{height:54px!important;box-sizing:border-box!important;display:flex!important;align-items:center!important;padding:0 16px!important;background:#0B2036!important;'
+    + '-webkit-backdrop-filter:none!important;backdrop-filter:none!important}'
+    + '.backdrop::before{content:"TAP Assistant";margin-right:auto;color:#fff;font:600 15px "IBM Plex Sans",-apple-system,"Segoe UI",sans-serif}'
+    + '.backdrop button{position:static!important;margin:0!important;color:#fff!important}'
+    + '.content{top:0!important;height:calc(100% - 54px)!important;border-radius:0!important}';
+  var RESULTS = '.scroller,.conversation-and-results,.search-results-container,.search-bar-container{width:auto!important;max-width:none!important;margin-left:0!important;margin-right:0!important;box-sizing:border-box!important}'
+    + '.conversation-and-results,.search-results-container{padding-left:14px!important;padding-right:14px!important}'
+    + '.search-bar-container,.sticky,ucs-search-bar{padding-left:0!important;padding-right:0!important;margin-left:0!important;margin-right:0!important;width:auto!important;max-width:none!important}';
+  var BAR = '.main{width:auto!important;max-width:none!important;margin:0!important;padding:12px!important;box-sizing:border-box!important}form{width:100%!important;max-width:none!important}';
+
+  function addStyle(root, css) {
+    if (!root || root.querySelector('style[data-tap-chat]')) return;
+    var s = document.createElement('style');
+    s.setAttribute('data-tap-chat', '');
+    s.textContent = css;
+    root.appendChild(s);
+  }
+
+  function skin() {
+    var w = document.querySelector('gen-search-widget');
+    if (!w || !w.shadowRoot) return;
+    addStyle(w.shadowRoot, FRAME);
+    var r = w.shadowRoot.querySelector('ucs-results');
+    if (!r || !r.shadowRoot) return;
+    addStyle(r.shadowRoot, RESULTS);
+    var b = r.shadowRoot.querySelector('ucs-search-bar');
+    if (b) addStyle(b.shadowRoot, BAR);
+  }
+
   function openPanel() {
+    skin();
+    if (!window.__tapChatSkin) window.__tapChatSkin = setInterval(skin, 400);   // the panel builds its inner parts after it opens
     var t = document.getElementById(TRIGGER);
     if (t) t.click();
   }
