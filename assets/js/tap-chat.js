@@ -107,7 +107,103 @@
     b.classList.add('tap-chat-pulse');
   }
 
+  // ---------- the brain: our own chat window, used when the server's AI (api/tap-chat.js) is switched on ----------
+  var BRAIN_CSS = ''
+    + '.tb-panel{position:fixed;right:16px;bottom:16px;z-index:1000;width:min(380px,calc(100vw - 32px));height:min(580px,calc(100dvh - 32px));display:none;flex-direction:column;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 18px 50px rgba(11,32,54,.34);font:400 15px/1.45 ' + FONT + ';color:#0B2036}'
+    + '.tb-panel.on{display:flex}'
+    + '.tb-head{flex:none;display:flex;align-items:center;gap:10px;height:60px;padding:0 12px 0 16px;background:#0B2036;color:#fff}'
+    + '.tb-head img{width:30px;height:30px;display:block}.tb-head b{font-size:15px;font-weight:600}.tb-head span{flex:1;min-width:0;font-size:12px;color:#B8C4D0}'
+    + '.tb-head button{min-height:40px;padding:0 14px;font:600 13px ' + FONT + ';color:#fff;background:rgba(255,255,255,.14);border:0;border-radius:20px;cursor:pointer}'
+    + '.tb-log{flex:1;min-height:0;overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding:14px;background:#F7F4F1;overscroll-behavior:contain}'
+    + '.tb-m{max-width:86%;padding:10px 13px;border-radius:16px;white-space:pre-wrap;overflow-wrap:anywhere}'
+    + '.tb-m.u{align-self:flex-end;background:#0B2036;color:#fff;border-bottom-right-radius:5px}'
+    + '.tb-m.a{align-self:flex-start;background:#fff;border:1px solid #E7E0DA;border-bottom-left-radius:5px}'
+    + '.tb-m.w{color:#6B7785}'
+    + '.tb-links{display:flex;flex-direction:column;gap:4px;margin-top:8px}.tb-links a{color:#C2410C;font-size:13px;font-weight:600}'
+    + '.tb-wa{display:inline-block;margin-top:8px;padding:9px 14px;background:#128C4B;color:#fff!important;border-radius:18px;font-size:14px;font-weight:600;text-decoration:none}'
+    + '.tb-form{flex:none;display:flex;gap:8px;align-items:flex-end;padding:10px;border-top:1px solid #E7E0DA;background:#fff}'
+    + '.tb-form textarea{flex:1;min-width:0;height:46px;max-height:110px;padding:11px 12px;font:400 16px/1.35 ' + FONT + ';color:#0B2036;border:1px solid #D5CCC4;border-radius:14px;resize:none;outline-color:#D9531E}'
+    + '.tb-form button{flex:none;height:46px;padding:0 16px;font:600 14px ' + FONT + ';color:#fff;background:#D9531E;border:0;border-radius:14px;cursor:pointer}.tb-form button[disabled]{opacity:.55}'
+    + '.tb-note{flex:none;padding:0 12px 8px;font-size:11px;color:#6B7785;background:#fff;text-align:center}'
+    + '@media(max-width:480px){.tb-panel{right:8px;bottom:8px;width:calc(100vw - 16px);height:calc(100dvh - 16px)}}';
+  var brain = null;
+
+  function buildBrain() {
+    var st = document.createElement('style');
+    st.textContent = BRAIN_CSS;
+    document.head.appendChild(st);
+    var p = document.createElement('div');
+    p.className = 'tb-panel';
+    p.setAttribute('role', 'dialog');
+    p.setAttribute('aria-label', 'Chat with TAP Assistant');
+    p.innerHTML = '<div class="tb-head"><img src="' + LOGO + '" alt=""><b>TAP Assistant</b><span>TechAuditPros</span><button type="button" data-close>Close</button></div>'
+      + '<div class="tb-log" aria-live="polite"></div>'
+      + '<form class="tb-form"><textarea rows="1" maxlength="500" placeholder="Type your message" aria-label="Your message"></textarea><button type="submit">Send</button></form>'
+      + '<div class="tb-note">AI can make mistakes. Please don\'t share passwords or card details.</div>';
+    document.body.appendChild(p);
+    var log = p.querySelector('.tb-log'), box = p.querySelector('textarea'), send = p.querySelector('.tb-form button'), talk = [], busy = false;
+
+    // text is always placed as text; only **bold** becomes an element, so nothing typed or returned can run as code
+    function fill(el, text) {
+      String(text).split(/\*\*([^*\n]+)\*\*/).forEach(function (part, i) {
+        if (i % 2) { var b = document.createElement('b'); b.textContent = part; el.appendChild(b); }
+        else if (part) el.appendChild(document.createTextNode(part));
+      });
+    }
+    function add(kind, text, d) {
+      var m = document.createElement('div');
+      m.className = 'tb-m ' + kind;
+      fill(m, text);
+      if (d && d.links && d.links.length) {
+        var w = document.createElement('div');
+        w.className = 'tb-links';
+        d.links.forEach(function (l) { if (!/^\/(?!\/)/.test(l.url)) return; var a = document.createElement('a'); a.href = l.url; a.textContent = l.title; w.appendChild(a); });
+        m.appendChild(w);
+      }
+      if (d && d.fallback) {
+        var wa = document.createElement('a');
+        wa.className = 'tb-wa'; wa.href = WHATSAPP; wa.target = '_blank'; wa.rel = 'noopener'; wa.textContent = 'Message us on WhatsApp';
+        m.appendChild(document.createElement('br')); m.appendChild(wa);
+      }
+      log.appendChild(m);
+      log.scrollTop = log.scrollHeight;
+      return m;
+    }
+    function ask(text) {
+      if (busy) return;
+      busy = true; send.disabled = true;
+      add('u', text);
+      var wait = add('a w', 'Typing…'), past = talk.slice(-6);
+      var stop = new AbortController(), timer = setTimeout(function () { stop.abort(); }, 22000);
+      fetch('/api/tap-chat', { method: 'POST', signal: stop.signal, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: text, history: past }) })
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          wait.remove();
+          if (!d.reply) throw new Error('no reply');
+          add('a', d.reply, d);
+          if (!d.fallback) talk.push({ role: 'user', text: text }, { role: 'model', text: d.reply });
+        })
+        .catch(function () { if (wait.parentNode) wait.remove(); add('a', "I can't answer just now, but the team can. Message us on WhatsApp and we'll help you directly.", { fallback: true }); })
+        .then(function () { clearTimeout(timer); busy = false; send.disabled = false; });
+    }
+    p.querySelector('.tb-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var t = box.value.trim();
+      if (!t || busy) return;
+      box.value = ''; box.style.height = '';
+      ask(t);
+    });
+    box.addEventListener('keydown', function (e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); p.querySelector('.tb-form').requestSubmit(); } });
+    box.addEventListener('input', function () { box.style.height = 'auto'; box.style.height = Math.min(box.scrollHeight, 110) + 'px'; });
+    function close() { p.classList.remove('on'); document.body.classList.remove('tap-chat-open'); }
+    p.querySelector('[data-close]').addEventListener('click', close);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && p.classList.contains('on')) close(); });
+    add('a', "Hi, I'm TAP Assistant. Ask me anything about websites, SEO or custom ERP software.");
+    return { open: function () { p.classList.add('on'); document.body.classList.add('tap-chat-open'); box.focus({ preventScroll: true }); } };
+  }
+
   function openPanel() {
+    if (brain) { brain.open(); return; }
     skin();
     if (!window.__tapChatSkin) window.__tapChatSkin = setInterval(skin, 500);   // the panel builds its inner parts after it opens and after each answer
     document.body.classList.add('tap-chat-open');
@@ -124,6 +220,21 @@
   function load() {
     if (state !== 'idle') return;
     state = 'loading';
+    // the brain when the server's AI is on; Google's search panel until then (and if the check fails)
+    var ask = new AbortController(), giveUp = setTimeout(function () { ask.abort(); }, 3000);
+    fetch('/api/tap-chat', { signal: ask.signal, cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : {}; })
+      .catch(function () { return {}; })
+      .then(function (d) {
+        clearTimeout(giveUp);
+        if (!d.ready) { loadGoogle(); return; }
+        brain = buildBrain();
+        state = 'ready';
+        if (wantOpen) { wantOpen = false; openPanel(); }
+      });
+  }
+
+  function loadGoogle() {
     // Google's widget finds its opener by id, so the hidden opener must be on the page before the widget starts
     var t = document.createElement('button');
     t.type = 'button'; t.id = TRIGGER; t.hidden = true; t.tabIndex = -1;
