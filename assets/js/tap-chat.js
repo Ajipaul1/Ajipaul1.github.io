@@ -122,7 +122,7 @@
     + '.tb-links{display:flex;flex-direction:column;gap:4px;margin-top:8px}.tb-links a{color:#C2410C;font-size:13px;font-weight:600}'
     + '.tb-wa{display:inline-block;margin-top:8px;padding:9px 14px;background:#128C4B;color:#fff!important;border-radius:18px;font-size:14px;font-weight:600;text-decoration:none}'
     + '.tb-form{flex:none;display:flex;gap:8px;align-items:flex-end;padding:10px;border-top:1px solid #E7E0DA;background:#fff}'
-    + '.tb-form textarea{flex:1;min-width:0;height:46px;max-height:110px;padding:11px 12px;font:400 16px/1.35 ' + FONT + ';color:#0B2036;border:1px solid #D5CCC4;border-radius:14px;resize:none;outline-color:#D9531E}'
+    + '.tb-form textarea{box-sizing:border-box;flex:1;min-width:0;height:46px;max-height:110px;padding:11px 12px;font:400 16px/1.35 ' + FONT + ';color:#0B2036;border:1px solid #D5CCC4;border-radius:14px;resize:none;outline-color:#D9531E}'
     + '.tb-form button{flex:none;height:46px;padding:0 16px;font:600 14px ' + FONT + ';color:#fff;background:#D9531E;border:0;border-radius:14px;cursor:pointer}.tb-form button[disabled]{opacity:.55}'
     + '.tb-note{flex:none;padding:0 12px 8px;font-size:11px;color:#6B7785;background:#fff;text-align:center}'
     + '@media(max-width:480px){.tb-panel{right:8px;bottom:8px;width:calc(100vw - 16px);height:calc(100dvh - 16px)}}';
